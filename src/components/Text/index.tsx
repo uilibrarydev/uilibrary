@@ -1,16 +1,8 @@
 import React from 'react'
+import { TextPropTypes } from './types'
 
-export interface TextProps {
-
-}
-
-const Text: React.FC<TextProps> = ({ }: TextProps) => {
-
-    return (
-        <p >
-            text
-        </p>
-    )
+const Text: React.FC<TextPropTypes> = (props: TextPropTypes) => {
+  return <p>{props.text || 'test'}</p>
 }
 
 export default Text
