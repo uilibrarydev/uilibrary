@@ -1,7 +1,7 @@
 export const iconSizes: TIconSizes = {
-  small: '16px',
-  medium: '24px',
-  large: '34px'
+  small: '24px',
+  medium: '36px',
+  large: '48px'
 }
 
 export const customColors: TCustomColors = {

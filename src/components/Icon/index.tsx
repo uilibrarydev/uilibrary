@@ -5,7 +5,7 @@ import { IconPropTypes } from './types'
 import './index.css'
 
 const Icon = (props: IconPropTypes): JSX.Element => {
-  const { name, size, color, onClick, className, refHandler } = props
+  const { name, size = 'small', color, onClick, className, refHandler } = props
 
   const svg = customIcons[name as keyof TCustomIcons]
 
