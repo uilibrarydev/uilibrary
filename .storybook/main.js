@@ -1,12 +1,6 @@
 module.exports = {
-  "stories": [
-    // "../stories/**/*.stories.mdx",
-    "../stories/**/*.stories.@(js|jsx|ts|tsx)"
-  ],
-  "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials"
-  ],
+  stories: ['../src/stories/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   typescript: {
     check: false,
     checkOptions: {},
@@ -29,30 +23,16 @@ module.exports = {
             plugins: [
               // require('postcss-import'),
               require('autoprefixer'),
-              require('tailwindcss')('./tailwind.config.js'),
+              require('tailwindcss')('./tailwind.config.js')
 
               // require('postcss-preset-env')(),
-            ],
-          },
+            ]
+          }
         },
-        { loader: 'less-loader'},
-        
-        // {
-        //   loader: 'postcss-loader',
-        //   options: {
-        //     ident: 'postcss',
-        //     plugins: [
-        //       // require('postcss-import'),
-        //       // require('autoprefixer'),
-
-        //       // require('postcss-preset-env')(),
-        //     ],
-        //   },
-        // },
-
-      ],
+        { loader: 'less-loader' }
+      ]
     }
-    config.module.rules.push(lessRule);
+    config.module.rules.push(lessRule)
 
     const cssRule = {
       test: /\.css$/,
@@ -61,19 +41,14 @@ module.exports = {
           loader: 'postcss-loader',
           options: {
             ident: 'postcss',
-            plugins: [
-              // require('postcss-import'),
-              require('tailwindcss')('./tailwind.config.js'),
-              require('autoprefixer'),
-              // require('postcss-preset-env')(),
-            ],
-          },
-        },
-      ],
+            plugins: [require('tailwindcss')('./tailwind.config.js'), require('autoprefixer')]
+          }
+        }
+      ]
     }
-    config.module.rules.push(cssRule);
+    config.module.rules.push(cssRule)
 
     // Return the altered config
-    return config;
-  },
+    return config
+  }
 }
