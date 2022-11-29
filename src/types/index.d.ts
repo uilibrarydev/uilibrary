@@ -15,3 +15,5 @@ declare type TFormItem = {
   placeholder: string
   name: string
 }
+
+declare type TEventType = MouseEvent | UIEvent<HTMLDivElement>

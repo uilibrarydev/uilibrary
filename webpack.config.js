@@ -8,7 +8,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const baseConfig = {
   mode: 'production',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.mjs']
   },
   module: {
     rules: [
@@ -59,6 +59,11 @@ const baseConfig = {
             }
           }
         ]
+      },
+      {
+        include: /node_modules/,
+        test: /\.mjs$/,
+        type: 'javascript/auto'
       }
     ]
   },
