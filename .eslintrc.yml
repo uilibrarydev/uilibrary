@@ -17,6 +17,7 @@ plugins:
   - react
   - '@typescript-eslint'
 rules:
+  "react/prop-types": "off"
   "no-var": "error"
   "prefer-const": "error"
   "no-extra-bind": "error"
