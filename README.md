@@ -16,3 +16,14 @@ ES modules cover for javascript but not for another asset like CSS. As you see m
 
 If you have good answer for similar issue like this one. https://github.com/microsoft/monaco-editor/issues/886
 Please tell me too.
+
+
+
+
+use `npm pack` to create a new bundle without publishing new versoin 
+Bundle will be added in the main directory with name ameria_ui_library-{version}.tgz.
+
+
+And in the module where you are using run
+`npm install ../rf-ui-library/{created_file_name}`
+and you can see changes.
