@@ -17,3 +17,9 @@ declare type TFormItem = {
 }
 
 declare type TEventType = MouseEvent | UIEvent<HTMLDivElement>
+
+type TButtonEventTarget = EventTarget
+
+interface TClickMouseEvent extends MouseEventHandler<HTMLButtonElement> {
+  target: TButtonEventTarget
+}
