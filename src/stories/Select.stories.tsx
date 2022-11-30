@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TSelectOption, TSelectedValue } from '../components/Select/types'
+import { TSelectOption } from '../components/Select/types'
 import { Select as SelectComp } from '../components'
 
 export default {

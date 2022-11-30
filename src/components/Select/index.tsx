@@ -1,19 +1,22 @@
 import React, { useRef, useState } from 'react'
 import Icon from '../Icon'
-import { useOnClickOutside } from '../../hooks'
+import { useOnOutsideClick } from '../../hooks'
 import { motion, AnimatePresence } from 'framer-motion'
 import { TSelectPropTypes, TSelectOption } from './types'
 import './index.css'
 
 const Select = (props: TSelectPropTypes): JSX.Element => {
   const { options, selectedValue, onSelect } = props
+
   const [isOpen, setIsOpen] = useState(false)
 
   const ref = useRef(null)
 
   const closeDropdown = () => setIsOpen(false)
 
-  useOnClickOutside(ref.current, closeDropdown)
+  const toggleIsOpen = () => setIsOpen(!isOpen)
+
+  useOnOutsideClick(ref, closeDropdown)
 
   const onItemSelect = (item: TSelectOption) => {
     onSelect(item)
@@ -22,7 +25,7 @@ const Select = (props: TSelectPropTypes): JSX.Element => {
 
   return (
     <div className="select-container" ref={ref}>
-      <div className="selected-item-container" onClick={() => setIsOpen(!isOpen)}>
+      <div className="selected-item-container" onClick={toggleIsOpen}>
         <div className="select-item">{selectedValue.label}</div>
 
         <motion.div
@@ -35,7 +38,7 @@ const Select = (props: TSelectPropTypes): JSX.Element => {
 
       <AnimatePresence initial={false}>
         {isOpen && (
-          <div
+          <motion.div
             className="select-options-wrapper"
             initial={{ y: -70, opacity: 0 }}
             animate={{ y: 0, opacity: 1, zIndex: 7 }}
@@ -54,7 +57,7 @@ const Select = (props: TSelectPropTypes): JSX.Element => {
                 </span>
               )
             })}
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>
