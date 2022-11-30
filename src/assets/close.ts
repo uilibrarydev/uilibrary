@@ -1,4 +1,4 @@
-export const close = (iconColor: string, iconSize: string): string => {
-  return `<svg height=${iconSize} id="Layer_1" style="enable-background:new 0 0 512 512;"  fill=${iconColor}
-  version="1.1" viewBox="0 0 512 512" width=${iconSize} xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon points="396.6,352 416,331.3 256,160 96,331.3 115.3,352 256,201.5 "/></svg>`
-}
+export const close = (iconColor: string, iconSize: string): string =>
+  `<svg height=${iconSize} viewBox="0 0 512 512" width=${iconSize} xmlns="http://www.w3.org/2000/svg">
+  <title/><path fill=${iconColor} d="M289.94,256l95-95A24,24,0,0,0,351,127l-95,95-95-95A24,24,0,0,0,127,161l95,95-95,95A24,24,0,1,0,161,385l95-95,95,95A24,24,0,0,0,385,351Z"/>
+  </svg>`

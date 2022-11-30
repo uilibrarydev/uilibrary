@@ -1,0 +1,30 @@
+.popup-container{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
+
+
+.popup-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    border: 1px solid;
+    padding: 10px;
+    min-width: 300px;
+    min-height: 200px;
+    border-radius: 5px;
+}
+
+
+.close-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
