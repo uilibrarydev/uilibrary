@@ -1,6 +1,5 @@
 .select-container{
     position: relative;
-    /* width:300px; */
     user-select: none
 }
 
@@ -32,9 +31,13 @@
     top: 45px;
     width: 100%;
     box-shadow: 0px 3px 6px #387dff29;
-    padding: 10px 0px;
 }
 
 .select-option{
     padding: 10px;
+    cursor: pointer;
+}
+
+.select-option:hover{
+    background-color: #d9e4ed;
 }

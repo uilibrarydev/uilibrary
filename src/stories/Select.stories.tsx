@@ -28,6 +28,10 @@ const Template = (): JSX.Element => {
     setSelectedValue(value)
   }
 
-  return <SelectComp onSelect={onSelect} options={OPTIONS} selectedValue={selectedValue} />
+  return (
+    <div style={{ width: 300 }}>
+      <SelectComp onSelect={onSelect} options={OPTIONS} selectedValue={selectedValue} />
+    </div>
+  )
 }
 export const Select = Template.bind({})
