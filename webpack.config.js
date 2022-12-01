@@ -1,9 +1,7 @@
-'use strict'
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const TerserJSPlugin = require('terser-webpack-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+// 'use strict'
+import path from 'path'
+
+const __dirname = path.dirname('src')
 
 const baseConfig = {
   mode: 'production',
@@ -14,49 +12,18 @@ const baseConfig = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: '/node_modules/'
-      },
-      {
-        test: /\.less$/,
+        exclude: /node_modules/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              publicPath: './'
-              // hmr: process.env.NODE_ENV === 'development'
-            }
-          },
-          { loader: 'css-loader' },
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              plugins: [require('tailwindcss')('./tailwind.config.js')]
-            }
-          },
-          { loader: 'less-loader' }
-        ]
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              outputPath: 'images'
-            }
+            loader: 'ts-loader'
           }
         ]
       },
       {
-        test: /\.([ot]tf|woff(2)|eot)$/,
+        test: /\.css$/,
         use: [
           {
-            loader: 'file-loader',
-            options: {
-              outputPath: 'fonts'
-            }
+            loader: 'css-loader'
           }
         ]
       }
@@ -68,16 +35,7 @@ const baseConfig = {
     library: ['[name]'],
     libraryTarget: 'umd'
   },
-  externals: ['react', 'react-dom'],
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'index.css'
-    }),
-    new CleanWebpackPlugin()
-  ],
-  optimization: {
-    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
-  }
+  externals: ['react', 'react-dom']
 }
 
 function createConfig(entry, name) {
@@ -94,7 +52,7 @@ function createConfig(entry, name) {
 }
 
 // Entry list
-const core = createConfig('./src/components/index.ts', 'core')
+const core = createConfig('./src/components/index.tsx', '')
 
 module.exports = (env, args) => {
   return [core]

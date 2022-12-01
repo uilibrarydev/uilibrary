@@ -1,6 +1,6 @@
 {
   "name": "dino_ui_tools",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "./dist/",
   "types": "./dist/types",
@@ -15,7 +15,7 @@
     "build-storybook": "build-storybook",
     "clean": "rm -rf dist",
     "check": "npm run prettier && npm run lint",
-    "build": "npm run clean && webpack"
+    "build": "webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +26,7 @@
     "@storybook/addon-essentials": "^6.0.21",
     "@storybook/addon-links": "^6.0.21",
     "@storybook/react": "^6.0.21",
+    "@types/react": "^18.0.25",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
     "babel-loader": "^8.1.0",
@@ -44,6 +45,7 @@
     "tailwindcss": "^1.8.10",
     "ts-loader": "^8.0.4",
     "typescript": "^4.0.3",
+    "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
