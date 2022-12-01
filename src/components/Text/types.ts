@@ -1,1 +1,1 @@
-export type TextPropTypes = {text:string}
+export type TextPropTypes = { text: string }
