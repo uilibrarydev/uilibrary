@@ -6,7 +6,7 @@ const __dirname = path.dirname('src')
 const baseConfig = {
   mode: 'production',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.mjs']
   },
   module: {
     rules: [
@@ -26,6 +26,11 @@ const baseConfig = {
             loader: 'css-loader'
           }
         ]
+      },
+      {
+        include: /node_modules/,
+        test: /\.mjs$/,
+        type: 'javascript/auto'
       }
     ]
   },

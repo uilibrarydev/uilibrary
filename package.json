@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
+    "framer-motion": "4.1.17",
     "react-hook-form": "^7.39.7",
     "yup": "^0.32.11"
   },

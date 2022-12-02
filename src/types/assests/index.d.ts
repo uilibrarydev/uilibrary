@@ -21,5 +21,5 @@ declare module '*.json' {
 }
 
 declare type TCustomIcons = {
-  icon: (fillColor: string, size: TIconSize) => string
+  [iconName: string]: (fillColor: string, size: TIconSize) => string
 }

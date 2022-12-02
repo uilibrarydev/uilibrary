@@ -4,7 +4,6 @@ This boilerplat is for example project as UI Kit.
 
 For designer and frontend.
 - Develop component and style on Storybook.
-- Style controled by tailwind css.
 
 For engineer.
 - Import this project as UI template.

@@ -5,5 +5,6 @@ export const iconSizes: TIconSizes = {
 }
 
 export const customColors: TCustomColors = {
-  red: '#FF0000'
+  red: '#FF0000',
+  gray: '#5d768d'
 }
