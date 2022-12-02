@@ -13,42 +13,10 @@ module.exports = {
 
     const lessRule = {
       test: /\.less$/,
-      use: [
-        { loader: 'style-loader' },
-        { loader: 'css-loader' },
-        {
-          loader: 'postcss-loader',
-          options: {
-            ident: 'postcss',
-            plugins: [
-              // require('postcss-import'),
-              require('autoprefixer'),
-              require('tailwindcss')('./tailwind.config.js')
-
-              // require('postcss-preset-env')(),
-            ]
-          }
-        },
-        { loader: 'less-loader' }
-      ]
+      use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'less-loader' }]
     }
     config.module.rules.push(lessRule)
 
-    const cssRule = {
-      test: /\.css$/,
-      use: [
-        {
-          loader: 'postcss-loader',
-          options: {
-            ident: 'postcss',
-            plugins: [require('tailwindcss')('./tailwind.config.js'), require('autoprefixer')]
-          }
-        }
-      ]
-    }
-    config.module.rules.push(cssRule)
-
-    // Return the altered config
     return config
   }
 }

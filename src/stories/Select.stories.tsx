@@ -7,10 +7,6 @@ export default {
   component: SelectComp
 }
 
-export interface IupdateOpenedChatParams {
-  firstName: string
-}
-
 const OPTIONS: TSelectOption[] = [
   {
     value: 'armenia',
