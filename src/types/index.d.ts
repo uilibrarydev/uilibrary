@@ -25,7 +25,7 @@ declare type FieldError = {
 
 declare type TFormFieldName = string
 
-declare type TFieldValue = string 
+declare type TFieldValue = string
 
 declare type FieldValues = Record<string, TFieldValue>
 
