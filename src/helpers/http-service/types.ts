@@ -9,5 +9,5 @@ export interface IHttpClient {
 
   //todo stex petqa declare anel put, delet patch,  ...
 
-  // generic sarqenq vor use anoxy model nkaragri 
+  // generic sarqenq vor use anoxy model nkaragri
 }

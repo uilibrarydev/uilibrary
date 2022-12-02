@@ -1,5 +1,5 @@
-import axios, { value AxiosRequestConfig, value AxiosError, value AxiosResponse } from 'axios'
-import { value IHttpClient, value IHttpClientRequestParameters } from './types'
+import axios, { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios'
+import { IHttpClient, IHttpClientRequestParameters } from './types'
 
 export class HttpClient implements IHttpClient {
   get<T>(params: IHttpClientRequestParameters): Promise<T> {
