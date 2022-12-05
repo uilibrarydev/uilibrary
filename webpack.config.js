@@ -1,7 +1,4 @@
-// 'use strict'
-import path from 'path'
-
-const __dirname = path.dirname('src')
+const path = require('path')
 
 const baseConfig = {
   mode: 'production',

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import Icon from '../Icon'
 import { useOnOutsideClick } from '../../hooks'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { TSelectPropTypes, TSelectOption } from './types'
 import './index.css'
 
@@ -36,30 +36,30 @@ const Select = (props: TSelectPropTypes): JSX.Element => {
         </motion.div>
       </div>
 
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            className="select-options-wrapper"
-            initial={{ y: -70, opacity: 0 }}
-            animate={{ y: 0, opacity: 1, zIndex: 7 }}
-            exit={{ y: -70, opacity: 0, zIndex: -99 }}
-            transition={{
-              type: 'spring',
-              damping: 30,
-              stiffness: 800
-            }}
-          >
-            {options.map((item) => {
-              const { value, label } = item
-              return (
-                <span className="select-option" key={value} onClick={() => onItemSelect(item)}>
-                  {label}
-                </span>
-              )
-            })}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* <AnimatePresence initial={false}> */}
+      {isOpen && (
+        <motion.div
+          className="select-options-wrapper"
+          initial={{ y: -70, opacity: 0 }}
+          animate={{ y: 0, opacity: 1, zIndex: 7 }}
+          exit={{ y: -70, opacity: 0, zIndex: -99 }}
+          transition={{
+            type: 'spring',
+            damping: 30,
+            stiffness: 800
+          }}
+        >
+          {options.map((item) => {
+            const { value, label } = item
+            return (
+              <span className="select-option" key={value} onClick={() => onItemSelect(item)}>
+                {label}
+              </span>
+            )
+          })}
+        </motion.div>
+      )}
+      {/* </AnimatePresence> */}
     </div>
   )
 }
