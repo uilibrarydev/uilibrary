@@ -1,6 +1,6 @@
 declare type TIconSize = 'xSmall' | 'small' | 'medium' | 'large'
 declare type TTextSize = 'xSmall' | 'small' | 'medium' | 'large' | 'xLarge'
-declare type TColor=  'borderGray'| 'labelGray' |'justWhite'|'textBlack'|'dropdownGray' |'dropdownGray' |'inputWhite' | 'inputBorderGray' |'inputBorderActive' |'inputBorderError' |'buttonGreen'|'secButtonBorderGray'| 'iconGray' |'footerTextGray' |'footerUnderlineGray' 
+declare type TColor=  'borderGray'| 'labelGray' |'justWhite'|'textBlack'|'dropdownGray' |'dropdownGray' |'inputWhite' | 'inputBorderGray' |'inputBorderActive' |'inputBorderError' |'buttonGreen'|'secButtonBorderGray'| 'iconGray' |'footerTextGray' |'footerUnderlineGray' | 'darkGray'
 
 
 declare type CallbackFnType = () => void

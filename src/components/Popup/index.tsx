@@ -16,7 +16,7 @@ const Popup = (props: TPopupPropTypes): JSX.Element | null => {
   return (
     <div className="popup-container">
       <div className="popup-content" ref={containerRef}>
-        <Icon className="close-icon" name="close" size="small" onClick={onClose} />
+        <Icon className="close-icon" name="close" size="small" color="darkGray" onClick={onClose} />
         {children}
       </div>
     </div>

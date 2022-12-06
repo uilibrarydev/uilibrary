@@ -21,5 +21,6 @@ export const customColors: TCustomColors = {
   secButtonBorderGray: '#BBBBBB',
   iconGray: '#616161',
   footerTextGray: '#797979',
-  footerUnderlineGray: '#ECECEC'
+  footerUnderlineGray: '#ECECEC',
+  darkGray:'#7B7C82'
 }
