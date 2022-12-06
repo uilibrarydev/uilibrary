@@ -28,6 +28,27 @@ const baseConfig = {
         include: /node_modules/,
         test: /\.mjs$/,
         type: 'javascript/auto'
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       }
     ]
   },
@@ -56,6 +77,4 @@ function createConfig(entry, name) {
 // Entry list
 const core = createConfig('./src/components/index.tsx', '')
 
-module.exports = (env, args) => {
-  return [core]
-}
+module.exports = () => [core]

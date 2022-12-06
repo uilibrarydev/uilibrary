@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import React from 'react'
 import * as yup from 'yup'
 import Input from '../components/Input'
@@ -18,7 +20,11 @@ const Template = (): JSX.Element => {
   return (
     <>
       <FormContainer validationScheme={VALIDATION_SCHEME} initialValues={INITIAL_VALUES}>
-        <FormField component={Input} name={'firstName'} />
+        <>
+          <FormField component={Input} name={'firstName'} label="First Name" />
+          <FormField component={Input} name={'secondname'} label="Second Name" />
+          <FormField component={Input} name={'age'} label="Age" />
+        </>
       </FormContainer>
     </>
   )

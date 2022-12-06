@@ -1,13 +1,15 @@
 import React from 'react'
 import { InputPropTypes } from './types'
-import './index.css'
+import './index.scss'
+import ErrorMessage from '../../helperComponents/ErrorMessage'
 
 export const Input = React.forwardRef<HTMLInputElement, InputPropTypes>(
-  ({ className, ...rest }, ref): JSX.Element => {
+  ({ className, showError = false, error, label, ...rest }, ref): JSX.Element => {
     return (
       <div className={`input-container ${className}`}>
-        <input ref={ref} {...rest} />
-        {/* {error && <p className="error-message">*{error}</p>} */}
+        {label && <span className="input-label">{label}</span>}
+        <input ref={ref} {...rest} className={`${error ? 'with-error-styles' : ''}`} />
+        {showError && error && <ErrorMessage message={error} />}
       </div>
     )
   }
@@ -15,14 +17,3 @@ export const Input = React.forwardRef<HTMLInputElement, InputPropTypes>(
 
 Input.displayName = 'FormInput'
 export default Input
-
-// const Input = (props) => {
-//   const {className, ...rest} = props
-//   return (
-//     <div className={`input-container ${className}`}>
-//       <input    {...rest}  />
-//     </div>
-//   )
-// }
-
-// export default Input

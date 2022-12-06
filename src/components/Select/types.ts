@@ -9,6 +9,7 @@ export type TSelectOptions = TSelectOption[]
 
 export type TSelectPropTypes = {
   options: TSelectOptions
-  selectedValue: TSelectOption
+  placeHolder: string
+  selectedValue: TSelectOption | null
   onSelect: (value: TSelectOption) => void
 }
