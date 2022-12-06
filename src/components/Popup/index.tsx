@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { useOnOutsideClick } from '../../hooks'
 import Icon from '../Icon'
 import { TPopupPropTypes } from './types'
-import './index.css'
+import './index.scss'
 
 const Popup = (props: TPopupPropTypes): JSX.Element | null => {
   const { isOpen, onClose, children } = props

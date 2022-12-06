@@ -13,7 +13,7 @@
     //   "dom.iterable",
     //   "esnext"
     // ],
-    "typeRoots": ["./src/types", "./node_modules/@types"],
+    "typeRoots": ["./src/types.d.ts", "./node_modules/@types"],
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
@@ -22,6 +22,6 @@
     "isolatedModules": true
   },
   "include": [
-    "src"
+    "src", "types.d.ts"
   ]
 }

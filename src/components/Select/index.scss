@@ -1,3 +1,5 @@
+@import '../../sass/helpers/colors.scss';
+
 .select-container{
     position: relative;
     user-select: none
@@ -5,18 +7,22 @@
 
 .selected-item-container {
     box-sizing: border-box;
-    border: 1px solid;
+    border: 1px solid $inputBorderGray;
+    color: $labelGray;
     border-radius: 5px;
     background-color: white;
     height: 40px;
     align-items: center;
     padding: 0 10px 0 15px;
-    box-shadow:0px 3px 6px #387dff29;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     transition: all 0.2s;
-    box-shadow: 0 0 0 2px #387cf929;
+    &.opened{
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        
+    }
 }
 
 .select-options-wrapper{
@@ -24,13 +30,19 @@
     flex-direction: column;
     box-sizing: border-box;
     position: absolute;
-    border: 1px solid #c1cadf;
-    background-color: white;
+    background: $justWhite;
+    box-shadow: 1px 8px 10px 2px #f2f2f2;
     border-radius: 5px;
     left: 0;
-    top: 45px;
+    top: 39px;
     width: 100%;
-    box-shadow: 0px 3px 6px #387dff29;
+    border-bottom: 1px solid $inputBorderGray;
+    border-left: 1px solid $inputBorderGray;
+    border-right: 1px solid $inputBorderGray;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    
+   
 }
 
 .select-option{
@@ -39,5 +51,5 @@
 }
 
 .select-option:hover{
-    background-color: #d9e4ed;
+    background-color:  #F6F6F6;
 }

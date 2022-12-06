@@ -19,14 +19,19 @@ const OPTIONS: TSelectOption[] = [
 ]
 
 const Template = (): JSX.Element => {
-  const [selectedValue, setSelectedValue] = useState<TSelectOption>(OPTIONS[0])
+  const [selectedValue, setSelectedValue] = useState<TSelectOption | null>(null)
   const onSelect = (value: TSelectOption) => {
     setSelectedValue(value)
   }
 
   return (
     <div style={{ width: 300 }}>
-      <SelectComp onSelect={onSelect} options={OPTIONS} selectedValue={selectedValue} />
+      <SelectComp
+        placeHolder="Select country"
+        onSelect={onSelect}
+        options={OPTIONS}
+        selectedValue={selectedValue}
+      />
     </div>
   )
 }

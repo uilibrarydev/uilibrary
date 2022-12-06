@@ -3,10 +3,10 @@ import Icon from '../Icon'
 import { useOnOutsideClick } from '../../hooks'
 import { motion } from 'framer-motion'
 import { TSelectPropTypes, TSelectOption } from './types'
-import './index.css'
+import './index.scss'
 
 const Select = (props: TSelectPropTypes): JSX.Element => {
-  const { options, selectedValue, onSelect } = props
+  const { options, placeHolder, selectedValue = { value: '', label: '' }, onSelect } = props
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -25,30 +25,22 @@ const Select = (props: TSelectPropTypes): JSX.Element => {
 
   return (
     <div className="select-container" ref={ref}>
-      <div className="selected-item-container" onClick={toggleIsOpen}>
-        <div className="select-item">{selectedValue.label}</div>
+      <div
+        className={`selected-item-container ${isOpen ? 'opened' : 'closed'}`}
+        onClick={toggleIsOpen}
+      >
+        <div className="select-item ">{selectedValue ? selectedValue.label : placeHolder}</div>
 
         <motion.div
           animate={{ rotate: isOpen ? 0 : 180 }}
           transition={{ type: 'spring', damping: 30, stiffness: 800 }}
         >
-          <Icon size="small" name="arrow_up" color="gray" />
+          <Icon size="small" name="arrow_up" color="dropdownGray" />
         </motion.div>
       </div>
 
-      {/* <AnimatePresence initial={false}> */}
       {isOpen && (
-        <motion.div
-          className="select-options-wrapper"
-          initial={{ y: -70, opacity: 0 }}
-          animate={{ y: 0, opacity: 1, zIndex: 7 }}
-          exit={{ y: -70, opacity: 0, zIndex: -99 }}
-          transition={{
-            type: 'spring',
-            damping: 30,
-            stiffness: 800
-          }}
-        >
+        <div className="select-options-wrapper">
           {options.map((item) => {
             const { value, label } = item
             return (
@@ -57,9 +49,8 @@ const Select = (props: TSelectPropTypes): JSX.Element => {
               </span>
             )
           })}
-        </motion.div>
+        </div>
       )}
-      {/* </AnimatePresence> */}
     </div>
   )
 }
