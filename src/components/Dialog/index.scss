@@ -1,33 +1,33 @@
 @import '../../sass/helpers/colors.scss';
 @import '../../sass/helpers/sizes.scss';
 
-.dialog_container{
+.dialog{
     min-width: 600px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    .dialog_title{
+    &_title{
         color: $black;
         font-size: $mediumTextSize;
         padding: 16px 24px;
         border-bottom: 1px solid #f2f2f2;
     }
-    .dialog_content{
+    &_content{
         display: flex;
         flex-direction: column;
         padding: 24px;
-        .dialog_content-title{
-            color: $labelGray;
-            font-size: $xSmallTextSize;
-            margin-bottom: 3px;
-        }
-        .dialog_content_text{
-            color: $black;
-            font-size: $largeTextSize; 
-        }
     }
-    .dialog_footer{
+    &_content_title{
+        color: $labelGray;
+        font-size: $xSmallTextSize;
+        margin-bottom: 3px;
+    }
+    &_content_text{
+        color: $black;
+        font-size: $largeTextSize; 
+    }
+    &_footer{
         padding: 0 40px 40px 40px;
         width: 100%;
         box-sizing: border-box;
@@ -35,7 +35,7 @@
         align-items: center;
         justify-content: flex-end;
     }
-    .dialog_cancel_button{
+    &_cancel_button{
         margin-right: 8px;
     }
 }

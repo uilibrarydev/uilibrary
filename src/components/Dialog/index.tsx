@@ -14,10 +14,10 @@ const Dialog = (props: TDialogPropTypes): JSX.Element | null => {
 
   return (
     <Popup isOpen={isOpen} onClose={onClose}>
-      <div className="dialog_container">
+      <div className="dialog">
         <div className="dialog_title">{title}</div>
         <div className="dialog_content">
-          <span className="dialog_content-title">{contentTitle}</span>
+          <span className="dialog_content_title">{contentTitle}</span>
           <span className="dialog_content_text"> {contentText}</span>
         </div>
         <div className="dialog_footer">
