@@ -21,11 +21,16 @@ interface TComponentProps {
   error?: string
   showError?: boolean
   label?: string
-  onChange: (value: React.FormEvent<HTMLInputElement>) => void
+  onChange?: (value: React.FormEvent<HTMLInputElement>) => void
+  setFieldValue: TSetValue
 }
 
 interface TInputChangeEventType extends EventTarget {
   target: { value: string }
+}
+
+interface HTMLInputEvent extends Event {
+  target: HTMLInputElement & EventTarget
 }
 
 interface FieldError {
@@ -56,4 +61,12 @@ type FieldError = {
 declare type FieldErrors = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined
+}
+
+declare type TSetValue = (name: string, value: unknown, config?: { [key: string]: unknown }) => void
+
+declare type TRegister = (name: string, RegisterOptions?) => { onChange; onBlur; name; ref }
+
+interface FileEventTarget extends EventTarget {
+  files: FileList
 }

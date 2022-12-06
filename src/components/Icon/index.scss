@@ -1,0 +1,21 @@
+@import '../../sass/helpers/colors.scss';
+
+.custom-icon{
+    cursor: pointer;
+}
+
+.icon_wrapper {
+    width: 40px;
+    height: 40px;
+    background-color: $justWhite;
+    position: relative;
+    border: 1px solid $borderGray;
+    border-radius: 4px;
+
+    .custom-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
