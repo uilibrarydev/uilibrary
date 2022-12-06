@@ -26,9 +26,18 @@ ButtonSecondary.args = {
   onClick: () => console.log('buttonClicked'),
   type: 'secondary'
 }
+
 export const ButtonDisabled = Template.bind({})
 ButtonDisabled.args = {
   buttonText: "I'm disabled button",
   onClick: () => console.log('buttonClicked'),
   type: 'disabled'
+}
+
+export const IconButton = Template.bind({})
+IconButton.args = {
+  iconProps: { name: 'close', size: 'xSmall', color: 'justWhite' },
+  buttonText: "I'm disabled button",
+  onClick: () => console.log('buttonClicked'),
+  type: 'primary'
 }
