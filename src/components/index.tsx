@@ -6,5 +6,6 @@ import Select from './Select'
 import Popup from './Popup'
 import Button from './Button'
 import FormField from './FormField'
+import FileUpload from './FileUpload'
 
-export { Text, Icon, FormContainer, Input, Select, Popup, Button, FormField }
+export { Text, Icon, FormContainer, Input, Select, Popup, Button, FormField, FileUpload }
