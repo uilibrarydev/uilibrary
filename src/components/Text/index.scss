@@ -1,0 +1,20 @@
+@import '../../sass/helpers/sizes.scss';
+
+
+.icon{
+    &_xsmall{
+        font-size: $smallTextSize;
+    }
+    &_small{
+        font-size: $smallTextSize;
+    }
+    &_medium{
+        font-size: $mediumTextSize;
+    }
+    &_large{
+        font-size: $largeTextSize;
+    }
+    &_xLarge{
+        font-size: $xLargeTextSize;
+    }
+}

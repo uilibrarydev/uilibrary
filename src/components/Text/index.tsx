@@ -1,8 +1,15 @@
 import React from 'react'
+import { customColors } from '../../consts'
 import { TextPropTypes } from './types'
+import './index.scss'
 
 const Text: React.FC<TextPropTypes> = (props: TextPropTypes) => {
-  return <p>{props.text || 'test'}</p>
+  const { children, size, color = 'textBlack' } = props
+  return (
+    <p style={{ color: customColors[color] }} className={`custom-text icon_${size}`}>
+      {children}
+    </p>
+  )
 }
 
 export default Text

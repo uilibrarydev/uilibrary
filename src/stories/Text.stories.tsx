@@ -7,5 +7,9 @@ export default {
 }
 
 export const text = (): JSX.Element => {
-  return <Text text="text" />
+  return (
+    <Text size="large" color="inputBorderActive">
+      text
+    </Text>
+  )
 }
