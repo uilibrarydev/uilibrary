@@ -2,7 +2,7 @@ export type IconPropTypes = {
   name: string
   withWrapper?: boolean
   size?: TIconSize
-  color?: string
+  color?: TColor
   onClick?: () => void
   className?: string
   refHandler?: CallbackFnType
