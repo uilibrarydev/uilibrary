@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { FormField, Popup as PopupComp } from '../components'
-import FileUpload from '../components/FileUpload/index'
+import { FormField, FileUpload } from '../components'
 
 export default {
   title: 'FileUpload',
