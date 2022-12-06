@@ -7,7 +7,7 @@ import './index.scss'
 
 const FormField = (props: TFormFeildPropTypes): JSX.Element | null => {
   const { component: FormItemComp, name, ...rest } = props
-  const { register, errors } = useContext(FormContext)
+  const { register, errors, setValue } = useContext(FormContext)
 
   const errorMessage = useMemo(() => {
     if (errors && errors[name]) {
@@ -19,17 +19,11 @@ const FormField = (props: TFormFeildPropTypes): JSX.Element | null => {
   if (!register) {
     return null
   }
+  // TODO use classname for set error state with-error-styles
+
   return (
     <div className="form-field-container">
-      <FormItemComp
-        style={{
-          border: `1px solid ${
-            errorMessage ? customColors.inputBorderError : customColors.inputBorderGray
-          }`
-        }}
-        {...rest}
-        {...register(name)}
-      />
+      <FormItemComp {...rest} {...register(name)} setFieldValue={setValue} />
       <ErrorMessage message={errorMessage || ''} />
     </div>
   )

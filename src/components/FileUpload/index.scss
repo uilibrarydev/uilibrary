@@ -1,0 +1,23 @@
+.hide{
+  display: none;
+}
+
+.uploaded_state {
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 6px 11px;
+gap: 10px;
+
+position: relative;
+width: 162px;
+height: 39px;
+
+/* Just White */
+
+background: #FFFFFF;
+/* Border Gray */
+
+border: 1px solid #BBBBBB;
+border-radius: 4px;
+}

@@ -1,4 +1,9 @@
+@import '../../sass/helpers/colors.scss';
+
 .form-field-container{
     max-width: 500px;
     height: 80px;
+    .with-error-styles{
+        border: 1px solid $inputBorderError;
+    }
 }
