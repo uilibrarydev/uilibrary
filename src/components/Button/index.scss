@@ -1,0 +1,31 @@
+@import '../../sass/helpers/colors.scss';
+.custom-button{
+    border-radius: 4px;
+    padding: 12px 20px;
+    border: none;
+    max-width: 334px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 16px;
+    min-width: 150px;
+    height: 40px;
+    font-weight: 400;
+}
+
+.primary{
+    background-color: $buttonGreen;
+    color: $justWhite;
+    
+}
+
+.secondary{
+    background-color: $justWhite;
+    color: $labelGray;
+    border: 1px solid $secButtonBorderGray
+}
+
+.disabled{
+    background-color: $borderGray;
+    color: $justWhite;
+}

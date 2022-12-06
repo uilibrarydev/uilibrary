@@ -1,5 +1,6 @@
 export type TButtonPropTypes = {
   buttonText: string
-  type: 'Primary' | 'Warning'
+  className?: string
+  type: 'primary' | 'Warning'
   onClick: (event: TEventType) => void
 }
