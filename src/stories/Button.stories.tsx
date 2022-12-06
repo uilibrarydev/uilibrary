@@ -15,14 +15,29 @@ const Template: Story<TButtonPropTypes> = (args): JSX.Element => {
 
 export const ButtonPrimary = Template.bind({})
 ButtonPrimary.args = {
-  buttonText: 'Primary',
+  buttonText: "I'm primary button",
   onClick: () => console.log('buttonClicked'),
-  type: 'Primary'
+  type: 'primary'
 }
 
-export const ButtonWarning = Template.bind({})
-ButtonWarning.args = {
-  buttonText: 'Warning',
+export const ButtonSecondary = Template.bind({})
+ButtonSecondary.args = {
+  buttonText: "I'm secondary button",
   onClick: () => console.log('buttonClicked'),
-  type: 'Primary'
+  type: 'secondary'
+}
+
+export const ButtonDisabled = Template.bind({})
+ButtonDisabled.args = {
+  buttonText: "I'm disabled button",
+  onClick: () => console.log('buttonClicked'),
+  type: 'disabled'
+}
+
+export const IconButton = Template.bind({})
+IconButton.args = {
+  iconProps: { name: 'close', size: 'xSmall', color: 'justWhite' },
+  buttonText: "I'm disabled button",
+  onClick: () => console.log('buttonClicked'),
+  type: 'primary'
 }

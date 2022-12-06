@@ -1,4 +1,4 @@
-declare type TIconSize = 'small' | 'medium' | 'large'
+declare type TIconSize = 'xSmall' | 'small' | 'medium' | 'large'
 
 declare type CallbackFnType = () => void
 

@@ -6,12 +6,14 @@ export class HttpClient implements IHttpClient {
     return new Promise<T>((resolve, reject) => {
       const { endpoint } = params
 
-      const options: AxiosRequestConfig = {
-        headers: {}
-      }
+      // const options: AxiosRequestConfig = {
+      //   headers: {}
+      // }
 
       axios
         .get(endpoint)
+        // TODO
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .then((response: any) => {
           resolve(response.data as T)
         })
