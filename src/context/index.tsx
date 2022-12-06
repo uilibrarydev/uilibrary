@@ -1,8 +1,9 @@
 import { createContext } from 'react'
-import { UseFormRegister, FieldValues } from 'react-hook-form'
+import { noop } from '../utils'
 
 declare type TFormContextProps = {
-  register?: UseFormRegister<FieldValues>
+  register: TRegister | CallbackFnType
   errors?: FieldErrors
+  setValue: TSetValue
 }
-export const FormContext = createContext<TFormContextProps>({})
+export const FormContext = createContext<TFormContextProps>({ setValue: noop, register: noop })

@@ -23,7 +23,7 @@ rules:
   "no-extra-bind": "error"
   "no-implicit-globals": "error"
   "react/no-unknown-property": ["error", { ignore: ["class"] }]
-  "@typescript-eslint/member-delimiter-style": ["error", {
+  "@typescript-eslint/member-delimiter-style": ["warn", {
     multiline: {
       delimiter: 'none',
       requireLast: false,
