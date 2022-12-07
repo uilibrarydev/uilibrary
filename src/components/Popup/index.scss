@@ -1,3 +1,5 @@
+@import '../../sass/helpers/colors.scss';
+
 .popup-container{
     position: fixed;
     height: 100%;
@@ -15,8 +17,7 @@
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
-    border: 1px solid;
-    padding: 10px;
+    border: 1px solid $inputBorderGray;
     min-width: 300px;
     min-height: 200px;
     border-radius: 5px;

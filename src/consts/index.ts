@@ -5,8 +5,6 @@ export const iconSizes: TIconSizes = {
   large: '48px'
 }
 
-
-
 export const customColors: TCustomColors = {
   borderGray: '#BBBBBB',
   labelGray: '#616161',
@@ -21,5 +19,6 @@ export const customColors: TCustomColors = {
   secButtonBorderGray: '#BBBBBB',
   iconGray: '#616161',
   footerTextGray: '#797979',
-  footerUnderlineGray: '#ECECEC'
+  footerUnderlineGray: '#ECECEC',
+  darkGray: '#7B7C82'
 }

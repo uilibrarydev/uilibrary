@@ -1,7 +1,22 @@
 declare type TIconSize = 'xSmall' | 'small' | 'medium' | 'large'
 declare type TTextSize = 'xSmall' | 'small' | 'medium' | 'large' | 'xLarge'
-declare type TColor=  'borderGray'| 'labelGray' |'justWhite'|'textBlack'|'dropdownGray' |'dropdownGray' |'inputWhite' | 'inputBorderGray' |'inputBorderActive' |'inputBorderError' |'buttonGreen'|'secButtonBorderGray'| 'iconGray' |'footerTextGray' |'footerUnderlineGray' 
-
+declare type TColor =
+  | 'borderGray'
+  | 'labelGray'
+  | 'justWhite'
+  | 'textBlack'
+  | 'dropdownGray'
+  | 'dropdownGray'
+  | 'inputWhite'
+  | 'inputBorderGray'
+  | 'inputBorderActive'
+  | 'inputBorderError'
+  | 'buttonGreen'
+  | 'secButtonBorderGray'
+  | 'iconGray'
+  | 'footerTextGray'
+  | 'footerUnderlineGray'
+  | 'darkGray'
 
 declare type CallbackFnType = () => void
 
@@ -68,7 +83,7 @@ declare type FieldErrors = {
 
 declare type TSetValue = (name: string, value: unknown, config?: { [key: string]: unknown }) => void
 
-declare type TRegister = (name: string, RegisterOptions?) => { onChange, onBlur, name, ref }
+declare type TRegister = (name: string, RegisterOptions?) => { onChange; onBlur; name; ref }
 
 interface FileEventTarget extends EventTarget {
   files: FileList

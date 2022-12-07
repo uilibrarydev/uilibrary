@@ -8,5 +8,18 @@ import Button from './Button'
 import FormField from './FormField'
 import FileUpload from './FileUpload'
 import Container from './Container'
+import Dialog from './Dialog'
 
-export { Text, Icon, FormContainer, Input, Select, Popup, Button, FormField, FileUpload, Container }
+export {
+  Text,
+  Icon,
+  FormContainer,
+  Input,
+  Select,
+  Popup,
+  Button,
+  FormField,
+  FileUpload,
+  Container,
+  Dialog
+}
