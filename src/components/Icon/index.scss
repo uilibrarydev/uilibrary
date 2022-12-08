@@ -9,9 +9,8 @@
     height: 40px;
     background-color: $justWhite;
     position: relative;
-    border: 1px solid $borderGray;
     border-radius: 4px;
-
+    box-sizing: border-box;
     .custom-icon {
         position: absolute;
         top: 50%;
