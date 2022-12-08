@@ -12,7 +12,7 @@ export default {
   component: FormContainer
 }
 
-const INITIAL_VALUES = { firstName: 'Lilit', file: '' }
+const INITIAL_VALUES = { firstName: '(+1) 232 323 2323', file: '' }
 
 const VALIDATION_SCHEME = yup.object({
   firstName: yup.string().required(),
@@ -24,7 +24,7 @@ const VALIDATION_SCHEME = yup.object({
     })
 })
 
-const getFiles = (files: any) => {
+const getFiles = (files: FileList) => {
   console.log('files', files)
 }
 
@@ -33,14 +33,21 @@ const Template = (): JSX.Element => {
     <>
       <FormContainer validationScheme={VALIDATION_SCHEME} initialValues={INITIAL_VALUES}>
         <>
-          <FormField component={Input} name={'firstName'} label="First Name" />
+          <FormField
+            isControlled
+            component={Input}
+            name={'firstName'}
+            label="First Name"
+            mask="(+1) 999 999 9999"
+          />
           <FormField component={Input} name={'secondname'} label="Second Name" />
           <FormField component={Input} name={'age'} label="Age" />
           <FormField
             component={FileUpload}
-            name={'file'}
+            name="file"
             allowedTypes={['PDF', 'XYZ', 'MKT']}
-            label={'attach file'}
+            label="Կցել ֆայլ"
+            isNeedChangeHandler
             getFiles={getFiles}
           />
         </>

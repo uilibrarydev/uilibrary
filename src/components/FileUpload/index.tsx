@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import IconComp from '../../components/Icon'
+import Text from '../../components/Text'
 import UploadedState from './uploaded-state'
 import './index.scss'
 
@@ -8,13 +9,6 @@ const FileUpload = (props: TFileUploadPropTypes): JSX.Element | null => {
 
   const [files, setFiles] = useState(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
-
-  const renderAllowedFileTypes = () => {
-    return allowedTypes
-      .join(', ')
-      .split('')
-      .map((type: string) => <span key={type}>{type}</span>)
-  }
 
   const handleClick = () => {
     if (fileInputRef.current) {
@@ -32,32 +26,34 @@ const FileUpload = (props: TFileUploadPropTypes): JSX.Element | null => {
     }
   }
 
-  const renderUploadedFile = () => {
-    if (files) {
-      return (
-        <div>
-          <UploadedState name={files[0]?.['name']} />
-        </div>
-      )
-    }
-
+  if (files) {
     return (
       <div>
-        {/* TODO use Text component */}
-        <div>Թույլատրելի տեսակներ</div>
-        {renderAllowedFileTypes()}
+        <UploadedState name={files[0]?.['name']} />
       </div>
     )
   }
-  return (
-    <div>
-      <div onClick={handleClick}>
-        <IconComp name="fileUpload" size="small" color="inputBorderError" withWrapper />
-        {label && <span>{label}</span>}
-      </div>
 
-      <div>{renderUploadedFile()}</div>
-      <input name={name} type="file" className="hide" ref={fileInputRef} onChange={handleChange} />
+  return (
+    <div className="upload_button">
+      <IconComp name="attach" size="xSmall" color="iconGray" withWrapper onClick={handleClick} />
+      <div className="label_container">
+        {label && (
+          <Text color="buttonGreen" onClick={handleClick} className="upload_button_attach">
+            {label}
+          </Text>
+        )}
+        <input
+          name={name}
+          type="file"
+          className="hide"
+          ref={fileInputRef}
+          onChange={handleChange}
+        />
+        <Text color="footerTextGray" size="xSmall">{`Թույլատրելի տեսակներ ${allowedTypes.join(
+          ', '
+        )}`}</Text>
+      </div>
     </div>
   )
 }

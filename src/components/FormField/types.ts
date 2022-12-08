@@ -4,4 +4,6 @@ export type TFormFieldPropTypes = {
   label?: string
   allowedTypes?: Array<string>
   getFiles?: (files: FileList) => void
+  isControlled?: boolean
+  isNeedChangeHandler?: boolean
 }

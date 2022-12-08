@@ -16,9 +16,9 @@ const Template = (): JSX.Element => {
   return (
     <FormField
       component={FileUpload}
-      name={'file'}
+      name="file-uplaod"
       allowedTypes={['PDF', 'XYZ', 'MKT']}
-      label={'attach file'}
+      label="Կցել ֆայլ"
       getFiles={getFiles}
     />
   )

@@ -1,12 +1,19 @@
 import React, { useContext, useMemo } from 'react'
 import { FormContext } from '../../context'
+import { Controller } from 'react-hook-form'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
 import { TFormFieldPropTypes } from './types'
 import './index.scss'
 
 const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
-  const { component: FormItemComp, name, ...rest } = props
-  const { register, errors, setValue } = useContext(FormContext)
+  const {
+    component: FormItemComp,
+    name,
+    isNeedChangeHandler = false,
+    isControlled = false,
+    ...rest
+  } = props
+  const { register, errors, setValue, control } = useContext(FormContext)
 
   const errorMessage = useMemo(() => {
     if (errors && errors[name]) {
@@ -22,7 +29,30 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
 
   return (
     <div className="form-field-container">
-      <FormItemComp {...rest} {...register(name)} setFieldValue={setValue} />
+      {isControlled ? (
+        <Controller
+          control={control}
+          name={name}
+          render={({ field: { onChange, onBlur, value, name, ref } }) => (
+            <FormItemComp
+              {...rest}
+              onChange={onChange}
+              name={name}
+              value={value}
+              onBlur={onBlur}
+              ref={ref}
+              {...(isNeedChangeHandler ? { setFieldValue: setValue } : {})}
+            />
+          )}
+        />
+      ) : (
+        <FormItemComp
+          {...rest}
+          {...register(name)}
+          {...(isNeedChangeHandler ? { setFieldValue: setValue } : {})}
+        />
+      )}
+
       <ErrorMessage message={errorMessage || ''} />
     </div>
   )

@@ -41,7 +41,7 @@ interface HTMLInputEvent extends Event {
 }
 
 interface FieldError {
-  ref?: React.RefObject<HTMLInputElement>
+  ref?: RefObject<HTMLInputElement>
   message?: string
 }
 
@@ -70,6 +70,10 @@ declare type FieldErrors = {
   [key: string]: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined
 }
 
+interface RefObject<T> {
+  readonly current: T | null
+}
+
 declare type TSetValue = (name: string, value: unknown, config?: { [key: string]: unknown }) => void
 
 declare type TRegister = (name: string, RegisterOptions?) => { onChange; onBlur; name; ref }
@@ -79,13 +83,16 @@ interface FileEventTarget extends EventTarget {
 }
 
 interface InputCustomPropTypes {
+  mask?: string
   className?: string
   value?: string
   error?: string
   showError?: boolean
   label?: string
+  ref?: HTMLInputElement<HTMLInputElement>
   style?: Record<string, string>
   onChange?: (event: TInputChangeEventType) => void
+  onBlur?: (event: TInputChangeEventType) => void
 }
 
 declare type InputPropTypes = InputCustomPropTypes & React.HTMLProps<HTMLInputElement>
@@ -99,16 +106,3 @@ interface TFileUploadPropTypes {
 }
 
 declare type TComponentProps = TFileUploadPropTypes | InputCustomPropTypes
-// {
-//   className?: string
-//   style?: Record<string, string>
-//   value?: string
-//   error?: string
-//   showError?: boolean
-//   label?: string
-//   name?: string
-//   allowedTypes?: Array<string>
-//   getFiles?: (files: FileList) => void
-//   onChange?: (value: React.FormEvent<HTMLInputElement>) => void
-//   setFieldValue: TSetValue
-// }

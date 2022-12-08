@@ -21,6 +21,8 @@ const Icon = (props: IconPropTypes): JSX.Element => {
   const iconSize = iconSizes[size as keyof TIconSizes]
   const iconColor = customColors[color as keyof TCustomColors]
 
+  console.log('iconColor', iconColor)
+
   let content = (
     <div
       ref={refHandler}
