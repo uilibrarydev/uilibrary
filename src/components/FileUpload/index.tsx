@@ -4,7 +4,7 @@ import UploadedState from './uploaded-state'
 import './index.scss'
 
 const FileUpload = (props: TFileUploadPropTypes): JSX.Element | null => {
-  const { allowedTypes = ['*'], label, getFiles, name, setFieldValue } = props
+  const { allowedTypes = ['*'], label, getFiles, name, setFieldValue, ...rest } = props
 
   const [files, setFiles] = useState(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -13,7 +13,7 @@ const FileUpload = (props: TFileUploadPropTypes): JSX.Element | null => {
     return allowedTypes
       .join(', ')
       .split('')
-      .map((type: string) => <span key={type}>{type}</span>)
+      .map((type: string, index: number) => <span key={index}>{type}</span>)
   }
 
   const handleClick = () => {
@@ -57,7 +57,7 @@ const FileUpload = (props: TFileUploadPropTypes): JSX.Element | null => {
       </div>
 
       <div>{renderUploadedFile()}</div>
-      <input name={name} type="file" className="hide" ref={fileInputRef} onChange={handleChange} />
+      <input name={name} type="file" className="hide" {...rest} />
     </div>
   )
 }
