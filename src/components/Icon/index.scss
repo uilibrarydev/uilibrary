@@ -11,6 +11,9 @@
     position: relative;
     border-radius: 4px;
     box-sizing: border-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
     .custom-icon {
         position: absolute;
         top: 50%;

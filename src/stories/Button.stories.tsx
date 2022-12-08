@@ -41,3 +41,17 @@ IconButton.args = {
   onClick: () => console.log('buttonClicked'),
   type: 'primary'
 }
+export const ActiveTextButton = Template.bind({})
+ActiveTextButton.args = {
+  buttonText: "I'm text button",
+  onClick: () => console.log('buttonClicked'),
+  type: 'activeTextButton'
+}
+
+export const PasiveTextButton = Template.bind({})
+PasiveTextButton.args = {
+  buttonText: "I'm text button",
+  iconProps: { name: 'close', size: 'xSmall' },
+  onClick: () => console.log('buttonClicked'),
+  type: 'passiveTextButton'
+}

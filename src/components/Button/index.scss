@@ -37,3 +37,14 @@
         margin-right: 5px;
     }
 }
+
+.activeTextButton{
+    background: transparent;
+    color: $buttonGreen; 
+}
+
+
+.passiveTextButton{
+    background: transparent;
+    color: $textBlack; 
+}
