@@ -1,0 +1,7 @@
+.divider{
+    height: 1px;
+    width: 100%;
+    &_vertical{
+        transform: rotate(90deg);
+    }
+}

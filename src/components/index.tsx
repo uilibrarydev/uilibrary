@@ -9,6 +9,7 @@ import FormField from './FormField'
 import FileUpload from './FileUpload'
 import Container from './Container'
 import Dialog from './Dialog'
+import Divider from './Divider'
 
 export {
   Text,
@@ -21,5 +22,6 @@ export {
   FormField,
   FileUpload,
   Container,
-  Dialog
+  Dialog,
+  Divider
 }
