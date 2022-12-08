@@ -1,11 +1,10 @@
 import React, { useContext, useMemo } from 'react'
 import { FormContext } from '../../context'
-import { customColors } from '../../consts'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
-import { TFormFeildPropTypes } from './types'
+import { TFormFieldPropTypes } from './types'
 import './index.scss'
 
-const FormField = (props: TFormFeildPropTypes): JSX.Element | null => {
+const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
   const { component: FormItemComp, name, ...rest } = props
   const { register, errors, setValue } = useContext(FormContext)
 

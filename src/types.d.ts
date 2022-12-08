@@ -32,17 +32,6 @@ declare type TCustomColors = {
   [color: string]: string
 }
 
-interface TComponentProps {
-  className?: string
-  style?: Record<string, string>
-  value?: string
-  error?: string
-  showError?: boolean
-  label?: string
-  onChange?: (value: React.FormEvent<HTMLInputElement>) => void
-  setFieldValue: TSetValue
-}
-
 interface TInputChangeEventType extends EventTarget {
   target: { value: string }
 }
@@ -88,3 +77,38 @@ declare type TRegister = (name: string, RegisterOptions?) => { onChange; onBlur;
 interface FileEventTarget extends EventTarget {
   files: FileList
 }
+
+interface InputCustomPropTypes {
+  className?: string
+  value?: string
+  error?: string
+  showError?: boolean
+  label?: string
+  style?: Record<string, string>
+  onChange?: (event: TInputChangeEventType) => void
+}
+
+declare type InputPropTypes = InputCustomPropTypes & React.HTMLProps<HTMLInputElement>
+
+interface TFileUploadPropTypes {
+  allowedTypes?: Array<string>
+  label?: string
+  getFiles?: (files: FileList) => void
+  name?: string
+  setFieldValue: TSetValue
+}
+
+declare type TComponentProps = TFileUploadPropTypes | InputCustomPropTypes
+// {
+//   className?: string
+//   style?: Record<string, string>
+//   value?: string
+//   error?: string
+//   showError?: boolean
+//   label?: string
+//   name?: string
+//   allowedTypes?: Array<string>
+//   getFiles?: (files: FileList) => void
+//   onChange?: (value: React.FormEvent<HTMLInputElement>) => void
+//   setFieldValue: TSetValue
+// }

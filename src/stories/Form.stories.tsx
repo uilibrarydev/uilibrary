@@ -41,7 +41,7 @@ const Template = (): JSX.Element => {
             name={'file'}
             allowedTypes={['PDF', 'XYZ', 'MKT']}
             label={'attach file'}
-            getFile={getFiles}
+            getFiles={getFiles}
           />
         </>
       </FormContainer>

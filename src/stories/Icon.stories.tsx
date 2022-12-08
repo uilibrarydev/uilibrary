@@ -7,8 +7,10 @@ export default {
   component: IconComp
 } as Meta
 
-const Template = () => <IconComp name="icon" size="small" color="red" />
-const FileUpload = () => <IconComp name="fileUpload" size="small" color="red" withWrapper />
+const Template = () => <IconComp name="icon" size="small" color="inputBorderError" />
+const FileUpload = () => (
+  <IconComp name="fileUpload" size="small" color="inputBorderError" withWrapper />
+)
 
 export const Icon = Template.bind({})
 export const fileUpload = FileUpload.bind({})

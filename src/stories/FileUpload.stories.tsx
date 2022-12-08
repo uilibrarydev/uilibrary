@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+import React from 'react'
 import { FormField, FileUpload } from '../components'
 
 export default {
@@ -6,23 +8,19 @@ export default {
   component: FileUpload
 }
 
-const getFiles = (files: any) => {
+const getFiles = (files: FileList) => {
   console.log(files)
 }
 
 const Template = (): JSX.Element => {
   return (
-    <div>
-      <FormField
-        component={FileUpload}
-        name={'file'}
-        allowedTypes={['PDF', 'XYZ', 'MKT']}
-        label={'attach file'}
-        getFile={getFiles}
-      />
-
-      {/* <FileUpload  /> */}
-    </div>
+    <FormField
+      component={FileUpload}
+      name={'file'}
+      allowedTypes={['PDF', 'XYZ', 'MKT']}
+      label={'attach file'}
+      getFiles={getFiles}
+    />
   )
 }
 export const FileUploadComponent = Template.bind({})

@@ -2,10 +2,9 @@ import React, { useRef, useState } from 'react'
 import IconComp from '../../components/Icon'
 import UploadedState from './uploaded-state'
 import './index.scss'
-import { FileUploadProps } from './types'
 
-const FileUpload: React.FC<FileUploadProps> = (props: FileUploadProps): JSX.Element => {
-  const { allowedTypes, label, getFile, name, setFieldValue } = props
+const FileUpload = (props: TFileUploadPropTypes): JSX.Element | null => {
+  const { allowedTypes = ['*'], label, getFiles, name, setFieldValue } = props
 
   const [files, setFiles] = useState(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -14,7 +13,7 @@ const FileUpload: React.FC<FileUploadProps> = (props: FileUploadProps): JSX.Elem
     return allowedTypes
       .join(', ')
       .split('')
-      .map((type) => <span key={type}>{type}</span>)
+      .map((type: string) => <span key={type}>{type}</span>)
   }
 
   const handleClick = () => {
@@ -25,9 +24,12 @@ const FileUpload: React.FC<FileUploadProps> = (props: FileUploadProps): JSX.Elem
 
   const handleChange = (event: TEventType) => {
     setFiles(event?.target?.files)
-
-    setFieldValue(name, event?.target?.files)
-    getFile(event?.target?.files)
+    if (name) {
+      setFieldValue(name, event?.target?.files)
+    }
+    if (getFiles) {
+      getFiles(event?.target?.files)
+    }
   }
 
   const renderUploadedFile = () => {
@@ -50,8 +52,8 @@ const FileUpload: React.FC<FileUploadProps> = (props: FileUploadProps): JSX.Elem
   return (
     <div>
       <div onClick={handleClick}>
-        <IconComp name="fileUpload" size="small" color="red" withWrapper />
-        <span>{label}</span>
+        <IconComp name="fileUpload" size="small" color="inputBorderError" withWrapper />
+        {label && <span>{label}</span>}
       </div>
 
       <div>{renderUploadedFile()}</div>

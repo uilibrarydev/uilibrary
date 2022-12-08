@@ -1,7 +1,6 @@
 import React from 'react'
-import { InputPropTypes } from './types'
-import './index.scss'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
+import './index.scss'
 
 export const Input = React.forwardRef<HTMLInputElement, InputPropTypes>(
   ({ className, showError = false, error, label, ...rest }, ref): JSX.Element => {
