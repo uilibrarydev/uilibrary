@@ -10,6 +10,7 @@ import FileUpload from './FileUpload'
 import Container from './Container'
 import Dialog from './Dialog'
 import Divider from './Divider'
+import Progress from './Progress'
 
 export {
   Text,
@@ -23,5 +24,6 @@ export {
   FileUpload,
   Container,
   Dialog,
-  Divider
+  Divider,
+  Progress
 }
