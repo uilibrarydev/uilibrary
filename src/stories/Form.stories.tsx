@@ -12,7 +12,7 @@ export default {
   component: FormContainer
 }
 
-const INITIAL_VALUES = { firstName: '(+1) 232 323 2323', file: '' }
+const INITIAL_VALUES = { firstName: 'Lilit', phoneNumber: '', file: '', age: '' }
 
 const VALIDATION_SCHEME = yup.object({
   firstName: yup.string().required(),
@@ -21,7 +21,8 @@ const VALIDATION_SCHEME = yup.object({
     .required('A file is required')
     .test('fileSize', 'File too large', (value) => {
       return value.size < 10000
-    })
+    }),
+  age: yup.number().required('A file is required')
 })
 
 const getFiles = (files: FileList) => {
@@ -33,12 +34,14 @@ const Template = (): JSX.Element => {
     <>
       <FormContainer validationScheme={VALIDATION_SCHEME} initialValues={INITIAL_VALUES}>
         <>
+          <FormField isControlled component={Input} name={'firstName'} label="First Name" />
           <FormField
             isControlled
             component={Input}
-            name={'firstName'}
-            label="First Name"
+            name={'phoneNumber'}
+            label="Phone Number"
             mask="(+1) 999 999 9999"
+            placeHolder="(+1) 999 999 9999"
           />
           <FormField component={Input} name={'secondname'} label="Second Name" />
           <FormField component={Input} name={'age'} label="Age" />

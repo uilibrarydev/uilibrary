@@ -28,7 +28,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
   // TODO use classname for set error state with-error-styles
 
   return (
-    <div className="form-field-container">
+    <div className="form_field_container">
       {isControlled ? (
         <Controller
           control={control}
@@ -53,7 +53,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
         />
       )}
 
-      <ErrorMessage message={errorMessage || ''} />
+      {errorMessage && <ErrorMessage message={errorMessage || ''} />}
     </div>
   )
 }

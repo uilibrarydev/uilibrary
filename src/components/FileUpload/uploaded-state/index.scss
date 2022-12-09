@@ -1,0 +1,17 @@
+@import '../../../sass/helpers/colors.scss';
+.uploaded_state {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    height: 40px;
+    background: $justWhite;
+    border: 1px solid #BBBBBB;
+    border-radius: 4px;
+    box-sizing: border-box;
+    .file_icon{
+        margin-right:10px
+    }
+    .icon_remove{
+        margin-left: 10px;
+    }
+  }

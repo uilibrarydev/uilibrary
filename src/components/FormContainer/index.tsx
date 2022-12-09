@@ -3,6 +3,7 @@ import { FormContext } from '../../context'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { FormPropTypes } from './types'
+import './index.scss'
 
 const FormContainer = (props: FormPropTypes): JSX.Element => {
   const { children, initialValues, validationScheme } = props
@@ -19,11 +20,11 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
   })
 
   return (
-    <form onSubmit={handleSubmit((data) => console.log('data', data))}>
+    <form onSubmit={handleSubmit((data) => console.log('data', data))} className="form_container">
       <FormContext.Provider value={{ register, errors, control, setValue }}>
         {children}
       </FormContext.Provider>
-      {/* <input type="submit" /> */}
+      <input type="submit" />
     </form>
   )
 }

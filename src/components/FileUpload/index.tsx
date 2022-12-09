@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import IconComp from '../../components/Icon'
 import Text from '../../components/Text'
 import UploadedState from './uploaded-state'
@@ -7,7 +7,7 @@ import './index.scss'
 const FileUpload = (props: TFileUploadPropTypes): JSX.Element | null => {
   const { allowedTypes = ['*'], label, getFiles, name, setFieldValue } = props
 
-  const [files, setFiles] = useState(null)
+  const [file, setFile] = useState<File | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const handleClick = () => {
@@ -16,21 +16,35 @@ const FileUpload = (props: TFileUploadPropTypes): JSX.Element | null => {
     }
   }
 
-  const handleChange = (event: TEventType) => {
-    setFiles(event?.target?.files)
-    if (name) {
-      setFieldValue(name, event?.target?.files)
+  const getFileType = () => {
+    if (file && file.type) {
+      return file.type.split('/')[1]
     }
-    if (getFiles) {
-      getFiles(event?.target?.files)
+    return ''
+  }
+
+  const handleChange = (event: TEventType) => {
+    if (event?.target?.files && event?.target?.files[0]) {
+      setFile(event?.target?.files[0])
+      if (name) {
+        setFieldValue(name, event?.target?.files[0])
+      }
+      if (getFiles) {
+        getFiles(event?.target?.files[0])
+      }
     }
   }
 
-  if (files) {
+  const handleFileRemove = useCallback(() => {
+    setFile(null)
+    if (name) {
+      setFieldValue(name, [])
+    }
+  }, [name, setFieldValue])
+
+  if (file) {
     return (
-      <div>
-        <UploadedState name={files[0]?.['name']} />
-      </div>
+      <UploadedState name={file?.['name']} onRemove={handleFileRemove} fileType={getFileType()} />
     )
   }
 
@@ -48,6 +62,7 @@ const FileUpload = (props: TFileUploadPropTypes): JSX.Element | null => {
           type="file"
           className="hide"
           ref={fileInputRef}
+          accept={`${allowedTypes.join(',')}`}
           onChange={handleChange}
         />
         <Text color="footerTextGray" size="xSmall">{`Թույլատրելի տեսակներ ${allowedTypes.join(

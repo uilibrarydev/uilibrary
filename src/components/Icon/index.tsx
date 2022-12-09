@@ -17,17 +17,16 @@ const Icon = (props: IconPropTypes): JSX.Element => {
   } = props
 
   const svg = customIcons[name as keyof TCustomIcons]
+  console.log('svg', svg)
 
   const iconSize = iconSizes[size as keyof TIconSizes]
   const iconColor = customColors[color as keyof TCustomColors]
-
-  console.log('iconColor', iconColor)
 
   let content = (
     <div
       ref={refHandler}
       onClick={onClick}
-      className={`custom-icon ${className}`}
+      className={`custom_icon ${className}`}
       dangerouslySetInnerHTML={{ __html: svg(iconColor, iconSize) }}
     />
   )

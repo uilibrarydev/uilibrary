@@ -1,8 +1,28 @@
-import React, { FC } from 'react'
+import React from 'react'
+import Icon from '../../Icon'
+import Text from '../../Text'
+import { TUploadedStatePropTypes } from './types'
+import './index.scss'
 
-const UploadedState: FC<{ name: string }> = (props) => {
-  const { name } = props
-  return <div className="uploaded_state"> {name || ''}</div>
+const FILE_ICON_NAME: Record<string, string> = {
+  png: 'file_png',
+  jpeg: 'file_jpeg',
+  pdf: 'file_pdf'
+}
+
+const UploadedState = (props: TUploadedStatePropTypes): JSX.Element => {
+  const { name, onRemove, fileType } = props
+  const iconName = FILE_ICON_NAME[fileType] || FILE_ICON_NAME.png
+
+  return (
+    <div className="uploaded_state">
+      <Icon name={iconName} className="file_icon" />
+      <Text color="textBlack" size="xSmall">
+        {name || ''}
+      </Text>
+      <Icon name="close" color="iconGray" className="icon_remove" onClick={onRemove} />
+    </div>
+  )
 }
 
 export default UploadedState

@@ -106,3 +106,11 @@ interface TFileUploadPropTypes {
 }
 
 declare type TComponentProps = TFileUploadPropTypes | InputCustomPropTypes
+
+declare type TImageMimeTypes =
+  | 'image/jpeg'
+  | 'image/jpg'
+  | 'image/png'
+  | 'image/heic'
+  | 'image/heif'
+  | 'application/pdf'
