@@ -7,6 +7,8 @@ import { email } from './email'
 import { file_jpeg } from './file_jpeg'
 import { file_pdf } from './file_pdf'
 import { file_png } from './file_png'
+import { arrow_left } from './arrow_left'
+import { change } from './change'
 
 export const customIcons: TCustomIcons = {
   icon,
@@ -17,5 +19,7 @@ export const customIcons: TCustomIcons = {
   email,
   file_jpeg,
   file_pdf,
-  file_png
+  file_png,
+  arrow_left,
+  change
 }

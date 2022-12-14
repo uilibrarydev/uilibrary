@@ -15,14 +15,13 @@ export default {
 const INITIAL_VALUES = { firstName: 'Lilit', phoneNumber: '', file: '', age: '' }
 
 const VALIDATION_SCHEME = yup.object({
-  firstName: yup.string().required(),
-  file: yup
-    .mixed()
+  phoneNumber: yup
+    .string()
     .required('A file is required')
-    .test('fileSize', 'File too large', (value) => {
-      return value.size < 10000
-    }),
-  age: yup.number().required('A file is required')
+    .test('valid', 'Phone number is not valid', (val) => {
+      const isValid = val?.indexOf('_') === -1
+      return !!isValid
+    })
 })
 
 const getFiles = (files: FileList) => {
@@ -30,18 +29,23 @@ const getFiles = (files: FileList) => {
 }
 
 const Template = (): JSX.Element => {
+  const onChange = (event) => {
+    console.log('event', event)
+  }
+
   return (
     <>
       <FormContainer validationScheme={VALIDATION_SCHEME} initialValues={INITIAL_VALUES}>
         <>
-          <FormField isControlled component={Input} name={'firstName'} label="First Name" />
+          {/* <FormField isControlled component={Input} name={'firstName'} label="First Name" />
           <FormField
             isControlled
             component={Input}
             name={'phoneNumber'}
             label="Phone Number"
             mask="(+1) 999 999 9999"
-            placeHolder="(+1) 999 999 9999"
+            placeholder="(+1) 999 999 9999"
+            customOnChange={onChange}
           />
           <FormField component={Input} name={'secondname'} label="Second Name" />
           <FormField component={Input} name={'age'} label="Age" />
@@ -52,6 +56,21 @@ const Template = (): JSX.Element => {
             label="Կցել ֆայլ"
             isNeedChangeHandler
             getFiles={getFiles}
+          />
+          <FormField
+            component={Input}
+            name="phoneNumber"
+            label="Հեռախոսահամար"
+            mask="+374 99 99 99 99"
+            placeholder="+374 90 00 00 01"
+          /> */}
+          <FormField
+            component={Input}
+            name={'phoneNumber'}
+            label="Հեռախոսահամար"
+            mask="+374 99 99 99 99"
+            // customOnChange={onPhoneChange}
+            placeholder="+374 90 00 00 01"
           />
         </>
       </FormContainer>

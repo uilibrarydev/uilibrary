@@ -6,7 +6,7 @@
         border: 1px solid $inputBorderError;
     }
     .input-label{
-        margin-bottom: 5px;
+        margin-bottom: 8px;
     }
 }
 
@@ -24,6 +24,6 @@
     font-size: 14px;
     &:focus {
         border-color: $inputBorderActive;
-      }
+    }
 }
 

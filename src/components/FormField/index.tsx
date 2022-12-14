@@ -11,17 +11,21 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
     name,
     isNeedChangeHandler = false,
     isControlled = false,
+    customOnChange,
     ...rest
   } = props
   const { register, errors, setValue, control } = useContext(FormContext)
 
-  const errorMessage = useMemo(() => {
-    if (errors && errors[name]) {
-      return errors[name].message
-    }
-    return null
-  }, [errors, name])
+  const errorMessage = errors && errors[name] ? errors[name].message : null
+  console.log('errorMessage', errorMessage)
 
+  const changeHandler =
+    (onChange: (event: TInputChangeEventType) => void) => (event: TInputChangeEventType) => {
+      if (customOnChange) {
+        customOnChange(event)
+      }
+      onChange(event)
+    }
   if (!register) {
     return null
   }
@@ -36,7 +40,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
           render={({ field: { onChange, onBlur, value, name, ref } }) => (
             <FormItemComp
               {...rest}
-              onChange={onChange}
+              onChange={changeHandler(onChange)}
               name={name}
               value={value}
               onBlur={onBlur}
@@ -49,6 +53,10 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
         <FormItemComp
           {...rest}
           {...register(name)}
+          onChange={(event) => {
+            const { onChange } = register(name) || {}
+            changeHandler(onChange)(event)
+          }}
           {...(isNeedChangeHandler ? { setFieldValue: setValue } : {})}
         />
       )}

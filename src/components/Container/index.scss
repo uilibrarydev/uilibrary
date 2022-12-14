@@ -4,10 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 40px;
-
-  // width: 414px; //should be dynamic
-  // height: 660px; //should be dynamic
+  justify-content: space-between;
   background:$justWhite;
   box-shadow: 0px 5px 20px rgba(14, 14, 14, 0.06);
   border-radius: 4px;

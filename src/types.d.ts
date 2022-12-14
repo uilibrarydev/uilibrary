@@ -45,7 +45,7 @@ interface FieldError {
   message?: string
 }
 
-declare type FormInitialValue = {
+declare type TFormData = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }

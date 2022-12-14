@@ -11,10 +11,12 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
   const {
     handleSubmit,
     formState: { errors },
+
     register,
     setValue,
     control
   } = useForm({
+    reValidateMode: 'onChange',
     resolver: yupResolver(validationScheme),
     defaultValues: initialValues
   })
@@ -24,7 +26,6 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
       <FormContext.Provider value={{ register, errors, control, setValue }}>
         {children}
       </FormContext.Provider>
-      <input type="submit" />
     </form>
   )
 }
