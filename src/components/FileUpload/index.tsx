@@ -4,7 +4,7 @@ import Text from '../../components/Text'
 import UploadedState from './uploaded-state'
 import './index.scss'
 
-const FileUpload = (props: TFileUploadPropTypes): JSX.Element | null => {
+const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const { allowedTypes = ['*'], label, getFiles, name, setFieldValue } = props
 
   const [file, setFile] = useState<File | null>(null)

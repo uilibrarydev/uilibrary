@@ -1,4 +1,4 @@
-declare type TIconSize = 'xSmall' | 'small' | 'medium' | 'large'
+declare type TIconSize = 'xxSmall' | 'xSmall' | 'small' | 'medium' | 'large'
 declare type TTextSize = 'xSmall' | 'small' | 'medium' | 'large' | 'xLarge'
 declare type TColor =
   | 'borderGray'
@@ -82,7 +82,7 @@ interface FileEventTarget extends EventTarget {
   files: FileList
 }
 
-interface InputCustomPropTypes {
+interface InputCustomProps {
   mask?: string
   className?: string
   value?: string
@@ -95,9 +95,9 @@ interface InputCustomPropTypes {
   onBlur?: (event: TInputChangeEventType) => void
 }
 
-declare type InputPropTypes = InputCustomPropTypes & React.HTMLProps<HTMLInputElement>
+declare type TInputPropTypes = InputCustomProps & React.HTMLProps<HTMLInputElement>
 
-interface TFileUploadPropTypes {
+interface TFileUploadProps {
   allowedTypes?: Array<string>
   label?: string
   getFiles?: (files: FileList) => void
@@ -105,7 +105,15 @@ interface TFileUploadPropTypes {
   setFieldValue: TSetValue
 }
 
-declare type TComponentProps = TFileUploadPropTypes | InputCustomPropTypes
+declare type TCheckboxProps = {
+  label?: string | JSX.Element
+  value: boolean
+  onClick: (isChecked: boolean) => void
+  name?: string
+  setFieldValue?: TSetValue
+}
+
+declare type TComponentProps = TFileUploadProps | InputCustomProps | TCheckboxProps
 
 declare type TImageMimeTypes =
   | 'image/jpeg'

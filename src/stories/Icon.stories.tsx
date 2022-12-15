@@ -1,6 +1,6 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import { Icon as IconComp } from '../components'
+import { Icon as IconComp, Text } from '../components'
 
 const ICONS = [
   'arrow_left',
@@ -12,7 +12,8 @@ const ICONS = [
   'file_jpeg',
   'file_pdf',
   'file_png',
-  'phone'
+  'phone',
+  'tick'
 ]
 
 export default {
@@ -25,6 +26,7 @@ const Template = () => (
     {ICONS.map((iconName) => (
       <div style={{ padding: 20 }} key={iconName}>
         <IconComp name={iconName} size="small" color="inputBorderError" />
+        <Text>{iconName}</Text>
       </div>
     ))}
   </div>

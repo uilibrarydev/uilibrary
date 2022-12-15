@@ -4,7 +4,7 @@ import Text from '../Text'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
 import './index.scss'
 
-export const Input = React.forwardRef<HTMLInputElement, InputPropTypes>(
+export const Input = React.forwardRef<HTMLInputElement, TInputPropTypes>(
   ({ className, showError = false, error, label, mask, ...rest }, ref): JSX.Element => {
     const input = mask ? (
       <InputMask

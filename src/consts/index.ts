@@ -1,4 +1,5 @@
 export const iconSizes: TIconSizes = {
+  xxSmall: '13px',
   xSmall: '18px',
   small: '24px',
   medium: '36px',

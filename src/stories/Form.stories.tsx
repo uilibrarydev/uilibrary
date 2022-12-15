@@ -1,20 +1,22 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import React from 'react'
+import React, { useMemo } from 'react'
 import * as yup from 'yup'
-import Input from '../components/Input'
 import FormField from '../components/FormField'
-import { FormContainer } from '../components'
-import FileUpload from '../components/FileUpload/index'
+import { Checkbox, FormContainer, Text, Input, FileUpload } from '../components'
 
 export default {
   title: 'Form',
   component: FormContainer
 }
 
-const INITIAL_VALUES = { firstName: 'Lilit', phoneNumber: '', file: '', age: '' }
+const INITIAL_VALUES = { checkbox: false, firstName: 'Lilit', phoneNumber: '', file: '', age: '' }
 
 const VALIDATION_SCHEME = yup.object({
+  checkbox: yup
+    .bool()
+    .required()
+    .test('valid', 'նշել պարտադիր', (val) => val),
   phoneNumber: yup
     .string()
     .required('A file is required')
@@ -33,11 +35,29 @@ const Template = (): JSX.Element => {
     console.log('event', event)
   }
 
+  const checkboxLabel = useMemo(() => {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <Text>Համաձայն եմ ԱՔՌԱ հարցման կատարմանը</Text>
+        <Text color="inputBorderActive" onClick={(e) => e.stopPropagation()}>
+          <a
+            href="https://github.com/jaredpalmer/formik/issues/1040"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {' '}
+            Ավելին
+          </a>
+        </Text>
+      </div>
+    )
+  }, [])
+
   return (
     <>
       <FormContainer validationScheme={VALIDATION_SCHEME} initialValues={INITIAL_VALUES}>
         <>
-          {/* <FormField isControlled component={Input} name={'firstName'} label="First Name" />
+          <FormField isControlled component={Input} name={'firstName'} label="First Name" />
           <FormField
             isControlled
             component={Input}
@@ -63,14 +83,20 @@ const Template = (): JSX.Element => {
             label="Հեռախոսահամար"
             mask="+374 99 99 99 99"
             placeholder="+374 90 00 00 01"
-          /> */}
+          />
           <FormField
             component={Input}
             name={'phoneNumber'}
             label="Հեռախոսահամար"
             mask="+374 99 99 99 99"
-            // customOnChange={onPhoneChange}
             placeholder="+374 90 00 00 01"
+          />
+          <FormField
+            isNeedChangeHandler
+            isControlled
+            component={Checkbox}
+            name={'checkbox'}
+            label={checkboxLabel}
           />
         </>
       </FormContainer>

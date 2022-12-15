@@ -11,6 +11,7 @@ import Container from './Container'
 import Dialog from './Dialog'
 import Divider from './Divider'
 import Progress from './Progress'
+import Checkbox from './Checkbox'
 
 export {
   Text,
@@ -25,5 +26,6 @@ export {
   Container,
   Dialog,
   Divider,
-  Progress
+  Progress,
+  Checkbox
 }
