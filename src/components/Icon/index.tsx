@@ -5,7 +5,16 @@ import { IconPropTypes } from './types'
 import './index.scss'
 
 const Icon = (props: IconPropTypes): JSX.Element => {
-  const { name, size = 'small', color, withWrapper, onClick, className, refHandler } = props
+  const {
+    name,
+    size = 'small',
+    color,
+    withWrapper = false,
+    wrapperColor = 'borderGray',
+    onClick,
+    className,
+    refHandler
+  } = props
 
   const svg = customIcons[name as keyof TCustomIcons]
 
@@ -16,13 +25,17 @@ const Icon = (props: IconPropTypes): JSX.Element => {
     <div
       ref={refHandler}
       onClick={onClick}
-      className={`custom-icon ${className}`}
+      className={`custom_icon ${className}`}
       dangerouslySetInnerHTML={{ __html: svg(iconColor, iconSize) }}
     />
   )
 
   if (withWrapper) {
-    content = <div className="icon_wrapper">{content}</div>
+    content = (
+      <div className="icon_wrapper" style={{ border: `1px solid ${customColors[wrapperColor]}` }}>
+        {content}
+      </div>
+    )
   }
 
   return content

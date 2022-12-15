@@ -1,7 +1,10 @@
 @import '../../sass/helpers/colors.scss';
 
-.custom-icon{
+.custom_icon{
     cursor: pointer;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
 }
 
 .icon_wrapper {
@@ -9,10 +12,12 @@
     height: 40px;
     background-color: $justWhite;
     position: relative;
-    border: 1px solid $borderGray;
     border-radius: 4px;
-
-    .custom-icon {
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    .custom_icon {
         position: absolute;
         top: 50%;
         left: 50%;

@@ -1,0 +1,39 @@
+@import '../../sass/helpers/colors.scss';
+.custom_checkbox_container{
+    display: flex;
+    align-items: flex-start;
+    &_content {
+        border: 1px solid $inputBorderGray;
+        border-radius: 4px;
+        box-sizing: border-box;
+        display: flex;
+        width: 18px;
+        height: 18px;
+        position: relative;
+        margin-inline-end: 15px;
+        cursor: pointer;
+        position: relative;
+    }
+    &_icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .checked{
+        background: $inputBorderActive;
+        border-radius: 4px;
+        box-sizing: border-box;
+        border: none;
+        
+    }
+    .custom_text{
+        user-select: none;
+    }
+   
+}
+
+
+
+
+

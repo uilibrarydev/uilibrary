@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import Text from '../Text'
 import { TContainerProps } from './types'
 import './index.scss'
 
@@ -7,7 +8,7 @@ const Container: FC<TContainerProps> = (props) => {
 
   return (
     <div className="container">
-      <h1>{title || ''}</h1>
+      <Text size="large">{title || ''}</Text>
       {children}
     </div>
   )

@@ -1,4 +1,4 @@
-declare type TIconSize = 'xSmall' | 'small' | 'medium' | 'large'
+declare type TIconSize = 'xxSmall' | 'xSmall' | 'small' | 'medium' | 'large'
 declare type TTextSize = 'xSmall' | 'small' | 'medium' | 'large' | 'xLarge'
 declare type TColor =
   | 'borderGray'
@@ -41,11 +41,11 @@ interface HTMLInputEvent extends Event {
 }
 
 interface FieldError {
-  ref?: React.RefObject<HTMLInputElement>
+  ref?: RefObject<HTMLInputElement>
   message?: string
 }
 
-declare type FormInitialValue = {
+declare type TFormData = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }
@@ -70,6 +70,10 @@ declare type FieldErrors = {
   [key: string]: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined
 }
 
+interface RefObject<T> {
+  readonly current: T | null
+}
+
 declare type TSetValue = (name: string, value: unknown, config?: { [key: string]: unknown }) => void
 
 declare type TRegister = (name: string, RegisterOptions?) => { onChange; onBlur; name; ref }
@@ -78,19 +82,22 @@ interface FileEventTarget extends EventTarget {
   files: FileList
 }
 
-interface InputCustomPropTypes {
+interface InputCustomProps {
+  mask?: string
   className?: string
   value?: string
   error?: string
   showError?: boolean
   label?: string
+  ref?: HTMLInputElement<HTMLInputElement>
   style?: Record<string, string>
   onChange?: (event: TInputChangeEventType) => void
+  onBlur?: (event: TInputChangeEventType) => void
 }
 
-declare type InputPropTypes = InputCustomPropTypes & React.HTMLProps<HTMLInputElement>
+declare type TInputPropTypes = InputCustomProps & React.HTMLProps<HTMLInputElement>
 
-interface TFileUploadPropTypes {
+interface TFileUploadProps {
   allowedTypes?: Array<string>
   label?: string
   getFiles?: (files: FileList) => void
@@ -98,17 +105,20 @@ interface TFileUploadPropTypes {
   setFieldValue: TSetValue
 }
 
-declare type TComponentProps = TFileUploadPropTypes | InputCustomPropTypes
-// {
-//   className?: string
-//   style?: Record<string, string>
-//   value?: string
-//   error?: string
-//   showError?: boolean
-//   label?: string
-//   name?: string
-//   allowedTypes?: Array<string>
-//   getFiles?: (files: FileList) => void
-//   onChange?: (value: React.FormEvent<HTMLInputElement>) => void
-//   setFieldValue: TSetValue
-// }
+declare type TCheckboxProps = {
+  label?: string | JSX.Element
+  value: boolean
+  onClick: (isChecked: boolean) => void
+  name?: string
+  setFieldValue?: TSetValue
+}
+
+declare type TComponentProps = TFileUploadProps | InputCustomProps | TCheckboxProps
+
+declare type TImageMimeTypes =
+  | 'image/jpeg'
+  | 'image/jpg'
+  | 'image/png'
+  | 'image/heic'
+  | 'image/heif'
+  | 'application/pdf'

@@ -1,6 +1,6 @@
 {
   "name": "dino_ui_tools",
-  "version": "1.1.7",
+  "version": "1.1.21",
   "description": "",
   "main": "./dist/",
   "types": "./dist/types",
@@ -45,12 +45,14 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
+    "@types/react-input-mask": "^3.0.2",
     "axios": "^1.2.0",
     "classnames": "^2.3.2",
     "framer-motion": "4.1.17",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.39.7",
+    "react-input-mask": "^2.0.4",
     "sass": "^1.56.1",
     "sass-loader": "^10.4.1",
     "yup": "^0.32.11"

@@ -1,20 +1,14 @@
-import React, { useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import IconComp from '../../components/Icon'
+import Text from '../../components/Text'
 import UploadedState from './uploaded-state'
 import './index.scss'
 
-const FileUpload = (props: TFileUploadPropTypes): JSX.Element | null => {
-  const { allowedTypes = ['*'], label, getFiles, name, setFieldValue, ...rest } = props
+const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
+  const { allowedTypes = ['*'], label, getFiles, name, setFieldValue } = props
 
-  const [files, setFiles] = useState(null)
+  const [file, setFile] = useState<File | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
-
-  const renderAllowedFileTypes = () => {
-    return allowedTypes
-      .join(', ')
-      .split('')
-      .map((type: string, index: number) => <span key={index}>{type}</span>)
-  }
 
   const handleClick = () => {
     if (fileInputRef.current) {
@@ -22,42 +16,59 @@ const FileUpload = (props: TFileUploadPropTypes): JSX.Element | null => {
     }
   }
 
-  const handleChange = (event: TEventType) => {
-    setFiles(event?.target?.files)
-    if (name) {
-      setFieldValue(name, event?.target?.files)
+  const getFileType = () => {
+    if (file && file.type) {
+      return file.type.split('/')[1]
     }
-    if (getFiles) {
-      getFiles(event?.target?.files)
+    return ''
+  }
+
+  const handleChange = (event: TEventType) => {
+    if (event?.target?.files && event?.target?.files[0]) {
+      setFile(event?.target?.files[0])
+      if (name) {
+        setFieldValue(name, event?.target?.files[0])
+      }
+      if (getFiles) {
+        getFiles(event?.target?.files[0])
+      }
     }
   }
 
-  const renderUploadedFile = () => {
-    if (files) {
-      return (
-        <div>
-          <UploadedState name={files[0]?.['name']} />
-        </div>
-      )
+  const handleFileRemove = useCallback(() => {
+    setFile(null)
+    if (name) {
+      setFieldValue(name, [])
     }
+  }, [name, setFieldValue])
 
+  if (file) {
     return (
-      <div>
-        {/* TODO use Text component */}
-        <div>Թույլատրելի տեսակներ</div>
-        {renderAllowedFileTypes()}
-      </div>
+      <UploadedState name={file?.['name']} onRemove={handleFileRemove} fileType={getFileType()} />
     )
   }
-  return (
-    <div>
-      <div onClick={handleClick}>
-        <IconComp name="fileUpload" size="small" color="inputBorderError" withWrapper />
-        {label && <span>{label}</span>}
-      </div>
 
-      <div>{renderUploadedFile()}</div>
-      <input name={name} type="file" className="hide" {...rest} />
+  return (
+    <div className="upload_button">
+      <IconComp name="attach" size="xSmall" color="iconGray" withWrapper onClick={handleClick} />
+      <div className="label_container">
+        {label && (
+          <Text color="buttonGreen" onClick={handleClick} className="upload_button_attach">
+            {label}
+          </Text>
+        )}
+        <input
+          name={name}
+          type="file"
+          className="hide"
+          ref={fileInputRef}
+          accept={`${allowedTypes.join(',')}`}
+          onChange={handleChange}
+        />
+        <Text color="footerTextGray" size="xSmall">{`Թույլատրելի տեսակներ ${allowedTypes.join(
+          ', '
+        )}`}</Text>
+      </div>
     </div>
   )
 }

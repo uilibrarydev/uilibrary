@@ -1,9 +1,9 @@
 @import '../../sass/helpers/sizes.scss';
 
 
-.icon{
-    &_xsmall{
-        font-size: $smallTextSize;
+.custom_text{
+    &_xSmall{
+        font-size: $xSmallTextSize;
     }
     &_small{
         font-size: $smallTextSize;
@@ -16,5 +16,12 @@
     }
     &_xLarge{
         font-size: $xLargeTextSize;
+    }
+    &_overflow{
+        // max-width: 125px;
+        // opacity: 1;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
     }
 }

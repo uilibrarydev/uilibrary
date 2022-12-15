@@ -1,4 +1,5 @@
 export const iconSizes: TIconSizes = {
+  xxSmall: '13px',
   xSmall: '18px',
   small: '24px',
   medium: '36px',
@@ -22,3 +23,16 @@ export const customColors: TCustomColors = {
   footerUnderlineGray: '#ECECEC',
   darkGray: '#7B7C82'
 }
+
+export const IMAGE_MIME_TYPES = ['image/jpeg', 'image/png', 'application/pdf']
+
+export const IMAGE_MIME_TYPES_FOR_PREVIEW: TImageMimeTypes[] = [
+  'image/jpeg',
+  'image/jpg',
+  'image/png',
+  'image/heic',
+  'image/heif',
+  'application/pdf'
+]
+
+export const IMAGE_MIME_TYPE: string[] = ['.jpeg', '.jpg', '.png', '.heic', '.heif', '.pdf']
