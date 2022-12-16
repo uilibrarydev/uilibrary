@@ -55,7 +55,11 @@ const Template = (): JSX.Element => {
 
   return (
     <>
-      <FormContainer validationScheme={VALIDATION_SCHEME} initialValues={INITIAL_VALUES}>
+      <FormContainer
+        validationScheme={VALIDATION_SCHEME}
+        initialValues={INITIAL_VALUES}
+        setSubmitButtonState={setSubmitButtonState}
+      >
         <>
           <FormField isControlled component={Input} name={'firstName'} label="First Name" />
           <FormField
@@ -100,6 +104,10 @@ const Template = (): JSX.Element => {
           />
         </>
       </FormContainer>
+
+      <button type="submit" form="am_hook_form">
+        submit
+      </button>
     </>
   )
 }

@@ -1,4 +1,5 @@
 export type TButtonPropTypes = {
+  buttonActionType?: 'submit'
   buttonText: string
   className?: string
   type: 'primary' | 'secondary' | 'disabled' | 'passiveTextButton' | 'activeTextButton'
