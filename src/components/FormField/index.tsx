@@ -17,7 +17,6 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
   const { register, errors, setValue, control } = useContext(FormContext)
 
   const errorMessage = errors && errors[name] ? errors[name].message : null
-  console.log('errorMessage', errorMessage)
 
   const changeHandler =
     (onChange: (event: TInputChangeEventType) => void) => (event: TInputChangeEventType) => {

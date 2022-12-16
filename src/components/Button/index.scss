@@ -8,6 +8,7 @@
     line-height: 16px;
     height: 40px;
     font-weight: 400;
+    
 }
 
 .primary{
@@ -45,3 +46,7 @@
     background: transparent;
     color: $textBlack; 
 }
+
+button[disabled]{
+    opacity: 0.7;
+  }

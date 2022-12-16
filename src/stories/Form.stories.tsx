@@ -10,7 +10,13 @@ export default {
   component: FormContainer
 }
 
-const INITIAL_VALUES = { checkbox: false, firstName: 'Lilit', phoneNumber: '', file: '', age: '' }
+const INITIAL_VALUES = {
+  checkbox: false,
+  firstName: 'Lilit',
+  phoneNumber: '',
+  file: '',
+  age: ''
+}
 
 const VALIDATION_SCHEME = yup.object({
   checkbox: yup
@@ -53,24 +59,23 @@ const Template = (): JSX.Element => {
     )
   }, [])
 
+  const BUTTONS_CONFIG = [
+    {
+      buttonText: 'Submit Form',
+      type: 'primary'
+    }
+  ]
+
   return (
     <>
       <FormContainer
         validationScheme={VALIDATION_SCHEME}
         initialValues={INITIAL_VALUES}
-        setSubmitButtonState={setSubmitButtonState}
+        buttonConfigs={BUTTONS_CONFIG}
       >
         <>
           <FormField isControlled component={Input} name={'firstName'} label="First Name" />
-          <FormField
-            isControlled
-            component={Input}
-            name={'phoneNumber'}
-            label="Phone Number"
-            mask="(+1) 999 999 9999"
-            placeholder="(+1) 999 999 9999"
-            customOnChange={onChange}
-          />
+
           <FormField component={Input} name={'secondname'} label="Second Name" />
           <FormField component={Input} name={'age'} label="Age" />
           <FormField
@@ -81,20 +86,7 @@ const Template = (): JSX.Element => {
             isNeedChangeHandler
             getFiles={getFiles}
           />
-          <FormField
-            component={Input}
-            name="phoneNumber"
-            label="Հեռախոսահամար"
-            mask="+374 99 99 99 99"
-            placeholder="+374 90 00 00 01"
-          />
-          <FormField
-            component={Input}
-            name={'phoneNumber'}
-            label="Հեռախոսահամար"
-            mask="+374 99 99 99 99"
-            placeholder="+374 90 00 00 01"
-          />
+
           <FormField
             isNeedChangeHandler
             isControlled
@@ -104,10 +96,6 @@ const Template = (): JSX.Element => {
           />
         </>
       </FormContainer>
-
-      <button type="submit" form="am_hook_form">
-        submit
-      </button>
     </>
   )
 }

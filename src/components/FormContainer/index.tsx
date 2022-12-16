@@ -4,16 +4,17 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { FormPropTypes } from './types'
 import './index.scss'
+import Button from '../Button'
 
 const FormContainer = (props: FormPropTypes): JSX.Element => {
-  const { children, initialValues, validationScheme } = props
+  const { children, initialValues, validationScheme, buttonConfigs } = props
 
   const {
     handleSubmit,
-    formState: { errors },
     register,
     setValue,
-    control
+    control,
+    formState: { errors }
   } = useForm({
     reValidateMode: 'onChange',
     resolver: yupResolver(validationScheme),
@@ -24,8 +25,14 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
     <form onSubmit={handleSubmit((data) => console.log('data', data))} className="form_container">
       <FormContext.Provider value={{ register, errors, control, setValue }}>
         {children}
+        {buttonConfigs && (
+          <div className="buttons_container">
+            {buttonConfigs.map((buttonConfig, index) => {
+              return <Button {...buttonConfig} key={index} />
+            })}
+          </div>
+        )}
       </FormContext.Provider>
-      <input type="submit" />
     </form>
   )
 }

@@ -2,7 +2,6 @@ import React from 'react'
 import { Meta, Story } from '@storybook/react'
 
 import { Button as ButtonComp } from '../components'
-import { TButtonPropTypes } from '../components/Button/types'
 
 export default {
   title: 'Button',
@@ -15,6 +14,7 @@ const Template: Story<TButtonPropTypes> = (args): JSX.Element => {
 
 export const ButtonPrimary = Template.bind({})
 ButtonPrimary.args = {
+  disabled: true,
   buttonText: "I'm primary button",
   onClick: () => console.log('buttonClicked'),
   type: 'primary'
