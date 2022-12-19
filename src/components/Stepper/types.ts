@@ -4,11 +4,10 @@ export type TStepperContentWrapperProps = {
   prevHandler: () => void
   nextHandler: () => void
   activeStepIndex: number
-  children: JSX.Element
+  stepCount: number
 }
-declare type TComp = () => JSX.Element
+declare type TComp = (props: TStepperContentWrapperProps) => JSX.Element
 
 export type TStepperProps = {
   list: TComp[]
-  wrapper: (props: TStepperContentWrapperProps) => JSX.Element
 }
