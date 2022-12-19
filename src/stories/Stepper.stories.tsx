@@ -1,6 +1,5 @@
 import React from 'react'
-import { Button, Stepper as StepperComp } from '../components'
-import { TStepperContentWrapperProps } from '../components/Stepper/types'
+import { Stepper as StepperComp } from '../components'
 
 export default {
   title: 'Stepper',
@@ -21,22 +20,9 @@ const COMP4 = () => {
   return <div>STEP4</div>
 }
 
-const Wrapper = (props: TStepperContentWrapperProps) => {
-  const { children, isNextDisabled, isPrevDisabled, prevHandler, nextHandler } = props
-
-  return (
-    <div>
-      progress/header
-      <div>{children}</div>
-      <Button buttonText="Next" onClick={prevHandler} type="secondary" disabled={isPrevDisabled} />
-      <Button buttonText="Next" onClick={nextHandler} type="primary" disabled={isNextDisabled} />
-    </div>
-  )
-}
-
 const LIST = [COMP1, COMP2, COMP3, COMP4]
 
 const Template = (): JSX.Element => {
-  return <StepperComp list={LIST} wrapper={Wrapper} />
+  return <StepperComp list={LIST} />
 }
 export const Stepper = Template.bind({})

@@ -16,20 +16,19 @@ const Stepper = (props: TStepperProps): JSX.Element => {
     setActiveStepIndex((activeStepIndex) => activeStepIndex + 1)
   }, [])
 
-  const { list, wrapper } = props
+  const { list } = props
   const Content = list[activeStepIndex]
-  const Wrapper = wrapper ?? Fragment
+
   return (
     <div>
-      <Wrapper
+      <Content
         activeStepIndex={activeStepIndex}
         isNextDisabled={activeStepIndex === list.length - 1}
         isPrevDisabled={activeStepIndex === 0}
         prevHandler={decreaseStepIndex}
         nextHandler={increaseStepIndex}
-      >
-        <Content />
-      </Wrapper>
+        stepCount={list.length}
+      />
     </div>
   )
 }
