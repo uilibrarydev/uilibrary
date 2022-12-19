@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react'
+import React, { useContext } from 'react'
 import { FormContext } from '../../context'
 import { Controller } from 'react-hook-form'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
@@ -17,7 +17,6 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
   const { register, errors, setValue, control } = useContext(FormContext)
 
   const errorMessage = errors && errors[name] ? errors[name].message : null
-  console.log('errorMessage', errorMessage)
 
   const changeHandler =
     (onChange: (event: TInputChangeEventType) => void) => (event: TInputChangeEventType) => {

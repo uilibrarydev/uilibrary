@@ -15,7 +15,7 @@ const Template = (): JSX.Element => {
 
   return (
     <div>
-      <ContainerComp title="Title ">
+      <ContainerComp>
         <div>
           <Input />
           <text />

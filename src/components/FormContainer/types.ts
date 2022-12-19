@@ -5,4 +5,5 @@ export interface FormPropTypes {
   children: JSX.Element
   validationScheme: AnyObjectSchema
   initialValues: TFormData
+  buttonConfigs?: TButtonPropTypes[]
 }

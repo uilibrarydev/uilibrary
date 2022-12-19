@@ -1,14 +1,23 @@
 import React from 'react'
 import classNames from 'classnames'
-import { TButtonPropTypes } from './types'
 import './index.scss'
 import Icon from '../Icon'
 
 const Button = (props: TButtonPropTypes): JSX.Element => {
-  const { buttonText, type, onClick, className, iconProps } = props
+  const {
+    buttonText,
+    type,
+    onClick,
+    className,
+    iconProps,
+    buttonActionType,
+    disabled = false
+  } = props
 
   return (
     <button
+      disabled={disabled}
+      type={buttonActionType}
       className={classNames({ [type]: true, [className || '']: true, ['custom-button']: true })}
       onClick={onClick}
     >

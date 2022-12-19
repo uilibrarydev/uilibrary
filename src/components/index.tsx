@@ -12,6 +12,7 @@ import Dialog from './Dialog'
 import Divider from './Divider'
 import Progress from './Progress'
 import Checkbox from './Checkbox'
+import Stepper from './Stepper'
 
 export {
   Text,
@@ -27,5 +28,6 @@ export {
   Dialog,
   Divider,
   Progress,
-  Checkbox
+  Checkbox,
+  Stepper
 }
