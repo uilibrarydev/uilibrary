@@ -5,9 +5,10 @@ import { useForm } from 'react-hook-form'
 import { FormPropTypes } from './types'
 import './index.scss'
 import Button from '../Button'
+import { noop } from '../../utils'
 
 const FormContainer = (props: FormPropTypes): JSX.Element => {
-  const { children, initialValues, validationScheme, buttonConfigs } = props
+  const { children, initialValues, validationScheme, buttonConfigs, onSubmit } = props
 
   const {
     handleSubmit,
@@ -22,7 +23,7 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
   })
 
   return (
-    <form onSubmit={handleSubmit((data) => console.log('data', data))} className="form_container">
+    <form onSubmit={handleSubmit(onSubmit || noop)} className="form_container">
       <FormContext.Provider value={{ register, errors, control, setValue }}>
         {children}
         {buttonConfigs && (

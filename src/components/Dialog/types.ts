@@ -5,4 +5,8 @@ export type TDialogPropTypes = {
   title: string
   contentText: string
   contentTitle: string
+  buttonProps?: {
+    confirmButtonText: string
+    cancelButtonText: string
+  }
 }

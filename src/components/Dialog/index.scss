@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: space-between;
     &_title{
+        font-weight: 500;
         color: $black;
         font-size: $mediumTextSize;
         padding: 16px 24px;

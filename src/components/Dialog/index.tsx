@@ -5,7 +5,18 @@ import { TDialogPropTypes } from './types'
 
 import './index.scss'
 const Dialog = (props: TDialogPropTypes): JSX.Element | null => {
-  const { isOpen, onClose, onSumbit, title, contentTitle, contentText } = props
+  const {
+    isOpen,
+    onClose,
+    onSumbit,
+    title,
+    contentTitle,
+    contentText,
+    buttonProps = {
+      confirmButtonText: 'Հաստատել',
+      cancelButtonText: 'չեղարկել'
+    }
+  } = props
 
   const handleSubmit = () => {
     onSumbit()
@@ -24,10 +35,14 @@ const Dialog = (props: TDialogPropTypes): JSX.Element | null => {
           <Button
             className="dialog_cancel_button"
             type="secondary"
-            buttonText="Cancel"
+            buttonText={buttonProps.cancelButtonText}
             onClick={onClose}
           />
-          <Button type="primary" buttonText="Submit" onClick={handleSubmit} />
+          <Button
+            type="primary"
+            buttonText={buttonProps.confirmButtonText}
+            onClick={handleSubmit}
+          />
         </div>
       </div>
     </Popup>
