@@ -95,7 +95,21 @@ interface InputCustomProps {
   onBlur?: (event: TInputChangeEventType) => void
 }
 
+interface IDatePickerProps {
+  timeOnly?: boolean
+  className?: string
+  value: Date | null | undefined
+  error?: string
+  showError?: boolean
+  label?: string
+  ref?: HTMLInputElement<HTMLInputElement>
+  style?: Record<string, string>
+  onChange?: (event: TInputChangeEventType) => void
+  onBlur?: (event: TInputChangeEventType) => void
+}
+
 declare type TInputPropTypes = InputCustomProps & React.HTMLProps<HTMLInputElement>
+declare type TTypeDatePicker = IDatePickerProps & React.HTMLProps<HTMLInputElement>
 
 interface TFileUploadProps {
   allowedTypes?: Array<string>
