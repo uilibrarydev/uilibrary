@@ -7,9 +7,11 @@ export default {
 }
 
 const Template = (): JSX.Element => {
+  const [value, setValue] = useState<Date>(new Date())
+
   return (
     <div>
-      <DatePickerComp />
+      <DatePickerComp value={value} onChange={setValue} />
     </div>
   )
 }

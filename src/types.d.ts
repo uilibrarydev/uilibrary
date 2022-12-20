@@ -97,15 +97,8 @@ interface InputCustomProps {
 
 interface IDatePickerProps {
   timeOnly?: boolean
-  className?: string
   value: Date | null | undefined
-  error?: string
-  showError?: boolean
-  label?: string
-  ref?: HTMLInputElement<HTMLInputElement>
-  style?: Record<string, string>
-  onChange: (event: TInputChangeEventType | Date) => void
-  onBlur?: (event: TInputChangeEventType) => void
+  onChange: (event: Date) => void
 }
 
 declare type TInputPropTypes = InputCustomProps & React.HTMLProps<HTMLInputElement>

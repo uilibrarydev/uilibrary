@@ -1,7 +1,7 @@
 import React from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-const CustomDatePicker = (props: TTypeDatePicker): JSX.Element => {
+const CustomDatePicker = (props: IDatePickerProps): JSX.Element => {
   const { timeOnly, value = new Date(), onChange } = props
 
   const changeHandler = (date: Date) => {
