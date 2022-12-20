@@ -1,23 +1,11 @@
 import React from 'react'
 import DatePicker from 'react-datepicker'
-
 import 'react-datepicker/dist/react-datepicker.css'
-
-const CustomDatePicker = (props: TTypeDatePicker) => {
-  const {
-    className,
-    showError = false,
-    error,
-    label,
-    timeOnly,
-    value = new Date(),
-    ...rest
-  } = props
+const CustomDatePicker = (props: TTypeDatePicker): JSX.Element => {
+  const { timeOnly, value = new Date(), onChange } = props
 
   const changeHandler = (date: Date) => {
-    if (rest?.onChange) {
-      // rest?.onChange(date) //
-    }
+    onChange(date)
   }
 
   if (timeOnly) {
@@ -34,11 +22,7 @@ const CustomDatePicker = (props: TTypeDatePicker) => {
     )
   }
 
-  return (
-    <>
-      <DatePicker onChange={changeHandler} selected={value} />
-    </>
-  )
+  return <DatePicker onChange={changeHandler} selected={value} />
 }
 
 export default CustomDatePicker

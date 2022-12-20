@@ -33,7 +33,7 @@ declare type TCustomColors = {
 }
 
 interface TInputChangeEventType extends EventTarget {
-  target: { value: string }
+  target?: { value: string }
 }
 
 interface HTMLInputEvent extends Event {
@@ -104,7 +104,7 @@ interface IDatePickerProps {
   label?: string
   ref?: HTMLInputElement<HTMLInputElement>
   style?: Record<string, string>
-  onChange?: (event: TInputChangeEventType) => void
+  onChange: (event: TInputChangeEventType | Date) => void
   onBlur?: (event: TInputChangeEventType) => void
 }
 

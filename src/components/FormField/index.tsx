@@ -19,7 +19,8 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
   const errorMessage = errors && errors[name] ? errors[name].message : null
 
   const changeHandler =
-    (onChange: (event: TInputChangeEventType) => void) => (event: TInputChangeEventType) => {
+    (onChange: (event: TInputChangeEventType | Date) => void) =>
+    (event: TInputChangeEventType | Date) => {
       if (customOnChange) {
         customOnChange(event)
       }
@@ -36,14 +37,13 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
         <Controller
           control={control}
           name={name}
-          render={({ field: { onChange, onBlur, value, name, ref } }) => (
+          render={({ field: { onChange, onBlur, value, name } }) => (
             <FormItemComp
               {...rest}
               onChange={changeHandler(onChange)}
               name={name}
               value={value}
               onBlur={onBlur}
-              ref={ref}
               {...(isNeedChangeHandler ? { setFieldValue: setValue } : {})}
             />
           )}

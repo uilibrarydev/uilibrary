@@ -13,7 +13,7 @@ import Divider from './Divider'
 import Progress from './Progress'
 import Checkbox from './Checkbox'
 import Stepper from './Stepper'
-import CustomDatePicker from './date-picker'
+import CustomDatePicker from './DatePicker'
 
 export {
   Text,

@@ -23,18 +23,17 @@ const INITIAL_VALUES = {
 const VALIDATION_SCHEME = yup.object({
   date: yup.date().required(),
   time: yup.string().required(),
-
   checkbox: yup
     .bool()
     .required()
-    .test('valid', 'նշել պարտադիր', (val) => val)
-  // phoneNumber: yup
-  //   .string()
-  //   .required('A file is required')
-  // .test('valid', 'Phone number is not valid', (val) => {
-  //   const isValid = val?.indexOf('_') === -1
-  //   return !!isValid
-  // })
+    .test('valid', 'նշել պարտադիր', (val) => val),
+  phoneNumber: yup
+    .string()
+    .required('A file is required')
+    .test('valid', 'Phone number is not valid', (val) => {
+      const isValid = val?.indexOf('_') === -1
+      return !!isValid
+    })
 })
 
 const getFiles = (files: FileList) => {
