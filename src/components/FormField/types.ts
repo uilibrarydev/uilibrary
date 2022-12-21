@@ -1,4 +1,4 @@
-export type TFormFieldPropTypes = {
+export interface TFormFieldPropTypes {
   component: (props: InputCustomProps | TFileUploadProps | TCheckboxProps) => JSX.Element | null
   name: string
   label?: string

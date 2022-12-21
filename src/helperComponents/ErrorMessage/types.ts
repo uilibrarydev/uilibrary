@@ -1,3 +1,3 @@
-export type TErrorMessageProps = {
+export interface TErrorMessageProps {
   message: string
 }

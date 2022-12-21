@@ -1,4 +1,4 @@
-export type IconPropTypes = {
+export interface IconPropTypes {
   name: string
   size?: TIconSize
   color?: TColor

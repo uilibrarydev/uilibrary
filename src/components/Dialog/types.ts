@@ -1,4 +1,4 @@
-export type TDialogPropTypes = {
+export interface TDialogPropTypes {
   isOpen: boolean
   onClose: () => void
   onSumbit: () => void

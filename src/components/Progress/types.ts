@@ -1,3 +1,3 @@
-export type TProgressPropTypes = {
+export interface TProgressPropTypes {
   percent: number
 }
