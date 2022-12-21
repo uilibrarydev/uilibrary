@@ -33,7 +33,7 @@ declare type TCustomColors = {
 }
 
 interface TInputChangeEventType extends EventTarget {
-  target: { value: string }
+  target?: { value: string }
 }
 
 interface HTMLInputEvent extends Event {
@@ -95,7 +95,14 @@ interface InputCustomProps {
   onBlur?: (event: TInputChangeEventType) => void
 }
 
+interface IDatePickerProps {
+  timeOnly?: boolean
+  value: Date | null | undefined
+  onChange: (event: Date) => void
+}
+
 declare type TInputPropTypes = InputCustomProps & React.HTMLProps<HTMLInputElement>
+declare type TTypeDatePicker = IDatePickerProps & React.HTMLProps<HTMLInputElement>
 
 interface TFileUploadProps {
   allowedTypes?: Array<string>

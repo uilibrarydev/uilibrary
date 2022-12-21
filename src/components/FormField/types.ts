@@ -6,5 +6,5 @@ export type TFormFieldPropTypes = {
   getFiles?: (files: FileList) => void
   isControlled?: boolean
   isNeedChangeHandler?: boolean
-  customOnChange: (event: TInputChangeEventType) => void
+  customOnChange: (event: TInputChangeEventType | Date) => void
 }

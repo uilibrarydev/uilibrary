@@ -1,0 +1,18 @@
+import React, { useState } from 'react'
+import { CustomDatePicker as DatePickerComp } from '../components'
+
+export default {
+  title: 'DatePicker',
+  component: DatePickerComp
+}
+
+const Template = (): JSX.Element => {
+  const [value, setValue] = useState<Date>(new Date())
+
+  return (
+    <div>
+      <DatePickerComp value={value} onChange={setValue} />
+    </div>
+  )
+}
+export const Dialog = Template.bind({})

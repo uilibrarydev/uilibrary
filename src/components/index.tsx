@@ -13,6 +13,7 @@ import Divider from './Divider'
 import Progress from './Progress'
 import Checkbox from './Checkbox'
 import Stepper from './Stepper'
+import CustomDatePicker from './DatePicker'
 
 export {
   Text,
@@ -29,5 +30,6 @@ export {
   Divider,
   Progress,
   Checkbox,
-  Stepper
+  Stepper,
+  CustomDatePicker
 }
