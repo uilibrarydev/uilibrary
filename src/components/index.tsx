@@ -14,6 +14,7 @@ import Progress from './Progress'
 import Checkbox from './Checkbox'
 import Stepper from './Stepper'
 import CustomDatePicker from './DatePicker'
+import TextArea from './TextArea'
 
 export {
   Text,
@@ -31,5 +32,6 @@ export {
   Progress,
   Checkbox,
   Stepper,
-  CustomDatePicker
+  CustomDatePicker,
+  TextArea
 }
