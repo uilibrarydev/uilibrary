@@ -4,8 +4,9 @@ import commonjs from '@rollup/plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
 import postcss from 'rollup-plugin-postcss'
 import json from '@rollup/plugin-json'
+import packageJson from './package.json'
 
-const packageJson = require('./package.json')
+// const packageJson = require('./package.json')
 
 export default {
   input: 'src/index.tsx',
@@ -24,7 +25,7 @@ export default {
   plugins: [
     json(),
     peerDepsExternal(),
-    resolve(),
+    resolve({ browser: true, preferBuiltins: true, mainFields: ['browser'] }),
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
     postcss({

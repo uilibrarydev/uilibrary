@@ -1,2 +1,2 @@
-import { httpClient } from './http-service'
-export { httpClient }
+import { HttpClient } from './http-service'
+export { HttpClient }
