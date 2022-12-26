@@ -4,6 +4,10 @@ export interface TButtonPropTypes {
   buttonText: string
   className?: string
   type: 'primary' | 'secondary' | 'disabled' | 'passiveTextButton' | 'activeTextButton'
-  iconProps?: { name: string; size?: TIconSize; color?: TColor }
+  iconProps?: {
+    name: string
+    size?: TIconSize
+    color?: TColor
+  }
   onClick: (event: TEventType) => void
 }

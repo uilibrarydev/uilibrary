@@ -79,7 +79,12 @@ declare type TSetValue = (name: string, value: unknown, config?: { [key: string]
 declare type TRegister = (
   name: string,
   RegisterOptions?
-) => { onChange: unknown; onBlur: unknown; name: string; ref: unknown }
+) => {
+  onChange: unknown
+  onBlur: unknown
+  name: string
+  ref: unknown
+}
 
 interface FileEventTarget extends EventTarget {
   files: FileList
