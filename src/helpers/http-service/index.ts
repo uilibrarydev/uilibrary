@@ -1,45 +1,47 @@
-import axios, { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios'
-import { IHttpClient, IHttpClientRequestParameters } from './types'
+// const axios , { AxiosInstance, AxiosRequestConfig, AxiosResponse } = require("axios")
 
-export class HttpClient implements IHttpClient {
-  get<T>(params: IHttpClientRequestParameters): Promise<T> {
-    return new Promise<T>((resolve, reject) => {
-      const { endpoint } = params
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import { Storage } from '../../utils/storage-manager'
+import { accessTokenKey } from './consts'
 
-      // const options: AxiosRequestConfig = {
-      //   headers: {}
-      // }
-
-      axios
-        .get(endpoint)
-        // TODO
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        .then((response: any) => {
-          resolve(response.data as T)
-        })
-        .catch((response: unknown) => {
-          reject(response)
-        })
-    })
-  }
-  post<T>(parameters: IHttpClientRequestParameters): Promise<T> {
-    return new Promise<T>((resolve, reject) => {
-      const { endpoint, payload } = parameters
-
-      const options: AxiosRequestConfig = {
-        headers: {}
-      }
-
-      axios
-        .post(endpoint, payload, options)
-        .then((response: AxiosResponse) => {
-          resolve(response.data as T)
-        })
-        .catch((error: AxiosError) => {
-          reject(error)
-        })
-    })
-  }
+declare module 'axios' {
+  // type AxiosResponse<T = unknown> = Promise<T>
 }
 
-export const httpClient = new HttpClient()
+export abstract class HttpClient {
+  protected readonly instance: AxiosInstance
+
+  public constructor(baseURL: string) {
+    this.instance = axios.create({
+      baseURL
+    })
+
+    this.initializeResponseInterceptor()
+  }
+
+  private initializeResponseInterceptor(): void {
+    this.instance.interceptors.response.use(this.handleResponse, this.handleError)
+
+    this.instance.interceptors.request.use(this.handleRequest)
+  }
+
+  private async handleRequest(config: AxiosRequestConfig) {
+    config.headers = config.headers ?? {}
+
+    const token = await Storage.getItem(accessTokenKey)
+
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token}`
+    }
+
+    return config
+  }
+
+  private handleResponse({ data }: AxiosResponse) {
+    return data
+  }
+
+  protected handleError(error: string): void {
+    Promise.reject(error)
+  }
+}

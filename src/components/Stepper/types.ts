@@ -1,4 +1,4 @@
-export type TStepperContentWrapperProps = {
+export interface TStepperContentWrapperProps {
   isPrevDisabled: boolean
   isNextDisabled: boolean
   prevHandler: () => void
@@ -8,6 +8,6 @@ export type TStepperContentWrapperProps = {
 }
 declare type TComp = (props: TStepperContentWrapperProps) => JSX.Element
 
-export type TStepperProps = {
+export interface TStepperProps {
   list: TComp[]
 }

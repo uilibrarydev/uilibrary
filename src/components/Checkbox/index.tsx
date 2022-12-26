@@ -1,5 +1,6 @@
 import React from 'react'
 import Icon from '../Icon'
+import { TCheckboxProps } from '../../types/globals'
 import './index.scss'
 
 export const Checkbox = (props: TCheckboxProps): JSX.Element => {

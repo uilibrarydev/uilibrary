@@ -1,13 +1,16 @@
 {
-    // Place your settings in this file to overwrite default and user settings.
-    "javascript.validate.enable": false,
-    "javascript.format.enable": false,
-    "editor.formatOnSave": true,
-    "eslint.alwaysShowStatus": true,
-    "eslint.run": "onSave",
-    "prettier.semi": false,
-    "eslint.validate": ["javascript", "javascriptreact"],
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    }
+  // Place your settings in this file to overwrite default and user settings.
+  "javascript.validate.enable": false,
+  "javascript.format.enable": false,
+  "editor.formatOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.run": "onSave",
+  "prettier.semi": false,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   }
+}

@@ -113,16 +113,6 @@ interface TFileUploadProps {
   setFieldValue: TSetValue
 }
 
-declare type TCheckboxProps = {
-  label?: string | JSX.Element
-  value: boolean
-  onClick: (isChecked: boolean) => void
-  name?: string
-  setFieldValue?: TSetValue
-}
-
-declare type TComponentProps = TFileUploadProps | InputCustomProps | TCheckboxProps
-
 declare type TImageMimeTypes =
   | 'image/jpeg'
   | 'image/jpg'
@@ -130,13 +120,3 @@ declare type TImageMimeTypes =
   | 'image/heic'
   | 'image/heif'
   | 'application/pdf'
-
-declare type TButtonPropTypes = {
-  disabled?: boolean
-  buttonActionType?: 'submit'
-  buttonText: string
-  className?: string
-  type: 'primary' | 'secondary' | 'disabled' | 'passiveTextButton' | 'activeTextButton'
-  iconProps?: { name: string; size?: TIconSize; color?: TColor }
-  onClick: (event: TEventType) => void
-}

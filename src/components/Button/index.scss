@@ -1,4 +1,6 @@
 @import '../../sass/helpers/colors.scss';
+@import '../../tokens/colors.scss';
+
 .custom-button{
     border-radius: 4px;
     border: none;
@@ -13,7 +15,7 @@
 
 .primary{
     background-color: $buttonGreen;
-    color: $justWhite;
+    color: var(--neutral-white);
     
 }
 

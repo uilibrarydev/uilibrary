@@ -1,12 +1,13 @@
 import React from 'react'
 import classNames from 'classnames'
-import './index.scss'
 import Icon from '../Icon'
+import { TButtonPropTypes } from './types'
+import './index.scss'
 
 const Button = (props: TButtonPropTypes): JSX.Element => {
   const {
     buttonText,
-    type,
+    type = 'primary',
     onClick,
     className,
     iconProps,
@@ -30,3 +31,4 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
 }
 
 export default Button
+export {}

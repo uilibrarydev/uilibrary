@@ -1,3 +1,3 @@
-export type TContainerProps = {
+export interface TContainerProps {
   children: JSX.Element
 }

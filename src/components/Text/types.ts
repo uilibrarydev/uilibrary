@@ -1,4 +1,4 @@
-export type TextPropTypes = {
+export interface TextPropTypes {
   children: string
   size?: TTextSize
   color?: TColor
