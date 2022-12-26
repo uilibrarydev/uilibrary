@@ -38,4 +38,4 @@ rules:
 settings:
   react:
     # If this line cause problem in future. Check https://github.com/yannickcr/eslint-plugin-react/issues/1955
-    version: 'latest'
+    version: 'detect'
