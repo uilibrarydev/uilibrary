@@ -1,0 +1,36 @@
+
+@import '../../sass/helpers/colors.scss';
+
+
+.custom_switcher_container{
+    position: relative;
+    width: 28px;
+    height: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    .circle{
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color:$justWhite;
+    }
+    .switcher_content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top: 0;
+       
+    }
+    .checked{
+        left: 2px;
+        transition: left 0.5s ease;
+        
+    }
+    .unChecked{
+        left: calc(50% - 2px);
+        transition: left 0.5s ease;
+    }
+}
