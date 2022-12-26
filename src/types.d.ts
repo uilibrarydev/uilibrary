@@ -76,7 +76,10 @@ interface RefObject<T> {
 
 declare type TSetValue = (name: string, value: unknown, config?: { [key: string]: unknown }) => void
 
-declare type TRegister = (name: string, RegisterOptions?) => { onChange; onBlur; name; ref }
+declare type TRegister = (
+  name: string,
+  RegisterOptions?
+) => { onChange: unknown; onBlur: unknown; name: string; ref: unknown }
 
 interface FileEventTarget extends EventTarget {
   files: FileList

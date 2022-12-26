@@ -5,7 +5,6 @@ import './index.scss'
 
 const Switcher = (props: TSwitcherProps): JSX.Element => {
   const { isChecked, onChanage, id = '', backgroundColor = 'inputBorderActive' } = props
-  console.log('backgroundColor', backgroundColor)
 
   const handleClick = () => {
     onChanage(!isChecked)

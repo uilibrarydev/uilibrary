@@ -51,10 +51,6 @@ const getFiles = (files: FileList) => {
 }
 
 const Template = (): JSX.Element => {
-  const onChange = (event) => {
-    console.log('event', event)
-  }
-
   const checkboxLabel = useMemo(() => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -86,7 +82,6 @@ const Template = (): JSX.Element => {
         validationScheme={VALIDATION_SCHEME}
         initialValues={INITIAL_VALUES}
         buttonConfigs={BUTTONS_CONFIG}
-        onSubmit={(value: any) => console.log('value => ', value)}
       >
         <>
           <FormField isControlled component={Input} name={'firstName'} label="First Name" />
