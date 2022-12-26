@@ -101,9 +101,10 @@ interface IDatePickerProps {
   onChange: (event: Date) => void
 }
 
-declare type TTextAreaTypeProps = InputCustomProps & React.HTMLProps<HTMLTextAreaElement>
+// declare type TTextAreaTypeProps = InputCustomProps & React.HTMLProps<HTMLTextAreaElement>
 declare type TInputPropTypes = InputCustomProps & React.HTMLProps<HTMLInputElement>
 declare type TTypeDatePicker = IDatePickerProps & React.HTMLProps<HTMLInputElement>
+declare type TTextAreaEventType = ChangeEventHandler<HTMLTextAreaElement>
 
 interface TFileUploadProps {
   allowedTypes?: Array<string>

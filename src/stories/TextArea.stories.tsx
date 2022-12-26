@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { TextArea as TextAreaComp } from '../components'
 
 export default {
@@ -19,4 +19,4 @@ const Template = (): JSX.Element => {
   )
 }
 
-export const Input = Template.bind({})
+export const TextArea = Template.bind({})
