@@ -1,3 +1,5 @@
+import { TCheckboxProps } from '../../types/globals'
+
 export interface TFormFieldPropTypes {
   component: (props: InputCustomProps | TFileUploadProps | TCheckboxProps) => JSX.Element | null
   name: string

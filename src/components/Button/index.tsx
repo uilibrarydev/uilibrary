@@ -7,7 +7,7 @@ import './index.scss'
 const Button = (props: TButtonPropTypes): JSX.Element => {
   const {
     buttonText,
-    type,
+    type = 'primary',
     onClick,
     className,
     iconProps,

@@ -1,32 +1,37 @@
-import React, { useMemo, useState } from 'react'
-import { Checkbox as CheckboxComp, Text } from '../components'
+import React, { useState } from 'react'
+import { Checkbox as CheckboxComp } from '../components'
+import { TCheckboxProps } from '../types/globals'
+import { noop } from '../utils'
 
 export default {
   title: 'Checkbox',
-  component: CheckboxComp
+  component: CheckboxComp,
+  argTypes: {
+    value: {
+      options: ['true', 'false'],
+      control: { type: 'true' }
+    }
+  }
 }
-const Template = (): JSX.Element => {
-  const [icChecked, setIsChecked] = useState(false)
+
+export const Template = (args: TCheckboxProps): JSX.Element => {
+  const [isChecked, setIsChecked] = useState(args.value)
 
   const clickHandler = () => {
     setIsChecked((_isChecked) => !_isChecked)
   }
 
-  const label = useMemo(() => {
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Text>Համաձայն եմ ԱՔՌԱ հարցման կատարմանը</Text>
-        <Text color="inputBorderActive" onClick={(e) => e.stopPropagation()}>
-          Ավելին
-        </Text>
-      </div>
-    )
-  }, [])
   return (
     <div>
-      <CheckboxComp label={label} value={icChecked} onClick={clickHandler} />
+      <CheckboxComp {...args} value={isChecked} onClick={clickHandler} />
     </div>
   )
 }
 
 export const Checkbox = Template.bind({})
+
+Checkbox.args = {
+  iconProps: { name: 'close', size: 'xSmall', color: 'justWhite' },
+  value: true,
+  onClick: noop
+}
