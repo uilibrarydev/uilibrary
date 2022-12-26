@@ -14,6 +14,7 @@ import Progress from './components/Progress'
 import Checkbox from './components/Checkbox'
 import Stepper from './components/Stepper'
 import CustomDatePicker from './components/DatePicker'
+import Switcher from './components/Switcher'
 import { HttpClient } from './helpers'
 
 export {
@@ -33,5 +34,6 @@ export {
   Checkbox,
   Stepper,
   CustomDatePicker,
+  Switcher,
   HttpClient
 }
