@@ -23,12 +23,16 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     return ''
   }
 
+  const updateInForm = (value = []) => {
+    if (name && setFieldValue) {
+      setFieldValue(name, value)
+    }
+  }
   const handleChange = (event: TEventType) => {
     if (event?.target?.files && event?.target?.files[0]) {
       setFile(event?.target?.files[0])
-      if (name) {
-        setFieldValue(name, event?.target?.files[0])
-      }
+      updateInForm(event?.target?.files[0])
+
       if (getFiles) {
         getFiles(event?.target?.files[0])
       }
@@ -37,9 +41,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
 
   const handleFileRemove = useCallback(() => {
     setFile(null)
-    if (name) {
-      setFieldValue(name, [])
-    }
+    updateInForm()
   }, [name, setFieldValue])
 
   if (file) {

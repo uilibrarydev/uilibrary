@@ -7,3 +7,7 @@ export interface TCheckboxProps {
 }
 
 export type TComponentProps = TFileUploadProps | InputCustomProps | TCheckboxProps
+
+export type TRegister = (name: string) => {
+  onChange: (event: TInputChangeEventType | Date | undefined) => void
+}

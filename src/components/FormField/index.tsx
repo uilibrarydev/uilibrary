@@ -19,7 +19,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
   const errorMessage = errors && errors[name] ? errors[name].message : null
 
   const changeHandler =
-    (onChange: (event: TInputChangeEventType | Date) => void) =>
+    (onChange: (event: TInputChangeEventType | Date | undefined) => void) =>
     (event: TInputChangeEventType | Date) => {
       if (customOnChange) {
         customOnChange(event)
@@ -31,6 +31,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
   }
   // TODO use classname for set error state with-error-styles
 
+  const registerOptions = register(name)
   return (
     <div className="form_field_container">
       {isControlled ? (
@@ -51,10 +52,14 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
       ) : (
         <FormItemComp
           {...rest}
-          {...register(name)}
+          {...(registerOptions || {})}
           onChange={(event) => {
-            const { onChange } = register(name) || {}
-            changeHandler(onChange)(event)
+            const { onChange } = registerOptions || {}
+            if (onChange) {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              changeHandler(onChange)(event)
+            }
           }}
           {...(isNeedChangeHandler ? { setFieldValue: setValue } : {})}
         />

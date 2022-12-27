@@ -76,16 +76,6 @@ interface RefObject<T> {
 
 declare type TSetValue = (name: string, value: unknown, config?: { [key: string]: unknown }) => void
 
-declare type TRegister = (
-  name: string,
-  RegisterOptions?
-) => {
-  onChange: unknown
-  onBlur: unknown
-  name: string
-  ref: unknown
-}
-
 interface FileEventTarget extends EventTarget {
   files: FileList
 }
@@ -119,7 +109,7 @@ interface TFileUploadProps {
   label?: string
   getFiles?: (files: FileList) => void
   name?: string
-  setFieldValue: TSetValue
+  setFieldValue?: TSetValue
 }
 
 declare type TImageMimeTypes =

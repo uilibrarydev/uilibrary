@@ -9,8 +9,8 @@ import {
   Text,
   Input,
   FileUpload,
-  CustomDatePicker,
-  TextArea
+  CustomDatePicker
+  // TextArea
 } from '../components'
 
 export default {
@@ -25,13 +25,13 @@ const INITIAL_VALUES = {
   file: '',
   age: '',
   date: '',
-  time: '',
-  textarea: ''
+  time: ''
+  // textarea: ''
 }
 
 const VALIDATION_SCHEME = yup.object({
   date: yup.date().required(),
-  textarea: yup.date().required(),
+  // textarea: yup.date().required(),
   time: yup.string().required(),
   checkbox: yup
     .bool()
@@ -112,7 +112,7 @@ const Template = (): JSX.Element => {
             name={'checkbox'}
             label={checkboxLabel}
           />
-          <FormField component={TextArea} name={'textarea'} label="text area field" />
+          {/* <FormField component={TextArea} name={'textarea'} label="text area field" /> */}
         </>
       </FormContainer>
     </>
