@@ -1,22 +1,19 @@
-import React, { useCallback, useState } from 'react'
+import React, { useState } from 'react'
 import { TStepperProps } from './types'
 
 const Stepper = (props: TStepperProps): JSX.Element => {
-  const [activeStepIndex, setActiveStepIndex] = useState<number>(0)
+  const { list } = props
 
-  const Fragment = ({ children }: { children: JSX.Element }) => {
-    return <>{children}</>
+  const [activeStepIndex, setActiveStepIndex] = useState(0)
+
+  const decreaseStepIndex = () => {
+    setActiveStepIndex(activeStepIndex - 1)
   }
 
-  const decreaseStepIndex = useCallback(() => {
-    setActiveStepIndex((activeStepIndex: number) => activeStepIndex - 1)
-  }, [])
+  const increaseStepIndex = () => {
+    setActiveStepIndex(activeStepIndex + 1)
+  }
 
-  const increaseStepIndex = useCallback(() => {
-    setActiveStepIndex((activeStepIndex) => activeStepIndex + 1)
-  }, [])
-
-  const { list } = props
   const Content = list[activeStepIndex]
 
   return (

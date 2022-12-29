@@ -36,6 +36,6 @@ export {
   Stepper,
   CustomDatePicker,
   Switcher,
-  HttpClient,
-  TextArea
+  TextArea,
+  HttpClient
 }

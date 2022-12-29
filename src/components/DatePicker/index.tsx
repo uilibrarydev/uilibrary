@@ -1,19 +1,21 @@
 import React from 'react'
-import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
-import Input from '../Input'
+import DatePicker, { registerLocale } from 'react-datepicker'
 
+import hy from 'date-fns/locale/hy'
+registerLocale('hy', hy)
+
+import './index.scss'
 const CustomDatePicker = (props: IDatePickerProps): JSX.Element => {
   const { timeOnly, value = new Date(), onChange } = props
 
   const changeHandler = (date: Date) => {
     onChange(date)
   }
-
   if (timeOnly) {
     return (
       <DatePicker
         selected={value}
+        locale="hy"
         onChange={changeHandler}
         showTimeSelect
         showTimeSelectOnly
@@ -24,7 +26,7 @@ const CustomDatePicker = (props: IDatePickerProps): JSX.Element => {
     )
   }
 
-  return <DatePicker onChange={changeHandler} selected={value} customInput={<Input />} />
+  return <DatePicker onChange={changeHandler} selected={value} locale="hy" />
 }
 
 export default CustomDatePicker

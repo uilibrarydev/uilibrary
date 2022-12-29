@@ -53,7 +53,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
         <FormItemComp
           {...rest}
           {...(registerOptions || {})}
-          onChange={(event) => {
+          onChange={(event: TInputChangeEventType | Date | undefined) => {
             const { onChange } = registerOptions || {}
             if (onChange) {
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
