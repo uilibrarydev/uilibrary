@@ -5,8 +5,7 @@ import typescript from 'rollup-plugin-typescript2'
 import postcss from 'rollup-plugin-postcss'
 import json from '@rollup/plugin-json'
 import packageJson from './package.json'
-
-// const packageJson = require('./package.json')
+import external from 'rollup-plugin-peer-deps-external'
 
 export default {
   input: 'src/index.tsx',
@@ -30,6 +29,8 @@ export default {
     typescript({ useTsconfigDeclarationDir: true }),
     postcss({
       extensions: ['.css']
-    })
-  ]
+    }),
+    external()
+  ],
+  external: ['react', 'react-dom']
 }

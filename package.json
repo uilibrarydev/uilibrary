@@ -1,6 +1,6 @@
 {
   "name": "dino_ui_tools",
-  "version": "1.1.131",
+  "version": "1.1.146",
   "description": "",
   "private": false,
   "main": "dist/index.js",
@@ -42,6 +42,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
@@ -57,10 +61,8 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/node": "^16.11.43",
-    "@types/react": "^18.0.15",
     "@types/react-calendar": "^3.9.0",
     "@types/react-datepicker": "^4.8.0",
-    "@types/react-dom": "^18.0.6",
     "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
@@ -73,15 +75,15 @@
     "less-loader": "^7.0.1",
     "mini-css-extract-plugin": "^0.11.3",
     "prettier": "^2.1.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "rollup": "^2.76.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-typescript2": "^0.32.1",
     "ts-loader": "^8.0.4",
-    "typescript": "4.4.4"
+    "typescript": "4.4.4",
+    "postcss": "^8.1.9",
+    "postcss-import": "12.0.1"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
@@ -92,9 +94,7 @@
     "framer-motion": "4.1.17",
     "fs": "^0.0.1-security",
     "npm": "^9.2.0",
-    "react": "^18.2.0",
     "react-datepicker": "^4.8.0",
-    "react-dom": "^18.2.0",
     "react-hook-form": "^7.39.7",
     "react-input-mask": "^2.0.4",
     "sass": "^1.56.1",
