@@ -26,15 +26,18 @@ export abstract class HttpClient {
   }
 
   private async handleRequest(config: AxiosRequestConfig) {
-    config.headers = config.headers ?? {}
+    const requestConfig = { ...config }
+    requestConfig.headers = config.headers ?? {}
 
     const token = await Storage.getItem(accessTokenKey)
 
     if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`
+      requestConfig.headers = {
+        Authorization: `Bearer ${token}`
+      }
     }
 
-    return config
+    return requestConfig
   }
 
   private handleResponse({ data }: AxiosResponse) {
