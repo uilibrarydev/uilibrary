@@ -13,7 +13,7 @@ import Divider from './Divider'
 import Progress from './Progress'
 import Checkbox from './Checkbox'
 import Stepper from './Stepper'
-import CustomDatePicker from './DatePicker'
+import { TimePicker, SimpleDatePicker, RangeDatePicker } from './DatePicker'
 import TextArea from './TextArea'
 
 export {
@@ -32,6 +32,8 @@ export {
   Progress,
   Checkbox,
   Stepper,
-  CustomDatePicker,
+  TimePicker,
+  SimpleDatePicker,
+  RangeDatePicker,
   TextArea
 }
