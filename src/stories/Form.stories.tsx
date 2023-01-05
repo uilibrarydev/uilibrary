@@ -31,7 +31,7 @@ const INITIAL_VALUES = {
 
 const VALIDATION_SCHEME = yup.object({
   date: yup.date().required(),
-  textarea: yup.date().required(),
+  textarea: yup.string().required(),
   time: yup.string().required(),
   checkbox: yup
     .bool()
