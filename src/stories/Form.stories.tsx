@@ -9,7 +9,8 @@ import {
   Text,
   Input,
   FileUpload,
-  CustomDatePicker,
+  TimePicker,
+  SimpleDatePicker,
   TextArea
 } from '../components'
 
@@ -21,9 +22,6 @@ export default {
 const INITIAL_VALUES = {
   checkbox: false,
   firstName: 'Lilit',
-  phoneNumber: '',
-  file: '',
-  age: '',
   date: '',
   time: '',
   textarea: ''
@@ -31,19 +29,20 @@ const INITIAL_VALUES = {
 
 const VALIDATION_SCHEME = yup.object({
   date: yup.date().required(),
-  textarea: yup.string().required(),
+  textarea: yup.string().required('A file is required'),
   time: yup.string().required(),
+  firstName: yup.string().required('A file is required'),
   checkbox: yup
     .bool()
-    .required()
-    .test('valid', 'նշել պարտադիր', (val) => val),
-  phoneNumber: yup
-    .string()
-    .required('A file is required')
-    .test('valid', 'Phone number is not valid', (val) => {
-      const isValid = val?.indexOf('_') === -1
-      return !!isValid
-    })
+    .required('Required field')
+    .test('valid', 'նշել պարտադիր', (val) => val)
+  // phoneNumber: yup
+  //   .string()
+  //   .required('A file is required')
+  //   .test('valid', 'Phone number is not valid', (val) => {
+  //     const isValid = val?.indexOf('_') === -1
+  //     return !!isValid
+  //   })
 })
 
 const getFiles = (files: FileList) => {
@@ -61,7 +60,6 @@ const Template = (): JSX.Element => {
             target="_blank"
             rel="noreferrer"
           >
-            {' '}
             Ավելին
           </a>
         </Text>
@@ -85,17 +83,9 @@ const Template = (): JSX.Element => {
       >
         <>
           <FormField isControlled component={Input} name={'firstName'} label="First Name" />
-          <FormField isControlled component={CustomDatePicker} name={'date'} label="date picker" />
-          <FormField
-            isControlled
-            component={CustomDatePicker}
-            name={'time'}
-            label="time picker"
-            timeOnly
-          />
+          <FormField isControlled component={SimpleDatePicker} name={'date'} label="date picker" />
+          <FormField isControlled component={TimePicker} name={'time'} label="time picker" />
 
-          <FormField component={Input} name={'secondname'} label="Second Name" />
-          <FormField component={Input} name={'age'} label="Age" />
           <FormField
             component={FileUpload}
             name="file"

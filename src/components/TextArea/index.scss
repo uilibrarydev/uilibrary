@@ -1,0 +1,8 @@
+
+@import '../../sass/helpers/colors.scss';
+.custom-textarea{
+    &:focus {
+        border-color: $inputBorderActive;
+    }
+    outline: none;  
+}

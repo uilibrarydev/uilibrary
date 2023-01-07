@@ -1,5 +1,5 @@
 export interface TextPropTypes {
-  children: string
+  children: string | JSX.Element
   size?: TTextSize
   color?: TColor
   className?: string

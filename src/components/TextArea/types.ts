@@ -3,7 +3,7 @@ export interface TTextAreaTypeProps {
   name?: string
   cols?: number
   row?: number
-  label: string
+  label?: string | JSX.Element
   error?: string
   showError?: string
   onChange: (event: TTextAreaEventType) => void

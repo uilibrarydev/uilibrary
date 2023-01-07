@@ -13,7 +13,8 @@ const ICONS = [
   'file_pdf',
   'file_png',
   'phone',
-  'tick'
+  'tick',
+  'calendar'
 ]
 
 export default {

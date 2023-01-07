@@ -11,3 +11,14 @@ export type TComponentProps = TFileUploadProps | InputCustomProps | TCheckboxPro
 export type TRegister = (name: string) => {
   onChange: (event: TInputChangeEventType | Date | undefined) => void
 }
+
+export type TSimpleDatePickerProps = {
+  label?: string | JSX.Element
+  value: Date | undefined
+  onChange: (date: Date) => void
+}
+
+export type TRangeDatePickerProps = {
+  value: [Date | null, Date | null] | undefined
+  onChange: (date: [Date | null, Date | null]) => void
+}

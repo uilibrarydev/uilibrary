@@ -13,7 +13,7 @@ import Divider from './components/Divider'
 import Progress from './components/Progress'
 import Checkbox from './components/Checkbox'
 import Stepper from './components/Stepper'
-import CustomDatePicker from './components/DatePicker'
+import { TimePicker, SimpleDatePicker, RangeDatePicker } from './components/DatePicker'
 import Switcher from './components/Switcher'
 import { HttpClient } from './helpers'
 import { TextArea } from './stories/TextArea.stories'
@@ -34,7 +34,9 @@ export {
   Progress,
   Checkbox,
   Stepper,
-  CustomDatePicker,
+  TimePicker,
+  SimpleDatePicker,
+  RangeDatePicker,
   Switcher,
   TextArea,
   HttpClient
