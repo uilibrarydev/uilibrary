@@ -17,16 +17,14 @@ const Stepper = (props: TStepperProps): JSX.Element => {
   const Content = list[activeStepIndex]
 
   return (
-    <div>
-      <Content
-        activeStepIndex={activeStepIndex}
-        isNextDisabled={activeStepIndex === list.length - 1}
-        isPrevDisabled={activeStepIndex === 0}
-        prevHandler={decreaseStepIndex}
-        nextHandler={increaseStepIndex}
-        stepCount={list.length}
-      />
-    </div>
+    <Content
+      activeStepIndex={activeStepIndex}
+      isNextDisabled={activeStepIndex === list.length - 1}
+      isPrevDisabled={activeStepIndex === 0}
+      prevHandler={decreaseStepIndex}
+      nextHandler={increaseStepIndex}
+      stepCount={list.length}
+    />
   )
 }
 

@@ -2,6 +2,8 @@
 
 .form_field_container{
     display: inline-block;
+    position: relative;
+    margin-bottom: 20px;
     .with-error-styles{
         border: 1px solid $inputBorderError;
     }

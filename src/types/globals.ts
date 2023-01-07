@@ -13,7 +13,7 @@ export type TRegister = (name: string) => {
 }
 
 export type TSimpleDatePickerProps = {
-  timeOnly?: boolean
+  label?: string | JSX.Element
   value: Date | undefined
   onChange: (date: Date) => void
 }

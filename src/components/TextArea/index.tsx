@@ -2,6 +2,7 @@ import React from 'react'
 import { TTextAreaTypeProps } from './types'
 import Text from '../Text'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
+import './index.scss'
 
 export const TextArea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps>(
   ({ className, showError = false, error, label, ...rest }, ref): JSX.Element => {
@@ -12,7 +13,11 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
             {label}
           </Text>
         )}
-        <textarea ref={ref} {...rest} className={`${error ? 'with-error-styles' : ''}`} />
+        <textarea
+          ref={ref}
+          {...rest}
+          className={`custom-textarea ${error ? 'with-error-styles' : ''}`}
+        />
         {showError && error && <ErrorMessage message={error} />}
       </div>
     )

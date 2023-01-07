@@ -6,6 +6,7 @@ import hy from 'date-fns/locale/hy'
 registerLocale('hy', hy)
 
 import './index.scss'
+import Input from '../Input'
 
 const RangeDatePicker = (props: TRangeDatePickerProps): JSX.Element => {
   const { value = [new Date(), new Date()], onChange } = props
@@ -23,6 +24,11 @@ const RangeDatePicker = (props: TRangeDatePickerProps): JSX.Element => {
       endDate={rangeArray[1]}
       selectsRange
       onChange={changeHandler}
+      customInput={
+        <div className="date-picker_input-container">
+          <Input />
+        </div>
+      }
     />
   )
 }
