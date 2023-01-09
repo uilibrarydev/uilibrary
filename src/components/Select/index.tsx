@@ -6,7 +6,14 @@ import { TSelectPropTypes, TSelectOption } from './types'
 import './index.scss'
 
 const Select = (props: TSelectPropTypes): JSX.Element => {
-  const { options, placeHolder, selectedValue = { value: '', label: '' }, onSelect } = props
+  const {
+    options,
+    placeHolder,
+    value = { value: '', label: '' },
+    onSelect,
+    setFieldValue,
+    name
+  } = props
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -19,7 +26,12 @@ const Select = (props: TSelectPropTypes): JSX.Element => {
   useOnOutsideClick(ref, closeDropdown)
 
   const onItemSelect = (item: TSelectOption) => {
-    onSelect(item)
+    if (onSelect) {
+      onSelect(item)
+    }
+    if (name && setFieldValue) {
+      setFieldValue(name, item)
+    }
     closeDropdown()
   }
 
@@ -29,7 +41,7 @@ const Select = (props: TSelectPropTypes): JSX.Element => {
         className={`selected-item-container ${isOpen ? 'opened' : 'closed'}`}
         onClick={toggleIsOpen}
       >
-        <div className="select-item ">{selectedValue ? selectedValue.label : placeHolder}</div>
+        <div className="select-item ">{value ? value.label : placeHolder}</div>
 
         <motion.div
           animate={{ rotate: isOpen ? 0 : 180 }}
