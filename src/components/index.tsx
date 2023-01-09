@@ -15,6 +15,7 @@ import Checkbox from './Checkbox'
 import Stepper from './Stepper'
 import { TimePicker, SimpleDatePicker, RangeDatePicker } from './DatePicker'
 import TextArea from './TextArea'
+import More from './More'
 
 export {
   Text,
@@ -35,5 +36,6 @@ export {
   TimePicker,
   SimpleDatePicker,
   RangeDatePicker,
-  TextArea
+  TextArea,
+  More
 }
