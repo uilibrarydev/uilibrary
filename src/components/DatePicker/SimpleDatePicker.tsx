@@ -30,7 +30,7 @@ const SimpleDatePicker = (props: TSimpleDatePickerProps): JSX.Element => {
         onChange={changeHandler}
         customInput={
           <div className="date-picker_input-container">
-            <Input />
+            <Input value={currentDate.toString()} />
           </div>
         }
       />
