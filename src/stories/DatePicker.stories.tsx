@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CustomDatePicker as DatePickerComp } from '../components'
+import { SimpleDatePicker as DatePickerComp } from '../components'
 
 export default {
   title: 'DatePicker',

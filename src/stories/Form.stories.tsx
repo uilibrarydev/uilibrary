@@ -11,31 +11,49 @@ import {
   FileUpload,
   TimePicker,
   SimpleDatePicker,
-  TextArea
+  TextArea,
+  Select
 } from '../components'
+import { noop } from '../utils'
 
 export default {
   title: 'Form',
   component: FormContainer
 }
 
+const OPTIONS: TSelectOption[] = [
+  {
+    value: 'armenia',
+    label: 'Armenia'
+  },
+  {
+    value: 'italy',
+    label: 'Italy'
+  }
+]
+
 const INITIAL_VALUES = {
   checkbox: false,
   firstName: 'Lilit',
   date: '',
   time: '',
-  textarea: ''
+  textarea: '',
+  select: {
+    value: 'armenia',
+    label: 'Armenia'
+  }
 }
 
 const VALIDATION_SCHEME = yup.object({
-  date: yup.date().required(),
-  textarea: yup.string().required('A file is required'),
-  time: yup.string().required(),
-  firstName: yup.string().required('A file is required'),
-  checkbox: yup
-    .bool()
-    .required('Required field')
-    .test('valid', 'նշել պարտադիր', (val) => val)
+  select: yup.object().required('requierd field')
+  // date: yup.date().required(),
+  // textarea: yup.string().required('A file is required'),
+  // time: yup.string().required(),
+  // firstName: yup.string().required('A file is required'),
+  // checkbox: yup
+  //   .bool()
+  //   .required('Required field')
+  //   .test('valid', 'նշել պարտադիր', (val) => val)
   // phoneNumber: yup
   //   .string()
   //   .required('A file is required')
@@ -77,12 +95,13 @@ const Template = (): JSX.Element => {
   return (
     <>
       <FormContainer
+        onSubmit={(date) => console.log('sdsd', date)}
         validationScheme={VALIDATION_SCHEME}
         initialValues={INITIAL_VALUES}
         buttonConfigs={BUTTONS_CONFIG}
       >
         <>
-          <FormField isControlled component={Input} name={'firstName'} label="First Name" />
+          {/* <FormField isControlled component={Input} name={'firstName'} label="First Name" />
           <FormField isControlled component={SimpleDatePicker} name={'date'} label="date picker" />
           <FormField isControlled component={TimePicker} name={'time'} label="time picker" />
 
@@ -101,8 +120,19 @@ const Template = (): JSX.Element => {
             component={Checkbox}
             name={'checkbox'}
             label={checkboxLabel}
+          /> */}
+          <FormField
+            isControlled
+            isNeedChangeHandler
+            component={Select}
+            name={'select'}
+            label={'Select component'}
+            placeHolder="Select country"
+            onSelect={noop}
+            options={OPTIONS}
+            // selectedValue={selectedValue}
           />
-          <FormField component={TextArea} name={'textarea'} label="text area field" />
+          {/* <FormField component={TextArea} name={'textarea'} label="text area field" /> */}
         </>
       </FormContainer>
     </>
