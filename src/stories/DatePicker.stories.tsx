@@ -11,7 +11,7 @@ const Template = (): JSX.Element => {
 
   return (
     <div style={{ width: 300 }}>
-      <DatePickerComp value={value} onChange={setValue} />
+      <DatePickerComp value={value} changeHandler={setValue} />
     </div>
   )
 }

@@ -3,6 +3,7 @@ import { IFormCompProps } from '../../types/globals'
 export interface ISimpleDatePickerProps extends IFormCompProps {
   label?: string | JSX.Element
   currentDate?: Date | undefined
+  changeHandler?: (date: Date) => void
 }
 export interface ITimePickerProps extends IFormCompProps {
   label?: string | JSX.Element

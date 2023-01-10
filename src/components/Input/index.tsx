@@ -8,7 +8,7 @@ import './index.scss'
 
 export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
   (
-    { className, formValue, showError = false, error, label, mask, onChange, value = '' },
+    { className, showError = false, error, label, mask, onChange, currentValue, name },
     ref
   ): JSX.Element => {
     const changeHandler = (event: TChangeEventType) => {
@@ -18,18 +18,20 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
     }
     const input = mask ? (
       <InputMask
+        name={name}
         mask={mask}
         inputRef={ref}
-        value={typeof formValue === 'string' ? formValue : value}
         onChange={changeHandler}
         className={`${error ? 'with-error-styles' : ''}`}
+        {...(currentValue ? { value: currentValue } : {})}
       />
     ) : (
       <input
+        name={name}
         ref={ref}
         onChange={changeHandler}
-        value={typeof formValue === 'string' ? formValue : value}
         className={`${error ? 'with-error-styles' : ''}`}
+        {...(currentValue ? { value: currentValue } : {})}
       />
     )
 

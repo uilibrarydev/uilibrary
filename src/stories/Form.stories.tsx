@@ -9,7 +9,8 @@ import {
   FileUpload,
   TimePicker,
   SimpleDatePicker,
-  Select
+  Select,
+  TextArea
 } from '../components'
 import { IFormCompProps } from '../types/globals'
 import { TSelectOption } from '../components/Select/types'
@@ -35,7 +36,7 @@ const INITIAL_VALUES = {
   firstName: 'Lilit',
   date: '',
   time: '',
-  textarea: '',
+  textarea: 'sdlknsldn',
   select: {
     value: 'armenia',
     label: 'Armenia'
@@ -45,7 +46,7 @@ const INITIAL_VALUES = {
 const VALIDATION_SCHEME = yup.object({
   select: yup.object().required('requierd field'),
   date: yup.date().required(),
-  // textarea: yup.string().required('A file is required'),
+  textarea: yup.string().required('A file is required'),
   time: yup.string().required(),
   firstName: yup.string().required('A file is required'),
   checkbox: yup
@@ -93,9 +94,7 @@ const Template = (): JSX.Element => {
       >
         <>
           <FormField
-            As={(props) => {
-              console.log('props', props)
-
+            As={(props: IFormCompProps) => {
               return <Input {...props} label="First Name" />
             }}
             name={'firstName'}
@@ -103,10 +102,12 @@ const Template = (): JSX.Element => {
           <FormField
             isControlled
             name={'date'}
+            isNeedChangeHandler
             As={(props: IFormCompProps) => <SimpleDatePicker {...props} label="date picker" />}
           />
           <FormField
             isControlled
+            isNeedChangeHandler
             As={(props) => <TimePicker {...props} label="time picker" />}
             name={'time'}
           />
@@ -134,6 +135,12 @@ const Template = (): JSX.Element => {
             name={'select'}
             As={(props: IFormCompProps) => {
               return <Select {...props} placeHolder="Select country" options={OPTIONS} />
+            }}
+          />
+          <FormField
+            name={'textarea'}
+            As={(props: IFormCompProps) => {
+              return <TextArea {...props} placeHolder="Select country" />
             }}
           />
         </>

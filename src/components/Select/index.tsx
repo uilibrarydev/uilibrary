@@ -9,7 +9,7 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
   const {
     options,
     placeHolder,
-    formValue = { value: '', label: '' },
+    value = { value: '', label: '' },
     selectedValue = { value: '', label: '' },
     onSelect,
     setFieldValue,
@@ -36,7 +36,7 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
     closeDropdown()
   }
 
-  const currentvalue = formValue || selectedValue
+  const currentvalue = value || selectedValue
 
   return (
     <div className="select-container" ref={ref}>
