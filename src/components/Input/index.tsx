@@ -7,7 +7,10 @@ import { InputCustomProps } from './types'
 import './index.scss'
 
 export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
-  ({ className, formValue, showError = false, error, label, mask, onChange }, ref): JSX.Element => {
+  (
+    { className, formValue, showError = false, error, label, mask, onChange, value = '' },
+    ref
+  ): JSX.Element => {
     const changeHandler = (event: TChangeEventType) => {
       if (onChange) {
         onChange(event)
@@ -17,7 +20,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       <InputMask
         mask={mask}
         inputRef={ref}
-        value={typeof formValue === 'string' ? formValue : ''}
+        value={typeof formValue === 'string' ? formValue : value}
         onChange={changeHandler}
         className={`${error ? 'with-error-styles' : ''}`}
       />
@@ -25,7 +28,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       <input
         ref={ref}
         onChange={changeHandler}
-        value={typeof formValue === 'string' ? formValue : ''}
+        value={typeof formValue === 'string' ? formValue : value}
         className={`${error ? 'with-error-styles' : ''}`}
       />
     )

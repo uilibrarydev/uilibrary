@@ -5,15 +5,13 @@ export type TSelectOption = {
   label: TSelectedValue
 }
 
-export type TRangeDatePickerProps = {
-  value: [Date | null, Date | null] | undefined
-  onChange: (date: [Date | null, Date | null]) => void
-}
+export type TRangePickerValues = [Date | null, Date | null]
 
+export type TClickEventType = React.MouseEvent<HTMLElement>
 export type TChangeEventType = React.ChangeEvent<HTMLInputElement>
 
 declare type TFormValue = string | boolean | TSelectOption | File | Date | null
-declare type TOnChange = (event: TChangeEventType | Date) => void
+declare type TOnChange = (event: TChangeEventType | Date | TRangePickerValues) => void
 
 // Props which will pass FormField to component
 export interface IFormCompProps {

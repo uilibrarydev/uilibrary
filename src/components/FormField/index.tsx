@@ -4,7 +4,7 @@ import { Controller } from 'react-hook-form'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
 import { TFormFieldPropTypes } from './types'
 import './index.scss'
-import { TChangeEventType } from '../../types/globals'
+import { TChangeEventType, TRangePickerValues } from '../../types/globals'
 
 const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
   const { As, name, isNeedChangeHandler = false, isControlled = false } = props
@@ -36,7 +36,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
         As({
           formValue: null,
           ...registerOptions,
-          onChange: (event: TChangeEventType | Date) => {
+          onChange: (event: TChangeEventType | Date | TRangePickerValues) => {
             const { onChange } = registerOptions || {}
             onChange({ target: event })
           },

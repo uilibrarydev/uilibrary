@@ -4,13 +4,13 @@ import Text from '../Text'
 import DatePicker, { registerLocale } from 'react-datepicker'
 import hy from 'date-fns/locale/hy'
 import Input from '../Input'
-import { ISimpleDatePickerProps } from './types'
+import { ITimePickerProps } from './types'
 
 import './index.scss'
 
 registerLocale('hy', hy)
 
-const TimePicker = (props: ISimpleDatePickerProps): JSX.Element => {
+const TimePicker = (props: ITimePickerProps): JSX.Element => {
   const { formValue = new Date(), currentTime = new Date(), onChange, label } = props
   const dateInitialValue =
     formValue !== undefined && Object.prototype.toString.call(formValue) === '[object Date]'
@@ -19,8 +19,6 @@ const TimePicker = (props: ISimpleDatePickerProps): JSX.Element => {
   const [selectedTime, setCurrentTime] = useState(dateInitialValue)
 
   const changeHandler = (date: Date) => {
-    console.log('event', date)
-
     setCurrentTime(date)
     if (onChange) {
       onChange(date)
@@ -46,7 +44,7 @@ const TimePicker = (props: ISimpleDatePickerProps): JSX.Element => {
         dateFormat="h:mm aa"
         customInput={
           <div className="date-picker_input-container">
-            <Input value={selectedTime && selectedTime.toString()} />
+            <Input value={selectedTime ? selectedTime.toString() : ''} />
           </div>
         }
       />

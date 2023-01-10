@@ -1,19 +1,26 @@
 import React, { useState } from 'react'
+import moment from 'moment'
 import DatePicker, { registerLocale } from 'react-datepicker'
-import { TSimpleDatePickerProps } from '../../types/globals'
 import Text from '../Text'
 import hy from 'date-fns/locale/hy'
 import Input from '../Input'
+import { ISimpleDatePickerProps } from './types'
 
 registerLocale('hy', hy)
 
-const SimpleDatePicker = (props: TSimpleDatePickerProps): JSX.Element => {
-  const { value = new Date(), onChange, label } = props
-  const [currentDate, setValue] = useState(value)
+const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
+  const { formValue, currentDate = new Date(), onChange, label } = props
+  const dateInitialValue =
+    formValue !== undefined && Object.prototype.toString.call(formValue) === '[object Date]'
+      ? formValue
+      : currentDate
+  const [selectedDate, setSelectedDate] = useState(dateInitialValue)
 
   const changeHandler = (date: Date) => {
-    setValue(date)
-    onChange(date)
+    setSelectedDate(date)
+    if (onChange) {
+      onChange(date)
+    }
   }
 
   return (
@@ -25,12 +32,12 @@ const SimpleDatePicker = (props: TSimpleDatePickerProps): JSX.Element => {
       )}
 
       <DatePicker
-        selected={currentDate}
+        selected={moment.isDate(selectedDate) ? selectedDate : new Date()}
         locale="hy"
         onChange={changeHandler}
         customInput={
           <div className="date-picker_input-container">
-            <Input value={currentDate.toString()} />
+            <Input value={currentDate ? currentDate.toString() : ''} />
           </div>
         }
       />

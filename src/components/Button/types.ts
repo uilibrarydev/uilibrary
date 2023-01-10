@@ -1,3 +1,5 @@
+import { TClickEventType } from '../../types/globals'
+
 export interface TButtonPropTypes {
   disabled?: boolean
   buttonActionType?: 'submit'
@@ -9,5 +11,5 @@ export interface TButtonPropTypes {
     size?: TIconSize
     color?: TColor
   }
-  onClick: (event: TEventType) => void
+  onClick: (event: TClickEventType) => void
 }
