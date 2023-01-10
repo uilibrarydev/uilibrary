@@ -32,10 +32,6 @@ declare type TCustomColors = {
   [color: string]: string
 }
 
-interface TInputChangeEventType extends EventTarget {
-  target?: { value: string }
-}
-
 interface HTMLInputEvent extends Event {
   target: HTMLInputElement & EventTarget
 }
@@ -49,8 +45,6 @@ declare type TFormData = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }
-
-declare type TEventType = MouseEvent | UIEvent<HTMLDivElement>
 
 interface StringEventTarget extends EventTarget {
   text: string
@@ -80,30 +74,7 @@ interface FileEventTarget extends EventTarget {
   files: FileList
 }
 
-interface InputCustomProps {
-  mask?: string
-  className?: string
-  value?: string
-  error?: string
-  showError?: boolean
-  label?: string | JSX.Element
-  ref?: HTMLInputElement<HTMLInputElement>
-  style?: Record<string, string>
-  onChange?: (event: TInputChangeEventType) => void
-  onBlur?: (event: TInputChangeEventType) => void
-}
-
-// declare type TTextAreaTypeProps = InputCustomProps & React.HTMLProps<HTMLTextAreaElement>
-declare type TInputPropTypes = InputCustomProps & React.HTMLProps<HTMLInputElement>
 declare type TTextAreaEventType = ChangeEventHandler<HTMLTextAreaElement>
-
-interface TFileUploadProps {
-  allowedTypes?: Array<string>
-  label?: string | JSX.Element
-  getFiles?: (files: FileList) => void
-  name?: string
-  setFieldValue?: TSetValue
-}
 
 declare type TImageMimeTypes =
   | 'image/jpeg'

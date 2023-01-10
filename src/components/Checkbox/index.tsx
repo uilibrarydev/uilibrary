@@ -1,11 +1,12 @@
 import React from 'react'
 import Icon from '../Icon'
-import { TCheckboxProps } from '../../types/globals'
+import { TCheckboxProps } from './types'
 import './index.scss'
 
-export const Checkbox = (props: TCheckboxProps): JSX.Element => {
-  const { label, name, setFieldValue, value, onClick, ...rest } = props
-  const isChecked = value
+export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
+  const { label, name, setFieldValue, selectedValue, formValue, onClick } = props
+  const isChecked = !!formValue || selectedValue
+
   const clickHandler = () => {
     if (name && setFieldValue) {
       setFieldValue(name, !isChecked)
@@ -16,7 +17,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element => {
   }
 
   return (
-    <div className="custom_checkbox_container" onClick={clickHandler} {...rest}>
+    <div className="custom_checkbox_container" onClick={clickHandler}>
       <div
         role="checkbox"
         aria-checked={isChecked}

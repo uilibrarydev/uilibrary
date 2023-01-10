@@ -2,6 +2,8 @@ import React, { useCallback, useRef, useState } from 'react'
 import IconComp from '../../components/Icon'
 import Text from '../../components/Text'
 import UploadedState from './uploaded-state'
+import { TChangeEventType } from '../../types/globals'
+import { TFileUploadProps } from './types'
 import './index.scss'
 
 const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
@@ -23,12 +25,16 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     return ''
   }
 
-  const updateInForm = (value = []) => {
-    if (name && setFieldValue) {
-      setFieldValue(name, value)
-    }
-  }
-  const handleChange = (event: TEventType) => {
+  const updateInForm = useCallback(
+    (value: File | null) => {
+      if (name && setFieldValue) {
+        setFieldValue(name, value)
+      }
+    },
+    [name, setFieldValue]
+  )
+
+  const handleChange = (event: TChangeEventType) => {
     if (event?.target?.files && event?.target?.files[0]) {
       setFile(event?.target?.files[0])
       updateInForm(event?.target?.files[0])
@@ -41,8 +47,8 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
 
   const handleFileRemove = useCallback(() => {
     setFile(null)
-    updateInForm()
-  }, [name, setFieldValue])
+    updateInForm(null)
+  }, [updateInForm])
 
   if (file) {
     return (

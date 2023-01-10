@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container as ContainerComp } from '../components'
-import Input from '../components/Input/index'
 import { Button } from '../components'
 import { noop } from '../utils/index'
 
@@ -17,7 +16,6 @@ const Template = (): JSX.Element => {
     <div>
       <ContainerComp>
         <div>
-          <Input />
           <text />
           <div style={helperStyles}>
             <Button buttonText="Next" onClick={noop} type="primary" />

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Input as InputComp } from '../components'
+import { TChangeEventType } from '../types/globals'
 
 export default {
   title: 'Input',
@@ -8,8 +9,8 @@ export default {
 const Template = (): JSX.Element => {
   const [value, setValue] = useState('')
   const [error, setError] = useState('')
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onChange = (e: any) => {
+
+  const onChange = (e: TChangeEventType) => {
     const _value = e.target.value
     setValue(_value)
 
@@ -26,7 +27,7 @@ const Template = (): JSX.Element => {
     <div style={{ width: 300 }}>
       <InputComp
         value={value}
-        onChange={onChange}
+        changeHandler={onChange}
         label="Հեռախոսահամար"
         mask="(+374) 99 99 99 99"
       />
