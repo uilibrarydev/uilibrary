@@ -1,4 +1,6 @@
-export interface TTextAreaTypeProps {
+import { IFormCompProps } from '../../types/globals'
+
+export interface TTextAreaTypeProps extends Omit<IFormCompProps, 'value'> {
   className?: string
   name?: string
   cols?: number
@@ -6,5 +8,7 @@ export interface TTextAreaTypeProps {
   label?: string | JSX.Element
   error?: string
   showError?: string
-  onChange: (event: TTextAreaEventType) => void
+  currentValue?: string
+  placeHolder?: string
+  changeHandler?: (event: TTextAreaEventType) => void
 }

@@ -9,17 +9,24 @@ import { ISimpleDatePickerProps } from './types'
 registerLocale('hy', hy)
 
 const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
-  const { formValue, currentDate = new Date(), onChange, label } = props
+  const { value, currentDate, setFieldValue, name, label, changeHandler } = props
+  console.log('value', Object.prototype.toString.call(value) === '[object Date]')
+
   const dateInitialValue =
-    formValue !== undefined && Object.prototype.toString.call(formValue) === '[object Date]'
-      ? formValue
+    value !== undefined && Object.prototype.toString.call(value) === '[object Date]'
+      ? value
       : currentDate
   const [selectedDate, setSelectedDate] = useState(dateInitialValue)
+  console.log('selectedDate', selectedDate ? selectedDate.toString() : '')
 
-  const changeHandler = (date: Date) => {
+  const onChange = (date: Date) => {
     setSelectedDate(date)
-    if (onChange) {
-      onChange(date)
+
+    if (setFieldValue && name) {
+      setFieldValue(name, date)
+    }
+    if (changeHandler) {
+      changeHandler(date)
     }
   }
 
@@ -34,10 +41,10 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
       <DatePicker
         selected={moment.isDate(selectedDate) ? selectedDate : new Date()}
         locale="hy"
-        onChange={changeHandler}
+        onChange={onChange}
         customInput={
           <div className="date-picker_input-container">
-            <Input value={currentDate ? currentDate.toString() : ''} />
+            <Input currentValue={selectedDate ? selectedDate.toString() : ''} />
           </div>
         }
       />

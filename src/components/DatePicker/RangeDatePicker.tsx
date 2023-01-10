@@ -9,17 +9,16 @@ import { TRangePickerValues } from '../../types/globals'
 registerLocale('hy', hy)
 
 const RangeDatePicker = (props: TRangeDatePickerProps): JSX.Element | null => {
-  const { formValue, currentDates = [new Date(), new Date()], onChange } = props
+  const { value, currentDates = [], setFieldValue, name } = props
 
-  const dateInitialValue =
-    formValue !== undefined && Array.isArray(formValue) ? formValue : currentDates
+  const dateInitialValue = value !== undefined && Array.isArray(value) ? value : currentDates
 
   const [rangeArray, setRangeDate] = useState(dateInitialValue)
   const changeHandler = (date: TRangePickerValues): void => {
     if (date && Array.isArray(date)) {
       setRangeDate(date)
-      if (onChange) {
-        onChange(date)
+      if (setFieldValue && name) {
+        setFieldValue(name, date)
       }
     }
   }

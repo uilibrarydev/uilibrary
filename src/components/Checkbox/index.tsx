@@ -4,8 +4,8 @@ import { TCheckboxProps } from './types'
 import './index.scss'
 
 export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
-  const { label, name, setFieldValue, selectedValue, formValue, onClick } = props
-  const isChecked = !!formValue || selectedValue
+  const { label, name, setFieldValue, selectedValue, value, onClick } = props
+  const isChecked = !!value || selectedValue
 
   const clickHandler = () => {
     if (name && setFieldValue) {

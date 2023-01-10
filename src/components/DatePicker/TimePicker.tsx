@@ -11,17 +11,17 @@ import './index.scss'
 registerLocale('hy', hy)
 
 const TimePicker = (props: ITimePickerProps): JSX.Element => {
-  const { formValue = new Date(), currentTime = new Date(), onChange, label } = props
+  const { value, currentTime, name, setFieldValue, label } = props
   const dateInitialValue =
-    formValue !== undefined && Object.prototype.toString.call(formValue) === '[object Date]'
-      ? formValue
+    value !== undefined && Object.prototype.toString.call(value) === '[object Date]'
+      ? value
       : currentTime
   const [selectedTime, setCurrentTime] = useState(dateInitialValue)
 
   const changeHandler = (date: Date) => {
     setCurrentTime(date)
-    if (onChange) {
-      onChange(date)
+    if (setFieldValue && name) {
+      setFieldValue(name, date)
     }
   }
 
@@ -44,7 +44,7 @@ const TimePicker = (props: ITimePickerProps): JSX.Element => {
         dateFormat="h:mm aa"
         customInput={
           <div className="date-picker_input-container">
-            <Input value={selectedTime ? selectedTime.toString() : ''} />
+            <Input currentValue={selectedTime ? selectedTime.toString() : ''} />
           </div>
         }
       />

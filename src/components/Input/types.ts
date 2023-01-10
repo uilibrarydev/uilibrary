@@ -1,10 +1,10 @@
 import { RefObject } from 'react'
 import { IFormCompProps, TChangeEventType } from '../../types/globals'
 
-export interface InputCustomProps extends IFormCompProps {
+export interface InputCustomProps extends Omit<IFormCompProps, 'value'> {
   mask?: string
   className?: string
-  value?: string
+  currentValue?: string
   error?: string
   showError?: boolean
   label?: string | JSX.Element
