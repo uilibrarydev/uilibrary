@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 
 export const useOnOutsideClick = (
   ref: RefObject<HTMLInputElement> | null,
-  handler: (event: TEventType) => void
+  handler: (event: MouseEvent) => void
 ): void => {
   const [isTouchMoved, setTouchMoved] = useState(false)
   useEffect(() => {
-    const listener = (event: TEventType): void => {
+    const listener = (event: MouseEvent): void => {
       if (ref && (!ref.current || ref.current.contains(event.target))) {
         return
       }

@@ -3,16 +3,17 @@ import Text from '../Text'
 
 import { TMorePropTypes } from './types'
 import './index.scss'
+import { TClickEventType } from '../../types/globals'
 
 const More = (props: TMorePropTypes): JSX.Element => {
   const { expandedText, collapsedText } = props
   const [isExpanded, setIsExpanded] = useState(false)
 
-  const expand = (e: TEventType) => {
+  const expand = (e: TClickEventType) => {
     e.stopPropagation()
     setIsExpanded(true)
   }
-  const collapse = (e: TEventType) => {
+  const collapse = (e: TClickEventType) => {
     e.stopPropagation()
     setIsExpanded(false)
   }

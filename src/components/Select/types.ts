@@ -1,3 +1,5 @@
+import { IFormCompProps } from '../../types/globals'
+
 export type TSelectedValue = string | number
 
 export interface TSelectOption {
@@ -7,11 +9,9 @@ export interface TSelectOption {
 
 export type TSelectOptions = TSelectOption[]
 
-export interface TSelectPropTypes {
+export interface TSelectPropTypes extends IFormCompProps {
   options: TSelectOptions
-  placeHolder: string
-  value: TSelectOption | null
+  placeHolder?: string
   onSelect?: (value: TSelectOption) => void
-  setFieldValue?: (name: string, value: TSelectOption) => void
-  name?: string
+  selectedValue?: TSelectOption | null
 }

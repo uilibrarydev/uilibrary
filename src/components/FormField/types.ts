@@ -1,15 +1,8 @@
-import { TCheckboxProps } from '../../types/globals'
-// TODO try to separate types
+import { IFormCompProps } from '../../types/globals'
+
 export interface TFormFieldPropTypes {
-  component: (props: InputCustomProps | TFileUploadProps | TCheckboxProps) => JSX.Element | null
+  As: (props: IFormCompProps) => JSX.Element
   name: string
-  label?: string | JSX.Element
-  timeOnly?: boolean
-  allowedTypes?: Array<string>
-  getFiles?: (files: FileList) => void
   isControlled?: boolean
   isNeedChangeHandler?: boolean
-  mask?: string
-  placeholder?: string
-  customOnChange?: (event: TInputChangeEventType | Date) => void
 }

@@ -4,32 +4,17 @@ import { Controller } from 'react-hook-form'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
 import { TFormFieldPropTypes } from './types'
 import './index.scss'
+import { TChangeEventType, TRangePickerValues } from '../../types/globals'
 
 const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
-  const {
-    component: FormItemComp,
-    name,
-    isNeedChangeHandler = false,
-    isControlled = false,
-    customOnChange,
-    ...rest
-  } = props
+  const { As, name, isNeedChangeHandler = false, isControlled = false } = props
   const { register, errors, setValue, control } = useContext(FormContext)
 
   const errorMessage = errors && errors[name] ? errors[name].message : null
 
-  const changeHandler =
-    (onChange: (event: TInputChangeEventType | Date | undefined) => void) =>
-    (event: TInputChangeEventType | Date) => {
-      if (customOnChange) {
-        customOnChange(event)
-      }
-      onChange(event)
-    }
   if (!register) {
     return null
   }
-  // TODO use classname for set error state with-error-styles
 
   const registerOptions = register(name)
   return (
@@ -38,31 +23,25 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
         <Controller
           control={control}
           name={name}
-          render={({ field: { onChange, onBlur, value, name } }) => (
-            <FormItemComp
-              {...rest}
-              onChange={changeHandler(onChange)}
-              name={name}
-              value={value}
-              onBlur={onBlur}
-              {...(isNeedChangeHandler ? { setFieldValue: setValue } : {})}
-            />
-          )}
+          render={({ field: { onChange, value, name } }) =>
+            As({
+              onChange,
+              name,
+              formValue: value,
+              ...(isNeedChangeHandler ? { setFieldValue: setValue } : {})
+            })
+          }
         />
       ) : (
-        <FormItemComp
-          {...rest}
-          {...(registerOptions || {})}
-          onChange={(event: TInputChangeEventType | Date | undefined) => {
+        As({
+          formValue: null,
+          ...registerOptions,
+          onChange: (event: TChangeEventType | Date | TRangePickerValues) => {
             const { onChange } = registerOptions || {}
-            if (onChange) {
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-              changeHandler(onChange)(event)
-            }
-          }}
-          {...(isNeedChangeHandler ? { setFieldValue: setValue } : {})}
-        />
+            onChange({ target: event })
+          },
+          ...(isNeedChangeHandler ? { setFieldValue: setValue } : {})
+        })
       )}
 
       {errorMessage && <ErrorMessage message={errorMessage || ''} />}

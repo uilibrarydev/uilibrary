@@ -5,11 +5,12 @@ import { motion } from 'framer-motion'
 import { TSelectPropTypes, TSelectOption } from './types'
 import './index.scss'
 
-const Select = (props: TSelectPropTypes): JSX.Element => {
+const Select = (props: TSelectPropTypes): JSX.Element | null => {
   const {
     options,
     placeHolder,
-    value = { value: '', label: '' },
+    formValue = { value: '', label: '' },
+    selectedValue = { value: '', label: '' },
     onSelect,
     setFieldValue,
     name
@@ -35,13 +36,19 @@ const Select = (props: TSelectPropTypes): JSX.Element => {
     closeDropdown()
   }
 
+  const currentvalue = formValue || selectedValue
+
   return (
     <div className="select-container" ref={ref}>
       <div
         className={`selected-item-container ${isOpen ? 'opened' : 'closed'}`}
         onClick={toggleIsOpen}
       >
-        <div className="select-item ">{value ? value.label : placeHolder}</div>
+        <div className="select-item ">
+          {currentvalue && typeof currentvalue === 'object' && 'label' in currentvalue
+            ? currentvalue.label
+            : placeHolder}
+        </div>
 
         <motion.div
           animate={{ rotate: isOpen ? 0 : 180 }}

@@ -2,19 +2,35 @@ import React from 'react'
 import InputMask from 'react-input-mask'
 import Text from '../Text'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
+import { TChangeEventType } from '../../types/globals'
+import { InputCustomProps } from './types'
 import './index.scss'
 
-export const Input = React.forwardRef<HTMLInputElement, TInputPropTypes>(
-  ({ className, showError = false, error, label, mask, ...rest }, ref): JSX.Element => {
+export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
+  (
+    { className, formValue, showError = false, error, label, mask, onChange, value = '' },
+    ref
+  ): JSX.Element => {
+    const changeHandler = (event: TChangeEventType) => {
+      if (onChange) {
+        onChange(event)
+      }
+    }
     const input = mask ? (
       <InputMask
         mask={mask}
-        ref={ref}
-        {...rest}
+        inputRef={ref}
+        value={typeof formValue === 'string' ? formValue : value}
+        onChange={changeHandler}
         className={`${error ? 'with-error-styles' : ''}`}
       />
     ) : (
-      <input ref={ref} {...rest} className={`${error ? 'with-error-styles' : ''}`} />
+      <input
+        ref={ref}
+        onChange={changeHandler}
+        value={typeof formValue === 'string' ? formValue : value}
+        className={`${error ? 'with-error-styles' : ''}`}
+      />
     )
 
     return (

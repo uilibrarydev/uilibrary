@@ -1,24 +1,26 @@
-export interface TCheckboxProps {
-  label?: string | JSX.Element
-  value: boolean
-  onClick: (isChecked: boolean) => void
-  name?: string
-  setFieldValue?: TSetValue
+declare type TSelectedValue = string | number
+
+export type TSelectOption = {
+  value: TSelectedValue
+  label: TSelectedValue
 }
 
-export type TComponentProps = TFileUploadProps | InputCustomProps | TCheckboxProps
+export type TRangePickerValues = [Date | null, Date | null]
+
+export type TClickEventType = React.MouseEvent<HTMLElement>
+export type TChangeEventType = React.ChangeEvent<HTMLInputElement>
+
+declare type TFormValue = string | boolean | TSelectOption | File | Date | null
+declare type TOnChange = (event: TChangeEventType | Date | TRangePickerValues) => void
+
+// Props which will pass FormField to component
+export interface IFormCompProps {
+  formValue?: TFormValue
+  onChange?: TOnChange
+  name?: string
+  setFieldValue?: (name: string, value: TFormValue) => void
+}
 
 export type TRegister = (name: string) => {
-  onChange: (event: TInputChangeEventType | Date | undefined) => void
-}
-
-export type TSimpleDatePickerProps = {
-  label?: string | JSX.Element
-  value: Date | undefined
-  onChange: (date: Date) => void
-}
-
-export type TRangeDatePickerProps = {
-  value: [Date | null, Date | null] | undefined
-  onChange: (date: [Date | null, Date | null]) => void
+  onChange: TOnChange
 }

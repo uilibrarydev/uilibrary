@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import React, { useMemo } from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
@@ -11,10 +9,10 @@ import {
   FileUpload,
   TimePicker,
   SimpleDatePicker,
-  TextArea,
   Select
 } from '../components'
-import { noop } from '../utils'
+import { IFormCompProps } from '../types/globals'
+import { TSelectOption } from '../components/Select/types'
 
 export default {
   title: 'Form',
@@ -45,26 +43,19 @@ const INITIAL_VALUES = {
 }
 
 const VALIDATION_SCHEME = yup.object({
-  select: yup.object().required('requierd field')
-  // date: yup.date().required(),
+  select: yup.object().required('requierd field'),
+  date: yup.date().required(),
   // textarea: yup.string().required('A file is required'),
-  // time: yup.string().required(),
-  // firstName: yup.string().required('A file is required'),
-  // checkbox: yup
-  //   .bool()
-  //   .required('Required field')
-  //   .test('valid', 'նշել պարտադիր', (val) => val)
-  // phoneNumber: yup
-  //   .string()
-  //   .required('A file is required')
-  //   .test('valid', 'Phone number is not valid', (val) => {
-  //     const isValid = val?.indexOf('_') === -1
-  //     return !!isValid
-  //   })
+  time: yup.string().required(),
+  firstName: yup.string().required('A file is required'),
+  checkbox: yup
+    .bool()
+    .required('Required field')
+    .test('valid', 'նշել պարտադիր', (val) => !!val)
 })
 
-const getFiles = (files: FileList) => {
-  console.log('files', files)
+const getFiles = (file: File) => {
+  console.log('files', file)
 }
 
 const Template = (): JSX.Element => {
@@ -101,38 +92,50 @@ const Template = (): JSX.Element => {
         buttonConfigs={BUTTONS_CONFIG}
       >
         <>
-          {/* <FormField isControlled component={Input} name={'firstName'} label="First Name" />
-          <FormField isControlled component={SimpleDatePicker} name={'date'} label="date picker" />
-          <FormField isControlled component={TimePicker} name={'time'} label="time picker" />
-
           <FormField
-            component={FileUpload}
+            As={(props) => {
+              console.log('props', props)
+
+              return <Input {...props} label="First Name" />
+            }}
+            name={'firstName'}
+          />
+          <FormField
+            isControlled
+            name={'date'}
+            As={(props: IFormCompProps) => <SimpleDatePicker {...props} label="date picker" />}
+          />
+          <FormField
+            isControlled
+            As={(props) => <TimePicker {...props} label="time picker" />}
+            name={'time'}
+          />
+          <FormField
+            As={(props: IFormCompProps) => (
+              <FileUpload
+                {...props}
+                allowedTypes={['PDF', 'XYZ', 'MKT']}
+                label="Կցել ֆայլ"
+                getFiles={getFiles}
+              />
+            )}
             name="file"
-            allowedTypes={['PDF', 'XYZ', 'MKT']}
-            label="Կցել ֆայլ"
             isNeedChangeHandler
-            getFiles={getFiles}
           />
-
           <FormField
             isNeedChangeHandler
             isControlled
-            component={Checkbox}
             name={'checkbox'}
-            label={checkboxLabel}
-          /> */}
+            As={(props: IFormCompProps) => <Checkbox {...props} label={checkboxLabel} />}
+          />
           <FormField
             isControlled
             isNeedChangeHandler
-            component={Select}
             name={'select'}
-            label={'Select component'}
-            placeHolder="Select country"
-            onSelect={noop}
-            options={OPTIONS}
-            // selectedValue={selectedValue}
+            As={(props: IFormCompProps) => {
+              return <Select {...props} placeHolder="Select country" options={OPTIONS} />
+            }}
           />
-          {/* <FormField component={TextArea} name={'textarea'} label="text area field" /> */}
         </>
       </FormContainer>
     </>
