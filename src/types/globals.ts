@@ -8,7 +8,9 @@ export type TSelectOption = {
 export type TRangePickerValues = [Date | null, Date | null]
 
 export type TClickEventType = React.MouseEvent<HTMLElement>
-export type TChangeEventType = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+export type TChangeEventType =
+  | React.ChangeEvent<HTMLInputElement>
+  | React.ChangeEvent<HTMLTextAreaElement>
 
 declare type TFormValue = string | boolean | TSelectOption | File | Date | TRangePickerValues | null
 declare type TOnChange = (event: TChangeEventType) => void

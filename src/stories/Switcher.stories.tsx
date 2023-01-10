@@ -12,7 +12,7 @@ const Template = (args) => {
   const [isChecked, setIsChecked] = useState(args.isChecked)
   return (
     <div>
-      <SwitcherComp {...args} id={ID} />
+      <SwitcherComp {...args} isChecked={isChecked} onClick={setIsChecked} id={ID} />
       <label htmlFor={ID} onClick={() => setIsChecked(!isChecked)}>
         My swicther
       </label>

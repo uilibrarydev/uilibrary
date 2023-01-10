@@ -11,19 +11,24 @@ import './index.scss'
 registerLocale('hy', hy)
 
 const TimePicker = (props: ITimePickerProps): JSX.Element => {
-  const { value, currentTime, name, setFieldValue, label } = props
+  const { value, currentTime, name, setFieldValue, label, changeHandler } = props
   const dateInitialValue =
     value !== undefined && Object.prototype.toString.call(value) === '[object Date]'
       ? value
       : currentTime
   const [selectedTime, setCurrentTime] = useState(dateInitialValue)
 
-  const changeHandler = (date: Date) => {
+  const onChange = (date: Date) => {
     setCurrentTime(date)
+
+    if (changeHandler) {
+      changeHandler(date)
+    }
     if (setFieldValue && name) {
       setFieldValue(name, date)
     }
   }
+  console.log('selectedTime', selectedTime)
 
   return (
     <div className="picker-container">
@@ -32,11 +37,10 @@ const TimePicker = (props: ITimePickerProps): JSX.Element => {
           {label}
         </Text>
       )}
-
       <DatePicker
         selected={moment.isDate(selectedTime) ? selectedTime : new Date()}
         locale="hy"
-        onChange={changeHandler}
+        onChange={onChange}
         showTimeSelect
         showTimeSelectOnly
         timeIntervals={15}
