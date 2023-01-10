@@ -1,4 +1,4 @@
-import { IFormCompProps } from '../../types/globals'
+import { IFormCompProps, TRangePickerValues } from '../../types/globals'
 
 export interface ISimpleDatePickerProps extends IFormCompProps {
   label?: string | JSX.Element
@@ -8,10 +8,11 @@ export interface ISimpleDatePickerProps extends IFormCompProps {
 export interface ITimePickerProps extends IFormCompProps {
   label?: string | JSX.Element
   currentTime?: Date | undefined
+  changeHandler?: (date: Date) => void
 }
 
-export interface TRangeDatePickerProps extends IFormCompProps {
-  currentDates: [Date | null, Date | null] | undefined
+export interface IRangeDatePickerProps extends IFormCompProps {
+  currentDates?: TRangePickerValues
   label?: string | JSX.Element
-  // onChange: (date: [Date | null, Date | null]) => void
+  changeHandler: (date: TRangePickerValues) => void
 }
