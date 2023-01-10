@@ -6,7 +6,7 @@ import { TFileUploadProps } from './types'
 import './index.scss'
 
 const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
-  const { allowedTypes = ['*'], label, getFiles, name, setFieldValue } = props
+  const { allowedTypes = ['*'], label, getFiles, name, setFieldValue, toBase64 } = props
 
   const [file, setFile] = useState<File | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -33,13 +33,26 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     [name, setFieldValue]
   )
 
+  const getFormattedValue = (file: File) => {
+    const reader = new FileReader()
+    reader.onloadend = () => {
+      console.log(reader.result)
+    }
+    reader.readAsDataURL(file)
+    return reader
+  }
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target?.files && event?.target?.files[0]) {
       setFile(event?.target?.files[0])
       updateInForm(event?.target?.files[0])
 
       if (getFiles) {
-        getFiles(event?.target?.files[0])
+        if (toBase64) {
+          getFormattedValue(event?.target?.files[0])
+        } else {
+          getFiles(event?.target?.files[0])
+        }
       }
     }
   }
