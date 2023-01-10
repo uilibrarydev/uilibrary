@@ -20,8 +20,6 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
     },
     ref
   ): JSX.Element => {
-    console.log('checl value', rest)
-
     const handleChange = (event: TChangeEventType) => {
       if (changeHandler) {
         changeHandler(event)

@@ -16,6 +16,7 @@ import Stepper from './Stepper'
 import { TimePicker, SimpleDatePicker, RangeDatePicker } from './DatePicker'
 import TextArea from './TextArea'
 import More from './More'
+import Switcher from './Switcher'
 
 export {
   Text,
@@ -37,5 +38,6 @@ export {
   SimpleDatePicker,
   RangeDatePicker,
   TextArea,
-  More
+  More,
+  Switcher
 }

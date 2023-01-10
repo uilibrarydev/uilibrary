@@ -10,7 +10,8 @@ import {
   TimePicker,
   SimpleDatePicker,
   Select,
-  TextArea
+  TextArea,
+  Switcher
 } from '../components'
 import { IFormCompProps } from '../types/globals'
 import { TSelectOption } from '../components/Select/types'
@@ -37,6 +38,7 @@ const INITIAL_VALUES = {
   date: '',
   time: '',
   textarea: 'sdlknsldn',
+  switcher: false,
   select: {
     value: 'armenia',
     label: 'Armenia'
@@ -44,15 +46,16 @@ const INITIAL_VALUES = {
 }
 
 const VALIDATION_SCHEME = yup.object({
-  select: yup.object().required('requierd field'),
-  date: yup.date().required(),
-  textarea: yup.string().required('A file is required'),
-  time: yup.string().required(),
-  firstName: yup.string().required('A file is required'),
-  checkbox: yup
-    .bool()
-    .required('Required field')
-    .test('valid', 'նշել պարտադիր', (val) => !!val)
+  // select: yup.object().required('requierd field'),
+  // date: yup.date().required(),
+  switcher: yup.boolean().required()
+  // textarea: yup.string().required('A file is required'),
+  // time: yup.string().required(),
+  // firstName: yup.string().required('A file is required'),
+  // checkbox: yup
+  //   .bool()
+  //   .required('Required field')
+  //   .test('valid', 'նշել պարտադիր', (val) => !!val)
 })
 
 const getFiles = (file: File) => {
@@ -141,6 +144,14 @@ const Template = (): JSX.Element => {
             name={'textarea'}
             As={(props: IFormCompProps) => {
               return <TextArea {...props} placeHolder="Select country" />
+            }}
+          />
+          <FormField
+            isControlled
+            isNeedChangeHandler
+            name={'switcher'}
+            As={(props: IFormCompProps) => {
+              return <Switcher {...props} />
             }}
           />
         </>
