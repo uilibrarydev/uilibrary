@@ -1,5 +1,5 @@
 import React from 'react'
-import { customIcons } from '../../assets'
+import { customIcons } from '../../assets/icons'
 import { iconSizes, customColors } from '../../consts'
 import { IconPropTypes } from './types'
 import './index.scss'

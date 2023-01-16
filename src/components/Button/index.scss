@@ -1,5 +1,6 @@
-@import '../../sass/helpers/colors.scss';
-@import '../../tokens/colors.scss';
+@import 'src/assets/styles/helpers/colors';
+@import 'src/assets/styles/tokens/components/button';
+@import 'src/assets/styles/shared';
 
 .custom-button{
     border-radius: 4px;
@@ -12,11 +13,10 @@
     font-weight: 400;
     
 }
-
 .primary{
-    background-color: $buttonGreen;
-    color: var(--neutral-white);
-    
+    background-color: $ds-button-primary-background;
+    color: $ds-button-primary-color;
+    font-size: $ds-button-primary-font-size;
 }
 
 .secondary{

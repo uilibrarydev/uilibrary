@@ -20,7 +20,7 @@
     * @presenter Border
     */
   
-    --border: 3px dashed var(--brand);
+    --border: 3px dashed var(--b800);
   
     /**
     * @tokens Colors
@@ -51,7 +51,7 @@
   
     --hex: #37dd35;
     --gradient: linear-gradient(90deg, #f00 0%, #0f0 50%, #f00 100%);
-    --gradient-with-var: linear-gradient(90deg, var(--brand) 0%, #f00 100%);
+    --gradient-with-var: linear-gradient(90deg, var(--b400) 0%, #f00 100%);
   
     /**
     * @tokens Easings

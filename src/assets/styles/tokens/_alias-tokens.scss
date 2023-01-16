@@ -1,0 +1,92 @@
+@import "src/assets/styles/helpers/mixin";
+
+$ds-color-text-primary: getColor(grey, '--color-900');
+$ds-color-text-secondary: getColor(grey, '--color-700');
+$ds-color-text-tertiary: getColor(grey, '--color-500');
+$ds-color-text-disabled: getColor(grey, '--color-400');
+$ds-color-text-selected: getColor(brand, '--color-500');
+$ds-color-text-inverse: getColor(white, 'base');
+$ds-color-text-brand: getColor(brand, '--color-500');
+$ds-color-text-danger: getColor(red, '--color-800');
+$ds-color-text-warning: getColor(yellow, '--color-800');
+$ds-color-text-success: getColor(green, '--color-600');
+$ds-color-text-information: getColor(blue, '--color-600');
+$ds-color-text-discovery: getColor(purple, '--color-400');
+
+$ds-color-bg-brand: getColor(brand, '--color-500');
+$ds-color-bg-brand-hover: getColor(brand, '--color-300');
+$ds-color-bg-brand-pressed: getColor(brand, '--color-600');
+$ds-color-bg-brand-focused: getColor(brand, '--color-700');
+$ds-color-bg-disabled: getColor(grey, '--color-50');
+$ds-color-bg-selected: getColor(grey, '--color-20');
+$ds-color-bg-hover: getColor(grey, '--color-30');
+$ds-color-bg-pressed: getColor(grey, '--color-40');
+
+$ds-color-bg-danger: getColor(red, '--color-50');
+$ds-color-bg-danger-hover: getColor(red, '--color-100');
+$ds-color-bg-danger-pressed: getColor(red, '--color-200');
+$ds-color-bg-danger-darker: getColor(red, '--color-800');
+$ds-color-bg-danger-darker-hover: getColor(red, '--color-700');
+$ds-color-bg-danger-darker-pressed: getColor(red, '--color-900');
+
+$ds-color-bg-warning: getColor(yellow, '--color-50');
+$ds-color-bg-warning-hover: getColor(yellow, '--color-100');
+$ds-color-bg-warning-pressed: getColor(yellow, '--color-200');
+$ds-color-bg-warning-darker: getColor(yellow, '--color-600');
+$ds-color-bg-warning-darker-hover: getColor(yellow, '--color-500');
+$ds-color-bg-warning-darker-pressed: getColor(yellow, '--color-700');
+
+$ds-color-bg-success: getColor(green, '--color-50');
+$ds-color-bg-success-hover: getColor(green, '--color-100');
+$ds-color-bg-success-pressed: getColor(green, '--color-200');
+$ds-color-bg-success-darker: getColor(green, '--color-500');
+$ds-color-bg-success-darker-hover: getColor(green, '--color-400');
+$ds-color-bg-success-darker-pressed: getColor(green, '--color-700');
+
+$ds-color-bg-information: getColor(blue, '--color-50');
+$ds-color-bg-information-hover: getColor(blue, '--color-100');
+$ds-color-bg-information-pressed: getColor(blue, '--color-200');
+$ds-color-bg-information-darker: getColor(blue, '--color-600');
+$ds-color-bg-information-darker-hover: getColor(blue, '--color-400');
+$ds-color-bg-information-darker-pressed: getColor(blue, '--color-800');
+
+$ds-color-icon-primary: getColor(grey, '--color-700');
+$ds-color-icon-darker: getColor(grey, '--color-900');
+$ds-color-icon-inverse: getColor(white, 'base');
+$ds-color-icon-disabled: getColor(grey, '--color-200');
+$ds-color-icon-brand: getColor(brand, '--color-500');
+$ds-color-icon-selected: getColor(brand, '--color-500');
+$ds-color-icon-danger: getColor(red, '--color-800');
+$ds-color-icon-warning: getColor(yellow, '--color-800');
+$ds-color-icon-success: getColor(green, '--color-600');
+$ds-color-icon-information: getColor(blue, '--color-600');
+
+$ds-color-border-default: getColor(grey, '--color-400');
+$ds-color-border-default: getColor(grey, '--color-500');
+$ds-color-border-focused: getColor(brand, '--color-500');
+$ds-color-border-disabled: getColor(grey, '--color-200');
+$ds-color-border-danger: getColor(red, '--color-800');
+$ds-color-border-success: getColor(green, '--color-500');
+$ds-color-border-warning: getColor(yellow, '--color-600');
+$ds-color-border-information: getColor(blue, '--color-600');
+$ds-color-border-discovery: getColor(purple, '--color-300');
+
+
+$ds-font-size-10: getFontSize('--font-size-10');
+$ds-font-size-12: getFontSize('--font-size-12');
+$ds-font-size-14: getFontSize('--font-size-14');
+$ds-font-size-16: getFontSize('--font-size-16');
+$ds-font-size-20: getFontSize('--font-size-20');
+$ds-font-size-24: getFontSize('--font-size-24');
+$ds-font-size-32: getFontSize('--font-size-32');
+$ds-font-size-36: getFontSize('--font-size-36');
+$ds-font-size-40: getFontSize('--font-size-40');
+$ds-font-size-48: getFontSize('--font-size-48');
+$ds-font-size-64: getFontSize('--font-size-64');
+
+$ds-font-weight-400: getFontWeight('--font-weight-400');
+$ds-font-weight-500: getFontWeight('--font-weight-500');
+$ds-font-weight-600: getFontWeight('--font-weight-600');
+$ds-font-weight-700: getFontWeight('--font-weight-700');
+$ds-font-weight-800: getFontWeight('--font-weight-800');
+$ds-font-weight-900: getFontWeight('--font-weight-900');

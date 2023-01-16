@@ -1,0 +1,306 @@
+@use "sass:map";
+@use "sass:meta";
+@import "src/assets/styles/tokens/tokens";
+
+//fonts
+
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+        @font-face {
+                font-family: quote($font-name);
+                src: url($file-name + '.eot');
+                src: url($file-name + '.eot?#iefix') format('embedded-opentype'),
+                url($file-name + '.woff') format('woff'),
+                url($file-name + '.ttf')  format('truetype'),
+                url($file-name + '.svg##{$font-name}')  format('svg');
+                font-weight: $weight;
+                font-style: $style;
+        }
+}
+
+
+/*******************/
+/********SPACE******/
+/*******************/
+@function getSize($size) {
+        $spaceTokens: map-get($tokens, 'space');
+        @return map-get($spaceTokens, $size);
+}
+
+/**padding**/
+@mixin padding($size) {
+        padding: getSize($size);
+}
+@mixin padding-top($size) {
+        padding-top: getSize($size);
+}
+@mixin padding-bottom($size) {
+        padding-bottom: getSize($size);
+}
+@mixin padding-left($size) {
+        padding-left: getSize($size);
+}
+@mixin padding-right($size) {
+        padding-right: getSize($size);
+}
+@mixin padding-horizontal($size) {
+        padding-left: getSize($size);
+        padding-right: getSize($size);
+}
+@mixin padding-vertical($size) {
+        padding-top: getSize($size);
+        padding-bottom: getSize($size);
+}
+/**margin**/
+@mixin margin($size) {
+        margin: getSize($size);
+}
+@mixin margin-top($size) {
+        margin-top: getSize($size);
+}
+@mixin margin-bottom($size) {
+        margin-bottom: getSize($size);
+}
+@mixin margin-left($size) {
+        margin-left: getSize($size);
+}
+@mixin margin-right($size) {
+        margin-right: getSize($size);
+}
+@mixin margin-horizontal($size) {
+        margin-left: getSize($size);
+        margin-right: getSize($size);
+}
+@mixin margin-vertical($size) {
+        margin-top: getSize($size);
+        margin-bottom: getSize($size);
+}
+
+/*******************/
+/********COLOR******/
+/*******************/
+@function getColor($color, $size: 'base') {
+        $colorTokens: map-get($tokens, 'color');
+        $selected: map-get($colorTokens, $color);
+        @return map-get($selected, $size)
+}
+
+/**color**/
+@mixin color($color, $size: 'base') {
+        color: getColor($color, $size);
+}
+/**background-color**/
+@mixin background-color($color, $size: 'base') {
+        background-color: getColor($color, $size);
+}
+
+
+/*******************/
+/*****Typography****/
+/*******************/
+
+/**font-size**/
+@function getFontSize($size) {
+        $fontSizeTokens: map-get($tokens, 'fontSize');
+        @return map-get($fontSizeTokens, $size);
+}
+@mixin font($size) {
+        font-size: getFontSize($size);
+}
+/**font-weight**/
+@function getFontWeight($size) {
+        $fontWeightTokens: map-get($tokens, 'fontWeight');
+        @return map-get($fontWeightTokens, $size);
+}
+@mixin font-weight($size) {
+        font-weight: getFontWeight($size);
+}
+
+
+//font size rem
+//@function calculateRem($size) {
+//        $remSize: $size / 16px;
+//        @return $remSize * 1rem;
+//}
+//
+//@mixin font-size($size) {
+//        font-size: $size;
+//        font-size: calculateRem($size);
+//}
+//p {
+//        @include font-size(14px)
+//}
+
+//animation
+
+@mixin keyframes($animation-name) {
+        @-webkit-keyframes #{$animation-name} {
+                @content;
+        }
+        @-moz-keyframes #{$animation-name} {
+                @content;
+        }
+        @-ms-keyframes #{$animation-name} {
+                @content;
+        }
+        @-o-keyframes #{$animation-name} {
+                @content;
+        }
+        @keyframes #{$animation-name} {
+                @content;
+        }
+}
+@mixin animation($str) {
+        -webkit-animation: #{$str};
+        -moz-animation: #{$str};
+        -ms-animation: #{$str};
+        -o-animation: #{$str};
+        animation: #{$str};
+}
+
+/*animation mixin usage
+
+// Define animation name, and properties
+@include keyframes(fade-out) {
+  0% { opacity: 1; }
+  90% { opacity: 0; }
+}
+.element {
+  @include animation('fade-out 5s 3');
+}
+*/
+
+
+//retina images
+@mixin image-2x($image, $width, $height) {
+        @media (min--moz-device-pixel-ratio: 1.3),
+        (-o-min-device-pixel-ratio: 2.6/2),
+        (-webkit-min-device-pixel-ratio: 1.3),
+        (min-device-pixel-ratio: 1.3),
+        (min-resolution: 1.3dppx) {
+                background-image: url($image);
+                background-size: $width $height;
+        }
+}
+
+/*retina images mixin usage
+
+div.logo {
+  background: url("logo.png") no-repeat;
+  @include image-2x("logo2x.png", 100px, 25px);
+}
+*/
+
+
+//gradients
+@mixin background-gradient($start-color, $end-color, $orientation) {
+        background: $start-color;
+
+        @if $orientation == 'vertical' {
+                background: -webkit-linear-gradient(top, $start-color, $end-color);
+                background: linear-gradient(to bottom, $start-color, $end-color);
+        } @else if $orientation == 'horizontal' {
+                background: -webkit-linear-gradient(left, $start-color, $end-color);
+                background: linear-gradient(to right, $start-color, $end-color);
+        } @else {
+                background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+                background: radial-gradient(ellipse at center, $start-color, $end-color);
+        }
+}
+
+/*gradient mixin usage
+.foo {
+  @include background-gradient(red, black, 'vertical');
+}
+*/
+
+
+//centering element
+@mixin center($position) {
+        position: absolute;
+
+        @if $position == 'vertical' {
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+        }
+        @else if $position == 'horizontal' {
+                left: 50%;
+                -webkit-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                transform: translate(-50%);
+        }
+        @else if $position == 'both' {
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        }
+}
+
+/*centering element mixin usage
+.foo {
+  @include center(both);
+}
+*/
+
+//clearfix
+%clearfix {
+        *zoom: 1;
+        &:before, &:after {
+                content: " ";
+                display: table;
+        }
+        &:after {
+                clear: both;
+        }
+}
+
+/*clearfix mixin usage
+.container-with-floated-children {
+        @extend %clearfix;
+}
+*/
+
+
+//media query
+$breakpoints: (
+        "phone":        400px,
+        "phone-wide":   480px,
+        "phablet":      560px,
+        "tablet-small": 640px,
+        "tablet":       768px,
+        "tablet-wide":  1024px,
+        "desktop":      1248px,
+        "desktop-wide": 1440px
+);
+@mixin screen($width, $type: min) {
+        @if map_has_key($breakpoints, $width) {
+                $width: map_get($breakpoints, $width);
+                @if $type == max {
+                        $width: $width - 1px;
+                }
+                @media only screen and (#{$type}-width: $width) {
+                        @content;
+                }
+        }
+}
+/*media queries usage
+
+.site-header {
+    @include screen('tablet-wide') {
+        padding-top: 4rem;
+        font-size: 2.4rem;
+    }
+}
+
+*/
+
+//truncation
+@mixin truncate($truncation-boundary) {
+        max-width: $truncation-boundary;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+}
