@@ -1,92 +1,175 @@
 @import "src/assets/styles/helpers/mixin";
 
-$ds-color-text-primary: getColor(grey, '--color-900');
-$ds-color-text-secondary: getColor(grey, '--color-700');
-$ds-color-text-tertiary: getColor(grey, '--color-500');
-$ds-color-text-disabled: getColor(grey, '--color-400');
-$ds-color-text-selected: getColor(brand, '--color-500');
-$ds-color-text-inverse: getColor(white, 'base');
-$ds-color-text-brand: getColor(brand, '--color-500');
-$ds-color-text-danger: getColor(red, '--color-800');
-$ds-color-text-warning: getColor(yellow, '--color-800');
-$ds-color-text-success: getColor(green, '--color-600');
-$ds-color-text-information: getColor(blue, '--color-600');
-$ds-color-text-discovery: getColor(purple, '--color-400');
+/**
+* @tokens Colors
+* @presenter Color
+*/
 
-$ds-color-bg-brand: getColor(brand, '--color-500');
-$ds-color-bg-brand-hover: getColor(brand, '--color-300');
-$ds-color-bg-brand-pressed: getColor(brand, '--color-600');
-$ds-color-bg-brand-focused: getColor(brand, '--color-700');
-$ds-color-bg-disabled: getColor(grey, '--color-50');
-$ds-color-bg-selected: getColor(grey, '--color-20');
-$ds-color-bg-hover: getColor(grey, '--color-30');
-$ds-color-bg-pressed: getColor(grey, '--color-40');
+$ds-color-text-primary: var(--grey-900);
+$ds-color-text-secondary: var(--grey-700);
+$ds-color-text-tertiary: var(--grey-500);
+$ds-color-text-disabled: var(--grey-400);
+$ds-color-text-selected: var(--brand-500);
+$ds-color-text-inverse: var(--white);
+$ds-color-text-brand: var(--brand-500);
+$ds-color-text-danger: var(--red-800);
+$ds-color-text-warning: var(--yellow-800);
+$ds-color-text-success: var(--green-600);
+$ds-color-text-information: var(--blue-600);
+$ds-color-text-discovery: var(--purple-400);
 
-$ds-color-bg-danger: getColor(red, '--color-50');
-$ds-color-bg-danger-hover: getColor(red, '--color-100');
-$ds-color-bg-danger-pressed: getColor(red, '--color-200');
-$ds-color-bg-danger-darker: getColor(red, '--color-800');
-$ds-color-bg-danger-darker-hover: getColor(red, '--color-700');
-$ds-color-bg-danger-darker-pressed: getColor(red, '--color-900');
+$ds-color-bg-cta-primary-default: var(--brand-500);
+$ds-color-bg-cta-primary-hover: var(--brand-300);
+$ds-color-bg-cta-primary-pressed: var(--brand-600);
+$ds-color-bg-cta-primary-focused: var(--brand-700);
 
-$ds-color-bg-warning: getColor(yellow, '--color-50');
-$ds-color-bg-warning-hover: getColor(yellow, '--color-100');
-$ds-color-bg-warning-pressed: getColor(yellow, '--color-200');
-$ds-color-bg-warning-darker: getColor(yellow, '--color-600');
-$ds-color-bg-warning-darker-hover: getColor(yellow, '--color-500');
-$ds-color-bg-warning-darker-pressed: getColor(yellow, '--color-700');
+$ds-color-bg-cta-secondary-default: var(--white);
+$ds-color-bg-cta-secondary-hover: var(--grey-30);
+$ds-color-bg-cta-secondary-pressed: var(--grey-40);
+$ds-color-bg-cta-secondary-focused: var(--grey-50);
 
-$ds-color-bg-success: getColor(green, '--color-50');
-$ds-color-bg-success-hover: getColor(green, '--color-100');
-$ds-color-bg-success-pressed: getColor(green, '--color-200');
-$ds-color-bg-success-darker: getColor(green, '--color-500');
-$ds-color-bg-success-darker-hover: getColor(green, '--color-400');
-$ds-color-bg-success-darker-pressed: getColor(green, '--color-700');
+$ads-color-cta-bg-disabled: var(--grey-50);
 
-$ds-color-bg-information: getColor(blue, '--color-50');
-$ds-color-bg-information-hover: getColor(blue, '--color-100');
-$ds-color-bg-information-pressed: getColor(blue, '--color-200');
-$ds-color-bg-information-darker: getColor(blue, '--color-600');
-$ds-color-bg-information-darker-hover: getColor(blue, '--color-400');
-$ds-color-bg-information-darker-pressed: getColor(blue, '--color-800');
+$ds-color-bg-cta-danger-default: var(--red-800);
+$ds-color-bg-cta-danger-hover: var(--red-700);
+$ds-color-bg-cta-danger-pressed: var(--red-800);
+$ds-color-bg-cta-danger-focused: var(--red-900);
 
-$ds-color-icon-primary: getColor(grey, '--color-700');
-$ds-color-icon-darker: getColor(grey, '--color-900');
-$ds-color-icon-inverse: getColor(white, 'base');
-$ds-color-icon-disabled: getColor(grey, '--color-200');
-$ds-color-icon-brand: getColor(brand, '--color-500');
-$ds-color-icon-selected: getColor(brand, '--color-500');
-$ds-color-icon-danger: getColor(red, '--color-800');
-$ds-color-icon-warning: getColor(yellow, '--color-800');
-$ds-color-icon-success: getColor(green, '--color-600');
-$ds-color-icon-information: getColor(blue, '--color-600');
+$ds-color-bg-warning: var(--yellow-500);
+$ds-color-bg-warning-hover: var(--yellow-100);
+$ds-color-bg-warning-pressed: var(--yellow-200);
 
-$ds-color-border-default: getColor(grey, '--color-400');
-$ds-color-border-default: getColor(grey, '--color-500');
-$ds-color-border-focused: getColor(brand, '--color-500');
-$ds-color-border-disabled: getColor(grey, '--color-200');
-$ds-color-border-danger: getColor(red, '--color-800');
-$ds-color-border-success: getColor(green, '--color-500');
-$ds-color-border-warning: getColor(yellow, '--color-600');
-$ds-color-border-information: getColor(blue, '--color-600');
-$ds-color-border-discovery: getColor(purple, '--color-300');
+$ds-color-bg-success: var(--green-500);
+$ds-color-bg-success-hover: var(--green-100);
+$ds-color-bg-success-pressed: var(--green-200);
+
+$ds-color-bg-information: var(--blue-500);
+$ds-color-bg-information-hover: var(--blue-100);
+$ds-color-bg-information-pressed: var(--blue-200);
+
+$ds-color-icon-primary: var(--grey-700);
+$ds-color-icon-darker: var(--grey-900);
+$ds-color-icon-inverse: var(--white);
+$ds-color-icon-disabled: var(--grey-200);
+$ds-color-icon-brand: var(--brand-500);
+$ds-color-icon-danger: var(--red-800);
+$ds-color-icon-warning: var(--yellow-800);
+$ds-color-icon-success: var(--green-600);
+$ds-color-icon-information: var(--blue-600);
+
+$ds-color-border-cta: var(--grey-400);
+
+/**
+* @tokens Animations
+* @presenter Animation
+*/
+$animation-rotate: var(--animation-rotate);
+
+/**
+* @tokens Border Radius
+* @presenter BorderRadius
+*/
+
+$border-radius-2: var(--border-radius-2);
+
+/**
+* @tokens Borders
+* @presenter Border
+*/
+
+$border-default: var(--border);
+
+/**
+* @tokens Font Families
+* @presenter FontFamily
+*/
+
+$font-family-primary: var(--font-family-primary);
+$font-family-secondary: var(--font-family-secondary);
+$font-family-tertiary: var(--font-family-tertiary);
+
+/**
+* @tokens Font Sizes
+* @presenter FontSize
+*/
+
+$ds-font-size-10: var(--font-size-10);
+$ds-font-size-12: var(--font-size-12);
+$ds-font-size-14: var(--font-size-14);
+$ds-font-size-16: var(--font-size-16);
+$ds-font-size-20: var(--font-size-20);
+$ds-font-size-24: var(--font-size-24);
+$ds-font-size-32: var(--font-size-32);
+$ds-font-size-36: var(--font-size-36);
+$ds-font-size-40: var(--font-size-40);
+$ds-font-size-48: var(--font-size-48);
+$ds-font-size-64: var(--font-size-64);
+
+/**
+* @tokens Font Weights
+* @presenter FontWeight
+*/
+
+$ds-font-weight-400: var(--font-weight-400);
+$ds-font-weight-500: var(--font-weight-500);
+$ds-font-weight-600: var(--font-weight-600);
+$ds-font-weight-700: var(--font-weight-700);
+$ds-font-weight-800: var(--font-weight-800);
+$ds-font-weight-900: var(--font-weight-900);
+
+/**
+* @tokens Line Heights
+* @presenter LineHeight
+*/
+
+$line-height: var(--line-height);
+
+/**
+* @tokens Letter Spacings
+* @presenter LetterSpacing
+*/
+
+$letter-spacing-0: var(--letter-spacing-0);
+$letter-spacing-1: var(--letter-spacing-1);
+$letter-spacing-2: var(--letter-spacing-2);
+
+/**
+* @tokens Opacities
+* @presenter Opacity
+*/
+
+$opacity: var(--opacity);
+
+/**
+* @tokens Shadows
+* @presenter Shadow
+*/
+
+$shadow-m: var(--shadow-m);
+$shadow-l: var(--shadow-l);
+
+/**
+* @tokens Spacings
+* @presenter Spacing
+*/
+
+$space-4: var(--space-4);
+$space-8: var(--space-8);
+$space-12: var(--space-12);
+$space-16: var(--space-16);
+$space-20: var(--space-20);
+$space-24: var(--space-24);
+$space-32: var(--space-32);
+
+/**
+* @tokens Z-Index
+*/
+
+$z-index-99: var(z-index-99);
+
+/**
+* @tokens Others
+*/
 
 
-$ds-font-size-10: getFontSize('--font-size-10');
-$ds-font-size-12: getFontSize('--font-size-12');
-$ds-font-size-14: getFontSize('--font-size-14');
-$ds-font-size-16: getFontSize('--font-size-16');
-$ds-font-size-20: getFontSize('--font-size-20');
-$ds-font-size-24: getFontSize('--font-size-24');
-$ds-font-size-32: getFontSize('--font-size-32');
-$ds-font-size-36: getFontSize('--font-size-36');
-$ds-font-size-40: getFontSize('--font-size-40');
-$ds-font-size-48: getFontSize('--font-size-48');
-$ds-font-size-64: getFontSize('--font-size-64');
 
-$ds-font-weight-400: getFontWeight('--font-weight-400');
-$ds-font-weight-500: getFontWeight('--font-weight-500');
-$ds-font-weight-600: getFontWeight('--font-weight-600');
-$ds-font-weight-700: getFontWeight('--font-weight-700');
-$ds-font-weight-800: getFontWeight('--font-weight-800');
-$ds-font-weight-900: getFontWeight('--font-weight-900');
