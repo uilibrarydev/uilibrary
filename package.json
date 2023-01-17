@@ -9,6 +9,7 @@
   "files": [
     "dist"
   ],
+
   "scripts": {
     "start": "react-scripts start",
     "build": "npm run clean && rollup -c",
@@ -16,9 +17,9 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint ./src/**/*.{js,jsx,ts,tsx}",
     "clean": "rm -rf dist",
-    "prettier": "prettier './{src,stories}/**/**.{js,jsx,ts,tsx}' --write ",
+    "prettier": "prettier --write ./{src,stories}/**/**.{js,jsx,ts,tsx} ",
     "check": "npm run prettier && npm run lint",
     "updateVersion": "node  ./scripts/updateVersion.js",
     "finilize": "npm run build && npm run updateVersion"
