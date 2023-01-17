@@ -18,7 +18,7 @@ import { TimePicker, SimpleDatePicker, RangeDatePicker } from './components/Date
 import Switcher from './components/Switcher'
 import { HttpClient } from './helpers'
 import More from './components/More'
-import './assets/styles/tokens/_alias-tokens.scss'
+import './assets/styles/tokens/index.scss'
 
 export {
   Text,

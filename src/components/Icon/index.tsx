@@ -25,7 +25,7 @@ const Icon = (props: IconPropTypes): JSX.Element => {
     <div
       ref={refHandler}
       onClick={onClick}
-      className={`custom_icon ${className}`}
+      className={`icon ${className}`}
       dangerouslySetInnerHTML={{ __html: svg(iconColor, iconSize) }}
     />
   )

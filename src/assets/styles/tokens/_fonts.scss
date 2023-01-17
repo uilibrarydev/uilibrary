@@ -1,0 +1,93 @@
+:root {
+  //----------- default tokens -------------//
+
+  --font-family-primary: 'Arial';
+  --font-family-secondary: 'Tahoma';
+  --font-family-tertiary: 'Open Sans';
+
+  --font-size-10: 10px;
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-20: 20px;
+  --font-size-24: 24px;
+  --font-size-32: 32px;
+  --font-size-36: 36px;
+  --font-size-40: 40px;
+  --font-size-48: 48px;
+  --font-size-64: 64px;
+
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+  --font-weight-800: 800;
+  --font-weight-900: 900;
+
+  --line-height: 1.5;
+
+  --letter-spacing-0: 0;
+  --letter-spacing-1: 1px;
+  --letter-spacing-2: 2px;
+
+
+  //----------- alias tokens -------------//
+
+  /**
+  * @tokens Font Families
+  * @presenter FontFamily
+  */
+
+  --ds-font-family-primary: var(--font-family-primary);
+  --ds-font-family-secondary: var(--font-family-secondary);
+  --ds-font-family-tertiary: var(--font-family-tertiary);
+
+  /**
+  * @tokens Font Sizes
+  * @presenter FontSize
+  */
+
+  --ds-font-size-10: var(--font-size-10);
+  --ds-font-size-12: var(--font-size-12);
+  --ds-font-size-14: var(--font-size-14);
+  --ds-font-size-16: var(--font-size-16);
+  --ds-font-size-20: var(--font-size-20);
+  --ds-font-size-24: var(--font-size-24);
+  --ds-font-size-32: var(--font-size-32);
+  --ds-font-size-36: var(--font-size-36);
+  --ds-font-size-40: var(--font-size-40);
+  --ds-font-size-48: var(--font-size-48);
+  --ds-font-size-64: var(--font-size-64);
+
+
+  /**
+  * @tokens Font Weights
+  * @presenter FontWeight
+  */
+
+  --ds-font-weight-400: var(--font-weight-400);
+  --ds-font-weight-500: var(--font-weight-500);
+  --ds-font-weight-600: var(--font-weight-600);
+  --ds-font-weight-700: var(--font-weight-700);
+  --ds-font-weight-800: var(--font-weight-800);
+  --ds-font-weight-900: var(--font-weight-900);
+
+
+  /**
+  * @tokens Line Heights
+  * @presenter LineHeight
+  */
+
+  --ds-line-height: var(--line-height);
+
+
+  /**
+  * @tokens Letter Spacing
+  * @presenter LetterSpacing
+  */
+
+  --ds-letter-spacing-0: var(--letter-spacing-0);
+  --ds-letter-spacing-1: var(--letter-spacing-1);
+  --ds-letter-spacing-2: var(--letter-spacing-2);
+
+}

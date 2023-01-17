@@ -1,349 +1,102 @@
-:root {
-
-        //colors
-        --brand-900: #31531C;
-        --brand-800: #416E26;
-        --brand-700: #518A2F;
-        --brand-600: #61A539;
-        --brand-500: #72BF44;
-        --brand-400: #80C557;
-        --brand-300: #8ECC69;
-        --brand-200: #9CD27C;
-        --brand-100: #AAD98F;
-        --brand-50:  #B8DFA2;
-        --brand-40:  #CAE7B9;
-        --brand-30:  #DBEFD1;
-        --brand-20:  #EDF7E8;
-
-        --green-900: #265B25;
-        --green-800: #357939;
-        --green-700: #3D8B46;
-        --green-600: #469D52;
-        --green-500: #4DAA5B;
-        --green-400: #5DB773;
-        --green-300: #7AC48B;
-        --green-200: #9FD4AC;
-        --green-100: #C5E5CC;
-        --green-50:  #E6F4EA;
-
-        --blue-900: #2443B8;
-        --blue-800: #2E63D6;
-        --blue-700: #3475E8;
-        --blue-600: #3C88F7;
-        --blue-500: #4396F7;
-        --blue-400: #54A6F8;
-        --blue-300: #71B6F9;
-        --blue-200: #9ACAFA;
-        --blue-100: #9ACAFA;
-        --blue-50:  #E6F2FE;
-
-        --purple-900: #081FA6;
-        --purple-800: #0E2AB2;
-        --purple-700: #2431B9;
-        --purple-600: #3838C1;
-        --purple-500: #453DC7;
-        --purple-400: #6559D0;
-        --purple-300: #8377D7;
-        --purple-200: #A89DE2;
-        --purple-100: #CBC4ED;
-        --purple-50:  #EAE7F7;
-
-        --pink-900: #4A0A20;
-        --pink-800: #79012F;
-        --pink-700: #A2023F;
-        --pink-600: #AD0244;
-        --pink-500: #CA024F;
-        --pink-400: #F50260;
-        --pink-300: #FD2779;
-        --pink-200: #FE7DAF;
-        --pink-100: #FEA8C9;
-        --pink-50:  #FFD4E4;
-
-        --red-900: #A41300;
-        --red-800: #E61B00;
-        --red-700: #FF2103;
-        --red-600: #FF391F;
-        --red-500: #FF523B;
-        --red-400: #FF6B57;
-        --red-300: #FF8373;
-        --red-200: #FF9C8F;
-        --red-100: #FFB5AB;
-        --red-50:  #FFE2DE;
-
-        --yellow-900: #EB7520;
-        --yellow-800: #ED912A;
-        --yellow-700: #EEA02F;
-        --yellow-600: #F0B134;
-        --yellow-500: #F1BE39;
-        --yellow-400: #F1BE39;
-        --yellow-300: #F4D264;
-        --yellow-200: #F7DE8E;
-        --yellow-100: #FAEBB9;
-        --yellow-50:  #FDF7E4;
-
-        --grey-900: #222222;
-        --grey-800: #333333;
-        --grey-700: #555555;
-        --grey-600: #666666;
-        --grey-500: #888888;
-        --grey-400: #AAAAAA;
-        --grey-300: #BBBBBB;
-        --grey-200: #BBBBBB;
-        --grey-100: #DDDDDD;
-        --grey-50:  #ECECEC;
-        --grey-40:  #F4F5F4;
-        --grey-30:  #F7F8F7;
-        --grey-20:  #fafafa;
-
-        --white: #ffffff;
-
-
-        //animation
-
-        --animation-rotate: rotate 1.2s infinite cubic-bezier(0.55, 0, 0.1, 1);
-
-
-        //border
-
-        --border: 3px dashed var(--b800);
-
-        //border-radius
-
-        --border-radius-2: 2px;
-
-        //font-family
-        --font-family-primary: system-ui, sans-serif;
-        --font-family-secondary: Monaco, monospace;
-        --font-family-tertiary: 'Open Sans';
-
-
-        //fonts
-        --font-size-s: 0.75rem;
-        --font-size-m: 0.875rem;
-        --font-size-l: 1rem;
-
-        --font-size-10: 10px;
-        --font-size-12: 12px;
-        --font-size-14: 14px;
-        --font-size-16: 16px;
-        --font-size-20: 20px;
-        --font-size-24: 24px;
-        --font-size-32: 32px;
-        --font-size-36: 36px;
-        --font-size-40: 40px;
-        --font-size-48: 48px;
-        --font-size-64: 64px;
-
-        //font-weight
-        --font-weight-400: 400;
-        --font-weight-500: 500;
-        --font-weight-600: 600;
-        --font-weight-700: 700;
-        --font-weight-800: 800;
-        --font-weight-900: 900;
-
-        //line-hright
-
-        --line-height: 1.5;
-
-        //letter-spacing
-        --letter-spacing-0: 0;
-        --letter-spacing-1: 1px;
-        --letter-spacing-2: 2px;
-
-       //opacity
-
-        --opacity: 0.5;
-
-        //shadow
-
-        --shadow-m: 0 1px 3px rgba(0, 0, 0, 0.2);
-        --shadow-l: 0 1px 5px rgba(0, 0, 0, 0.3);
-
-       //spacing
-
-        --space-4:  4px;
-        --space-8:  8px;
-        --space-12: 12px;
-        --space-16: 16px;
-        --space-20: 20px;
-        --space-24: 24px;
-        --space-32: 32px;
-
-        //z-index
-
-        --z-index-99: 99;
-
-        //other tokens
-        --border-normal: 3px dashed red; /* Token Description Example @presenter Border */
-}
-
-@keyframes rotate {
-        from {
-                transform: rotate(0deg);
-        }
-        to {
-                transform: rotate(360deg);
-        }
-}
-
-$fontFamilyMap: (
-);
-
-$fontSizeMap: (
-        --font-size-10: 10px,
-        --font-size-12: 12px,
-        --font-size-14: 14px,
-        --font-size-16: 16px,
-        --font-size-20: 20px,
-        --font-size-24: 24px,
-        --font-size-32: 32px,
-        --font-size-36: 36px,
-        --font-size-40: 40px,
-        --font-size-48: 48px,
-        --font-size-64: 64px,
-);
-
-$fontWeightsMap: (
-        --font-weight-400: 400,
-        --font-weight-500: 500,
-        --font-weight-600: 600,
-        --font-weight-700: 700,
-        --font-weight-800: 800,
-        --font-weight-900: 900,
-);
-
-$spaceMap: (
-        --space-4: 4px,
-        --space-8: 8px,
-        --space-12: 12px,
-        --space-16: 16px,
-        --space-20: 20px,
-        --space-24: 24px,
-        --space-32: 32px,
-);
-
-
-$colorMap: (
-        brand: (
-                base: #72BF44,
-                --color-900: #31531C,
-                --color-800: #416E26,
-                --color-700: #518A2F,
-                --color-600: #61A539,
-                --color-500: #72BF44,
-                --color-400: #80C557,
-                --color-300: #8ECC69,
-                --color-200: #9CD27C,
-                --color-100: #AAD98F,
-                --color-50:  #B8DFA2,
-                --color-40:  #CAE7B9,
-                --color-30:  #DBEFD1,
-                --color-20:  #EDF7E8,
-        ),
-        green: (
-                base: #4DAA5B,
-                --color-900: #265B25,
-                --color-800: #357939,
-                --color-700: #3D8B46,
-                --color-600: #469D52,
-                --color-500: #4DAA5B,
-                --color-400: #5DB773,
-                --color-300: #7AC48B,
-                --color-200: #9FD4AC,
-                --color-100: #C5E5CC,
-                --color-50:  #E6F4EA,
-        ),
-        blue: (
-                base: #3C88F7,
-                --color-900: #2443B8,
-                --color-800: #2E63D6,
-                --color-700: #3475E8,
-                --color-600: #3C88F7,
-                --color-500: #4396F7,
-                --color-400: #54A6F8,
-                --color-300: #71B6F9,
-                --color-200: #9ACAFA,
-                --color-100: #9ACAFA,
-                --color-50:  #E6F2FE,
-        ),
-        purple: (
-                base: #8377D7,
-                --color-900: #081FA6,
-                --color-800: #0E2AB2,
-                --color-700: #2431B9,
-                --color-600: #3838C1,
-                --color-500: #453DC7,
-                --color-400: #6559D0,
-                --color-300: #8377D7,
-                --color-200: #A89DE2,
-                --color-100: #CBC4ED,
-                --color-50:  #EAE7F7,
-        ),
-        pink: (
-                base: #CA024F,
-                --color-900: #4A0A20,
-                --color-800: #79012F,
-                --color-700: #A2023F,
-                --color-600: #AD0244,
-                --color-500: #CA024F,
-                --color-400: #F50260,
-                --color-300: #FD2779,
-                --color-200: #FE7DAF,
-                --color-100: #FEA8C9,
-                --color-50:  #FFD4E4,
-        ),
-        red: (
-                base: #E61B00,
-                --color-900: #A41300,
-                --color-800: #E61B00,
-                --color-700: #FF2103,
-                --color-600: #FF391F,
-                --color-500: #FF523B,
-                --color-400: #FF6B57,
-                --color-300: #FF8373,
-                --color-200: #FF9C8F,
-                --color-100: #FFB5AB,
-                --color-50:  #FFE2DE,
-        ),
-        yellow: (
-                base: #F0B134,
-                --color-900: #EB7520,
-                --color-800: #ED912A,
-                --color-700: #EEA02F,
-                --color-600: #F0B134,
-                --color-500: #F1BE39,
-                --color-400: #F1BE39,
-                --color-300: #F4D264,
-                --color-200: #F7DE8E,
-                --color-100: #FAEBB9,
-                --color-50:  #FDF7E4,
-        ),
-        grey: (
-                base: #222222,
-                --color-900: #222222,
-                --color-800: #333333,
-                --color-700: #555555,
-                --color-600: #666666,
-                --color-500: #888888,
-                --color-400: #AAAAAA,
-                --color-300: #BBBBBB,
-                --color-200: #BBBBBB,
-                --color-100: #DDDDDD,
-                --color-50:  #ECECEC,
-                --color-40:  #F4F5F4,
-                --color-30:  #F7F8F7,
-                --color-20:  #fafafa,
-        ),
-        white: (
-                base: #fcfcfc
-        )
-);
-
-$tokens: (
-        color: $colorMap,
-        space: $spaceMap,
-        fontSize: $fontSizeMap,
-        fontWeight: $fontWeightsMap,
-        fontFamily: $fontFamilyMap
-);
+//@import "src/assets/styles/helpers/mixin";
+//
+//
+//:root {
+//  //animation
+//
+//  --animation-rotate: rotate 1.2s infinite cubic-bezier(0.55, 0, 0.1, 1);
+//
+//  /**
+//* @tokens Animations
+//* @presenter Animation
+//*/
+//  $animation-rotate: var(--animation-rotate);
+//
+//
+//  //border
+//
+//  --border: 3px dashed var(--b800);
+//
+//  /**
+//  * @tokens Borders
+//  * @presenter Border
+//  */
+//
+//  $border-default: var(--border);
+//
+//
+//  //border-radius
+//
+//  --border-radius-2: 2px;
+//
+//  /**
+//* @tokens Border Radius
+//* @presenter BorderRadius
+//*/
+//
+//  $border-radius-2: var(--border-radius-2);
+//
+//
+//
+//  //opacity
+//
+//  --opacity: 0.5;
+//  /**
+//* @tokens Opacities
+//* @presenter Opacity
+//*/
+//
+//  $opacity: var(--opacity);
+//
+//  //shadow
+//
+//  --shadow-m: 0 1px 3px rgba(0, 0, 0, 0.2);
+//  --shadow-l: 0 1px 5px rgba(0, 0, 0, 0.3);
+//
+//
+//  /**
+//  * @tokens Shadows
+//  * @presenter Shadow
+//  */
+//
+//  $shadow-m: var(--shadow-m);
+//  $shadow-l: var(--shadow-l);
+//
+//
+//  //z-index
+//
+//  --z-index-99: 99;
+//
+//
+//  /**
+//  * @tokens Z-Index
+//  */
+//
+//  $z-index-99: var(z-index-99);
+//
+//
+//  //other tokens
+//  --border-normal: 3px dashed red; /* Token Description Example @presenter Border */
+//
+//
+//  /**
+//  * @tokens Others
+//  */
+//
+//}
+//
+//@keyframes rotate {
+//  from {
+//    transform: rotate(0deg);
+//  }
+//  to {
+//    transform: rotate(360deg);
+//  }
+//}
+//
+//
+//
+//
+//
+//
+//

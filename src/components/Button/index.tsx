@@ -1,5 +1,4 @@
 import React from 'react'
-import classNames from 'classnames'
 import Icon from '../Icon'
 import { TButtonPropTypes } from './types'
 import './index.scss'
@@ -19,13 +18,11 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     <button
       disabled={disabled}
       type={buttonActionType}
-      className={classNames({ [type]: true, [className || '']: true, ['custom-button']: true })}
+      className={`btn btn--${type} ${className || ''}`}
       onClick={onClick}
     >
-      <div className="button-text-wrapper">
-        {iconProps && <Icon {...iconProps} />}
+        {iconProps && <Icon {...iconProps} className="btn__icon"/>}
         {buttonText}
-      </div>
     </button>
   )
 }

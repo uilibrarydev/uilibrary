@@ -1,0 +1,161 @@
+:root {
+  //----------- default tokens -------------//
+
+  --brand-900: #31531C;
+  --brand-800: #416E26;
+  --brand-700: #518A2F;
+  --brand-600: #61A539;
+  --brand-500: #72BF44;
+  --brand-400: #80C557;
+  --brand-300: #8ECC69;
+  --brand-200: #9CD27C;
+  --brand-100: #AAD98F;
+  --brand-50: #B8DFA2;
+  --brand-40: #CAE7B9;
+  --brand-30: #DBEFD1;
+  --brand-20: #EDF7E8;
+
+  --green-900: #265B25;
+  --green-800: #357939;
+  --green-700: #3D8B46;
+  --green-600: #469D52;
+  --green-500: #4DAA5B;
+  --green-400: #5DB773;
+  --green-300: #7AC48B;
+  --green-200: #9FD4AC;
+  --green-100: #C5E5CC;
+  --green-50: #E6F4EA;
+
+  --blue-900: #2443B8;
+  --blue-800: #2E63D6;
+  --blue-700: #3475E8;
+  --blue-600: #3C88F7;
+  --blue-500: #4396F7;
+  --blue-400: #54A6F8;
+  --blue-300: #71B6F9;
+  --blue-200: #9ACAFA;
+  --blue-100: #9ACAFA;
+  --blue-50: #E6F2FE;
+
+  --purple-900: #081FA6;
+  --purple-800: #0E2AB2;
+  --purple-700: #2431B9;
+  --purple-600: #3838C1;
+  --purple-500: #453DC7;
+  --purple-400: #6559D0;
+  --purple-300: #8377D7;
+  --purple-200: #A89DE2;
+  --purple-100: #CBC4ED;
+  --purple-50: #EAE7F7;
+
+  --pink-900: #4A0A20;
+  --pink-800: #79012F;
+  --pink-700: #A2023F;
+  --pink-600: #AD0244;
+  --pink-500: #CA024F;
+  --pink-400: #F50260;
+  --pink-300: #FD2779;
+  --pink-200: #FE7DAF;
+  --pink-100: #FEA8C9;
+  --pink-50: #FFD4E4;
+
+  --red-900: #A41300;
+  --red-800: #E61B00;
+  --red-700: #FF2103;
+  --red-600: #FF391F;
+  --red-500: #FF523B;
+  --red-400: #FF6B57;
+  --red-300: #FF8373;
+  --red-200: #FF9C8F;
+  --red-100: #FFB5AB;
+  --red-50: #FFE2DE;
+
+  --yellow-900: #EB7520;
+  --yellow-800: #ED912A;
+  --yellow-700: #EEA02F;
+  --yellow-600: #F0B134;
+  --yellow-500: #F1BE39;
+  --yellow-400: #F1BE39;
+  --yellow-300: #F4D264;
+  --yellow-200: #F7DE8E;
+  --yellow-100: #FAEBB9;
+  --yellow-50: #FDF7E4;
+
+  --grey-900: #222222;
+  --grey-800: #333333;
+  --grey-700: #555555;
+  --grey-600: #666666;
+  --grey-500: #888888;
+  --grey-400: #AAAAAA;
+  --grey-300: #BBBBBB;
+  --grey-200: #BBBBBB;
+  --grey-100: #DDDDDD;
+  --grey-50: #ECECEC;
+  --grey-40: #F4F5F4;
+  --grey-30: #F7F8F7;
+  --grey-20: #fafafa;
+
+  --white: #ffffff;
+
+
+  //----------- alias tokens -------------//
+
+  /**
+  * @tokens Colors
+  * @presenter Color
+  */
+
+  --ds-color-text-primary: var(--grey-900);
+  --ds-color-text-secondary: var(--grey-700);
+  --ds-color-text-tertiary: var(--grey-500);
+  --ds-color-text-disabled: var(--grey-400);
+  --ds-color-text-selected: var(--brand-500);
+  --ds-color-text-inverse: var(--white);
+  --ds-color-text-brand: var(--brand-500);
+  --ds-color-text-danger: var(--red-800);
+  --ds-color-text-warning: var(--yellow-800);
+  --ds-color-text-success: var(--green-600);
+  --ds-color-text-information: var(--blue-600);
+  --ds-color-text-discovery: var(--purple-400);
+
+  --ds-color-bg-cta-primary-default: var(--brand-500);
+  --ds-color-bg-cta-primary-hover: var(--brand-300);
+  --ds-color-bg-cta-primary-pressed: var(--brand-600);
+  --ds-color-bg-cta-primary-focused: var(--brand-700);
+
+  --ds-color-bg-cta-secondary-default: var(--white);
+  --ds-color-bg-cta-secondary-hover: var(--grey-30);
+  --ds-color-bg-cta-secondary-pressed: var(--grey-40);
+  --ds-color-bg-cta-secondary-focused: var(--grey-50);
+
+  --ds-color-cta-bg-disabled: var(--grey-50);
+
+  --ds-color-bg-cta-danger-default: var(--red-800);
+  --ds-color-bg-cta-danger-hover: var(--red-700);
+  --ds-color-bg-cta-danger-pressed: var(--red-800);
+  --ds-color-bg-cta-danger-focused: var(--red-900);
+
+  --ds-color-bg-warning: var(--yellow-500);
+  --ds-color-bg-warning-hover: var(--yellow-100);
+  --ds-color-bg-warning-pressed: var(--yellow-200);
+
+  --ds-color-bg-success: var(--green-500);
+  --ds-color-bg-success-hover: var(--green-100);
+  --ds-color-bg-success-pressed: var(--green-200);
+
+  --ds-color-bg-information: var(--blue-500);
+  --ds-color-bg-information-hover: var(--blue-100);
+  --ds-color-bg-information-pressed: var(--blue-200);
+
+  --ds-color-icon-primary: var(--grey-700);
+  --ds-color-icon-darker: var(--grey-900);
+  --ds-color-icon-inverse: var(--white);
+  --ds-color-icon-disabled: var(--grey-200);
+  --ds-color-icon-brand: var(--brand-500);
+  --ds-color-icon-danger: var(--red-800);
+  --ds-color-icon-warning: var(--yellow-800);
+  --ds-color-icon-success: var(--green-600);
+  --ds-color-icon-information: var(--blue-600);
+
+  --ds-color-border-cta: var(--grey-400);
+}

@@ -1,5 +1,6 @@
 @import 'src/assets/styles/helpers/colors';
-@import 'src/assets/styles/tokens/components/button';
+
+@import 'src/assets/styles/components/button';
 @import 'src/assets/styles/shared';
 
 .custom-button{
@@ -13,29 +14,11 @@
     font-weight: 400;
     
 }
-.primary{
-    background-color: $ds-button-primary-background;
-    color: $ds-button-primary-color;
-    font-size: $ds-button-primary-font-size;
-}
 
-.secondary{
-    background-color: $justWhite;
-    color: $labelGray;
-    border: 1px solid $secButtonBorderGray
-}
 
 .disabled{
     background-color: $borderGray;
     color: $justWhite;
-}
-.button-text-wrapper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .custom_icon{
-        margin-right: 5px;
-    }
 }
 
 .activeTextButton{

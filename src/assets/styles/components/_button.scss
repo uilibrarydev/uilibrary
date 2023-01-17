@@ -1,0 +1,108 @@
+@import "src/assets/styles/helpers/mixin";
+@import "src/assets/styles/tokens/tokens";
+
+.btn {
+  $this: &;
+
+  //----------- component specific tokens -------------//
+
+  --ds-button-primary-bg-default: var(--ds-color-bg-cta-primary-default);
+  --ds-button-primary-bg-hover: var(--ds-color-bg-cta-primary-hover);
+  --ds-button-primary-bg-pressed: var(--ds-color-bg-cta-primary-pressed);
+  --ds-button-primary-bg-focused: var(--ds-color-bg-cta-primary-focused);
+  --ds-button-primary-color: var(--ds-color-text-inverse);
+  --ds-button-primary-color-hover: var(--ds-color-text-inverse);
+  --ds-button-primary-icon-color: var(--ds-color-icon-inverse);
+
+  --ds-button-primary-disabled-bg-default: var(--ds-color-cta-bg-disabled);
+  --ds-button-primary-disabled-color: var(--ds-color-text-disabled);
+  --ds-button-primary-disabled-icon-color: var(--ds-color-text-disabled);
+
+  --ds-button-secondary-bg-default: var(--ds-color-bg-cta-secondary-default);
+  --ds-button-secondary-bg-hover: var(--ds-color-bg-cta-secondary-hover);
+  --ds-button-secondary-bg-pressed: var(--ds-color-bg-cta-secondary-pressed);
+  --ds-button-secondary-bg-focused: var(--ds-color-bg-cta-secondary-focused);
+  --ds-button-secondary-color: var(--ds-color-text-primary);
+  --ds-button-secondary-color-hover: var(--ds-color-text-primary);
+  --ds-button-secondary-border-color: var(--ds-color-border-cta);
+  --ds-button-secondary-icon-color: var(--ds-color-icon-primary);
+
+  --ds-button-font-size: var(--ds-font-size-16);
+  --ds-button-padding: var(--ds-space-8);
+
+  --ds-icon-margin: var(--ds-space-4);
+
+  //----------//
+
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  font-size: var(--ds-button-font-size);
+  padding: var(--ds-button-padding);
+  border-radius: 3px;
+  cursor: pointer;
+
+  &[disabled]{
+    cursor: not-allowed;
+  }
+
+  &--primary {
+    background-color: var(--ds-button-primary-bg-default);
+    color: var(--ds-button-primary-color);
+
+    &:hover {
+      background-color: var(--ds-button-primary-bg-hover);
+      color: var(--ds-button-primary-color-hover);
+    }
+    &:active, &:visited {
+      background-color: var(--ds-button-primary-bg-pressed);
+    }
+    &:focus {
+      background-color: var(--ds-button-primary-bg-focused);
+    }
+
+    #{$this}__icon {
+      svg {
+        path {
+          fill: var(--ds-button-primary-icon-color);
+        }
+      }
+    }
+
+    &[disabled]{
+      background-color: var(--ds-button-primary-disabled-bg-default);
+      color: var(--ds-button-primary-disabled-color);
+
+      #{$this}__icon {
+        svg {
+          path {
+            fill: var(--ds-button-primary-disabled-icon-color);
+          }
+        }
+      }
+    }
+  }
+
+  &--secondary {
+    background-color: var(--ds-button-secondary-bg-default);
+    color: var(--ds-button-secondary-color);
+    border: 1px solid var(--ds-button-secondary-border-color);
+
+    &:hover {
+      background-color: var(--ds-button-secondary-bg-hover);
+      color: var(--ds-button-secondary-color-hover);
+    }
+
+    #{$this}__icon {
+      svg {
+        path {
+          fill: var(--ds-button-secondary-icon-color);
+        }
+      }
+    }
+  }
+
+  &__icon {
+    margin-right: var(--ds-icon-margin);
+  }
+}

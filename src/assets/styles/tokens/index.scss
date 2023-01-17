@@ -1,5 +1,6 @@
-@import 'src/assets/styles/tokens/tokens';
-@import 'src/assets/styles/tokens/alias-tokens';
+@import 'colors';
+@import 'fonts';
+@import 'spaces';
 
 //components
-@import 'src/assets/styles/tokens/components/button';
+@import 'src/assets/styles/components/button';

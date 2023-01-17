@@ -2,6 +2,169 @@
 @use "sass:meta";
 @import "src/assets/styles/tokens/tokens";
 
+
+$fontFamilyMap: (
+);
+
+$fontSizeMap: (
+        --font-size-10: 10px,
+        --font-size-12: 12px,
+        --font-size-14: 14px,
+        --font-size-16: 16px,
+        --font-size-20: 20px,
+        --font-size-24: 24px,
+        --font-size-32: 32px,
+        --font-size-36: 36px,
+        --font-size-40: 40px,
+        --font-size-48: 48px,
+        --font-size-64: 64px,
+);
+
+$fontWeightsMap: (
+        --font-weight-400: 400,
+        --font-weight-500: 500,
+        --font-weight-600: 600,
+        --font-weight-700: 700,
+        --font-weight-800: 800,
+        --font-weight-900: 900,
+);
+
+$spaceMap: (
+        --space-4: 4px,
+        --space-8: 8px,
+        --space-12: 12px,
+        --space-16: 16px,
+        --space-20: 20px,
+        --space-24: 24px,
+        --space-32: 32px,
+);
+
+
+$colorMap: (
+        brand: (
+                base: #72BF44,
+                --color-900: #31531C,
+                --color-800: #416E26,
+                --color-700: #518A2F,
+                --color-600: #61A539,
+                --color-500: #72BF44,
+                --color-400: #80C557,
+                --color-300: #8ECC69,
+                --color-200: #9CD27C,
+                --color-100: #AAD98F,
+                --color-50: #B8DFA2,
+                --color-40: #CAE7B9,
+                --color-30: #DBEFD1,
+                --color-20: #EDF7E8,
+        ),
+        green: (
+                base: #4DAA5B,
+                --color-900: #265B25,
+                --color-800: #357939,
+                --color-700: #3D8B46,
+                --color-600: #469D52,
+                --color-500: #4DAA5B,
+                --color-400: #5DB773,
+                --color-300: #7AC48B,
+                --color-200: #9FD4AC,
+                --color-100: #C5E5CC,
+                --color-50: #E6F4EA,
+        ),
+        blue: (
+                base: #3C88F7,
+                --color-900: #2443B8,
+                --color-800: #2E63D6,
+                --color-700: #3475E8,
+                --color-600: #3C88F7,
+                --color-500: #4396F7,
+                --color-400: #54A6F8,
+                --color-300: #71B6F9,
+                --color-200: #9ACAFA,
+                --color-100: #9ACAFA,
+                --color-50: #E6F2FE,
+        ),
+        purple: (
+                base: #8377D7,
+                --color-900: #081FA6,
+                --color-800: #0E2AB2,
+                --color-700: #2431B9,
+                --color-600: #3838C1,
+                --color-500: #453DC7,
+                --color-400: #6559D0,
+                --color-300: #8377D7,
+                --color-200: #A89DE2,
+                --color-100: #CBC4ED,
+                --color-50: #EAE7F7,
+        ),
+        pink: (
+                base: #CA024F,
+                --color-900: #4A0A20,
+                --color-800: #79012F,
+                --color-700: #A2023F,
+                --color-600: #AD0244,
+                --color-500: #CA024F,
+                --color-400: #F50260,
+                --color-300: #FD2779,
+                --color-200: #FE7DAF,
+                --color-100: #FEA8C9,
+                --color-50: #FFD4E4,
+        ),
+        red: (
+                base: #E61B00,
+                --color-900: #A41300,
+                --color-800: #E61B00,
+                --color-700: #FF2103,
+                --color-600: #FF391F,
+                --color-500: #FF523B,
+                --color-400: #FF6B57,
+                --color-300: #FF8373,
+                --color-200: #FF9C8F,
+                --color-100: #FFB5AB,
+                --color-50: #FFE2DE,
+        ),
+        yellow: (
+                base: #F0B134,
+                --color-900: #EB7520,
+                --color-800: #ED912A,
+                --color-700: #EEA02F,
+                --color-600: #F0B134,
+                --color-500: #F1BE39,
+                --color-400: #F1BE39,
+                --color-300: #F4D264,
+                --color-200: #F7DE8E,
+                --color-100: #FAEBB9,
+                --color-50: #FDF7E4,
+        ),
+        grey: (
+                base: #222222,
+                --color-900: #222222,
+                --color-800: #333333,
+                --color-700: #555555,
+                --color-600: #666666,
+                --color-500: #888888,
+                --color-400: #AAAAAA,
+                --color-300: #BBBBBB,
+                --color-200: #BBBBBB,
+                --color-100: #DDDDDD,
+                --color-50: #ECECEC,
+                --color-40: #F4F5F4,
+                --color-30: #F7F8F7,
+                --color-20: #fafafa,
+        ),
+        white: (
+                base: #fcfcfc
+        )
+);
+
+$tokens: (
+        color: $colorMap,
+        space: $spaceMap,
+        fontSize: $fontSizeMap,
+        fontWeight: $fontWeightsMap,
+        fontFamily: $fontFamilyMap
+);
+
+
 //fonts
 
 @mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
