@@ -19,7 +19,7 @@
     "build-storybook": "build-storybook -s public",
     "lint": "eslint ./src/**/*.{js,jsx,ts,tsx}",
     "clean": "rm -rf dist",
-    "prettier": "prettier --write ./{src,stories}/**/**.{js,jsx,ts,tsx} ",
+    "prettier": "prettier --write ./{src,stories}/**/**.{js,jsx,ts,tsx}",
     "check": "npm run prettier && npm run lint",
     "updateVersion": "node  ./scripts/updateVersion.js",
     "finilize": "npm run build && npm run updateVersion"
