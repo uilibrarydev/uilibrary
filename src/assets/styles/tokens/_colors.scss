@@ -88,14 +88,14 @@
   --grey-500: #888888;
   --grey-400: #AAAAAA;
   --grey-300: #BBBBBB;
-  --grey-200: #BBBBBB;
+  --grey-200: #CCCCCC;
   --grey-100: #DDDDDD;
   --grey-50: #ECECEC;
   --grey-40: #F4F5F4;
   --grey-30: #F7F8F7;
   --grey-20: #fafafa;
 
-  --white: #ffffff;
+  --white: #FEFEFE;
 
 
   //----------- alias tokens -------------//
@@ -128,7 +128,7 @@
   --ds-color-bg-cta-secondary-pressed: var(--grey-40);
   --ds-color-bg-cta-secondary-focused: var(--grey-50);
 
-  --ds-color-cta-bg-disabled: var(--grey-50);
+  --ds-color-bg-cta-disabled: var(--grey-50);
 
   --ds-color-bg-cta-danger-default: var(--red-800);
   --ds-color-bg-cta-danger-hover: var(--red-700);
@@ -150,7 +150,7 @@
   --ds-color-icon-primary: var(--grey-700);
   --ds-color-icon-darker: var(--grey-900);
   --ds-color-icon-inverse: var(--white);
-  --ds-color-icon-disabled: var(--grey-200);
+  --ds-color-icon-disabled: var(--grey-400);
   --ds-color-icon-brand: var(--brand-500);
   --ds-color-icon-danger: var(--red-800);
   --ds-color-icon-warning: var(--yellow-800);
@@ -158,4 +158,5 @@
   --ds-color-icon-information: var(--blue-600);
 
   --ds-color-border-cta: var(--grey-400);
+  --ds-color-border-disabled: var(--grey-200);
 }

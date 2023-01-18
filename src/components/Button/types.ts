@@ -5,7 +5,9 @@ export interface TButtonPropTypes {
   buttonActionType?: 'submit'
   buttonText: string
   className?: string
-  type: 'primary' | 'secondary' | 'disabled' | 'passiveTextButton' | 'activeTextButton'
+  type: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'link' | 'icon'
+  size: 'large' | 'medium' | 'small'
+  iconAlignment: 'left' | 'right' | 'center'
   iconProps?: {
     name: string
     size?: TIconSize

@@ -12,29 +12,9 @@
 //*/
 //  $animation-rotate: var(--animation-rotate);
 //
-//
-//  //border
-//
-//  --border: 3px dashed var(--b800);
-//
 //  /**
-//  * @tokens Borders
-//  * @presenter Border
-//  */
-//
-//  $border-default: var(--border);
-//
-//
-//  //border-radius
-//
-//  --border-radius-2: 2px;
-//
-//  /**
-//* @tokens Border Radius
-//* @presenter BorderRadius
-//*/
-//
-//  $border-radius-2: var(--border-radius-2);
+//    * @tokens-end
+//    */
 //
 //
 //
@@ -47,6 +27,11 @@
 //*/
 //
 //  $opacity: var(--opacity);
+//  /**
+//    * @tokens-end
+//    */
+//
+//
 //
 //  //shadow
 //
@@ -62,6 +47,10 @@
 //  $shadow-m: var(--shadow-m);
 //  $shadow-l: var(--shadow-l);
 //
+//  /**
+//    * @tokens-end
+//    */
+//
 //
 //  //z-index
 //
@@ -75,6 +64,10 @@
 //  $z-index-99: var(z-index-99);
 //
 //
+//  /**
+//  * @tokens-end
+//  */
+//
 //  //other tokens
 //  --border-normal: 3px dashed red; /* Token Description Example @presenter Border */
 //
@@ -83,6 +76,10 @@
 //  * @tokens Others
 //  */
 //
+//
+//  /**
+//  * @tokens-end
+//  */
 //}
 //
 //@keyframes rotate {

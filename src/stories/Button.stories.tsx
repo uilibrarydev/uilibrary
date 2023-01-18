@@ -6,18 +6,32 @@ export default {
   component: Button,
   argTypes: {
     type: {
-      options: ['primary', 'secondary', 'disabled', 'passiveTextButton', 'activeTextButton'],
+      options: ['primary', 'secondary', 'tertiary', 'danger', 'link'],
       control: { type: 'radio' }
+    },
+    size: {
+      options: ['large', 'medium',  'small'],
+      control: { type: 'radio' }
+    },
+    iconAlignment: {
+      options: ['left', 'right', 'center'],
+      control: { type: 'radio' }
+    },
+    disabled: {
+      options: ['true', 'false'],
+      control: { disabled: 'true' }
     }
   }
 }
 
-const Template = (args) => <Button {...args} />
+const Template = (args) => <Button {...args} buttonText={`${args.type} button`} />
 
 export const MyButton = Template.bind({})
 MyButton.args = {
-  iconProps: { name: 'close', size: 'xSmall', color: 'justWhite' },
+  iconProps: { name: 'close'},
+  iconAlignment: 'left',
   type: 'primary',
-  buttonText: "I'm primary button",
+  size: 'large',
+  disabled: false,
   onClick: () => console.log('iconbutton  buttonClicked')
 }

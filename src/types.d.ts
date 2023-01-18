@@ -6,7 +6,6 @@ declare type TColor =
   | 'justWhite'
   | 'textBlack'
   | 'dropdownGray'
-  | 'dropdownGray'
   | 'inputWhite'
   | 'inputBorderGray'
   | 'inputBorderActive'
