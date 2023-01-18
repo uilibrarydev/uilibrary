@@ -10,7 +10,7 @@ export default {
       control: { type: 'radio' }
     },
     size: {
-      options: ['large', 'medium',  'small'],
+      options: ['large', 'medium', 'small'],
       control: { type: 'radio' }
     },
     iconAlignment: {
@@ -28,7 +28,7 @@ const Template = (args) => <Button {...args} buttonText={`${args.type} button`} 
 
 export const MyButton = Template.bind({})
 MyButton.args = {
-  iconProps: { name: 'close'},
+  iconProps: { name: 'close' },
   iconAlignment: 'left',
   type: 'primary',
   size: 'large',
