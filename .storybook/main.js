@@ -5,7 +5,8 @@ module.exports = {
     { name: 'storybook-design-token', options: { preserveCSSVars: true } },
     '@storybook/addon-viewport',
     '@storybook/addon-controls',
-    '@storybook/addon-outline'
+    '@storybook/addon-outline',
+    '@storybook/addon-links'
   ],
   typescript: {
     check: false,
