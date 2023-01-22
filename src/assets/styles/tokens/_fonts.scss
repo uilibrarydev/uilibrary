@@ -1,7 +1,14 @@
+
+@font-face {
+  font-family: 'NotoSansArmenia';
+  src: local('NotoSansArmenianRegular'), url('src/assets/fonts/noto-sans-armenian/NotoSansArmenian-Regular.ttf') format('truetype');
+}
+
 :root {
   //----------- default tokens -------------//
 
-  --font-family-primary: 'Arial';
+
+  --font-family-primary: 'NotoSansArmenia';
   --font-family-secondary: 'Tahoma';
   --font-family-tertiary: 'Open Sans';
 

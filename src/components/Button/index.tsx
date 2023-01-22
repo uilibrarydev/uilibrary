@@ -8,23 +8,27 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     buttonText,
     type = 'primary',
     size = 'large',
-    iconAlignment = 'left-icon',
-    onClick,
     className,
     iconProps,
+    justIcon,
     buttonActionType,
-    disabled = false
+    disabled = false,
+    isLoading = false,
+    onClick
   } = props
 
   return (
     <button
       disabled={disabled}
       type={buttonActionType}
-      className={`btn btn--${type} btn--${size} btn--icon-${iconAlignment} ${className || ''}`}
+      className={`btn btn--${type} btn--${size}
+                  ${!isLoading && ((iconProps?.name && !justIcon) && `btn--icon-${iconProps?.alignment}`)} 
+                  ${justIcon && 'btn--icon'}
+                  ${className || ''}`}
       onClick={onClick}
     >
-      {iconProps && <Icon {...iconProps} className="btn__icon" />}
-      {iconAlignment !== 'center' && buttonText}
+      {iconProps?.name && <Icon {...iconProps} className="btn__icon" />}
+      {isLoading || (!justIcon && buttonText)}
     </button>
   )
 }
