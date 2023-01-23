@@ -1,12 +1,8 @@
-// const axios , { AxiosInstance, AxiosRequestConfig, AxiosResponse } = require("axios")
-
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { Storage } from '../../utils/storage-manager'
 import { accessTokenKey } from './consts'
 
-declare module 'axios' {
-  // type AxiosResponse<T = unknown> = Promise<T>
-}
+declare module 'axios' {}
 
 export abstract class HttpClient {
   protected readonly instance: AxiosInstance
@@ -35,6 +31,7 @@ export abstract class HttpClient {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       requestConfig.headers = {
+        ...requestConfig.headers,
         Authorization: `Bearer ${token}`
       }
     }
@@ -43,6 +40,7 @@ export abstract class HttpClient {
   }
 
   private handleResponse({ data }: AxiosResponse) {
+    // TODO set response type generic
     return data
   }
 
