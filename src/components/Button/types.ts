@@ -6,14 +6,14 @@ export interface TButtonPropTypes {
   buttonText: string
   className?: string
   type: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'link'
-  size: 'large' | 'medium' | 'small'
+  size?: 'large' | 'medium' | 'small'
   justIcon?: boolean
   isLoading?: boolean
   iconProps?: {
     name: string
     size?: TIconSize
     color?: TColor
-    alignment?:'left' | 'right'
+    alignment?: 'left' | 'right'
   }
   onClick: (event: TClickEventType) => void
 }

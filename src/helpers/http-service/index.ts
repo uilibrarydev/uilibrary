@@ -32,6 +32,8 @@ export abstract class HttpClient {
     const token = await Storage.getItem(accessTokenKey)
 
     if (token) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       requestConfig.headers = {
         Authorization: `Bearer ${token}`
       }
