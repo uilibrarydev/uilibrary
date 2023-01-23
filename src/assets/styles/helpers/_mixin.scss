@@ -167,7 +167,6 @@ $tokens: (
 
 //fonts
 
-$file-name: '../../fonts/nato-sans-armenia/NatoSansArmenia-Regular';
 
 @mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
         @font-face {
