@@ -22,7 +22,12 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
       disabled={disabled}
       type={buttonActionType}
       className={`btn btn--${type} btn--${size}
-                  ${!isLoading && ((iconProps?.name && !justIcon) && `btn--icon-${iconProps?.alignment}`)} 
+                  ${
+                    !isLoading &&
+                    iconProps?.name &&
+                    !justIcon &&
+                    `btn--icon-${iconProps?.alignment}`
+                  } 
                   ${justIcon && 'btn--icon'}
                   ${className || ''}`}
       onClick={onClick}
