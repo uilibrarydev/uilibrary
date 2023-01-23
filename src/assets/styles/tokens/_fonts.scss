@@ -1,14 +1,15 @@
+@import "https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@100;200;400;500;600;700;800;900&family=Noto+Sans:wght@100;300;500;600;700;800;900&display=swap";
 
-@font-face {
-  font-family: 'NotoSansArmenia';
-  src: local('NotoSansArmenianRegular'), url('src/assets/fonts/noto-sans-armenian/NotoSansArmenian-Regular.ttf') format('truetype');
-}
+//@font-face {
+//  font-family: "NotoSansArmenia";
+//  src:  url("../../fonts/noto-sans-armenian/NotoSansArmenian-Regular.ttf") format("truetype");
+//}
 
 :root {
   //----------- default tokens -------------//
 
 
-  --font-family-primary: 'NotoSansArmenia';
+  --font-family-primary: 'Noto Sans Armenian', 'Noto Sans', sans-serif;
   --font-family-secondary: 'Tahoma';
   --font-family-tertiary: 'Open Sans';
 
