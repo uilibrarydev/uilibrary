@@ -1,4 +1,5 @@
 import Text from './Text'
+import Heading from './Heading'
 import Icon from './Icon'
 import FormContainer from './FormContainer'
 import Input from './Input'
@@ -20,6 +21,7 @@ import Switcher from './Switcher'
 
 export {
   Text,
+  Heading,
   Icon,
   FormContainer,
   Input,

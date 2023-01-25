@@ -29,6 +29,7 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
                     `btn--icon-${iconProps?.alignment}`
                   } 
                   ${justIcon && 'btn--icon'}
+                  ${isLoading && 'btn--loading'}
                   ${className || ''}`}
       onClick={onClick}
     >

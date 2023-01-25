@@ -5,15 +5,15 @@ export interface TButtonPropTypes {
   buttonActionType?: 'submit'
   buttonText: string
   className?: string
-  type: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'link'
-  size?: 'large' | 'medium' | 'small'
+  type: string
+  size?: string
   justIcon?: boolean
   isLoading?: boolean
   iconProps?: {
     name: string
     size?: TIconSize
     color?: TColor
-    alignment?: 'left' | 'right'
+    alignment?: string
   }
   onClick: (event: TClickEventType) => void
 }

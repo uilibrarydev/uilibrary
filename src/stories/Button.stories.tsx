@@ -1,9 +1,9 @@
 import React from 'react'
-import { Button } from '../index'
+import { Button as ButtonComp } from '../index'
 
 export default {
   title: 'Button',
-  component: Button,
+  component: ButtonComp,
   argTypes: {
     type: {
       options: ['primary', 'secondary', 'tertiary', 'danger', 'link'],
@@ -28,16 +28,13 @@ export default {
   }
 }
 
-const Template = (args) => <Button {...args} buttonText={`${args.type} button`} />
+const Template = (args) => <ButtonComp {...args} buttonText={`${args.type} button`} />
 
-export const MyButton = Template.bind({})
-MyButton.args = {
+export const Button = Template.bind({})
+Button.args = {
   iconProps: {
     name: 'close',
-    alignment: {
-      options: ['left', 'right'],
-      control: { type: 'radio' }
-    }
+    alignment: 'left'
   },
   type: 'primary',
   size: 'large',

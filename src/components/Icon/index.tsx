@@ -22,7 +22,7 @@ const Icon = (props: IconPropTypes): JSX.Element => {
   const iconColor = customColors[color as keyof TCustomColors]
 
   let content = (
-    <div
+    <span
       ref={refHandler}
       onClick={onClick}
       className={`icon ${className}`}
@@ -32,9 +32,9 @@ const Icon = (props: IconPropTypes): JSX.Element => {
 
   if (withWrapper) {
     content = (
-      <div className="icon_wrapper" style={{ border: `1px solid ${customColors[wrapperColor]}` }}>
+      <span className="icon_wrapper" style={{ border: `1px solid ${customColors[wrapperColor]}` }}>
         {content}
-      </div>
+      </span>
     )
   }
 

@@ -1,5 +1,5 @@
 export interface IconPropTypes {
-  name: string
+  name?: string
   size?: TIconSize
   color?: TColor
   onClick?: () => void

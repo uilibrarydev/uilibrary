@@ -1,0 +1,20 @@
+@import 'src/assets/styles/helpers/colors';
+
+.hint-text {
+    display: flex;
+    align-items: center;
+    position:absolute;
+    margin-top: 4px;
+    font-size: var(--ds-label-small);
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

@@ -1,29 +1,29 @@
-@import 'src/assets/styles/helpers/colors';
 
-.input-container {
-    position: relative;
-    .with-error-styles{
-        border: 1px solid $inputBorderError;
+.input {
+  --input-message-icon-size: var(--ds-size-16);
+  --input-message-margin: var(--ds-space-4) 0 0 0;
+  --input-message-icon-margin: 0 var(--ds-space-4) 0 0;
+  --input-message-icon-color: var(--ds-color-icon-success);
+
+  &__message {
+    display: inline-flex;
+    align-items: center;
+    position:absolute;
+    margin: var(--input-message-margin);
+
+    &__icon {
+      width: var(--input-message-icon-size);
+      height: var(--input-message-icon-size);
+      margin: var(--input-message-icon-margin);
+
+      svg {
+        width: 100%;
+        height: 100%;
+
+        path {
+          fill: var(--input-message-icon-color);
+        }
+      }
     }
-    .input-label{
-        margin-bottom: 8px;
-    }
+  }
 }
-
-.input-container input {
-    width:100%;
-    height: 40px;
-    padding: 4px 16px;
-    border: 1px solid $inputBorderGray;
-    border-radius: 4px;
-    caret-color: $labelGray;
-    box-sizing: border-box;
-    outline: none;
-    font-weight: 400;
-    color: $labelGray;
-    font-size: 14px;
-    &:focus {
-        border-color: $inputBorderActive;
-    }
-}
-

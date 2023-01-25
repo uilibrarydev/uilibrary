@@ -1,0 +1,11 @@
+@import 'src/assets/styles/helpers/sizes';
+
+
+.label {
+    font: var(--ds-font-weight-default) var(--ds-label-small)/var(--ds-line-height) var(--ds-font-family);
+    margin-bottom: var(--ds-space-4);
+
+    &--required {
+        color: var(--ds-color-text-danger);
+    }
+}

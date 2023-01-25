@@ -1,4 +1,5 @@
 //helpers
+@import "helpers/reset";
 @import "helpers/mixin";
 @import "helpers/sizes";
 @import "helpers/classname";
@@ -12,3 +13,4 @@
 
 //components
 @import 'src/assets/styles/components/button';
+@import 'src/assets/styles/components/input';

@@ -1,4 +1,5 @@
 import Text from './components/Text'
+import Heading from './components/Heading'
 import Icon from './components/Icon'
 import FormContainer from './components/FormContainer'
 import Input from './components/Input'
@@ -22,6 +23,7 @@ import './assets/styles/index.scss'
 
 export {
   Text,
+  Heading,
   Icon,
   FormContainer,
   Input,

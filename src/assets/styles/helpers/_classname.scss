@@ -23,8 +23,6 @@
 .fw-500 { @include font-weight('--font-weight-500'); }
 .fw-600 { @include font-weight('--font-weight-600'); }
 .fw-700 { @include font-weight('--font-weight-700'); }
-.fw-800 { @include font-weight('--font-weight-800'); }
-.fw-900 { @include font-weight('--font-weight-900'); }
 
 
 //***** margin and padding *****//
@@ -305,3 +303,59 @@ $space-prefixes: (
     @include color(white, 'base');
   }
 }
+
+
+//headings
+
+.heading {
+  font-family: var(--ds-font-family);
+  line-height: var(--ds-line-height-heading);
+  font-weight: var(--ds-font-weight-default);
+
+  &.semibold { font-weight: var(--ds-font-weight-active); }
+  &.bold { font-weight: var(--ds-font-weight-heading); }
+
+  &-xlarge {font-size: var(--ds-headline-x-large);}
+  &-large {font-size: var(--ds-headline-large);}
+  &-medium {font-size: var(--ds-headline-medium);}
+  &-standard {font-size: var(--ds-headline-standard);}
+  &-small {font-size: var(--ds-headline-small);}
+  &-xsmall {font-size: var(--ds-headline-x-small);}
+}
+
+//body text
+.body {
+  font-family: var(--ds-font-family);
+  font-weight: var(--ds-font-weight-default);
+  line-height: var(--ds-line-height-default);
+
+  &.semibold { font-weight: var(--ds-font-weight-active); }
+  &.bold { font-weight: var(--ds-font-weight-heading); }
+  &.bolder { font-weight: var(--ds-font-weigh-strong); }
+
+  &.lh-small { line-height: var(--ds-line-height-tight); }
+  &.lh-medium { line-height: var(--ds-line-height-caption); }
+  &.lh-large { line-height: var(--ds-line-height-heading); }
+
+  &-large {font-size: var(--ds-paragraph-large);}
+  &-medium {font-size: var(--ds-paragraph-medium);}
+  &-standard {font-size: var(--ds-paragraph-standard);}
+  &-small {font-size: var(--ds-paragraph-small);}
+  &-xsmall {font-size: var(--ds-paragraph-x-small);}
+}
+
+
+//colors
+
+.color-primary { color: var(--ds-color-text-primary); }
+.color-secondary { color: var(--ds-color-text-secondary); }
+.color-tertiary { color: var(--ds-color-text-tertiary); }
+.color-disabled { color: var(--ds-color-text-disabled); }
+.color-selected { color: var(--ds-color-text-selected); }
+.color-inverse { color: var(--ds-color-text-inverse); }
+.color-brand { color: var(--ds-color-text-brand); }
+.color-danger { color: var(--ds-color-text-danger); }
+.color-warning { color: var(--ds-color-text-warning); }
+.color-success { color: var(--ds-color-text-success); }
+.color-information { color: var(--ds-color-text-information); }
+.color-discovery { color: var(--ds-color-text-discovery); }
