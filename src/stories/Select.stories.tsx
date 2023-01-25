@@ -24,6 +24,7 @@ const Template = (): JSX.Element => {
   return (
     <div style={{ width: 300 }}>
       <SelectComp
+        label="Select"
         placeHolder="Select country"
         onSelect={setSelectedValue}
         options={OPTIONS}

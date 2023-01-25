@@ -20,5 +20,6 @@ export interface InputCustomProps extends Omit<IFormCompProps, 'value'> {
   }
   ref?: RefObject<HTMLInputElement>
   style?: Record<string, string>
+  type?: 'text' | 'number'
   changeHandler?: (event: TChangeEventType) => void
 }

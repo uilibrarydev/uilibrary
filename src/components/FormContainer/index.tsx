@@ -25,14 +25,16 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
   return (
     <form onSubmit={handleSubmit(onSubmit || noop)} className="form_container">
       <FormContext.Provider value={{ register, errors, control, setValue }}>
-        {children}
-        {buttonConfigs && (
-          <div className="buttons_container">
-            {buttonConfigs.map((buttonConfig, index) => {
-              return <Button {...buttonConfig} key={index} />
-            })}
-          </div>
-        )}
+        <>
+          {children}
+          {buttonConfigs && (
+            <div className="buttons_container">
+              {buttonConfigs.map((buttonConfig, index) => {
+                return <Button {...buttonConfig} key={index} />
+              })}
+            </div>
+          )}
+        </>
       </FormContext.Provider>
     </form>
   )

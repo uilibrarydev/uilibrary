@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react'
-import Icon from '../Icon'
-import { useOnOutsideClick } from '../../hooks'
 import { motion } from 'framer-motion'
+import Icon from '../Icon'
+import Text from '../Text'
+import { useOnOutsideClick } from '../../hooks'
 import { TSelectPropTypes, TSelectOption } from './types'
 import './index.scss'
 
@@ -9,7 +10,8 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
   const {
     options,
     placeHolder,
-    value = { value: '', label: '' },
+    value,
+    label,
     selectedValue = { value: '', label: '' },
     onSelect,
     setFieldValue,
@@ -40,6 +42,11 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
 
   return (
     <div className="select-container" ref={ref}>
+      {label && (
+        <Text color="labelGray" className="label">
+          {label}
+        </Text>
+      )}
       <div
         className={`selected-item-container ${isOpen ? 'opened' : 'closed'}`}
         onClick={toggleIsOpen}
@@ -57,7 +64,6 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
           <Icon size="small" name="arrow_up" color="dropdownGray" />
         </motion.div>
       </div>
-
       {isOpen && (
         <div className="select-options-wrapper">
           {options.map((item) => {

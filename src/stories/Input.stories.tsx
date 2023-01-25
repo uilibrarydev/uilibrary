@@ -11,33 +11,6 @@ export default {
     }
   }
 }
-// const Template = (): JSX.Element => {
-//   const [value, setValue] = useState('')
-//   const [error, setError] = useState('')
-//
-//   const onChange = (e: TChangeEventType) => {
-//     const _value = e.target.value
-//     setValue(_value)
-//
-//     if (_value.length < 5) {
-//       setError('Inputed value is too short')
-//     } else {
-//       if (error) {
-//         setError('')
-//       }
-//     }
-//   }
-//
-//   return (
-//       <InputComp
-//         value={value}
-//         changeHandler={onChange}
-//         label="Label"
-//         mask=""
-//       />
-//   )
-// }
-
 const Template = (args) => <InputComp {...args} />
 
 export const Input = Template.bind({})

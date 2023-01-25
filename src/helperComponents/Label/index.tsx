@@ -8,7 +8,10 @@ const Label: React.FC<TextPropTypes> = (props: TextPropTypes) => {
   if (!text) {
     return null
   }
-  return <Text size="small" className={`label ${required && 'label--required'}`}>{text}</Text>
+  return (
+    <Text size="small" type={required ? 'primary' : 'danger'} className="label">
+      {text}
+    </Text>
+  )
 }
-
 export default Label
