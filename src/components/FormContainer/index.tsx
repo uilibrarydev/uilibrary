@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { FormContext } from '../../context'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
@@ -25,14 +25,16 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
   return (
     <form onSubmit={handleSubmit(onSubmit || noop)} className="form_container">
       <FormContext.Provider value={{ register, errors, control, setValue }}>
-        {children}
-        {buttonConfigs && (
-          <div className="buttons_container">
-            {buttonConfigs.map((buttonConfig, index) => {
-              return <Button {...buttonConfig} key={index} />
-            })}
-          </div>
-        )}
+        <>
+          {children}
+          {buttonConfigs && (
+            <div className="buttons_container">
+              {buttonConfigs.map((buttonConfig, index) => {
+                return <Button {...buttonConfig} key={index} />
+              })}
+            </div>
+          )}
+        </>
       </FormContext.Provider>
     </form>
   )
