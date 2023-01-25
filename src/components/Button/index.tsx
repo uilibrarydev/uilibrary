@@ -6,14 +6,14 @@ import './index.scss'
 const Button = (props: TButtonPropTypes): JSX.Element => {
   const {
     buttonText,
-    type = 'primary',
-    size = 'large',
+    type,
+    size,
     className,
     iconProps,
     justIcon,
     buttonActionType,
-    disabled = false,
-    isLoading = false,
+    disabled,
+    isLoading,
     onClick
   } = props
 

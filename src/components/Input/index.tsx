@@ -15,7 +15,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       size,
       error,
       valid,
-      label = 'Label',
+      label,
       mask,
       onChange,
       currentValue,
@@ -25,7 +25,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       disabled,
       required,
       iconProps,
-      type = 'text'
+      type
     },
     ref
   ): JSX.Element => {
