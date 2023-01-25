@@ -43,7 +43,7 @@ const Template = (args) => <InputComp {...args} />
 export const Input = Template.bind({})
 Input.args = {
   iconProps: {
-    name: 'close',
+    name: 'close'
   },
   label: 'Label',
   size: 'large',
@@ -52,5 +52,5 @@ Input.args = {
   disabled: false,
   required: false,
   valid: false,
-  error: 'This is your helper text',
+  error: 'This is your helper text'
 }
