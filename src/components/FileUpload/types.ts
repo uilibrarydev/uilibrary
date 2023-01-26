@@ -5,4 +5,5 @@ export interface TFileUploadProps extends IFormCompProps {
   label?: string | JSX.Element
   getFiles?: (files: File) => void
   toBase64?: boolean
+  required?: boolean
 }

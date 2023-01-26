@@ -1,3 +1,5 @@
+import { TClickEventType } from '../../types/globals'
+
 export interface TextPropTypes {
   children: string | JSX.Element
   type?: string
@@ -5,5 +7,5 @@ export interface TextPropTypes {
   weight?: string
   lineHeight?: string
   className?: string
-  onClick?: (event: TEventType) => void
+  onClick?: (event: TClickEventType) => void
 }

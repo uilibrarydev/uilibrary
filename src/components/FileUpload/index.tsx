@@ -4,9 +4,10 @@ import Text from '../../components/Text'
 import UploadedState from './uploaded-state'
 import { TFileUploadProps } from './types'
 import './index.scss'
+import Label from '../../helperComponents/Label'
 
 const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
-  const { allowedTypes = ['*'], label, getFiles, name, setFieldValue, toBase64 } = props
+  const { allowedTypes = ['*'], label, getFiles, name, setFieldValue, toBase64, required } = props
 
   const [file, setFile] = useState<File | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -72,11 +73,8 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     <div className="upload_button">
       <IconComp name="attach" size="xSmall" color="iconGray" withWrapper onClick={handleClick} />
       <div className="label_container">
-        {label && (
-          <Text color="buttonGreen" onClick={handleClick} className="upload_button_attach">
-            {label}
-          </Text>
-        )}
+        <Label text={label} required={required} />
+
         <input
           name={name}
           type="file"
@@ -85,9 +83,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
           accept={`${allowedTypes.join(',')}`}
           onChange={handleChange}
         />
-        <Text color="footerTextGray" size="xSmall">{`Թույլատրելի տեսակներ ${allowedTypes.join(
-          ', '
-        )}`}</Text>
+        <Text size="xSmall">{`Թույլատրելի տեսակներ ${allowedTypes.join(', ')}`}</Text>
       </div>
     </div>
   )

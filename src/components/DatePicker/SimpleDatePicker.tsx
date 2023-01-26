@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import moment from 'moment'
 import DatePicker, { registerLocale } from 'react-datepicker'
-import Text from '../Text'
 import hy from 'date-fns/locale/hy'
 import Input from '../Input'
 import { ISimpleDatePickerProps } from './types'
+import Label from '../../helperComponents/Label'
 
 registerLocale('hy', hy)
 
@@ -17,6 +17,7 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
     label,
     changeHandler,
     format = 'M/D/YYYY',
+    required = false,
     ...rest
   } = props
 
@@ -39,11 +40,7 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
 
   return (
     <div className="picker-container">
-      {label && (
-        <Text color="labelGray" className="label">
-          {label}
-        </Text>
-      )}
+      <Label text={label} required={required} />
 
       <DatePicker
         selected={moment.isDate(selectedDate) ? selectedDate : new Date()}

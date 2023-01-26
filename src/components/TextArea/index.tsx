@@ -1,9 +1,9 @@
 import React from 'react'
 import { TTextAreaTypeProps } from './types'
-import Text from '../Text'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
-import './index.scss'
+import Label from '../../helperComponents/Label'
 import { TChangeEventType } from '../../types/globals'
+import './index.scss'
 
 export const TextArea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps>(
   (
@@ -16,6 +16,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
       changeHandler,
       placeHolder,
       onChange,
+      required = false,
       ...rest
     },
     ref
@@ -31,11 +32,8 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
 
     return (
       <div className={`input-container ${className}`}>
-        {label && (
-          <Text color="labelGray" className="input-label">
-            {label}
-          </Text>
-        )}
+        <Label text={label} required={required} />
+
         <textarea
           ref={ref}
           placeholder={placeHolder}

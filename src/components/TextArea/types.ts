@@ -10,5 +10,6 @@ export interface TTextAreaTypeProps extends Omit<IFormCompProps, 'value'> {
   showError?: string
   currentValue?: string
   placeHolder?: string
+  required?: boolean
   changeHandler?: (event: TTextAreaEventType) => void
 }

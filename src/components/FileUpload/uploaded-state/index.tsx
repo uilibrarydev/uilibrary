@@ -17,9 +17,7 @@ const UploadedState = (props: TUploadedStatePropTypes): JSX.Element => {
   return (
     <div className="uploaded_state">
       <Icon name={iconName} className="file_icon" />
-      <Text color="textBlack" size="xSmall">
-        {name || ''}
-      </Text>
+      <Text size="xSmall">{name || ''}</Text>
       <Icon name="close" color="iconGray" className="icon_remove" onClick={onRemove} />
     </div>
   )
