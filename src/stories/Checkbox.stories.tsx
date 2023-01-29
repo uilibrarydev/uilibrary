@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Checkbox as CheckboxComp, Input as InputComp} from '../components'
+import { Checkbox as CheckboxComp, Input as InputComp } from '../components'
 import { TCheckboxProps } from '../components/Checkbox/types'
 import { noop } from '../utils'
 
@@ -22,7 +22,7 @@ export default {
     required: {
       options: ['true', 'false'],
       control: { disabled: 'false' }
-    },
+    }
   }
 }
 
@@ -42,11 +42,10 @@ export default {
 
 const Template = (args) => <CheckboxComp {...args} />
 
-
 export const Checkbox = Template.bind({})
 
 Checkbox.args = {
-  iconProps: { name: 'close', size: 'xSmall'},
+  iconProps: { name: 'close', size: 'xSmall' },
   value: true,
   justIcon: false,
   disabled: false,
