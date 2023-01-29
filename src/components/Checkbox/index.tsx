@@ -1,36 +1,55 @@
 import React from 'react'
 import Icon from '../Icon'
-import { TCheckboxProps } from './types'
+import {TCheckboxProps} from './types'
 import './index.scss'
 
 export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
-  const { label, name, setFieldValue, selectedValue, value, onClick } = props
-  const isChecked = !!value || selectedValue
+    const {
+        label = 'jsjsjjs',
+        justIcon,
+        disabled,
+        required = true,
+        name,
+        setFieldValue,
+        selectedValue,
+        value,
+        className,
+        onClick
+    } = props
+    const isChecked = !!value || selectedValue
 
-  const clickHandler = () => {
-    if (name && setFieldValue) {
-      setFieldValue(name, !isChecked)
+    const clickHandler = () => {
+        if (name && setFieldValue) {
+            setFieldValue(name, !isChecked)
+        }
+        if (onClick) {
+            onClick(!isChecked)
+        }
     }
-    if (onClick) {
-      onClick(!isChecked)
-    }
-  }
 
-  return (
-    <div className="custom_checkbox_container" onClick={clickHandler}>
-      <div
-        role="checkbox"
-        aria-checked={isChecked}
-        tabIndex={0}
-        className={`custom_checkbox_container_content ${isChecked ? 'checked' : ''}`}
-      >
-        <div className={'custom_checkbox_container_icon '}>
-          {isChecked && <Icon name="tick" color="justWhite" size="xxSmall" />}
+    return (
+        <div className={`controller controller--checkbox 
+                        ${className} 
+                        ${disabled && 'controller--disabled'}
+                        `}
+             onClick={clickHandler}>
+            <span
+                role="checkbox"
+                aria-checked={isChecked}
+                tabIndex={0}
+                className={`controller__icon ${isChecked ? 'checked' : ''}`}
+            >
+                {isChecked && <Icon name="tick" size="xxSmall"/>}
+            </span>
+            {!justIcon && label &&
+                <span className="controller__label">
+                    {label}
+                    {required && <sup>*</sup>}
+                </span>
+            }
+
         </div>
-      </div>
-      {label}
-    </div>
-  )
+    )
 }
 
 export default Checkbox

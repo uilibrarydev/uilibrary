@@ -1,0 +1,145 @@
+.controller {
+  $this: &;
+
+  //----------- component specific tokens -------------//
+
+  --ds-controller-size: var(--ds-size-16);
+
+  --ds-controller-padding: var(--ds-space-4);
+
+  --ds-controller-font: var(--ds-font-weight-default) var(--ds-paragraph-standard)/var(--ds-line-height-caption) var(--ds-font-family);
+
+  --ds-controller-bg-default-light: var(--ds-color-bg-cta-secondary-default);
+  --ds-controller-bg-default-dark: var(--grey-400);
+  --ds-controller-bg-hover-light: var(--ds-color-bg-cta-secondary-hover);
+  --ds-controller-bg-hover-dark: var(--grey-300);
+  --ds-controller-bg-pressed-light: var(--ds-color-bg-cta-secondary-pressed);
+  --ds-controller-bg-pressed-dark: var(--grey-500);
+  --ds-controller-bg-focused: var(--ds-color-bg-cta-secondary-focused);
+  --ds-controller-bg-disabled: var(--ds-color-bg-cta-disabled);
+
+  --ds-controller-selected-bg-default: var(--ds-color-bg-cta-primary-default);
+  --ds-controller-selected-bg-hover: var(--ds-color-bg-cta-primary-hover);
+  --ds-controller-selected-bg-pressed: var(--ds-color-bg-cta-primary-pressed);
+  --ds-controller-selected-bg-focused: var(--ds-color-bg-cta-primary-focused);
+  --ds-controller-selected-bg-disabled: var(--ds-color-bg-cta-disabled);
+
+  --ds-controller-mark-light: var(--ds-color-icon-inverse);
+  --ds-controller-mark-dark: var(--ds-color-icon-disabled);
+
+  --ds-controller-border-color-default: var(--ds-color-border-cta);
+  --ds-controller-border-color-focused: var(--grey-500);
+  --ds-controller-border-color-disabled: var(--grey-200);
+
+  --ds-controller-border: var(--ds-border-size-1);
+  --ds-controller-border-radius: var(--ds-border-radius-2);
+
+  --ds-controller-label-default: var(--ds-color-text-primary);
+  --ds-controller-label-disabled: var(--ds-color-text-disabled);
+  --ds-controller-label-padding: 0 0 0 var(--ds-space-8);
+
+  --ds-controller-transition: background-color .3s linear, border-color .3s linear;
+
+  //----------//
+
+  display: inline-flex;
+  align-items: center;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--ds-controller-size);
+    height: var(--ds-controller-size);
+    background-color: var(--ds-controller-bg-default-light);
+    border-radius: var(--ds-controller-border-radius);
+    border: var(--ds-controller-border) solid var(--ds-controller-border-color-default);
+    transition: var(--ds-controller-transition);
+
+    .icon {
+      width: 100%;
+      height: 100%;
+    }
+
+    svg {
+      path {
+        fill: var(--ds-controller-mark-light);
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--ds-controller-bg-hover);
+    }
+    &:focus {
+      background-color: var(--ds-controller-bg-focused);
+      border-color: var(--ds-controller-border-color-focused);
+    }
+    &:active, &:visited {
+      background-color: var(--ds-controller-bg-pressed-light);
+    }
+
+    &.checked {
+      background-color: var(--ds-controller-selected-bg-default);
+      border-color: var(--ds-controller-selected-bg-default);
+
+      &:hover {
+        background-color: var(--ds-controller-selected-bg-hover);
+        border-color: var(--ds-controller-selected-bg-hover);
+      }
+      &:focus {
+        background-color: var(--ds-controller-selected-bg-focused);
+        border-color: var(--ds-controller-selected-bg-focused);
+      }
+      &:active, &:visited {
+        background-color: var(--ds-controller-selected-bg-pressed);
+        border-color: var(--ds-controller-selected-bg-pressed);
+      }
+    }
+  }
+
+  &__label {
+    font: var(--ds-controller-font);
+    color: var(--ds-controller-label-default);
+    padding: var(--ds-controller-label-padding);
+
+    sup {
+      margin-left: 2px;
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+
+    #{$this}__icon {
+      cursor: inherit;
+      background-color: var(--ds-controller-bg-disabled);
+      border-color: var(--ds-controller-border-color-disabled);
+      color: var(--ds-controller-label-disabled);
+
+      svg {
+        path {
+          fill: var(--ds-controller-mark-dark);
+        }
+      }
+
+      &.checked {
+        background-color: var(--ds-controller-bg-disabled);
+        border-color: var(--ds-controller-border-color-disabled);
+      }
+    }
+
+    #{$this}__label {
+      color: var(--ds-controller-label-disabled);
+    }
+  }
+
+  &--checkbox {
+
+  }
+
+  &--radio {
+    padding: var(--ds-controller-padding);
+
+  }
+}

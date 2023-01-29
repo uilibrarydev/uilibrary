@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Checkbox as CheckboxComp } from '../components'
+import {Checkbox as CheckboxComp, Input as InputComp} from '../components'
 import { TCheckboxProps } from '../components/Checkbox/types'
 import { noop } from '../utils'
 
@@ -10,28 +10,46 @@ export default {
     value: {
       options: ['true', 'false'],
       control: { type: 'true' }
-    }
+    },
+    disabled: {
+      options: ['true', 'false'],
+      control: { disabled: 'true' }
+    },
+    justIcon: {
+      options: ['true', 'false'],
+      control: { disabled: 'false' }
+    },
+    required: {
+      options: ['true', 'false'],
+      control: { disabled: 'false' }
+    },
   }
 }
 
-export const Template = (args: TCheckboxProps): JSX.Element => {
-  const [isChecked, setIsChecked] = useState(args.selectedValue)
+// export const Template = (args: TCheckboxProps): JSX.Element => {
+//   const [isChecked, setIsChecked] = useState(args.selectedValue)
+//
+//   const clickHandler = () => {
+//     setIsChecked((_isChecked) => !_isChecked)
+//   }
+//
+//   return (
+//     <div>
+//       <CheckboxComp {...args} selectedValue={isChecked} onClick={clickHandler} />
+//     </div>
+//   )
+// }
 
-  const clickHandler = () => {
-    setIsChecked((_isChecked) => !_isChecked)
-  }
+const Template = (args) => <CheckboxComp {...args} />
 
-  return (
-    <div>
-      <CheckboxComp {...args} selectedValue={isChecked} onClick={clickHandler} />
-    </div>
-  )
-}
 
 export const Checkbox = Template.bind({})
 
 Checkbox.args = {
-  iconProps: { name: 'close', size: 'xSmall', color: 'justWhite' },
+  iconProps: { name: 'close', size: 'xSmall'},
   value: true,
+  justIcon: false,
+  disabled: false,
+  required: false,
   onClick: noop
 }
