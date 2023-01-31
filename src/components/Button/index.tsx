@@ -7,7 +7,7 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     buttonText,
     type,
     size,
-    className,
+    className = '',
     iconProps,
     justIcon,
     buttonActionType,
@@ -29,10 +29,16 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
                   } 
                   ${justIcon && 'btn--icon'}
                   ${isLoading && 'btn--loading'}
-                  ${className || ''}`}
+                  ${className}`}
       onClick={onClick}
     >
-      {iconProps?.name && <Icon {...iconProps} className="btn__icon" />}
+      {iconProps?.name && (
+        <Icon
+          {...iconProps}
+          className="btn__icon"
+          size={`${size == 'large' ? 'medium' : size == 'medium' ? 'small' : 'xsmall'}`}
+        />
+      )}
       {isLoading || (!justIcon && buttonText)}
     </button>
   )

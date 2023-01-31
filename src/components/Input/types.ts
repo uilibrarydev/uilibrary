@@ -15,8 +15,7 @@ export interface InputCustomProps extends Omit<IFormCompProps, 'value'> {
   valid?: boolean
   iconProps?: {
     name: string
-    size?: TIconSize
-    color?: TColor
+    size?: string
   }
   ref?: RefObject<HTMLInputElement>
   style?: Record<string, string>

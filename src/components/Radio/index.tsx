@@ -1,26 +1,25 @@
 import React from 'react'
 import Icon from '../Icon'
-import { TCheckboxProps } from './types'
+import { TRadioProps } from './types'
 import './index.scss'
 
-export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
+export const Radio = (props: TRadioProps): JSX.Element | null => {
   const {
     label = 'jsjsjjs',
     justIcon,
     disabled,
-    required = true,
     name,
     setFieldValue,
     selectedValue,
     value,
-    className = '',
+    className,
     onClick
   } = props
   const isChecked = !!value || selectedValue
 
   const clickHandler = () => {
     if (name && setFieldValue) {
-      setFieldValue(name, !isChecked, { shouldValidate: !isChecked })
+      setFieldValue(name, !isChecked)
     }
     if (onClick) {
       onClick(!isChecked)
@@ -29,30 +28,21 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
 
   return (
     <div
-      className={`controller controller--checkbox 
+      className={`controller controller--radio 
                         ${className} 
                         ${disabled && 'controller--disabled'}
                         `}
       onClick={clickHandler}
     >
       <span
-        role="checkbox"
+        role="radio"
         aria-checked={isChecked}
         tabIndex={0}
         className={`controller__icon ${isChecked ? 'checked' : ''}`}
-      >
-        {isChecked && (
-          <Icon name="tick" size="xsmall" type={`${disabled ? 'disabled' : 'inverse'}`} />
-        )}
-      </span>
-      {!justIcon && label && (
-        <span className="controller__label">
-          {label}
-          {required && <sup>*</sup>}
-        </span>
-      )}
+      ></span>
+      {!justIcon && label && <span className="controller__label">{label}</span>}
     </div>
   )
 }
 
-export default Checkbox
+export default Radio

@@ -44,7 +44,13 @@ export default {
 //     </Text>
 //   )
 // }
-const Template = (args) => <TextComp {...args} text={`${args.text}`} />
+const Template = (args) => {
+  return (
+    <div style={{ padding: '20px', backgroundColor: `${args.type == 'inverse' ? '#000' : ''}` }}>
+      <TextComp {...args} text={`${args.text}`} />
+    </div>
+  )
+}
 
 export const Text = Template.bind({})
 Text.args = {

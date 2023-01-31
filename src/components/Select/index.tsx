@@ -59,7 +59,7 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
           animate={{ rotate: isOpen ? 0 : 180 }}
           transition={{ type: 'spring', damping: 30, stiffness: 800 }}
         >
-          <Icon size="small" name="arrow_up" color="dropdownGray" />
+          <Icon size="small" name="arrow_up" type="primary" />
         </motion.div>
       </div>
       {isOpen && (

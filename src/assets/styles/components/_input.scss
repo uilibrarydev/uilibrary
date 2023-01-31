@@ -4,10 +4,10 @@
   //----------- component specific tokens -------------//
 
   --ds-input-size: var(--ds-size-40);
-  --ds-input-size-small: var(--ds-size-32);
+  --ds-input-size-sm: var(--ds-size-32);
 
   --ds-input-padding: var(--ds-space-12);
-  --ds-input-padding-large: var(--ds-space-40);
+  --ds-input-padding-lg: var(--ds-space-40);
 
   --ds-input-font: var(--ds-font-weight-default) var(--ds-paragraph-standard)/var(--ds-line-height-default) var(--ds-font-family);
 
@@ -51,8 +51,6 @@
   --ds-input-body-icon-validated: var(--ds-color-text-primary);
   --ds-input-body-icon-invalid: var(--ds-color-text-primary);
   --ds-input-body-icon-disabled: var(--ds-color-text-primary);
-  --ds-input-body-icon-size: var(--size-20);
-
 
   --ds-input-border-color-default: var(--ds-color-border-cta);
   --ds-input-border-color-hover: var(--ds-color-border-cta);
@@ -61,8 +59,8 @@
   --ds-input-border-color-validated: var(--ds-color-border-cta);
   --ds-input-border-color-invalid: var(--ds-color-text-danger);
   --ds-input-border-color-disabled: var(--ds-color-border-disabled);
-  --ds-input-border: var(--ds-border-size-1);
-  --ds-input-border-radius: var(--ds-border-radius-2);
+  --ds-input-border: var(--ds-border-thin);
+  --ds-input-border-radius: var(--ds-border-radius-xs);
 
   --ds-input-icon-position: var(--ds-space-12);
 
@@ -83,7 +81,7 @@
     color: var(--ds-input-body-text-default);
     background-color: var(--ds-input-bg-default);
     border-radius: var(--ds-input-border-radius);
-    border: var(--ds-input-border) solid var(--ds-input-border-color-default);
+    border: var(--ds-input-border) var(--ds-input-border-color-default);
     transition: var(--ds-input-transition);
 
     & + #{$this}__icon {
@@ -189,8 +187,6 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: var(--ds-input-body-icon-size);
-    height: var(--ds-input-body-icon-size);
 
     &--left {
       left: var(--ds-input-icon-position);
@@ -200,6 +196,7 @@
       right: var(--ds-input-icon-position);
     }
 
+    //TODO remove after icons integration
     svg {
       width: 100%;
       height: 100%;
@@ -208,19 +205,19 @@
 
   &--icon-left {
     input {
-      padding-left: var(--ds-input-padding-large);
+      padding-left: var(--ds-input-padding-lg);
     }
   }
 
   &--icon-right {
     input {
-      padding-right: var(--ds-input-padding-large);
+      padding-right: var(--ds-input-padding-lg);
     }
   }
 
   &--small {
     input {
-      height: var(--ds-input-size-small);
+      height: var(--ds-input-size-sm);
     }
   }
 

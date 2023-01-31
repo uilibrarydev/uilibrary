@@ -1,19 +1,11 @@
 import React from 'react'
 import { TSwitcherProps } from './types'
-import { customColors } from '../../consts'
 import './index.scss'
+import Icon from '../Icon'
 
 export const Switcher = React.forwardRef<HTMLDivElement, TSwitcherProps>(
   (
-    {
-      isChecked,
-      onClick,
-      id = '',
-      backgroundColor = 'inputBorderActive',
-      setFieldValue,
-      name,
-      value
-    },
+    { isChecked, onClick, id = '', setFieldValue, name, value, disabled, size },
     ref
   ): JSX.Element => {
     const isCheckboxChecked = value || isChecked
@@ -30,14 +22,22 @@ export const Switcher = React.forwardRef<HTMLDivElement, TSwitcherProps>(
     return (
       <div
         ref={ref}
-        className="custom_switcher_container"
         onClick={handleClick}
         id={id}
-        style={{ backgroundColor: customColors[backgroundColor] }}
+        className={`controller controller--switch controller--switch-${size} 
+                            ${disabled && 'controller--disabled'} 
+                            ${isCheckboxChecked ? 'checked' : ''} 
+                            `}
       >
-        <div className={`switcher_content ${isCheckboxChecked ? 'checked' : 'unChecked'} `}>
-          <div className="circle" />
-        </div>
+        <span className="controller__icon">
+          {isChecked && (
+            <Icon
+              name="tick"
+              size={`${size == 'large' ? 'small' : 'xsmall'}`}
+              type={`${disabled ? 'disabled' : 'inverse'}`}
+            />
+          )}
+        </span>
       </div>
     )
   }

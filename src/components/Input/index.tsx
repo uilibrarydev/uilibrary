@@ -75,14 +75,18 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         <Label text={label} required={required} />
         <div className="input__inner">
           {input}
-          {leftIcon && <Icon {...iconProps} className="input__icon input__icon--left" />}
-          {rightIcon && <Icon {...iconProps} className="input__icon input__icon--right" />}
+          {leftIcon && (
+            <Icon {...iconProps} className="input__icon input__icon--left" size="small" />
+          )}
+          {rightIcon && (
+            <Icon {...iconProps} className="input__icon input__icon--right" size="small" />
+          )}
         </div>
         {required && error && <ErrorMessage message={error} icon="close" />}
         {valid && (
           <Text size="small" type="success" className="input__message">
             <>
-              <Icon name="change" className="input__message__icon" />
+              <Icon name="change" className="input__message__icon" size="xsmall" />
               <span>This is your helper text</span>
             </>
           </Text>

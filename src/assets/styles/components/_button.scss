@@ -3,17 +3,17 @@
 
   //----------- component specific tokens -------------//
 
-  --ds-button-size-l: var(--ds-size-40);
-  --ds-button-size-m: var(--ds-size-32);
-  --ds-button-size-s: var(--ds-size-24);
+  --ds-button-size-lg: var(--ds-size-40);
+  --ds-button-size-md: var(--ds-size-32);
+  --ds-button-size-sm: var(--ds-size-24);
 
-  --ds-button-padding-l: 0 var(--ds-space-16);
-  --ds-button-padding-m: 0 var(--ds-space-12);
-  --ds-button-padding-s: 0 var(--ds-space-12);
+  --ds-button-padding-lg: 0 var(--ds-space-16);
+  --ds-button-padding-md: 0 var(--ds-space-12);
+  --ds-button-padding-sm: 0 var(--ds-space-12);
 
-  --ds-button-font-size-l: var(--ds-paragraph-standard);
-  --ds-button-font-size-m: var(--ds-paragraph-standard);
-  --ds-button-font-size-s: var(--ds-paragraph-small);
+  --ds-button-font-size-lg: var(--ds-paragraph-std);
+  --ds-button-font-size-md: var(--ds-paragraph-std);
+  --ds-button-font-size-sm: var(--ds-paragraph-sm);
 
   --ds-button-font-family: var(--ds-font-family);
   --ds-button-font-weight: var(--ds-font-weight-default);
@@ -63,15 +63,12 @@
   --ds-button-link-text-focused: var(--brand-700);
   --ds-button-link-text-disabled: var(--ds-color-text-disabled);
 
-  --ds-button-icon-margin-l: var(--ds-space-8);
-  --ds-button-icon-margin-m: var(--ds-space-8);
-  --ds-button-icon-margin-s: var(--ds-space-4);
-  --ds-button-icon-size-l: var(--size-24);
-  --ds-button-icon-size-m: var(--size-20);
-  --ds-button-icon-size-s: var(--size-16);
+  --ds-button-icon-margin-lg: var(--ds-space-8);
+  --ds-button-icon-margin-md: var(--ds-space-8);
+  --ds-button-icon-margin-sm: var(--ds-space-4);
 
-  --ds-button-border: var(--ds-border-size-1);
-  --ds-button-border-radius: var(--ds-border-radius-2);
+  --ds-button-border: var(--ds-border-thin);
+  --ds-button-border-radius: var(--ds-border-radius-xs);
 
   --ds-button-transition: background-color .3s linear, color .3s linear, border-color .3s linear;
 
@@ -96,6 +93,7 @@
   }
 
   &__icon {
+    //TODO remove after icons integration
     svg {
       width: 100%;
       height: 100%;
@@ -103,36 +101,21 @@
   }
 
   &--large {
-    height: var(--ds-button-size-l);
-    padding: var(--ds-button-padding-l);
-    font-size: var(--ds-button-font-size-l);
-
-    #{$this}__icon {
-      width: var(--ds-button-icon-size-l);
-      height: var(--ds-button-icon-size-l);
-    }
+    height: var(--ds-button-size-lg);
+    padding: var(--ds-button-padding-lg);
+    font-size: var(--ds-button-font-size-lg);
   }
 
   &--medium {
-    height: var(--ds-button-size-m);
-    padding: var(--ds-button-padding-m);
-    font-size: var(--ds-button-font-size-m);
-
-    #{$this}__icon {
-      width: var(--ds-button-icon-size-m);
-      height: var(--ds-button-icon-size-m);
-    }
+    height: var(--ds-button-size-md);
+    padding: var(--ds-button-padding-md);
+    font-size: var(--ds-button-font-size-md);
   }
 
   &--small {
-    height: var(--ds-button-size-s);
-    padding: var(--ds-button-padding-s);
-    font-size: var(--ds-button-font-size-s);
-
-    #{$this}__icon {
-      width: var(--ds-button-icon-size-s);
-      height: var(--ds-button-icon-size-s);
-    }
+    height: var(--ds-button-size-sm);
+    padding: var(--ds-button-padding-sm);
+    font-size: var(--ds-button-font-size-sm);
   }
 
   &--primary {
@@ -177,7 +160,7 @@
   &--secondary {
     background-color: var(--ds-button-secondary-bg-default);
     color: var(--ds-button-secondary-text-default);
-    border: 1px solid var(--ds-button-secondary-border-color);
+    border: var(--ds-button-border) var(--ds-button-secondary-border-color);
 
     &:hover {
       background-color: var(--ds-button-secondary-bg-hover);
@@ -368,19 +351,19 @@
 
     &#{$this}--large {
       #{$this}__icon {
-        margin-right: var(--ds-button-icon-margin-l);
+        margin-right: var(--ds-button-icon-margin-lg);
       }
     }
 
     &#{$this}--medium {
       #{$this}__icon {
-        margin-right: var(--ds-button-icon-margin-m);
+        margin-right: var(--ds-button-icon-margin-md);
       }
     }
 
     &#{$this}--small {
       #{$this}__icon {
-        margin-right: var(--ds-button-icon-margin-s);
+        margin-right: var(--ds-button-icon-margin-sm);
       }
     }
   }
@@ -393,19 +376,19 @@
 
     &#{$this}--medium {
       #{$this}__icon {
-        margin-left: var(--ds-button-icon-margin-l);
+        margin-left: var(--ds-button-icon-margin-lg);
       }
     }
 
     &#{$this}--medium {
       #{$this}__icon {
-        margin-left: var(--ds-button-icon-margin-m);
+        margin-left: var(--ds-button-icon-margin-md);
       }
     }
 
     &#{$this}--small {
       #{$this}__icon {
-        margin-left: var(--ds-button-icon-margin-s);
+        margin-left: var(--ds-button-icon-margin-sm);
       }
     }
   }
@@ -414,15 +397,15 @@
     padding: 0;
 
     &#{$this}--large {
-      width: var(--ds-button-size-l);
+      width: var(--ds-button-size-lg);
     }
 
     &#{$this}--medium {
-      width: var(--ds-button-size-m);
+      width: var(--ds-button-size-md);
     }
 
     &#{$this}--small {
-      width: var(--ds-button-size-s);
+      width: var(--ds-button-size-sm);
     }
   }
 

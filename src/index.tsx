@@ -17,9 +17,10 @@ import TextArea from './components/TextArea'
 import Stepper from './components/Stepper'
 import { TimePicker, SimpleDatePicker, RangeDatePicker } from './components/DatePicker'
 import Switcher from './components/Switcher'
+import Radio from './components/Radio'
 import { HttpClient } from './helpers'
-import More from './components/More'
 
+import More from './components/More'
 import { WithFormFeedback } from './context/FormContextProvider'
 import './assets/styles/index.scss'
 
@@ -39,6 +40,7 @@ export {
   Divider,
   Progress,
   Checkbox,
+  Radio,
   Stepper,
   TimePicker,
   SimpleDatePicker,

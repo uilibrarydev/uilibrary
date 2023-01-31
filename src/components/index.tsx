@@ -18,6 +18,7 @@ import { TimePicker, SimpleDatePicker, RangeDatePicker } from './DatePicker'
 import TextArea from './TextArea'
 import More from './More'
 import Switcher from './Switcher'
+import Radio from './Radio'
 
 export {
   Text,
@@ -41,5 +42,6 @@ export {
   RangeDatePicker,
   TextArea,
   More,
-  Switcher
+  Switcher,
+  Radio
 }

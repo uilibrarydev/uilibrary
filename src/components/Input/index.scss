@@ -1,6 +1,5 @@
 
 .input {
-  --input-message-icon-size: var(--ds-size-16);
   --input-message-margin: var(--ds-space-4) 0 0 0;
   --input-message-icon-margin: 0 var(--ds-space-4) 0 0;
   --input-message-icon-color: var(--ds-color-icon-success);
@@ -12,8 +11,6 @@
     margin: var(--input-message-margin);
 
     &__icon {
-      width: var(--input-message-icon-size);
-      height: var(--input-message-icon-size);
       margin: var(--input-message-icon-margin);
 
       svg {

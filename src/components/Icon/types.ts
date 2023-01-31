@@ -1,10 +1,10 @@
 export interface IconPropTypes {
   name?: string
-  size?: TIconSize
-  color?: TColor
+  type?: string
+  size?: string
+  color?: string
   onClick?: () => void
   className?: string
   refHandler?: CallbackFnType
   withWrapper?: boolean
-  wrapperColor?: TColor
 }

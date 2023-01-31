@@ -11,8 +11,6 @@ export interface TButtonPropTypes {
   isLoading?: boolean
   iconProps?: {
     name: string
-    size?: TIconSize
-    color?: TColor
     alignment?: string
   }
   onClick: (event: TClickEventType) => void

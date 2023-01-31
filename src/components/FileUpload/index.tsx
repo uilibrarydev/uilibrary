@@ -71,7 +71,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
 
   return (
     <div className="upload_button">
-      <IconComp name="attach" size="xSmall" color="iconGray" withWrapper onClick={handleClick} />
+      <IconComp name="attach" size="small" type="primary" withWrapper onClick={handleClick} />
       <div className="label_container">
         <Label text={label} required={required} />
 

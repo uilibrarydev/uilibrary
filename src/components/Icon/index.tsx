@@ -7,35 +7,24 @@ import './index.scss'
 const Icon = (props: IconPropTypes): JSX.Element => {
   const {
     name,
-    size = 'small',
-    color,
+    type,
+    size = 'xsmall',
     withWrapper = false,
-    wrapperColor = 'borderGray',
     onClick,
-    className,
+    className = '',
     refHandler
   } = props
 
-  const svg = customIcons[name as keyof TCustomIcons]
-
-  const iconSize = iconSizes[size as keyof TIconSizes]
-  const iconColor = customColors[color as keyof TCustomColors]
-
   let content = (
-    <span
+    <i
       ref={refHandler}
       onClick={onClick}
-      className={`icon ${className}`}
-      dangerouslySetInnerHTML={{ __html: svg(iconColor, iconSize) }}
+      className={`icon icon--${size} icon--${type} ${className} icon-${name}`}
     />
   )
 
   if (withWrapper) {
-    content = (
-      <span className="icon_wrapper" style={{ border: `1px solid ${customColors[wrapperColor]}` }}>
-        {content}
-      </span>
-    )
+    content = <span className="icon-wrapper">{content}</span>
   }
 
   return content

@@ -13,6 +13,7 @@
   --font-family-secondary: 'Tahoma';
   --font-family-tertiary: 'Open Sans';
 
+  --font-size-6: 6px;
   --font-size-10: 10px;
   --font-size-12: 12px;
   --font-size-14: 14px;
@@ -30,10 +31,10 @@
   --font-weight-600: 600;
   --font-weight-700: 700;
 
-  --line-height: 1.15;
-  --line-height-s: 1.2;
-  --line-height-m: 1.3;
-  --line-height-l: 1.5;
+  --line-height-xs: 1.15;
+  --line-height-sm: 1.2;
+  --line-height-md: 1.3;
+  --line-height-lg: 1.5;
 
   --letter-spacing: 1px;
 
@@ -54,18 +55,19 @@
   * @presenter FontSize
   */
 
-  --ds-headline-x-large: var(--font-size-64);
-  --ds-headline-large: var(--font-size-48);
-  --ds-headline-medium: var(--font-size-40);
-  --ds-headline-standard: var(--font-size-36);
-  --ds-headline-small: var(--font-size-32);
-  --ds-headline-x-small: var(--font-size-24);
+  --ds-headline-xl: var(--font-size-64);
+  --ds-headline-lg: var(--font-size-48);
+  --ds-headline-md: var(--font-size-40);
+  --ds-headline-std: var(--font-size-36);
+  --ds-headline-sm: var(--font-size-32);
+  --ds-headline-xs: var(--font-size-24);
 
-  --ds-paragraph-large: var(--font-size-20);
-  --ds-paragraph-medium: var(--font-size-16);
-  --ds-paragraph-standard: var(--font-size-14);
-  --ds-paragraph-small: var(--font-size-12);
-  --ds-paragraph-x-small: var(--font-size-10);
+  --ds-paragraph-lg: var(--font-size-20);
+  --ds-paragraph-md: var(--font-size-16);
+  --ds-paragraph-std: var(--font-size-14);
+  --ds-paragraph-sm: var(--font-size-12);
+  --ds-paragraph-xs: var(--font-size-10);
+  --ds-paragraph-xxs: var(--font-size-6);
 
 
   /**
@@ -84,10 +86,10 @@
   * @presenter LineHeight
   */
 
-  --ds-line-height-default: var(--line-height);
-  --ds-line-height-tight: var(--line-height-s);
-  --ds-line-height-caption: var(--line-height-m);
-  --ds-line-height-heading: var(--line-height-l);
+  --ds-line-height-default: var(--line-height-xs);
+  --ds-line-height-tight: var(--line-height-sm);
+  --ds-line-height-caption: var(--line-height-md);
+  --ds-line-height-heading: var(--line-height-lg);
 
 
   /**

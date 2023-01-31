@@ -1,5 +1,4 @@
-declare type TIconSize = 'xxSmall' | 'xSmall' | 'small' | 'medium' | 'large'
-declare type TTextSize = 'xSmall' | 'small' | 'medium' | 'large' | 'xLarge'
+declare type TIconSize = 'xSmall' | 'small' | 'medium' | 'large'
 declare type TColor =
   | 'borderGray'
   | 'labelGray'
@@ -24,7 +23,7 @@ declare type TIconSizes = {
 }
 
 interface TCustomIcons {
-  [iconName: string]: (fillColor: string, size: string) => string
+  [iconName: string]: () => string
 }
 
 declare type TCustomColors = {
