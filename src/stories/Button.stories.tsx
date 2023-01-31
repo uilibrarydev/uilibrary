@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button as ButtonComp } from '../index'
-import { noop } from '../utils'
 
 export default {
   title: 'Button',

@@ -120,7 +120,7 @@ const Template = (): JSX.Element => {
             name={'checkbox'}
             As={(props: IFormCompProps) => <Checkbox {...props} label={checkboxLabel} />}
           />
-          {/* <FormField
+          <FormField
             isControlled
             name={PHONE_NUMBER}
             As={(props) => {
@@ -133,8 +133,8 @@ const Template = (): JSX.Element => {
                 />
               )
             }}
-          /> */}
-          {/* <FormField
+          />
+          <FormField
             As={(props: IFormCompProps) => {
               return <Input {...props} label="First Name" />
             }}
@@ -191,7 +191,7 @@ const Template = (): JSX.Element => {
             As={(props: IFormCompProps) => {
               return <Switcher {...props} />
             }}
-          /> */}
+          />
         </>
       </FormContainer>
     </>
