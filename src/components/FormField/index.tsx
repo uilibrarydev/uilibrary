@@ -26,6 +26,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
           render={({ field }) =>
             As({
               ...field,
+              ...registerOptions,
               ...(isNeedChangeHandler ? { setFieldValue: setValue } : {})
             })
           }

@@ -9,7 +9,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
 
   const clickHandler = () => {
     if (name && setFieldValue) {
-      setFieldValue(name, !isChecked)
+      setFieldValue(name, !isChecked, { shouldValidate: !isChecked })
     }
     if (onClick) {
       onClick(!isChecked)

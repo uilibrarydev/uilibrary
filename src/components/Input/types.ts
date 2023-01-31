@@ -12,4 +12,5 @@ export interface InputCustomProps extends Omit<IFormCompProps, 'value'> {
   style?: Record<string, string>
   type?: 'text' | 'number'
   changeHandler?: (event: TChangeEventType) => void
+  placeholder?: string
 }

@@ -32,30 +32,35 @@ const OPTIONS: TSelectOption[] = [
   }
 ]
 
-const INITIAL_VALUES = {
-  checkbox: false,
-  firstName: 'Lilit',
-  date: '',
-  time: '',
-  textarea: 'sdlknsldn',
-  switcher: false,
-  select: {
-    value: 'armenia',
-    label: 'Armenia'
-  }
-}
+// const INITIAL_VALUES = {
+//   checkbox: false,
+//   firstName: 'Lilit',
+//   date: '',
+//   time: '',
+//   textarea: 'sdlknsldn',
+//   switcher: false,
+//   select: {
+//     value: 'armenia',
+//     label: 'Armenia'
+//   }
+// }
 
+const PHONE_NUMBER = 'phone'
 const VALIDATION_SCHEME = yup.object({
-  // select: yup.object().required('requierd field'),
+  // [PHONE_NUMBER]: yup
+  //   .string()
+  //   .required('phone number is required')
+  //   .test('valid', 'Phone number is not valid', (val) => val?.indexOf('_') === -1)
+  select: yup.object().required('requierd field'),
   // date: yup.date().required(),
-  switcher: yup.boolean().required()
+  // switcher: yup.boolean().required()
   // textarea: yup.string().required('A file is required'),
   // time: yup.string().required(),
   // firstName: yup.string().required('A file is required'),
-  // checkbox: yup
-  //   .bool()
-  //   .required('Required field')
-  //   .test('valid', 'նշել պարտադիր', (val) => !!val)
+  checkbox: yup
+    .bool()
+    .required('Required field')
+    .test('valid', 'նշել պարտադիր', (val) => !!val)
 })
 
 const getFiles = (file: File) => {
@@ -63,6 +68,11 @@ const getFiles = (file: File) => {
 }
 
 const Template = (): JSX.Element => {
+  const INITIAL_VALUES = {
+    select: undefined,
+    checkbox: undefined
+  }
+
   const checkboxLabel = useMemo(() => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -97,6 +107,34 @@ const Template = (): JSX.Element => {
       >
         <>
           <FormField
+            isControlled
+            isNeedChangeHandler
+            name={'select'}
+            As={(props: IFormCompProps) => {
+              return <Select {...props} placeHolder="Select country" options={OPTIONS} />
+            }}
+          />
+          <FormField
+            isNeedChangeHandler
+            isControlled
+            name={'checkbox'}
+            As={(props: IFormCompProps) => <Checkbox {...props} label={checkboxLabel} />}
+          />
+          {/* <FormField
+            isControlled
+            name={PHONE_NUMBER}
+            As={(props) => {
+              return (
+                <Input
+                  {...props}
+                  label="Հեռախոսահամար"
+                  mask="+374 99 99 99 99"
+                  placeholder="+374 __ __ __ __"
+                />
+              )
+            }}
+          /> */}
+          {/* <FormField
             As={(props: IFormCompProps) => {
               return <Input {...props} label="First Name" />
             }}
@@ -153,7 +191,7 @@ const Template = (): JSX.Element => {
             As={(props: IFormCompProps) => {
               return <Switcher {...props} />
             }}
-          />
+          /> */}
         </>
       </FormContainer>
     </>
