@@ -23,7 +23,7 @@ export const Switcher = React.forwardRef<HTMLDivElement, TSwitcherProps>(
         onClick(!isCheckboxChecked)
       }
       if (name && setFieldValue) {
-        setFieldValue(name, !isCheckboxChecked)
+        setFieldValue(name, !isCheckboxChecked, { shouldValidate: !isCheckboxChecked })
       }
     }
 

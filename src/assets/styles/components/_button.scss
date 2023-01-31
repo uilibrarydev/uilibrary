@@ -431,7 +431,6 @@
       @include animation(var(--ds-button-loader-animation));
     }
   }
-
 }
 
 @include keyframes(btn-spin) {

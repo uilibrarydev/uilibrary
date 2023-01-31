@@ -34,7 +34,7 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
       onSelect(item)
     }
     if (name && setFieldValue) {
-      setFieldValue(name, item)
+      setFieldValue(name, item, { shouldValidate: true })
     }
     closeDropdown()
   }
