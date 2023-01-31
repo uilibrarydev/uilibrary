@@ -22,7 +22,7 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
         changeHandler(date)
       }
       if (setFieldValue && name) {
-        setFieldValue(name, date)
+        setFieldValue(name, date, { shouldValidate: true })
       }
     }
   }

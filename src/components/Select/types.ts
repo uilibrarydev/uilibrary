@@ -10,7 +10,7 @@ export interface TSelectOption {
 export type TSelectOptions = TSelectOption[]
 
 export interface TSelectPropTypes extends IFormCompProps {
-  label?: string
+  label?: string | JSX.Element
   options: TSelectOptions
   placeHolder?: string
   onSelect?: (value: TSelectOption) => void

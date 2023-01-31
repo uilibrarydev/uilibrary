@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from '../index'
+import { noop } from '../utils'
 
 export default {
   title: 'Button',
@@ -28,7 +29,14 @@ export default {
   }
 }
 
-const Template = (args) => <Button {...args} buttonText={`${args.type} button`} />
+const Template = (args) => (
+  <Button
+    onClick={noop}
+    type="tertiary"
+    buttonText="Վերադառնալ"
+    iconProps={{ name: 'arrow_left', size: 'xSmall' }}
+  />
+)
 
 export const MyButton = Template.bind({})
 MyButton.args = {

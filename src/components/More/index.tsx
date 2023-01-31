@@ -23,7 +23,7 @@ const More = (props: TMorePropTypes): JSX.Element => {
       <>
         {`${isExpanded ? expandedText : collapsedText}`}
         <span className="expand_button" onClick={isExpanded ? collapse : expand}>
-          {isExpanded ? 'Փակել' : 'Ավելին'}
+          {isExpanded ? ' Փակել' : ' Ավելին'}
         </span>
       </>
     </Text>
