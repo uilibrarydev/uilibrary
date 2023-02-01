@@ -28,5 +28,5 @@ Badge.args = {
   text: '999+',
   type: 'count',
   color: 'primary',
-  size: 'large',
+  size: 'large'
 }

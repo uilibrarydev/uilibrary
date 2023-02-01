@@ -29,9 +29,7 @@ export const Switcher = React.forwardRef<HTMLDivElement, TSwitcherProps>(
                             ${isCheckboxChecked ? 'checked' : ''} 
                             `}
       >
-        <span className="controller__icon">
-          {isChecked && <Icon name="mark" size='xsmall' />}
-        </span>
+        <span className="controller__icon">{isChecked && <Icon name="mark" size="xsmall" />}</span>
       </div>
     )
   }
