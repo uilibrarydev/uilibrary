@@ -65,12 +65,6 @@
     border: var(--ds-controller-border) var(--ds-controller-border-color-default);
     transition: var(--ds-controller-transition);
 
-    svg {
-      //Todo remove after icons integration
-      width: 70%;
-      margin: auto;
-    }
-
     &:hover {
       background-color: var(--ds-controller-bg-hover-light);
     }
@@ -85,6 +79,7 @@
     &.checked {
       background-color: var(--ds-controller-selected-bg-default);
       border-color: var(--ds-controller-selected-bg-default);
+      color: var(--ds-controller-mark-light);
 
       &:hover {
         background-color: var(--ds-controller-selected-bg-hover);
@@ -117,11 +112,11 @@
     #{$this}__icon {
       background-color: var(--ds-controller-bg-disabled);
       border-color: var(--ds-controller-border-color-disabled);
-      color: var(--ds-controller-label-disabled);
 
       &.checked {
         background-color: var(--ds-controller-selected-bg-disabled);
         border-color: var(--ds-controller-border-color-disabled);
+        color: var(--ds-controller-mark-dark);
       }
     }
 
@@ -175,11 +170,7 @@
       border-color: var(--ds-controller-selected-bg-default);
 
       #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-controller-selected-bg-default);
-          }
-        }
+        color: var(--ds-controller-selected-bg-default);
       }
 
       &:hover {
@@ -187,11 +178,7 @@
         border-color: var(--ds-controller-selected-bg-hover);
 
         #{$this}__icon {
-          svg {
-            path {
-              fill: var(--ds-controller-selected-bg-hover);
-            }
-          }
+          color: var(--ds-controller-selected-bg-hover);
         }
       }
       &:active, &:visited {
@@ -199,11 +186,7 @@
         border-color: var(--ds-controller-selected-bg-pressed);
 
         #{$this}__icon {
-          svg {
-            path {
-              fill: var(--ds-controller-selected-bg-pressed);
-            }
-          }
+          color: var(--ds-controller-selected-bg-pressed);
         }
       }
     }
@@ -246,11 +229,6 @@
       position: absolute;
       left: 2px;
       transition: transform .3s linear;
-
-      svg {
-        //Todo remove after icons integration
-        width: 60%;
-      }
     }
 
     &#{$this}--disabled {
@@ -263,11 +241,7 @@
         border-color: var(--ds-controller-border-color-disabled);
 
         #{$this}__icon {
-          svg {
-            path {
-              fill: var(--ds-controller-mark-dark);
-            }
-          }
+          color: var(--ds-controller-mark-dark);
         }
       }
     }

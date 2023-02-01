@@ -42,7 +42,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
         className={`controller__icon ${isChecked ? 'checked' : ''}`}
       >
         {isChecked && (
-          <Icon name="tick" size="xsmall" type={`${disabled ? 'disabled' : 'inverse'}`} />
+          <Icon name="mark" size="xsmall" type={`${disabled ? 'disabled' : 'inverse'}`} />
         )}
       </span>
       {!justIcon && label && (

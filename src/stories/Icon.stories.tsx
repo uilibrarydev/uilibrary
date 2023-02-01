@@ -2,7 +2,29 @@ import React from 'react'
 import { Meta } from '@storybook/react'
 import { Icon as IconComp, Text } from '../components'
 
-const ICONS = ['arrow-left', 'arrow-right', 'arrow_up', 'arrow_down', 'attach', 'close']
+const ICONS = [
+  'moneybox',
+  'moneybox-fill',
+  'user',
+  'user-fill',
+  'info',
+  'info-fill',
+  'edit',
+  'edit-fill',
+  'share',
+  'share-fill',
+  'home',
+  'home-fill',
+  'circle-mark',
+  'circle-mark-fill',
+  'mark',
+  'arrow-left',
+  'arrow-right',
+  'arrow-up',
+  'arrow-down',
+  'attach',
+  'close'
+]
 
 export default {
   title: 'Icon',
@@ -33,10 +55,10 @@ export default {
 } as Meta
 
 const Template = (args) => (
-  <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+  <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
     {ICONS.map((iconName) => (
       <div
-        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 20 }}
+        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 10, flex: '70px', maxWidth: '70px'}}
         key={iconName}
       >
         <div
@@ -45,7 +67,10 @@ const Template = (args) => (
             alignItems: 'center',
             justifyContent: 'center',
             width: '40px',
-            height: '40px'
+            height: '40px',
+            marginBottom: '5px',
+            border: '1px solid #919191',
+            backgroundColor: `${args.type == 'inverse' ? '#919191' : ''}`
           }}
         >
           <IconComp name={iconName} size={`${args.size}`} type={`${args.type}`} />
@@ -59,5 +84,5 @@ const Template = (args) => (
 export const Icon = Template.bind({})
 Icon.args = {
   type: '',
-  size: 'xsmall'
+  size: 'medium'
 }

@@ -6,7 +6,7 @@ const Icon = (props: IconPropTypes): JSX.Element => {
   const {
     name,
     type,
-    size = 'xsmall',
+    size = 'medium',
     withWrapper = false,
     onClick,
     className = '',

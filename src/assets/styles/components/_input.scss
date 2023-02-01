@@ -85,11 +85,7 @@
     transition: var(--ds-input-transition);
 
     & + #{$this}__icon {
-      svg {
-        path {
-          fill: var(--ds-input-body-icon-default);
-        }
-      }
+      color: var(--ds-input-body-icon-default);
     }
 
     &:valid {
@@ -98,11 +94,7 @@
       border-color: var(--ds-input-border-color-validated);
 
       & + #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-input-body-icon-validated);
-          }
-        }
+        color: var(--ds-input-body-icon-validated);
       }
     }
 
@@ -112,11 +104,7 @@
       border-color: var(--ds-input-border-color-invalid);
 
       & + #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-input-body-icon-invalid);
-          }
-        }
+        color: var(--ds-input-body-icon-invalid);
       }
     }
 
@@ -126,11 +114,7 @@
       border-color: var(--ds-input-border-color-hover);
 
       & + #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-input-body-icon-hover);
-          }
-        }
+        color: var(--ds-input-body-icon-hover);
       }
     }
 
@@ -140,11 +124,7 @@
       border-color: var(--ds-input-border-color-focused);
 
       & + #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-input-body-icon-focused);
-          }
-        }
+        color: var(--ds-input-body-icon-focused);
       }
     }
 
@@ -154,11 +134,7 @@
       border-color: var(--ds-input-border-color-activated);
 
       & + #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-input-body-icon-activated);
-          }
-        }
+        color: var(--ds-input-body-icon-activated);
       }
     }
 
@@ -169,11 +145,7 @@
       color: var(--ds-input-body-text-disabled);
 
       & +  #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-input-text-disabled);
-          }
-        }
+         color: var(--ds-input-text-disabled);
       }
     }
   }
@@ -194,12 +166,6 @@
 
     &--right {
       right: var(--ds-input-icon-position);
-    }
-
-    //TODO remove after icons integration
-    svg {
-      width: 100%;
-      height: 100%;
     }
   }
 

@@ -80,17 +80,17 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         <div className="input__inner">
           {input}
           {leftIcon && (
-            <Icon {...iconProps} className="input__icon input__icon--left" size="small" />
+            <Icon {...iconProps} className="input__icon input__icon--left" size="medium" />
           )}
           {rightIcon && (
-            <Icon {...iconProps} className="input__icon input__icon--right" size="small" />
+            <Icon {...iconProps} className="input__icon input__icon--right" size="medium" />
           )}
         </div>
-        {required && error && <ErrorMessage message={error} icon="close" />}
+        {required && error && <ErrorMessage message={error} icon="info-fill" />}
         {valid && (
           <Text size="small" type="success" className="input__message">
             <>
-              <Icon name="change" className="input__message__icon" size="xsmall" />
+              <Icon name="circle-mark-fill" className="input__message__icon" size="xsmall" />
               <span>This is your helper text</span>
             </>
           </Text>

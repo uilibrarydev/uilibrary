@@ -365,35 +365,31 @@ $space-prefixes: (
 //icons sizes and colors
 .icon {
   &--xsmall {
-    width: var(--size-16);
-    height: var(--size-16);
+    font-size: var(--font-size-12);
   }
   &--small {
-    width: var(--size-20);
-    height: var(--size-20);
+    font-size: var(--font-size-14);
   }
   &--medium {
-    width: var(--size-24);
-    height: var(--size-24);
+    font-size: var(--font-size-18);
   }
   &--large {
-    width: var(--size-32);
-    height: var(--size-32);
+    font-size: var(--font-size-24);
   }
 }
 
 .icon {
-  &--primary { svg { path { fill: var(--ds-color-text-primary); } } }
-  &--secondary { svg { path { fill: var(--ds-color-text-secondary); } } }
-  &--tertiary { svg { path { fill: var(--ds-color-text-tertiary); } } }
-  &--disabled { svg { path { fill: var(--ds-color-text-disabled); } } }
-  &--selected { svg { path { fill: var(--ds-color-text-selected); } } }
-  &--inverse { svg { path { fill: var(--ds-color-text-inverse); } } }
-  &--brand { svg { path { fill: var(--ds-color-text-brand); } } }
-  &--danger { svg { path { fill: var(--ds-color-text-danger); } } }
-  &--warning { svg { path { fill: var(--ds-color-text-warning); } } }
-  &--success { svg { path { fill: var(--ds-color-text-success); } } }
-  &--information { svg { path { fill: var(--ds-color-text-information); } } }
-  &--discovery { svg { path { fill: var(--ds-color-text-discovery); } } }
+  &--primary {color: var(--ds-color-text-primary); }
+  &--secondary {color: var(--ds-color-text-secondary); }
+  &--tertiary {color: var(--ds-color-text-tertiary); }
+  &--disabled {color: var(--ds-color-text-disabled); }
+  &--selected {color: var(--ds-color-text-selected); }
+  &--inverse {color: var(--ds-color-text-inverse); }
+  &--brand {color: var(--ds-color-text-brand); }
+  &--danger {color: var(--ds-color-text-danger); }
+  &--warning {color: var(--ds-color-text-warning); }
+  &--success {color: var(--ds-color-text-success); }
+  &--information {color: var(--ds-color-text-information); }
+  &--discovery {color: var(--ds-color-text-discovery); }
 }
 

@@ -17,7 +17,7 @@ export const Input = Template.bind({})
 Input.args = {
   type: 'text',
   iconProps: {
-    name: 'close'
+    name: 'info'
   },
   label: 'Label',
   size: 'large',

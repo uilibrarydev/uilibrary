@@ -33,7 +33,7 @@ const Template = (args) => <ButtonComp {...args} buttonText={`${args.type} butto
 export const Button = Template.bind({})
 Button.args = {
   iconProps: {
-    name: 'close',
+    name: 'home',
     alignment: 'left'
   },
   type: 'primary',

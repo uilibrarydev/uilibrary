@@ -63,9 +63,9 @@
   --ds-button-link-text-focused: var(--brand-700);
   --ds-button-link-text-disabled: var(--ds-color-text-disabled);
 
-  --ds-button-icon-margin-lg: var(--ds-space-8);
-  --ds-button-icon-margin-md: var(--ds-space-8);
-  --ds-button-icon-margin-sm: var(--ds-space-4);
+  --ds-button-icon-margin-lg: var(--ds-space-12);
+  --ds-button-icon-margin-md: var(--ds-space-12);
+  --ds-button-icon-margin-sm: var(--ds-space-8);
 
   --ds-button-border: var(--ds-border-thin);
   --ds-button-border-radius: var(--ds-border-radius-xs);
@@ -90,14 +90,6 @@
 
   &[disabled] {
     cursor: not-allowed;
-  }
-
-  &__icon {
-    //TODO remove after icons integration
-    svg {
-      width: 100%;
-      height: 100%;
-    }
   }
 
   &--large {
@@ -136,11 +128,7 @@
     }
 
     #{$this}__icon {
-      svg {
-        path {
-          fill: var(--ds-button-primary-text-default);
-        }
-      }
+      color: var(--ds-button-primary-text-default);
     }
 
     &[disabled] {
@@ -148,11 +136,7 @@
       color: var(--ds-button-primary-text-disabled);
 
       #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-button-primary-text-disabled);
-          }
-        }
+        color: var(--ds-button-primary-text-disabled);
       }
     }
   }
@@ -176,11 +160,7 @@
     }
 
     #{$this}__icon {
-      svg {
-        path {
-          fill: var(--ds-button-secondary-text-default);
-        }
-      }
+      color: var(--ds-button-secondary-text-default);
     }
 
     &[disabled] {
@@ -189,11 +169,7 @@
       border-color: var(--ds-button-secondary-disabled-border-color);
 
       #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-button-secondary-text-disabled);
-          }
-        }
+        color: var(--ds-button-secondary-text-disabled);
       }
     }
   }
@@ -216,11 +192,7 @@
     }
 
     #{$this}__icon {
-      svg {
-        path {
-          fill: var(--ds-button-tertiary-text-default);
-        }
-      }
+      color: var(--ds-button-tertiary-text-default);
     }
 
     &[disabled] {
@@ -228,11 +200,7 @@
       color: var(--ds-button-tertiary-text-disabled);
 
       #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-button-tertiary-text-disabled);
-          }
-        }
+        color: var(--ds-button-tertiary-text-disabled);
       }
     }
   }
@@ -255,11 +223,7 @@
     }
 
     #{$this}__icon {
-      svg {
-        path {
-          fill: var(--ds-button-danger-text-default);
-        }
-      }
+      color: var(--ds-button-danger-text-default);
     }
 
     &[disabled] {
@@ -267,11 +231,7 @@
       color: var(--ds-button-danger-disbled-color);
 
       #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-button-danger-text-disabled);
-          }
-        }
+        color: var(--ds-button-danger-text-disabled);
       }
     }
   }
@@ -287,15 +247,13 @@
       color: var(--ds-button-link-text-hover);
 
       &:not(&[disabled]) {
-        text-decoration: underline;
+        #{$this}__text {
+          text-decoration: underline;
+        }
       }
 
       #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-button-link-text-hover);
-          }
-        }
+        color: var(--ds-button-link-text-hover);
       }
     }
 
@@ -303,11 +261,7 @@
       color: var(--ds-button-link-text-pressed);
 
       #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-button-link-text-pressed);
-          }
-        }
+        color: var(--ds-button-link-text-pressed);
       }
     }
 
@@ -315,40 +269,24 @@
       color: var(--ds-button-link-text-focused);
 
       #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-button-link-text-focused);
-          }
-        }
+        color: var(--ds-button-link-text-focused);
       }
     }
 
     #{$this}__icon {
-      svg {
-        path {
-          fill: var(--ds-button-link-text-defult);
-        }
-      }
+      color: var(--ds-button-link-text-defult);
     }
 
     &[disabled] {
       color: var(--ds-button-link-text-disabled);
 
       #{$this}__icon {
-        svg {
-          path {
-            fill: var(--ds-button-link-text-disabled);
-          }
-        }
+        color: var(--ds-button-link-text-disabled);
       }
     }
   }
 
   &--icon-left {
-    #{$this}__icon {
-      margin-left: -4px;
-    }
-
     &#{$this}--large {
       #{$this}__icon {
         margin-right: var(--ds-button-icon-margin-lg);
@@ -370,7 +308,6 @@
 
   &--icon-right {
     #{$this}__icon {
-      margin-right: -4px;
       order: 1;
     }
 
