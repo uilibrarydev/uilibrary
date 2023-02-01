@@ -34,7 +34,6 @@ export const Switcher = React.forwardRef<HTMLDivElement, TSwitcherProps>(
             <Icon
               name="mark"
               size={`${size == 'large' ? 'small' : 'xsmall'}`}
-              type={`${disabled ? 'disabled' : 'inverse'}`}
             />
           )}
         </span>
