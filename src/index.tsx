@@ -18,8 +18,9 @@ import Stepper from './components/Stepper'
 import { TimePicker, SimpleDatePicker, RangeDatePicker } from './components/DatePicker'
 import Switcher from './components/Switcher'
 import Radio from './components/Radio'
-import { HttpClient } from './helpers'
+import Badge from './components/Badge'
 
+import { HttpClient } from './helpers'
 import More from './components/More'
 import { WithFormFeedback } from './context/FormContextProvider'
 import './assets/styles/index.scss'
@@ -49,5 +50,6 @@ export {
   TextArea,
   More,
   HttpClient,
-  WithFormFeedback
+  WithFormFeedback,
+  Badge
 }

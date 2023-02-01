@@ -1,0 +1,50 @@
+
+.badge {
+  $this: &;
+
+  --ds-badge-size-lg: var(--ds-size-24);
+  --ds-badge-size-sm: var(--ds-size-16);
+
+  --ds-badge-bg-color-primary: var(--pink-500);
+  --ds-badge-bg-color-secondary: var(--grey-50);
+
+  --ds-badge-color-primary: var(--ds-color-text-inverse);
+  --ds-badge-color-secondary: var(--ds-color-text-primary);
+
+  --ds--badge-border-radius-lg: var(--ds-border-radius-lg);
+  --ds--badge-border-radius-full: var(--ds-border-radius-full);
+
+  --ds-badge-padding: 0 var(--ds-space-8);
+  --ds-badge-font: var(--ds-font-weight-default) var(--ds-paragraph-xs)/var(--ds-line-height-default) var(--ds-font-family);
+
+  display: inline-flex;
+  align-items: center;
+  font: var(--ds-badge-font);
+
+  &--large {
+    height: var(--ds-badge-size-lg);
+  }
+  &--small {
+    height: var(--ds-badge-size-sm);
+  }
+  &--primary {
+    background-color: var(--ds-badge-bg-color-primary);
+    color: var(--ds-badge-color-primary)
+  }
+  &--secondary {
+    background-color: var(--ds-badge-bg-color-secondary);
+    color: var(--ds-badge-color-secondary);
+  }
+  &--count {
+    padding: var(--ds-badge-padding);
+    border-radius: var(--ds--badge-border-radius-lg);
+  }
+  &--dot {
+    width: var(--ds-badge-size-sm);
+    border-radius: var(--ds--badge-border-radius-full);
+
+    &#{$this}--large {
+      width: var(--ds-badge-size-lg);
+    }
+  }
+}

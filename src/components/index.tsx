@@ -19,6 +19,7 @@ import TextArea from './TextArea'
 import More from './More'
 import Switcher from './Switcher'
 import Radio from './Radio'
+import Badge from './Badge'
 
 export {
   Text,
@@ -43,5 +44,6 @@ export {
   TextArea,
   More,
   Switcher,
-  Radio
+  Radio,
+  Badge
 }

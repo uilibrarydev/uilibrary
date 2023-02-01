@@ -30,12 +30,7 @@ export const Switcher = React.forwardRef<HTMLDivElement, TSwitcherProps>(
                             `}
       >
         <span className="controller__icon">
-          {isChecked && (
-            <Icon
-              name="mark"
-              size={`${size == 'large' ? 'small' : 'xsmall'}`}
-            />
-          )}
+          {isChecked && <Icon name="mark" size='xsmall' />}
         </span>
       </div>
     )
