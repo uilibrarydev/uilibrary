@@ -56,46 +56,79 @@
   align-items: center;
   cursor: pointer;
 
-  &__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: var(--ds-controller-size);
-    height: var(--ds-controller-size);
-    background-color: var(--ds-controller-bg-default-light);
-    border-radius: var(--ds-controller-border-radius-sm);
-    border: var(--ds-controller-border) var(--ds-controller-border-color-default);
-    transition: var(--ds-controller-transition);
+  input[type="checkbox"] {
+    width: 0;
+    height: 0;
+    visibility: hidden;
 
-    &:hover {
-      background-color: var(--ds-controller-bg-hover-light);
-    }
-    &:focus {
-      background-color: var(--ds-controller-bg-focused);
-      border-color: var(--ds-controller-border-color-focused);
-    }
-    &:active, &:visited {
-      background-color: var(--ds-controller-bg-pressed-light);
-    }
-
-    &.checked {
-      background-color: var(--ds-controller-selected-bg-default);
-      border-color: var(--ds-controller-selected-bg-default);
-      color: var(--ds-controller-mark-light);
+    & + #{$this}__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--ds-controller-size);
+      height: var(--ds-controller-size);
+      background-color: var(--ds-controller-bg-default-light);
+      border-radius: var(--ds-controller-border-radius-sm);
+      border: var(--ds-controller-border) var(--ds-controller-border-color-default);
+      transition: var(--ds-controller-transition);
 
       &:hover {
-        background-color: var(--ds-controller-selected-bg-hover);
-        border-color: var(--ds-controller-selected-bg-hover);
+        background-color: var(--ds-controller-bg-hover-light);
       }
       &:focus {
-        background-color: var(--ds-controller-selected-bg-focused);
-        border-color: var(--ds-controller-selected-bg-focused);
+        background-color: var(--ds-controller-bg-focused);
+        border-color: var(--ds-controller-border-color-focused);
       }
       &:active, &:visited {
-        background-color: var(--ds-controller-selected-bg-pressed);
-        border-color: var(--ds-controller-selected-bg-pressed);
+        background-color: var(--ds-controller-bg-pressed-light);
       }
     }
+
+    &:checked {
+      & + #{$this}__icon {
+        background-color: var(--ds-controller-selected-bg-default);
+        border-color: var(--ds-controller-selected-bg-default);
+        color: var(--ds-controller-mark-light);
+
+        &:hover {
+          background-color: var(--ds-controller-selected-bg-hover);
+          border-color: var(--ds-controller-selected-bg-hover);
+        }
+
+        &:focus {
+          background-color: var(--ds-controller-selected-bg-focused);
+          border-color: var(--ds-controller-selected-bg-focused);
+        }
+
+        &:active, &:visited {
+          background-color: var(--ds-controller-selected-bg-pressed);
+          border-color: var(--ds-controller-selected-bg-pressed);
+        }
+      }
+
+      &:disabled {
+        & + #{$this}__icon {
+          background-color: var(--ds-controller-selected-bg-disabled);
+          border-color: var(--ds-controller-border-color-disabled);
+          color: var(--ds-controller-mark-dark);
+        }
+      }
+    }
+
+    &:disabled {
+      & + #{$this}__icon {
+        background-color: var(--ds-controller-bg-disabled);
+        border-color: var(--ds-controller-border-color-disabled);
+
+        & + #{$this}__label {
+          color: var(--ds-controller-label-disabled);
+        }
+      }
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
   }
 
   &__label {
@@ -106,29 +139,6 @@
     sup {
       margin-left: 2px;
     }
-  }
-
-  &--disabled {
-    cursor: not-allowed;
-
-    #{$this}__icon {
-      background-color: var(--ds-controller-bg-disabled);
-      border-color: var(--ds-controller-border-color-disabled);
-
-      &.checked {
-        background-color: var(--ds-controller-selected-bg-disabled);
-        border-color: var(--ds-controller-border-color-disabled);
-        color: var(--ds-controller-mark-dark);
-      }
-    }
-
-    #{$this}__label {
-      color: var(--ds-controller-label-disabled);
-    }
-  }
-
-  &--checkbox {
-
   }
 
   &--radio {

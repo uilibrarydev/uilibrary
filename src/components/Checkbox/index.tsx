@@ -1,12 +1,11 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import Icon from '../Icon'
 import { TCheckboxProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
 
 export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   const {
-    label = 'jsjsjjs',
-    justIcon,
+    label,
     disabled,
     required = true,
     name,
@@ -17,8 +16,10 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
     onClick
   } = props
   const isChecked = !!value || selectedValue
+  const inputRef = useRef(null)
+  const changeHandler = () => {
+    setFieldValue(!selectedValue)
 
-  const clickHandler = () => {
     if (name && setFieldValue) {
       setFieldValue(name, !isChecked, { shouldValidate: !isChecked })
     }
@@ -28,30 +29,21 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   }
 
   return (
-    <div
-      className={`controller controller--checkbox 
-                        ${className} 
-                        ${disabled && 'controller--disabled'}
-                        `}
-      onClick={clickHandler}
+    <label className={`controller controller--checkbox ${disabled && 'controller--disabled'} ${className}`}
     >
-      <span
-        role="checkbox"
-        aria-checked={isChecked}
-        tabIndex={0}
-        className={`controller__icon ${isChecked ? 'checked' : ''}`}
-      >
-        {isChecked && (
-          <Icon name="mark" size="xsmall" type={`${disabled ? 'disabled' : 'inverse'}`} />
-        )}
+      <input type="checkbox" tabIndex={0} onChange={changeHandler} checked={selectedValue} ref={inputRef} disabled={disabled}/>
+      <span className="controller__icon">
+        {selectedValue &&
+         <Icon name="mark" size="xsmall" type={`${disabled ? 'disabled' : 'inverse'}`} />
+        }
       </span>
-      {!justIcon && label && (
+      {label ? (
         <span className="controller__label">
           {label}
           {required && <sup>*</sup>}
         </span>
-      )}
-    </div>
+      ) : null}
+    </label>
   )
 }
 

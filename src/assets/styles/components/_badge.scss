@@ -9,11 +9,11 @@
   --ds-badge-dot-size-lg: var(--ds-size-12);
   --ds-badge-dot-size-sm: var(--ds-size-8);
 
-  --ds-badge-bg-color-primary: var(--pink-500);
-  --ds-badge-bg-color-secondary: var(--grey-50);
+  --ds-badge-primary-bg: var(--pink-500);
+  --ds-badge-secondary-bg: var(--grey-50);
 
-  --ds-badge-color-primary: var(--ds-color-text-inverse);
-  --ds-badge-color-secondary: var(--ds-color-text-primary);
+  --ds-badge-primary-color: var(--ds-color-text-inverse);
+  --ds-badge-secondary-color: var(--ds-color-text-primary);
 
   --ds--badge-border-radius-lg: var(--ds-border-radius-lg);
   --ds--badge-border-radius-full: var(--ds-border-radius-full);
@@ -26,12 +26,12 @@
   font: var(--ds-badge-font);
 
   &--primary {
-    background-color: var(--ds-badge-bg-color-primary);
-    color: var(--ds-badge-color-primary)
+    background-color: var(--ds-badge-primary-bg);
+    color: var(--ds-badge-primary-color)
   }
   &--secondary {
-    background-color: var(--ds-badge-bg-color-secondary);
-    color: var(--ds-badge-color-secondary);
+    background-color: var(--ds-badge-secondary-bg);
+    color: var(--ds-badge-secondary-color);
   }
   &--count {
     padding: var(--ds-badge-padding);

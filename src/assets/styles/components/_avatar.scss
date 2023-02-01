@@ -1,0 +1,132 @@
+@import "../shared";
+
+.avatar {
+  $this: &;
+
+  --ds-avatar-size-xl: var(--ds-size-80);
+  --ds-avatar-size-lg: var(--ds-size-56);
+  --ds-avatar-size-md: var(--ds-size-40);
+  --ds-avatar-size-sm: var(--ds-size-32);
+  --ds-avatar-size-xs: var(--ds-size-24);
+  --ds-avatar-size-xxs: var(--ds-size-16);
+
+  --ds-avatar-font-size-xl: var(--ds-headline-sm);
+  --ds-avatar-font-size-lg: var(--ds-paragraph-lg);
+  --ds-avatar-font-size-md: var(--ds-paragraph-md);
+  --ds-avatar-font-size-sm: var(--ds-paragraph-sm);
+  --ds-avatar-font-size-xs: var(--ds-paragraph-xs);
+  --ds-avatar-font-size-xxs: var(--ds-paragraph-xxs);
+
+  --ds-avatar-default-bg: var(--yellow-200);
+  --ds-avatar-default-bg-hover: var(--yellow-100);
+  --ds-avatar-default-color: var(--yellow-900);
+
+  --ds-avatar-purple-bg: var(--purple-100);
+  --ds-avatar-purple-bg-hover: var(--purple-50);
+  --ds-avatar-purple-color: var(--purple-500);
+
+  --ds-avatar-green-bg: var(--green-100);
+  --ds-avatar-green-bg-hover: var(--green-50);
+  --ds-avatar-green-color: var(--green-700);
+
+  --ds-avatar-blue-bg: var(--blue-100);
+  --ds-avatar-blue-bg-hover: var(--blue-50);
+  --ds-avatar-blue-color: var(--blue-700);
+
+  --ds-avatar-red-bg: var(--red-100);
+  --ds-avatar-red-bg-hover: var(--red-50);
+  --ds-avatar-red-color: var(--red-800);
+
+  --ds--avtar-border-radius: var(--ds-border-radius-full);
+
+  --ds-avatar-font: var(--ds-font-weight-default) var(--ds-headline-sm)/var(--ds-line-height-default) var(--ds-font-family);
+
+  --ds-avatar-transition: background-color .3s linear, color .3s linear;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  font: var(--ds-avatar-font);
+  border-radius: var(--ds--avtar-border-radius);
+  cursor: pointer;
+  transition: var(--ds-avatar-transition);
+  background: no-repeat center;
+  background-size: cover;
+
+  &--xlarge {
+    width: var(--ds-avatar-size-xl);
+    height: var(--ds-avatar-size-xl);
+    font-size: var(--ds-avatar-font-size-xl);
+  }
+  &--large {
+    width: var(--ds-avatar-size-lg);
+    height: var(--ds-avatar-size-lg);
+    font-size: var(--ds-avatar-font-size-lg);
+  }
+  &--medium {
+    width: var(--ds-avatar-size-md);
+    height: var(--ds-avatar-size-md);
+    font-size: var(--ds-avatar-font-size-md);
+  }
+  &--small {
+    width: var(--ds-avatar-size-sm);
+    height: var(--ds-avatar-size-sm);
+    font-size: var(--ds-avatar-font-size-sm);
+  }
+  &--xsmall {
+    width: var(--ds-avatar-size-xs);
+    height: var(--ds-avatar-size-xs);
+    font-size: var(--ds-avatar-font-size-xs);
+  }
+  &--xxsmall {
+    width: var(--ds-avatar-size-xxs);
+    height: var(--ds-avatar-size-xxs);
+    font-size: var(--ds-avatar-font-size-xxs);
+  }
+
+  &--xsmall, &--xxsmall {
+    font-weight: var(--ds-font-weight-active);
+  }
+
+  &--default {
+    background-color: var(--ds-avatar-default-bg);
+    color: var(--ds-avatar-default-color);
+
+    &:hover {
+      background-color: var(--ds-avatar-default-bg-hover);
+    }
+  }
+  &--purple {
+    background-color: var(--ds-avatar-purple-bg);
+    color: var(--ds-avatar-purple-color);
+
+    &:hover {
+      background-color: var(--ds-avatar-purple-bg-hover);
+    }
+  }
+  &--green {
+    background-color: var(--ds-avatar-green-bg);
+    color: var(--ds-avatar-green-color);
+
+    &:hover {
+      background-color: var(--ds-avatar-green-bg-hover);
+    }
+  }
+  &--blue {
+    background-color: var(--ds-avatar-blue-bg);
+    color: var(--ds-avatar-blue-color);
+
+    &:hover {
+      background-color: var(--ds-avatar-blue-bg-hover);
+    }
+  }
+  &--red {
+    background-color: var(--ds-avatar-red-bg);
+    color: var(--ds-avatar-red-color);
+
+    &:hover {
+      background-color: var(--ds-avatar-red-bg-hover);
+    }
+  }
+}
