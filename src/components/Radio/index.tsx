@@ -1,6 +1,6 @@
 import React from 'react'
 import { TRadioProps } from './types'
-import './index.scss'
+import '../../assets/styles/components/_controllers.scss'
 
 export const Radio = (props: TRadioProps): JSX.Element | null => {
   const {

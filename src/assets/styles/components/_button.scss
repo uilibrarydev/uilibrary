@@ -1,3 +1,5 @@
+@import "../shared";
+
 .btn {
   $this: &;
 
@@ -311,7 +313,7 @@
       order: 1;
     }
 
-    &#{$this}--medium {
+    &#{$this}--large {
       #{$this}__icon {
         margin-left: var(--ds-button-icon-margin-lg);
       }

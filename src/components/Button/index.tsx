@@ -1,6 +1,7 @@
 import React from 'react'
 import Icon from '../Icon'
 import { TButtonPropTypes } from './types'
+import '../../assets/styles/components/_button.scss'
 
 const Button = (props: TButtonPropTypes): JSX.Element => {
   const {

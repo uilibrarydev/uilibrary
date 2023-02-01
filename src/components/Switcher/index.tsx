@@ -1,6 +1,6 @@
 import React from 'react'
 import { TSwitcherProps } from './types'
-import './index.scss'
+import '../../assets/styles/components/_controllers.scss'
 import Icon from '../Icon'
 
 export const Switcher = React.forwardRef<HTMLDivElement, TSwitcherProps>(

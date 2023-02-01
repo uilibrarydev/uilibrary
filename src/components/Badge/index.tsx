@@ -1,6 +1,6 @@
 import React from 'react'
 import { TBadgeProps } from './types'
-import './index.scss'
+import '../../assets/styles/components/_badge.scss'
 
 export const Badge = (props: TBadgeProps): JSX.Element | null => {
   const { type, size, color, text = '999+', className = '' } = props
