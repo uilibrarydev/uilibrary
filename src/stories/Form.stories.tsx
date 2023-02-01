@@ -47,20 +47,20 @@ const OPTIONS: TSelectOption[] = [
 
 const PHONE_NUMBER = 'phone'
 const VALIDATION_SCHEME = yup.object({
-  // [PHONE_NUMBER]: yup
-  //   .string()
-  //   .required('phone number is required')
-  //   .test('valid', 'Phone number is not valid', (val) => val?.indexOf('_') === -1)
-  select: yup.object().required('requierd field'),
+  [PHONE_NUMBER]: yup
+    .string()
+    .required('phone number is required')
+    .test('valid', 'Phone number is not valid', (val) => val?.indexOf('_') === -1)
+  // select: yup.object().required('requierd field'),
   // date: yup.date().required(),
   // switcher: yup.boolean().required()
   // textarea: yup.string().required('A file is required'),
   // time: yup.string().required(),
   // firstName: yup.string().required('A file is required'),
-  checkbox: yup
-    .bool()
-    .required('Required field')
-    .test('valid', 'նշել պարտադիր', (val) => !!val)
+  // checkbox: yup
+  //   .bool()
+  //   .required('Required field')
+  //   .test('valid', 'նշել պարտադիր', (val) => !!val)
 })
 
 const getFiles = (file: File) => {
@@ -69,8 +69,9 @@ const getFiles = (file: File) => {
 
 const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
-    select: undefined,
-    checkbox: undefined
+    [PHONE_NUMBER]: '+374 99 999999'
+    // select: undefined,
+    // checkbox: undefined
   }
 
   const checkboxLabel = useMemo(() => {
@@ -108,6 +109,21 @@ const Template = (): JSX.Element => {
         <>
           <FormField
             isControlled
+            // isNeedChangeHandler/
+            name={PHONE_NUMBER}
+            As={(props) => {
+              return (
+                <Input
+                  {...props}
+                  label="Հեռախոսահամար"
+                  mask="+374 99 999999"
+                  placeholder="+374 __ ______"
+                />
+              )
+            }}
+          />
+          {/* <FormField
+            isControlled
             isNeedChangeHandler
             name={'select'}
             As={(props: IFormCompProps) => {
@@ -119,7 +135,7 @@ const Template = (): JSX.Element => {
             isControlled
             name={'checkbox'}
             As={(props: IFormCompProps) => <Checkbox {...props} label={checkboxLabel} />}
-          />
+          /> */}
           {/* <FormField
             isControlled
             name={PHONE_NUMBER}

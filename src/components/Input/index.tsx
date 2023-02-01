@@ -18,7 +18,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       currentValue,
       name,
       placeholder,
-      type = 'text'
+      type = 'text',
+      ...rest
     },
     ref
   ): JSX.Element => {
@@ -27,6 +28,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         onChange(event)
       }
     }
+
     const input = mask ? (
       <InputMask
         name={name}
@@ -34,6 +36,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         ref={ref}
+        {...rest}
         placeholder={placeholder}
         onChange={changeHandler}
         className={`${error ? 'with-error-styles' : ''}`}
@@ -46,6 +49,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         type={type}
         placeholder={placeholder}
         onChange={changeHandler}
+        {...rest}
         className={`${error ? 'with-error-styles' : ''}`}
         {...(currentValue ? { value: currentValue } : {})}
       />
