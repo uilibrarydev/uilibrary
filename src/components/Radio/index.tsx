@@ -1,5 +1,4 @@
 import React from 'react'
-import Icon from '../Icon'
 import { TRadioProps } from './types'
 import './index.scss'
 

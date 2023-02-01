@@ -36,12 +36,16 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         onChange(event)
       }
     }
+
     const input = mask ? (
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       <InputMask
         name={name}
         mask={mask}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        ref={ref}
         {...rest}
         placeholder={placeholder}
         onChange={changeHandler}

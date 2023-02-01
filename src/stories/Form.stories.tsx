@@ -77,7 +77,7 @@ const Template = (): JSX.Element => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Text>Համաձայն եմ ԱՔՌԱ հարցման կատարմանը</Text>
-        <Text color="inputBorderActive" onClick={(e) => e.stopPropagation()}>
+        <Text onClick={(e) => e.stopPropagation()}>
           <a
             href="https://github.com/jaredpalmer/formik/issues/1040"
             target="_blank"
