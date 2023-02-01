@@ -10,13 +10,12 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     size,
     className = '',
     iconProps,
-    justIcon,
     buttonActionType,
     disabled,
     isLoading,
     onClick
   } = props
-
+  const justIcon = !buttonText && iconProps !== undefined
   return (
     <button
       disabled={disabled}

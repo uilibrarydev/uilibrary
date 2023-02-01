@@ -6,7 +6,6 @@ import '../../assets/styles/components/_controllers.scss'
 export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   const {
     label = 'jsjsjjs',
-    justIcon,
     disabled,
     required = true,
     name,
@@ -16,6 +15,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
     className = '',
     onClick
   } = props
+
   const isChecked = !!value || selectedValue
 
   const clickHandler = () => {
@@ -45,12 +45,12 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
           <Icon name="mark" size="xsmall" type={`${disabled ? 'disabled' : 'inverse'}`} />
         )}
       </span>
-      {!justIcon && label && (
+      {label ? (
         <span className="controller__label">
           {label}
           {required && <sup>*</sup>}
         </span>
-      )}
+      ) : null}
     </div>
   )
 }

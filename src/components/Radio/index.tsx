@@ -5,7 +5,6 @@ import '../../assets/styles/components/_controllers.scss'
 export const Radio = (props: TRadioProps): JSX.Element | null => {
   const {
     label = 'jsjsjjs',
-    justIcon,
     disabled,
     name,
     setFieldValue,
@@ -39,7 +38,7 @@ export const Radio = (props: TRadioProps): JSX.Element | null => {
         tabIndex={0}
         className={`controller__icon ${isChecked ? 'checked' : ''}`}
       ></span>
-      {!justIcon && label && <span className="controller__label">{label}</span>}
+      {label && <span className="controller__label">{label}</span>}
     </div>
   )
 }
