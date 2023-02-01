@@ -20,7 +20,11 @@ export interface IFormCompProps {
   value?: TFormValue
   onChange?: TOnChange
   name?: string
-  setFieldValue?: (name: string, value: TFormValue) => void
+  setFieldValue?: (
+    name: string,
+    value: TFormValue,
+    shouldValidate?: { shouldValidate: boolean }
+  ) => void
 }
 
 export type TRegister = (name: string) => {

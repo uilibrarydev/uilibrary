@@ -27,7 +27,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const updateInForm = useCallback(
     (value: File | null) => {
       if (name && setFieldValue) {
-        setFieldValue(name, value)
+        setFieldValue(name, value, { shouldValidate: !!value })
       }
     },
     [name, setFieldValue]

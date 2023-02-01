@@ -1,5 +1,5 @@
 import React from 'react'
-import { customIcons } from '../../assets'
+import { customIcons } from '../../assets/icons'
 import { iconSizes, customColors } from '../../consts'
 import { IconPropTypes } from './types'
 import './index.scss'
@@ -25,7 +25,7 @@ const Icon = (props: IconPropTypes): JSX.Element => {
     <div
       ref={refHandler}
       onClick={onClick}
-      className={`custom_icon ${className}`}
+      className={`icon ${className}`}
       dangerouslySetInnerHTML={{ __html: svg(iconColor, iconSize) }}
     />
   )

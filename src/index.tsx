@@ -18,7 +18,9 @@ import { TimePicker, SimpleDatePicker, RangeDatePicker } from './components/Date
 import Switcher from './components/Switcher'
 import { HttpClient } from './helpers'
 import More from './components/More'
-import './tokens.css'
+
+import { WithFormFeedback } from './context/FormContextProvider'
+import './assets/styles/index.scss'
 
 export {
   Text,
@@ -42,5 +44,6 @@ export {
   Switcher,
   TextArea,
   More,
-  HttpClient
+  HttpClient,
+  WithFormFeedback
 }

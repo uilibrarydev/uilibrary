@@ -1,0 +1,22 @@
+:root {
+  //----------- default tokens -------------//
+
+  --border-size-1: 1px;
+
+  --border-radius-2: 2px;
+
+
+  //----------- alias tokens -------------//
+
+
+  /**
+  * @tokens Borders
+  * @presenter Border
+  */
+
+  --ds-border-size-1: var(--border-size-1);
+
+
+  --ds-border-radius-2: var(--border-radius-2);
+
+}

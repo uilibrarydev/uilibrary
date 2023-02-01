@@ -1,9 +1,14 @@
-@import '../../sass/helpers/colors.scss';
+@import 'src/assets/styles/helpers/colors';
 
 .select-container{
+    .label{
+        margin-bottom: 8px;
+      }
     position: relative;
     user-select: none
+   
 }
+
 
 .selected-item-container {
     box-sizing: border-box;
@@ -31,6 +36,7 @@
     box-sizing: border-box;
     position: absolute;
     background: $justWhite;
+    z-index: 1;
     box-shadow: 1px 8px 10px 2px #f2f2f2;
     border-radius: 5px;
     left: 0;

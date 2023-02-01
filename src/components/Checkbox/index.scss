@@ -1,4 +1,4 @@
-@import '../../sass/helpers/colors.scss';
+@import 'src/assets/styles/helpers/colors';
 .custom_checkbox_container{
     display: flex;
     align-items: flex-start;
@@ -8,6 +8,7 @@
         box-sizing: border-box;
         display: flex;
         width: 18px;
+        min-width: 18px;
         height: 18px;
         position: relative;
         margin-inline-end: 15px;

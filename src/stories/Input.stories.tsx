@@ -26,10 +26,11 @@ const Template = (): JSX.Element => {
   return (
     <div style={{ width: 300 }}>
       <InputComp
-        value={value}
+        currentValue={value}
         changeHandler={onChange}
         label="Հեռախոսահամար"
-        mask="(+374) 99 99 99 99"
+        type="number"
+        // mask="(+374) 99 99 99 99"
       />
     </div>
   )

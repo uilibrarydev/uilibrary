@@ -1,6 +1,6 @@
 {
   "name": "dino_ui_tools",
-  "version": "1.1.159",
+  "version": "1.1.172",
   "description": "",
   "private": false,
   "main": "dist/index.js",
@@ -9,16 +9,17 @@
   "files": [
     "dist"
   ],
+
   "scripts": {
     "start": "react-scripts start",
     "build": "npm run clean && rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 public",
+    "storybook": "start-storybook -p 6006  public",
     "build-storybook": "build-storybook  public",
-    "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "clean": "rm -rf dist",
-    "prettier": "prettier './{src,stories}/**/**.{js,jsx,ts,tsx}' --write ",
+    "prettier": "prettier --write \"./{src,stories}/**/**.{js,jsx,ts,tsx}\"",
     "check": "npm run prettier && npm run lint",
     "updateVersion": "node  ./scripts/updateVersion.js",
     "finilize": "npm run build && npm run updateVersion",

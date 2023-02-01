@@ -4,6 +4,10 @@ export interface ISimpleDatePickerProps extends IFormCompProps {
   label?: string | JSX.Element
   currentDate?: Date | undefined
   changeHandler?: (date: Date) => void
+  excludeDates?: Date[]
+  minDate?: Date | null
+  maxDate?: Date | null
+  format?: string
 }
 export interface ITimePickerProps extends IFormCompProps {
   label?: string | JSX.Element
