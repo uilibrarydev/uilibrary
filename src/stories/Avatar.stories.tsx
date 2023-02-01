@@ -1,12 +1,12 @@
 import React from 'react'
 import { Avatar as AvatarComp } from '../components'
 
-import imageFile from '../assets/images/avatar.jpg';
+import imageFile from '../assets/images/avatar.jpg'
 
 const image = {
   src: imageFile,
-  alt: 'my image',
-};
+  alt: 'my image'
+}
 export default {
   title: 'Avatar',
   component: AvatarComp,

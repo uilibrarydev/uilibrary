@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, { useRef } from 'react'
 import Icon from '../Icon'
 import { TCheckboxProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
@@ -29,13 +29,23 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   }
 
   return (
-    <label className={`controller controller--checkbox ${disabled && 'controller--disabled'} ${className}`}
+    <label
+      className={`controller controller--checkbox ${
+        disabled && 'controller--disabled'
+      } ${className}`}
     >
-      <input type="checkbox" tabIndex={0} onChange={changeHandler} checked={selectedValue} ref={inputRef} disabled={disabled}/>
+      <input
+        type="checkbox"
+        tabIndex={0}
+        onChange={changeHandler}
+        checked={selectedValue}
+        ref={inputRef}
+        disabled={disabled}
+      />
       <span className="controller__icon">
-        {selectedValue &&
-         <Icon name="mark" size="xsmall" type={`${disabled ? 'disabled' : 'inverse'}`} />
-        }
+        {selectedValue && (
+          <Icon name="mark" size="xsmall" type={`${disabled ? 'disabled' : 'inverse'}`} />
+        )}
       </span>
       {label ? (
         <span className="controller__label">

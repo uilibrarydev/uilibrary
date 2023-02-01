@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Checkbox as CheckboxComp } from '../components'
 import { noop } from '../utils'
 
@@ -10,7 +10,7 @@ export default {
 
 const Template = (args) => {
   const [isChecked, setIsChecked] = useState(false)
- return ( <CheckboxComp {...args} selectedValue={isChecked}  setFieldValue={setIsChecked}/>)
+  return <CheckboxComp {...args} selectedValue={isChecked} setFieldValue={setIsChecked} />
 }
 
 export const Checkbox = Template.bind({})
