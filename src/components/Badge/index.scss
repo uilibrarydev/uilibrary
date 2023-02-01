@@ -2,8 +2,11 @@
 .badge {
   $this: &;
 
-  --ds-badge-size-lg: var(--ds-size-24);
+  --ds-badge-size-lg: var(--ds-size-20);
   --ds-badge-size-sm: var(--ds-size-16);
+
+  --ds-badge-dot-size-lg: var(--ds-size-12);
+  --ds-badge-dot-size-sm: var(--ds-size-8);
 
   --ds-badge-bg-color-primary: var(--pink-500);
   --ds-badge-bg-color-secondary: var(--grey-50);
@@ -21,12 +24,6 @@
   align-items: center;
   font: var(--ds-badge-font);
 
-  &--large {
-    height: var(--ds-badge-size-lg);
-  }
-  &--small {
-    height: var(--ds-badge-size-sm);
-  }
   &--primary {
     background-color: var(--ds-badge-bg-color-primary);
     color: var(--ds-badge-color-primary)
@@ -38,13 +35,24 @@
   &--count {
     padding: var(--ds-badge-padding);
     border-radius: var(--ds--badge-border-radius-lg);
+
+    &#{$this}--large {
+      height: var(--ds-badge-size-lg);
+    }
+    &#{$this}--small {
+      height: var(--ds-badge-size-sm);
+    }
   }
   &--dot {
-    width: var(--ds-badge-size-sm);
     border-radius: var(--ds--badge-border-radius-full);
 
     &#{$this}--large {
-      width: var(--ds-badge-size-lg);
+      width: var(--ds-badge-dot-size-lg);
+      height: var(--ds-badge-dot-size-lg);
+    }
+    &#{$this}--small {
+      width: var(--ds-badge-dot-size-sm);
+      height: var(--ds-badge-dot-size-sm);
     }
   }
 }
