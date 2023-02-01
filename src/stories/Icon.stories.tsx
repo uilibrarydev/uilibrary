@@ -58,7 +58,14 @@ const Template = (args) => (
   <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
     {ICONS.map((iconName) => (
       <div
-        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 10, flex: '70px', maxWidth: '70px'}}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: 10,
+          flex: '70px',
+          maxWidth: '70px'
+        }}
         key={iconName}
       >
         <div

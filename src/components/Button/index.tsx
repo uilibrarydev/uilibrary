@@ -39,7 +39,7 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
           size={`${size == 'large' ? 'medium' : size == 'medium' ? 'small' : 'xsmall'}`}
         />
       )}
-        <span className="btn__text">{isLoading || (!justIcon && buttonText)}</span>
+      <span className="btn__text">{isLoading || (!justIcon && buttonText)}</span>
     </button>
   )
 }

@@ -47,9 +47,7 @@ export default {
 const Template = (args) => {
   return (
     <div style={{ padding: '20px', backgroundColor: `${args.type == 'inverse' ? '#919191' : ''}` }}>
-      <TextComp {...args} >
-       {args.text}
-      </TextComp>
+      <TextComp {...args}>{args.text}</TextComp>
     </div>
   )
 }
