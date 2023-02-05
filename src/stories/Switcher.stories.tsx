@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Switcher as SwitcherComp } from '../index'
+import { noop } from '../utils'
 
 export default {
   title: 'Switcher',
@@ -25,12 +26,15 @@ const ID = 'am_custom_switcher'
 //   )
 // }
 
-const Template = (args) => <SwitcherComp {...args} />
+const Template = (args) => {
+  const [isChecked, setIsChecked] = useState(false)
+  return <SwitcherComp {...args} selectedValue={isChecked} setFieldValue={setIsChecked} id={ID}/>
+}
 
 export const Switcher = Template.bind({})
 
 Switcher.args = {
   size: 'small',
-  isChecked: false,
-  disabled: false
+  disabled: false,
+  onClick: noop
 }

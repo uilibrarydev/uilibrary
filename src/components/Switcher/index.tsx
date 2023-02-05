@@ -1,36 +1,60 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import { TSwitcherProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
 import Icon from '../Icon'
 
 export const Switcher = React.forwardRef<HTMLDivElement, TSwitcherProps>(
   (
-    { isChecked, onClick, id = '', setFieldValue, name, value, disabled, size },
+    {
+      onClick,
+      id = '',
+      name,
+      value,
+      disabled,
+      size,
+      setFieldValue,
+      selectedValue,
+      className = '',
+    },
     ref
   ): JSX.Element => {
-    const isCheckboxChecked = value || isChecked
+    const isChecked = !!value || selectedValue
+    const inputRef = useRef(null)
+    const changeHandler = () => {
+      setFieldValue(!selectedValue)
 
-    const handleClick = () => {
-      if (onClick) {
-        onClick(!isCheckboxChecked)
-      }
       if (name && setFieldValue) {
-        setFieldValue(name, !isCheckboxChecked, { shouldValidate: !isCheckboxChecked })
+        setFieldValue(name, !isChecked, { shouldValidate: !isChecked })
+      }
+      if (onClick) {
+        onClick(!isChecked)
       }
     }
 
     return (
-      <div
-        ref={ref}
-        onClick={handleClick}
+      <label
         id={id}
         className={`controller controller--switch controller--switch-${size} 
-                            ${disabled && 'controller--disabled'} 
-                            ${isCheckboxChecked ? 'checked' : ''} 
-                            `}
+                    ${className}
+                    ${disabled && 'controller--disabled'} 
+                    `}
       >
-        <span className="controller__icon">{isChecked && <Icon name="mark" size="xsmall" />}</span>
-      </div>
+        <input
+            type="checkbox"
+            tabIndex={0}
+            onChange={changeHandler}
+            checked={selectedValue}
+            ref={inputRef}
+            disabled={disabled}
+        />
+        <span className="controller__icon">
+          <span  className="controller__icon__inner">
+              {selectedValue && (
+                  <Icon name="mark" size="xsmall" />
+              )}
+          </span>
+        </span>
+      </label>
     )
   }
 )

@@ -1,5 +1,5 @@
-import React from 'react'
-import { Radio as RadioComp } from '../components'
+import React, {useState} from 'react'
+import {Radio as RadioComp} from '../components'
 import { noop } from '../utils'
 
 export default {
@@ -8,13 +8,15 @@ export default {
   argTypes: {}
 }
 
-const Template = (args) => <RadioComp {...args} />
+const Template = (args) => {
+  const [isChecked, setIsChecked] = useState(false)
+  return <RadioComp {...args} selectedValue={isChecked} setFieldValue={setIsChecked} />
+}
 
 export const Radio = Template.bind({})
 
 Radio.args = {
-  value: true,
-  justIcon: false,
   disabled: false,
+  label: 'Label for radio',
   onClick: noop
 }

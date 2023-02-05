@@ -30,9 +30,10 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
 
   return (
     <label
-      className={`controller controller--checkbox ${
-        disabled && 'controller--disabled'
-      } ${className}`}
+      className={`controller controller--checkbox 
+                  ${disabled && 'controller--disabled'}
+                  ${className}
+                  `}
     >
       <input
         type="checkbox"

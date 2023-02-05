@@ -3,59 +3,47 @@
 .badge {
   $this: &;
 
-  --ds-badge-size-lg: var(--ds-size-20);
-  --ds-badge-size-sm: var(--ds-size-16);
-
-  --ds-badge-dot-size-lg: var(--ds-size-12);
-  --ds-badge-dot-size-sm: var(--ds-size-8);
-
   --ds-badge-primary-bg: var(--pink-500);
   --ds-badge-secondary-bg: var(--grey-50);
-
   --ds-badge-primary-color: var(--ds-color-text-inverse);
   --ds-badge-secondary-color: var(--ds-color-text-primary);
 
-  --ds--badge-border-radius-lg: var(--ds-border-radius-lg);
-  --ds--badge-border-radius-full: var(--ds-border-radius-full);
-
-  --ds-badge-padding: 0 var(--ds-space-8);
+  --ds--badge-border-radius: var(--ds-border-radius-lg);
+  --ds-badge-padding-lg: var(--ds-space-6);
+  --ds-badge-padding-sm: var(--ds-space-4);
+  --ds-badge-inner-padding-lg: 0 var(--ds-space-2);
+  --ds-badge-inner-padding-sm: 0 var(--ds-space-4);
   --ds-badge-font: var(--ds-font-weight-default) var(--ds-paragraph-xs)/var(--ds-line-height-default) var(--ds-font-family);
 
   display: inline-flex;
   align-items: center;
   font: var(--ds-badge-font);
+  border-radius: var(--ds--badge-border-radius);
+
+
 
   &--primary {
     background-color: var(--ds-badge-primary-bg);
     color: var(--ds-badge-primary-color)
   }
+
   &--secondary {
     background-color: var(--ds-badge-secondary-bg);
     color: var(--ds-badge-secondary-color);
   }
-  &--count {
-    padding: var(--ds-badge-padding);
-    border-radius: var(--ds--badge-border-radius-lg);
 
-    &#{$this}--large {
-      min-width: var(--ds-badge-size-lg);
-      height: var(--ds-badge-size-lg);
-    }
-    &#{$this}--small {
-      min-width: var(--ds-badge-size-sm);
-      height: var(--ds-badge-size-sm);
+  &--large {
+    padding: var(--ds-badge-padding-lg);
+
+    #{$this}__inner {
+      padding: var(--ds-badge-inner-padding-lg);
     }
   }
-  &--dot {
-    border-radius: var(--ds--badge-border-radius-full);
+  &--small {
+    padding: var(--ds-badge-padding-sm);
 
-    &#{$this}--large {
-      width: var(--ds-badge-dot-size-lg);
-      height: var(--ds-badge-dot-size-lg);
-    }
-    &#{$this}--small {
-      width: var(--ds-badge-dot-size-sm);
-      height: var(--ds-badge-dot-size-sm);
+    #{$this}__inner {
+      padding: var(--ds-badge-inner-padding-sm);
     }
   }
 }
