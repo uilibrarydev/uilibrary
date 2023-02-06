@@ -14,11 +14,13 @@ const Icon = (props: IconPropTypes): JSX.Element => {
   } = props
 
   let content = (
-    <i
-      ref={refHandler}
-      onClick={onClick}
-      className={`icon icon--${size} icon--${type} ${className} icon-${name}`}
-    />
+      <span className={`icon icon--${size} icon--${type} ${className}`}>
+        <i
+            ref={refHandler}
+            onClick={onClick}
+            className={`icon-${name}`}
+        />
+      </span>
   )
 
   if (withWrapper) {

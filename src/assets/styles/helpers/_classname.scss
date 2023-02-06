@@ -364,17 +364,26 @@ $space-prefixes: (
 
 //icons sizes and colors
 .icon {
+  --icon-lg: var(--font-size-24);
+  --icon-md: var(--font-size-18);
+  --icon-sm: var(--font-size-14);
+  --icon-xs: var(--font-size-12);
+
   &--xsmall {
-    font-size: var(--font-size-12); //16px on design
+    padding: 2px;
+    font-size: var(--icon-xs);
   }
   &--small {
-    font-size: var(--font-size-14); //20px on design
+    padding: 3px;
+    font-size: var(--icon-sm);
   }
   &--medium {
-    font-size: var(--font-size-18); //24px on design
+    padding: 3px;
+    font-size: var(--icon-md);
   }
   &--large {
-    font-size: var(--font-size-24); //32px on design
+    padding: 4px;
+    font-size: var(--icon-lg);
   }
 }
 
