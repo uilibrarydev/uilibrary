@@ -15,6 +15,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
     className = '',
     onClick
   } = props
+
   const isChecked = !!value || selectedValue
   const inputRef = useRef(null)
   const changeHandler = () => {
