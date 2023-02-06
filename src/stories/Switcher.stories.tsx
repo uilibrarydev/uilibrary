@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Switcher as SwitcherComp } from '../index'
-import { noop } from '../utils'
 
 export default {
   title: 'Switcher',
@@ -14,27 +13,14 @@ export default {
 }
 const ID = 'am_custom_switcher'
 
-// const Template = (args) => {
-//   const [isChecked, setIsChecked] = useState(args.isChecked)
-//   return (
-//     <div>
-//       <SwitcherComp {...args} isChecked={isChecked} onClick={setIsChecked} id={ID} />
-//       <label htmlFor={ID} onClick={() => setIsChecked(!isChecked)}>
-//         My swicther
-//       </label>
-//     </div>
-//   )
-// }
-
 const Template = (args) => {
   const [isChecked, setIsChecked] = useState(false)
-  return <SwitcherComp {...args} selectedValue={isChecked} setFieldValue={setIsChecked} id={ID} />
+  return <SwitcherComp {...args} selectedValue={isChecked} onClick={setIsChecked} id={ID} />
 }
 
 export const Switcher = Template.bind({})
 
 Switcher.args = {
   size: 'small',
-  disabled: false,
-  onClick: noop
+  disabled: false
 }

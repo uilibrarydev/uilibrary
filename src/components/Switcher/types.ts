@@ -3,9 +3,8 @@ import { IFormCompProps } from '../../types/globals'
 export interface TSwitcherProps extends IFormCompProps {
   onClick?: (isChecked: boolean) => void
   className?: string
-  disabled: boolean
+  disabled?: boolean
   selectedValue?: boolean
-  size?: string
+  size?: 'large' | 'small'
   id?: string
-  backgroundColor?: TColor
 }

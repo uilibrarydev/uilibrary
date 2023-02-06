@@ -1,7 +1,6 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { TRadioProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
-import Icon from '../Icon'
 
 export const Radio = (props: TRadioProps): JSX.Element | null => {
   const {
@@ -15,10 +14,8 @@ export const Radio = (props: TRadioProps): JSX.Element | null => {
     onClick
   } = props
   const isChecked = !!value || selectedValue
-  const inputRef = useRef(null)
-  const changeHandler = () => {
-    setFieldValue(!selectedValue)
 
+  const changeHandler = () => {
     if (name && setFieldValue) {
       setFieldValue(name, !isChecked, { shouldValidate: !isChecked })
     }
@@ -40,7 +37,6 @@ export const Radio = (props: TRadioProps): JSX.Element | null => {
         name={name}
         onChange={changeHandler}
         checked={selectedValue}
-        ref={inputRef}
         disabled={disabled}
       />
       <span className="controller__icon"></span>

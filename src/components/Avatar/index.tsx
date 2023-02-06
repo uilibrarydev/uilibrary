@@ -1,32 +1,35 @@
 import React, { useState } from 'react'
-import { TAvatarProps } from './types'
-import '../../assets/styles/components/_avatar.scss'
 import Icon from '../Icon'
 
+import { TAvatarProps } from './types'
+import '../../assets/styles/components/_avatar.scss'
+
 export const Avatar = (props: TAvatarProps): JSX.Element | null => {
-  const { type, size, imagePath, initials = 'AG', className = '', isEditable } = props
+  const {
+    color = 'default',
+    size = 'medium',
+    imagePath,
+    initials = '',
+    className = '',
+    isEditable
+  } = props
   const [isHovered, setHoverState] = useState(false)
+
+  const onMouseEnter = () => setHoverState(true)
+  const onMouseLeave = () => setHoverState(false)
 
   return (
     <div
-      className={`avatar avatar--${type} avatar--${size} ${className} 
+      className={`avatar avatar--${color} avatar--${size} ${className} 
                         ${imagePath ? 'avatar--image' : ''}
                         ${isEditable ? 'avatar--edit' : ''}
                        `}
       style={{ backgroundImage: `url(${imagePath})` }}
     >
-      {!imagePath && initials}
+      {imagePath ? imagePath : initials}
       {isEditable ? (
-        <span
-          className="avatar__icon"
-          onMouseEnter={() => {
-            setHoverState(true)
-          }}
-          onMouseLeave={() => {
-            setHoverState(false)
-          }}
-        >
-          <Icon name={isHovered ? 'edit-fill' : 'edit'} size="xsmall" type="secondary"></Icon>
+        <span className="avatar__icon" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+          <Icon name={isHovered ? 'edit-fill' : 'edit'} size="xsmall" type="secondary" />
         </span>
       ) : null}
     </div>
