@@ -63,9 +63,9 @@
     visibility: hidden;
 
     & + #{$this}__icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flexbox;
+      @include align-items(center);
+      @include justify-content(center);
       width: var(--ds-controller-size);
       height: var(--ds-controller-size);
       background-color: var(--ds-controller-bg-default-light);
@@ -184,9 +184,9 @@
         }
 
         #{$this}__icon__inner {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          @include flexbox;
+          @include align-items(center);
+          @include justify-content(center);
           border-radius: var(--ds-controller-border-radius-lg);
           background-color: var(--ds-controller-bg-default-light);
           position: absolute;

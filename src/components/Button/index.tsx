@@ -24,12 +24,12 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
       className={`btn btn--${type} btn--${size}
                   ${
                     !isLoading &&
-                    iconProps?.name &&
                     !justIcon &&
+                    iconProps?.name &&
                     `btn--icon-${iconProps?.alignment}`
                   } 
-                  ${justIcon && 'btn--icon'}
-                  ${isLoading && 'btn--loading'}
+                  ${justIcon ? 'btn--icon' : ''}
+                  ${isLoading ? 'btn--loading' : ''}
                   ${className}`}
       onClick={onClick}
     >

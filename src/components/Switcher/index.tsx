@@ -36,7 +36,7 @@ export const Switcher = React.forwardRef<HTMLDivElement, TSwitcherProps>(
         id={id}
         className={`controller controller--switch controller--switch-${size} 
                     ${className}
-                    ${disabled && 'controller--disabled'} 
+                    ${disabled ? 'controller--disabled' : ''} 
                     `}
       >
         <input
@@ -49,9 +49,9 @@ export const Switcher = React.forwardRef<HTMLDivElement, TSwitcherProps>(
         />
         <span className="controller__icon">
           <span  className="controller__icon__inner">
-              {selectedValue && (
+              {selectedValue ? (
                   <Icon name="mark" size="xsmall" />
-              )}
+              ) : null}
           </span>
         </span>
       </label>

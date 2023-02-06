@@ -15,12 +15,13 @@
   --ds-badge-inner-padding-sm: 0 var(--ds-space-4);
   --ds-badge-font: var(--ds-font-weight-default) var(--ds-paragraph-xs)/var(--ds-line-height-default) var(--ds-font-family);
 
-  display: inline-flex;
-  align-items: center;
-  font: var(--ds-badge-font);
+  @include inline-flex;
+  @include align-items(center);
   border-radius: var(--ds--badge-border-radius);
 
-
+  &__inner {
+    font: var(--ds-badge-font);
+  }
 
   &--primary {
     background-color: var(--ds-badge-primary-bg);
@@ -39,6 +40,7 @@
       padding: var(--ds-badge-inner-padding-lg);
     }
   }
+
   &--small {
     padding: var(--ds-badge-padding-sm);
 

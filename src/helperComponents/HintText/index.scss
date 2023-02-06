@@ -1,8 +1,8 @@
-@import 'src/assets/styles/helpers/colors';
+@import 'src/assets/styles/shared';
 
 .hint-text {
-    display: flex;
-    align-items: center;
+    @include flexbox;
+    @include align-items(center);
     position:absolute;
     margin-top: 4px;
     font-size: var(--ds-paragraph-sm);
