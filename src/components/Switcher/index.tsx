@@ -1,21 +1,11 @@
-import React, {useRef} from 'react'
+import React, { useRef } from 'react'
 import { TSwitcherProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
 import Icon from '../Icon'
 
 export const Switcher = React.forwardRef<HTMLDivElement, TSwitcherProps>(
   (
-    {
-      onClick,
-      id = '',
-      name,
-      value,
-      disabled,
-      size,
-      setFieldValue,
-      selectedValue,
-      className = '',
-    },
+    { onClick, id = '', name, value, disabled, size, setFieldValue, selectedValue, className = '' },
     ref
   ): JSX.Element => {
     const isChecked = !!value || selectedValue
@@ -40,18 +30,16 @@ export const Switcher = React.forwardRef<HTMLDivElement, TSwitcherProps>(
                     `}
       >
         <input
-            type="checkbox"
-            tabIndex={0}
-            onChange={changeHandler}
-            checked={selectedValue}
-            ref={inputRef}
-            disabled={disabled}
+          type="checkbox"
+          tabIndex={0}
+          onChange={changeHandler}
+          checked={selectedValue}
+          ref={inputRef}
+          disabled={disabled}
         />
         <span className="controller__icon">
-          <span  className="controller__icon__inner">
-              {selectedValue ? (
-                  <Icon name="mark" size="xsmall" />
-              ) : null}
+          <span className="controller__icon__inner">
+            {selectedValue ? <Icon name="mark" size="xsmall" /> : null}
           </span>
         </span>
       </label>

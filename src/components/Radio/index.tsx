@@ -1,7 +1,7 @@
-import React, {useRef} from 'react'
+import React, { useRef } from 'react'
 import { TRadioProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
-import Icon from '../Icon';
+import Icon from '../Icon'
 
 export const Radio = (props: TRadioProps): JSX.Element | null => {
   const {
@@ -35,20 +35,16 @@ export const Radio = (props: TRadioProps): JSX.Element | null => {
                         `}
     >
       <input
-          type="radio"
-          tabIndex={0}
-          name={name}
-          onChange={changeHandler}
-          checked={selectedValue}
-          ref={inputRef}
-          disabled={disabled}
+        type="radio"
+        tabIndex={0}
+        name={name}
+        onChange={changeHandler}
+        checked={selectedValue}
+        ref={inputRef}
+        disabled={disabled}
       />
       <span className="controller__icon"></span>
-      {label ? (
-        <span className="controller__label">
-          {label}
-        </span>
-      ) : null}
+      {label ? <span className="controller__label">{label}</span> : null}
     </label>
   )
 }

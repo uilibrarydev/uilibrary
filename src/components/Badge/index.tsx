@@ -7,7 +7,7 @@ export const Badge = (props: TBadgeProps): JSX.Element | null => {
 
   return (
     <span className={`badge badge--${type}  badge--${size} ${className}`}>
-      {text ? (<span className="badge__inner">{text}</span>) : null}
+      {text ? <span className="badge__inner">{text}</span> : null}
     </span>
   )
 }

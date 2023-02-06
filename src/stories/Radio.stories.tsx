@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {Radio as RadioComp} from '../components'
+import React, { useState } from 'react'
+import { Radio as RadioComp } from '../components'
 import { noop } from '../utils'
 
 export default {
