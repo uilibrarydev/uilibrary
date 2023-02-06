@@ -1,3 +1,5 @@
+import { LegacyRef } from 'react'
+
 export interface IconPropTypes {
   name?: string
   type?:
@@ -16,6 +18,6 @@ export interface IconPropTypes {
   size?: 'xsmall' | 'small' | 'medium' | 'large'
   onClick?: () => void
   className?: string
-  refHandler?: CallbackFnType
+  refHandler?: LegacyRef<HTMLElement> | undefined
   withWrapper?: boolean
 }

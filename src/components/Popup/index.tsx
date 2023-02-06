@@ -54,13 +54,7 @@ const Popup = (props: TPopupPropTypes): JSX.Element | null => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore */}
             <AnimatePresence className="animated_content" {...DESKTOP_ANIMATION}>
-              <Icon
-                className="close-icon"
-                name="close"
-                size="small"
-                color="darkGray"
-                onClick={onClose}
-              />
+              <Icon className="close-icon" name="close" size="small" onClick={onClose} />
               {children}
             </AnimatePresence>
           </motion.div>

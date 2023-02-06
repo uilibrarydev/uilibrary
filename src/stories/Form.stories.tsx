@@ -51,16 +51,16 @@ const VALIDATION_SCHEME = yup.object({
   //   .string()
   //   .required('phone number is required')
   //   .test('valid', 'Phone number is not valid', (val) => val?.indexOf('_') === -1)
-  select: yup.object().required('requierd field'),
+  // select: yup.object().required('requierd field'),
   // date: yup.date().required(),
-  // switcher: yup.boolean().required()
+  switcher: yup.boolean().required()
   // textarea: yup.string().required('A file is required'),
   // time: yup.string().required(),
   // firstName: yup.string().required('A file is required'),
-  checkbox: yup
-    .bool()
-    .required('Required field')
-    .test('valid', 'նշել պարտադիր', (val) => !!val)
+  // checkbox: yup
+  //   .bool()
+  //   .required('Required field')
+  //   .test('valid', 'նշել պարտադիր', (val) => !!val)
 })
 
 const getFiles = (file: File) => {
@@ -69,26 +69,27 @@ const getFiles = (file: File) => {
 
 const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
-    select: undefined,
-    checkbox: undefined
+    // select: undefined,
+    // checkbox: undefined
+    switcher: false
   }
 
-  const checkboxLabel = useMemo(() => {
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Text>Համաձայն եմ ԱՔՌԱ հարցման կատարմանը</Text>
-        <Text onClick={(e) => e.stopPropagation()}>
-          <a
-            href="https://github.com/jaredpalmer/formik/issues/1040"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Ավելին
-          </a>
-        </Text>
-      </div>
-    )
-  }, [])
+  // const checkboxLabel = useMemo(() => {
+  //   return (
+  //     <div style={{ display: 'flex', flexDirection: 'column' }}>
+  //       <Text>Համաձայն եմ ԱՔՌԱ հարցման կատարմանը</Text>
+  //       <Text onClick={(e) => e.stopPropagation()}>
+  //         <a
+  //           href="https://github.com/jaredpalmer/formik/issues/1040"
+  //           target="_blank"
+  //           rel="noreferrer"
+  //         >
+  //           Ավելին
+  //         </a>
+  //       </Text>
+  //     </div>
+  //   )
+  // }, [])
 
   const BUTTONS_CONFIG = [
     {
@@ -106,7 +107,7 @@ const Template = (): JSX.Element => {
         buttonConfigs={BUTTONS_CONFIG}
       >
         <>
-          <FormField
+          {/* <FormField
             isControlled
             isNeedChangeHandler
             name={'select'}
@@ -183,7 +184,7 @@ const Template = (): JSX.Element => {
             As={(props: IFormCompProps) => {
               return <TextArea {...props} placeHolder="Select country" />
             }}
-          />
+          /> */}
           <FormField
             isControlled
             isNeedChangeHandler

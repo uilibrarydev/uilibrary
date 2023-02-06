@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, RefObject } from 'react'
 
 export const useOnOutsideClick = (
   ref: RefObject<HTMLInputElement> | null,

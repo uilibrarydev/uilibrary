@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import Icon from '../Icon'
 import { TCheckboxProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
@@ -17,10 +17,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   } = props
 
   const isChecked = !!value || selectedValue
-  const inputRef = useRef(null)
   const changeHandler = () => {
-    setFieldValue(!selectedValue)
-
     if (name && setFieldValue) {
       setFieldValue(name, !isChecked, { shouldValidate: !isChecked })
     }
@@ -41,7 +38,6 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
         tabIndex={0}
         onChange={changeHandler}
         checked={selectedValue}
-        ref={inputRef}
         disabled={disabled}
       />
       <span className="controller__icon">
