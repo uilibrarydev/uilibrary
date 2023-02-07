@@ -26,7 +26,7 @@ export const Avatar = (props: TAvatarProps): JSX.Element | null => {
                        `}
       style={{ backgroundImage: `url(${imagePath})` }}
     >
-      {imagePath ? imagePath : initials}
+      {!imagePath ? initials : null}
       {isEditable ? (
         <span className="avatar__icon" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
           <Icon name={isHovered ? 'edit-fill' : 'edit'} size="xsmall" type="secondary" />

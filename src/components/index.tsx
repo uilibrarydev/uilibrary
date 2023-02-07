@@ -4,7 +4,7 @@ import Icon from './Icon'
 import FormContainer from './FormContainer'
 import Input from './Input'
 import Select from './Select'
-import Popup from './Popup'
+import Modal from './Modal'
 import Button from './Button'
 import FormField from './FormField'
 import FileUpload from './FileUpload'
@@ -29,7 +29,7 @@ export {
   FormContainer,
   Input,
   Select,
-  Popup,
+  Modal,
   Button,
   FormField,
   FileUpload,

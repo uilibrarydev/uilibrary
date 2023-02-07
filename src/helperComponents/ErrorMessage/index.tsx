@@ -8,7 +8,7 @@ const ErrorMessage = (props: TErrorMessageProps): JSX.Element => {
   return (
     <Text className="error-message" size="small" type="danger">
       <>
-        {icon && <Icon name={icon} className="error-message__icon" />}
+        {icon && <Icon name={icon} className="error-message__icon" size="xsmall" />}
         <span>{message}</span>
       </>
     </Text>

@@ -17,10 +17,6 @@ export default {
       options: ['true', 'false'],
       control: { disabled: 'true' }
     },
-    justIcon: {
-      options: ['true', 'false'],
-      control: { disabled: 'false' }
-    },
     isLoading: {
       options: ['true', 'false'],
       control: { disabled: 'false' }
@@ -28,7 +24,7 @@ export default {
   }
 }
 
-const Template = (args) => <ButtonComp {...args} buttonText={`${args.type} button`} />
+const Template = (args) => <ButtonComp {...args} />
 
 export const Button = Template.bind({})
 Button.args = {
@@ -38,8 +34,8 @@ Button.args = {
   },
   type: 'primary',
   size: 'large',
-  justIcon: false,
   disabled: false,
   isLoading: false,
+  buttonText: 'Label',
   onClick: () => console.log('iconbutton  buttonClicked')
 }

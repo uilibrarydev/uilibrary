@@ -38,10 +38,11 @@
   --ds-button-secondary-text-default: var(--ds-color-text-primary);
   --ds-button-secondary-text-hover: var(--ds-color-text-primary);
   --ds-button-secondary-text-disabled: var(--ds-color-text-disabled);
+  --ds-button-secondary-border: var(--ds-border-thin) solid var(--ds-button-secondary-border-color);
   --ds-button-secondary-border-color: var(--ds-color-border-cta);
   --ds-button-secondary-disabled-border-color: var(--ds-color-border-disabled);
 
-  --ds-button-tertiary-bg-default: var(--ds-color-bg-cta-secondary-default);
+  --ds-button-tertiary-bg-default: transparent;
   --ds-button-tertiary-bg-hover: var(--ds-color-bg-cta-secondary-hover);
   --ds-button-tertiary-bg-pressed: var(--ds-color-bg-cta-secondary-pressed);
   --ds-button-tertiary-bg-focused: var(--ds-color-bg-cta-secondary-focused);
@@ -65,11 +66,10 @@
   --ds-button-link-text-focused: var(--brand-700);
   --ds-button-link-text-disabled: var(--ds-color-text-disabled);
 
-  --ds-button-icon-margin-lg: var(--ds-space-12);
-  --ds-button-icon-margin-md: var(--ds-space-12);
-  --ds-button-icon-margin-sm: var(--ds-space-8);
+  --ds-button-icon-margin-lg: var(--ds-space-8);
+  --ds-button-icon-margin-md: var(--ds-space-8);
+  --ds-button-icon-margin-sm: var(--ds-space-4);
 
-  --ds-button-border: var(--ds-border-thin);
   --ds-button-border-radius: var(--ds-border-radius-xs);
 
   --ds-button-transition: background-color .3s linear, color .3s linear, border-color .3s linear;
@@ -146,7 +146,7 @@
   &--secondary {
     background-color: var(--ds-button-secondary-bg-default);
     color: var(--ds-button-secondary-text-default);
-    border: var(--ds-button-border) var(--ds-button-secondary-border-color);
+    border: var(--ds-button-secondary-border);
 
     &:hover {
       background-color: var(--ds-button-secondary-bg-hover);
@@ -289,6 +289,10 @@
   }
 
   &--icon-left {
+    #{$this}__icon {
+      margin-left: -3px;
+    }
+
     &#{$this}--large {
       #{$this}__icon {
         margin-right: var(--ds-button-icon-margin-lg);
@@ -311,6 +315,7 @@
   &--icon-right {
     #{$this}__icon {
       order: 1;
+      margin-right: -3px;
     }
 
     &#{$this}--large {

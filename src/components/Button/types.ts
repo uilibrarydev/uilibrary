@@ -3,7 +3,7 @@ import { TClickEventType } from '../../types/globals'
 export interface TButtonPropTypes {
   disabled?: boolean
   buttonActionType?: 'submit'
-  buttonText: string
+  buttonText?: string
   className?: string
   type: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'link'
   size?: 'small' | 'medium' | 'large'

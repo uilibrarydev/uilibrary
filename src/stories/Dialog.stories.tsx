@@ -8,13 +8,13 @@ export default {
 
 const Template = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(true)
-  const closePopup = () => setIsOpen(false)
-  const openPopup = () => setIsOpen(true)
+  const closeModal = () => setIsOpen(false)
+  const openModal = () => setIsOpen(true)
   return (
     <div>
-      <p onClick={openPopup}>click here </p>
+      <p onClick={openModal}>click here </p>
       <DialogComp
-        onClose={closePopup}
+        onClose={closeModal}
         isOpen={isOpen}
         onSumbit={() => console.log('submit')}
         title="Title"

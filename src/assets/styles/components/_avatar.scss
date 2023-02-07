@@ -37,7 +37,7 @@
   --ds-avatar-red-bg-hover: var(--red-50);
   --ds-avatar-red-color: var(--red-800);
 
-  --ds-avatar-image-border: 1px solid var(--grey-200);
+  --ds-avatar-image-border: var(--ds-border-thin) solid var(--grey-200);
 
   --ds--avtar-border-radius: var(--ds-border-radius-full);
   --ds-avatar-font: var(--ds-font-weight-default) var(--ds-headline-sm)/var(--ds-line-height-default) var(--ds-font-family);

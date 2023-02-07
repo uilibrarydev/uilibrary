@@ -12,17 +12,6 @@
     margin: var(--error-message-margin);
 
     &__icon {
-        width: var(--error-message-icon-size);
-        height: var(--error-message-icon-size);
         margin: var(--error-message-icon-margin);
-
-        svg {
-            width: 100%;
-            height: 100%;
-
-            path {
-                fill: var(--error-message-icon-color);
-            }
-        }
     }
 }
