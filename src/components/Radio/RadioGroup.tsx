@@ -17,7 +17,11 @@ const RadioGroup = (props: TRadioGroupProps): JSX.Element => {
   }
 
   return (
-    <div className={`radio-group ${isHorizontal ? 'radio-group--horizontal' : 'radio-group--vertical'}`}>
+    <div
+      className={`radio-group ${
+        isHorizontal ? 'radio-group--horizontal' : 'radio-group--vertical'
+      }`}
+    >
       {options.map((radioOption: TRadioOptionItem) => {
         return (
           <Radio
