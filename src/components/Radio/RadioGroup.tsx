@@ -17,14 +17,14 @@ const RadioGroup = (props: TRadioGroupProps): JSX.Element => {
   }
 
   return (
-    <div className={`radiogroup_container ${isHorizontal ? 'horizontal' : 'vertical'}`}>
+    <div className={`radio-group ${isHorizontal ? 'radio-group--horizontal' : 'radio-group--vertical'}`}>
       {options.map((radioOption: TRadioOptionItem) => {
         return (
           <Radio
             label={radioOption.label}
             key={radioOption.value}
             name={name}
-            className="radio_item"
+            className="radio-group__item"
             isSelected={radioOption.value.toString() === selectedValue?.toString()}
             onClick={() => onSelect(radioOption.value)}
           />

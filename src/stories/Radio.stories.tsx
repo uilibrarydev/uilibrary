@@ -40,5 +40,6 @@ const RadioGroupTemplate = (args) => {
 export const RadioGroup = RadioGroupTemplate.bind({})
 
 RadioGroup.args = {
-  options: RADIO_OPTIONS
+  options: RADIO_OPTIONS,
+  isHorizontal: false
 }
