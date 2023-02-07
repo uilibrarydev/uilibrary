@@ -4,6 +4,7 @@ import ErrorMessage from '../../helperComponents/ErrorMessage'
 import { TChangeEventType } from '../../types/globals'
 import { InputCustomProps } from './types'
 import '../../assets/styles/components/_input.scss'
+import './index.scss'
 import Icon from '../Icon'
 import Label from '../../helperComponents/Label'
 import Text from '../Text'
@@ -12,7 +13,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
   (
     {
       className,
-      size,
+      size = 'large',
       error,
       valid,
       label,
@@ -80,10 +81,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         <div className="input__inner">
           {input}
           {leftIcon && (
-            <Icon {...iconProps} className="input__icon input__icon--left" size="medium" />
+            <Icon {...iconProps} className="input__icon input__icon--left" size="small" />
           )}
           {rightIcon && (
-            <Icon {...iconProps} className="input__icon input__icon--right" size="medium" />
+            <Icon {...iconProps} className="input__icon input__icon--right" size="small" />
           )}
         </div>
         {required && error && <ErrorMessage message={error} icon="info-fill" />}

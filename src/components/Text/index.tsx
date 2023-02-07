@@ -7,7 +7,11 @@ const Text: React.FC<TextPropTypes> = (props: TextPropTypes) => {
   return (
     <p
       onClick={onClick}
-      className={`body body-${size} color-${type} ${weight} lh-${lineHeight}  ${className}`}
+      className={`body ${size ? `body-${size}` : ''} 
+                       ${type ? `color-${type}` : ''}
+                       ${weight ? `${weight}` : ''}
+                       ${lineHeight ? `lh-${lineHeight}` : ''}
+                       ${className}`}
     >
       {children}
     </p>

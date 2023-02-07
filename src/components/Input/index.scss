@@ -1,3 +1,4 @@
+@import "../../assets/styles/shared";
 
 .input {
   --input-message-margin: var(--ds-space-4) 0 0 0;
@@ -5,9 +6,9 @@
   --input-message-icon-color: var(--ds-color-icon-success);
 
   &__message {
-    display: inline-flex;
-    align-items: center;
-    position:absolute;
+    @include inline-flex;
+    @include align-items(center);
+    position: absolute;
     margin: var(--input-message-margin);
 
     &__icon {

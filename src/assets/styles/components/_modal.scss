@@ -1,0 +1,89 @@
+@import "../shared";
+
+.modal {
+  $this: &;
+
+  --ds-modal-size-lg: 720px;
+  --ds-modal-size-md: 600px;
+  --ds-modal-size-sm: 400px;
+
+  --ds-modal-bg: var(--ds-color-bg-cta-secondary-default);
+  --ds-modal-border-radius: var(--ds-border-radius-md);
+  --ds-modal-shadow: var(--shadow-7);
+  --ds-modal-font: var(--ds-font-weight-active) var(--ds-paragraph-md)/var(--ds-line-height-heading) var(--ds-font-family);
+
+  --ds-modal-header-padding: var(--ds-space-16) var(--ds-space-24);
+
+  --ds-modal-content-border-width: var(--ds-border-thin) 0 var(--ds-border-thin) 0;
+  --ds-modal-content-border-color: var(--ds-color-divider);
+  --ds-modal-content-padding: var(--ds-space-24);
+
+  --ds-modal-footer-padding: var(--ds-space-16) var(--ds-space-24);
+
+  @include fixed(0,0,0,0);
+  height: 100%;
+  width: 100%;
+  z-index: 99999;
+
+  &__container {
+    @include flexbox;
+    @include flex-direction(column);
+    @include center(both);
+    border-radius: var(--ds-modal-border-radius);
+    background-color: var(--ds-modal-bg);
+    box-shadow: var(--ds-modal-shadow);
+  }
+
+  &__header {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(space-between);
+    padding: var(--ds-modal-header-padding);
+  }
+
+  &__title {
+    @include truncate(90%);
+    font: var(--ds-modal-font);
+  }
+
+  &__content {
+    border-width: var(--ds-modal-content-border-width);
+    border-style: solid;
+    border-color: var(--ds-modal-content-border-color);
+    padding: var(--ds-modal-content-padding);
+  }
+
+  &__footer {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(flex-end);
+    padding: var(--ds-modal-footer-padding);
+  }
+
+
+  &--large {
+    #{$this}__container {
+      width: var(--ds-modal-size-lg);
+    }
+  }
+  &--medium {
+    #{$this}__container {
+      width: var(--ds-modal-size-md);
+    }
+  }
+
+  &--small {
+    #{$this}__container {
+      width: var(--ds-modal-size-sm);
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+  }
+}
+
+.animated_content{
+  width: 100%;
+  overflow: hidden;
+}

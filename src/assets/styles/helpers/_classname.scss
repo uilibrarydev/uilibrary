@@ -326,13 +326,13 @@ $space-prefixes: (
 //body text
 .body {
   font-family: var(--ds-font-family);
-  font-weight: var(--ds-font-weight-default);
-  line-height: var(--ds-line-height-default);
 
+  &.regular { font-weight: var(--ds-font-weight-default); }
   &.semibold { font-weight: var(--ds-font-weight-active); }
   &.bold { font-weight: var(--ds-font-weight-heading); }
   &.bolder { font-weight: var(--ds-font-weigh-strong); }
 
+  &.lh-xsmall { line-height: var(--ds-line-height-default); }
   &.lh-small { line-height: var(--ds-line-height-tight); }
   &.lh-medium { line-height: var(--ds-line-height-caption); }
   &.lh-large { line-height: var(--ds-line-height-heading); }
@@ -364,17 +364,24 @@ $space-prefixes: (
 
 //icons sizes and colors
 .icon {
+  --icon-lg: var(--font-size-24);
+  --icon-md: var(--font-size-18);
+  --icon-sm: var(--font-size-14);
+  --icon-xs: var(--font-size-10);
+
+  padding: 3px;
+
   &--xsmall {
-    font-size: var(--font-size-12); //16px on design
+    font-size: var(--icon-xs);
   }
   &--small {
-    font-size: var(--font-size-14); //20px on design
+    font-size: var(--icon-sm);
   }
   &--medium {
-    font-size: var(--font-size-18); //24px on design
+    font-size: var(--icon-md);
   }
   &--large {
-    font-size: var(--font-size-24); //32px on design
+    font-size: var(--icon-lg);
   }
 }
 

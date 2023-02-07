@@ -4,7 +4,7 @@ import Icon from './components/Icon'
 import FormContainer from './components/FormContainer'
 import Input from './components/Input'
 import Select from './components/Select'
-import Popup from './components/Popup'
+import Modal from './components/Modal'
 import Button from './components/Button'
 import FormField from './components/FormField'
 import FileUpload from './components/FileUpload'
@@ -33,7 +33,7 @@ export {
   FormContainer,
   Input,
   Select,
-  Popup,
+  Modal,
   Button,
   FormField,
   FileUpload,
