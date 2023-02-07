@@ -13,7 +13,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
   (
     {
       className,
-      size='large',
+      size = 'large',
       error,
       valid,
       label,

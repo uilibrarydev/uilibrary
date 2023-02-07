@@ -75,13 +75,13 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
               <div className="modal__header">
                 <Text className="modal__title">{title}</Text>
                 {closeIcon ? (
-                    <Button
-                        type="tertiary"
-                        size="small"
-                        iconProps={{name: 'close'}}
-                        onClick={handleSubmit}
-                    />
-                ) : null }
+                  <Button
+                    type="tertiary"
+                    size="small"
+                    iconProps={{ name: 'close' }}
+                    onClick={handleSubmit}
+                  />
+                ) : null}
               </div>
               <div className="modal__content">{children}</div>
               <div className="modal__footer">
