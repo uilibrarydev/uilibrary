@@ -49,5 +49,5 @@ export {
   Radio,
   Badge,
   Avatar,
-  Tooltip,
+  Tooltip
 }

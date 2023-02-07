@@ -15,45 +15,45 @@ import Progress from './components/Progress'
 import Checkbox from './components/Checkbox'
 import TextArea from './components/TextArea'
 import Stepper from './components/Stepper'
-import {TimePicker, SimpleDatePicker, RangeDatePicker} from './components/DatePicker'
+import { TimePicker, SimpleDatePicker, RangeDatePicker } from './components/DatePicker'
 import Switcher from './components/Switcher'
 import Radio from './components/Radio'
 import Badge from './components/Badge'
 
-import {HttpClient} from './helpers'
+import { HttpClient } from './helpers'
 import More from './components/More'
-import {WithFormFeedback} from './context/FormContextProvider'
+import { WithFormFeedback } from './context/FormContextProvider'
 import './assets/styles/index.scss'
 import Avatar from './components/Avatar'
 import Tooltip from './components/Tooltip'
 
 export {
-    Text,
-    Heading,
-    Icon,
-    FormContainer,
-    Input,
-    Select,
-    Modal,
-    Button,
-    FormField,
-    FileUpload,
-    Container,
-    Dialog,
-    Divider,
-    Progress,
-    Checkbox,
-    Radio,
-    Stepper,
-    TimePicker,
-    SimpleDatePicker,
-    RangeDatePicker,
-    Switcher,
-    TextArea,
-    More,
-    HttpClient,
-    WithFormFeedback,
-    Badge,
-    Avatar,
-    Tooltip
+  Text,
+  Heading,
+  Icon,
+  FormContainer,
+  Input,
+  Select,
+  Modal,
+  Button,
+  FormField,
+  FileUpload,
+  Container,
+  Dialog,
+  Divider,
+  Progress,
+  Checkbox,
+  Radio,
+  Stepper,
+  TimePicker,
+  SimpleDatePicker,
+  RangeDatePicker,
+  Switcher,
+  TextArea,
+  More,
+  HttpClient,
+  WithFormFeedback,
+  Badge,
+  Avatar,
+  Tooltip
 }
