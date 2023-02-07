@@ -4,20 +4,20 @@ import '../../assets/styles/components/_controllers.scss'
 
 export const Radio = (props: TRadioProps): JSX.Element | null => {
   const {
-    label = 'jsjsjjs',
-    disabled,
     name,
+    label,
+    disabled,
     setFieldValue,
     selectedValue,
     value,
-    className,
+    className = '',
     onClick
   } = props
   const isChecked = !!value || selectedValue
 
-  const clickHandler = () => {
+  const changeHandler = () => {
     if (name && setFieldValue) {
-      setFieldValue(name, !isChecked)
+      setFieldValue(name, !isChecked, { shouldValidate: !isChecked })
     }
     if (onClick) {
       onClick(!isChecked)
@@ -25,21 +25,23 @@ export const Radio = (props: TRadioProps): JSX.Element | null => {
   }
 
   return (
-    <div
+    <label
       className={`controller controller--radio 
                         ${className} 
-                        ${disabled && 'controller--disabled'}
+                        ${disabled ? 'controller--disabled' : ''}
                         `}
-      onClick={clickHandler}
     >
-      <span
-        role="radio"
-        aria-checked={isChecked}
+      <input
+        type="radio"
         tabIndex={0}
-        className={`controller__icon ${isChecked ? 'checked' : ''}`}
-      ></span>
-      {label && <span className="controller__label">{label}</span>}
-    </div>
+        name={name}
+        onChange={changeHandler}
+        checked={selectedValue}
+        disabled={disabled}
+      />
+      <span className="controller__icon"></span>
+      {label ? <span className="controller__label">{label}</span> : null}
+    </label>
   )
 }
 

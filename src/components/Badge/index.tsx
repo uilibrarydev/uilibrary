@@ -1,13 +1,14 @@
 import React from 'react'
+
 import { TBadgeProps } from './types'
 import '../../assets/styles/components/_badge.scss'
 
 export const Badge = (props: TBadgeProps): JSX.Element | null => {
-  const { type, size, color, text = '999+', className = '' } = props
+  const { type = 'primary', size = 'large', text, className = '' } = props
 
   return (
-    <span className={`badge badge--${type} badge--${color} badge--${size} ${className}`}>
-      {type == 'count' && text}
+    <span className={`badge badge--${type}  badge--${size} ${className}`}>
+      {text ? <span className="badge__inner">{text}</span> : null}
     </span>
   )
 }

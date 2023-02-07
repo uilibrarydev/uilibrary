@@ -24,6 +24,7 @@ import { HttpClient } from './helpers'
 import More from './components/More'
 import { WithFormFeedback } from './context/FormContextProvider'
 import './assets/styles/index.scss'
+import Avatar from './components/Avatar'
 
 export {
   Text,
@@ -51,5 +52,6 @@ export {
   More,
   HttpClient,
   WithFormFeedback,
-  Badge
+  Badge,
+  Avatar
 }

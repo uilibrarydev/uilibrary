@@ -2,8 +2,7 @@ import { IFormCompProps } from '../../types/globals'
 
 export interface TBadgeProps extends IFormCompProps {
   text?: string | JSX.Element
-  color?: string
-  type?: string
-  size?: string
+  type?: 'primary' | 'secondary'
+  size?: 'large' | 'small'
   className?: string
 }

@@ -5,7 +5,7 @@ import '../../assets/styles/components/_controllers.scss'
 
 export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   const {
-    label = 'jsjsjjs',
+    label,
     disabled,
     required = true,
     name,
@@ -17,8 +17,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   } = props
 
   const isChecked = !!value || selectedValue
-
-  const clickHandler = () => {
+  const changeHandler = () => {
     if (name && setFieldValue) {
       setFieldValue(name, !isChecked, { shouldValidate: !isChecked })
     }
@@ -28,20 +27,21 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   }
 
   return (
-    <div
+    <label
       className={`controller controller--checkbox 
-                        ${className} 
-                        ${disabled && 'controller--disabled'}
-                        `}
-      onClick={clickHandler}
+                  ${disabled ? 'controller--disabled' : ''}
+                  ${className}
+                  `}
     >
-      <span
-        role="checkbox"
-        aria-checked={isChecked}
+      <input
+        type="checkbox"
         tabIndex={0}
-        className={`controller__icon ${isChecked ? 'checked' : ''}`}
-      >
-        {isChecked && (
+        onChange={changeHandler}
+        checked={selectedValue}
+        disabled={disabled}
+      />
+      <span className="controller__icon">
+        {selectedValue && (
           <Icon name="mark" size="xsmall" type={`${disabled ? 'disabled' : 'inverse'}`} />
         )}
       </span>
@@ -51,7 +51,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
           {required && <sup>*</sup>}
         </span>
       ) : null}
-    </div>
+    </label>
   )
 }
 

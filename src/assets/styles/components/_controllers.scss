@@ -56,46 +56,80 @@
   align-items: center;
   cursor: pointer;
 
-  &__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: var(--ds-controller-size);
-    height: var(--ds-controller-size);
-    background-color: var(--ds-controller-bg-default-light);
-    border-radius: var(--ds-controller-border-radius-sm);
-    border: var(--ds-controller-border) var(--ds-controller-border-color-default);
-    transition: var(--ds-controller-transition);
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 0;
+    height: 0;
+    visibility: hidden;
 
-    &:hover {
-      background-color: var(--ds-controller-bg-hover-light);
-    }
-    &:focus {
-      background-color: var(--ds-controller-bg-focused);
-      border-color: var(--ds-controller-border-color-focused);
-    }
-    &:active, &:visited {
-      background-color: var(--ds-controller-bg-pressed-light);
-    }
-
-    &.checked {
-      background-color: var(--ds-controller-selected-bg-default);
-      border-color: var(--ds-controller-selected-bg-default);
-      color: var(--ds-controller-mark-light);
+    & + #{$this}__icon {
+      @include flexbox;
+      @include align-items(center);
+      @include justify-content(center);
+      width: var(--ds-controller-size);
+      height: var(--ds-controller-size);
+      background-color: var(--ds-controller-bg-default-light);
+      border-radius: var(--ds-controller-border-radius-sm);
+      border: var(--ds-controller-border) var(--ds-controller-border-color-default);
+      transition: var(--ds-controller-transition);
 
       &:hover {
-        background-color: var(--ds-controller-selected-bg-hover);
-        border-color: var(--ds-controller-selected-bg-hover);
+        background-color: var(--ds-controller-bg-hover-light);
       }
       &:focus {
-        background-color: var(--ds-controller-selected-bg-focused);
-        border-color: var(--ds-controller-selected-bg-focused);
+        background-color: var(--ds-controller-bg-focused);
+        border-color: var(--ds-controller-border-color-focused);
       }
       &:active, &:visited {
-        background-color: var(--ds-controller-selected-bg-pressed);
-        border-color: var(--ds-controller-selected-bg-pressed);
+        background-color: var(--ds-controller-bg-pressed-light);
       }
     }
+
+    &:checked {
+      & + #{$this}__icon {
+        background-color: var(--ds-controller-selected-bg-default);
+        border-color: var(--ds-controller-selected-bg-default);
+        color: var(--ds-controller-mark-light);
+
+        &:hover {
+          background-color: var(--ds-controller-selected-bg-hover);
+          border-color: var(--ds-controller-selected-bg-hover);
+        }
+
+        &:focus {
+          background-color: var(--ds-controller-selected-bg-focused);
+          border-color: var(--ds-controller-selected-bg-focused);
+        }
+
+        &:active, &:visited {
+          background-color: var(--ds-controller-selected-bg-pressed);
+          border-color: var(--ds-controller-selected-bg-pressed);
+        }
+      }
+
+      &:disabled {
+        & + #{$this}__icon {
+          background-color: var(--ds-controller-selected-bg-disabled);
+          border-color: var(--ds-controller-border-color-disabled);
+          color: var(--ds-controller-mark-dark);
+        }
+      }
+    }
+
+    &:disabled {
+      & + #{$this}__icon {
+        background-color: var(--ds-controller-bg-disabled);
+        border-color: var(--ds-controller-border-color-disabled);
+
+        & + #{$this}__label {
+          color: var(--ds-controller-label-disabled);
+        }
+      }
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
   }
 
   &__label {
@@ -108,142 +142,143 @@
     }
   }
 
-  &--disabled {
-    cursor: not-allowed;
-
-    #{$this}__icon {
-      background-color: var(--ds-controller-bg-disabled);
-      border-color: var(--ds-controller-border-color-disabled);
-
-      &.checked {
-        background-color: var(--ds-controller-selected-bg-disabled);
-        border-color: var(--ds-controller-border-color-disabled);
-        color: var(--ds-controller-mark-dark);
-      }
-    }
-
-    #{$this}__label {
-      color: var(--ds-controller-label-disabled);
-    }
-  }
-
-  &--checkbox {
-
-  }
-
   &--radio {
-    #{$this}__icon {
-      border-radius: var(--ds-controller-border-radius-lg);
-
-      &.checked {
-        background-color: var(--ds-controller-mark-light);
-        border-width: var(--ds-radio-border-width);
-
-        &:hover, &:focus, &:active, &:visited {
-          background-color: var(--ds-controller-mark-light);
-        }
+    input[type="radio"] {
+     & + #{$this}__icon {
+        border-radius: var(--ds-controller-border-radius-lg);
       }
-    }
 
-    &#{$this}--disabled {
-      #{$this}__icon {
-        &.checked {
-          border-color: var(--ds-controller-selected-bg-disabled);
-          background-color: var(--ds-controller-mark-dark);
+      &:checked {
+        & + #{$this}__icon {
+          background-color: var(--ds-controller-mark-light);
+          border-width: var(--ds-radio-border-width);
+
+          &:hover, &:focus, &:active, &:visited {
+            background-color: var(--ds-controller-mark-light);
+          }
+        }
+        &:disabled {
+          & + #{$this}__icon {
+            border-color: var(--ds-controller-selected-bg-disabled);
+            background-color: var(--ds-controller-mark-dark);
+          }
         }
       }
     }
   }
 
   &--switch {
-    position: relative;
-    border-radius: var(--ds-controller-border-radius-lg);
-    background-color: var(--ds-controller-bg-default-dark);
+    input[type="checkbox"] {
+      & + #{$this}__icon {
+        border: 0;
+        position: relative;
+        border-radius: var(--ds-controller-border-radius-lg);
+        background-color: var(--ds-controller-bg-default-dark);
 
-    &:hover {
-      background-color: var(--ds-controller-bg-hover-dark);
-    }
-    &:active, &:visited {
-      background-color: var(--ds-controller-bg-pressed-dark);
-    }
+        &:hover {
+          background-color: var(--ds-controller-bg-hover-dark);
+        }
 
-    &.checked {
-      background-color: var(--ds-controller-selected-bg-default);
-      border-color: var(--ds-controller-selected-bg-default);
+        &:active, &:visited {
+          background-color: var(--ds-controller-bg-pressed-dark);
+        }
 
-      #{$this}__icon {
-        color: var(--ds-controller-selected-bg-default);
-      }
-
-      &:hover {
-        background-color: var(--ds-controller-selected-bg-hover);
-        border-color: var(--ds-controller-selected-bg-hover);
-
-        #{$this}__icon {
-          color: var(--ds-controller-selected-bg-hover);
+        #{$this}__icon__inner {
+          @include flexbox;
+          @include align-items(center);
+          @include justify-content(center);
+          border-radius: var(--ds-controller-border-radius-lg);
+          background-color: var(--ds-controller-bg-default-light);
+          position: absolute;
+          left: 2px;
+          transition: transform .3s linear;
         }
       }
-      &:active, &:visited {
-        background-color: var(--ds-controller-selected-bg-pressed);
-        border-color: var(--ds-controller-selected-bg-pressed);
 
+      &:checked {
+        & + #{$this}__icon {
+          background-color: var(--ds-controller-selected-bg-default);
+
+          #{$this}__icon__inner {
+            color: var(--ds-controller-selected-bg-default);
+          }
+
+          &:hover {
+            background-color: var(--ds-controller-selected-bg-hover);
+
+            #{$this}__icon__inner {
+              color: var(--ds-controller-selected-bg-hover);
+            }
+          }
+
+          &:active, &:visited {
+            background-color: var(--ds-controller-selected-bg-pressed);
+
+            #{$this}__icon__inner {
+              color: var(--ds-controller-selected-bg-pressed);
+            }
+          }
+        }
+
+        &:disabled {
+         & + #{$this}__icon {
+           background-color: var(--ds-controller-selected-bg-disabled);
+
+           #{$this}__icon__inner {
+             color: var(--ds-controller-mark-dark);
+           }
+          }
+        }
+      }
+
+      &:disabled {
         #{$this}__icon {
-          color: var(--ds-controller-selected-bg-pressed);
+          background-color: var(--ds-controller-bg-disabled);
+          color: var(--ds-controller-label-disabled);
         }
       }
     }
 
     &-large {
-      width: calc(var(--ds-switch-size-lg) * 2);
-      height: var(--ds-switch-size-lg);
+      input[type="checkbox"] {
+        & + #{$this}__icon {
+          width: calc(var(--ds-switch-size-lg) * 2);
+          height: var(--ds-switch-size-lg);
 
-      #{$this}__icon {
-        width: var(--ds-switch-icon-size-lg);
-        height: var(--ds-switch-icon-size-lg);
-      }
+          #{$this}__icon__inner {
+            width: var(--ds-switch-icon-size-lg);
+            height: var(--ds-switch-icon-size-lg);
+          }
+        }
 
-      &.checked {
-        #{$this}__icon {
-          transform: translateX(var(--ds-switch-size-lg));
+        &:checked {
+          & + #{$this}__icon {
+            #{$this}__icon__inner {
+              transform: translateX(var(--ds-switch-size-lg));
+            }
+          }
         }
       }
     }
+
     &-small {
-      width: calc(var(--ds-switch-size-sm) * 2);
-      height: var(--ds-switch-size-sm);
+      input[type="checkbox"] {
+        & + #{$this}__icon {
+          width: calc(var(--ds-switch-size-sm) * 2);
+          height: var(--ds-switch-size-sm);
 
-      #{$this}__icon {
-        width: var(--ds-switch-icon-size-sm);
-        height: var(--ds-switch-icon-size-sm);
-      }
-
-      &.checked {
-        #{$this}__icon {
-          transform: translateX(var(--ds-switch-size-sm));
+          #{$this}__icon__inner {
+            width: var(--ds-switch-icon-size-sm);
+            height: var(--ds-switch-icon-size-sm);
+          }
         }
-      }
-    }
 
-    #{$this}__icon {
-      border-radius: var(--ds-controller-border-radius-lg);
-      background-color: var(--ds-controller-bg-default-light);
-      border: 0;
-      position: absolute;
-      left: 2px;
-      transition: transform .3s linear;
-    }
-
-    &#{$this}--disabled {
-      background-color: var(--ds-controller-bg-disabled);
-      border-color: var(--ds-controller-border-color-disabled);
-      color: var(--ds-controller-label-disabled);
-
-      &.checked {
-        background-color: var(--ds-controller-selected-bg-disabled);
-        border-color: var(--ds-controller-border-color-disabled);
-
-        #{$this}__icon {
-          color: var(--ds-controller-mark-dark);
+        &:checked {
+          & + #{$this}__icon {
+            #{$this}__icon__inner {
+              transform: translateX(var(--ds-switch-size-sm));
+            }
+          }
         }
       }
     }

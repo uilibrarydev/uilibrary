@@ -6,15 +6,11 @@ export default {
   component: BadgeComp,
   argTypes: {
     type: {
-      options: ['count', 'dot'],
+      options: ['primary', 'secondary'],
       control: { type: 'radio' }
     },
     size: {
       options: ['large', 'small'],
-      control: { type: 'radio' }
-    },
-    color: {
-      options: ['primary', 'secondary'],
       control: { type: 'radio' }
     }
   }
@@ -26,7 +22,6 @@ export const Badge = Template.bind({})
 
 Badge.args = {
   text: '999+',
-  type: 'count',
-  color: 'primary',
+  type: 'primary',
   size: 'large'
 }

@@ -2,7 +2,9 @@
   //----------- default tokens -------------//
 
   --space-0: 0;
+  --space-2: 2px;
   --space-4: 4px;
+  --space-6: 6px;
   --space-8: 8px;
   --space-12: 12px;
   --space-16: 16px;
@@ -25,7 +27,9 @@
  */
 
   --ds-space-0: var(--space-0);
+  --ds-space-2: var(--space-2);
   --ds-space-4: var(--space-4);
+  --ds-space-6: var(--space-6);
   --ds-space-8: var(--space-8);
   --ds-space-12: var(--space-12);
   --ds-space-16: var(--space-16);

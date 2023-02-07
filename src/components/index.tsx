@@ -20,6 +20,7 @@ import More from './More'
 import Switcher from './Switcher'
 import Radio from './Radio'
 import Badge from './Badge'
+import Avatar from './Avatar'
 
 export {
   Text,
@@ -45,5 +46,6 @@ export {
   More,
   Switcher,
   Radio,
-  Badge
+  Badge,
+  Avatar
 }
