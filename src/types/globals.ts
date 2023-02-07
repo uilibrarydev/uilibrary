@@ -12,7 +12,15 @@ export type TChangeEventType =
   | React.ChangeEvent<HTMLInputElement>
   | React.ChangeEvent<HTMLTextAreaElement>
 
-declare type TFormValue = string | boolean | TSelectOption | File | Date | TRangePickerValues | null
+declare type TFormValue =
+  | string
+  | number
+  | boolean
+  | TSelectOption
+  | File
+  | Date
+  | TRangePickerValues
+  | null
 declare type TOnChange = (event: TChangeEventType) => void
 
 // Props which will pass FormField to component

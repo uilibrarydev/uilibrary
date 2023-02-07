@@ -1,0 +1,16 @@
+.radiogroup_container{
+    width: 100%;
+}
+.horizontal{
+    .radio_item{
+        margin-right: 20px;
+    }
+}
+
+.vertical{
+    display: flex;
+    flex-direction: column;
+    .radio_item{
+        margin-bottom: 20px;
+    }
+}
