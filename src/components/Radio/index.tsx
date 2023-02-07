@@ -27,9 +27,9 @@ export const Radio = (props: TRadioProps): JSX.Element | null => {
   return (
     <label
       className={`controller controller--radio 
-                        ${className} 
-                        ${disabled ? 'controller--disabled' : ''}
-                        `}
+                ${className} 
+                ${disabled ? 'controller--disabled' : ''}
+                `}
     >
       <input
         type="radio"

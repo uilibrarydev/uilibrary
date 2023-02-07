@@ -9,9 +9,9 @@ const Heading: React.FC<HeadingPropTypes> = (props: HeadingPropTypes) => {
     <As
       onClick={onClick}
       className={`heading 
-                                          ${size ? `heading-${size}` : ''} 
-                                          ${weight ? `${weight}` : ''}
-                                          ${className}`}
+                  ${size ? `heading-${size}` : ''} 
+                  ${weight ? `${weight}` : ''}
+                  ${className}`}
     >
       {text}
     </As>
