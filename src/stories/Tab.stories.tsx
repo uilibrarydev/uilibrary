@@ -19,12 +19,12 @@ export const Tab = Template.bind({})
 Tab.args = {
   label: 'Prompt text',
   iconProps: {
-    name: 'home',
+    name: 'home'
   },
   badgeProps: {
-    text: '9',
+    text: '9'
   },
   size: 'large',
   selectedValue: false,
-  disabled: false,
+  disabled: false
 }

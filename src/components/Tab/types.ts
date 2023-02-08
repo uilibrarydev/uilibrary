@@ -1,4 +1,4 @@
-import {IFormCompProps, TClickEventType} from '../../types/globals'
+import { IFormCompProps, TClickEventType } from '../../types/globals'
 
 export interface TTabProps extends IFormCompProps {
   label?: string | JSX.Element
