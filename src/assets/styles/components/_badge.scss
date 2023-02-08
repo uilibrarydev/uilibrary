@@ -8,7 +8,7 @@
   --ds-badge-primary-color: var(--ds-color-text-inverse);
   --ds-badge-secondary-color: var(--ds-color-text-primary);
 
-  --ds--badge-border-radius: var(--ds-border-radius-lg);
+  --ds-badge-border-radius: var(--ds-border-radius-lg);
   --ds-badge-padding-lg: var(--ds-space-6);
   --ds-badge-padding-sm: var(--ds-space-4);
   --ds-badge-inner-padding-lg: 0 var(--ds-space-2);
@@ -17,7 +17,7 @@
 
   @include inline-flex;
   @include align-items(center);
-  border-radius: var(--ds--badge-border-radius);
+  border-radius: var(--ds-badge-border-radius);
 
   &__inner {
     font: var(--ds-badge-font);

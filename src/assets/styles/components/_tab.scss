@@ -1,0 +1,104 @@
+@import "../shared";
+
+.tab {
+  $this: &;
+
+  --ds-tab-color-default: var(--ds-color-text-secondary);
+  --ds-tab-color-hover: var(--ds-color-text-tertiary);
+  --ds-tab-color-disabled: var(--ds-color-text-disabled);
+  --ds-tab-color-selected: var(--ds-color-text-primary);
+
+  --ds-tab-space-lg: var(--ds-space-14);
+  --ds-tab-space-md: var(--ds-space-12);
+  --ds-tab-space-sm: var(--ds-space-8);
+  --ds-tab-font-size-lg: var(--ds-paragraph-md);
+  --ds-tab-font-size-md: var(--ds-paragraph-std);
+  --ds-tab-font-size-sm: var(--ds-paragraph-std);
+  --ds-tab-font: var(--ds-font-weight-active) var(--ds-tab-font-size-lg)/var(--ds-line-height-default) var(--ds-font-family);
+
+  --ds-tab-border-default: var(--ds-color-divider);
+  --ds-tab-border-selected: var(--ds-color-bg-cta-primary-default);
+
+  @include inline-flex;
+  @include align-items(center);
+  position: relative;
+  color: var(--ds-tab-color-default);
+  border-radius: var(--ds-badge-border-radius);
+  border-bottom: 1px solid var(--ds-tab-border-default);
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    height: 2px;
+    width: 0;
+    background-color: var(--ds-tab-border-selected);
+    transition: width .3s linear;
+  }
+
+  &__label {
+    font: var(--ds-tab-font);
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    #{$this}__label {
+      color: var(--ds-tab-color-hover);
+    }
+  }
+
+  &--disabled {
+    &:hover {
+      cursor: not-allowed;
+
+      #{$this}__label {
+        color: var(--ds-tab-color-disabled);
+      }
+    }
+
+    #{$this}__label {
+      color: var(--ds-tab-color-disabled);
+    }
+  }
+
+  &--selected {
+    &:hover {
+      cursor: default;
+
+      #{$this}__label {
+        color: var(--ds-tab-color-selected);
+      }
+    }
+
+    &:after {
+      width: 100%;
+    }
+
+    #{$this}__label {
+      color: var(--ds-tab-color-selected);
+    }
+  }
+
+  &--large {
+    padding-bottom: var(--ds-tab-space-lg);
+
+    #{$this}__label {
+      font-size: var(--ds-tab-font-size-lg);
+    }
+  }
+  &--medium {
+    padding-bottom: var(--ds-tab-space-md);
+
+    #{$this}__label {
+      font-size: var(--ds-tab-font-size-md);
+    }
+  }
+  &--small {
+    padding-bottom: var(--ds-tab-space-sm);
+
+    #{$this}__label {
+      font-size: var(--ds-tab-font-size-sm);
+    }
+  }
+}
