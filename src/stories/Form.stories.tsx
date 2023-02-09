@@ -15,10 +15,25 @@ import {
 } from '../components'
 import { IFormCompProps } from '../types/globals'
 import { TSelectOption } from '../components/Select/types'
+import { HttpClient } from '../helpers/http-service/index'
+import { useEffect } from 'react'
 
 export default {
   title: 'Form',
   component: FormContainer
+}
+
+const handler = (error) => {
+  console.log('args, ', error.response)
+}
+class HTTP extends HttpClient {
+  constructor() {
+    super('https://restcountries.com/v3.1.77')
+  }
+
+  request() {
+    return this.instance.get('/all')
+  }
 }
 
 const OPTIONS: TSelectOption[] = [
@@ -74,6 +89,11 @@ const Template = (): JSX.Element => {
     // checkbox: undefined
   }
 
+  useEffect(() => {
+    new HTTP().request().then((data) => {
+      console.log(data)
+    })
+  }, [])
   const checkboxLabel = useMemo(() => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
