@@ -15,9 +15,8 @@ type TExcludedFields =
   | 'isAxiosError'
   | 'toJSON'
 
-type TErrorHandlerArguments = {
-  error: Omit<AxiosError, TExcludedFields>
-}
+type TErrorHandlerArguments = Omit<AxiosError, TExcludedFields>
+
 interface IErrorHandler {
   (args: TErrorHandlerArguments): void
 }
@@ -25,7 +24,7 @@ export abstract class HttpClient {
   protected readonly instance: AxiosInstance
   protected static errorHandlerCallBack: IErrorHandler
 
-  public constructor(baseURL: string, errorHandler: IErrorHandler) {
+  public constructor(baseURL: string, errorHandler?: IErrorHandler) {
     this.instance = axios.create({
       baseURL
     })
@@ -65,7 +64,7 @@ export abstract class HttpClient {
   }
 
   protected handleError(error: AxiosError): void {
-    HttpClient.errorHandlerCallBack?.({ error: { response: error.response } })
+    HttpClient.errorHandlerCallBack?.({ response: error.response })
 
     Promise.reject(error)
   }
