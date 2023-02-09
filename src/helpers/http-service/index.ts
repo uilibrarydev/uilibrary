@@ -1,4 +1,10 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
+import axios, {
+  AxiosInstance,
+  AxiosRequestConfig,
+  AxiosResponse,
+  AxiosError,
+  AxiosHeaders
+} from 'axios'
 import { Storage } from '../../utils/storage-manager'
 import { accessTokenKey } from './consts'
 import { noop } from '../../utils/index'
@@ -41,18 +47,12 @@ export abstract class HttpClient {
   }
 
   private async handleRequest(config: AxiosRequestConfig) {
-    const requestConfig = { ...config }
-    requestConfig.headers = config.headers ?? {}
+    const requestConfig = { ...config, headers: config.headers ?? {} }
 
     const token = await Storage.getItem(accessTokenKey)
 
     if (token) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      requestConfig.headers = {
-        ...requestConfig.headers,
-        Authorization: `Bearer ${token}`
-      }
+      ;(requestConfig.headers as AxiosHeaders).set('Authorization', `Bearer ${token}`)
     }
 
     return requestConfig
