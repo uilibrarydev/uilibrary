@@ -1,16 +1,36 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
 import { Storage } from '../../utils/storage-manager'
 import { accessTokenKey } from './consts'
+import { noop } from '../../utils/index'
 
 declare module 'axios' {}
 
+type TExcludedFields =
+  | 'request'
+  | 'name'
+  | 'message'
+  | 'config'
+  | 'code'
+  | 'stack'
+  | 'isAxiosError'
+  | 'toJSON'
+
+type TErrorHandlerArguments = {
+  error: Omit<AxiosError, TExcludedFields>
+}
+interface IErrorHandler {
+  (args: TErrorHandlerArguments): void
+}
 export abstract class HttpClient {
   protected readonly instance: AxiosInstance
+  protected static errorHandlerCallBack: IErrorHandler
 
-  public constructor(baseURL: string) {
+  public constructor(baseURL: string, errorHandler: IErrorHandler) {
     this.instance = axios.create({
       baseURL
     })
+
+    HttpClient.errorHandlerCallBack = errorHandler || noop
 
     this.initializeResponseInterceptor()
   }
@@ -39,12 +59,14 @@ export abstract class HttpClient {
     return requestConfig
   }
 
-  private handleResponse({ data }: AxiosResponse) {
-    // TODO set response type generic
+  private handleResponse({ data }: AxiosResponse<any, any>): AxiosResponse {
+    //todo call general <success> response handler;
     return data
   }
 
-  protected handleError(error: string): void {
+  protected handleError(error: AxiosError): void {
+    HttpClient.errorHandlerCallBack?.({ error: { response: error.response } })
+
     Promise.reject(error)
   }
 }
