@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Tooltip as TooltipComp } from '../components'
 
 export default {
@@ -26,21 +26,7 @@ export default {
 }
 
 const Template = (args) => {
-  const [isHovered, setHoverState] = useState(true)
-
-  const onMouseEnter = () => setHoverState(true)
-  const onMouseLeave = () => setHoverState(true)
-
-  return (
-    <span
-      style={{ position: 'relative', margin: '30px 100px', display: 'inline-block' }}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      Hover on me
-      {isHovered ? <TooltipComp {...args} /> : null}
-    </span>
-  )
+  return <TooltipComp {...args}>Hover on me</TooltipComp>
 }
 
 export const Tooltip = Template.bind({})
