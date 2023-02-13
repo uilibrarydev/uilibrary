@@ -73,7 +73,9 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
               // @ts-ignore */}
             <AnimatePresence className="animated_content" {...DESKTOP_ANIMATION}>
               <div className="modal__header">
-                <Text className="modal__title">{title}</Text>
+                <Text className="modal__title" weight="semibold" lineHeight="large" size="medium">
+                  {title}
+                </Text>
                 {closeIcon ? (
                   <Button
                     type="tertiary"

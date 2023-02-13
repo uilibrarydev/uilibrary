@@ -11,7 +11,8 @@ import {
   SimpleDatePicker,
   Select,
   TextArea,
-  Switcher
+  Switcher,
+  RadioGroup
 } from '../components'
 import { IFormCompProps } from '../types/globals'
 import { TSelectOption } from '../components/Select/types'
@@ -29,6 +30,21 @@ const OPTIONS: TSelectOption[] = [
   {
     value: 'italy',
     label: 'Italy'
+  }
+]
+
+const RADIO_OPTIONS = [
+  {
+    label: 'Text1',
+    value: 1
+  },
+  {
+    label: 'Text2',
+    value: 2
+  },
+  {
+    label: 'Text3',
+    value: 3
   }
 ]
 
@@ -53,7 +69,8 @@ const VALIDATION_SCHEME = yup.object({
   //   .test('valid', 'Phone number is not valid', (val) => val?.indexOf('_') === -1)
   // select: yup.object().required('requierd field'),
   // date: yup.date().required(),
-  switcher: yup.boolean().required()
+  switcher: yup.boolean().required(),
+  radioGroup: yup.number().required()
   // textarea: yup.string().required('A file is required'),
   // time: yup.string().required(),
   // firstName: yup.string().required('A file is required'),
@@ -71,7 +88,8 @@ const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
     // select: undefined,
     // checkbox: undefined
-    switcher: false
+    switcher: false,
+    radioGroup: 1
   }
 
   // const checkboxLabel = useMemo(() => {
@@ -107,6 +125,14 @@ const Template = (): JSX.Element => {
         buttonConfigs={BUTTONS_CONFIG}
       >
         <>
+          <FormField
+            isControlled
+            isNeedChangeHandler
+            name={'radioGroup'}
+            As={(props: IFormCompProps) => {
+              return <RadioGroup {...props} options={RADIO_OPTIONS} />
+            }}
+          />
           {/* <FormField
             isControlled
             isNeedChangeHandler

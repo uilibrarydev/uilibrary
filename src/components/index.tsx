@@ -21,6 +21,10 @@ import Switcher from './Switcher'
 import Radio from './Radio'
 import Badge from './Badge'
 import Avatar from './Avatar'
+import Tooltip from './Tooltip'
+import RadioGroup from './Radio/RadioGroup'
+import Tab from './Tab'
+import Snackbar from './Snackbar'
 
 export {
   Text,
@@ -47,5 +51,9 @@ export {
   Switcher,
   Radio,
   Badge,
-  Avatar
+  Avatar,
+  Tooltip,
+  RadioGroup,
+  Tab,
+  Snackbar
 }

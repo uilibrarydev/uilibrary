@@ -3,17 +3,8 @@ import { TRadioProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
 
 export const Radio = (props: TRadioProps): JSX.Element | null => {
-  const {
-    name,
-    label,
-    disabled,
-    setFieldValue,
-    selectedValue,
-    value,
-    className = '',
-    onClick
-  } = props
-  const isChecked = !!value || selectedValue
+  const { name, label, disabled, setFieldValue, isSelected, value, className = '', onClick } = props
+  const isChecked = !!value || isSelected
 
   const changeHandler = () => {
     if (name && setFieldValue) {
@@ -34,9 +25,8 @@ export const Radio = (props: TRadioProps): JSX.Element | null => {
       <input
         type="radio"
         tabIndex={0}
-        name={name}
         onChange={changeHandler}
-        checked={selectedValue}
+        checked={isSelected}
         disabled={disabled}
       />
       <span className="controller__icon"></span>
