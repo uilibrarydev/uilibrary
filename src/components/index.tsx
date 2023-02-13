@@ -23,6 +23,8 @@ import Badge from './Badge'
 import Avatar from './Avatar'
 import Tooltip from './Tooltip'
 import RadioGroup from './Radio/RadioGroup'
+import Tab from './Tab'
+import Snackbar from './Snackbar'
 
 export {
   Text,
@@ -51,5 +53,7 @@ export {
   Badge,
   Avatar,
   Tooltip,
-  RadioGroup
+  RadioGroup,
+  Tab,
+  Snackbar
 }

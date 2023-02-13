@@ -80,7 +80,7 @@ const Template = (args) => (
             backgroundColor: `${args.type == 'inverse' ? '#919191' : ''}`
           }}
         >
-          <IconComp name={iconName} size={`${args.size}`} type={`${args.type}`} />
+          <IconComp {...args} name={iconName} size={`${args.size}`} type={`${args.type}`} />
         </div>
         <Text size="small">{iconName}</Text>
       </div>
