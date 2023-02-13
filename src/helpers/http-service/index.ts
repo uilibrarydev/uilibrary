@@ -64,9 +64,9 @@ export abstract class HttpClient {
     return response
   }
 
-  protected handleError(error: AxiosError): void {
+  protected handleError(error: AxiosError): any {
     this.errorHandlerCallBack?.({ response: error.response })
 
-    Promise.reject(error)
+    return Promise.reject(error)
   }
 }
