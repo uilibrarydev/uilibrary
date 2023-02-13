@@ -2,6 +2,7 @@ import { IFormCompProps } from '../../types/globals'
 
 export interface TTooltipProps extends IFormCompProps {
   text?: string | JSX.Element
+  children?: string | JSX.Element
   position?:
     | 'top-left'
     | 'top-center'
