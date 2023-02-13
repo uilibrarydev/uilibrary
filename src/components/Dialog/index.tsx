@@ -24,7 +24,7 @@ const Dialog = (props: TDialogPropTypes): JSX.Element | null => {
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} onSumbit={onClose}>
       <div className="dialog">
         <div className="dialog_title">{title}</div>
         <div className="dialog_content">

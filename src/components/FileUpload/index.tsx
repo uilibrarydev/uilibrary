@@ -83,7 +83,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
           accept={`${allowedTypes.join(',')}`}
           onChange={handleChange}
         />
-        <Text size="xSmall">{`Թույլատրելի տեսակներ ${allowedTypes.join(', ')}`}</Text>
+        <Text>{`Թույլատրելի տեսակներ ${allowedTypes.join(', ')}`}</Text>
       </div>
     </div>
   )

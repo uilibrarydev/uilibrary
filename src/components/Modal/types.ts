@@ -8,6 +8,6 @@ export interface TModalPropTypes {
     confirmButtonText: string
     cancelButtonText: string
   }
-  closeIcon: boolean
+  closeIcon?: boolean
   children: JSX.Element
 }
