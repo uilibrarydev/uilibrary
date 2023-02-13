@@ -24,6 +24,7 @@ import Avatar from './Avatar'
 import Tooltip from './Tooltip'
 import RadioGroup from './Radio/RadioGroup'
 import Tab from './Tab'
+import Snackbar from './Snackbar'
 
 export {
   Text,
@@ -53,5 +54,6 @@ export {
   Avatar,
   Tooltip,
   RadioGroup,
-  Tab
+  Tab,
+  Snackbar
 }
