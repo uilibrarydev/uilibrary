@@ -26,7 +26,7 @@ export default {
 }
 
 const Template = (args) => {
-  return <TooltipComp {...args}>Hover on me</TooltipComp>
+  return <TooltipComp {...args}>Hover on meeeeeee</TooltipComp>
 }
 
 export const Tooltip = Template.bind({})

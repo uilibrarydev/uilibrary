@@ -8,12 +8,12 @@
   --ds-tab-color-disabled: var(--ds-color-text-disabled);
   --ds-tab-color-selected: var(--ds-color-text-primary);
 
-  --ds-tab-space-lg: var(--ds-space-14);
-  --ds-tab-space-md: var(--ds-space-12);
-  --ds-tab-space-sm: var(--ds-space-8);
+  --ds-tab-size-lg: var(--ds-size-56);
+  --ds-tab-size-md: var(--ds-size-48);
+  --ds-tab-size-sm: var(--ds-size-32);
   --ds-tab-font-size-lg: var(--ds-paragraph-md);
   --ds-tab-font-size-md: var(--ds-paragraph-std);
-  --ds-tab-font-size-sm: var(--ds-paragraph-std);
+  --ds-tab-font-size-sm: var(--ds-paragraph-sm);
   --ds-tab-font: var(--ds-font-weight-active) var(--ds-tab-font-size-lg)/1 var(--ds-font-family);
 
   --ds-tab-border-default: var(--ds-color-divider);
@@ -81,21 +81,21 @@
   }
 
   &--large {
-    padding-bottom: var(--ds-tab-space-lg);
+   height: var(--ds-tab-size-lg);
 
     #{$this}__label {
       font-size: var(--ds-tab-font-size-lg);
     }
   }
   &--medium {
-    padding-bottom: var(--ds-tab-space-md);
+    height: var(--ds-tab-size-md);
 
     #{$this}__label {
       font-size: var(--ds-tab-font-size-md);
     }
   }
   &--small {
-    padding-bottom: var(--ds-tab-space-sm);
+    height: var(--ds-tab-size-sm);
 
     #{$this}__label {
       font-size: var(--ds-tab-font-size-sm);

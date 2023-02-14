@@ -59,7 +59,7 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
       <span
         style={{
           position: 'relative',
-          margin: 100,
+          margin: '100px 300px',
           display: 'inline-block',
           boxSizing: 'border-box'
         }}
