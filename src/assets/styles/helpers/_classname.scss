@@ -400,3 +400,38 @@ $space-prefixes: (
   &--discovery {color: var(--ds-color-text-discovery); }
 }
 
+.scrollbar {
+  /* Works on Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--grey-50) transparent;
+  overflow: hidden;
+
+  /* Works on Chrome, Edge, and Safari */
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--grey-50);
+    border-radius: var(--border-radius-100);
+  }
+
+  &--vertical {
+    overflow-y: scroll;
+
+    /* Works on Chrome, Edge, and Safari */
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+  }
+
+  &--horizontal {
+    overflow-x: scroll;
+
+    /* Works on Chrome, Edge, and Safari */
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+  }
+}

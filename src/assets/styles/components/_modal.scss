@@ -7,6 +7,7 @@
   --ds-modal-size-md: 600px;
   --ds-modal-size-sm: 400px;
 
+  --ds-modal-overlay-bg: var(--ds-overlay-9);
   --ds-modal-bg: var(--ds-color-bg-cta-secondary-default);
   --ds-modal-border-radius: var(--ds-border-radius-md);
   --ds-modal-shadow: var(--shadow-7);
@@ -23,6 +24,7 @@
   height: 100%;
   width: 100%;
   z-index: 99999;
+  background-color: var(--ds-modal-overlay-bg);
 
   &__container {
     @include flexbox;

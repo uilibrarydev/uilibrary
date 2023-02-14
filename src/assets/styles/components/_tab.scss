@@ -14,7 +14,7 @@
   --ds-tab-font-size-lg: var(--ds-paragraph-md);
   --ds-tab-font-size-md: var(--ds-paragraph-std);
   --ds-tab-font-size-sm: var(--ds-paragraph-std);
-  --ds-tab-font: var(--ds-font-weight-active) var(--ds-tab-font-size-lg)/var(--ds-line-height-default) var(--ds-font-family);
+  --ds-tab-font: var(--ds-font-weight-active) var(--ds-tab-font-size-lg)/1 var(--ds-font-family);
 
   --ds-tab-border-default: var(--ds-color-divider);
   --ds-tab-border-selected: var(--ds-color-bg-cta-primary-default);

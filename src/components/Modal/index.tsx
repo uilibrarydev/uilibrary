@@ -61,7 +61,6 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
             opacity: 0
           }}
           animate={{
-            backgroundColor: 'rgba(34, 34, 34, 0.1)',
             opacity: 1
           }}
           exit={{ opacity: 0 }}

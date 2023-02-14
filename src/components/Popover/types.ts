@@ -1,6 +1,6 @@
 import { IFormCompProps } from '../../types/globals'
 
-export interface TTooltipProps extends IFormCompProps {
+export interface TPopoverProps extends IFormCompProps {
   text?: string | JSX.Element
   children?: string | JSX.Element
   position?:
@@ -12,6 +12,5 @@ export interface TTooltipProps extends IFormCompProps {
     | 'bottom-right'
     | 'middle-left'
     | 'middle-right'
-  size?: 'large' | 'small'
   className?: string
 }
