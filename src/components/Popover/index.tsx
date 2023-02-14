@@ -71,16 +71,10 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
             ref={setPopoverRef}
           >
             <div className="popover__inner scrollbar scrollbar--vertical pr-8">
-              <Text
-                  type="primary"
-                  weight="regular"
-                  lineHeight="medium"
-                  size="small"
-              >
+              <Text type="primary" weight="regular" lineHeight="medium" size="small">
                 {text}
               </Text>
             </div>
-
           </div>
         )}
         {children}
