@@ -5,6 +5,7 @@ import hy from 'date-fns/locale/hy'
 import Input from '../Input'
 import { ISimpleDatePickerProps } from './types'
 import Label from '../../helperComponents/Label'
+import Icon from '../Icon'
 
 registerLocale('hy', hy)
 
@@ -46,11 +47,11 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
         selected={moment.isDate(selectedDate) ? selectedDate : new Date()}
         locale="hy"
         customInput={
-          <div className="date-picker_input-container">
-            <Input
-              currentValue={selectedDate ? moment(selectedDate.toString()).format(format) : ''}
-            />
-          </div>
+          <Input
+            iconProps={{ name: 'calendar' }}
+            rightIcon={true}
+            currentValue={selectedDate ? moment(selectedDate.toString()).format(format) : ''}
+          />
         }
         {...rest}
         onChange={onChange}

@@ -71,13 +71,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       <div
         className={`input input--${size} 
                              ${className}
-                             ${leftIcon && 'input--icon-left'}
-                             ${rightIcon && 'input--icon-right'}
+                             ${leftIcon ? 'input--icon-left' : ''}
+                             ${rightIcon ? 'input--icon-right' : ''}
                              ${error ? 'input--invalid' : ''}
                              `}
       >
         <Label text={label} required={required} disabled={disabled} />
-        <div className="input__inner">
+        <label className="input__inner">
           {input}
           {leftIcon && (
             <Icon {...iconProps} className="input__icon input__icon--left" size="small" />
@@ -85,7 +85,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
           {rightIcon && (
             <Icon {...iconProps} className="input__icon input__icon--right" size="small" />
           )}
-        </div>
+        </label>
         {required && error && <ErrorMessage message={error} icon="info-fill" />}
         {valid && (
           <Text size="small" type="success" className="input__message">

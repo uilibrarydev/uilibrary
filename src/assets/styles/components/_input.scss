@@ -56,6 +56,7 @@
   input {
     border: 0;
     width: 100%;
+    display: block;
     outline: none;
     font: var(--ds-input-font);
     margin: var(--ds-input-margin);
@@ -128,6 +129,10 @@
 
       & +  #{$this}__icon {
          color: var(--ds-input-text-disabled);
+
+        &--right {
+          cursor: not-allowed;
+        }
       }
     }
   }
@@ -147,6 +152,7 @@
     }
 
     &--right {
+      cursor: pointer;
       right: var(--ds-input-icon-position);
     }
   }

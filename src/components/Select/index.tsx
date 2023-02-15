@@ -55,12 +55,7 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
             : placeHolder}
         </div>
 
-        <motion.div
-          animate={{ rotate: isOpen ? 0 : 180 }}
-          transition={{ type: 'spring', damping: 30, stiffness: 800 }}
-        >
-          <Icon size="small" name="arrow_up" type="primary" />
-        </motion.div>
+        <Icon size="small" name={isOpen ? 'arrow-up' : 'arrow-down'} type="primary" />
       </div>
       {isOpen && (
         <div className="select-options-wrapper">
