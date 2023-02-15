@@ -310,8 +310,8 @@ $space-prefixes: (
 .heading {
   font-family: var(--ds-font-family);
   line-height: var(--ds-line-height-heading);
-  font-weight: var(--ds-font-weight-default);
 
+  &.regular { font-weight: var(--ds-font-weight-default); }
   &.semibold { font-weight: var(--ds-font-weight-active); }
   &.bold { font-weight: var(--ds-font-weight-heading); }
 

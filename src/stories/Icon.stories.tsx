@@ -17,13 +17,16 @@ const ICONS = [
   'home-fill',
   'circle-mark',
   'circle-mark-fill',
+  'calendar',
+  'calendar-fill',
   'mark',
   'arrow-left',
   'arrow-right',
   'arrow-up',
   'arrow-down',
   'attach',
-  'close'
+  'close',
+  'add'
 ]
 
 export default {

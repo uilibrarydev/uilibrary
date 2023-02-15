@@ -6,5 +6,5 @@ export interface TAvatarProps extends IFormCompProps {
   color?: 'default' | 'purple' | 'blue' | 'green' | 'red'
   size?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall' | 'xxsmall'
   className?: string
-  isEditable: boolean
+  isEditable?: boolean
 }

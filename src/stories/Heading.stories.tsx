@@ -14,17 +14,18 @@ export default {
       control: { type: 'radio' }
     },
     weight: {
-      options: ['', 'semibold', 'bold'],
+      options: ['regular', 'semibold', 'bold'],
       control: { type: 'radio' }
     }
   }
 }
 
-const Template = (args) => <HeadingComp {...args} text={`Heading ${args.size} ${args.weight}`} />
+const Template = (args) => <HeadingComp {...args}>{args.text} {args.size} {args.weight}</HeadingComp>
 
 export const Heading = Template.bind({})
 Heading.args = {
   type: 'h1',
   size: 'xsmall',
-  weight: ''
+  weight: 'regular',
+  text: 'heading'
 }
