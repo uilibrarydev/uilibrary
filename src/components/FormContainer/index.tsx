@@ -8,7 +8,14 @@ import Button from '../Button'
 import { noop } from '../../utils'
 
 const FormContainer = (props: FormPropTypes): JSX.Element => {
-  const { children, className = '', initialValues, validationScheme, buttonConfigs, onSubmit } = props
+  const {
+    children,
+    className = '',
+    initialValues,
+    validationScheme,
+    buttonConfigs,
+    onSubmit
+  } = props
 
   const {
     handleSubmit,
