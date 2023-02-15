@@ -6,7 +6,7 @@ import { TFormFieldPropTypes } from './types'
 import '../../assets/styles/components/_form.scss'
 
 const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
-  const { As, name, isNeedChangeHandler = false, isControlled = false } = props
+  const { As, name, isNeedChangeHandler = false, isControlled = false, className = '' } = props
   const { register, errors, setValue, control } = useContext(FormContext)
 
   const errorMessage = errors && errors[name] ? errors[name].message : null
@@ -18,7 +18,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
   const registerOptions = register(name)
 
   return (
-    <div className="form-container__field">
+    <div className={`form-container__field ${className}`}>
       {isControlled ? (
         <Controller
           control={control}
