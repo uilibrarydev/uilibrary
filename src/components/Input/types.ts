@@ -4,7 +4,7 @@ import { IFormCompProps, TChangeEventType } from '../../types/globals'
 export interface InputCustomProps extends Omit<IFormCompProps, 'value'> {
   mask?: string
   className?: string
-  size?: string
+  size?: 'large' | 'small'
   currentValue?: string
   error?: string | JSX.Element
   label?: string | JSX.Element
@@ -19,7 +19,7 @@ export interface InputCustomProps extends Omit<IFormCompProps, 'value'> {
   }
   ref?: RefObject<HTMLInputElement>
   style?: Record<string, string>
-  type?: 'text' | 'number'
+  type?: 'text' | 'number' | 'time' | 'password' | 'email' | 'file' | 'tel' | 'date'
   changeHandler?: (event: TChangeEventType) => void
   placeholder?: string
 }

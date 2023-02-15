@@ -5,11 +5,12 @@ export interface TTextAreaTypeProps extends Omit<IFormCompProps, 'value'> {
   name?: string
   cols?: number
   row?: number
+  valid?: boolean
   label?: string | JSX.Element
   error?: string
-  showError?: string
   currentValue?: string
   placeHolder?: string
   required?: boolean
+  disabled?: boolean
   changeHandler?: (event: TTextAreaEventType) => void
 }

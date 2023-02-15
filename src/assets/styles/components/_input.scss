@@ -5,7 +5,7 @@
 
   //----------- component specific tokens -------------//
 
-  --ds-input-size: var(--ds-size-40);
+  --ds-input-size-lg: var(--ds-size-40);
   --ds-input-size-sm: var(--ds-size-32);
 
   --ds-input-padding: var(--ds-space-12);
@@ -30,29 +30,12 @@
   --ds-input-body-text-invalid: var(--ds-color-text-primary);
   --ds-input-body-text-disabled: var(--ds-color-text-disabled);
 
-  --ds-input-label-default: var(--ds-color-text-primary);
-  --ds-input-label-hover: var(--ds-color-text-primary);
-  --ds-input-label-focused: var(--ds-color-text-primary);
-  --ds-input-label-activated: var(--ds-color-text-primary);
-  --ds-input-label-validated: var(--ds-color-text-primary);
-  --ds-input-label-invalid: var(--ds-color-text-primary);
-  --ds-input-label-disabled: var(--ds-color-text-primary);
-
-  --ds-input-message-default: var(--ds-color-text-secondary);
-  --ds-input-message-hover: var(--ds-color-text-secondary);
-  --ds-input-message-focused: var(--ds-color-text-secondary);
-  --ds-input-message-activated: var(--ds-color-text-secondary);
-  --ds-input-message-validated: var(--ds-color-text-success);
-  --ds-input-message-invalid: var(--ds-color-text-danger);
-  --ds-input-message-disabled: var(--ds-color-text-disabled);
-
   --ds-input-body-icon-default: var(--ds-color-text-secondary);
   --ds-input-body-icon-hover: var(--grey-800);
   --ds-input-body-icon-focused: var(--ds-color-text-primary);
   --ds-input-body-icon-activated: var(--ds-color-text-primary);
   --ds-input-body-icon-validated: var(--ds-color-text-primary);
   --ds-input-body-icon-invalid: var(--ds-color-text-primary);
-  --ds-input-body-icon-disabled: var(--ds-color-text-primary);
 
   --ds-input-border-color-default: var(--ds-color-border-cta);
   --ds-input-border-color-hover: var(--ds-color-border-cta);
@@ -76,7 +59,6 @@
     outline: none;
     font: var(--ds-input-font);
     margin: var(--ds-input-margin);
-    height: var(--ds-input-size);
     padding: 0 var(--ds-input-padding);
     color: var(--ds-input-body-text-default);
     background-color: var(--ds-input-bg-default);
@@ -181,17 +163,15 @@
     }
   }
 
-  &--small {
+  &--large {
     input {
-      height: var(--ds-input-size-sm);
+      height: var(--ds-input-size-lg);
     }
   }
 
-  &--disabled {
-    cursor: not-allowed;
-
-    #{this}__label {
-      color: var(--ds-input-body-text-disabled);
+  &--small {
+    input {
+      height: var(--ds-input-size-sm);
     }
   }
 }
