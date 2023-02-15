@@ -54,6 +54,8 @@ export abstract class HttpClient {
     const token = localStorage.getItem(this.ACCESS_TOKEN_KEY as string)
 
     if (token) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       ;(requestConfig.headers as AxiosHeaders).set('Authorization', `Bearer ${token}`)
     }
 
