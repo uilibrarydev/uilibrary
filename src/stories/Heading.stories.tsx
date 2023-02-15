@@ -20,7 +20,11 @@ export default {
   }
 }
 
-const Template = (args) => <HeadingComp {...args}>{args.text} {args.size} {args.weight}</HeadingComp>
+const Template = (args) => (
+  <HeadingComp {...args}>
+    {args.text} {args.size} {args.weight}
+  </HeadingComp>
+)
 
 export const Heading = Template.bind({})
 Heading.args = {
