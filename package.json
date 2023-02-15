@@ -1,6 +1,6 @@
 {
   "name": "dino_ui_tools",
-  "version": "1.2.16",
+  "version": "1.2.18",
   "description": "",
   "private": false,
   "main": "dist/index.js",
@@ -9,7 +9,6 @@
   "files": [
     "dist"
   ],
-
   "scripts": {
     "start": "react-scripts start",
     "build": "npm run clean && rollup -c",
@@ -103,6 +102,7 @@
     "react-datepicker": "^4.8.0",
     "react-hook-form": "^7.39.7",
     "react-input-mask": "^2.0.4",
+    "rollup-plugin-copy": "^3.4.0",
     "sass": "^1.56.1",
     "sass-loader": "^10.4.1",
     "storybook-design-token": "^2.8.2",

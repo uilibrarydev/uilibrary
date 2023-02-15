@@ -23,12 +23,12 @@ import Badge from './components/Badge'
 import { HttpClient } from './helpers'
 import More from './components/More'
 import { WithFormFeedback } from './context/FormContextProvider'
-import './assets/styles/index.scss'
 import Avatar from './components/Avatar'
 import Tooltip from './components/Tooltip'
 import Tab from './components/Tab'
 import Snackbar from './components/Snackbar'
 import Popover from './components/Popover'
+import './assets/styles/index.scss'
 
 export {
   Text,
