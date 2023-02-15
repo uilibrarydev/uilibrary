@@ -9,7 +9,11 @@ const Label: React.FC<TextPropTypes> = (props: TextPropTypes) => {
     return null
   }
   return (
-    <Text size="small" type={required ? 'danger' : disabled ? 'disabled' : 'primary'} className="label">
+    <Text
+      size="small"
+      type={required ? 'danger' : disabled ? 'disabled' : 'primary'}
+      className="label"
+    >
       {text}
     </Text>
   )

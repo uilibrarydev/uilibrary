@@ -76,7 +76,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
                              ${error ? 'input--invalid' : ''}
                              `}
       >
-        <Label text={label} required={required} disabled={disabled}/>
+        <Label text={label} required={required} disabled={disabled} />
         <div className="input__inner">
           {input}
           {leftIcon && (
