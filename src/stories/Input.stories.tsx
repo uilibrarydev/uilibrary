@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input as InputComp } from '../components'
+import {Input as InputComp, Textarea as TextareaComp} from '../components'
 
 export default {
   title: 'Input',
@@ -11,7 +11,13 @@ export default {
     }
   }
 }
-const Template = (args) => <InputComp {...args} />
+const Template = (args) => {
+  return (
+      <div style={{maxWidth: 300}}>
+        <InputComp {...args} />
+      </div>
+  )
+}
 
 export const Input = Template.bind({})
 Input.args = {

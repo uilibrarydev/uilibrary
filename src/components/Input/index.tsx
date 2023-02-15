@@ -73,11 +73,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
                              ${className}
                              ${leftIcon && 'input--icon-left'}
                              ${rightIcon && 'input--icon-right'}
-                             ${disabled && 'input--disabled'}
                              ${error ? 'input--invalid' : ''}
                              `}
       >
-        <Label text={label} required={required} />
+        <Label text={label} required={required} disabled={disabled}/>
         <div className="input__inner">
           {input}
           {leftIcon && (

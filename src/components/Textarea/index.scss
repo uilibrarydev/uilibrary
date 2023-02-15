@@ -1,0 +1,19 @@
+@import "../../assets/styles/shared";
+
+.textarea {
+  --textarea-message-margin: var(--ds-space-4) 0 0 0;
+  --textarea-message-icon-margin: 0 var(--ds-space-4) 0 0;
+  --textarea-message-icon-color: var(--ds-color-icon-success);
+
+  &__message {
+    @include inline-flex;
+    @include align-items(center);
+    position: absolute;
+    margin: var(--textarea-message-margin);
+
+    &__icon {
+      margin: var(--textarea-message-icon-margin);
+      color: var(--textarea-message-icon-color);
+    }
+  }
+}

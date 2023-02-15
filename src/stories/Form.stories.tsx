@@ -10,7 +10,7 @@ import {
   TimePicker,
   SimpleDatePicker,
   Select,
-  TextArea,
+  Textarea,
   Switcher,
   RadioGroup
 } from '../components'

@@ -426,7 +426,7 @@ $space-prefixes: (
 
     /* Works on Chrome, Edge, and Safari */
     &::-webkit-scrollbar {
-      width: 6px;
+      width: 4px;
     }
   }
 
@@ -435,7 +435,7 @@ $space-prefixes: (
 
     /* Works on Chrome, Edge, and Safari */
     &::-webkit-scrollbar {
-      height: 6px;
+      height: 4px;
     }
   }
 }

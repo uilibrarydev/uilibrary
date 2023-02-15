@@ -15,7 +15,7 @@ import Progress from './Progress'
 import Checkbox from './Checkbox'
 import Stepper from './Stepper'
 import { TimePicker, SimpleDatePicker, RangeDatePicker } from './DatePicker'
-import TextArea from './TextArea'
+import Textarea from './Textarea'
 import More from './More'
 import Switcher from './Switcher'
 import Radio from './Radio'
@@ -47,7 +47,7 @@ export {
   TimePicker,
   SimpleDatePicker,
   RangeDatePicker,
-  TextArea,
+  Textarea,
   More,
   Switcher,
   Radio,

@@ -13,7 +13,7 @@ import Dialog from './components/Dialog'
 import Divider from './components/Divider'
 import Progress from './components/Progress'
 import Checkbox from './components/Checkbox'
-import TextArea from './components/TextArea'
+import Textarea from './components/Textarea'
 import Stepper from './components/Stepper'
 import { TimePicker, SimpleDatePicker, RangeDatePicker } from './components/DatePicker'
 import Switcher from './components/Switcher'
@@ -52,7 +52,7 @@ export {
   SimpleDatePicker,
   RangeDatePicker,
   Switcher,
-  TextArea,
+  Textarea,
   More,
   HttpClient,
   WithFormFeedback,
