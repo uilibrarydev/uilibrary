@@ -13,12 +13,13 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const [tooltipRef, setTooltipRef] = useState<HTMLDivElement | null>(null)
   const [elemRef, setElemRef] = useState<HTMLSpanElement | null>(null)
 
-  const { size = 'large', text, className = '', position = 'top-left', children } = props
+  const { size = 'large', text, className = '', position = 'bottom-center', children } = props
 
   const { left, top, bottom } = useGetElemPosition(elemRef)
   const { width: tooltipWidth, height: tooltipHeight } = useGetElemSizes(tooltipRef)
   const { width: itemWidth } = useGetElemSizes(elemRef)
 
+  // this is calculations for tooltip top/left/bottom/right positions
   const calculatedPosition = useMemo(() => {
     const hasTopSpace = tooltipHeight + GAP < top
 
@@ -43,9 +44,15 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
     return position
   }, [tooltipHeight, tooltipWidth, bottom, position])
 
+  // this is calculations for triangle position
   const finalPosition = useMemo(() => {
     const hasLeftSpace = tooltipWidth < left + ARROW_DISTANCE + GAP
     const hasRightSpace = tooltipWidth + GAP < window.innerWidth - left
+
+    // in case of middle position we don't need to change triangle position
+    if (calculatedPosition.includes('middle')) {
+      return calculatedPosition
+    }
 
     if (calculatedPosition.includes('right') && !hasLeftSpace) {
       return calculatedPosition.replace('right', 'left')
@@ -53,8 +60,17 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
     if (calculatedPosition.includes('left') && !hasRightSpace) {
       return calculatedPosition.replace('left', 'right')
     }
+
+    if (calculatedPosition.includes('center')) {
+      if (!hasLeftSpace) {
+        return calculatedPosition.replace('center', 'left')
+      } else {
+        return calculatedPosition.replace('center', 'right')
+      }
+    }
     return calculatedPosition
   }, [calculatedPosition, tooltipWidth, itemWidth, left])
+
   const onMouseEnter = () => setIsHoverved(true)
 
   const onMouseLeave = () => setIsHoverved(false)
@@ -71,11 +87,7 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
       <span
         style={{
           position: 'relative',
-          display: 'inline-block',
-          // margin: 100,
-          boxSizing: 'border-box',
-          // marginLeft: 670
-          marginTop: 50
+          display: 'inline-block'
         }}
         ref={setElemRef}
       >
