@@ -30,12 +30,12 @@ declare type TSizes = {
   height: number
 }
 
-export interface TRef extends RefObject<HTMLDivElement> {
+export interface TRef extends RefObject<HTMLElement> {
   clientWidth: number
   clientHeight: number
 }
 
-export const useGetElemSizes = (elemRef: HTMLDivElement | TRef | null): TSizes => {
+export const useGetElemSizes = (elemRef: HTMLElement | TRef | null): TSizes => {
   if (!elemRef) {
     return {
       width: 0,

@@ -32,7 +32,7 @@ const Template = (args) => {
 export const Tooltip = Template.bind({})
 
 Tooltip.args = {
-  text: 'Prompt text',
-  position: 'top-left',
+  text: 'Prompt text Prompt text Prompt text Prompt text',
+  // position: 'top-left',
   size: 'large'
 }

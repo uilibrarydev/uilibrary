@@ -1,6 +1,6 @@
 {
   "name": "dino_ui_tools",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "description": "",
   "private": false,
   "main": "dist/index.js",
@@ -94,7 +94,7 @@
     "@hookform/resolvers": "^2.9.10",
     "@rollup/plugin-json": "^6.0.0",
     "@types/react-input-mask": "^3.0.2",
-    "axios": "^1.2.0",
+    "axios": "1.2.0",
     "classnames": "^2.3.2",
     "framer-motion": "4.1.17",
     "fs": "^0.0.1-security",
