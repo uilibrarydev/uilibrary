@@ -19,14 +19,14 @@ export default {
       control: { type: 'radio' }
     },
     size: {
-      options: ['large', 'medium', 'small'],
+      options: ['large', 'small'],
       control: { type: 'radio' }
     }
   }
 }
 
 const Template = (args) => {
-  return <TooltipComp {...args}>Hover on me</TooltipComp>
+  return <TooltipComp {...args}>Hover on meeeeeee</TooltipComp>
 }
 
 export const Tooltip = Template.bind({})

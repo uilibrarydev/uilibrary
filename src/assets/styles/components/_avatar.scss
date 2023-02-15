@@ -40,7 +40,7 @@
   --ds-avatar-image-border: var(--ds-border-thin) solid var(--grey-200);
 
   --ds--avtar-border-radius: var(--ds-border-radius-full);
-  --ds-avatar-font: var(--ds-font-weight-default) var(--ds-headline-sm)/var(--ds-line-height-default) var(--ds-font-family);
+  --ds-avatar-font: var(--ds-font-weight-default) var(--ds-headline-sm)/1 var(--ds-font-family);
   --ds-avatar-transition: background-color .3s linear, color .3s linear;
 
   --ds-avatar-icon-size: var(--ds-size-24);
@@ -63,31 +63,37 @@
 
   &--xlarge {
     width: var(--ds-avatar-size-xl);
+    min-width: var(--ds-avatar-size-xl);
     height: var(--ds-avatar-size-xl);
     font-size: var(--ds-avatar-font-size-xl);
   }
   &--large {
     width: var(--ds-avatar-size-lg);
+    min-width: var(--ds-avatar-size-lg);
     height: var(--ds-avatar-size-lg);
     font-size: var(--ds-avatar-font-size-lg);
   }
   &--medium {
     width: var(--ds-avatar-size-md);
+    min-width: var(--ds-avatar-size-md);
     height: var(--ds-avatar-size-md);
     font-size: var(--ds-avatar-font-size-md);
   }
   &--small {
     width: var(--ds-avatar-size-sm);
+    min-width: var(--ds-avatar-size-sm);
     height: var(--ds-avatar-size-sm);
     font-size: var(--ds-avatar-font-size-sm);
   }
   &--xsmall {
     width: var(--ds-avatar-size-xs);
+    min-width: var(--ds-avatar-size-xs);
     height: var(--ds-avatar-size-xs);
     font-size: var(--ds-avatar-font-size-xs);
   }
   &--xxsmall {
     width: var(--ds-avatar-size-xxs);
+    min-width: var(--ds-avatar-size-xxs);
     height: var(--ds-avatar-size-xxs);
     font-size: var(--ds-avatar-font-size-xxs);
   }

@@ -23,7 +23,13 @@ export const Tab = (props: TTabProps): JSX.Element | null => {
                         ${selectedValue ? 'tab--selected' : ''} 
                         ${className}`}
     >
-      {iconProps?.name ? <Icon {...iconProps} className="tab__icon mr-8" size="small" /> : null}
+      {iconProps?.name ? (
+        <Icon
+          {...iconProps}
+          className="tab__icon mr-8"
+          size={`${size == 'small' ? 'xsmall' : 'small'}`}
+        />
+      ) : null}
       <span className="tab__label">{label}</span>
       {badgeProps?.text ? (
         <Badge {...badgeProps} className="tab__badge ml-8" size="small" type="secondary" />

@@ -28,6 +28,7 @@ import Avatar from './components/Avatar'
 import Tooltip from './components/Tooltip'
 import Tab from './components/Tab'
 import Snackbar from './components/Snackbar'
+import Popover from './components/Popover'
 
 export {
   Text,
@@ -58,6 +59,7 @@ export {
   Badge,
   Avatar,
   Tooltip,
+  Popover,
   Tab,
   Snackbar
 }

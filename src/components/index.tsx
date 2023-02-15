@@ -25,6 +25,7 @@ import Tooltip from './Tooltip'
 import RadioGroup from './Radio/RadioGroup'
 import Tab from './Tab'
 import Snackbar from './Snackbar'
+import Popover from './Popover'
 
 export {
   Text,
@@ -53,6 +54,7 @@ export {
   Badge,
   Avatar,
   Tooltip,
+  Popover,
   RadioGroup,
   Tab,
   Snackbar

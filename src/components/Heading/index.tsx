@@ -3,7 +3,7 @@ import { HeadingPropTypes } from './types'
 import { noop } from '../../utils'
 
 const Heading: React.FC<HeadingPropTypes> = (props: HeadingPropTypes) => {
-  const { text, className = '', size, type: As = 'h1', weight, onClick = noop } = props
+  const { children, className = '', size, type: As = 'h1', weight, onClick = noop } = props
 
   return (
     <As
@@ -13,7 +13,7 @@ const Heading: React.FC<HeadingPropTypes> = (props: HeadingPropTypes) => {
                   ${weight ? `${weight}` : ''}
                   ${className}`}
     >
-      {text}
+      {children}
     </As>
   )
 }
