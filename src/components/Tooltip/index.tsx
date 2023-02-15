@@ -6,6 +6,8 @@ import '../../assets/styles/components/_tooltip.scss'
 import Text from '../Text'
 
 const GAP = 20
+const ARROW_DISTANCE = 20
+
 export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const [isHovered, setIsHoverved] = useState(false)
   const [tooltipRef, setTooltipRef] = useState<HTMLDivElement | null>(null)
@@ -14,15 +16,16 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const { size = 'large', text, className = '', position = 'top-left', children } = props
 
   const { left, top, bottom } = useGetElemPosition(elemRef)
-  const { width, height } = useGetElemSizes(tooltipRef)
+  const { width: tooltipWidth, height: tooltipHeight } = useGetElemSizes(tooltipRef)
+  const { width: itemWidth } = useGetElemSizes(elemRef)
 
   const calculatedPosition = useMemo(() => {
-    const hasTopSpace = height + GAP < top
+    const hasTopSpace = tooltipHeight + GAP < top
 
-    const hasBottomSpace = height + GAP < window.innerHeight - bottom
+    const hasBottomSpace = tooltipHeight + GAP < window.innerHeight - bottom
 
-    const hasLeftSpace = width + GAP < left
-    const hasRightSpace = width + GAP < window.innerWidth - left
+    const hasLeftSpace = tooltipWidth + GAP < left
+    const hasRightSpace = tooltipWidth + GAP < window.innerWidth - left
 
     if (!hasTopSpace && position.includes('top')) {
       return position.replace('top', 'bottom')
@@ -38,13 +41,22 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
     }
 
     return position
-  }, [height, bottom, position])
+  }, [tooltipHeight, tooltipWidth, bottom, position])
 
-  const onMouseEnter = () => {
-    console.log('mouseenter')
+  const finalPosition = useMemo(() => {
+    const hasLeftSpace = tooltipWidth < left + ARROW_DISTANCE + GAP
+    const hasRightSpace = tooltipWidth + GAP < window.innerWidth - left
 
-    setIsHoverved(true)
-  }
+    if (calculatedPosition.includes('right') && !hasLeftSpace) {
+      return calculatedPosition.replace('right', 'left')
+    }
+    if (calculatedPosition.includes('left') && !hasRightSpace) {
+      return calculatedPosition.replace('left', 'right')
+    }
+    return calculatedPosition
+  }, [calculatedPosition, tooltipWidth, itemWidth, left])
+  const onMouseEnter = () => setIsHoverved(true)
+
   const onMouseLeave = () => setIsHoverved(false)
 
   useEffect(() => {
@@ -60,25 +72,29 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
         style={{
           position: 'relative',
           display: 'inline-block',
-          margin: 100,
-          boxSizing: 'border-box'
+          // margin: 100,
+          boxSizing: 'border-box',
+          // marginLeft: 670
+          marginTop: 50
         }}
         ref={setElemRef}
       >
-        <div
-          className={`tooltip tooltip--${size} tooltip--${calculatedPosition} ${className}`}
-          ref={setTooltipRef}
-        >
-          <Text
-            className="tooltip__inner"
-            type="primary"
-            weight="regular"
-            lineHeight="small"
-            size={`${size == 'small' ? 'xsmall' : 'small'}`}
+        {isHovered && (
+          <div
+            className={`tooltip tooltip--${size} tooltip--${finalPosition} ${className}`}
+            ref={setTooltipRef}
           >
-            {text}
-          </Text>
-        </div>
+            <Text
+              className="tooltip__inner"
+              type="primary"
+              weight="regular"
+              lineHeight="small"
+              size={`${size == 'small' ? 'xsmall' : 'small'}`}
+            >
+              {text}
+            </Text>
+          </div>
+        )}
         {children}
       </span>
     </>
