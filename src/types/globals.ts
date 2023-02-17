@@ -38,3 +38,19 @@ export interface IFormCompProps {
 export type TRegister = (name: string) => {
   onChange: TOnChange
 }
+
+export type TTooltipPosition =
+  | 'top-left'
+  | 'top-center'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-center'
+  | 'bottom-right'
+  | 'middle-left'
+  | 'middle-right'
+
+export type TTooltipInfo = {
+  initialPosition: TTooltipPosition
+  elemRef: HTMLElement | null
+  tooltipRef: HTMLElement | null
+}

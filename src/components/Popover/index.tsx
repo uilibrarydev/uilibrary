@@ -1,11 +1,10 @@
-import React, { useEffect, useMemo, useState } from 'react'
-import { useGetElemPosition, useGetElemSizes } from '../../hooks/useGetElemPosition'
-
-import { TPopoverProps } from './types'
-import '../../assets/styles/components/_popover.scss'
+import React, { useEffect, useState } from 'react'
+import { useGetTooltipPosition } from '../../hooks/useGetTooltipPosition'
 import Text from '../Text'
 
-const GAP = 20
+import '../../assets/styles/components/_popover.scss'
+import { TPopoverProps } from './types'
+
 export const Popover = (props: TPopoverProps): JSX.Element | null => {
   const [isClicked, setIsClicked] = useState(false)
   const [popoverRef, setPopoverRef] = useState<HTMLDivElement | null>(null)
@@ -13,44 +12,18 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
 
   const { text, className = '', position = 'top-left', children } = props
 
-  const { left, top, bottom } = useGetElemPosition(elemRef)
-  const { width, height } = useGetElemSizes(popoverRef)
-
-  const calculatedPosition = useMemo(() => {
-    const hasTopSpace = height + GAP < top
-
-    const hasBottomSpace = height + GAP < window.innerHeight - bottom
-
-    const hasLeftSpace = width + GAP < left
-    const hasRightSpace = width + GAP < window.innerWidth - left
-
-    if (!hasTopSpace && position.includes('top')) {
-      return position.replace('top', 'bottom')
-    }
-    if (!hasBottomSpace && position.includes('bottom')) {
-      return position.replace('bottom', 'top')
-    }
-    if (!hasLeftSpace && position.includes('left')) {
-      return position.replace('left', 'right')
-    }
-    if (!hasRightSpace && position.includes('right')) {
-      return position.replace('right', 'left')
-    }
-
-    return position
-  }, [height, bottom, position])
-
+  const tooltipPosition = useGetTooltipPosition({
+    tooltipRef: popoverRef,
+    elemRef,
+    initialPosition: position
+  })
   const onClick = () => {
-    console.log('mouseenter')
-
     setIsClicked(true)
   }
-  const onMouseLeave = () => setIsClicked(false)
 
   useEffect(() => {
     if (elemRef) {
       elemRef.addEventListener('click', onClick, false)
-      // elemRef.addEventListener('mouseleave', onMouseLeave, false)
     }
   }, [elemRef])
 
@@ -66,10 +39,7 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
         ref={setElemRef}
       >
         {isClicked && (
-          <div
-            className={`popover popover--${calculatedPosition} ${className}`}
-            ref={setPopoverRef}
-          >
+          <div className={`popover popover--${tooltipPosition} ${className}`} ref={setPopoverRef}>
             <div className="popover__inner scrollbar scrollbar--vertical pr-8">
               <Text type="primary" weight="regular" lineHeight="medium" size="small">
                 {text}
