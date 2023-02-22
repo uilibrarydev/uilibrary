@@ -55,7 +55,7 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
             : placeHolder}
         </div>
 
-        <Icon size="small" name={isOpen ? 'arrow-up' : 'arrow-down'} type="primary" />
+        <Icon className="selected-item-container__icon" size="small" name={isOpen ? 'arrow-up' : 'arrow-down'} type="primary" />
       </div>
       {isOpen && (
         <div className="select-options-wrapper">
