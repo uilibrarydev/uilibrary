@@ -15,11 +15,7 @@ const getFiles = (files: FileList) => {
 const Template = (): JSX.Element => {
   return (
     <div style={{ width: 400 }}>
-        <FileUpload
-            allowedTypes={['PDF', 'XYZ', 'MKT']}
-            label="Կցել ֆայլ"
-            getFiles={getFiles}
-        />
+      <FileUpload allowedTypes={['PDF', 'XYZ', 'MKT']} label="Կցել ֆայլ" getFiles={getFiles} />
     </div>
   )
 }
