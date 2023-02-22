@@ -444,6 +444,30 @@ $space-prefixes: (
   @include flexbox;
 }
 
+.flex-direction {
+  &--column {
+    @include flex-direction(column);
+  }
+  &--column-reverse {
+    @include flex-direction(column-reverse);
+  }
+  &--row {
+    @include flex-direction(row);
+  }
+  &--row-reverse {
+    @include flex-direction(row-reverse);
+  }
+}
+
+.flex-wrap {
+  &--wrap {
+    @include flex-wrap(wrap);
+  }
+  &--nowrap {
+    @include flex-wrap(nowrap);
+  }
+}
+
 .align-items {
   &--stretch {
     @include align-items(stretch);
@@ -487,4 +511,8 @@ $space-prefixes: (
   &--end {
     @include justify-content(flex-end);
   }
+}
+
+.full-width {
+  width: 100%;
 }
