@@ -4,10 +4,11 @@ import Text from '../Text'
 
 import '../../assets/styles/components/_popover.scss'
 import { TPopoverProps } from './types'
+import { useOnOutsideClick } from '../../hooks'
 
 export const Popover = (props: TPopoverProps): JSX.Element | null => {
   const [isClicked, setIsClicked] = useState(false)
-  const [popoverRef, setPopoverRef] = useState<HTMLDivElement | null>(null)
+  const [popoverRef, setPopoverRef] = useState<HTMLElement | null>(null)
   const [elemRef, setElemRef] = useState<HTMLSpanElement | null>(null)
 
   const { text, className = '', position = 'top-left', children } = props
@@ -17,13 +18,19 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
     elemRef,
     initialPosition: position
   })
-  const onClick = () => {
+
+  const showMessage = () => {
     setIsClicked(true)
   }
+  const hideMessage = () => {
+    setIsClicked(false)
+  }
+
+  useOnOutsideClick({ current: popoverRef }, hideMessage)
 
   useEffect(() => {
     if (elemRef) {
-      elemRef.addEventListener('click', onClick, false)
+      elemRef.addEventListener('click', showMessage, false)
     }
   }, [elemRef])
 
@@ -31,10 +38,7 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
     <>
       <span
         style={{
-          position: 'relative',
-          margin: '100px 300px',
-          display: 'inline-block',
-          boxSizing: 'border-box'
+          position: 'relative'
         }}
         ref={setElemRef}
       >
