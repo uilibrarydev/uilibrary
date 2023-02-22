@@ -5,12 +5,12 @@
         margin-bottom: 8px;
       }
     position: relative;
-    user-select: none
-   
+    user-select: none;
 }
 
 
 .selected-item-container {
+    position: relative;
     box-sizing: border-box;
     border: 1px solid $inputBorderGray;
     color: $labelGray;
@@ -27,6 +27,15 @@
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         
+    }
+
+
+
+    &__icon {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }
 
