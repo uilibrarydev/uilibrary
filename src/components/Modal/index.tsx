@@ -85,21 +85,25 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
                 ) : null}
               </div>
               <div className="modal__content">{children}</div>
-              <div className="modal__footer">
-                <Button
-                  type="tertiary"
-                  size="medium"
-                  className="mr-12"
-                  buttonText={buttonProps.cancelButtonText}
-                  onClick={onClose}
-                />
-                <Button
-                  type="primary"
-                  size="medium"
-                  buttonText={buttonProps.confirmButtonText}
-                  onClick={handleSubmit}
-                />
-              </div>
+              {closeIcon ? (
+                <div className="modal__footer">
+                  <Button
+                      type="tertiary"
+                      size="medium"
+                      className="mr-12"
+                      buttonText={buttonProps.cancelButtonText}
+                      onClick={onClose}
+                  />
+                  <Button
+                      type="primary"
+                      size="medium"
+                      buttonText={buttonProps.confirmButtonText}
+                      onClick={handleSubmit}
+                  />
+                </div>
+                ) : null
+              }
+
             </AnimatePresence>
           </motion.div>
         </motion.div>

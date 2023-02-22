@@ -35,6 +35,7 @@ $space-values: (
                 16,
                 24,
                 32,
+                40,
                 64,
                 80,
                 160,
@@ -44,14 +45,17 @@ $space-values: (
 
 //shorthands
 $space-prefixes: (
-                mt : margin-top,
-                mr : margin-right,
-                mb : margin-bottom,
-                ml : margin-left,
-                pt : padding-top,
-                pr : padding-right,
-                pb : padding-bottom,
-                pl : padding-left,
+         m : margin,
+        mt : margin-top,
+        mr : margin-right,
+        mb : margin-bottom,
+        ml : margin-left,
+
+         p : padding,
+        pt : padding-top,
+        pr : padding-right,
+        pb : padding-bottom,
+        pl : padding-left
 ) !default;
 
 @mixin make-spaces() {
@@ -404,6 +408,8 @@ $space-prefixes: (
   &--discovery {color: var(--ds-color-text-discovery); }
 }
 
+//scroll
+
 .scrollbar {
   /* Works on Firefox */
   scrollbar-width: thin;
@@ -439,6 +445,8 @@ $space-prefixes: (
     }
   }
 }
+
+//flex
 
 .flexbox {
   @include flexbox;
@@ -513,6 +521,23 @@ $space-prefixes: (
   }
 }
 
+//width
+
 .full-width {
   width: 100%;
+}
+
+//text alignment
+
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
 }
