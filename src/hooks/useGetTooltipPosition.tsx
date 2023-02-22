@@ -56,14 +56,20 @@ export const useGetTooltipPosition = (info: TTooltipInfo): TTooltipPosition => {
     }
 
     if (calculatedPosition.includes('center')) {
-      if (!hasLeftSpace) {
+      const hasLeftHalfSpace = tooltipWidth / 2 < left + ARROW_DISTANCE + GAP
+      const hasRightHalfSpace = tooltipWidth / 2 + GAP < window.innerWidth - left
+      if (!hasLeftHalfSpace) {
         return calculatedPosition.replace('center', 'left')
-      } else {
+      }
+      if (!hasRightHalfSpace) {
         return calculatedPosition.replace('center', 'right')
       }
+      return calculatedPosition
     }
     return calculatedPosition
   }, [calculatedPosition, tooltipWidth, itemWidth, left])
+
+  console.log('finalPosition', finalPosition)
 
   return finalPosition as TTooltipPosition
 }
