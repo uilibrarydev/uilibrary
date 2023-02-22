@@ -6,23 +6,27 @@ import '../../assets/styles/components/_tooltip.scss'
 import Text from '../Text'
 
 const GAP = 20
+const ARROW_DISTANCE = 20
+
 export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const [isHovered, setIsHoverved] = useState(false)
   const [tooltipRef, setTooltipRef] = useState<HTMLDivElement | null>(null)
   const [elemRef, setElemRef] = useState<HTMLSpanElement | null>(null)
 
-  const { size = 'large', text, className = '', position = 'top-left', children } = props
+  const { size = 'large', text, className = '', position = 'bottom-center', children } = props
 
   const { left, top, bottom } = useGetElemPosition(elemRef)
-  const { width, height } = useGetElemSizes(tooltipRef)
+  const { width: tooltipWidth, height: tooltipHeight } = useGetElemSizes(tooltipRef)
+  const { width: itemWidth } = useGetElemSizes(elemRef)
 
+  // this is calculations for tooltip top/left/bottom/right positions
   const calculatedPosition = useMemo(() => {
-    const hasTopSpace = height + GAP < top
+    const hasTopSpace = tooltipHeight + GAP < top
 
-    const hasBottomSpace = height + GAP < window.innerHeight - bottom
+    const hasBottomSpace = tooltipHeight + GAP < window.innerHeight - bottom
 
-    const hasLeftSpace = width + GAP < left
-    const hasRightSpace = width + GAP < window.innerWidth - left
+    const hasLeftSpace = tooltipWidth + GAP < left
+    const hasRightSpace = tooltipWidth + GAP < window.innerWidth - left
 
     if (!hasTopSpace && position.includes('top')) {
       return position.replace('top', 'bottom')
@@ -38,13 +42,37 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
     }
 
     return position
-  }, [height, bottom, position])
+  }, [tooltipHeight, tooltipWidth, bottom, position])
 
-  const onMouseEnter = () => {
-    console.log('mouseenter')
+  // this is calculations for triangle position
+  const finalPosition = useMemo(() => {
+    const hasLeftSpace = tooltipWidth < left + ARROW_DISTANCE + GAP
+    const hasRightSpace = tooltipWidth + GAP < window.innerWidth - left
 
-    setIsHoverved(true)
-  }
+    // in case of middle position we don't need to change triangle position
+    if (calculatedPosition.includes('middle')) {
+      return calculatedPosition
+    }
+
+    if (calculatedPosition.includes('right') && !hasLeftSpace) {
+      return calculatedPosition.replace('right', 'left')
+    }
+    if (calculatedPosition.includes('left') && !hasRightSpace) {
+      return calculatedPosition.replace('left', 'right')
+    }
+
+    if (calculatedPosition.includes('center')) {
+      if (!hasLeftSpace) {
+        return calculatedPosition.replace('center', 'left')
+      } else {
+        return calculatedPosition.replace('center', 'right')
+      }
+    }
+    return calculatedPosition
+  }, [calculatedPosition, tooltipWidth, itemWidth, left])
+
+  const onMouseEnter = () => setIsHoverved(true)
+
   const onMouseLeave = () => setIsHoverved(false)
 
   useEffect(() => {
@@ -59,26 +87,26 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
       <span
         style={{
           position: 'relative',
-          display: 'inline-block',
-          margin: 100,
-          boxSizing: 'border-box'
+          display: 'inline-block'
         }}
         ref={setElemRef}
       >
-        <div
-          className={`tooltip tooltip--${size} tooltip--${calculatedPosition} ${className}`}
-          ref={setTooltipRef}
-        >
-          <Text
-            className="tooltip__inner"
-            type="primary"
-            weight="regular"
-            lineHeight="small"
-            size={`${size == 'small' ? 'xsmall' : 'small'}`}
+        {isHovered && (
+          <div
+            className={`tooltip tooltip--${size} tooltip--${finalPosition} ${className}`}
+            ref={setTooltipRef}
           >
-            {text}
-          </Text>
-        </div>
+            <Text
+              className="tooltip__inner"
+              type="primary"
+              weight="regular"
+              lineHeight="small"
+              size={`${size == 'small' ? 'xsmall' : 'small'}`}
+            >
+              {text}
+            </Text>
+          </div>
+        )}
         {children}
       </span>
     </>
