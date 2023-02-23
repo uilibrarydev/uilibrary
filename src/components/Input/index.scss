@@ -1,19 +1,10 @@
 @import "../../assets/styles/shared";
 
 .input {
-  --input-message-margin: var(--ds-space-4) 0 0 0;
-  --input-message-icon-margin: 0 var(--ds-space-4) 0 0;
-  --input-message-icon-color: var(--ds-color-icon-success);
 
   &__message {
-    @include inline-flex;
+    @include flexbox;
     @include align-items(center);
-    position: absolute;
-    margin: var(--input-message-margin);
-
-    &__icon {
-      margin: var(--input-message-icon-margin);
-      color: var(--input-message-icon-color);
-    }
+    @include justify-content(space-between);
   }
 }

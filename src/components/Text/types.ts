@@ -15,7 +15,7 @@ export interface TextPropTypes {
     | 'success'
     | 'information'
     | 'discovery'
-  size?: 'xsmall' | 'small' | 'standard' | 'medium' | 'large'
+  size?: 'xxsmall' | 'xsmall' | 'small' | 'standard' | 'medium' | 'large'
   weight?: 'regular' | 'semibold' | 'bold' | 'bolder'
   lineHeight?: 'xsmall' | 'small' | 'medium' | 'large'
   className?: string

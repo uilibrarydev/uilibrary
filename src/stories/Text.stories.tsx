@@ -23,7 +23,7 @@ export default {
       control: { type: 'radio' }
     },
     size: {
-      options: ['xsmall', 'small', 'standard', 'medium', 'large'],
+      options: ['xxsmall', 'xsmall', 'small', 'standard', 'medium', 'large'],
       control: { type: 'radio' }
     },
     weight: {

@@ -23,7 +23,6 @@
   --ds-input-bg-disabled: var(--ds-color-bg-cta-secondary-default);
 
   --ds-input-body-text-default: var(--ds-color-text-tertiary);
-  --ds-input-body-text-hover: var(--ds-color-text-secondary);
   --ds-input-body-text-focused: var(--ds-color-text-primary);
   --ds-input-body-text-activated: var(--ds-color-text-primary);
   --ds-input-body-text-validated: var(--ds-color-text-primary);
@@ -67,6 +66,13 @@
     border: var(--ds-input-border);
     transition: var(--ds-input-transition);
 
+    &:-ms-input-placeholder {
+      color: var(--ds-input-body-text-default);
+    }
+    &::placeholder {
+      color: var(--ds-input-body-text-default);
+    }
+
     & + #{$this}__icon {
       color: var(--ds-input-body-icon-default);
     }
@@ -93,7 +99,6 @@
 
     &:hover {
       background-color: var(--ds-input-bg-hover);
-      color: var(--ds-input-body-text-hover);
       border-color: var(--ds-input-border-color-hover);
 
       & + #{$this}__icon {
@@ -126,6 +131,13 @@
       background-color: var(--ds-input-bg-default);
       border-color: var(--ds-input-border-color-disabled);
       color: var(--ds-input-body-text-disabled);
+
+      &:-ms-input-placeholder {
+        color: var(--ds-input-body-text-disabled);
+      }
+      &::placeholder {
+        color: var(--ds-input-body-text-disabled);
+      }
 
       & +  #{$this}__icon {
          color: var(--ds-input-text-disabled);

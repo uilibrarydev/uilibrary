@@ -71,21 +71,25 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore */}
             <AnimatePresence className="animated_content" {...DESKTOP_ANIMATION}>
-              <div className="modal__header">
-                <Text className="modal__title" weight="semibold" lineHeight="large" size="medium">
-                  {title}
-                </Text>
-                {closeIcon ? (
-                  <Button
-                    type="tertiary"
-                    size="small"
-                    iconProps={{ name: 'close' }}
-                    onClick={handleSubmit}
-                  />
-                ) : null}
-              </div>
+              { title? (
+                  <div className="modal__header">
+                    <Text className="modal__title" weight="semibold" lineHeight="large" size="medium">
+                      {title}
+                    </Text>
+                    {closeIcon ? (
+                        <Button
+                            type="tertiary"
+                            size="small"
+                            iconProps={{ name: 'close' }}
+                            onClick={handleSubmit}
+                        />
+                    ) : null}
+                  </div>
+              ) : null
+              }
+
               <div className="modal__content">{children}</div>
-              {closeIcon ? (
+              {!closeIcon ? (
                 <div className="modal__footer">
                   <Button
                     type="tertiary"
