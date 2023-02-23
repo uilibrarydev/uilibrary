@@ -13,4 +13,7 @@ export interface TTextAreaTypeProps extends Omit<IFormCompProps, 'value'> {
   required?: boolean
   disabled?: boolean
   changeHandler?: (event: TTextAreaEventType) => void
+  helperText?: string
+  successMessage?: string
+  counter?: boolean
 }

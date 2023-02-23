@@ -18,5 +18,8 @@ Textarea.args = {
   disabled: false,
   required: false,
   valid: false,
-  error: 'This is your helper text'
+  placeholder: 'Enter text',
+  helperText: 'This is your helper text',
+  successMessage: 'Success message',
+  error: 'Error message'
 }

@@ -89,28 +89,31 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
             <Icon {...iconProps} className="input__icon input__icon--right" size="small" />
           )}
         </label>
-        <div className="input__message mt-4">
-          {required && error && <ErrorMessage message={error} icon="info-fill" />}
-          {valid && (
-            <Text size="small" type="success" className="flexbox align-items--center">
-              <>
-                <Icon name="circle-mark-fill" type="success" size="xsmall" />
-                <span>{successMessage}</span>
-              </>
-            </Text>
-          )}
-          {helperText ? (
-            <Text size="small" type="secondary">
-              {helperText}
-            </Text>
-          ) : null}
 
-          {counter ? (
-            <Text size="small" type="secondary">
-              120/240
-            </Text>
-          ) : null}
-        </div>
+          {required && error && <ErrorMessage message={error} icon="info-fill" />}
+          { (valid || helperText || counter) ? (
+              <div className="input__message mt-4">
+                  {valid ? (
+                      <Text size="small" type="success" className="flexbox align-items--center">
+                          <>
+                              <Icon name="circle-mark-fill" type="success" size="xsmall"/>
+                              <span>{successMessage}</span>
+                          </>
+                      </Text>
+                  ) : null}
+                  {helperText ? (
+                      <Text size="small" type="secondary">
+                          {helperText}
+                      </Text>
+                  ) : null}
+
+                  {counter ? (
+                      <Text size="small" type="secondary">
+                          120/240
+                      </Text>
+                  ) : null}
+              </div>
+          ) : null }
       </div>
     )
   }
