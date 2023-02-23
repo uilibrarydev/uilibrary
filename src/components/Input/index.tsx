@@ -28,6 +28,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       iconProps,
       placeholder = 'Placeholder',
       type = 'text',
+      counter,
+      helperText,
+      successMessage,
       ...rest
     },
     ref
@@ -94,19 +97,23 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
                 <Icon
                   name="circle-mark-fill"
                   type="success"
-                  className="input__message__icon"
                   size="xsmall"
                 />
-                <span>This is your helper text</span>
+                <span>{successMessage}</span>
               </>
             </Text>
           )}
-          <Text size="small" type="secondary">
-            This is your helper text
-          </Text>
-          <Text size="small" type="secondary">
-            120/240
-          </Text>
+            {helperText ? (
+              <Text size="small" type="secondary">
+                  {helperText}
+              </Text>
+            ) : null }
+
+            {counter ? (
+                <Text size="small" type="secondary">
+                    120/240
+                </Text>
+            ) : null }
         </div>
       </div>
     )

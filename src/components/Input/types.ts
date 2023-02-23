@@ -22,4 +22,6 @@ export interface InputCustomProps extends Omit<IFormCompProps, 'value'> {
   type?: 'text' | 'number' | 'time' | 'password' | 'email' | 'file' | 'tel' | 'date'
   changeHandler?: (event: TChangeEventType) => void
   placeholder?: string
+  helperText?: string
+  counter?: boolean
 }

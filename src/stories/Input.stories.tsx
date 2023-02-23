@@ -32,5 +32,8 @@ Input.args = {
   disabled: false,
   required: false,
   valid: false,
-  error: 'This is your helper text'
+  counter: false,
+  helperText: 'This is your helper text',
+  successMessage: 'Success message',
+  error: 'Error message'
 }
