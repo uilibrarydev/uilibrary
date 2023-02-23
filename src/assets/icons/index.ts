@@ -11,6 +11,7 @@ import { arrow_left } from './arrow_left'
 import { change } from './change'
 import { tick } from './tick'
 import { calendar } from './calendar'
+import { logout } from './logout'
 
 export const customIcons: TCustomIcons = {
   icon,
@@ -25,5 +26,6 @@ export const customIcons: TCustomIcons = {
   arrow_left,
   change,
   tick,
-  calendar
+  calendar,
+  logout
 }

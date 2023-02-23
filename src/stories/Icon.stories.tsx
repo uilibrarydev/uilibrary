@@ -14,7 +14,8 @@ const ICONS = [
   'file_png',
   'phone',
   'tick',
-  'calendar'
+  'calendar',
+  'logout'
 ]
 
 export default {
