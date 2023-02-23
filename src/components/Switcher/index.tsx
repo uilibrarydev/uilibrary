@@ -41,12 +41,12 @@ export const Switcher = (props: TSwitcherProps): JSX.Element => {
         type="checkbox"
         tabIndex={0}
         onChange={changeHandler}
-        checked={selectedValue}
+        checked={isChecked}
         disabled={disabled}
       />
       <span className="controller__icon">
         <span className="controller__icon__inner">
-          {selectedValue ? <Icon name="mark" size="xsmall" /> : null}
+          {isChecked ? <Icon name="mark" size="xsmall" /> : null}
         </span>
       </span>
     </label>
