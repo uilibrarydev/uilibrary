@@ -26,7 +26,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       disabled,
       required,
       iconProps,
-      placeholder='Placeholder',
+      placeholder = 'Placeholder',
       type = 'text',
       ...rest
     },
@@ -87,19 +87,27 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
           )}
         </label>
         <div className="input__message mt-4">
-            {required && error && <ErrorMessage message={error} icon="info-fill"/>}
-            {valid && (
-                <Text size="small" type="success" className="flexbox align-items--center">
-                    <>
-                        <Icon name="circle-mark-fill" type="success" className="input__message__icon" size="xsmall"/>
-                        <span>This is your helper text</span>
-                    </>
-                </Text>
-            )}
-            <Text size="small" type="secondary">This is your helper text</Text>
-            <Text size="small" type="secondary">120/240</Text>
+          {required && error && <ErrorMessage message={error} icon="info-fill" />}
+          {valid && (
+            <Text size="small" type="success" className="flexbox align-items--center">
+              <>
+                <Icon
+                  name="circle-mark-fill"
+                  type="success"
+                  className="input__message__icon"
+                  size="xsmall"
+                />
+                <span>This is your helper text</span>
+              </>
+            </Text>
+          )}
+          <Text size="small" type="secondary">
+            This is your helper text
+          </Text>
+          <Text size="small" type="secondary">
+            120/240
+          </Text>
         </div>
-
       </div>
     )
   }
