@@ -26,7 +26,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       disabled,
       required,
       iconProps,
-      placeholder = '',
+      placeholder,
       type = 'text',
       counter,
       helperText,
