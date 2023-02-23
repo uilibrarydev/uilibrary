@@ -33,6 +33,7 @@ Input.args = {
   required: false,
   valid: false,
   counter: false,
+  placeholder: 'Enter text',
   helperText: 'This is your helper text',
   successMessage: 'Success message',
   error: 'Error message'

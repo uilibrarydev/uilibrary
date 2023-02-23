@@ -23,5 +23,6 @@ export interface InputCustomProps extends Omit<IFormCompProps, 'value'> {
   changeHandler?: (event: TChangeEventType) => void
   placeholder?: string
   helperText?: string
+  successMessage?: string
   counter?: boolean
 }

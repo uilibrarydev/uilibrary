@@ -26,7 +26,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       disabled,
       required,
       iconProps,
-      placeholder = 'Placeholder',
+      placeholder = '',
       type = 'text',
       counter,
       helperText,
@@ -94,26 +94,22 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
           {valid && (
             <Text size="small" type="success" className="flexbox align-items--center">
               <>
-                <Icon
-                  name="circle-mark-fill"
-                  type="success"
-                  size="xsmall"
-                />
+                <Icon name="circle-mark-fill" type="success" size="xsmall" />
                 <span>{successMessage}</span>
               </>
             </Text>
           )}
-            {helperText ? (
-              <Text size="small" type="secondary">
-                  {helperText}
-              </Text>
-            ) : null }
+          {helperText ? (
+            <Text size="small" type="secondary">
+              {helperText}
+            </Text>
+          ) : null}
 
-            {counter ? (
-                <Text size="small" type="secondary">
-                    120/240
-                </Text>
-            ) : null }
+          {counter ? (
+            <Text size="small" type="secondary">
+              120/240
+            </Text>
+          ) : null}
         </div>
       </div>
     )
