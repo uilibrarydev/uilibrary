@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { TStepperProps } from './types'
 
 const Stepper = (props: TStepperProps): JSX.Element => {
-  const { list } = props
+  const { list, initialActiveIndex = 0 } = props
 
-  const [activeStepIndex, setActiveStepIndex] = useState(0)
+  const [activeStepIndex, setActiveStepIndex] = useState(initialActiveIndex)
 
   const decreaseStepIndex = () => {
     setActiveStepIndex(activeStepIndex - 1)
