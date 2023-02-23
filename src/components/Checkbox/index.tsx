@@ -7,7 +7,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   const {
     label,
     disabled,
-    required = true,
+    required = false,
     name,
     setFieldValue,
     selectedValue,

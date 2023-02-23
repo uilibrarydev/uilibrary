@@ -36,7 +36,7 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
         <Icon
           {...iconProps}
           className="btn__icon"
-          size={`${size == 'large' ? 'medium' : size == 'medium' ? 'small' : 'xsmall'}`}
+          size={`${size == 'large' ? 'small' : size == 'medium' ? 'small' : 'xsmall'}`}
         />
       ) : null}
 
