@@ -8,7 +8,7 @@ export const Tab = (props: TTabProps): JSX.Element | null => {
   const { selectedValue, tabItems, onSelect, ...rest } = props
 
   return (
-    <>
+    <div className="tabs-container">
       {tabItems.map((tabInfo) => {
         return (
           <TabItem
@@ -20,7 +20,7 @@ export const Tab = (props: TTabProps): JSX.Element | null => {
           />
         )
       })}
-    </>
+    </div>
   )
 }
 

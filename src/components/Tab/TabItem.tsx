@@ -19,7 +19,7 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
 
   return (
     <div
-      onClick={onClick}
+      onClick={!disabled && onClick}
       className={`tab tab--${size} 
                         ${disabled ? 'tab--disabled' : ''} 
                         ${isSelected ? 'tab--selected' : ''} 

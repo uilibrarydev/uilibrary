@@ -27,7 +27,6 @@ Tab.args = {
     text: '9'
   },
   size: 'large',
-  selectedValue: 2,
   disabled: false,
   tabItems: [
     {
