@@ -19,7 +19,6 @@
   --ds-textarea-bg-disabled: var(--ds-color-bg-cta-secondary-default);
 
   --ds-textarea-body-text-default: var(--ds-color-text-tertiary);
-  --ds-textarea-body-text-hover: var(--ds-color-text-secondary);
   --ds-textarea-body-text-focused: var(--ds-color-text-primary);
   --ds-textarea-body-text-activated: var(--ds-color-text-primary);
   --ds-textarea-body-text-validated: var(--ds-color-text-primary);
@@ -55,6 +54,13 @@
     margin: var(--ds-textarea-margin);
     resize: none;
 
+    &:-ms-input-placeholder {
+      color: var(--ds-textarea-body-text-default);
+    }
+    &::placeholder {
+      color: var(--ds-textarea-body-text-default);
+    }
+
     &::-webkit-scrollbar {
       width: 0;
     }
@@ -73,7 +79,6 @@
 
     &:hover {
       background-color: var(--ds-textarea-bg-hover);
-      color: var(--ds-textarea-body-text-hover);
       border-color: var(--ds-textarea-border-color-hover);
     }
 
