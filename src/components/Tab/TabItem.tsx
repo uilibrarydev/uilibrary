@@ -1,9 +1,12 @@
 import React from 'react'
 
-import { TTabItemProps } from './types'
-import '../../assets/styles/components/_tab.scss'
 import Icon from '../Icon'
 import Badge from '../Badge'
+
+import { noop } from '../../utils'
+
+import { TTabItemProps } from './types'
+import '../../assets/styles/components/_tab.scss'
 
 export const TabItem = (props: TTabItemProps): JSX.Element | null => {
   const {
@@ -19,7 +22,7 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
 
   return (
     <div
-      onClick={!disabled && onClick}
+      onClick={disabled ? noop : onClick}
       className={`tab tab--${size} 
                         ${disabled ? 'tab--disabled' : ''} 
                         ${isSelected ? 'tab--selected' : ''} 
