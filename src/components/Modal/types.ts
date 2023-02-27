@@ -1,3 +1,5 @@
+import { TButtonPropTypes } from '../Button/types'
+
 export interface TModalPropTypes {
   isOpen: boolean
   onClose: () => void
@@ -5,8 +7,8 @@ export interface TModalPropTypes {
   title?: string
   size?: 'small' | 'medium' | 'large'
   buttonProps?: {
-    confirmButtonText: string
-    cancelButtonText: string
+    cancel?: TButtonPropTypes
+    confirm: TButtonPropTypes
   }
   closeIcon?: boolean
   children: JSX.Element
