@@ -1,0 +1,117 @@
+@import "../shared";
+
+.progress-bar {
+    $this: &;
+
+    --ds-progress-linear-size-lg: var(--ds-size-6);
+    --ds-progress-linear-size-sm: var(--ds-size-2);
+    --ds-progress-linear-border-radius: var(--ds-border-radius-md);
+    --ds-progress-linear-font-size-lg: var(--font-size-12);
+    --ds-progress-linear-font-size-sm: var(--font-size-10);
+
+    --ds-progress-circle-size-lg: 90px;
+    --ds-progress-circle-size-sm: 58px;
+    --ds-progress-circle-border-lg: var(--ds-size-4);
+    --ds-progress-circle-border-sm: var(--ds-size-2);
+    --ds-progress-circle-font-size-lg: var(--font-size-16);
+    --ds-progress-circle-font-size-sm: var(--font-size-12);
+
+    --ds-progress-bg-default: var(--ds-color-bg-cta-secondary-pressed);
+    --ds-progress-bg-filled: var(--ds-color-bg-cta-primary-default);
+
+    position: relative;
+    font-family: var(--font-family-primary);
+
+    &--linear {
+        @include flexbox;
+        @include align-items(center);
+
+        &#{$this}--large {
+            height: var(--ds-progress-linear-size-lg);
+
+            #{$this}__percent {
+                font-size: var(--ds-progress-linear-font-size-lg);
+            }
+        }
+
+        &#{$this}--small {
+            height: var(--ds-progress-linear-size-sm);
+
+            #{$this}__percent {
+                font-size: var(--ds-progress-linear-font-size-sm);
+            }
+        }
+
+        #{$this}__inner {
+            height: 100%;
+            width: 100%;
+            background-color: var(--ds-progress-bg-default);
+            border-radius: var(--ds-progress-linear-border-radius);
+        }
+
+        #{$this}__filled {
+            height: 100%;
+            background-color: var(--ds-progress-bg-filled);
+            border-radius: var(--ds-progress-linear-border-radius);
+            transition: width .3s linear;
+        }
+
+        #{$this}__percent {
+            margin-left: var(--ds-space-8);
+        }
+    }
+
+    &--circle {
+        svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+
+            circle {
+                width: 100%;
+                height: 100%;
+                fill: none;
+                stroke: var(--ds-progress-bg-default);
+                stroke-linecap: round;
+                transition: stroke-dashoffset .3s linear;
+
+                &:last-of-type {
+                    stroke: var(--ds-progress-bg-filled);
+                }
+            }
+        }
+
+        &#{$this}--large {
+            width: var(--ds-progress-circle-size-lg);
+            height: var(--ds-progress-circle-size-lg);
+
+            circle {
+                stroke-width: var(--ds-progress-circle-border-lg);
+            }
+
+            #{$this}__percent {
+                font-size: var(--ds-progress-circle-font-size-lg);
+            }
+        }
+
+        &#{$this}--small {
+            width: var(--ds-progress-circle-size-sm);
+            height: var(--ds-progress-circle-size-sm);
+
+            circle {
+                stroke-width: var(--ds-progress-circle-border-sm);
+            }
+
+            #{$this}__percent {
+                font-size: var(--ds-progress-circle-font-size-sm);
+            }
+        }
+
+        #{$this}__percent {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
