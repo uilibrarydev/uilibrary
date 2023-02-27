@@ -32,6 +32,7 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
     title,
     closeIcon,
     size = 'small',
+    withFooter = true,
     buttonProps = {
       confirm: {
         buttonText: 'Save'
@@ -89,7 +90,7 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
               ) : null}
 
               <div className="modal__content">{children}</div>
-              {!closeIcon ? (
+              {withFooter ? (
                 <div className="modal__footer">
                   <Button
                     {...(buttonProps.cancel || {})}

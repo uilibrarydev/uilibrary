@@ -6,6 +6,7 @@ export interface TModalPropTypes {
   onSumbit: () => void
   title?: string
   size?: 'small' | 'medium' | 'large'
+  withFooter?: boolean
   buttonProps?: {
     cancel?: TButtonPropTypes
     confirm: TButtonPropTypes
