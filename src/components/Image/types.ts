@@ -1,4 +1,3 @@
-
 export interface ImagePropTypes {
   name?: string
   imagePath?: string

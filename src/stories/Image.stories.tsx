@@ -20,8 +20,8 @@ export default {
 } as Meta
 
 const Template = (args) => (
-  <div style={{ width: 300, height: 300}}>
-    <ImageComp {...args}/>
+  <div style={{ width: 300, height: 300 }}>
+    <ImageComp {...args} />
   </div>
 )
 
@@ -31,5 +31,5 @@ Image.args = {
   imagePath: image.src,
   backgroundSize: 'contain',
   isFullWidth: false,
-  isFullHeight: false,
+  isFullHeight: false
 }
