@@ -29,6 +29,7 @@ import Tab from './components/Tab'
 import Snackbar from './components/Snackbar'
 import Popover from './components/Popover'
 import Breadcrumb from './components/Breadcrumb'
+import Image from './components/Image'
 import './assets/styles/index.scss'
 
 export {
@@ -63,5 +64,6 @@ export {
   Popover,
   Tab,
   Snackbar,
-  Breadcrumb
+  Breadcrumb,
+  Image
 }
