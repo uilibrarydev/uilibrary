@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Tab as TabComp } from '../components'
 
 export default {
@@ -12,12 +12,14 @@ export default {
   }
 }
 
-const Template = (args) => <TabComp {...args} />
+const Template = (args): JSX.Element | null => {
+  const [selectedTab, onTabSelect] = useState(args.selectedValue)
+  return <TabComp {...args} selectedValue={selectedTab} onSelect={onTabSelect} />
+}
 
 export const Tab = Template.bind({})
 
 Tab.args = {
-  label: 'Prompt text',
   iconProps: {
     name: 'home'
   },
@@ -25,6 +27,19 @@ Tab.args = {
     text: '9'
   },
   size: 'large',
-  selectedValue: false,
-  disabled: false
+  disabled: false,
+  tabItems: [
+    {
+      label: 'Prompt text 1',
+      value: 1
+    },
+    {
+      label: 'Prompt text 2',
+      value: 2
+    },
+    {
+      label: 'Prompt text 3',
+      value: 3
+    }
+  ]
 }
