@@ -1,5 +1,5 @@
 import React from 'react'
-import {Progress as ProgressComp} from '../components'
+import { Progress as ProgressComp } from '../components'
 
 export default {
   title: 'Progress',
@@ -7,12 +7,12 @@ export default {
   argTypes: {
     type: {
       options: ['linear', 'circle'],
-      control: {type: 'radio'}
+      control: { type: 'radio' }
     },
     size: {
       options: ['large', 'small'],
-      control: {type: 'radio'}
-    },
+      control: { type: 'radio' }
+    }
   }
 }
 
