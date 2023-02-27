@@ -6,21 +6,21 @@
     --ds-progress-linear-size-lg: var(--ds-size-6);
     --ds-progress-linear-size-sm: var(--ds-size-2);
     --ds-progress-linear-border-radius: var(--ds-border-radius-md);
-    --ds-progress-linear-font-size-lg: var(--font-size-12);
-    --ds-progress-linear-font-size-sm: var(--font-size-10);
+    --ds-progress-linear-font-size-lg: var(--ds-paragraph-sm);
+    --ds-progress-linear-font-size-sm: var(--ds-paragraph-xs);
 
     --ds-progress-circle-size-lg: 90px;
     --ds-progress-circle-size-sm: 58px;
     --ds-progress-circle-border-lg: var(--ds-size-4);
     --ds-progress-circle-border-sm: var(--ds-size-2);
-    --ds-progress-circle-font-size-lg: var(--font-size-16);
-    --ds-progress-circle-font-size-sm: var(--font-size-12);
+    --ds-progress-circle-font-size-lg: var(--ds-paragraph-md);
+    --ds-progress-circle-font-size-sm: var(--ds-paragraph-sm);
 
     --ds-progress-bg-default: var(--ds-color-bg-cta-secondary-pressed);
     --ds-progress-bg-filled: var(--ds-color-bg-cta-primary-default);
 
     position: relative;
-    font-family: var(--font-family-primary);
+    font-family: var(--ds-font-family);
 
     &--linear {
         @include flexbox;
