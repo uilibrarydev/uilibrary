@@ -2,38 +2,24 @@ import React from 'react'
 
 import { TTabProps } from './types'
 import '../../assets/styles/components/_tab.scss'
-import Icon from '../Icon'
-import Badge from '../Badge'
+import TabItem from './TabItem'
 
 export const Tab = (props: TTabProps): JSX.Element | null => {
-  const {
-    size = 'large',
-    iconProps,
-    badgeProps,
-    label,
-    className = '',
-    disabled,
-    selectedValue
-  } = props
+  const { selectedValue, tabItems, onSelect, ...rest } = props
 
   return (
-    <div
-      className={`tab tab--${size} 
-                        ${disabled ? 'tab--disabled' : ''} 
-                        ${selectedValue ? 'tab--selected' : ''} 
-                        ${className}`}
-    >
-      {iconProps?.name ? (
-        <Icon
-          {...iconProps}
-          className="tab__icon mr-8"
-          size={`${size == 'small' ? 'xsmall' : 'small'}`}
-        />
-      ) : null}
-      <span className="tab__label">{label}</span>
-      {badgeProps?.text ? (
-        <Badge {...badgeProps} className="tab__badge ml-8" size="small" type="secondary" />
-      ) : null}
+    <div className="tabs-container">
+      {tabItems.map((tabInfo) => {
+        return (
+          <TabItem
+            label={tabInfo.label}
+            onClick={() => onSelect(tabInfo.value)}
+            key={tabInfo.value}
+            isSelected={selectedValue === tabInfo.value}
+            {...rest}
+          />
+        )
+      })}
     </div>
   )
 }

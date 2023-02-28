@@ -11,7 +11,7 @@ export default {
   title: 'Avatar',
   component: AvatarComp,
   argTypes: {
-    type: {
+    color: {
       options: ['default', 'purple', 'blue', 'green', 'red'],
       control: { type: 'radio' }
     },
@@ -28,7 +28,7 @@ export const Avatar = Template.bind({})
 
 Avatar.args = {
   initials: 'AG',
-  type: 'default',
+  color: 'default',
   size: 'large',
   isEditable: false,
   imagePath: image.src
