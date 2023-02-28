@@ -1,7 +1,7 @@
 import { RefObject } from 'react'
 import { IFormCompProps, TChangeEventType } from '../../types/globals'
 
-export interface InputCustomProps extends Omit<IFormCompProps, 'value'> {
+export interface InputCustomProps extends IFormCompProps {
   mask?: string
   className?: string
   size?: 'large' | 'small'
@@ -12,7 +12,6 @@ export interface InputCustomProps extends Omit<IFormCompProps, 'value'> {
   rightIcon?: boolean
   disabled?: boolean
   required?: boolean
-  valid?: boolean
   iconProps?: {
     name: string
     size?: string
@@ -24,5 +23,6 @@ export interface InputCustomProps extends Omit<IFormCompProps, 'value'> {
   placeholder?: string
   helperText?: string
   successMessage?: string
-  counter?: boolean
+  withCounter?: boolean
+  maxCount?: number
 }

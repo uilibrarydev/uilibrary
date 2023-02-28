@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import InputMask from 'react-input-mask'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
 import { TChangeEventType } from '../../types/globals'
@@ -15,7 +15,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       className,
       size = 'large',
       error,
-      valid,
       label,
       mask,
       onChange,
@@ -28,18 +27,32 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       iconProps,
       placeholder,
       type = 'text',
-      counter,
+      withCounter = false,
       helperText,
       successMessage,
+      maxCount,
       ...rest
     },
     ref
   ): JSX.Element => {
     const changeHandler = (event: TChangeEventType) => {
+      const length = event.target.value.length
+      if (length - 1 === maxCount) {
+        return
+      }
       if (onChange) {
         onChange(event)
       }
     }
+    const currentLength = useMemo(() => {
+      if (currentValue) {
+        return currentValue.length
+      }
+      if (rest && rest.value && typeof rest.value === 'string') {
+        return rest.value.length
+      }
+      return 0
+    }, [rest, currentValue])
 
     const input = mask ? (
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -57,13 +70,15 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         {...(currentValue ? { value: currentValue } : {})}
       />
     ) : (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       <input
         disabled={disabled}
         name={name}
         ref={ref}
         required={required}
         type={type}
-        placeholder={placeholder}
+        placeholder={!label ? placeholder : ''}
         onChange={changeHandler}
         {...rest}
         {...(currentValue ? { value: currentValue } : {})}
@@ -90,30 +105,28 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
           )}
         </label>
 
-        {required && error && <ErrorMessage message={error} icon="info-fill" />}
-        {valid || helperText || counter ? (
-          <div className="input__message mt-4">
-            {valid ? (
-              <Text size="small" type="success" className="flexbox align-items--center">
-                <>
-                  <Icon name="circle-mark-fill" type="success" size="xsmall" />
-                  <span>{successMessage}</span>
-                </>
-              </Text>
-            ) : null}
-            {helperText ? (
-              <Text size="small" type="secondary">
-                {helperText}
-              </Text>
-            ) : null}
+        <div className="input__message mt-4">
+          {error ? <ErrorMessage message={error} icon="info-fill" /> : null}
+          {successMessage ? (
+            <Text size="small" type="success" className="flexbox align-items--center">
+              <>
+                <Icon name="circle-mark-fill" type="success" size="xsmall" />
+                <span>{successMessage}</span>
+              </>
+            </Text>
+          ) : null}
+          {helperText && !successMessage ? (
+            <Text size="small" type="secondary">
+              {helperText}
+            </Text>
+          ) : null}
 
-            {counter ? (
-              <Text size="small" type="secondary">
-                120/240
-              </Text>
-            ) : null}
-          </div>
-        ) : null}
+          {withCounter ? (
+            <Text size="small" type="secondary">
+              {`${currentLength}/${maxCount}`}
+            </Text>
+          ) : null}
+        </div>
       </div>
     )
   }

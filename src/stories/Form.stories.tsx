@@ -63,14 +63,14 @@ const RADIO_OPTIONS = [
 
 const PHONE_NUMBER = 'phone'
 const VALIDATION_SCHEME = yup.object({
-  // [PHONE_NUMBER]: yup
-  //   .string()
-  //   .required('phone number is required')
-  //   .test('valid', 'Phone number is not valid', (val) => val?.indexOf('_') === -1)
+  [PHONE_NUMBER]: yup
+    .string()
+    .required('phone number is required')
+    .test('valid', 'Phone number is not valid', (val) => val?.indexOf('_') === -1)
   // select: yup.object().required('requierd field'),
   // date: yup.date().required(),
-  switcher: yup.boolean().required(),
-  radioGroup: yup.number().required()
+  // switcher: yup.boolean().required(),
+  // radioGroup: yup.number().required()
   // textarea: yup.string().required('A file is required'),
   // time: yup.string().required(),
   // firstName: yup.string().required('A file is required'),
@@ -88,8 +88,9 @@ const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
     // select: undefined,
     // checkbox: undefined
-    switcher: false,
-    radioGroup: 1
+    [PHONE_NUMBER]: ''
+    // switcher: false,
+    // radioGroup: 1
   }
 
   // const checkboxLabel = useMemo(() => {
@@ -122,17 +123,23 @@ const Template = (): JSX.Element => {
         onSubmit={(date) => console.log('sdsd', date)}
         validationScheme={VALIDATION_SCHEME}
         initialValues={INITIAL_VALUES}
-        buttonConfigs={BUTTONS_CONFIG}
       >
         <>
           <FormField
+            isControlled
+            name={PHONE_NUMBER}
+            As={(props) => {
+              return <Input {...props} label="Հեռախոսահամար" withCounter maxCount={8} />
+            }}
+          />
+          {/* <FormField
             isControlled
             isNeedChangeHandler
             name={'radioGroup'}
             As={(props: IFormCompProps) => {
               return <RadioGroup {...props} options={RADIO_OPTIONS} />
             }}
-          />
+          /> */}
           {/* <FormField
             isControlled
             isNeedChangeHandler

@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Textarea as TextareaComp } from '../components'
+import { TChangeEventType } from '../types/globals'
 
 export default {
   title: 'Textarea',
   component: TextareaComp
 }
 const Template = (args) => {
+  const [value, setValue] = useState('')
+  const changeHandler = (e: TChangeEventType) => {
+    setValue(e.target.value)
+  }
   return (
     <div style={{ maxWidth: 300 }}>
-      <TextareaComp {...args} />
+      <TextareaComp {...args} currentValue={value} onChange={changeHandler} />
     </div>
   )
 }
@@ -21,5 +26,7 @@ Textarea.args = {
   placeholder: 'Enter text',
   helperText: 'This is your helper text',
   successMessage: 'Success message',
-  error: 'Error message'
+  error: 'Error message',
+  withCounter: true,
+  maxCount: 15
 }

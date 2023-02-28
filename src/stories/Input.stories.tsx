@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Input as InputComp, Textarea as TextareaComp } from '../components'
+import { TChangeEventType } from '../types/globals'
 
 export default {
   title: 'Input',
@@ -12,9 +13,14 @@ export default {
   }
 }
 const Template = (args) => {
+  const [value, setValue] = useState('')
+  const changeHandler = (e: TChangeEventType) => {
+    setValue(e.target.value)
+  }
+
   return (
     <div style={{ maxWidth: 300 }}>
-      <InputComp {...args} />
+      <InputComp {...args} currentValue={value} onChange={changeHandler} />
     </div>
   )
 }
@@ -25,15 +31,15 @@ Input.args = {
   iconProps: {
     name: 'info'
   },
-  label: 'Label',
+  label: 'Some text',
   size: 'large',
   leftIcon: false,
   rightIcon: false,
   disabled: false,
   required: false,
-  valid: false,
-  counter: false,
-  placeholder: 'Enter text',
+  withCounter: true,
+  maxCount: 15,
+  placeholder: 'Some text',
   helperText: 'This is your helper text',
   successMessage: 'Success message',
   error: 'Error message'
