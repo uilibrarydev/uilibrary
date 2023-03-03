@@ -18,14 +18,14 @@ export default {
       control: { type: 'radio' }
     },
     ratio: {
-      options: ['1/1' , '2/1' , '3/1' , '4/3' , '16/9' , '1/1.618' , '2/3'],
+      options: ['1/1', '2/1', '3/1', '4/3', '16/9', '1/1.618', '2/3'],
       control: { type: 'radio' }
     }
   }
 } as Meta
 
 const Template = (args) => (
-  <div style={{ width: 300}}>
+  <div style={{ width: 300 }}>
     <ImageComp {...args} />
   </div>
 )
