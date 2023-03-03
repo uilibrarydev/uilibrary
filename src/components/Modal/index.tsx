@@ -88,7 +88,7 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
               ) : null}
 
               <div className="modal__content">{children}</div>
-              {!closeIcon ? (
+              {buttonProps ? (
                 <div className="modal__footer">
                   <Button
                     type="tertiary"
