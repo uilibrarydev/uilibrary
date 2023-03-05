@@ -6,4 +6,5 @@ export interface TFileUploadProps extends IFormCompProps {
   getFiles?: (files: File) => void
   toBase64?: boolean
   required?: boolean
+  isFileUploaded?: boolean
 }

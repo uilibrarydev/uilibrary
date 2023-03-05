@@ -8,6 +8,7 @@ const image = {
   src: imageFile,
   alt: 'my image'
 }
+
 export default {
   title: 'Image',
   component: ImageComp,
@@ -15,21 +16,26 @@ export default {
     backgroundSize: {
       options: ['cover', 'contain'],
       control: { type: 'radio' }
+    },
+    ratio: {
+      options: ['1/1', '2/1', '3/1', '4/3', '16/9', '1/1.618', '2/3'],
+      control: { type: 'radio' }
     }
   }
 } as Meta
 
 const Template = (args) => (
-  <div style={{ width: 300, height: 300 }}>
+  <div style={{ width: 300 }}>
     <ImageComp {...args} />
   </div>
 )
 
 export const Image = Template.bind({})
 Image.args = {
-  isBackgroundImage: false,
   imagePath: image.src,
+  isBackgroundImage: false,
   backgroundSize: 'contain',
   isFullWidth: false,
-  isFullHeight: false
+  isFullHeight: false,
+  ratio: '1/1'
 }

@@ -5,33 +5,35 @@ import './index.scss'
 const Image = (props: ImagePropTypes): JSX.Element => {
   const {
     name,
-    imagePath,
+    imagePath = 'static/media/src/assets/images/image-placeholder.png',
     isBackgroundImage,
     backgroundSize,
     className = '',
     isFullWidth,
-    isFullHeight
+    isFullHeight,
+    ratio = '1/1'
   } = props
 
-  return (
+  return isBackgroundImage ? (
     <div
-      className={`image ${className}`}
+      className={`image image--bg ${className}`}
       style={{
-        backgroundImage: `${!isBackgroundImage ? `url(${imagePath})` : ''}`,
-        backgroundSize: `${!isBackgroundImage ? backgroundSize : ''}`
+        backgroundImage: `${imagePath ? `url(${imagePath})` : ''}`,
+        backgroundSize: backgroundSize,
+        aspectRatio: ratio
       }}
-    >
-      {isBackgroundImage && (
-        <img
-          src={imagePath}
-          alt={name}
-          style={{
-            width: isFullWidth ? '100%' : '',
-            height: isFullHeight ? '100%' : ''
-          }}
-        />
-      )}
-    </div>
+    />
+  ) : (
+    <img
+      className={`image ${className}`}
+      src={imagePath}
+      alt={name}
+      style={{
+        aspectRatio: ratio,
+        width: isFullWidth ? '100%' : '',
+        height: isFullHeight ? '100%' : ''
+      }}
+    />
   )
 }
 

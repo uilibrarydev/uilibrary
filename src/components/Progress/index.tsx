@@ -3,7 +3,7 @@ import { TProgressPropTypes } from './types'
 import '../../assets/styles/components/_progress.scss'
 
 const Progress = (props: TProgressPropTypes): JSX.Element => {
-  const { percent, type, size, noText } = props
+  const { percent, type = 'linear', size = 'large', noText = false } = props
 
   const dimension = size === 'small' ? 29 : 45
   const r = dimension - 5
