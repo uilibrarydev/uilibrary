@@ -5,7 +5,7 @@ import { FileUpload as FileUploadComp } from '../components'
 
 export default {
   title: 'FileUpload',
-  component: FileUploadComp,
+  component: FileUploadComp
 }
 
 const getFiles = (files: FileList) => {
@@ -15,13 +15,13 @@ const getFiles = (files: FileList) => {
 const Template = (args): JSX.Element => {
   return (
     <div style={{ width: 400 }}>
-      <FileUploadComp {...args} allowedTypes={['PDF', 'XYZ', 'MKT']}  getFiles={getFiles} />
+      <FileUploadComp {...args} allowedTypes={['PDF', 'XYZ', 'MKT']} getFiles={getFiles} />
     </div>
   )
 }
 export const FileUpload = Template.bind({})
 
 FileUpload.args = {
-  label : 'Attach file',
+  label: 'Attach file',
   isFileUploaded: false
 }
