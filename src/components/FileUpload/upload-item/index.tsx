@@ -7,15 +7,16 @@ import Progress from '../../Progress'
 import Image from '../../Image'
 import ErrorMessage from '../../../helperComponents/ErrorMessage'
 
-const FILE_ICON_NAME: Record<string, string> = {
-  png: 'file_png',
-  jpeg: 'file_jpeg',
-  pdf: 'file_pdf'
-}
+// const FILE_ICON_NAME: Record<string, string> = {
+//   png: 'file_png',
+//   jpeg: 'file_jpeg',
+//   pdf: 'file_pdf'
+// }
 
 const UploadItem = (props: TUploadItemPropTypes): JSX.Element => {
   const { name, onRemove, fileType, isFileUploaded = false, error } = props
-  const iconName = FILE_ICON_NAME[fileType] || FILE_ICON_NAME.png
+  // TODO check this
+  // const iconName = FILE_ICON_NAME[fileType] || FILE_ICON_NAME.png
 
   return (
     <div className="upload-item mt-4">
