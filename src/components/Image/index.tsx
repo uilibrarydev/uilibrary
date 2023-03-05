@@ -11,7 +11,7 @@ const Image = (props: ImagePropTypes): JSX.Element => {
     className = '',
     isFullWidth,
     isFullHeight,
-    ratio
+    ratio = '1/1'
   } = props
 
   return isBackgroundImage ? (
