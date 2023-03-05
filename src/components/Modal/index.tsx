@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useOnOutsideClick } from '../../hooks'
-import Icon from '../Icon'
 import { TModalPropTypes } from './types'
 import '../../assets/styles/components/_modal.scss'
 import Button from '../Button'
@@ -33,9 +32,12 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
     title,
     closeIcon,
     size = 'small',
+    withFooter = true,
     buttonProps = {
-      confirmButtonText: 'Save',
-      cancelButtonText: 'Cancel'
+      confirm: {
+        buttonText: 'Save'
+      },
+      cancel: { buttonText: 'Cancel' }
     },
     children
   } = props
@@ -88,19 +90,19 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
               ) : null}
 
               <div className="modal__content">{children}</div>
-              {buttonProps ? (
+              {withFooter ? (
                 <div className="modal__footer">
                   <Button
+                    {...(buttonProps.cancel || {})}
                     type="tertiary"
                     size="medium"
                     className="mr-12"
-                    buttonText={buttonProps.cancelButtonText}
                     onClick={onClose}
                   />
                   <Button
+                    {...buttonProps.confirm}
                     type="primary"
                     size="medium"
-                    buttonText={buttonProps.confirmButtonText}
                     onClick={handleSubmit}
                   />
                 </div>
