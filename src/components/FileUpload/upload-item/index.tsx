@@ -33,7 +33,7 @@ const UploadItem = (props: TUploadItemPropTypes): JSX.Element => {
       <div className="upload-item__inner">
         <div className="upload-item__content mb-2">
           <div className="upload-item__content__inner pr-8">
-            <Text size="small" className="upload-item__text">
+            <Text size="small" lineHeight="medium" className="upload-item__text">
               {name}
             </Text>
             {error ? <ErrorMessage message="Maximum image size: 8 MB" /> : null}
