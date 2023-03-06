@@ -3,7 +3,7 @@ import UploadItem from './upload-item'
 import { TFileUploadProps } from './types'
 import '../../assets/styles/components/_upload.scss'
 import Button from '../Button'
-import Label from '../../helperComponents/Label';
+import Label from '../../helperComponents/Label'
 
 const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const {
@@ -16,7 +16,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     required,
     disabled,
     isFileUploaded,
-    buttonText,
+    buttonText
   } = props
 
   const [file, setFile] = useState<File | null>(null)
