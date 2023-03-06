@@ -22,6 +22,7 @@ const Template = (args): JSX.Element => {
 export const FileUpload = Template.bind({})
 
 FileUpload.args = {
-  label: 'Attach file',
+  label: 'Label',
+  buttonText: 'Attach file',
   isFileUploaded: false
 }

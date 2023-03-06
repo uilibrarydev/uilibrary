@@ -3,6 +3,7 @@ import UploadItem from './upload-item'
 import { TFileUploadProps } from './types'
 import '../../assets/styles/components/_upload.scss'
 import Button from '../Button'
+import Label from '../../helperComponents/Label';
 
 const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const {
@@ -13,7 +14,9 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     setFieldValue,
     toBase64,
     required,
-    isFileUploaded
+    disabled,
+    isFileUploaded,
+    buttonText,
   } = props
 
   const [file, setFile] = useState<File | null>(null)
@@ -78,32 +81,36 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
 
   return (
     <div className="file-upload">
-      <input
-        name={name}
-        type="file"
-        className="hide"
-        ref={fileInputRef}
-        accept={`${allowedTypes.join(',')}`}
-        onChange={handleChange}
-      />
-      <Button
-        type="secondary"
-        size="medium"
-        iconProps={{ name: 'attach', alignment: 'left' }}
-        onClick={handleClick}
-        buttonText={label}
-      />
-
-      {/*<Text>{`Թույլատրելի տեսակներ ${allowedTypes.join(', ')}`}</Text>*/}
-
-      {file ? (
-        <UploadItem
-          name={file?.['name']}
-          onRemove={handleFileRemove}
-          fileType={getFileType()}
-          isFileUploaded={isFileUploaded}
+      <Label text={label} required={required} disabled={disabled} />
+      <div className="file-upload__inner">
+        <input
+          name={name}
+          type="file"
+          className="hide"
+          ref={fileInputRef}
+          accept={`${allowedTypes.join(',')}`}
+          onChange={handleChange}
         />
-      ) : null}
+        <Button
+          type="secondary"
+          size="medium"
+          disabled={disabled}
+          iconProps={{ name: 'attach', alignment: 'left' }}
+          onClick={handleClick}
+          buttonText={buttonText}
+        />
+
+        {/*<Text>{`Թույլատրելի տեսակներ ${allowedTypes.join(', ')}`}</Text>*/}
+
+        {file ? (
+          <UploadItem
+            name={file?.['name']}
+            onRemove={handleFileRemove}
+            fileType={getFileType()}
+            isFileUploaded={isFileUploaded}
+          />
+        ) : null}
+      </div>
     </div>
   )
 }
