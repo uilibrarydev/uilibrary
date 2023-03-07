@@ -9,8 +9,6 @@
     --ds-progress-linear-font-size-lg: var(--ds-paragraph-sm);
     --ds-progress-linear-font-size-sm: var(--ds-paragraph-xs);
 
-    --ds-progress-circle-size-lg: 90px;
-    --ds-progress-circle-size-sm: 58px;
     --ds-progress-circle-border-lg: var(--ds-size-4);
     --ds-progress-circle-border-sm: var(--ds-size-2);
     --ds-progress-circle-font-size-lg: var(--ds-paragraph-md);
@@ -82,9 +80,6 @@
         }
 
         &#{$this}--large {
-            width: var(--ds-progress-circle-size-lg);
-            height: var(--ds-progress-circle-size-lg);
-
             circle {
                 stroke-width: var(--ds-progress-circle-border-lg);
             }
@@ -95,9 +90,6 @@
         }
 
         &#{$this}--small {
-            width: var(--ds-progress-circle-size-sm);
-            height: var(--ds-progress-circle-size-sm);
-
             circle {
                 stroke-width: var(--ds-progress-circle-border-sm);
             }
