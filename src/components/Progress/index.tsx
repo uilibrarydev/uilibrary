@@ -2,9 +2,14 @@ import React from 'react'
 import { TProgressPropTypes } from './types'
 import '../../assets/styles/components/_progress.scss'
 
+enum CIRCLE_SIZES {
+  small = 29,
+  large = 45
+}
+
 const Progress = (props: TProgressPropTypes): JSX.Element => {
   const { percent, type = 'linear', size = 'large', noText = false, dimension } = props
-  const _dimension = dimension ? dimension : size === 'small' ? 29 : 45
+  const _dimension = dimension ? dimension : CIRCLE_SIZES[size]
   const r = _dimension - 5
 
   const strokeDasharray = `${2 * r * 3.14}px`
