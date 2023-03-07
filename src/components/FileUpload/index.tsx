@@ -1,13 +1,23 @@
 import React, { useCallback, useRef, useState } from 'react'
-import IconComp from '../../components/Icon'
-import Text from '../../components/Text'
-import UploadedState from './uploaded-state'
+import UploadItem from './upload-item'
 import { TFileUploadProps } from './types'
-import './index.scss'
+import '../../assets/styles/components/_upload.scss'
+import Button from '../Button'
 import Label from '../../helperComponents/Label'
 
 const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
-  const { allowedTypes = ['*'], label, getFiles, name, setFieldValue, toBase64, required } = props
+  const {
+    allowedTypes = ['*'],
+    label,
+    getFiles,
+    name,
+    setFieldValue,
+    toBase64,
+    required,
+    disabled,
+    isFileUploaded,
+    buttonText
+  } = props
 
   const [file, setFile] = useState<File | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -63,18 +73,16 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     updateInForm(null)
   }, [updateInForm])
 
-  if (file) {
-    return (
-      <UploadedState name={file?.['name']} onRemove={handleFileRemove} fileType={getFileType()} />
-    )
-  }
+  // if (file) {
+  //   return (
+  //     <UploadedState name={file?.['name']} onRemove={handleFileRemove} fileType={getFileType()} />
+  //   )
+  // }
 
   return (
-    <div className="upload_button">
-      <IconComp name="attach" size="small" type="primary" withWrapper onClick={handleClick} />
-      <div className="label_container">
-        <Label text={label} required={required} />
-
+    <div className="file-upload">
+      <Label text={label} required={required} disabled={disabled} />
+      <div className="file-upload__inner">
         <input
           name={name}
           type="file"
@@ -83,7 +91,25 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
           accept={`${allowedTypes.join(',')}`}
           onChange={handleChange}
         />
-        <Text>{`Թույլատրելի տեսակներ ${allowedTypes.join(', ')}`}</Text>
+        <Button
+          type="secondary"
+          size="medium"
+          disabled={disabled}
+          iconProps={{ name: 'attach', alignment: 'left' }}
+          onClick={handleClick}
+          buttonText={buttonText}
+        />
+
+        {/*<Text>{`Թույլատրելի տեսակներ ${allowedTypes.join(', ')}`}</Text>*/}
+
+        {file ? (
+          <UploadItem
+            name={file?.['name']}
+            onRemove={handleFileRemove}
+            fileType={getFileType()}
+            isFileUploaded={isFileUploaded}
+          />
+        ) : null}
       </div>
     </div>
   )

@@ -44,7 +44,7 @@
   }
 
   &__title {
-    @include truncate(90%);
+    @include truncate(100%);
   }
 
   &__content {
