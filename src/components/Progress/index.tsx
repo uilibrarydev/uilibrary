@@ -3,17 +3,24 @@ import { TProgressPropTypes } from './types'
 import '../../assets/styles/components/_progress.scss'
 
 const Progress = (props: TProgressPropTypes): JSX.Element => {
-  const { percent, type = 'linear', size = 'large', noText = false, dimension  } = props
-  const _dimension = dimension ? dimension : size==='small' ? 29 : 45
+  const { percent, type = 'linear', size = 'large', noText = false, dimension } = props
+  const _dimension = dimension ? dimension : size === 'small' ? 29 : 45
   const r = _dimension - 5
 
   const strokeDasharray = `${2 * r * 3.14}px`
 
   return (
-    <div className={`progress-bar progress-bar--${type} progress-bar--${size}`} style={type == 'circle' ? {
-      width: 2 * _dimension,
-      height: 2 * _dimension
-    } : {}}>
+    <div
+      className={`progress-bar progress-bar--${type} progress-bar--${size}`}
+      style={
+        type == 'circle'
+          ? {
+              width: 2 * _dimension,
+              height: 2 * _dimension
+            }
+          : {}
+      }
+    >
       {type == 'circle' ? (
         <svg>
           <circle cx={_dimension} cy={_dimension} r={r}></circle>
