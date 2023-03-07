@@ -1,22 +1,28 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import React from 'react'
-import { FileUpload } from '../components'
+import { FileUpload as FileUploadComp } from '../components'
 
 export default {
   title: 'FileUpload',
-  component: FileUpload
+  component: FileUploadComp
 }
 
 const getFiles = (files: FileList) => {
   console.log(files)
 }
 
-const Template = (): JSX.Element => {
+const Template = (args): JSX.Element => {
   return (
     <div style={{ width: 400 }}>
-      <FileUpload allowedTypes={['PDF', 'XYZ', 'MKT']} label="Կցել ֆայլ" getFiles={getFiles} />
+      <FileUploadComp {...args} allowedTypes={['PDF', 'XYZ', 'MKT']} getFiles={getFiles} />
     </div>
   )
 }
-export const FileUploadComponent = Template.bind({})
+export const FileUpload = Template.bind({})
+
+FileUpload.args = {
+  label: 'Label',
+  buttonText: 'Attach file',
+  isFileUploaded: false
+}

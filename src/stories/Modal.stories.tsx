@@ -24,6 +24,13 @@ const Template = (args): JSX.Element => {
         onClose={closeModal}
         isOpen={isOpen}
         onSumbit={() => console.log('submit')}
+        buttonProps={{
+          confirm: {
+            buttonText: 'Register',
+            buttonActionType: 'submit'
+          },
+          cancel: { buttonText: 'Cancel' }
+        }}
       >
         <div>Modal content</div>
       </ModalComp>
