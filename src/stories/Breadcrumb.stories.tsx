@@ -14,7 +14,7 @@ const Template = (args): JSX.Element | null => {
 export const Breadcrumb = Template.bind({})
 
 Breadcrumb.args = {
-  breadrumbItem: [
+  breadCrumbItems: [
     {
       label: 'Home',
       value: 1
