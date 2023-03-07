@@ -25,5 +25,6 @@ Progress.args = {
   type: 'linear',
   size: 'large',
   percent: 30,
-  noText: false
+  noText: false,
+  dimension: ''
 }

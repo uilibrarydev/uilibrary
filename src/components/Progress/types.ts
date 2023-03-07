@@ -3,4 +3,5 @@ export interface TProgressPropTypes {
   type?: 'linear' | 'circle'
   size?: 'large' | 'small'
   noText?: boolean
+  dimension?: number
 }
