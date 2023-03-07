@@ -1,3 +1,6 @@
 export interface TProgressPropTypes {
-  percent: number
+  percent?: number
+  type?: 'linear' | 'circle'
+  size?: 'large' | 'small'
+  noText?: boolean
 }

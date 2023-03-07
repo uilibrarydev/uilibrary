@@ -1,6 +1,7 @@
 :root {
   //----------- default tokens -------------//
 
+  --size-2: 3px;
   --size-4: 4px;
   --size-6: 6px;
   --size-8: 8px;
@@ -25,6 +26,7 @@
  * @tokens Sizes
  */
 
+  --ds-size-2: var(--size-2);
   --ds-size-4: var(--size-4);
   --ds-size-6: var(--size-6);
   --ds-size-8: var(--size-8);
@@ -39,8 +41,8 @@
   --ds-size-64: var(--size-64);
   --ds-size-80: var(--size-80);
   --ds-size-100: var(--size-100);
-  --ds-size-160: var(--size-160px);
-  --ds-size-240: var(--size-240px);
+  --ds-size-160: var(--size-160);
+  --ds-size-240: var(--size-240);
 
   /**
   * @tokens-end

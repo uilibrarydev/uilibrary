@@ -26,6 +26,8 @@ import RadioGroup from './Radio/RadioGroup'
 import Tab from './Tab'
 import Snackbar from './Snackbar'
 import Popover from './Popover'
+import Breadcrumb from './Breadcrumb'
+import Image from './Image'
 
 export {
   Text,
@@ -57,5 +59,7 @@ export {
   Popover,
   RadioGroup,
   Tab,
-  Snackbar
+  Snackbar,
+  Breadcrumb,
+  Image
 }

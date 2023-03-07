@@ -3,10 +3,27 @@ import { Progress as ProgressComp } from '../components'
 
 export default {
   title: 'Progress',
-  component: ProgressComp
+  component: ProgressComp,
+  argTypes: {
+    type: {
+      options: ['linear', 'circle'],
+      control: { type: 'radio' }
+    },
+    size: {
+      options: ['large', 'small'],
+      control: { type: 'radio' }
+    }
+  }
 }
 
-const Template = (): JSX.Element => {
-  return <ProgressComp percent={50} />
+const Template = (args) => {
+  return <ProgressComp {...args} />
 }
+
 export const Progress = Template.bind({})
+Progress.args = {
+  type: 'linear',
+  size: 'large',
+  percent: 30,
+  noText: false
+}
