@@ -1,10 +1,10 @@
-import React, { useRef, useState } from 'react'
-import { motion } from 'framer-motion'
-import Icon from '../Icon'
-import Label from '../../helperComponents/Label'
+import React, { useMemo, useRef, useState } from 'react'
 import { useOnOutsideClick } from '../../hooks'
-import { TSelectPropTypes, TSelectOption } from './types'
+import { TSelectPropTypes } from './types'
 import './index.scss'
+import { SelectItem } from './SelectItem'
+import { TChangeEventType, TClickEventType, TItemValue, TSelectOption } from '../../types/globals'
+import Input from '../Input'
 
 const Select = (props: TSelectPropTypes): JSX.Element | null => {
   const {
@@ -12,24 +12,36 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
     placeHolder,
     value,
     label,
-    selectedValue = { value: '', label: '' },
+    selectedValue = null,
     onSelect,
     setFieldValue,
     name,
-    required
+    required,
+    multiSelect = false,
+    leftIconProps,
+    rightIconProps,
+    avatar,
+    withSearch,
+    withFooter
   } = props
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
+  const [filterValue, setFilterValue] = useState('')
+
+  const onFilterChange = (e: TChangeEventType) => {
+    const result = e.target.value
+    setFilterValue(result)
+  }
 
   const ref = useRef(null)
 
   const closeDropdown = () => setIsOpen(false)
 
-  const toggleIsOpen = () => setIsOpen(!isOpen)
+  const close = () => setIsOpen(false)
 
   useOnOutsideClick(ref, closeDropdown)
 
-  const onItemSelect = (item: TSelectOption) => {
+  const onItemSelect = (item: TItemValue) => {
     if (onSelect) {
       onSelect(item)
     }
@@ -39,37 +51,58 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
     closeDropdown()
   }
 
+  const open = (e?: TClickEventType) => {
+    const result = e?.target as HTMLDivElement
+    if (e && result.className && result.className.indexOf('icon-') !== -1) {
+      setIsOpen(!isOpen)
+      e.preventDefault()
+      return
+    } else {
+      setIsOpen(true)
+    }
+  }
+
   const currentvalue = value || selectedValue
+
+  const filteredOptions = useMemo(() => {
+    return options.filter((item) => item.label.toString().indexOf(filterValue) !== -1)
+  }, [filterValue, options])
+
+  const selectedItemLabel = useMemo(() => {
+    const selectedItem = filteredOptions.find((item) => item.value === currentvalue)
+    return selectedItem?.label.toString() || ''
+  }, [filteredOptions, currentvalue])
 
   return (
     <div className="select-container" ref={ref}>
-      <Label text={label} required={required} />
-
-      <div
-        className={`selected-item-container ${isOpen ? 'opened' : 'closed'}`}
-        onClick={toggleIsOpen}
-      >
-        <div className="select-item ">
-          {currentvalue && typeof currentvalue === 'object' && 'label' in currentvalue
-            ? currentvalue.label
-            : placeHolder}
-        </div>
-
-        <Icon
-          className="selected-item-container__icon"
-          size="small"
-          name={isOpen ? 'arrow-up' : 'arrow-down'}
-          type="primary"
+      <div className="input_container" onClick={open}>
+        <Input
+          label={label}
+          required={required}
+          rightIcon
+          placeholder={placeHolder}
+          onChange={onFilterChange}
+          iconProps={{
+            name: isOpen ? 'arrow-up' : 'arrow-down',
+            onClick: isOpen ? close : open
+          }}
+          currentValue={selectedItemLabel}
         />
       </div>
+
       {isOpen && (
         <div className="select-options-wrapper">
-          {options.map((item) => {
-            const { value, label } = item
+          {filteredOptions.map((item: TSelectOption) => {
             return (
-              <span className="select-option" key={value} onClick={() => onItemSelect(item)}>
-                {label}
-              </span>
+              <SelectItem
+                data={item}
+                key={item.value}
+                onClick={onItemSelect}
+                leftIconProps={leftIconProps}
+                rightIconProps={rightIconProps}
+                avatar={avatar}
+                isSelected={selectedValue === item.value}
+              />
             )
           })}
         </div>

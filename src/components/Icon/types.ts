@@ -1,4 +1,5 @@
 import { LegacyRef } from 'react'
+import { TClickHandler } from '../../types/globals'
 
 export interface IconPropTypes {
   name?: string
@@ -15,8 +16,8 @@ export interface IconPropTypes {
     | 'success'
     | 'information'
     | 'discovery'
-  size?: 'xsmall' | 'small' | 'medium' | 'large'
-  onClick?: () => void
+  size?: TIconSize
+  onClick?: TClickHandler
   className?: string
   refHandler?: LegacyRef<HTMLElement> | undefined
   withWrapper?: boolean

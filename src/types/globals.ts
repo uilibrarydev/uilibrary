@@ -1,9 +1,15 @@
-declare type TSelectedValue = string | number
+export type TItemValue = string | number | null
+declare type TItemLabel = string | number
+
+export type TClickHandler = (e: TClickEventType) => void
 
 export type TSelectOption = {
-  value: TSelectedValue
-  label: TSelectedValue
+  value: TItemValue
+  label: TItemLabel
+  meta?: string
 }
+
+export type TSelectOptions = TSelectOption[]
 
 export type TRangePickerValues = [Date | null, Date | null]
 

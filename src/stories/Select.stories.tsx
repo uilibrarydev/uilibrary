@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { TSelectOption } from '../components/Select/types'
 import { Select as SelectComp } from '../components'
+import { TItemValue, TSelectOptions } from '../types/globals'
 
 export default {
   title: 'Select',
   component: SelectComp
 }
 
-const OPTIONS: TSelectOption[] = [
+const OPTIONS: TSelectOptions = [
   {
     value: 'armenia',
     label: 'Armenia'
@@ -19,7 +19,7 @@ const OPTIONS: TSelectOption[] = [
 ]
 
 const Template = (): JSX.Element => {
-  const [selectedValue, setSelectedValue] = useState<TSelectOption | null>(null)
+  const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
 
   return (
     <div style={{ width: 300 }}>
