@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { TBreadCrumbProps } from './types'
+import { TBreadCrumbItem, TBreadCrumbProps } from './types'
 import '../../assets/styles/components/_breadcrumb.scss'
 
 export const BreadcrumbComp = (props: TBreadCrumbProps): JSX.Element | null => {
-  const { selectedValue, breadrumbItem, className = '', onSelect } = props
+  const { selectedValue, breadCrumbItems, className = '', onSelect } = props
 
   return (
     <div className={`breadcrumb ${className}`}>
-      {breadrumbItem.map((itemInfo) => {
+      {breadCrumbItems.map((itemInfo: TBreadCrumbItem) => {
         return (
           <span className="breadcrumb__item" key={itemInfo.value}>
             <span

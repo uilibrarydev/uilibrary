@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
 import Label from '../../helperComponents/Label'
 import { TChangeEventType } from '../../types/globals'
@@ -21,6 +21,10 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
       placeHolder,
       onChange,
       required = false,
+      withCounter,
+      maxCount,
+      helperText,
+      successMessage,
       ...rest
     },
     ref
@@ -33,29 +37,53 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
         onChange(event)
       }
     }
+    const currentLength = useMemo(() => {
+      if (currentValue) {
+        return currentValue.length
+      }
+      if (rest && rest.value && typeof rest.value === 'string') {
+        return rest.value.length
+      }
+      return 0
+    }, [rest, currentValue])
 
     return (
       <div className={`textarea  ${className} ${error ? 'textarea--invalid' : ''}`}>
         <Label text={label} required={required} disabled={disabled} />
         <div className="textarea__inner">
+          {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment 
+          // @ts-ignore */}
           <textarea
             disabled={disabled}
             ref={ref}
-            placeholder={placeHolder}
+            placeholder={label ? '' : placeHolder}
             onChange={handleChange}
             {...rest}
             {...(currentValue ? { value: currentValue } : {})}
           />
         </div>
-        {required && error && <ErrorMessage message={error} icon="info-fill" />}
-        {valid && (
-          <Text size="small" type="success" className="textarea__message">
-            <>
-              <Icon name="circle-mark-fill" className="textarea__message__icon" size="xsmall" />
-              <span>This is your helper text</span>
-            </>
-          </Text>
-        )}
+        <div className="textarea__message mt-4">
+          {error && <ErrorMessage message={error} icon="info-fill" />}
+          {successMessage ? (
+            <Text size="small" type="success" className="flexbox align-items--center">
+              <>
+                <Icon name="circle-mark-fill" type="success" size="xsmall" />
+                <span>{successMessage}</span>
+              </>
+            </Text>
+          ) : null}
+          {helperText && !successMessage ? (
+            <Text size="small" type="secondary">
+              {helperText}
+            </Text>
+          ) : null}
+
+          {withCounter ? (
+            <Text size="small" type="secondary">
+              {`${currentLength}/${maxCount}`}
+            </Text>
+          ) : null}
+        </div>
       </div>
     )
   }

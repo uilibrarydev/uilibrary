@@ -1,7 +1,6 @@
 @import "../../assets/styles/shared";
 
 .input {
-
   &__message {
     @include flexbox;
     @include align-items(center);
