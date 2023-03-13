@@ -83,6 +83,10 @@
       &:active, &:visited {
         background-color: var(--ds-controller-bg-pressed-light);
       }
+
+      #{$this}__mark {
+        position: absolute;
+      }
     }
 
     &:checked {
