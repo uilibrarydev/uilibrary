@@ -13,4 +13,5 @@ export interface TModalPropTypes {
   }
   closeIcon?: boolean
   children: JSX.Element
+  className?: string
 }

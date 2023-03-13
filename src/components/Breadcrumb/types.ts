@@ -6,7 +6,7 @@ export type TBreadCrumbItem = {
   onClick: () => void
 }
 export interface TBreadCrumbProps extends IFormCompProps {
-  breadrumbItem: TBreadCrumbItem[]
+  breadCrumbItems: TBreadCrumbItem[]
   className?: string
 
   selectedValue: number | string
