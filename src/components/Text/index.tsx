@@ -3,7 +3,15 @@ import { TextPropTypes } from './types'
 import { noop } from '../../utils'
 
 const Text: React.FC<TextPropTypes> = (props: TextPropTypes) => {
-  const { children, className = '', type, size, weight, lineHeight, onClick = noop } = props
+  const {
+    children,
+    className = '',
+    type = 'primary',
+    size = 'standart',
+    weight = 'regular',
+    lineHeight = 'medium',
+    onClick = noop
+  } = props
   return (
     <p
       onClick={onClick}
