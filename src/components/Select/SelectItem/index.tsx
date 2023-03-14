@@ -4,7 +4,7 @@ import { TSelectItemProps } from './types'
 import './index.scss'
 
 export const SelectItem = (props: TSelectItemProps): JSX.Element => {
-  const { data, onClick, avatar, isSelected, leftIconProps } = props
+  const { data, onClick, avatar, isSelected, leftIconProps, rightIconProps } = props
 
   const { label } = data
   const showLeftIcon = !avatar
@@ -17,7 +17,7 @@ export const SelectItem = (props: TSelectItemProps): JSX.Element => {
         <span className="select-option" onClick={() => onClick(data.value)}>
           {label}
         </span>
-        {showLeftIcon ? <Icon {...leftIconProps} /> : null}
+        {showLeftIcon ? <Icon {...rightIconProps} /> : null}
       </div>
     </div>
   )

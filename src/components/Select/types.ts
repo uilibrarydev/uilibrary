@@ -1,4 +1,5 @@
 import { IFormCompProps, TClickHandler, TItemValue, TSelectOptions } from '../../types/globals'
+import { TButtonPropTypes } from '../Button/types'
 
 export interface TSelectPropTypes extends IFormCompProps {
   withSearch?: boolean
@@ -27,4 +28,17 @@ export interface TSelectPropTypes extends IFormCompProps {
     onClick: TClickHandler
   }
   avatar?: string
+  buttonProps?: {
+    cancel: TButtonPropTypes
+    confirm: TButtonPropTypes
+  }
+}
+
+export type TSelectFooterPropTypes = {
+  buttonProps: {
+    cancel: TButtonPropTypes
+    confirm: TButtonPropTypes
+  }
+  onCancel: () => void
+  onApply: () => void
 }

@@ -1,10 +1,30 @@
 import React, { useState } from 'react'
 import { Select as SelectComp } from '../components'
 import { TItemValue, TSelectOptions } from '../types/globals'
+// import imageFile from '../assets/images/avatar.jpg'
+
+// const image = {
+//   src: imageFile,
+//   alt: 'my image'
+// }
 
 export default {
   title: 'Select',
-  component: SelectComp
+  component: SelectComp,
+  argTypes: {
+    multiSelect: {
+      options: ['true', 'false'],
+      control: { multiSelect: 'false' }
+    },
+    withSearch: {
+      options: ['true', 'false'],
+      control: { withSearch: 'false' }
+    },
+    withFooter: {
+      options: ['true', 'false'],
+      control: { withFooter: 'false' }
+    }
+  }
 }
 
 const OPTIONS: TSelectOptions = [
@@ -18,7 +38,7 @@ const OPTIONS: TSelectOptions = [
   }
 ]
 
-const Template = (): JSX.Element => {
+const Template = (args): JSX.Element => {
   const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
 
   return (
@@ -29,8 +49,19 @@ const Template = (): JSX.Element => {
         onSelect={setSelectedValue}
         options={OPTIONS}
         selectedValue={selectedValue}
+        {...args}
       />
     </div>
   )
 }
 export const Select = Template.bind({})
+
+Select.args = {
+  options: OPTIONS,
+  multiSelect: true,
+  withFooter: true,
+  withSearch: false,
+  // avatar: image.src,
+  leftIconProps: { name: 'user' },
+  rightIconProps: { name: 'more' }
+}
