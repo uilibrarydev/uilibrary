@@ -12,7 +12,6 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
   (
     {
       className,
-      valid,
       error,
       label,
       disabled,

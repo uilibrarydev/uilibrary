@@ -31,6 +31,7 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
     onSumbit,
     title,
     closeIcon,
+    className = '',
     size = 'small',
     withFooter = true,
     buttonProps = {
@@ -58,7 +59,7 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
     <AnimatePresence>
       {isOpen ? (
         <motion.div
-          className={`modal modal--${size}`}
+          className={`modal modal--${size} ${className}`}
           initial={{
             opacity: 0
           }}
