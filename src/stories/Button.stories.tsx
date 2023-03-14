@@ -19,7 +19,7 @@ export default {
     },
     isLoading: {
       options: ['true', 'false'],
-      control: { disabled: 'false' }
+      control: { isLoading: 'false' }
     }
   }
 }

@@ -3,8 +3,10 @@ import { useOnOutsideClick } from '../../hooks'
 import { TSelectPropTypes } from './types'
 import './index.scss'
 import { SelectItem } from './SelectItem'
+import Footer from './Footer'
 import { TChangeEventType, TClickEventType, TItemValue, TSelectOption } from '../../types/globals'
 import Input from '../Input'
+import { noop } from '../../utils'
 
 const Select = (props: TSelectPropTypes): JSX.Element | null => {
   const {
@@ -22,11 +24,18 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
     rightIconProps,
     avatar,
     withSearch,
-    withFooter
+    withFooter,
+    buttonProps = {
+      confirm: {
+        buttonText: 'Apply'
+      },
+      cancel: { buttonText: 'Cancel' }
+    }
   } = props
 
   const [isOpen, setIsOpen] = useState(true)
   const [filterValue, setFilterValue] = useState('')
+  // const [selectedItems, setSelectedItems] = useState([])
 
   const onFilterChange = (e: TChangeEventType) => {
     const result = e.target.value
@@ -105,6 +114,7 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
               />
             )
           })}
+          {withFooter ? <Footer buttonProps={buttonProps} onCancel={noop} onApply={noop} /> : null}
         </div>
       )}
     </div>
