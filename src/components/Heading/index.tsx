@@ -3,7 +3,14 @@ import { HeadingPropTypes } from './types'
 import { noop } from '../../utils'
 
 const Heading: React.FC<HeadingPropTypes> = (props: HeadingPropTypes) => {
-  const { children, className = '', size, type: As = 'h1', weight, onClick = noop } = props
+  const {
+    children,
+    className = '',
+    size = 'standart',
+    type: As = 'h1',
+    weight = 'regular',
+    onClick = noop
+  } = props
 
   return (
     <As
