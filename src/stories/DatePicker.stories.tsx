@@ -28,7 +28,7 @@ const getAllLastdays = () => {
 }
 
 const SimplePicker = (): JSX.Element => {
-  const [value, setValue] = useState<Date>(new Date())
+  const [value, setValue] = useState<Date | undefined>(undefined)
 
   return (
     <div style={{ width: 300 }}>
@@ -36,6 +36,7 @@ const SimplePicker = (): JSX.Element => {
         value={value}
         changeHandler={setValue}
         format="DD"
+        label="ddd"
         excludeDates={getAllLastdays()}
         minDate={new Date(new Date().setDate(new Date().getDate() + 15))}
         maxDate={new Date(new Date().setDate(new Date().getDate() + 60))}

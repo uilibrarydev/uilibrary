@@ -69,7 +69,5 @@ export const useGetTooltipPosition = (info: TTooltipInfo): TTooltipPosition => {
     return calculatedPosition
   }, [calculatedPosition, tooltipWidth, itemWidth, left])
 
-  console.log('finalPosition', finalPosition)
-
   return finalPosition as TTooltipPosition
 }

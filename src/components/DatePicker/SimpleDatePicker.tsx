@@ -26,6 +26,7 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
     value !== undefined && Object.prototype.toString.call(value) === '[object Date]'
       ? value
       : currentDate
+
   const [selectedDate, setSelectedDate] = useState(dateInitialValue)
 
   const onChange = (date: Date) => {
@@ -44,7 +45,7 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
       <Label text={label} required={required} />
 
       <DatePicker
-        selected={moment.isDate(selectedDate) ? selectedDate : new Date()}
+        selected={moment.isDate(selectedDate) ? selectedDate : undefined}
         locale="hy"
         customInput={
           <Input

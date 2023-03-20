@@ -10,5 +10,6 @@ declare type TComp = (props: TStepperContentWrapperProps) => JSX.Element
 
 export interface TStepperProps {
   list: TComp[]
-  initialActiveIndex?: number
+  activeStep?: number
+  setActiveStep?: (step: number) => void
 }
