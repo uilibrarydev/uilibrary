@@ -12,7 +12,15 @@ export type TChangeEventType =
   | React.ChangeEvent<HTMLInputElement>
   | React.ChangeEvent<HTMLTextAreaElement>
 
-declare type TFormValue = string | boolean | TSelectOption | File | Date | TRangePickerValues | null
+declare type TFormValue =
+  | string
+  | number
+  | boolean
+  | TSelectOption
+  | File
+  | Date
+  | TRangePickerValues
+  | null
 declare type TOnChange = (event: TChangeEventType) => void
 
 // Props which will pass FormField to component
@@ -29,4 +37,20 @@ export interface IFormCompProps {
 
 export type TRegister = (name: string) => {
   onChange: TOnChange
+}
+
+export type TTooltipPosition =
+  | 'top-left'
+  | 'top-center'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-center'
+  | 'bottom-right'
+  | 'middle-left'
+  | 'middle-right'
+
+export type TTooltipInfo = {
+  initialPosition: TTooltipPosition
+  elemRef: HTMLElement | null
+  tooltipRef: HTMLElement | null
 }

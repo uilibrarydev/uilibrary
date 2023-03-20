@@ -1,7 +1,16 @@
 @import 'src/assets/styles/helpers/colors';
 
 .error-message {
-    color: $inputBorderError;
-    font-size: 12px;
-    position:absolute;
+    --error-message-icon-size: var(--ds-size-16);
+    --error-message-margin: var(--ds-space-4) 0 0 0;
+    --error-message-icon-margin: 0 var(--ds-space-4) 0 0;
+    --error-message-icon-color: var(--ds-color-icon-danger);
+
+    display: inline-flex;
+    align-items: center;
+    margin: var(--error-message-margin);
+
+    &__icon {
+        margin: var(--error-message-icon-margin);
+    }
 }

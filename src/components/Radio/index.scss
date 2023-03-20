@@ -1,0 +1,33 @@
+@import "../../assets/styles/shared";
+
+.radio-group {
+    $this: &;
+
+    --radio-group-item-space: var(--ds-space-20);
+
+    @include inline-flex;
+
+    &--horizontal {
+        @include align-items(flex-start);
+
+        #{$this}__item {
+            margin-right: var(--radio-group-item-space);
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &--vertical {
+        @include flex-direction(column);
+
+        #{$this}__item {
+            margin-bottom: var(--radio-group-item-space);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

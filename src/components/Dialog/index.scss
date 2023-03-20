@@ -1,5 +1,4 @@
 @import 'src/assets/styles/helpers/colors';
-@import 'src/assets/styles/helpers/sizes';
 
 .dialog{
     min-width: 600px;
@@ -10,7 +9,7 @@
     &_title{
         font-weight: 500;
         color: $black;
-        font-size: $mediumTextSize;
+        font-size: 16px;
         padding: 16px 24px;
         border-bottom: 1px solid #f2f2f2;
     }
@@ -21,12 +20,12 @@
     }
     &_content_title{
         color: $labelGray;
-        font-size: $xSmallTextSize;
+        font-size: 12px;
         margin-bottom: 3px;
     }
     &_content_text{
         color: $black;
-        font-size: $largeTextSize; 
+        font-size: 24px;
     }
     &_footer{
         padding: 0 40px 40px 40px;

@@ -1,0 +1,9 @@
+@import "../../assets/styles/shared";
+
+.textarea {
+  &__message {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(space-between);
+  }
+}

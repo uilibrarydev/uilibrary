@@ -1,26 +1,13 @@
-@import 'src/assets/styles/helpers/colors';
+@import 'src/assets/styles/shared';
 
-.icon {
-    cursor: pointer;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
+.icon, .icon-wrapper {
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
 }
 
-.icon_wrapper {
-    width: 40px;
-    height: 40px;
-    background-color: $justWhite;
-    position: relative;
-    border-radius: 4px;
-    box-sizing: border-box;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    .custom_icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+.icon-wrapper {
+  width: 40px;
+  height: 40px;
 }
+

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, RefObject } from 'react'
 
 export const useOnOutsideClick = (
-  ref: RefObject<HTMLInputElement> | null,
+  ref: RefObject<HTMLElement> | null,
   handler: (event: MouseEvent) => void
 ): void => {
   const [isTouchMoved, setTouchMoved] = useState(false)

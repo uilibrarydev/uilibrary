@@ -1,22 +1,24 @@
-//@import "https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@100;200;400;500;600;700;800;900&family=Noto+Sans:wght@100;300;500;600;700;800;900&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@100;200;400;500;600;700;800;900&family=Noto+Sans:wght@100;300;500;600;700;800;900&display=swap";
 
-@font-face {
-  font-family: "NotoSansArmenian";
-  src:  url("/src/assets/fonts/noto-sans-armenian/NotoSansArmenian-Regular.ttf") format("truetype");
-}
+//@font-face {
+//  font-family: "NotoSansArmenian";
+//  src:  url("/src/assets/fonts/noto-sans-armenian/NotoSansArmenian-Regular.ttf") format("truetype");
+//}
 
 :root {
   //----------- default tokens -------------//
 
 
-  --font-family-primary: 'NotoSansArmenian';
+  --font-family-primary: 'Noto Sans Armenian';
   --font-family-secondary: 'Tahoma';
   --font-family-tertiary: 'Open Sans';
 
+  --font-size-6: 6px;
   --font-size-10: 10px;
   --font-size-12: 12px;
   --font-size-14: 14px;
   --font-size-16: 16px;
+  --font-size-18: 18px;
   --font-size-20: 20px;
   --font-size-24: 24px;
   --font-size-32: 32px;
@@ -29,14 +31,13 @@
   --font-weight-500: 500;
   --font-weight-600: 600;
   --font-weight-700: 700;
-  --font-weight-800: 800;
-  --font-weight-900: 900;
 
-  --line-height: 1.5;
+  --line-height-xs: 1.15;
+  --line-height-sm: 1.2;
+  --line-height-md: 1.32;
+  --line-height-lg: 1.5;
 
-  --letter-spacing-0: 0;
-  --letter-spacing-1: 1px;
-  --letter-spacing-2: 2px;
+  --letter-spacing: 1px;
 
 
   //----------- alias tokens -------------//
@@ -46,8 +47,8 @@
   * @presenter FontFamily
   */
 
-  --ds-font-family-primary: var(--font-family-primary);
-  --ds-font-family-secondary: var(--font-family-secondary);
+  --ds-font-family: var(--font-family-primary);
+  --ds-font-family-code: var(--font-family-secondary);
   --ds-font-family-tertiary: var(--font-family-tertiary);
 
   /**
@@ -55,17 +56,19 @@
   * @presenter FontSize
   */
 
-  --ds-font-size-10: var(--font-size-10);
-  --ds-font-size-12: var(--font-size-12);
-  --ds-font-size-14: var(--font-size-14);
-  --ds-font-size-16: var(--font-size-16);
-  --ds-font-size-20: var(--font-size-20);
-  --ds-font-size-24: var(--font-size-24);
-  --ds-font-size-32: var(--font-size-32);
-  --ds-font-size-36: var(--font-size-36);
-  --ds-font-size-40: var(--font-size-40);
-  --ds-font-size-48: var(--font-size-48);
-  --ds-font-size-64: var(--font-size-64);
+  --ds-headline-xl: var(--font-size-64);
+  --ds-headline-lg: var(--font-size-48);
+  --ds-headline-md: var(--font-size-40);
+  --ds-headline-std: var(--font-size-36);
+  --ds-headline-sm: var(--font-size-32);
+  --ds-headline-xs: var(--font-size-24);
+
+  --ds-paragraph-lg: var(--font-size-20);
+  --ds-paragraph-md: var(--font-size-16);
+  --ds-paragraph-std: var(--font-size-14);
+  --ds-paragraph-sm: var(--font-size-12);
+  --ds-paragraph-xs: var(--font-size-10);
+  --ds-paragraph-xxs: var(--font-size-6);
 
 
   /**
@@ -73,12 +76,10 @@
   * @presenter FontWeight
   */
 
-  --ds-font-weight-400: var(--font-weight-400);
-  --ds-font-weight-500: var(--font-weight-500);
-  --ds-font-weight-600: var(--font-weight-600);
-  --ds-font-weight-700: var(--font-weight-700);
-  --ds-font-weight-800: var(--font-weight-800);
-  --ds-font-weight-900: var(--font-weight-900);
+  --ds-font-weight-default: var(--font-weight-400);
+  --ds-font-weight-active: var(--font-weight-500);
+  --ds-font-weight-heading: var(--font-weight-600);
+  --ds-font-weigh-strong: var(--font-weight-700);
 
 
   /**
@@ -86,7 +87,10 @@
   * @presenter LineHeight
   */
 
-  --ds-line-height: var(--line-height);
+  --ds-line-height-default: var(--line-height-xs);
+  --ds-line-height-tight: var(--line-height-sm);
+  --ds-line-height-caption: var(--line-height-md);
+  --ds-line-height-heading: var(--line-height-lg);
 
 
   /**
@@ -94,8 +98,10 @@
   * @presenter LetterSpacing
   */
 
-  --ds-letter-spacing-0: var(--letter-spacing-0);
-  --ds-letter-spacing-1: var(--letter-spacing-1);
-  --ds-letter-spacing-2: var(--letter-spacing-2);
+  --ds-letter-spacing: var(--letter-spacing);
 
+
+  /**
+  * @tokens-end
+  */
 }

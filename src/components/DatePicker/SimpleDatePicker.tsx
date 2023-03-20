@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import moment from 'moment'
 import DatePicker, { registerLocale } from 'react-datepicker'
-import Text from '../Text'
 import hy from 'date-fns/locale/hy'
 import Input from '../Input'
 import { ISimpleDatePickerProps } from './types'
+import Label from '../../helperComponents/Label'
+import Icon from '../Icon'
 
 registerLocale('hy', hy)
 
@@ -17,6 +18,7 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
     label,
     changeHandler,
     format = 'M/D/YYYY',
+    required = false,
     ...rest
   } = props
 
@@ -24,6 +26,7 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
     value !== undefined && Object.prototype.toString.call(value) === '[object Date]'
       ? value
       : currentDate
+
   const [selectedDate, setSelectedDate] = useState(dateInitialValue)
 
   const onChange = (date: Date) => {
@@ -39,21 +42,17 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
 
   return (
     <div className="picker-container">
-      {label && (
-        <Text color="labelGray" className="label">
-          {label}
-        </Text>
-      )}
+      <Label text={label} required={required} />
 
       <DatePicker
-        selected={moment.isDate(selectedDate) ? selectedDate : new Date()}
+        selected={moment.isDate(selectedDate) ? selectedDate : undefined}
         locale="hy"
         customInput={
-          <div className="date-picker_input-container">
-            <Input
-              currentValue={selectedDate ? moment(selectedDate.toString()).format(format) : ''}
-            />
-          </div>
+          <Input
+            iconProps={{ name: 'calendar' }}
+            rightIcon={true}
+            currentValue={selectedDate ? moment(selectedDate.toString()).format(format) : ''}
+          />
         }
         {...rest}
         onChange={onChange}

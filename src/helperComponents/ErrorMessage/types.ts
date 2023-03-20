@@ -1,3 +1,4 @@
 export interface TErrorMessageProps {
-  message: string
+  message?: string | JSX.Element
+  icon?: string
 }

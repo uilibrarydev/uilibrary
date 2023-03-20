@@ -1,0 +1,111 @@
+@import "../shared";
+
+.textarea {
+  $this: &;
+
+  //----------- component specific tokens -------------//
+
+  --ds-textarea-size: var(--ds-size-100);
+  --ds-textarea-padding: var(--ds-space-10) var(--ds-space-12);
+  --ds-textarea-font: var(--ds-font-weight-default) var(--ds-paragraph-std)/var(--ds-line-height-heading) var(--ds-font-family);
+
+  --ds-textarea-bg-default: var(--ds-color-bg-cta-secondary-default);
+  --ds-textarea-bg-hover: var(--ds-color-bg-cta-secondary-hover);
+  --ds-textarea-bg-pressed: var(--ds-color-bg-cta-secondary-default);
+  --ds-textarea-bg-focused: var(--ds-color-bg-cta-secondary-default);
+  --ds-textarea-bg-activated: var(--ds-color-bg-cta-secondary-default);
+  --ds-textarea-bg-validated: var(--ds-color-bg-cta-secondary-default);
+  --ds-textarea-bg-invalid: var(--ds-color-bg-cta-secondary-default);
+  --ds-textarea-bg-disabled: var(--ds-color-bg-cta-secondary-default);
+
+  --ds-textarea-body-text-default: var(--ds-color-text-tertiary);
+  --ds-textarea-body-text-focused: var(--ds-color-text-primary);
+  --ds-textarea-body-text-activated: var(--ds-color-text-primary);
+  --ds-textarea-body-text-validated: var(--ds-color-text-primary);
+  --ds-textarea-body-text-invalid: var(--ds-color-text-primary);
+  --ds-textarea-body-text-disabled: var(--ds-color-text-disabled);
+
+  --ds-textarea-border-color-default: var(--ds-color-border-cta);
+  --ds-textarea-border-color-hover: var(--ds-color-border-cta);
+  --ds-textarea-border-color-focused: var(--ds-color-bg-cta-primary-focused);
+  --ds-textarea-border-color-activated: var(--ds-color-border-cta);
+  --ds-textarea-border-color-validated: var(--ds-color-border-cta);
+  --ds-textarea-border-color-invalid: var(--ds-color-text-danger);
+  --ds-textarea-border-color-disabled: var(--ds-color-border-disabled);
+  --ds-textarea-border: var(--ds-border-thin) solid var(--ds-textarea-border-color-default);
+  --ds-textarea-border-radius: var(--ds-border-radius-xs);
+
+  --ds-textarea-transition: background-color .3s linear, color .3s linear, border-color .3s linear;
+
+  //----------//
+
+  textarea {
+    border: 0;
+    width: 100%;
+    outline: none;
+    font: var(--ds-textarea-font);
+    color: var(--ds-textarea-body-text-default);
+    transition: var(--ds-textarea-transition);
+    height: var(--ds-textarea-size);
+    border-radius: var(--ds-textarea-border-radius);
+    border: var(--ds-textarea-border);
+    background-color: var(--ds-textarea-bg-default);
+    padding: var(--ds-textarea-padding);
+    margin: var(--ds-textarea-margin);
+    resize: none;
+
+    &:-ms-input-placeholder {
+      color: var(--ds-textarea-body-text-default);
+    }
+    &::placeholder {
+      color: var(--ds-textarea-body-text-default);
+    }
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+
+    &:valid {
+      color: var(--ds-textarea-body-text-validated);
+      background-color: var(--ds-textarea-bg-validatedd);
+      border-color: var(--ds-textarea-border-color-validated);
+    }
+
+    &:invalid {
+      color: var(--ds-textarea-body-text-invalid);
+      background-color: var(--ds-textarea-bg-invalid);
+      border-color: var(--ds-textarea-border-color-invalid);
+    }
+
+    &:hover {
+      background-color: var(--ds-textarea-bg-hover);
+      border-color: var(--ds-textarea-border-color-hover);
+    }
+
+    &:focus {
+      color: var(--ds-textarea-body-text-focused);
+      background-color: var(--ds-textarea-bg-focused);
+      border-color: var(--ds-textarea-border-color-focused);
+    }
+
+    &:active, &:visited {
+      color: var(--ds-textarea-body-text-activated);
+      background-color: var(--ds-textarea-bg-activated);
+      border-color: var(--ds-textarea-border-color-activated);
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: var(--ds-textarea-bg-default);
+      border-color: var(--ds-textarea-border-color-disabled);
+      color: var(--ds-textarea-body-text-disabled);
+
+      &:-ms-input-placeholder {
+        color: var(--ds-textarea-body-text-disabled);
+      }
+      &::placeholder {
+        color: var(--ds-textarea-body-text-disabled);
+      }
+    }
+  }
+}

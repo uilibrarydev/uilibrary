@@ -1,5 +1,4 @@
 export interface TDividerProps {
-  color?: TColor
-  styles?: { [key: string]: string }
+  type: 'primary' | 'secondary'
   isHorizontal?: boolean
 }

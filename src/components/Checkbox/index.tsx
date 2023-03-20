@@ -1,13 +1,23 @@
 import React from 'react'
 import Icon from '../Icon'
 import { TCheckboxProps } from './types'
-import './index.scss'
+import '../../assets/styles/components/_controllers.scss'
 
 export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
-  const { label, name, setFieldValue, selectedValue, value, onClick } = props
-  const isChecked = !!value || selectedValue
+  const {
+    label,
+    disabled,
+    required = false,
+    name,
+    setFieldValue,
+    selectedValue,
+    value,
+    className = '',
+    onClick
+  } = props
 
-  const clickHandler = () => {
+  const isChecked = !!value || selectedValue
+  const changeHandler = () => {
     if (name && setFieldValue) {
       setFieldValue(name, !isChecked, { shouldValidate: !isChecked })
     }
@@ -17,19 +27,36 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   }
 
   return (
-    <div className="custom_checkbox_container" onClick={clickHandler}>
-      <div
-        role="checkbox"
-        aria-checked={isChecked}
+    <label
+      className={`controller controller--checkbox 
+                  ${disabled ? 'controller--disabled' : ''}
+                  ${className}
+                  `}
+    >
+      <input
+        type="checkbox"
         tabIndex={0}
-        className={`custom_checkbox_container_content ${isChecked ? 'checked' : ''}`}
-      >
-        <div className={'custom_checkbox_container_icon '}>
-          {isChecked && <Icon name="tick" color="justWhite" size="xxSmall" />}
-        </div>
-      </div>
-      {label}
-    </div>
+        onChange={changeHandler}
+        checked={isChecked}
+        disabled={disabled}
+      />
+      <span className="controller__icon">
+        {isChecked && (
+          <Icon
+            name="mark"
+            size="xsmall"
+            type={`${disabled ? 'disabled' : 'inverse'}`}
+            className="controller__mark"
+          />
+        )}
+      </span>
+      {label ? (
+        <span className="controller__label">
+          {label}
+          {required && <sup>*</sup>}
+        </span>
+      ) : null}
+    </label>
   )
 }
 

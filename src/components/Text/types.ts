@@ -1,7 +1,23 @@
+import { TClickEventType } from '../../types/globals'
+
 export interface TextPropTypes {
-  children: string | JSX.Element
-  size?: TTextSize
-  color?: TColor
+  children?: string | JSX.Element
+  type?:
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'disabled'
+    | 'inverse'
+    | 'selected'
+    | 'brand'
+    | 'danger'
+    | 'warning'
+    | 'success'
+    | 'information'
+    | 'discovery'
+  size?: 'xxsmall' | 'xsmall' | 'small' | 'standard' | 'medium' | 'large'
+  weight?: 'regular' | 'semibold' | 'bold' | 'bolder'
+  lineHeight?: 'xsmall' | 'small' | 'medium' | 'large'
   className?: string
-  onClick?: (event: TEventType) => void
+  onClick?: (event: TClickEventType) => void
 }

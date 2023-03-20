@@ -1,21 +1,21 @@
 import React from 'react'
 import Icon from '../Icon'
 import { TButtonPropTypes } from './types'
+import '../../assets/styles/components/_button.scss'
 
 const Button = (props: TButtonPropTypes): JSX.Element => {
   const {
     buttonText,
     type = 'primary',
     size = 'large',
-    className,
+    className = '',
     iconProps,
-    justIcon,
     buttonActionType,
-    disabled = false,
-    isLoading = false,
+    disabled,
+    isLoading,
     onClick
   } = props
-
+  const justIcon = !buttonText && iconProps !== undefined
   return (
     <button
       disabled={disabled}
@@ -23,16 +23,26 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
       className={`btn btn--${type} btn--${size}
                   ${
                     !isLoading &&
-                    iconProps?.name &&
                     !justIcon &&
+                    iconProps?.name &&
                     `btn--icon-${iconProps?.alignment}`
                   } 
-                  ${justIcon && 'btn--icon'}
-                  ${className || ''}`}
+                  ${justIcon ? 'btn--icon' : ''}
+                  ${isLoading ? 'btn--loading' : ''}
+                  ${className}`}
       onClick={onClick}
     >
-      {iconProps?.name && <Icon {...iconProps} className="btn__icon" />}
-      {isLoading || (!justIcon && buttonText)}
+      {iconProps?.name ? (
+        <Icon
+          {...iconProps}
+          className="btn__icon"
+          size={`${size == 'large' ? 'small' : size == 'medium' ? 'small' : 'xsmall'}`}
+        />
+      ) : null}
+
+      {buttonText ? (
+        <span className="btn__text">{isLoading || (!justIcon && buttonText)}</span>
+      ) : null}
     </button>
   )
 }

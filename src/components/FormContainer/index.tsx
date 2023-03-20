@@ -1,14 +1,21 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
 import { FormContext } from '../../context'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
 import { FormPropTypes } from './types'
-import './index.scss'
 import Button from '../Button'
 import { noop } from '../../utils'
+import '../../assets/styles/components/_form.scss'
 
 const FormContainer = (props: FormPropTypes): JSX.Element => {
-  const { children, initialValues, validationScheme, buttonConfigs, onSubmit } = props
+  const {
+    children,
+    className = '',
+    initialValues,
+    validationScheme,
+    buttonConfigs,
+    onSubmit
+  } = props
 
   const {
     handleSubmit,
@@ -23,12 +30,12 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
   })
 
   return (
-    <form onSubmit={handleSubmit(onSubmit || noop)} className="form_container">
+    <form onSubmit={handleSubmit(onSubmit || noop)} className={`form-container ${className}`}>
       <FormContext.Provider value={{ register, errors, control, setValue }}>
         <>
           {children}
           {buttonConfigs && (
-            <div className="buttons_container">
+            <div className="form-container__buttons">
               {buttonConfigs.map((buttonConfig, index) => {
                 return <Button {...buttonConfig} key={index} />
               })}

@@ -8,11 +8,13 @@ export interface ISimpleDatePickerProps extends IFormCompProps {
   minDate?: Date | null
   maxDate?: Date | null
   format?: string
+  required?: boolean
 }
 export interface ITimePickerProps extends IFormCompProps {
   label?: string | JSX.Element
   currentTime?: Date | undefined
   changeHandler?: (date: Date) => void
+  required?: boolean
 }
 
 export interface IRangeDatePickerProps extends IFormCompProps {

@@ -1,6 +1,9 @@
+//icons icomoon
+@import "../fonts/icomoon/style.css";
+
 //helpers
+@import "helpers/reset";
 @import "helpers/mixin";
-@import "helpers/sizes";
 @import "helpers/classname";
 
 //tokens
@@ -9,6 +12,5 @@
 @import 'tokens/spaces';
 @import 'tokens/sizes';
 @import 'tokens/borders';
-
-//components
-@import 'src/assets/styles/components/button';
+@import 'tokens/shadows';
+@import 'tokens/overlays';

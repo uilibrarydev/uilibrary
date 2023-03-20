@@ -1,8 +1,0 @@
-
-@import 'src/assets/styles/helpers/colors';
-.custom-textarea{
-    &:focus {
-        border-color: $inputBorderActive;
-    }
-    outline: none;  
-}

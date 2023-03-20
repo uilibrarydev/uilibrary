@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Icon from '../Icon'
-import Text from '../Text'
+import Label from '../../helperComponents/Label'
 import { useOnOutsideClick } from '../../hooks'
 import { TSelectPropTypes, TSelectOption } from './types'
 import './index.scss'
@@ -15,7 +15,8 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
     selectedValue = { value: '', label: '' },
     onSelect,
     setFieldValue,
-    name
+    name,
+    required
   } = props
 
   const [isOpen, setIsOpen] = useState(false)
@@ -42,11 +43,8 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
 
   return (
     <div className="select-container" ref={ref}>
-      {label && (
-        <Text color="labelGray" className="label">
-          {label}
-        </Text>
-      )}
+      <Label text={label} required={required} />
+
       <div
         className={`selected-item-container ${isOpen ? 'opened' : 'closed'}`}
         onClick={toggleIsOpen}
@@ -57,12 +55,12 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
             : placeHolder}
         </div>
 
-        <motion.div
-          animate={{ rotate: isOpen ? 0 : 180 }}
-          transition={{ type: 'spring', damping: 30, stiffness: 800 }}
-        >
-          <Icon size="small" name="arrow_up" color="dropdownGray" />
-        </motion.div>
+        <Icon
+          className="selected-item-container__icon"
+          size="small"
+          name={isOpen ? 'arrow-up' : 'arrow-down'}
+          type="primary"
+        />
       </div>
       {isOpen && (
         <div className="select-options-wrapper">

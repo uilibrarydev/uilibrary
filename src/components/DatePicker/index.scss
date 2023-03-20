@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import 'src/assets/styles/helpers/colors';
-@import 'src/assets/styles/helpers/sizes';
 
 ::-webkit-scrollbar {
   width: 4px;
@@ -178,7 +177,7 @@ display: none;
 .react-datepicker-time__header,
 .react-datepicker-year-header {
   margin-top: 0;
-  font-size: $xSmallTextSize;
+  font-size: 12px;
   font-weight: 400;
   line-height: 16px;
   clear: $textBlack;
@@ -767,7 +766,7 @@ display: none;
 }
 .react-datepicker__portal .react-datepicker__current-month,
 .react-datepicker__portal .react-datepicker-time__header {
-  font-size: $xSmallTextSize;
+  font-size: 12px;
 }
 
 
@@ -775,4 +774,8 @@ display: none;
   .label{
     margin-bottom: 8px;
   }
+}
+
+.react-datepicker__aria-live{
+  display: none;
 }

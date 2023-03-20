@@ -10,8 +10,9 @@ import {
   TimePicker,
   SimpleDatePicker,
   Select,
-  TextArea,
-  Switcher
+  Textarea,
+  Switcher,
+  RadioGroup
 } from '../components'
 import { IFormCompProps } from '../types/globals'
 import { TSelectOption } from '../components/Select/types'
@@ -29,6 +30,21 @@ const OPTIONS: TSelectOption[] = [
   {
     value: 'italy',
     label: 'Italy'
+  }
+]
+
+const RADIO_OPTIONS = [
+  {
+    label: 'Text1',
+    value: 1
+  },
+  {
+    label: 'Text2',
+    value: 2
+  },
+  {
+    label: 'Text3',
+    value: 3
   }
 ]
 
@@ -53,7 +69,8 @@ const VALIDATION_SCHEME = yup.object({
     .test('valid', 'Phone number is not valid', (val) => val?.indexOf('_') === -1)
   // select: yup.object().required('requierd field'),
   // date: yup.date().required(),
-  // switcher: yup.boolean().required()
+  // switcher: yup.boolean().required(),
+  // radioGroup: yup.number().required()
   // textarea: yup.string().required('A file is required'),
   // time: yup.string().required(),
   // firstName: yup.string().required('A file is required'),
@@ -69,27 +86,29 @@ const getFiles = (file: File) => {
 
 const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
-    [PHONE_NUMBER]: '+374 99 999999'
     // select: undefined,
     // checkbox: undefined
+    [PHONE_NUMBER]: ''
+    // switcher: false,
+    // radioGroup: 1
   }
 
-  const checkboxLabel = useMemo(() => {
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Text>Համաձայն եմ ԱՔՌԱ հարցման կատարմանը</Text>
-        <Text color="inputBorderActive" onClick={(e) => e.stopPropagation()}>
-          <a
-            href="https://github.com/jaredpalmer/formik/issues/1040"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Ավելին
-          </a>
-        </Text>
-      </div>
-    )
-  }, [])
+  // const checkboxLabel = useMemo(() => {
+  //   return (
+  //     <div style={{ display: 'flex', flexDirection: 'column' }}>
+  //       <Text>Համաձայն եմ ԱՔՌԱ հարցման կատարմանը</Text>
+  //       <Text onClick={(e) => e.stopPropagation()}>
+  //         <a
+  //           href="https://github.com/jaredpalmer/formik/issues/1040"
+  //           target="_blank"
+  //           rel="noreferrer"
+  //         >
+  //           Ավելին
+  //         </a>
+  //       </Text>
+  //     </div>
+  //   )
+  // }, [])
 
   const BUTTONS_CONFIG = [
     {
@@ -104,24 +123,23 @@ const Template = (): JSX.Element => {
         onSubmit={(date) => console.log('sdsd', date)}
         validationScheme={VALIDATION_SCHEME}
         initialValues={INITIAL_VALUES}
-        buttonConfigs={BUTTONS_CONFIG}
       >
         <>
           <FormField
             isControlled
-            // isNeedChangeHandler/
             name={PHONE_NUMBER}
             As={(props) => {
-              return (
-                <Input
-                  {...props}
-                  label="Հեռախոսահամար"
-                  mask="+374 99 999999"
-                  placeholder="+374 __ ______"
-                />
-              )
+              return <Input {...props} label="Հեռախոսահամար" withCounter maxCount={8} />
             }}
           />
+          {/* <FormField
+            isControlled
+            isNeedChangeHandler
+            name={'radioGroup'}
+            As={(props: IFormCompProps) => {
+              return <RadioGroup {...props} options={RADIO_OPTIONS} />
+            }}
+          /> */}
           {/* <FormField
             isControlled
             isNeedChangeHandler
@@ -135,8 +153,8 @@ const Template = (): JSX.Element => {
             isControlled
             name={'checkbox'}
             As={(props: IFormCompProps) => <Checkbox {...props} label={checkboxLabel} />}
-          /> */}
-          {/* <FormField
+          />
+          <FormField
             isControlled
             name={PHONE_NUMBER}
             As={(props) => {
@@ -149,8 +167,8 @@ const Template = (): JSX.Element => {
                 />
               )
             }}
-          /> */}
-          {/* <FormField
+          />
+          <FormField
             As={(props: IFormCompProps) => {
               return <Input {...props} label="First Name" />
             }}
@@ -199,7 +217,7 @@ const Template = (): JSX.Element => {
             As={(props: IFormCompProps) => {
               return <TextArea {...props} placeHolder="Select country" />
             }}
-          />
+          /> */}
           <FormField
             isControlled
             isNeedChangeHandler
@@ -207,7 +225,7 @@ const Template = (): JSX.Element => {
             As={(props: IFormCompProps) => {
               return <Switcher {...props} />
             }}
-          /> */}
+          />
         </>
       </FormContainer>
     </>

@@ -1,0 +1,31 @@
+@import "../shared";
+
+.divider {
+    $this: &;
+
+    --ds-divider-bg-color: var(--ds-color-divider);
+
+    border: none;
+    margin: 0;
+
+    &--horizontal{
+        height: 1px;
+        width: 100%;
+    }
+    &--vertical{
+        width: 1px;
+        height: 100%;
+    }
+
+    &--primary {
+        background-color: var(--ds-divider-bg-color);
+    }
+
+    &--secondary {
+        background: repeating-linear-gradient(90deg,var(--ds-divider-bg-color),var(--ds-divider-bg-color) 4px,transparent 6px,transparent 8px);
+
+        &#{$this}--vertical {
+            background: repeating-linear-gradient(0deg,var(--ds-divider-bg-color),var(--ds-divider-bg-color) 4px,transparent 6px,transparent 8px);
+        }
+    }
+}

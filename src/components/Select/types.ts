@@ -15,4 +15,5 @@ export interface TSelectPropTypes extends IFormCompProps {
   placeHolder?: string
   onSelect?: (value: TSelectOption) => void
   selectedValue?: TSelectOption | null
+  required?: boolean
 }

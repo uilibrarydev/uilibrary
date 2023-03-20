@@ -1,39 +1,46 @@
 import React, { useState } from 'react'
-import { Input as InputComp } from '../components'
+import { Input as InputComp, Textarea as TextareaComp } from '../components'
 import { TChangeEventType } from '../types/globals'
 
 export default {
   title: 'Input',
-  component: InputComp
-}
-const Template = (): JSX.Element => {
-  const [value, setValue] = useState('')
-  const [error, setError] = useState('')
-
-  const onChange = (e: TChangeEventType) => {
-    const _value = e.target.value
-    setValue(_value)
-
-    if (_value.length < 5) {
-      setError('Inputed value is too short')
-    } else {
-      if (error) {
-        setError('')
-      }
+  component: InputComp,
+  argTypes: {
+    size: {
+      options: ['large', 'small'],
+      control: { type: 'radio' }
     }
+  }
+}
+const Template = (args) => {
+  const [value, setValue] = useState('')
+  const changeHandler = (e: TChangeEventType) => {
+    setValue(e.target.value)
   }
 
   return (
-    <div style={{ width: 300 }}>
-      <InputComp
-        currentValue={value}
-        changeHandler={onChange}
-        label="Հեռախոսահամար"
-        type="number"
-        // mask="(+374) 99 99 99 99"
-      />
+    <div style={{ maxWidth: 300 }}>
+      <InputComp {...args} currentValue={value} onChange={changeHandler} />
     </div>
   )
 }
 
 export const Input = Template.bind({})
+Input.args = {
+  type: 'text',
+  iconProps: {
+    name: 'info'
+  },
+  label: 'Some text',
+  size: 'large',
+  leftIcon: false,
+  rightIcon: false,
+  disabled: false,
+  required: false,
+  withCounter: true,
+  maxCount: 15,
+  placeholder: 'Some text',
+  helperText: 'This is your helper text',
+  successMessage: 'Success message',
+  error: 'Error message'
+}

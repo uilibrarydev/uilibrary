@@ -1,0 +1,290 @@
+@import "../shared";
+
+.controller {
+  $this: &;
+
+  //----------- component specific tokens -------------//
+
+  --ds-controller-size: var(--ds-size-16);
+
+  --ds-controller-font: var(--ds-font-weight-default) var(--ds-paragraph-std)/var(--ds-line-height-caption) var(--ds-font-family);
+
+  --ds-controller-bg-default-light: var(--ds-color-bg-cta-secondary-default);
+  --ds-controller-bg-default-dark: var(--grey-400);
+  --ds-controller-bg-hover-light: var(--ds-color-bg-cta-secondary-hover);
+  --ds-controller-bg-hover-dark: var(--grey-300);
+  --ds-controller-bg-pressed-light: var(--ds-color-bg-cta-secondary-pressed);
+  --ds-controller-bg-pressed-dark: var(--grey-500);
+  --ds-controller-bg-focused: var(--ds-color-bg-cta-secondary-focused);
+  --ds-controller-bg-disabled: var(--ds-color-bg-cta-disabled);
+
+  --ds-controller-selected-bg-default: var(--ds-color-bg-cta-primary-default);
+  --ds-controller-selected-bg-hover: var(--ds-color-bg-cta-primary-hover);
+  --ds-controller-selected-bg-pressed: var(--ds-color-bg-cta-primary-pressed);
+  --ds-controller-selected-bg-focused: var(--ds-color-bg-cta-primary-focused);
+  --ds-controller-selected-bg-disabled: var(--ds-color-bg-cta-disabled);
+
+  --ds-controller-mark-light: var(--ds-color-icon-inverse);
+  --ds-controller-mark-dark: var(--ds-color-icon-disabled);
+
+  --ds-controller-border-color-default: var(--ds-color-border-cta);
+  --ds-controller-border-color-focused: var(--grey-500);
+  --ds-controller-border-color-disabled: var(--grey-200);
+
+  --ds-controller-border: var(--ds-border-thin) solid;
+  --ds-controller-border-radius-sm: var(--ds-border-radius-xs);
+  --ds-controller-border-radius-lg: var(--ds-border-radius-xl);
+
+  --ds-controller-label-default: var(--ds-color-text-primary);
+  --ds-controller-label-disabled: var(--ds-color-text-disabled);
+  --ds-controller-label-padding: 0 0 0 var(--ds-space-8);
+
+  --ds-controller-transition: background-color .3s linear, border .3s linear;
+
+  --ds-radio-border-width: 6px;
+
+  --ds-switch-size-sm: var(--ds-size-20);
+  --ds-switch-size-lg: var(--ds-size-24);
+  --ds-switch-icon-size-sm: var(--ds-size-16);
+  --ds-switch-icon-size-lg: var(--ds-size-20);
+
+  //----------//
+
+  @include inline-flex;
+  @include align-items(center);
+  cursor: pointer;
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    position: absolute;
+
+    & + #{$this}__icon {
+      @include flexbox;
+      @include align-items(center);
+      @include justify-content(center);
+      width: var(--ds-controller-size);
+      min-width: var(--ds-controller-size);
+      height: var(--ds-controller-size);
+      background-color: var(--ds-controller-bg-default-light);
+      border-radius: var(--ds-controller-border-radius-sm);
+      border: var(--ds-controller-border) var(--ds-controller-border-color-default);
+      transition: var(--ds-controller-transition);
+
+      &:hover {
+        background-color: var(--ds-controller-bg-hover-light);
+      }
+      &:focus {
+        background-color: var(--ds-controller-bg-focused);
+        border-color: var(--ds-controller-border-color-focused);
+      }
+      &:active, &:visited {
+        background-color: var(--ds-controller-bg-pressed-light);
+      }
+
+      #{$this}__mark {
+        position: absolute;
+      }
+    }
+
+    &:checked {
+      & + #{$this}__icon {
+        background-color: var(--ds-controller-selected-bg-default);
+        border-color: var(--ds-controller-selected-bg-default);
+        color: var(--ds-controller-mark-light);
+
+        &:hover {
+          background-color: var(--ds-controller-selected-bg-hover);
+          border-color: var(--ds-controller-selected-bg-hover);
+        }
+
+        &:focus {
+          background-color: var(--ds-controller-selected-bg-focused);
+          border-color: var(--ds-controller-selected-bg-focused);
+        }
+
+        &:active, &:visited {
+          background-color: var(--ds-controller-selected-bg-pressed);
+          border-color: var(--ds-controller-selected-bg-pressed);
+        }
+      }
+
+      &:disabled {
+        & + #{$this}__icon {
+          background-color: var(--ds-controller-selected-bg-disabled);
+          border-color: var(--ds-controller-border-color-disabled);
+          color: var(--ds-controller-mark-dark);
+        }
+      }
+    }
+
+    &:disabled {
+      & + #{$this}__icon {
+        background-color: var(--ds-controller-bg-disabled);
+        border-color: var(--ds-controller-border-color-disabled);
+
+        & + #{$this}__label {
+          color: var(--ds-controller-label-disabled);
+        }
+      }
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+  }
+
+  &__label {
+    font: var(--ds-controller-font);
+    color: var(--ds-controller-label-default);
+    padding: var(--ds-controller-label-padding);
+
+    sup {
+      margin-left: 2px;
+    }
+  }
+
+  &--radio {
+    input[type="radio"] {
+     & + #{$this}__icon {
+        border-radius: var(--ds-controller-border-radius-lg);
+      }
+
+      &:checked {
+        & + #{$this}__icon {
+          background-color: var(--ds-controller-mark-light);
+          border-width: var(--ds-radio-border-width);
+
+          &:hover, &:focus, &:active, &:visited {
+            background-color: var(--ds-controller-mark-light);
+          }
+        }
+        &:disabled {
+          & + #{$this}__icon {
+            border-color: var(--ds-controller-selected-bg-disabled);
+            background-color: var(--ds-controller-mark-dark);
+          }
+        }
+      }
+    }
+  }
+
+  &--switch {
+    input[type="checkbox"] {
+      & + #{$this}__icon {
+        border: 0;
+        position: relative;
+        border-radius: var(--ds-controller-border-radius-lg);
+        background-color: var(--ds-controller-bg-default-dark);
+
+        &:hover {
+          background-color: var(--ds-controller-bg-hover-dark);
+        }
+
+        &:active, &:visited {
+          background-color: var(--ds-controller-bg-pressed-dark);
+        }
+
+        #{$this}__icon__inner {
+          @include flexbox;
+          @include align-items(center);
+          @include justify-content(center);
+          border-radius: var(--ds-controller-border-radius-lg);
+          background-color: var(--ds-controller-bg-default-light);
+          position: absolute;
+          left: 2px;
+          transition: transform .3s linear;
+        }
+      }
+
+      &:checked {
+        & + #{$this}__icon {
+          background-color: var(--ds-controller-selected-bg-default);
+
+          #{$this}__icon__inner {
+            color: var(--ds-controller-selected-bg-default);
+          }
+
+          &:hover {
+            background-color: var(--ds-controller-selected-bg-hover);
+
+            #{$this}__icon__inner {
+              color: var(--ds-controller-selected-bg-hover);
+            }
+          }
+
+          &:active, &:visited {
+            background-color: var(--ds-controller-selected-bg-pressed);
+
+            #{$this}__icon__inner {
+              color: var(--ds-controller-selected-bg-pressed);
+            }
+          }
+        }
+
+        &:disabled {
+         & + #{$this}__icon {
+           background-color: var(--ds-controller-selected-bg-disabled);
+
+           #{$this}__icon__inner {
+             color: var(--ds-controller-mark-dark);
+           }
+          }
+        }
+      }
+
+      &:disabled {
+        #{$this}__icon {
+          background-color: var(--ds-controller-bg-disabled);
+          color: var(--ds-controller-label-disabled);
+        }
+      }
+    }
+
+    &-large {
+      input[type="checkbox"] {
+        & + #{$this}__icon {
+          width: calc(var(--ds-switch-size-lg) * 2);
+          height: var(--ds-switch-size-lg);
+
+          #{$this}__icon__inner {
+            width: var(--ds-switch-icon-size-lg);
+            height: var(--ds-switch-icon-size-lg);
+          }
+        }
+
+        &:checked {
+          & + #{$this}__icon {
+            #{$this}__icon__inner {
+              transform: translateX(var(--ds-switch-size-lg));
+            }
+          }
+        }
+      }
+    }
+
+    &-small {
+      input[type="checkbox"] {
+        & + #{$this}__icon {
+          width: calc(var(--ds-switch-size-sm) * 2);
+          height: var(--ds-switch-size-sm);
+
+          #{$this}__icon__inner {
+            width: var(--ds-switch-icon-size-sm);
+            height: var(--ds-switch-icon-size-sm);
+          }
+        }
+
+        &:checked {
+          & + #{$this}__icon {
+            #{$this}__icon__inner {
+              transform: translateX(var(--ds-switch-size-sm));
+            }
+          }
+        }
+      }
+    }
+  }
+}

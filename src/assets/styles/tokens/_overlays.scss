@@ -1,0 +1,36 @@
+:root {
+  //----------- default tokens -------------//
+
+  --overlay-1: rgba(0, 0, 0, 0.02);
+  --overlay-2: rgba(0, 0, 0, 0.05);
+  --overlay-3: rgba(34, 34, 34, 0.1);
+  --overlay-4: rgba(34, 34, 34, 0.15);
+  --overlay-5: rgba(34, 34, 34, 0.2);
+  --overlay-6: rgba(34, 34, 34, 0.3);
+  --overlay-7: rgba(34, 34, 34, 0.4);
+  --overlay-8: rgba(34, 34, 34, 0.5);
+  --overlay-9: rgba(34, 34, 34, 0.6);
+  --overlay-10: rgba(34, 34, 34, 0.7);
+
+  //----------- alias tokens -------------//
+
+  /**
+ * @tokens Overlays
+ */
+
+  --ds-overlay-1: var(--overlay-1);
+  --ds-overlay-2: var(--overlay-2);
+  --ds-overlay-3: var(--overlay-3);
+  --ds-overlay-4: var(--overlay-4);
+  --ds-overlay-5: var(--overlay-5);
+  --ds-overlay-6: var(--overlay-6);
+  --ds-overlay-7: var(--overlay-7);
+  --ds-overlay-8: var(--overlay-8);
+  --ds-overlay-9: var(--overlay-9);
+  --ds-overlay-10: var(--overlay-10);
+
+
+  /**
+  * @tokens-end
+  */
+}

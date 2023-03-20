@@ -1,5 +1,5 @@
 import React from 'react'
-import Popup from '../Popup'
+import Modal from '../Modal'
 import Button from '../Button'
 import { TDialogPropTypes } from './types'
 
@@ -24,7 +24,7 @@ const Dialog = (props: TDialogPropTypes): JSX.Element | null => {
   }
 
   return (
-    <Popup isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} onSumbit={onClose}>
       <div className="dialog">
         <div className="dialog_title">{title}</div>
         <div className="dialog_content">
@@ -45,7 +45,7 @@ const Dialog = (props: TDialogPropTypes): JSX.Element | null => {
           />
         </div>
       </div>
-    </Popup>
+    </Modal>
   )
 }
 

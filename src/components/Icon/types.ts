@@ -1,10 +1,23 @@
+import { LegacyRef } from 'react'
+
 export interface IconPropTypes {
-  name: string
-  size?: TIconSize
-  color?: TColor
+  name?: string
+  type?:
+    | 'primary'
+    | 'secondary'
+    | 'tertiary'
+    | 'disabled'
+    | 'inverse'
+    | 'selected'
+    | 'brand'
+    | 'danger'
+    | 'warning'
+    | 'success'
+    | 'information'
+    | 'discovery'
+  size?: 'xsmall' | 'small' | 'medium' | 'large'
   onClick?: () => void
   className?: string
-  refHandler?: CallbackFnType
+  refHandler?: LegacyRef<HTMLElement> | undefined
   withWrapper?: boolean
-  wrapperColor?: TColor
 }
