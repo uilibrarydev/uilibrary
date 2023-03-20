@@ -10,8 +10,8 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     size = 'large',
     className = '',
     iconProps = {
-        name: '',
-        alignment: 'left'
+      name: '',
+      alignment: 'left'
     },
     buttonActionType,
     disabled,

@@ -8,7 +8,14 @@ enum CIRCLE_SIZES {
 }
 
 const Progress = (props: TProgressPropTypes): JSX.Element => {
-  const { percent, type = 'linear', size = 'large', noText = false, dimension, className = '' } = props
+  const {
+    percent,
+    type = 'linear',
+    size = 'large',
+    noText = false,
+    dimension,
+    className = ''
+  } = props
   const _dimension = dimension ? dimension : CIRCLE_SIZES[size]
   const r = _dimension - 5
 

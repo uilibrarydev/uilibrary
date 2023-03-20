@@ -106,28 +106,28 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         </label>
 
         {error || successMessage || helperText || withCounter ? (
-            <div className="input__message mt-4">
-                {error ? <ErrorMessage message={error} icon="info-hover" /> : null}
-                {successMessage ? (
-                    <Text size="small" type="success" className="flexbox align-items--center">
-                        <>
-                            <Icon name="circle-mark-hover" type="success" size="xsmall" />
-                            <span>{successMessage}</span>
-                        </>
-                    </Text>
-                ) : null}
-                {helperText && !successMessage ? (
-                    <Text size="small" type="secondary">
-                        {helperText}
-                    </Text>
-                ) : null}
+          <div className="input__message mt-4">
+            {error ? <ErrorMessage message={error} icon="info-hover" /> : null}
+            {successMessage ? (
+              <Text size="small" type="success" className="flexbox align-items--center">
+                <>
+                  <Icon name="circle-mark-hover" type="success" size="xsmall" />
+                  <span>{successMessage}</span>
+                </>
+              </Text>
+            ) : null}
+            {helperText && !successMessage ? (
+              <Text size="small" type="secondary">
+                {helperText}
+              </Text>
+            ) : null}
 
-                {withCounter ? (
-                    <Text size="small" type="secondary">
-                        {`${currentLength}/${maxCount}`}
-                    </Text>
-                ) : null}
-            </div>
+            {withCounter ? (
+              <Text size="small" type="secondary">
+                {`${currentLength}/${maxCount}`}
+              </Text>
+            ) : null}
+          </div>
         ) : null}
       </div>
     )

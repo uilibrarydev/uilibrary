@@ -3,14 +3,7 @@ import { IconPropTypes } from './types'
 import './index.scss'
 
 const Icon = (props: IconPropTypes): JSX.Element => {
-  const {
-    name,
-    type,
-    size = 'medium',
-    onClick,
-    className = '',
-    refHandler
-  } = props
+  const { name, type, size = 'medium', onClick, className = '', refHandler } = props
 
   return (
     <span className={`icon icon--${size} icon--${type} ${className}`}>
