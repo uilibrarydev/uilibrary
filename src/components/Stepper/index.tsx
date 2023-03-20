@@ -1,18 +1,34 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TStepperProps } from './types'
 
 const Stepper = (props: TStepperProps): JSX.Element => {
-  const { list, initialActiveIndex = 0 } = props
+  const { list, activeStep = 0, setActiveStep } = props
 
-  const [activeStepIndex, setActiveStepIndex] = useState(initialActiveIndex)
+  const [activeStepIndex, setActiveStepIndex] = useState(activeStep)
 
   const decreaseStepIndex = () => {
-    setActiveStepIndex(activeStepIndex - 1)
+    let newIndex = activeStepIndex
+    --newIndex
+    setActiveStepIndex(newIndex)
+    if (setActiveStep) {
+      setActiveStep(newIndex)
+    }
   }
 
   const increaseStepIndex = () => {
-    setActiveStepIndex(activeStepIndex + 1)
+    let newIndex = activeStepIndex
+    ++newIndex
+    setActiveStepIndex(newIndex)
+    if (setActiveStep) {
+      setActiveStep(newIndex)
+    }
   }
+
+  useEffect(() => {
+    if (activeStep !== activeStepIndex) {
+      setActiveStepIndex(activeStep)
+    }
+  }, [activeStep, activeStepIndex])
 
   const Content = list[activeStepIndex]
 

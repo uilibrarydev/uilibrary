@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import { TButtonPropTypes } from '../Button/types'
 
 export interface TModalPropTypes {
@@ -12,6 +13,6 @@ export interface TModalPropTypes {
     confirm: TButtonPropTypes
   }
   closeIcon?: boolean
-  children: JSX.Element
+  children?: string | JSX.Element | JSX.Element[] | ReactNode
   className?: string
 }

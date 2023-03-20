@@ -1,3 +1,3 @@
 export interface TContainerProps {
-  children: JSX.Element
+  children?: JSX.Element
 }

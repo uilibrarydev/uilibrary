@@ -1,11 +1,12 @@
 import { ElementType } from 'react'
+import { TClickEventType } from '../../types/globals'
 
 export interface HeadingPropTypes {
-  children: string | JSX.Element
+  children?: string | JSX.Element
   type?: ElementType
   size?: 'xsmall' | 'small' | 'standard' | 'medium' | 'large' | 'xlarge'
   weight?: 'regular' | 'semibold' | 'bold'
   lineHeight?: 'xsmall' | 'small' | 'medium' | 'large'
   className?: string
-  onClick?: (event: TEventType) => void
+  onClick?: (event: TClickEventType) => void
 }

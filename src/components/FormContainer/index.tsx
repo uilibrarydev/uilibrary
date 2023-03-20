@@ -1,11 +1,11 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
 import { FormContext } from '../../context'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
 import { FormPropTypes } from './types'
-import '../../assets/styles/components/_form.scss'
 import Button from '../Button'
 import { noop } from '../../utils'
+import '../../assets/styles/components/_form.scss'
 
 const FormContainer = (props: FormPropTypes): JSX.Element => {
   const {
