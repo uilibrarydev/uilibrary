@@ -106,11 +106,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         </label>
 
         <div className="input__message mt-4">
-          {error ? <ErrorMessage message={error} icon="info-fill" /> : null}
+          {error ? <ErrorMessage message={error} icon="info-hover" /> : null}
           {successMessage ? (
             <Text size="small" type="success" className="flexbox align-items--center">
               <>
-                <Icon name="circle-mark-fill" type="success" size="xsmall" />
+                <Icon name="circle-mark-hover" type="success" size="xsmall" />
                 <span>{successMessage}</span>
               </>
             </Text>
