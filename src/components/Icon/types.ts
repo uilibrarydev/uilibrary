@@ -20,5 +20,4 @@ export interface IconPropTypes {
   onClick?: TClickHandler
   className?: string
   refHandler?: LegacyRef<HTMLElement> | undefined
-  withWrapper?: boolean
 }

@@ -6,7 +6,8 @@ const Heading: React.FC<HeadingPropTypes> = (props: HeadingPropTypes) => {
   const {
     children,
     className = '',
-    size = 'standart',
+    size = 'small',
+    lineHeight = 'large',
     type: As = 'h1',
     weight = 'regular',
     onClick = noop
@@ -18,6 +19,7 @@ const Heading: React.FC<HeadingPropTypes> = (props: HeadingPropTypes) => {
       className={`heading 
                   ${size ? `heading-${size}` : ''} 
                   ${weight ? `${weight}` : ''}
+                  ${lineHeight ? `lh-${lineHeight}` : ''}
                   ${className}`}
     >
       {children}

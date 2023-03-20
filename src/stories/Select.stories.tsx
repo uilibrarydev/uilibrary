@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Select as SelectComp } from '../components'
 import { TItemValue, TSelectOptions } from '../types/globals'
-// import imageFile from '../assets/images/avatar.jpg'
+import imageFile from '../assets/images/avatar.jpg'
 
-// const image = {
-//   src: imageFile,
-//   alt: 'my image'
-// }
+const image = {
+  src: imageFile,
+  alt: 'my image'
+}
 
 export default {
   title: 'Select',
@@ -61,7 +61,8 @@ Select.args = {
   multiSelect: true,
   withFooter: true,
   withSearch: false,
-  // avatar: image.src,
+  avatar: image.src,
   leftIconProps: { name: 'user' },
-  rightIconProps: { name: 'more' }
+  rightIconProps: { name: 'more' },
+  isOptionDisabled: false
 }

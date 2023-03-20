@@ -5,6 +5,7 @@ export interface HeadingPropTypes {
   type?: ElementType
   size?: 'xsmall' | 'small' | 'standard' | 'medium' | 'large' | 'xlarge'
   weight?: 'regular' | 'semibold' | 'bold'
+  lineHeight?: 'xsmall' | 'small' | 'medium' | 'large'
   className?: string
   onClick?: (event: TEventType) => void
 }

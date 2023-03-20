@@ -29,7 +29,7 @@ export const Avatar = (props: TAvatarProps): JSX.Element | null => {
       {!imagePath ? initials : null}
       {isEditable ? (
         <span className="avatar__icon" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-          <Icon name={isHovered ? 'edit-fill' : 'edit'} size="xsmall" type="secondary" />
+          <Icon name={isHovered ? 'edit-hover' : 'edit'} size="xsmall" type="secondary" />
         </span>
       ) : null}
     </div>

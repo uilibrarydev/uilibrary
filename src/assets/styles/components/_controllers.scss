@@ -51,7 +51,7 @@
   //----------//
 
   @include inline-flex;
-  @include align-items(center);
+  @include align-items(flex-start);
   cursor: pointer;
 
   input[type="checkbox"],
@@ -85,7 +85,9 @@
       }
 
       #{$this}__mark {
+        opacity: 0;
         position: absolute;
+        transition: opacity .3s linear;
       }
     }
 
@@ -108,6 +110,10 @@
         &:active, &:visited {
           background-color: var(--ds-controller-selected-bg-pressed);
           border-color: var(--ds-controller-selected-bg-pressed);
+        }
+
+        #{$this}__mark {
+          opacity: 1;
         }
       }
 

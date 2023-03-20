@@ -318,11 +318,6 @@ $space-prefixes: (
 
 .heading {
   font-family: var(--ds-font-family);
-  line-height: var(--ds-line-height-heading);
-
-  &.regular { font-weight: var(--ds-font-weight-default); }
-  &.semibold { font-weight: var(--ds-font-weight-active); }
-  &.bold { font-weight: var(--ds-font-weight-heading); }
 
   &-xlarge {font-size: var(--ds-headline-xl);}
   &-large {font-size: var(--ds-headline-lg);}
@@ -336,16 +331,6 @@ $space-prefixes: (
 .body {
   font-family: var(--ds-font-family);
 
-  &.regular { font-weight: var(--ds-font-weight-default); }
-  &.semibold { font-weight: var(--ds-font-weight-active); }
-  &.bold { font-weight: var(--ds-font-weight-heading); }
-  &.bolder { font-weight: var(--ds-font-weigh-strong); }
-
-  &.lh-xsmall { line-height: var(--ds-line-height-default); }
-  &.lh-small { line-height: var(--ds-line-height-tight); }
-  &.lh-medium { line-height: var(--ds-line-height-caption); }
-  &.lh-large { line-height: var(--ds-line-height-heading); }
-
   &-large {font-size: var(--ds-paragraph-lg);}
   &-medium {font-size: var(--ds-paragraph-md);}
   &-standard {font-size: var(--ds-paragraph-std);}
@@ -354,6 +339,16 @@ $space-prefixes: (
   &-xxsmall {font-size: var(--ds-paragraph-xxs);}
 }
 
+
+.regular { font-weight: var(--ds-font-weight-default); }
+.semibold { font-weight: var(--ds-font-weight-active); }
+.bold { font-weight: var(--ds-font-weight-heading); }
+.bolder { font-weight: var(--ds-font-weigh-strong); }
+
+.lh-xsmall { line-height: var(--ds-line-height-default); }
+.lh-small { line-height: var(--ds-line-height-tight); }
+.lh-medium { line-height: var(--ds-line-height-caption); }
+.lh-large { line-height: var(--ds-line-height-heading); }
 
 //colors
 

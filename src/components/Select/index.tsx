@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react'
 import { useOnOutsideClick } from '../../hooks'
 import { TSelectPropTypes } from './types'
-import './index.scss'
+import '../../assets/styles/components/_select.scss'
 import { SelectItem } from './SelectItem'
 import Footer from './Footer'
 import { TChangeEventType, TClickEventType, TItemValue, TSelectOption } from '../../types/globals'
@@ -25,6 +25,7 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
     avatar,
     withSearch,
     withFooter,
+    isOptionDisabled,
     buttonProps = {
       confirm: {
         buttonText: 'Apply'
@@ -83,16 +84,17 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
   }, [filteredOptions, currentvalue])
 
   return (
-    <div className="select-container" ref={ref}>
-      <div className="input_container" onClick={open}>
+    <div className="select" ref={ref}>
+      <div onClick={open}>
         <Input
+          className="select__input"
           label={label}
           required={required}
           rightIcon
           placeholder={placeHolder}
           onChange={onFilterChange}
           iconProps={{
-            name: isOpen ? 'arrow-up' : 'arrow-down',
+            name: isOpen ? 'caret-up' : 'caret-down',
             onClick: isOpen ? close : open
           }}
           currentValue={selectedItemLabel}
@@ -100,7 +102,7 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
       </div>
 
       {isOpen && (
-        <div className="select-options-wrapper">
+        <div className="select__options">
           {filteredOptions.map((item: TSelectOption) => {
             return (
               <SelectItem
@@ -110,6 +112,7 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
                 leftIconProps={leftIconProps}
                 rightIconProps={rightIconProps}
                 avatar={avatar}
+                disabled={isOptionDisabled}
                 isSelected={selectedValue === item.value}
               />
             )

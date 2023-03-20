@@ -13,6 +13,10 @@ export default {
       options: ['xsmall', 'small', 'standard', 'medium', 'large', 'xlarge'],
       control: { type: 'radio' }
     },
+    lineHeight: {
+      options: ['xsmall', 'small', 'medium', 'large'],
+      control: { type: 'radio' }
+    },
     weight: {
       options: ['regular', 'semibold', 'bold'],
       control: { type: 'radio' }
@@ -29,7 +33,8 @@ const Template = (args) => (
 export const Heading = Template.bind({})
 Heading.args = {
   type: 'h1',
-  size: 'xsmall',
+  size: 'small',
+  lineHeight: 'large',
   weight: 'regular',
   text: 'heading'
 }

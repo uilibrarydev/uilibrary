@@ -17,4 +17,5 @@ export type TSelectItemProps = {
     onClick?: TClickHandler
   }
   avatar?: string
+  disabled?: boolean
 }

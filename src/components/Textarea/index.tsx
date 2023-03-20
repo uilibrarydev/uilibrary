@@ -62,11 +62,11 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
           />
         </div>
         <div className="textarea__message mt-4">
-          {error && <ErrorMessage message={error} icon="info-fill" />}
+          {error && <ErrorMessage message={error} icon="info-hover" />}
           {successMessage ? (
             <Text size="small" type="success" className="flexbox align-items--center">
               <>
-                <Icon name="circle-mark-fill" type="success" size="xsmall" />
+                <Icon name="circle-mark-hover" type="success" size="xsmall" />
                 <span>{successMessage}</span>
               </>
             </Text>
