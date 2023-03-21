@@ -60,11 +60,11 @@
   --ds-button-danger-text-hover: var(--ds-color-text-inverse);
   --ds-button-danger-text-disabled: var(--ds-color-text-disabled);
 
-  --ds-button-link-text-defult: var(--ds-color-text-brand);
-  --ds-button-link-text-hover: var(--ds-color-text-brand);
-  --ds-button-link-text-pressed: var(--brand-600);
-  --ds-button-link-text-focused: var(--brand-700);
-  --ds-button-link-text-disabled: var(--ds-color-text-disabled);
+  --ds-button-text-defult: var(--ds-color-bg-cta-primary-default);
+  --ds-button-text-hover: var(--ds-color-bg-cta-primary-hover);
+  --ds-button-text-pressed: var(--ds-color-bg-cta-primary-pressed);
+  --ds-button-text-focused: var(--ds-color-bg-cta-primary-focused);
+  --ds-button-text-disabled: var(--ds-color-text-disabled);
 
   --ds-button-icon-margin-lg: var(--ds-space-8);
   --ds-button-icon-margin-md: var(--ds-space-8);
@@ -239,52 +239,46 @@
     }
   }
 
-  &--link {
+  &--text {
     padding: 0;
     height: auto;
     width: auto;
     background: none;
-    color: var(--ds-button-link-text-defult);
+    color: var(--ds-button-text-defult);
 
     &:hover {
-      color: var(--ds-button-link-text-hover);
-
-      &:not(&[disabled]) {
-        #{$this}__text {
-          text-decoration: underline;
-        }
-      }
+      color: var(--ds-button-text-hover);
 
       #{$this}__icon {
-        color: var(--ds-button-link-text-hover);
+        color: var(--ds-button-text-hover);
       }
     }
 
     &:active {
-      color: var(--ds-button-link-text-pressed);
+      color: var(--ds-button-text-pressed);
 
       #{$this}__icon {
-        color: var(--ds-button-link-text-pressed);
+        color: var(--ds-button-text-pressed);
       }
     }
 
     &:focus {
-      color: var(--ds-button-link-text-focused);
+      color: var(--ds-button-text-focused);
 
       #{$this}__icon {
-        color: var(--ds-button-link-text-focused);
+        color: var(--ds-button-text-focused);
       }
     }
 
     #{$this}__icon {
-      color: var(--ds-button-link-text-defult);
+      color: var(--ds-button-text-defult);
     }
 
     &[disabled] {
-      color: var(--ds-button-link-text-disabled);
+      color: var(--ds-button-text-disabled);
 
       #{$this}__icon {
-        color: var(--ds-button-link-text-disabled);
+        color: var(--ds-button-text-disabled);
       }
     }
   }
