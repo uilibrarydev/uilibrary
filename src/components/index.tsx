@@ -28,9 +28,11 @@ import Snackbar from './Snackbar'
 import Popover from './Popover'
 import Breadcrumb from './Breadcrumb'
 import Image from './Image'
+import Link from './Link'
 
 export {
   Text,
+  Link,
   Heading,
   Icon,
   FormContainer,
