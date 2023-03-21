@@ -25,7 +25,7 @@ const Stepper = (props: TStepperProps): JSX.Element => {
   }
 
   useEffect(() => {
-    if (activeStep !== activeStepIndex) {
+    if (activeStep && activeStep !== activeStepIndex) {
       setActiveStepIndex(activeStep)
     }
   }, [activeStep, activeStepIndex])
