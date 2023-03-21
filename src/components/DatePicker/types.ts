@@ -15,6 +15,7 @@ export interface ITimePickerProps extends IFormCompProps {
   currentTime?: Date | undefined
   changeHandler?: (date: Date) => void
   required?: boolean
+  format?: string
 }
 
 export interface IRangeDatePickerProps extends IFormCompProps {
