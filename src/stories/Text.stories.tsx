@@ -37,13 +37,6 @@ export default {
   }
 }
 
-// export const text = (): JSX.Element => {
-//   return (
-//     <Text size="large" color="inputBorderActive">
-//       text
-//     </Text>
-//   )
-// }
 const Template = (args) => {
   return (
     <div style={{ padding: '20px', backgroundColor: `${args.type == 'inverse' ? '#919191' : ''}` }}>

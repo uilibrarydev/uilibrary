@@ -5,7 +5,7 @@ export interface TButtonPropTypes {
   buttonActionType?: 'submit'
   buttonText?: string | JSX.Element
   className?: string
-  type?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'link'
+  type?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'text'
   size?: 'small' | 'medium' | 'large'
   isLoading?: boolean
   iconProps?: {
