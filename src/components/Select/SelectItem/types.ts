@@ -18,4 +18,5 @@ export type TSelectItemProps = {
   }
   avatar?: string
   disabled?: boolean
+  isCheckbox?: boolean
 }

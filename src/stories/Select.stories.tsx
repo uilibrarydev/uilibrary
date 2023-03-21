@@ -35,20 +35,41 @@ const OPTIONS: TSelectOptions = [
   {
     value: 'italy',
     label: 'Italy'
+  },
+  {
+    value: 'france',
+    label: 'France'
+  },
+  {
+    value: 'spain',
+    label: 'Spain'
+  },
+  {
+    value: 'germany',
+    label: 'Germany'
   }
 ]
 
 const Template = (args): JSX.Element => {
-  const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
+  // const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
+  const [selectedValues, setSelectedValues] = useState<TItemValue[]>([
+    'armenia',
+    'italy',
+    'france',
+    'spain',
+    'germany'
+  ])
 
   return (
     <div style={{ width: 300 }}>
       <SelectComp
         label="Select"
         placeHolder="Select country"
-        onSelect={setSelectedValue}
+        // onSelect={setSelectedValue}
         options={OPTIONS}
-        selectedValue={selectedValue}
+        // selectedValue={selectedValue}
+        selectedItems={selectedValues}
+        setSelectedItems={setSelectedValues}
         {...args}
       />
     </div>
@@ -61,8 +82,8 @@ Select.args = {
   multiSelect: true,
   withFooter: true,
   withSearch: false,
-  avatar: image.src,
-  leftIconProps: { name: 'user' },
-  rightIconProps: { name: 'more' },
+  // avatar: image.src,
+  // leftIconProps: { name: 'user' },
+  // rightIconProps: { name: 'more' },
   isOptionDisabled: false
 }

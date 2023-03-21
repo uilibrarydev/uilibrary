@@ -1,8 +1,9 @@
-import React, { useMemo, useRef, useState } from 'react'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { useOnOutsideClick } from '../../hooks'
 import { TSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
 import { SelectItem } from './SelectItem'
+import { SelectButtons } from './SelectButtons'
 import Footer from './Footer'
 import { TChangeEventType, TClickEventType, TItemValue, TSelectOption } from '../../types/globals'
 import Input from '../Input'
@@ -14,8 +15,7 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
     placeHolder,
     value,
     label,
-    selectedValue = null,
-    onSelect,
+
     setFieldValue,
     name,
     required,
@@ -31,12 +31,13 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
         buttonText: 'Apply'
       },
       cancel: { buttonText: 'Cancel' }
-    }
+    },
+    selectedItems,
+    setSelectedItems
   } = props
 
   const [isOpen, setIsOpen] = useState(true)
   const [filterValue, setFilterValue] = useState('')
-  // const [selectedItems, setSelectedItems] = useState([])
 
   const onFilterChange = (e: TChangeEventType) => {
     const result = e.target.value
@@ -52,13 +53,30 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
   useOnOutsideClick(ref, closeDropdown)
 
   const onItemSelect = (item: TItemValue) => {
-    if (onSelect) {
-      onSelect(item)
+    const selected = multiSelect ? [...selectedItems, item] : [item]
+
+    if (setSelectedItems) {
+      setSelectedItems(selected)
     }
     if (name && setFieldValue) {
       setFieldValue(name, item, { shouldValidate: true })
     }
-    closeDropdown()
+    if (!multiSelect) {
+      closeDropdown()
+    }
+  }
+  const onItemDeselect = (item: TItemValue) => {
+    const selected = selectedItems.filter((optionValue: TItemValue) => optionValue !== item)
+
+    if (setSelectedItems) {
+      setSelectedItems(selected)
+    }
+    if (name && setFieldValue) {
+      setFieldValue(name, item, { shouldValidate: true })
+    }
+    if (!multiSelect) {
+      closeDropdown()
+    }
   }
 
   const open = (e?: TClickEventType) => {
@@ -72,16 +90,40 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
     }
   }
 
-  const currentvalue = value || selectedValue
+  const selectedItemsLabels = useMemo(() => {
+    return options.reduce((acc: string, item: TSelectOption) => {
+      if (selectedItems.indexOf(item.value) !== -1) {
+        acc = `${acc}${acc !== '' ? ', ' : ''}${item.label}`
+      }
+      return acc
+    }, '')
+  }, [options, selectedItems])
 
   const filteredOptions = useMemo(() => {
     return options.filter((item) => item.label.toString().indexOf(filterValue) !== -1)
   }, [filterValue, options])
 
   const selectedItemLabel = useMemo(() => {
-    const selectedItem = filteredOptions.find((item) => item.value === currentvalue)
+    if (multiSelect) {
+      return selectedItemsLabels // TODO finish this component
+    }
+    const currentValue = value || selectedItems[0]
+    const selectedItem = filteredOptions.find((item) => item.value === currentValue)
     return selectedItem?.label.toString() || ''
-  }, [filteredOptions, currentvalue])
+  }, [filteredOptions, multiSelect, selectedItemsLabels])
+
+  const clearAll = useCallback(() => {
+    setSelectedItems([])
+  }, [])
+
+  const selectAll = useCallback(() => {
+    const allValues = options.map((item: TSelectOption) => item.value)
+    setSelectedItems(allValues)
+  }, [options])
+
+  const checkIsSelected = (itemValue: TItemValue) => {
+    return selectedItems.indexOf(itemValue) !== -1
+  }
 
   return (
     <div className="select" ref={ref}>
@@ -103,17 +145,20 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
 
       {isOpen && (
         <div className="select__options">
+          {multiSelect ? <SelectButtons selectAll={selectAll} clearAll={clearAll} /> : null}
           {filteredOptions.map((item: TSelectOption) => {
+            const isSelected = checkIsSelected(item.value)
             return (
               <SelectItem
                 data={item}
                 key={item.value}
-                onClick={onItemSelect}
+                isCheckbox={multiSelect}
+                onClick={isSelected ? onItemDeselect : onItemSelect}
                 leftIconProps={leftIconProps}
                 rightIconProps={rightIconProps}
                 avatar={avatar}
                 disabled={isOptionDisabled}
-                isSelected={selectedValue === item.value}
+                isSelected={isSelected}
               />
             )
           })}

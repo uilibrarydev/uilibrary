@@ -8,8 +8,8 @@ export interface TSelectPropTypes extends IFormCompProps {
   label?: string | JSX.Element
   options: TSelectOptions
   placeHolder?: string
-  onSelect?: (value: TItemValue) => void
-  selectedValue?: TItemValue
+  selectedItems: [TItemValue]
+  setSelectedItems: (items: TItemValue[]) => void
   required?: boolean
   multiSelect?: boolean
   leftIconProps?: {

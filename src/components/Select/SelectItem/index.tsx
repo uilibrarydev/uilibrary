@@ -5,14 +5,19 @@ import Avatar from '../../Avatar'
 import Checkbox from '../../Checkbox'
 
 export const SelectItem = (props: TSelectItemProps): JSX.Element => {
-  const { data, onClick, disabled, avatar, isSelected, leftIconProps, rightIconProps } = props
+  const { data, onClick, disabled, avatar, isSelected, leftIconProps, rightIconProps, isCheckbox } =
+    props
 
   const { label } = data
   // const showLeftIcon = !avatar
 
   return (
-    <div className={`select__option ${disabled ? 'select__option--disabled' : ''}`}>
-      {isSelected ? (
+    <div
+      className={`select__option ${disabled ? 'select__option--disabled' : ''}`}
+      onClick={() => onClick(data.value)}
+    >
+      {isCheckbox ? <Checkbox className="mr-8" value={isSelected} /> : null}
+      {!isCheckbox && isSelected ? (
         <Icon
           name="mark"
           size="xsmall"
@@ -20,8 +25,7 @@ export const SelectItem = (props: TSelectItemProps): JSX.Element => {
           className="mr-8"
         />
       ) : null}
-      <Checkbox className="mr-8" />
-      <div className="select__option__inner" onClick={() => onClick(data.value)}>
+      <div className="select__option__inner">
         {avatar ? <Avatar size="xxsmall" imagePath={avatar} className="mr-4" /> : null}
         {leftIconProps ? (
           <Icon
