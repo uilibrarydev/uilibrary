@@ -19,7 +19,8 @@ const TimePicker = (props: ITimePickerProps): JSX.Element => {
     label,
     changeHandler,
     required,
-    format = 'h:mm a'
+    format = 'h:mm a',
+    ...rest
   } = props
   const dateInitialValue =
     value !== undefined && Object.prototype.toString.call(value) === '[object Date]'
@@ -45,12 +46,13 @@ const TimePicker = (props: ITimePickerProps): JSX.Element => {
       <DatePicker
         selected={moment.isDate(selectedTime) ? selectedTime : new Date()}
         locale="hy"
-        onChange={onChange}
         showTimeSelect
         showTimeSelectOnly
         timeIntervals={15}
         timeCaption="Time"
         dateFormat="h:mm aa"
+        {...rest}
+        onChange={onChange}
         customInput={
           <div className="date-picker_input-container">
             <Input
