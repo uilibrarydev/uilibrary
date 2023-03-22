@@ -1,12 +1,12 @@
 import { useContext } from 'react'
-import { FormContext } from './index'
+import { FormContext, TFormContextProps } from './index'
 
 export const WithFormFeedback = ({
   children
 }: {
-  children?: (setValue: TSetValue) => JSX.Element
+  children?: (context: TFormContextProps) => JSX.Element
 }): JSX.Element | null => {
   const context = useContext(FormContext)
 
-  return children ? children(context.setValue) : null
+  return children ? children(context) : null
 }

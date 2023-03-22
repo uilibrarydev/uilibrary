@@ -11,7 +11,17 @@ import Label from '../../helperComponents/Label'
 registerLocale('hy', hy)
 
 const TimePicker = (props: ITimePickerProps): JSX.Element => {
-  const { value, currentTime, name, setFieldValue, label, changeHandler, required } = props
+  const {
+    value,
+    currentTime,
+    name,
+    setFieldValue,
+    label,
+    changeHandler,
+    required,
+    format = 'h:mm a',
+    ...rest
+  } = props
   const dateInitialValue =
     value !== undefined && Object.prototype.toString.call(value) === '[object Date]'
       ? value
@@ -36,15 +46,18 @@ const TimePicker = (props: ITimePickerProps): JSX.Element => {
       <DatePicker
         selected={moment.isDate(selectedTime) ? selectedTime : new Date()}
         locale="hy"
-        onChange={onChange}
         showTimeSelect
         showTimeSelectOnly
         timeIntervals={15}
         timeCaption="Time"
         dateFormat="h:mm aa"
+        {...rest}
+        onChange={onChange}
         customInput={
           <div className="date-picker_input-container">
-            <Input currentValue={selectedTime ? selectedTime.toString() : ''} />
+            <Input
+              currentValue={selectedTime ? moment(selectedTime.toString()).format(format) : ''}
+            />
           </div>
         }
       />

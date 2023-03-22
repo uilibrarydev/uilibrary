@@ -22,7 +22,9 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
     register,
     setValue,
     control,
-    formState: { errors }
+    formState: { errors },
+    getValues,
+    watch
   } = useForm({
     reValidateMode: 'onChange',
     resolver: yupResolver(validationScheme),
@@ -31,7 +33,7 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit || noop)} className={`form-container ${className}`}>
-      <FormContext.Provider value={{ register, errors, control, setValue }}>
+      <FormContext.Provider value={{ register, errors, control, setValue, getValues, watch }}>
         <>
           {children}
           {buttonConfigs && (

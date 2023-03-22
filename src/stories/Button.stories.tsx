@@ -6,7 +6,7 @@ export default {
   component: ButtonComp,
   argTypes: {
     type: {
-      options: ['primary', 'secondary', 'tertiary', 'danger', 'link'],
+      options: ['primary', 'secondary', 'tertiary', 'danger', 'text'],
       control: { type: 'radio' }
     },
     size: {

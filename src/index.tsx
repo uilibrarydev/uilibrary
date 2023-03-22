@@ -31,9 +31,11 @@ import Popover from './components/Popover'
 import Breadcrumb from './components/Breadcrumb'
 import Image from './components/Image'
 import './assets/styles/index.scss'
+import Link from './components/Link'
 
 export {
   Text,
+  Link,
   Heading,
   Icon,
   FormContainer,
