@@ -92,7 +92,7 @@
   transition: var(--ds-button-transition);
 
   &[disabled] {
-    cursor: not-allowed;
+    cursor: default;
   }
 
   &--large {

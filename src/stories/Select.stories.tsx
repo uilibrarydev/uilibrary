@@ -85,5 +85,4 @@ Select.args = {
   // avatar: image.src,
   // leftIconProps: { name: 'user' },
   // rightIconProps: { name: 'more' },
-  isOptionDisabled: false
 }

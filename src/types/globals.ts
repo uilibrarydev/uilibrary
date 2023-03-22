@@ -7,6 +7,7 @@ export type TSelectOption = {
   value: TItemValue
   label: TItemLabel
   meta?: string
+  disabled?: boolean
 }
 
 export type TSelectOptions = TSelectOption[]

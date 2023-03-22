@@ -2,7 +2,6 @@ import { IFormCompProps, TClickHandler, TItemValue, TSelectOptions } from '../..
 import { TButtonPropTypes } from '../Button/types'
 
 export interface TSelectPropTypes extends IFormCompProps {
-  isOptionDisabled?: boolean
   withSearch?: boolean
   withFooter?: boolean
   label?: string | JSX.Element

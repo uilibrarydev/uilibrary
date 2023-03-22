@@ -5,8 +5,7 @@ import { TSelectFooterPropTypes } from '../types'
 const Footer = (props: TSelectFooterPropTypes): JSX.Element => {
   const { buttonProps, onApply, onCancel } = props
   return (
-    <div>
-      <div>
+    <div className="select__footer">
         <Button
           {...(buttonProps.cancel || {})}
           type="tertiary"
@@ -15,7 +14,6 @@ const Footer = (props: TSelectFooterPropTypes): JSX.Element => {
           onClick={onCancel}
         />
         <Button {...buttonProps.confirm} type="primary" size="medium" onClick={onApply} />
-      </div>
     </div>
   )
 }

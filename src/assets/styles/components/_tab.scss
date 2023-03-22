@@ -72,7 +72,7 @@
 
   &--disabled {
     &:hover {
-      cursor: not-allowed;
+      cursor: default;
 
       #{$this}__icon {
         color: var(--ds-tab-icon-color-disabled);

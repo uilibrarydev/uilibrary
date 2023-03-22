@@ -13,6 +13,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
     selectedValue,
     value,
     className = '',
+    IconProps = { name: 'mark'},
     onClick
   } = props
 
@@ -42,7 +43,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
       />
       <span className="controller__icon">
         <Icon
-          name="mark"
+          name={IconProps.name}
           size="xsmall"
           type={`${disabled ? 'disabled' : 'inverse'}`}
           className="controller__mark"

@@ -8,6 +8,7 @@ import Footer from './Footer'
 import { TChangeEventType, TClickEventType, TItemValue, TSelectOption } from '../../types/globals'
 import Input from '../Input'
 import { noop } from '../../utils'
+import Checkbox from '../Checkbox';
 
 const Select = (props: TSelectPropTypes): JSX.Element | null => {
   const {
@@ -25,7 +26,6 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
     avatar,
     withSearch,
     withFooter,
-    isOptionDisabled,
     buttonProps = {
       confirm: {
         buttonText: 'Apply'
@@ -145,7 +145,14 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
 
       {isOpen && (
         <div className="select__options">
-          {multiSelect ? <SelectButtons selectAll={selectAll} clearAll={clearAll} /> : null}
+          {multiSelect ? (
+              <div className="select__top">
+                <Checkbox IconProps={{name: 'minus'}}
+                          value={selectedItems.length > 0}
+                          onClick={selectedItems.length > 0 ? clearAll : selectAll}
+                          label={selectedItems.length > 0 ? 'Clear all' : 'Select all'}  />
+              </div>
+          ) : null }
           {filteredOptions.map((item: TSelectOption) => {
             const isSelected = checkIsSelected(item.value)
             return (
@@ -157,7 +164,7 @@ const Select = (props: TSelectPropTypes): JSX.Element | null => {
                 leftIconProps={leftIconProps}
                 rightIconProps={rightIconProps}
                 avatar={avatar}
-                disabled={isOptionDisabled}
+                disabled={item.disabled}
                 isSelected={isSelected}
               />
             )

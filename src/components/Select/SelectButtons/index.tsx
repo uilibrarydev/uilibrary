@@ -6,8 +6,8 @@ export const SelectButtons = (props: TSelectButtonsProps): JSX.Element => {
   const { clearAll, selectAll } = props
   return (
     <div style={{ display: 'flex', marginLeft: 15 }}>
-      <Button buttonText="Select All" type="link" onClick={selectAll} />
-      <Button buttonText="Clear All" type="link" onClick={clearAll} />
+      <Button buttonText="Select All" type="text" onClick={selectAll} />
+      <Button buttonText="Clear All" type="text" onClick={clearAll} />
     </div>
   )
 }

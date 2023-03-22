@@ -95,7 +95,7 @@
     }
 
     &[disabled] {
-      cursor: not-allowed;
+      cursor: default;
       background-color: var(--ds-textarea-bg-default);
       border-color: var(--ds-textarea-border-color-disabled);
       color: var(--ds-textarea-body-text-disabled);
