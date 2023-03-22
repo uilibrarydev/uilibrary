@@ -81,7 +81,7 @@ Select.args = {
   options: OPTIONS,
   multiSelect: true,
   withFooter: true,
-  withSearch: false,
+  withSearch: false
   // avatar: image.src,
   // leftIconProps: { name: 'user' },
   // rightIconProps: { name: 'more' },

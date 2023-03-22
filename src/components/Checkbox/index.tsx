@@ -13,7 +13,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
     selectedValue,
     value,
     className = '',
-    IconProps = { name: 'mark'},
+    IconProps = { name: 'mark' },
     onClick
   } = props
 
