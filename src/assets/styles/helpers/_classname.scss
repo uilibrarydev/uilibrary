@@ -315,93 +315,116 @@ $space-prefixes: (
 
 
 //headings
-
 .heading {
+  $heading-type: (
+    xlarge: var(--ds-headline-xl),
+    large: var(--ds-headline-lg),
+    medium: var(--ds-headline-md),
+    standard: var(--ds-headline-std),
+    small: var(--ds-headline-sm),
+    xsmall: var(--ds-headline-xs),
+  );
+
   font-family: var(--ds-font-family);
 
-  &-xlarge {font-size: var(--ds-headline-xl);}
-  &-large {font-size: var(--ds-headline-lg);}
-  &-medium {font-size: var(--ds-headline-md);}
-  &-standard {font-size: var(--ds-headline-std);}
-  &-small {font-size: var(--ds-headline-sm);}
-  &-xsmall {font-size: var(--ds-headline-xs);}
+  @each $type, $size in $heading-type {
+    &-#{$type} {
+      font-size: $size;
+    }
+  }
 }
 
 //body text
+
 .body {
+  $body-type: (
+    large: var(--ds-paragraph-lg),
+    medium: var(--ds-paragraph-md),
+    standard: var(--ds-paragraph-std),
+    small: var(--ds-paragraph-sm),
+    xsmall: var(--ds-paragraph-xs),
+    xxsmall: var(--ds-paragraph-xs),
+  );
+
   font-family: var(--ds-font-family);
 
-  &-large {font-size: var(--ds-paragraph-lg);}
-  &-medium {font-size: var(--ds-paragraph-md);}
-  &-standard {font-size: var(--ds-paragraph-std);}
-  &-small {font-size: var(--ds-paragraph-sm);}
-  &-xsmall {font-size: var(--ds-paragraph-xs);}
-  &-xxsmall {font-size: var(--ds-paragraph-xxs);}
+  @each $type, $size in $body-type {
+    &-#{$type} {
+      font-size: $size;
+    }
+  }
 }
 
+//weight
 
 .regular { font-weight: var(--ds-font-weight-default); }
 .semibold { font-weight: var(--ds-font-weight-active); }
 .bold { font-weight: var(--ds-font-weight-heading); }
 .bolder { font-weight: var(--ds-font-weigh-strong); }
 
-.lh-xsmall { line-height: var(--ds-line-height-default); }
-.lh-small { line-height: var(--ds-line-height-tight); }
-.lh-medium { line-height: var(--ds-line-height-caption); }
-.lh-large { line-height: var(--ds-line-height-heading); }
+//line height
+
+.lh {
+  $lineHeight-type: (
+    large: var(--ds-line-height-heading),
+    medium: var(--ds-line-height-caption),
+    small: var(--ds-line-height-tight),
+    xsmall: var(--ds-line-height-default),
+  );
+
+  @each $type, $size in $lineHeight-type {
+    &-#{$type} {
+      line-height: $size;
+    }
+  }
+}
 
 //colors
 
-.color-primary { color: var(--ds-color-text-primary); }
-.color-secondary { color: var(--ds-color-text-secondary); }
-.color-tertiary { color: var(--ds-color-text-tertiary); }
-.color-disabled { color: var(--ds-color-text-disabled); }
-.color-selected { color: var(--ds-color-text-selected); }
-.color-inverse { color: var(--ds-color-text-inverse); }
-.color-brand { color: var(--ds-color-text-brand); }
-.color-danger { color: var(--ds-color-text-danger); }
-.color-warning { color: var(--ds-color-text-warning); }
-.color-success { color: var(--ds-color-text-success); }
-.color-information { color: var(--ds-color-text-information); }
-.color-discovery { color: var(--ds-color-text-discovery); }
+.color {
+  $color-type: (
+    primary: var(--ds-color-text-primary),
+    secondary: var(--ds-color-text-secondary),
+    tertiary: var(--ds-color-text-tertiary),
+    disabled: var(--ds-color-text-disabled),
+    selected: var(--ds-color-text-selected),
+    inverse: var(--ds-color-text-inverse),
+    brand: var(--ds-color-text-brand),
+    success: var(--ds-color-text-success),
+    information: var(--ds-color-text-information),
+    warning: var(--ds-color-text-warning),
+    danger: var(--ds-color-text-danger),
+    discovery: var(--ds-color-text-discovery),
+  );
+
+  @each $type, $color in $color-type {
+    &-#{$type} {
+      color: $color;
+    }
+  }
+}
 
 
-//icons sizes and colors
+//icons sizes
+
 .icon {
   --icon-lg: var(--font-size-24);
   --icon-md: var(--font-size-18);
   --icon-sm: var(--font-size-14);
   --icon-xs: var(--font-size-10);
 
-  padding: 3px;
+  $icon-type: (
+      large: var(--icon-lg),
+      medium: var(--icon-md),
+      small: var(--icon-sm),
+      xsmall: var(--icon-xs),
+  );
 
-  &--xsmall {
-    font-size: var(--icon-xs);
+  @each $type, $size in $icon-type {
+    &--#{$type} {
+      font-size: $size;
+    }
   }
-  &--small {
-    font-size: var(--icon-sm);
-  }
-  &--medium {
-    font-size: var(--icon-md);
-  }
-  &--large {
-    font-size: var(--icon-lg);
-  }
-}
-
-.icon {
-  &--primary {color: var(--ds-color-text-primary); }
-  &--secondary {color: var(--ds-color-text-secondary); }
-  &--tertiary {color: var(--ds-color-text-tertiary); }
-  &--disabled {color: var(--ds-color-text-disabled); }
-  &--selected {color: var(--ds-color-text-selected); }
-  &--inverse {color: var(--ds-color-text-inverse); }
-  &--brand {color: var(--ds-color-text-brand); }
-  &--danger {color: var(--ds-color-text-danger); }
-  &--warning {color: var(--ds-color-text-warning); }
-  &--success {color: var(--ds-color-text-success); }
-  &--information {color: var(--ds-color-text-information); }
-  &--discovery {color: var(--ds-color-text-discovery); }
 }
 
 //scroll

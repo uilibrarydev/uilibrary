@@ -66,6 +66,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         {...rest}
         placeholder={placeholder}
         onChange={changeHandler}
+        disabled={disabled}
         className={`${error ? 'with-error-styles' : ''}`}
         {...(currentValue ? { value: currentValue } : {})}
       />

@@ -47,11 +47,17 @@ const SimplePicker = (): JSX.Element => {
 export const SimpleDatePicker = SimplePicker.bind({})
 
 const TimeDatePicker = (): JSX.Element => {
-  const [value, setValue] = useState<Date>(new Date())
-
+  const [value1, setValue1] = useState<Date>(new Date())
+  const [value2, setValue2] = useState<Date>(new Date())
+  const filterPassedTime = (time) => {
+    // const currentDate = value1
+    const selectedDate = new Date(time)
+    return value1.getTime() < selectedDate.getTime()
+  }
   return (
     <div style={{ width: 300 }}>
-      <TimePicker_ value={value} changeHandler={setValue} />
+      <TimePicker_ value={value1} changeHandler={setValue1} />
+      <TimePicker_ value={value2} changeHandler={setValue2} filterTime={filterPassedTime} />
     </div>
   )
 }

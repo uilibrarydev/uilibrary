@@ -10,7 +10,7 @@ import { TRangePickerValues } from '../../types/globals'
 registerLocale('hy', hy)
 
 const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
-  const { value, currentDates = [], setFieldValue, name, changeHandler } = props
+  const { value, currentDates = [], setFieldValue, name, changeHandler, format } = props
 
   const dateInitialValue = value !== undefined && Array.isArray(value) ? value : currentDates
 
@@ -41,7 +41,7 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
           <Input
             currentValue={`${moment(rangeArray[0]).format('MMMM d, YYYY')}  - ${moment(
               rangeArray[1]
-            ).format('MMMM d, YYYY')}`}
+            ).format(format)}`}
           />
         </div>
       }

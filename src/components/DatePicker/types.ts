@@ -16,9 +16,11 @@ export interface ITimePickerProps extends IFormCompProps {
   changeHandler?: (date: Date) => void
   required?: boolean
   format?: string
+  filterTime?: (date: Date) => boolean
 }
 
 export interface IRangeDatePickerProps extends IFormCompProps {
+  format?: string
   currentDates?: TRangePickerValues
   label?: string | JSX.Element
   changeHandler: (date: TRangePickerValues) => void

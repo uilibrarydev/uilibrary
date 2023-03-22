@@ -89,7 +89,7 @@
   font-weight: var(--ds-button-font-weight);
   line-height: var(--ds-button-line-height);
   border-radius: var(--ds-button-border-radius);
-  transition: var(--ds-button-transition);
+  //transition: var(--ds-button-transition);
 
   &[disabled] {
     cursor: default;
