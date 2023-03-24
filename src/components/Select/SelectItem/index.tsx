@@ -5,11 +5,19 @@ import Avatar from '../../Avatar'
 import Checkbox from '../../Checkbox'
 
 export const SelectItem = (props: TSelectItemProps): JSX.Element => {
-  const { data, onClick, disabled, avatar, isSelected, leftIconProps, rightIconProps, isCheckbox } =
-    props
+  const {
+    data,
+    onClick,
+    disabled,
+    avatar,
+    isSelected,
+    labelRightIconProps,
+    labelLeftIconProps,
+    optionRightIconProps,
+    isCheckbox
+  } = props
 
   const { label } = data
-  // const showLeftIcon = !avatar
 
   return (
     <div
@@ -27,19 +35,27 @@ export const SelectItem = (props: TSelectItemProps): JSX.Element => {
       ) : null}
       <div className="select__option__inner">
         {avatar ? <Avatar size="xxsmall" imagePath={avatar} className="mr-4" /> : null}
-        {leftIconProps ? (
+        {labelLeftIconProps ? (
           <Icon
-            {...leftIconProps}
+            {...labelLeftIconProps}
             size="xsmall"
             type={`${disabled ? 'disabled' : 'primary'}`}
             className="mr-8"
           />
         ) : null}
         <span className={`select__option__text ${disabled ? 'color-disabled' : ''}`}>{label}</span>
+        {labelRightIconProps ? (
+          <Icon
+            {...labelRightIconProps}
+            size="xsmall"
+            type={`${disabled ? 'disabled' : 'primary'}`}
+            className="mr-8"
+          />
+        ) : null}
       </div>
-      {rightIconProps ? (
+      {optionRightIconProps ? (
         <Icon
-          {...rightIconProps}
+          {...optionRightIconProps}
           size="xsmall"
           type={`${disabled ? 'disabled' : 'primary'}`}
           className="ml-8"

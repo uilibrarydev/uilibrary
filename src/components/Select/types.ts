@@ -1,34 +1,70 @@
 import { IFormCompProps, TClickHandler, TItemValue, TSelectOptions } from '../../types/globals'
 import { TButtonPropTypes } from '../Button/types'
 
-export interface TSelectPropTypes extends IFormCompProps {
-  withSearch?: boolean
-  withFooter?: boolean
+export interface TMultiSelectPropTypes extends IFormCompProps {
   label?: string | JSX.Element
   options: TSelectOptions
   placeHolder?: string
   selectedItems: [TItemValue]
   setSelectedItems: (items: TItemValue[]) => void
-  required?: boolean
-  multiSelect?: boolean
-  leftIconProps?: {
+  isRequiredField?: boolean
+  labelRightIconProps?: {
     name: string
     size?: TIconSize
     className?: string
     onClick?: TClickHandler
   }
-  rightIconProps?: {
+  labelLeftIconProps?: {
     name: string
     size?: TIconSize
     className?: string
     onClick?: TClickHandler
   }
-  itemOptions?: {
-    iconName: string
-    onClick: TClickHandler
+  optionRightIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
   }
   avatar?: string
-  buttonProps?: {
+  footerButtonProps?: {
+    cancel: TButtonPropTypes
+    confirm: TButtonPropTypes
+  }
+  selectButtonTexts?: {
+    selectAll: string
+    clearAll: string
+  }
+}
+
+export interface TSelectPropTypes extends IFormCompProps {
+  withFooter?: boolean
+  label?: string | JSX.Element
+  options: TSelectOptions
+  placeHolder?: string
+  selectedItem: TItemValue
+  setSelectedItem: (items: TItemValue) => void
+  isRequiredField?: boolean
+  labelRightIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
+  }
+  labelLeftIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
+  }
+  optionRightIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
+  }
+  avatar?: string
+  footerButtonProps?: {
     cancel: TButtonPropTypes
     confirm: TButtonPropTypes
   }

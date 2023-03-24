@@ -24,10 +24,12 @@ declare type TFormValue =
   | number
   | boolean
   | TSelectOption
+  | TItemValue
   | File
   | Date
   | TRangePickerValues
   | null
+  | TItemValue[]
 declare type TOnChange = (event: TChangeEventType) => void
 
 // Props which will pass FormField to component

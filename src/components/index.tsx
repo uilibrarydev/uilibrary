@@ -3,7 +3,8 @@ import Heading from './Heading'
 import Icon from './Icon'
 import FormContainer from './FormContainer'
 import Input from './Input'
-import Select from './Select'
+import MultiSelect from './Select/MultiSelect'
+import Select from './Select/SingleSelect'
 import Modal from './Modal'
 import Button from './Button'
 import FormField from './FormField'
@@ -38,6 +39,7 @@ export {
   FormContainer,
   Input,
   Select,
+  MultiSelect,
   Modal,
   Button,
   FormField,

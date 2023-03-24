@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Select as SelectComp } from '../components'
+import { Select as SelectComp, MultiSelect as MultiSelectComp } from '../components'
 import { TItemValue, TSelectOptions } from '../types/globals'
 import imageFile from '../assets/images/avatar.jpg'
 
@@ -11,20 +11,7 @@ const image = {
 export default {
   title: 'Select',
   component: SelectComp,
-  argTypes: {
-    multiSelect: {
-      options: ['true', 'false'],
-      control: { multiSelect: 'false' }
-    },
-    withSearch: {
-      options: ['true', 'false'],
-      control: { withSearch: 'false' }
-    },
-    withFooter: {
-      options: ['true', 'false'],
-      control: { withFooter: 'false' }
-    }
-  }
+  argTypes: {}
 }
 
 const OPTIONS: TSelectOptions = [
@@ -50,28 +37,13 @@ const OPTIONS: TSelectOptions = [
   }
 ]
 
+// -----------SINGLESELECT---------
 const Template = (args): JSX.Element => {
-  // const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
-  const [selectedValues, setSelectedValues] = useState<TItemValue[]>([
-    'armenia',
-    'italy',
-    'france',
-    'spain',
-    'germany'
-  ])
+  const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
 
   return (
     <div style={{ width: 300 }}>
-      <SelectComp
-        label="Select"
-        placeHolder="Select country"
-        // onSelect={setSelectedValue}
-        options={OPTIONS}
-        // selectedValue={selectedValue}
-        selectedItems={selectedValues}
-        setSelectedItems={setSelectedValues}
-        {...args}
-      />
+      <SelectComp {...args} selectedItem={selectedValue} setSelectedItem={setSelectedValue} />
     </div>
   )
 }
@@ -79,10 +51,35 @@ export const Select = Template.bind({})
 
 Select.args = {
   options: OPTIONS,
-  multiSelect: true,
-  withFooter: true,
-  withSearch: false
-  // avatar: image.src,
-  // leftIconProps: { name: 'user' },
-  // rightIconProps: { name: 'more' },
+  withFooter: false,
+  avatar: image.src,
+  placeHolder: 'Select country',
+  labelLeftIconProps: { name: 'user' },
+  labelRightIconProps: { name: 'user' },
+  optionRightIconProps: { name: 'more' }
+}
+
+// -----------MULTISELECT---------
+const MultiSelect1 = (args): JSX.Element => {
+  const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
+
+  return (
+    <div style={{ width: 300 }}>
+      <MultiSelectComp
+        {...args}
+        selectedItems={selectedValues}
+        setSelectedItems={setSelectedValues}
+      />
+    </div>
+  )
+}
+export const MultiSelect = MultiSelect1.bind({})
+
+MultiSelect.args = {
+  label: 'Select',
+  options: OPTIONS,
+  avatar: image.src,
+  labelLeftIconProps: { name: 'user' },
+  labelRightIconProps: { name: 'user' },
+  optionRightIconProps: { name: 'more' }
 }

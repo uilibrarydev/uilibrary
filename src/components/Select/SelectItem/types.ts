@@ -4,13 +4,19 @@ export type TSelectItemProps = {
   isSelected: boolean
   data: TSelectOption
   onClick: (itemValue: TItemValue) => void
-  leftIconProps?: {
+  labelRightIconProps?: {
     name: string
     size?: TIconSize
     className?: string
     onClick?: TClickHandler
   }
-  rightIconProps?: {
+  labelLeftIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
+  }
+  optionRightIconProps?: {
     name: string
     size?: TIconSize
     className?: string
