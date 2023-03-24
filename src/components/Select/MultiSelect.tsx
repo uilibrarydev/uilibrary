@@ -1,5 +1,7 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { useOnOutsideClick } from '../../hooks'
+import { getStringWidth } from '../../utils'
+import { useGetElemSizes } from '../../hooks/useGetElemSizes'
 import { TMultiSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
 import { SelectItem } from './SelectItem'
@@ -33,17 +35,25 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
     name,
     setFieldValue
   } = props
+  console.log('options', options)
 
   const [isOpen, setIsOpen] = useState(true)
 
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>(selectedItems)
-
-  const ref = useRef(null)
+  const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
+  const { width } = useGetElemSizes(containerRef)
 
   const closeDropdown = () => setIsOpen(false)
   const openDropdown = () => setIsOpen(true)
+  useOnOutsideClick(containerRef, closeDropdown)
 
-  useOnOutsideClick(ref, closeDropdown)
+  const checkIsValueOverflowed = useCallback(
+    (value: string) => {
+      const elemWidth = getStringWidth(value, 14)
+      return elemWidth > width - 80 // padding and width of (+number)
+    },
+    [width]
+  )
 
   const onItemSelect = (item: TItemValue) => {
     setSelectedValues((selected) => [...selected, item])
@@ -87,13 +97,27 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
   }
 
   const selectedItemsLabels = useMemo(() => {
-    return options.reduce((acc: string, item: TSelectOption) => {
-      if (selectedValues.indexOf(item.value) !== -1) {
-        acc = `${acc}${acc !== '' ? ', ' : ''}${item.label}`
-      }
-      return acc
-    }, '')
-  }, [options, selectedValues])
+    const currentValue = options.reduce(
+      (acc: { inputValue: string; visibleOptionsLength: number }, item: TSelectOption) => {
+        if (selectedValues.indexOf(item.value) !== -1) {
+          const { inputValue, visibleOptionsLength } = acc
+          const accNextValue = `${inputValue}${inputValue !== '' ? ', ' : ''}${item.label}`
+          const isOverflowed = checkIsValueOverflowed(accNextValue)
+
+          if (isOverflowed) {
+            acc.inputValue = `${inputValue} ... +${selectedValues.length - visibleOptionsLength}`
+
+            return acc
+          }
+          acc = { inputValue: accNextValue, visibleOptionsLength: visibleOptionsLength + 1 }
+        }
+        return acc
+      },
+      { inputValue: '', visibleOptionsLength: 0 }
+    )
+
+    return currentValue.inputValue
+  }, [options, selectedValues, checkIsValueOverflowed])
 
   const clearAll = useCallback(() => {
     setSelectedValues([])
@@ -109,9 +133,10 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
   }
 
   const isAnyItemSelected = selectedValues.length > 0
+  console.log('options', options)
 
   return (
-    <div className="select" ref={ref}>
+    <div className="select" ref={setContainerRef}>
       <div onClick={toggleDropdown}>
         <Input
           className="select__input"

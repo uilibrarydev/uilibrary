@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import { useOnOutsideClick } from '../../hooks'
 import { TSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
@@ -32,16 +32,15 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
     setSelectedItem
   } = props
 
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
+  const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
 
   const [currentSelection, setCurrentSelection] = useState<TItemValue>(selectedItem)
-
-  const ref = useRef(null)
 
   const closeDropdown = () => setIsOpen(false)
   const openDropdown = () => setIsOpen(true)
 
-  useOnOutsideClick(ref, closeDropdown)
+  useOnOutsideClick(containerRef, closeDropdown)
 
   const submitSelectedValue = (value: TItemValue) => {
     if (setSelectedItem) {
@@ -99,7 +98,7 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
   }
 
   return (
-    <div className="select" ref={ref}>
+    <div className="select" ref={setContainerRef}>
       <div onClick={open}>
         <Input
           className="select__input"
