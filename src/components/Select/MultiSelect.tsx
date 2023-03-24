@@ -35,7 +35,6 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
     name,
     setFieldValue
   } = props
-  console.log('options', options)
 
   const [isOpen, setIsOpen] = useState(true)
 
@@ -55,9 +54,9 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
     [width]
   )
 
-  const onItemSelect = (item: TItemValue) => {
+  const onItemSelect = useCallback((item: TItemValue) => {
     setSelectedValues((selected) => [...selected, item])
-  }
+  }, [])
 
   const submitSelectedValue = (selections: TItemValue[]) => {
     if (setSelectedItems) {
@@ -70,10 +69,10 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
     closeDropdown()
   }
 
-  const applySelectedItems = () => {
+  const applySelectedItems = useCallback(() => {
     submitSelectedValue(selectedValues)
     closeDropdown()
-  }
+  }, [selectedValues])
 
   const cancelCelectedItems = () => {
     submitSelectedValue(selectedItems)
@@ -133,7 +132,6 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
   }
 
   const isAnyItemSelected = selectedValues.length > 0
-  console.log('options', options)
 
   return (
     <div className="select" ref={setContainerRef}>

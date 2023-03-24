@@ -13,7 +13,6 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
     placeHolder,
     value,
     label,
-
     setFieldValue,
     name,
     isRequiredField,
@@ -53,22 +52,25 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
     closeDropdown()
   }
 
-  const onItemSelect = useCallback((value: TItemValue) => {
-    setCurrentSelection(value)
-    if (withFooter) {
-      return
-    }
-    submitSelectedValue(value)
-  }, [])
+  const onItemSelect = useCallback(
+    (value: TItemValue) => {
+      setCurrentSelection(value)
+      if (withFooter) {
+        return
+      }
+      submitSelectedValue(value)
+    },
+    [withFooter]
+  )
 
-  const onItemDeselect = () => {
+  const onItemDeselect = useCallback(() => {
     setCurrentSelection(null)
     if (withFooter) {
       return
     }
     submitSelectedValue(null)
     closeDropdown()
-  }
+  }, [withFooter])
 
   const open = (e?: TClickEventType) => {
     const result = e?.target as HTMLDivElement

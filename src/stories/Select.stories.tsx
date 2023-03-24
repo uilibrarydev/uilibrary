@@ -51,7 +51,7 @@ export const Select = Template.bind({})
 
 Select.args = {
   options: OPTIONS,
-  withFooter: false,
+  withFooter: true,
   avatar: image.src,
   placeHolder: 'Select country',
   labelLeftIconProps: { name: 'user' },

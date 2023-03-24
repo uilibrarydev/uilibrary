@@ -3,6 +3,7 @@ import Icon from '../../Icon'
 import { TSelectItemProps } from './types'
 import Avatar from '../../Avatar'
 import Checkbox from '../../Checkbox'
+import { TClickEventType } from '../../../types/globals'
 
 export const SelectItem = (props: TSelectItemProps): JSX.Element => {
   const {
@@ -19,10 +20,18 @@ export const SelectItem = (props: TSelectItemProps): JSX.Element => {
 
   const { label } = data
 
+  const handleClick = (e: TClickEventType) => {
+    e.preventDefault()
+
+    if (disabled) {
+      return
+    }
+    onClick(data.value)
+  }
   return (
     <div
       className={`select__option ${disabled ? 'select__option--disabled' : ''}`}
-      onClick={() => !disabled && onClick(data.value)}
+      onClick={handleClick}
     >
       {isCheckbox ? <Checkbox className="mr-8" value={isSelected} disabled={disabled} /> : null}
       {!isCheckbox && isSelected ? (
