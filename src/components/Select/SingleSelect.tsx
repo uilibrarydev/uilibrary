@@ -17,8 +17,8 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
     name,
     isRequiredField,
     labelLeftIconProps,
-    labelRightIconProps,
-    optionRightIconProps,
+    optionRightIconComponent,
+    labelRightIconComponent,
     avatar,
     withFooter,
     footerButtonProps = {
@@ -125,8 +125,8 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
                 key={item.value}
                 onClick={isSelected ? onItemDeselect : onItemSelect}
                 labelLeftIconProps={labelLeftIconProps}
-                labelRightIconProps={labelRightIconProps}
-                optionRightIconProps={optionRightIconProps}
+                optionRightIconComponent={optionRightIconComponent}
+                labelRightIconComponent={labelRightIconComponent}
                 avatar={avatar}
                 disabled={item.disabled}
                 isSelected={isSelected}

@@ -8,19 +8,7 @@ export interface TMultiSelectPropTypes extends IFormCompProps {
   selectedItems: [TItemValue]
   setSelectedItems: (items: TItemValue[]) => void
   isRequiredField?: boolean
-  labelRightIconProps?: {
-    name: string
-    size?: TIconSize
-    className?: string
-    onClick?: TClickHandler
-  }
   labelLeftIconProps?: {
-    name: string
-    size?: TIconSize
-    className?: string
-    onClick?: TClickHandler
-  }
-  optionRightIconProps?: {
     name: string
     size?: TIconSize
     className?: string
@@ -31,6 +19,8 @@ export interface TMultiSelectPropTypes extends IFormCompProps {
     cancel: TButtonPropTypes
     confirm: TButtonPropTypes
   }
+  optionRightIconComponent?: JSX.Element
+  labelRightIconComponent?: JSX.Element
   selectButtonTexts?: {
     selectAll: string
     clearAll: string
@@ -45,24 +35,14 @@ export interface TSelectPropTypes extends IFormCompProps {
   selectedItem: TItemValue
   setSelectedItem: (items: TItemValue) => void
   isRequiredField?: boolean
-  labelRightIconProps?: {
-    name: string
-    size?: TIconSize
-    className?: string
-    onClick?: TClickHandler
-  }
   labelLeftIconProps?: {
     name: string
     size?: TIconSize
     className?: string
     onClick?: TClickHandler
   }
-  optionRightIconProps?: {
-    name: string
-    size?: TIconSize
-    className?: string
-    onClick?: TClickHandler
-  }
+  optionRightIconComponent?: JSX.Element
+  labelRightIconComponent?: JSX.Element
   avatar?: string
   footerButtonProps?: {
     cancel: TButtonPropTypes

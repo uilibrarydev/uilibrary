@@ -17,23 +17,28 @@ export default {
 const OPTIONS: TSelectOptions = [
   {
     value: 'armenia',
-    label: 'Armenia'
+    label: 'Armenia',
+    meta: 'AM'
   },
   {
     value: 'italy',
-    label: 'Italy'
+    label: 'Italy',
+    meta: 'IT'
   },
   {
     value: 'france',
-    label: 'France'
+    label: 'France',
+    meta: 'FR'
   },
   {
     value: 'spain',
-    label: 'Spain'
+    label: 'Spain',
+    meta: 'SP'
   },
   {
     value: 'germany',
-    label: 'Germany'
+    label: 'Germany',
+    meta: 'De'
   }
 ]
 
@@ -55,8 +60,8 @@ Select.args = {
   avatar: image.src,
   placeHolder: 'Select country',
   labelLeftIconProps: { name: 'user' },
-  labelRightIconProps: { name: 'user' },
-  optionRightIconProps: { name: 'more' }
+  optionRightIconComponent: null,
+  labelRightIconComponent: null
 }
 
 // -----------MULTISELECT---------
@@ -80,6 +85,6 @@ MultiSelect.args = {
   options: OPTIONS,
   avatar: image.src,
   labelLeftIconProps: { name: 'user' },
-  labelRightIconProps: { name: 'user' },
-  optionRightIconProps: { name: 'more' }
+  optionRightIconComponent: null,
+  labelRightIconComponent: null
 }

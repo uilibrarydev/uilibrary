@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import { useOnOutsideClick } from '../../hooks'
 import { getStringWidth } from '../../utils'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
@@ -17,8 +17,8 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
     label,
     isRequiredField,
     labelLeftIconProps,
-    labelRightIconProps,
-    optionRightIconProps,
+    optionRightIconComponent,
+    labelRightIconComponent,
     avatar,
     selectButtonTexts = {
       selectAll: 'Select all',
@@ -168,9 +168,9 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
                 key={item.value}
                 isCheckbox
                 onClick={isSelected ? onItemDeselect : onItemSelect}
-                labelRightIconProps={labelRightIconProps}
                 labelLeftIconProps={labelLeftIconProps}
-                optionRightIconProps={optionRightIconProps}
+                optionRightIconComponent={optionRightIconComponent}
+                labelRightIconComponent={labelRightIconComponent}
                 avatar={avatar}
                 disabled={item.disabled}
                 isSelected={isSelected}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import Icon from '../../Icon'
 import { TSelectItemProps } from './types'
 import Avatar from '../../Avatar'
@@ -12,22 +12,26 @@ export const SelectItem = (props: TSelectItemProps): JSX.Element => {
     disabled,
     avatar,
     isSelected,
-    labelRightIconProps,
+    labelRightIconComponent,
     labelLeftIconProps,
-    optionRightIconProps,
+    optionRightIconComponent,
     isCheckbox
   } = props
 
-  const { label } = data
+  const { label, meta, value } = data
 
-  const handleClick = (e: TClickEventType) => {
-    e.preventDefault()
+  const handleClick = useCallback(
+    (e: TClickEventType) => {
+      e.preventDefault()
 
-    if (disabled) {
-      return
-    }
-    onClick(data.value)
-  }
+      if (disabled) {
+        return
+      }
+      onClick(value)
+    },
+    [disabled, value]
+  )
+
   return (
     <div
       className={`select__option ${disabled ? 'select__option--disabled' : ''}`}
@@ -53,23 +57,11 @@ export const SelectItem = (props: TSelectItemProps): JSX.Element => {
           />
         ) : null}
         <span className={`select__option__text ${disabled ? 'color-disabled' : ''}`}>{label}</span>
-        {labelRightIconProps ? (
-          <Icon
-            {...labelRightIconProps}
-            size="xsmall"
-            type={`${disabled ? 'disabled' : 'primary'}`}
-            className="mr-8"
-          />
-        ) : null}
+
+        {labelRightIconComponent}
+        <span className={`select__option__text ${disabled ? 'color-disabled' : ''}`}>- {meta}</span>
       </div>
-      {optionRightIconProps ? (
-        <Icon
-          {...optionRightIconProps}
-          size="xsmall"
-          type={`${disabled ? 'disabled' : 'primary'}`}
-          className="ml-8"
-        />
-      ) : null}
+      {optionRightIconComponent}
     </div>
   )
 }

@@ -4,24 +4,14 @@ export type TSelectItemProps = {
   isSelected: boolean
   data: TSelectOption
   onClick: (itemValue: TItemValue) => void
-  labelRightIconProps?: {
-    name: string
-    size?: TIconSize
-    className?: string
-    onClick?: TClickHandler
-  }
   labelLeftIconProps?: {
     name: string
     size?: TIconSize
     className?: string
     onClick?: TClickHandler
   }
-  optionRightIconProps?: {
-    name: string
-    size?: TIconSize
-    className?: string
-    onClick?: TClickHandler
-  }
+  optionRightIconComponent?: JSX.Element
+  labelRightIconComponent?: JSX.Element
   avatar?: string
   disabled?: boolean
   isCheckbox?: boolean
