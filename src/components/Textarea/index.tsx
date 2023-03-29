@@ -60,30 +60,30 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
           />
         </div>
 
-          {(error  || successMessage || helperText || maxCount) ? (
-            <div className="textarea__message mt-4">
-              {error && <ErrorMessage message={error} icon="info-hover" />}
-              {successMessage ? (
-                <Text size="small" type="success" className="flexbox align-items--center">
-                  <>
-                    <Icon name="circle-mark-hover" type="success" size="xsmall" />
-                    <span className="ml-4">{successMessage}</span>
-                  </>
-                </Text>
-              ) : null}
-              {helperText && !successMessage ? (
-                <Text size="small" type="secondary">
-                  {helperText}
-                </Text>
-              ) : null}
+        {error || successMessage || helperText || maxCount ? (
+          <div className="textarea__message mt-4">
+            {error && <ErrorMessage message={error} icon="info-hover" />}
+            {successMessage ? (
+              <Text size="small" type="success" className="flexbox align-items--center">
+                <>
+                  <Icon name="circle-mark-hover" type="success" size="xsmall" />
+                  <span className="ml-4">{successMessage}</span>
+                </>
+              </Text>
+            ) : null}
+            {helperText && !successMessage ? (
+              <Text size="small" type="secondary">
+                {helperText}
+              </Text>
+            ) : null}
 
-              {maxCount ? (
-                <Text size="small" type="secondary" className="textarea__counter">
-                  {`${currentLength}/${maxCount}`}
-                </Text>
-              ) : null}
-            </div>
-          ) : null }
+            {maxCount ? (
+              <Text size="small" type="secondary" className="textarea__counter">
+                {`${currentLength}/${maxCount}`}
+              </Text>
+            ) : null}
+          </div>
+        ) : null}
       </div>
     )
   }
