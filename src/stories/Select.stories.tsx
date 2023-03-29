@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Select as SelectComp, MultiSelect as MultiSelectComp } from '../components'
 import { TItemValue, TSelectOptions } from '../types/globals'
 import imageFile from '../assets/images/avatar.jpg'
-import Icon from '../components/Icon';
+import Icon from '../components/Icon'
 
 const image = {
   src: imageFile,
@@ -86,6 +86,6 @@ MultiSelect.args = {
   options: OPTIONS,
   avatar: image.src,
   labelLeftIconProps: { name: 'user' },
-  labelRightIconComponent:  <Icon name="user" size="xsmall" className="mr-4"/>,
-  optionRightIconComponent: <Icon name="more" size="xsmall"/>
+  labelRightIconComponent: <Icon name="user" size="xsmall" className="mr-4" />,
+  optionRightIconComponent: <Icon name="more" size="xsmall" />
 }
