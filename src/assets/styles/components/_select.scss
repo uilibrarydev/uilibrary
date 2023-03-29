@@ -14,7 +14,7 @@
   --ds-select-options-border-size: 0;
   --ds-select-options-border-color: none;
   --ds-select-options-margin: var(--ds-space-4);
-  --ds-select-options-padding: var(--ds-space-8) 0;
+  --ds-select-options-padding: 0;
 
   --ds-select-option-bg-hover: var(--grey-20);
   --ds-select-option-margin: var(--ds-space-4);
@@ -23,11 +23,11 @@
   --ds-select-option-font: var(--ds-font-weight-default) var(--ds-paragraph-sm)/var(--ds-line-height-default) var(--ds-font-family);
 
   --ds-select-top-padding: var(--ds-size-16) 0;
-  --ds-select-top-margin: 0 var(--ds-size-16) var(--ds-size-8);
+  --ds-select-top-margin: 0 var(--ds-size-16);
   --ds-select-top-border-bottom: 1px solid var(--ds-color-divider);
 
-  --ds-select-footer-height: var(--ds-size-48);
-  --ds-select-footer-padding: var(--ds-size-12) var(--ds-size-16) var(--ds-size-4);
+  --ds-select-footer-height: var(--ds-size-56);
+  --ds-select-footer-padding: 0 var(--ds-size-16);
   --ds-select-footer-border-top: 1px solid var(--ds-color-divider);
 
   position: relative;
@@ -55,9 +55,16 @@
     border-width: var(--ds-select-options-border-size);
     border-style: solid;
     border-color: var(--ds-select-options-border-default);
+
+    &__scroll {
+      max-height: 260px;
+      padding-top: 8px;
+      padding-bottom: 4px;
+      overflow-y: auto !important;
+    }
   }
 
-  &__option, &__option__inner {
+  &__option, &__option__inner, &__option__content {
     @include flexbox;
     @include align-items(center);
     @include justify-content(space-between);
@@ -72,12 +79,12 @@
       background-color: var(--ds-select-option-bg-hover);
     }
 
-    &:last-child {
-      margin-bottom: 0;
+    &__inner, &__content {
+      flex: 1;
     }
 
-    &__inner, &__text {
-      flex: 1;
+    &__content {
+      @include justify-content(flex-start);
     }
 
     &__text {

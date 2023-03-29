@@ -65,6 +65,7 @@
       @include flexbox;
       @include align-items(center);
       @include justify-content(center);
+      position: relative;
       width: var(--ds-controller-size);
       min-width: var(--ds-controller-size);
       height: var(--ds-controller-size);
