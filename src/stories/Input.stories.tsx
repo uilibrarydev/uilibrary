@@ -20,11 +20,7 @@ const Template = (args) => {
 
   return (
     <div style={{ maxWidth: 300 }}>
-      <InputComp
-        {...args}
-        currentValue={value}
-        onChange={changeHandler}
-      />
+      <InputComp {...args} currentValue={value} onChange={changeHandler} />
     </div>
   )
 }

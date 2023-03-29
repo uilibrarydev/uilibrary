@@ -19,7 +19,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
       placeHolder,
       onChange,
       required = false,
-      maxCount ,
+      maxCount,
       helperText,
       successMessage,
       ...rest
