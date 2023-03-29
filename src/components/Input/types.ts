@@ -30,7 +30,6 @@ export interface InputCustomProps extends IFormCompProps {
   placeholder?: string
   helperText?: string
   successMessage?: string
-  withCounter?: boolean
   maxCount?: number
   onFocus?: (event: TClickEventType) => void
 }

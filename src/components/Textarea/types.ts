@@ -15,5 +15,4 @@ export interface TTextAreaTypeProps extends IFormCompProps {
   changeHandler?: (event: TTextAreaEventType) => void
   helperText?: string
   successMessage?: string
-  withCounter?: boolean
 }

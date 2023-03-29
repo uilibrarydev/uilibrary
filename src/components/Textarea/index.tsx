@@ -6,7 +6,6 @@ import { TTextAreaTypeProps } from './types'
 import Text from '../Text'
 import Icon from '../Icon'
 import '../../assets/styles/components/_textarea.scss'
-import './index.scss'
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps>(
   (
@@ -20,7 +19,6 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
       placeHolder,
       onChange,
       required = false,
-      withCounter,
       maxCount,
       helperText,
       successMessage,
@@ -50,7 +48,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
       <div className={`textarea  ${className} ${error ? 'textarea--invalid' : ''}`}>
         <Label text={label} required={required} disabled={disabled} />
         <div className="textarea__inner">
-          {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment 
+          {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore */}
           <textarea
             disabled={disabled}
@@ -61,28 +59,31 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
             {...(currentValue ? { value: currentValue } : {})}
           />
         </div>
-        <div className="textarea__message mt-4">
-          {error && <ErrorMessage message={error} icon="info-hover" />}
-          {successMessage ? (
-            <Text size="small" type="success" className="flexbox align-items--center">
-              <>
-                <Icon name="circle-mark-hover" type="success" size="xsmall" />
-                <span>{successMessage}</span>
-              </>
-            </Text>
-          ) : null}
-          {helperText && !successMessage ? (
-            <Text size="small" type="secondary">
-              {helperText}
-            </Text>
-          ) : null}
 
-          {withCounter ? (
-            <Text size="small" type="secondary">
-              {`${currentLength}/${maxCount}`}
-            </Text>
-          ) : null}
-        </div>
+        {error || successMessage || helperText || maxCount ? (
+          <div className="textarea__message mt-4">
+            {error && <ErrorMessage message={error} icon="info-hover" />}
+            {successMessage ? (
+              <Text size="small" type="success" className="flexbox align-items--center">
+                <>
+                  <Icon name="circle-mark-hover" type="success" size="xsmall" />
+                  <span className="ml-4">{successMessage}</span>
+                </>
+              </Text>
+            ) : null}
+            {helperText && !successMessage ? (
+              <Text size="small" type="secondary">
+                {helperText}
+              </Text>
+            ) : null}
+
+            {maxCount ? (
+              <Text size="small" type="secondary" className="textarea__counter">
+                {`${currentLength}/${maxCount}`}
+              </Text>
+            ) : null}
+          </div>
+        ) : null}
       </div>
     )
   }
