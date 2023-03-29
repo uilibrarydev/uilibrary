@@ -160,23 +160,25 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
             />
           </div>
 
-          {options.map((item: TSelectOption) => {
-            const isSelected = checkIsSelected(item.value)
-            return (
-              <SelectItem
-                data={item}
-                key={item.value}
-                isCheckbox
-                onClick={isSelected ? onItemDeselect : onItemSelect}
-                labelLeftIconProps={labelLeftIconProps}
-                optionRightIconComponent={optionRightIconComponent}
-                labelRightIconComponent={labelRightIconComponent}
-                avatar={avatar}
-                disabled={item.disabled}
-                isSelected={isSelected}
-              />
-            )
-          })}
+          <div className="select__options__scroll scrollbar scrollbar--vertical">
+            {options.map((item: TSelectOption) => {
+              const isSelected = checkIsSelected(item.value)
+              return (
+                <SelectItem
+                  data={item}
+                  key={item.value}
+                  isCheckbox
+                  onClick={isSelected ? onItemDeselect : onItemSelect}
+                  labelLeftIconProps={labelLeftIconProps}
+                  optionRightIconComponent={optionRightIconComponent}
+                  labelRightIconComponent={labelRightIconComponent}
+                  avatar={avatar}
+                  disabled={item.disabled}
+                  isSelected={isSelected}
+                />
+              )
+            })}
+          </div>
 
           <Footer
             buttonProps={footerButtonProps}

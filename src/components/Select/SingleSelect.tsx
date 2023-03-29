@@ -117,22 +117,24 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
 
       {isOpen && (
         <div className="select__options">
-          {options.map((item: TSelectOption) => {
-            const isSelected = item.value === currentSelection
-            return (
-              <SelectItem
-                data={item}
-                key={item.value}
-                onClick={isSelected ? onItemDeselect : onItemSelect}
-                labelLeftIconProps={labelLeftIconProps}
-                optionRightIconComponent={optionRightIconComponent}
-                labelRightIconComponent={labelRightIconComponent}
-                avatar={avatar}
-                disabled={item.disabled}
-                isSelected={isSelected}
-              />
-            )
-          })}
+          <div className="select__options__scroll scrollbar scrollbar--vertical">
+            {options.map((item: TSelectOption) => {
+              const isSelected = item.value === currentSelection
+              return (
+                <SelectItem
+                  data={item}
+                  key={item.value}
+                  onClick={isSelected ? onItemDeselect : onItemSelect}
+                  labelLeftIconProps={labelLeftIconProps}
+                  optionRightIconComponent={optionRightIconComponent}
+                  labelRightIconComponent={labelRightIconComponent}
+                  avatar={avatar}
+                  disabled={item.disabled}
+                  isSelected={isSelected}
+                />
+              )
+            })}
+          </div>
           {withFooter ? (
             <Footer
               buttonProps={footerButtonProps}

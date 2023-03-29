@@ -43,7 +43,7 @@ export const SelectItem = (props: TSelectItemProps): JSX.Element => {
           name="mark"
           size="xsmall"
           type={`${disabled ? 'disabled' : 'brand'}`}
-          className="mr-8"
+          className="mr-4"
         />
       ) : null}
       <div className="select__option__inner">
@@ -53,13 +53,20 @@ export const SelectItem = (props: TSelectItemProps): JSX.Element => {
             {...labelLeftIconProps}
             size="xsmall"
             type={`${disabled ? 'disabled' : 'primary'}`}
-            className="mr-8"
+            className="mr-4"
           />
         ) : null}
-        <span className={`select__option__text ${disabled ? 'color-disabled' : ''}`}>{label}</span>
-
-        {labelRightIconComponent}
-        <span className={`select__option__text ${disabled ? 'color-disabled' : ''}`}>- {meta}</span>
+        <div className="select__option__content">
+          <span className={`select__option__text pr-4 ${disabled ? 'color-disabled' : ''}`}>
+            {label}
+          </span>
+          {labelRightIconComponent}
+          {meta ? (
+            <span className={`select__option__text ${disabled ? 'color-disabled' : ''}`}>
+              - {meta}
+            </span>
+          ) : null}
+        </div>
       </div>
       {optionRightIconComponent}
     </div>
