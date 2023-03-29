@@ -4,7 +4,6 @@ import ErrorMessage from '../../helperComponents/ErrorMessage'
 import { TChangeEventType } from '../../types/globals'
 import { InputCustomProps } from './types'
 import '../../assets/styles/components/_input.scss'
-import './index.scss'
 import Icon from '../Icon'
 import Label from '../../helperComponents/Label'
 import Text from '../Text'
@@ -27,7 +26,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       iconProps,
       placeholder,
       type = 'text',
-      withCounter = false,
       helperText,
       successMessage,
       maxCount,
@@ -106,28 +104,30 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
           )}
         </label>
 
-        <div className="input__message mt-4">
-          {error ? <ErrorMessage message={error} icon="info-hover" /> : null}
-          {successMessage ? (
-            <Text size="small" type="success" className="flexbox align-items--center">
-              <>
-                <Icon name="circle-mark-hover" type="success" size="xsmall" />
-                <span>{successMessage}</span>
-              </>
-            </Text>
-          ) : null}
-          {helperText && !successMessage ? (
-            <Text size="small" type="secondary">
-              {helperText}
-            </Text>
-          ) : null}
+        {error || successMessage || helperText || maxCount ? (
+          <div className="input__message mt-4">
+            {error ? <ErrorMessage message={error} icon="info-hover" /> : null}
+            {successMessage ? (
+              <Text size="small" type="success" className="flexbox align-items--center">
+                <>
+                  <Icon name="circle-mark-hover" type="success" size="xsmall" />
+                  <span className="ml-4">{successMessage}</span>
+                </>
+              </Text>
+            ) : null}
+            {helperText && !successMessage ? (
+              <Text size="small" type="secondary">
+                {helperText}
+              </Text>
+            ) : null}
 
-          {withCounter ? (
-            <Text size="small" type="secondary">
-              {`${currentLength}/${maxCount}`}
-            </Text>
-          ) : null}
-        </div>
+            {maxCount ? (
+              <Text size="small" type="secondary" className="input__counter">
+                {`${currentLength}/${maxCount}`}
+              </Text>
+            ) : null}
+          </div>
+        ) : null}
       </div>
     )
   }

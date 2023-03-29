@@ -192,4 +192,15 @@
       height: var(--ds-input-size-sm);
     }
   }
+
+  &__message {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(space-between);
+  }
+
+  &__counter {
+    flex: 1;
+    text-align: right;
+  }
 }
