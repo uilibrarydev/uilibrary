@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Input as InputComp, Textarea as TextareaComp } from '../components'
+import { Input as InputComp } from '../components'
 import { TChangeEventType } from '../types/globals'
 
 export default {
@@ -24,9 +24,6 @@ const Template = (args) => {
         {...args}
         currentValue={value}
         onChange={changeHandler}
-        disabled={true}
-        mask="9999999999"
-        placeholder="__________"
       />
     </div>
   )
@@ -44,7 +41,6 @@ Input.args = {
   rightIcon: false,
   disabled: false,
   required: false,
-  withCounter: true,
   maxCount: 15,
   placeholder: 'Some text',
   helperText: 'This is your helper text',

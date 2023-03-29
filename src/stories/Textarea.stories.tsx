@@ -27,6 +27,5 @@ Textarea.args = {
   helperText: 'This is your helper text',
   successMessage: 'Success message',
   error: 'Error message',
-  withCounter: true,
-  maxCount: 15
+  maxCount: 240
 }

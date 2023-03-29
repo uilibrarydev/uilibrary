@@ -6,7 +6,6 @@ import { TTextAreaTypeProps } from './types'
 import Text from '../Text'
 import Icon from '../Icon'
 import '../../assets/styles/components/_textarea.scss'
-import './index.scss'
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps>(
   (
@@ -20,8 +19,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
       placeHolder,
       onChange,
       required = false,
-      withCounter,
-      maxCount,
+      maxCount ,
       helperText,
       successMessage,
       ...rest
@@ -67,7 +65,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
             <Text size="small" type="success" className="flexbox align-items--center">
               <>
                 <Icon name="circle-mark-hover" type="success" size="xsmall" />
-                <span>{successMessage}</span>
+                <span className="ml-4">{successMessage}</span>
               </>
             </Text>
           ) : null}
@@ -77,8 +75,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
             </Text>
           ) : null}
 
-          {withCounter ? (
-            <Text size="small" type="secondary">
+          {maxCount ? (
+            <Text size="small" type="secondary" className="textarea__counter">
               {`${currentLength}/${maxCount}`}
             </Text>
           ) : null}
