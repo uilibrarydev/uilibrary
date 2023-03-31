@@ -19,8 +19,10 @@
   --ds-select-option-bg-hover: var(--grey-20);
   --ds-select-option-margin: var(--ds-space-4);
   --ds-select-option-padding: var(--ds-space-8) var(--ds-space-16);
-
   --ds-select-option-font: var(--ds-font-weight-default) var(--ds-paragraph-sm)/var(--ds-line-height-default) var(--ds-font-family);
+
+  --ds-select-scroll-max-height: 260px;
+  --ds-select-scroll-padding: var(--ds-space-8) 0 var(--ds-space-4);
 
   --ds-select-top-padding: var(--ds-size-16) 0;
   --ds-select-top-margin: 0 var(--ds-size-16);
@@ -57,10 +59,12 @@
     border-color: var(--ds-select-options-border-default);
 
     &__scroll {
-      max-height: 260px;
-      padding-top: 8px;
-      padding-bottom: 4px;
-      overflow-y: auto !important;
+      max-height: var(--ds-select-scroll-max-height);
+      padding: var(--ds-select-scroll-padding);
+
+      &.scrollbar {
+        overflow-y: auto;
+      }
     }
   }
 

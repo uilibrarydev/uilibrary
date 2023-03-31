@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react'
+import React, {useCallback, useMemo, useRef, useState} from 'react'
 import { useOnOutsideClick } from '../../hooks'
 import { getStringWidth } from '../../utils'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
@@ -36,7 +36,7 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
     setFieldValue
   } = props
 
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>(selectedItems)
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
@@ -97,7 +97,7 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
 
   const selectedItemsLabels = useMemo(() => {
     const currentValue = options.reduce(
-      (acc: { inputValue: string; visibleOptionsLength: number }, item: TSelectOption) => {
+      (acc: { inputValue: string, visibleOptionsLength: number }, item: TSelectOption) => {
         if (selectedValues.indexOf(item.value) !== -1) {
           const { inputValue, visibleOptionsLength } = acc
           const accNextValue = `${inputValue}${inputValue !== '' ? ', ' : ''}${item.label}`
@@ -133,6 +133,9 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
 
   const isAnyItemSelected = selectedValues.length > 0
 
+  const scrollRef = useRef(null);
+  const {scrollHeight} = useGetElemSizes(scrollRef.current)
+
   return (
     <div className="select" ref={setContainerRef}>
       <div onClick={toggleDropdown}>
@@ -160,7 +163,7 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
             />
           </div>
 
-          <div className="select__options__scroll scrollbar scrollbar--vertical">
+          <div ref={scrollRef} className={`select__options__scroll scrollbar scrollbar--vertical ${scrollHeight > 260 ? 'mr-6' : ''}`}>
             {options.map((item: TSelectOption) => {
               const isSelected = checkIsSelected(item.value)
               return (
