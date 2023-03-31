@@ -40,7 +40,10 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
 
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>(selectedItems)
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
+  const [contentContainerRef, setContentContainerRef] = useState<HTMLDivElement | null>(null)
   const { width } = useGetElemSizes(containerRef)
+
+  const { scrollHeight } = useGetElemSizes(contentContainerRef)
 
   const closeDropdown = () => setIsOpen(false)
   const openDropdown = () => setIsOpen(true)
@@ -104,7 +107,14 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
           const isOverflowed = checkIsValueOverflowed(accNextValue)
 
           if (isOverflowed) {
-            acc.inputValue = `${inputValue} ... +${selectedValues.length - visibleOptionsLength}`
+            if (inputValue.indexOf('+') !== -1) {
+              acc.inputValue = inputValue.replace(
+                `+${selectedValues.length - visibleOptionsLength - 1}`,
+                `+${inputValue} ... +${selectedValues.length - visibleOptionsLength}`
+              )
+            } else {
+              acc.inputValue = `${inputValue} ... +${selectedValues.length - visibleOptionsLength}`
+            }
 
             return acc
           }
@@ -128,13 +138,25 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
   }, [options])
 
   const checkIsSelected = (itemValue: TItemValue) => {
-    return selectedValues.indexOf(itemValue) !== -1
+    return selectedValues.find((item) => item === itemValue) !== undefined
   }
 
-  const isAnyItemSelected = selectedValues.length > 0
+  console.log('selectedValues', selectedValues)
 
-  const scrollRef = useRef(null)
-  const { scrollHeight } = useGetElemSizes(scrollRef.current)
+  const toggle = (value: TItemValue) => {
+    const isSelected = checkIsSelected(value)
+    console.log('value', value)
+    console.log('selectedValues', selectedValues)
+
+    console.log('isSelected', isSelected)
+
+    if (isSelected) {
+      onItemDeselect(value)
+    } else {
+      onItemSelect(value)
+    }
+  }
+  const isAnyItemSelected = selectedValues.length > 0
 
   return (
     <div className="select" ref={setContainerRef}>
@@ -164,7 +186,7 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
           </div>
 
           <div
-            ref={scrollRef}
+            ref={setContentContainerRef}
             className={`select__options__scroll scrollbar scrollbar--vertical ${
               scrollHeight > 260 ? 'mr-6' : ''
             }`}

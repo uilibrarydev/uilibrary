@@ -29,7 +29,7 @@ export const SelectItem = (props: TSelectItemProps): JSX.Element => {
       }
       onClick(value)
     },
-    [disabled, value]
+    [disabled, value, onClick]
   )
 
   return (
