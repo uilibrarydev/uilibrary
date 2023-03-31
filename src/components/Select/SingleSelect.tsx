@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useRef, useState} from 'react'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { useOnOutsideClick } from '../../hooks'
 import { TSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
@@ -6,7 +6,7 @@ import { SelectItem } from './SelectItem'
 import Footer from './Footer'
 import { TClickEventType, TItemValue, TSelectOption } from '../../types/globals'
 import Input from '../Input'
-import {useGetElemSizes} from '../../hooks/useGetElemSizes';
+import { useGetElemSizes } from '../../hooks/useGetElemSizes'
 
 const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
   const {
@@ -100,9 +100,9 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
     closeDropdown()
   }
 
-  const scrollRef = useRef(null);
-  const {scrollHeight} = useGetElemSizes(scrollRef.current)
- console.log(scrollHeight)
+  const scrollRef = useRef(null)
+  const { scrollHeight } = useGetElemSizes(scrollRef.current)
+  console.log(scrollHeight)
   return (
     <div className="select" ref={setContainerRef}>
       <div onClick={open}>
@@ -121,7 +121,12 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
 
       {isOpen && (
         <div className="select__options">
-          <div ref={scrollRef} className={`select__options__scroll scrollbar scrollbar--vertical  ${scrollHeight > 260 ? 'mr-6' : ''}`}>
+          <div
+            ref={scrollRef}
+            className={`select__options__scroll scrollbar scrollbar--vertical  ${
+              scrollHeight > 260 ? 'mr-6' : ''
+            }`}
+          >
             {options.map((item: TSelectOption) => {
               const isSelected = item.value === currentSelection
               return (

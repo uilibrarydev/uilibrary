@@ -15,9 +15,13 @@ export const useGetElemSizes = (elemRef: HTMLElement | TRef | null): TSizes => {
     return {
       width: 0,
       height: 0,
-      scrollHeight: 0,
+      scrollHeight: 0
     }
   }
 
-  return { width: elemRef.clientWidth, scrollHeight: elemRef.scrollHeight, height: elemRef.clientHeight }
+  return {
+    width: elemRef.clientWidth,
+    scrollHeight: elemRef.scrollHeight,
+    height: elemRef.clientHeight
+  }
 }

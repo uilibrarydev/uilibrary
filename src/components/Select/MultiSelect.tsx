@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useRef, useState} from 'react'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { useOnOutsideClick } from '../../hooks'
 import { getStringWidth } from '../../utils'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
@@ -97,7 +97,7 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
 
   const selectedItemsLabels = useMemo(() => {
     const currentValue = options.reduce(
-      (acc: { inputValue: string, visibleOptionsLength: number }, item: TSelectOption) => {
+      (acc: { inputValue: string; visibleOptionsLength: number }, item: TSelectOption) => {
         if (selectedValues.indexOf(item.value) !== -1) {
           const { inputValue, visibleOptionsLength } = acc
           const accNextValue = `${inputValue}${inputValue !== '' ? ', ' : ''}${item.label}`
@@ -133,8 +133,8 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
 
   const isAnyItemSelected = selectedValues.length > 0
 
-  const scrollRef = useRef(null);
-  const {scrollHeight} = useGetElemSizes(scrollRef.current)
+  const scrollRef = useRef(null)
+  const { scrollHeight } = useGetElemSizes(scrollRef.current)
 
   return (
     <div className="select" ref={setContainerRef}>
@@ -163,7 +163,12 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
             />
           </div>
 
-          <div ref={scrollRef} className={`select__options__scroll scrollbar scrollbar--vertical ${scrollHeight > 260 ? 'mr-6' : ''}`}>
+          <div
+            ref={scrollRef}
+            className={`select__options__scroll scrollbar scrollbar--vertical ${
+              scrollHeight > 260 ? 'mr-6' : ''
+            }`}
+          >
             {options.map((item: TSelectOption) => {
               const isSelected = checkIsSelected(item.value)
               return (
