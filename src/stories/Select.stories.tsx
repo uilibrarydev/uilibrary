@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
-import { Select as SelectComp, MultiSelect as MultiSelectComp } from '../components'
+import {
+  Button,
+  Select as SelectComp,
+  MultiSelect as MultiSelectComp,
+  FilterDropdown as FilterDropdownComp
+} from '../components'
 import { TItemValue, TSelectOptions } from '../types/globals'
 import imageFile from '../assets/images/avatar.jpg'
 import Icon from '../components/Icon'
@@ -103,6 +108,35 @@ export const MultiSelect = MultiSelect1.bind({})
 
 MultiSelect.args = {
   label: 'Select',
+  options: OPTIONS,
+  avatar: image.src,
+  labelLeftIconProps: { name: 'user' },
+  labelRightIconComponent: <Icon name="user" size="xsmall" className="mr-4" />,
+  optionRightIconComponent: <Icon name="more" size="xsmall" />
+}
+
+// ----------FILTERDROPDOWN---------------
+
+const FilterDropdown1 = (args): JSX.Element => {
+  const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
+  const [isOpen, setIsOpen] = useState(false)
+  const closeHandler = () => setIsOpen(false)
+  return (
+    <div style={{ width: 300 }}>
+      <Button type="primary" buttonText={'filter'} onClick={() => setIsOpen(!isOpen)} />
+      <FilterDropdownComp
+        {...args}
+        closeHandler={closeHandler}
+        isOpen={isOpen}
+        selectedItems={selectedValues}
+        setSelectedItems={setSelectedValues}
+      />
+    </div>
+  )
+}
+export const FilterDropdown = FilterDropdown1.bind({})
+
+FilterDropdown.args = {
   options: OPTIONS,
   avatar: image.src,
   labelLeftIconProps: { name: 'user' },

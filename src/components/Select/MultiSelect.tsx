@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import { useOnOutsideClick } from '../../hooks'
 import { getStringWidth } from '../../utils'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
@@ -141,21 +141,6 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
     return selectedValues.find((item) => item === itemValue) !== undefined
   }
 
-  console.log('selectedValues', selectedValues)
-
-  const toggle = (value: TItemValue) => {
-    const isSelected = checkIsSelected(value)
-    console.log('value', value)
-    console.log('selectedValues', selectedValues)
-
-    console.log('isSelected', isSelected)
-
-    if (isSelected) {
-      onItemDeselect(value)
-    } else {
-      onItemSelect(value)
-    }
-  }
   const isAnyItemSelected = selectedValues.length > 0
 
   return (
@@ -175,7 +160,7 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
       </div>
 
       {isOpen && (
-        <div className="select__options">
+        <div className="filter__options">
           <div className="select__top">
             <Checkbox
               IconProps={{ name: 'minus' }}

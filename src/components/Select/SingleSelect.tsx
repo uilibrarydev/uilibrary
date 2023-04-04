@@ -102,7 +102,7 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
 
   const scrollRef = useRef(null)
   const { scrollHeight } = useGetElemSizes(scrollRef.current)
-  console.log(scrollHeight)
+
   return (
     <div className="select" ref={setContainerRef}>
       <div onClick={open}>

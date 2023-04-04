@@ -58,3 +58,24 @@ export type TSelectFooterPropTypes = {
   onCancel: () => void
   onApply: () => void
 }
+
+export interface TFilterDropdownProps extends IFormCompProps {
+  isOpen: boolean
+  options: TSelectOptions
+  selectedItems: [TItemValue]
+  setSelectedItems: (items: TItemValue[]) => void
+  labelLeftIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
+  }
+  avatar?: string
+  footerButtonProps?: {
+    cancel: TButtonPropTypes
+    confirm: TButtonPropTypes
+  }
+  optionRightIconComponent?: JSX.Element
+  labelRightIconComponent?: JSX.Element
+  closeHandler: () => void
+}
