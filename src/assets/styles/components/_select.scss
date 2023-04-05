@@ -10,6 +10,7 @@
   --ds-select-input-arrow-position: var(--ds-space-14);
 
   --ds-select-options-bg: var(--white);
+  --ds-select-options-shadow: var(--shadow-2);
   --ds-select-options-border-radius: var(--ds-border-radius-sm);
   --ds-select-options-border-size: 0;
   --ds-select-options-border-color: none;
@@ -52,11 +53,11 @@
     background-color: var(--ds-select-options-bg);
     padding: var(--ds-select-options-padding);
     margin-top: var(--ds-select-options-margin);
-    box-shadow: var(--shadow-2);
+    box-shadow: var(--ds-select-options-shadow);
     border-radius: var(--ds-select-options-border-radius);
     border-width: var(--ds-select-options-border-size);
     border-style: solid;
-    border-color: var(--ds-select-options-border-default);
+    border-color: var(--ds-select-options-border-color);
 
     &__scroll {
       max-height: var(--ds-select-scroll-max-height);
@@ -143,5 +144,12 @@
     padding: var(--ds-select-footer-padding);
     border-top: var(--ds-select-footer-border-top);
   }
+}
 
+.filter {
+  --ds-filter-input-margin: var(--ds-space-16) var(--ds-space-16) 0;
+
+  &__input {
+    margin: var(--ds-filter-input-margin);
+  }
 }

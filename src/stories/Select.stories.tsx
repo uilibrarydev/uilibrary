@@ -125,7 +125,7 @@ const FilterDropdown1 = (args): JSX.Element => {
   return (
     <div style={{ width: 300, display: 'flex', flexDirection: 'column' }}>
       <div style={{ position: 'relative' }} ref={containerRef}>
-        <Button type="primary" buttonText={'filter'} onClick={() => setIsOpen(!isOpen)} />
+        <Button type="secondary" iconProps={{name: 'filter'}} buttonText={'filter'} onClick={() => setIsOpen(!isOpen)} />
         <FilterDropdownComp
           {...args}
           parentRef={containerRef.current}
@@ -135,8 +135,6 @@ const FilterDropdown1 = (args): JSX.Element => {
           setSelectedItems={setSelectedValues}
         />
       </div>
-
-      <Button type="primary" buttonText={'filter'} />
     </div>
   )
 }

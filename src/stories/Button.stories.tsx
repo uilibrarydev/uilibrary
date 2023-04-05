@@ -30,7 +30,6 @@ export const Button = Template.bind({})
 Button.args = {
   iconProps: {
     name: 'home',
-    alignment: 'left'
   },
   type: 'primary',
   size: 'large',

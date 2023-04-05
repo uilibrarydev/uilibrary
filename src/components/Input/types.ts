@@ -13,16 +13,21 @@ export interface InputCustomProps extends IFormCompProps {
   currentValue?: string
   error?: string | JSX.Element
   label?: string | JSX.Element
-  leftIcon?: boolean
-  rightIcon?: boolean
-  disabled?: boolean
-  required?: boolean
-  iconProps?: {
+  leftIconProps?: {
     name: string
-    size?: string
+    size?: TIconSize
     className?: string
     onClick?: TClickHandler
   }
+  rightIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
+  }
+  disabled?: boolean
+  required?: boolean
+
   ref?: RefObject<HTMLInputElement>
   style?: Record<string, string>
   type?: 'text' | 'number' | 'time' | 'password' | 'email' | 'file' | 'tel' | 'date'

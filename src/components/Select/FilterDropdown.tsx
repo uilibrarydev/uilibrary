@@ -93,52 +93,49 @@ const FilterDropdown = (props: TFilterDropdownProps): JSX.Element | null => {
   }
 
   return ReactDOM.createPortal(
-    <div
-      style={{
-        background: '#efe8e8',
-        maxWidth: 300,
-        padding: 20,
-        marginTop: 5,
-        position: 'absolute'
-      }}
-      ref={setContainerRef}
-    >
-      <Input
-        onChange={onFilter}
-        currentValue={filterValue}
-        rightIcon
-        iconProps={{
-          size: 'xsmall',
-          name: filterValue === '' ? 'search' : 'close',
-          onClick: removeFilterValue
-        }}
-      />
-      <div className={'select__options__scroll scrollbar scrollbar--vertical '}>
-        {filteredOptions.map((item: TSelectOption) => {
-          const isSelected = checkIsSelected(item.value)
+      <div className="select filter">
+        <div className="select__options"
+          ref={setContainerRef}
+        >
+          <Input
+            onChange={onFilter}
+            className="filter__input"
+            size="small"
+            currentValue={filterValue}
+            rightIconProps={{
+              size: filterValue === '' ? 'small' : 'xsmall',
+              name: filterValue === '' ? 'search' : 'close',
+              onClick: removeFilterValue
+            }}
+          />
+          <div className={'select__options__scroll scrollbar scrollbar--vertical '}>
+            {filteredOptions.map((item: TSelectOption) => {
+              const isSelected = checkIsSelected(item.value)
 
-          return (
-            <SelectItem
-              data={item}
-              key={item.value}
-              onClick={isSelected ? onItemDeselect : onItemSelect}
-              labelLeftIconProps={labelLeftIconProps}
-              optionRightIconComponent={optionRightIconComponent}
-              labelRightIconComponent={labelRightIconComponent}
-              avatar={avatar}
-              disabled={item.disabled}
-              isSelected={isSelected}
-            />
-          )
-        })}
-      </div>
-      <Footer
-        buttonProps={footerButtonProps}
-        onCancel={cancelCelectedItems}
-        onApply={applySelectedItems}
-      />
-    </div>,
-    parentRef
+              return (
+                <SelectItem
+                  data={item}
+                  key={item.value}
+                  onClick={isSelected ? onItemDeselect : onItemSelect}
+                  labelLeftIconProps={labelLeftIconProps}
+                  optionRightIconComponent={optionRightIconComponent}
+                  labelRightIconComponent={labelRightIconComponent}
+                  avatar={avatar}
+                  isCheckbox={true}
+                  disabled={item.disabled}
+                  isSelected={isSelected}
+                />
+              )
+            })}
+          </div>
+          <Footer
+            buttonProps={footerButtonProps}
+            onCancel={cancelCelectedItems}
+            onApply={applySelectedItems}
+          />
+        </div>
+      </div>,
+      parentRef
   )
 }
 
