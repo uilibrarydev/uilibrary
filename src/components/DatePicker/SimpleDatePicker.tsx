@@ -49,7 +49,7 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
         locale="hy"
         customInput={
           <Input
-            rightIconProps={{name: 'calendar'}}
+            rightIconProps={{ name: 'calendar' }}
             currentValue={selectedDate ? moment(selectedDate.toString()).format(format) : ''}
           />
         }
