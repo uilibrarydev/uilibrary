@@ -1,4 +1,10 @@
-import { IFormCompProps, TClickHandler, TItemValue, TSelectOptions } from '../../types/globals'
+import {
+  IFormCompProps,
+  TClickHandler,
+  TItemValue,
+  TSelectGroupOptions,
+  TSelectOptions
+} from '../../types/globals'
 import { TButtonPropTypes } from '../Button/types'
 
 export interface TMultiSelectPropTypes extends IFormCompProps {
@@ -59,9 +65,10 @@ export type TSelectFooterPropTypes = {
   onApply: () => void
 }
 
-export interface TFilterDropdownProps extends IFormCompProps {
+export interface TFilterProps extends IFormCompProps {
+  isGrouped: boolean
   isOpen: boolean
-  options: TSelectOptions
+  options: TSelectOptions | TSelectGroupOptions
   selectedItems: [TItemValue]
   setSelectedItems: (items: TItemValue[]) => void
   labelLeftIconProps?: {
@@ -79,4 +86,47 @@ export interface TFilterDropdownProps extends IFormCompProps {
   labelRightIconComponent?: JSX.Element
   closeHandler: () => void
   parentRef: HTMLElement
+}
+
+export interface TFilterDropdownContentProps extends IFormCompProps {
+  options: TSelectOptions
+  labelLeftIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
+  }
+  avatar?: string
+  footerButtonProps?: {
+    cancel: TButtonPropTypes
+    confirm: TButtonPropTypes
+  }
+  optionRightIconComponent?: JSX.Element
+  labelRightIconComponent?: JSX.Element
+  // closeHandler: () => void
+  filterValue: string
+  onItemSelect: (item: TItemValue) => void
+  onItemDeselect: (item: TItemValue) => void
+  checkIsSelected: (item: TItemValue) => boolean
+}
+export interface TFilterGroupDropdownContentProps extends IFormCompProps {
+  options: TSelectGroupOptions
+  labelLeftIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
+  }
+  avatar?: string
+  footerButtonProps?: {
+    cancel: TButtonPropTypes
+    confirm: TButtonPropTypes
+  }
+  optionRightIconComponent?: JSX.Element
+  labelRightIconComponent?: JSX.Element
+  // closeHandler: () => void
+  filterValue: string
+  onItemSelect: (item: TItemValue) => void
+  onItemDeselect: (item: TItemValue) => void
+  checkIsSelected: (item: TItemValue) => boolean
 }

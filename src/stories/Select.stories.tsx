@@ -3,9 +3,9 @@ import {
   Button,
   Select as SelectComp,
   MultiSelect as MultiSelectComp,
-  FilterDropdown as FilterDropdownComp
+  Filter as FilterDropdownComp
 } from '../components'
-import { TItemValue, TSelectOptions } from '../types/globals'
+import { TItemValue, TSelectOptions, TSelectGroupOptions } from '../types/globals'
 import imageFile from '../assets/images/avatar.jpg'
 import Icon from '../components/Icon'
 
@@ -45,26 +45,35 @@ const OPTIONS: TSelectOptions = [
     value: 'germany',
     label: 'Germany',
     meta: 'De'
+  }
+]
+const OPTIONS_CITIES: TSelectOptions = [
+  {
+    value: 'yerevan',
+    label: 'Yerevan'
   },
   {
-    value: 'dddd',
-    label: 'Germanydffg',
-    meta: 'De'
+    value: 'rome',
+    label: 'Rome'
   },
   {
-    value: 'gerdddddmany',
-    label: 'Germanysss',
-    meta: 'De'
+    value: 'paris',
+    label: 'Paris'
   },
   {
-    value: 'fggh',
-    label: 'Germanyaaaa',
-    meta: 'De'
+    value: 'aaaa',
+    label: 'iiii'
+  }
+]
+
+const OPTIONS_GROUPED: TSelectGroupOptions = [
+  {
+    title: 'Countries',
+    data: OPTIONS
   },
   {
-    value: 'fghgh',
-    label: 'Germanyaswas',
-    meta: 'De'
+    title: 'Cities',
+    data: OPTIONS_CITIES
   }
 ]
 
@@ -133,6 +142,7 @@ const FilterDropdown1 = (args): JSX.Element => {
         />
         <FilterDropdownComp
           {...args}
+          isGrouped
           parentRef={containerRef.current}
           closeHandler={closeHandler}
           isOpen={isOpen}
@@ -146,7 +156,7 @@ const FilterDropdown1 = (args): JSX.Element => {
 export const FilterDropdown = FilterDropdown1.bind({})
 
 FilterDropdown.args = {
-  options: OPTIONS,
+  options: OPTIONS_GROUPED,
   avatar: image.src,
   labelLeftIconProps: { name: 'user' },
   labelRightIconComponent: <Icon name="user" size="xsmall" className="mr-4" />,

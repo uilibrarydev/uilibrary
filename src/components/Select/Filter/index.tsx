@@ -1,23 +1,25 @@
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import ReactDOM from 'react-dom'
-import { TFilterDropdownProps } from './types'
-import '../../assets/styles/components/_select.scss'
-import { TChangeEventType, TItemValue, TSelectOption } from '../../types/globals'
-import { SelectItem } from './SelectItem'
-import Input from '../Input'
-import { useOnOutsideClick } from '../../hooks'
-import Footer from './Footer'
 
-const FilterDropdown = (props: TFilterDropdownProps): JSX.Element | null => {
+import { TChangeEventType, TItemValue, TSelectGroupOptions } from '../../../types/globals'
+import { useOnOutsideClick } from '../../../hooks'
+import { TSelectOptions } from '../../../types/globals'
+import Input from '../../Input'
+
+import { FilterDropdownContent } from './FilterDropdown'
+import { FilterGroupDropdownContent } from './FilterGroupDropdown'
+import Footer from '../Footer'
+
+import '../../../assets/styles/components/_select.scss'
+import { TFilterProps } from '../types'
+
+export const Filter = (props: TFilterProps): JSX.Element | null => {
   const {
+    isGrouped,
     options,
     isOpen,
     setFieldValue,
     name,
-    labelLeftIconProps,
-    optionRightIconComponent,
-    labelRightIconComponent,
-    avatar,
     footerButtonProps = {
       confirm: {
         buttonText: 'Apply'
@@ -27,7 +29,8 @@ const FilterDropdown = (props: TFilterDropdownProps): JSX.Element | null => {
     selectedItems,
     setSelectedItems,
     closeHandler,
-    parentRef
+    parentRef,
+    ...rest
   } = props
 
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
@@ -78,12 +81,6 @@ const FilterDropdown = (props: TFilterDropdownProps): JSX.Element | null => {
     setFilterValue(e.target.value)
   }
 
-  const filteredOptions = useMemo(() => {
-    return options.filter((option) => {
-      return option.label.toString().includes(filterValue)
-    })
-  }, [filterValue, options])
-
   const removeFilterValue = () => {
     setFilterValue('')
   }
@@ -107,24 +104,25 @@ const FilterDropdown = (props: TFilterDropdownProps): JSX.Element | null => {
           }}
         />
         <div className={'select__options__scroll scrollbar scrollbar--vertical '}>
-          {filteredOptions.map((item: TSelectOption) => {
-            const isSelected = checkIsSelected(item.value)
-
-            return (
-              <SelectItem
-                data={item}
-                key={item.value}
-                onClick={isSelected ? onItemDeselect : onItemSelect}
-                labelLeftIconProps={labelLeftIconProps}
-                optionRightIconComponent={optionRightIconComponent}
-                labelRightIconComponent={labelRightIconComponent}
-                avatar={avatar}
-                isCheckbox={true}
-                disabled={item.disabled}
-                isSelected={isSelected}
-              />
-            )
-          })}
+          {isGrouped ? (
+            <FilterGroupDropdownContent
+              checkIsSelected={checkIsSelected}
+              onItemDeselect={onItemDeselect}
+              filterValue={filterValue}
+              onItemSelect={onItemSelect}
+              options={options as TSelectGroupOptions}
+              {...rest}
+            />
+          ) : (
+            <FilterDropdownContent
+              checkIsSelected={checkIsSelected}
+              onItemDeselect={onItemDeselect}
+              filterValue={filterValue}
+              onItemSelect={onItemSelect}
+              options={options as TSelectOptions}
+              {...rest}
+            />
+          )}
         </div>
         <Footer
           buttonProps={footerButtonProps}
@@ -136,5 +134,3 @@ const FilterDropdown = (props: TFilterDropdownProps): JSX.Element | null => {
     parentRef
   )
 }
-
-export default FilterDropdown

@@ -5,7 +5,7 @@ import FormContainer from './FormContainer'
 import Input from './Input'
 import MultiSelect from './Select/MultiSelect'
 import Select from './Select/SingleSelect'
-import FilterDropdown from './Select/FilterDropdown'
+import { Filter } from './Select/Filter'
 import Modal from './Modal'
 import Button from './Button'
 import FormField from './FormField'
@@ -41,7 +41,7 @@ export {
   Input,
   Select,
   MultiSelect,
-  FilterDropdown,
+  Filter,
   Modal,
   Button,
   FormField,

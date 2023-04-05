@@ -12,6 +12,13 @@ export type TSelectOption = {
 
 export type TSelectOptions = TSelectOption[]
 
+export type TSelectGroupOption = {
+  title: string
+  data: TSelectOptions
+}
+
+export type TSelectGroupOptions = TSelectGroupOption[]
+
 export type TRangePickerValues = [Date | null, Date | null]
 
 export type TClickEventType = React.MouseEvent<HTMLElement>
