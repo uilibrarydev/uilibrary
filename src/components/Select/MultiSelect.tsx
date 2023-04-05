@@ -100,7 +100,7 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
 
   const selectedItemsLabels = useMemo(() => {
     const currentValue = options.reduce(
-      (acc: { inputValue: string; visibleOptionsLength: number }, item: TSelectOption) => {
+      (acc: { inputValue: string, visibleOptionsLength: number }, item: TSelectOption) => {
         if (selectedValues.indexOf(item.value) !== -1) {
           const { inputValue, visibleOptionsLength } = acc
           const accNextValue = `${inputValue}${inputValue !== '' ? ', ' : ''}${item.label}`
@@ -150,11 +150,8 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
           className="select__input"
           label={label}
           required={isRequiredField}
-          rightIcon
+          rightIconProps={{name: isOpen ? 'caret-up' : 'caret-down'}}
           placeholder={placeHolder}
-          iconProps={{
-            name: isOpen ? 'caret-up' : 'caret-down'
-          }}
           currentValue={selectedItemsLabels}
         />
       </div>

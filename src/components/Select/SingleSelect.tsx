@@ -110,11 +110,10 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
           className="select__input"
           label={label}
           required={isRequiredField}
-          rightIcon
-          placeholder={placeHolder}
-          iconProps={{
+          rightIconProps={{
             name: isOpen ? 'caret-up' : 'caret-down'
           }}
+          placeholder={placeHolder}
           currentValue={selectedItemLabel}
         />
       </div>
