@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import {
   Button,
   Select as SelectComp,
@@ -120,17 +120,23 @@ MultiSelect.args = {
 const FilterDropdown1 = (args): JSX.Element => {
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
   const [isOpen, setIsOpen] = useState(false)
+  const containerRef = useRef(null)
   const closeHandler = () => setIsOpen(false)
   return (
-    <div style={{ width: 300 }}>
-      <Button type="primary" buttonText={'filter'} onClick={() => setIsOpen(!isOpen)} />
-      <FilterDropdownComp
-        {...args}
-        closeHandler={closeHandler}
-        isOpen={isOpen}
-        selectedItems={selectedValues}
-        setSelectedItems={setSelectedValues}
-      />
+    <div style={{ width: 300, display: 'flex', flexDirection: 'column' }}>
+      <div style={{ position: 'relative' }} ref={containerRef}>
+        <Button type="primary" buttonText={'filter'} onClick={() => setIsOpen(!isOpen)} />
+        <FilterDropdownComp
+          {...args}
+          parentRef={containerRef.current}
+          closeHandler={closeHandler}
+          isOpen={isOpen}
+          selectedItems={selectedValues}
+          setSelectedItems={setSelectedValues}
+        />
+      </div>
+
+      <Button type="primary" buttonText={'filter'} />
     </div>
   )
 }

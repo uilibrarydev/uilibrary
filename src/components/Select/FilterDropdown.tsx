@@ -26,7 +26,8 @@ const FilterDropdown = (props: TFilterDropdownProps): JSX.Element | null => {
     },
     selectedItems,
     setSelectedItems,
-    closeHandler
+    closeHandler,
+    parentRef
   } = props
 
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
@@ -93,7 +94,13 @@ const FilterDropdown = (props: TFilterDropdownProps): JSX.Element | null => {
 
   return ReactDOM.createPortal(
     <div
-      style={{ background: '#efe8e8', maxWidth: 300, padding: 20, marginTop: 5 }}
+      style={{
+        background: '#efe8e8',
+        maxWidth: 300,
+        padding: 20,
+        marginTop: 5,
+        position: 'absolute'
+      }}
       ref={setContainerRef}
     >
       <Input
@@ -131,7 +138,7 @@ const FilterDropdown = (props: TFilterDropdownProps): JSX.Element | null => {
         onApply={applySelectedItems}
       />
     </div>,
-    document.getElementsByTagName('body')[0]
+    parentRef
   )
 }
 

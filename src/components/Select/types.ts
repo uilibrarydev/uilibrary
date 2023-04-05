@@ -78,4 +78,5 @@ export interface TFilterDropdownProps extends IFormCompProps {
   optionRightIconComponent?: JSX.Element
   labelRightIconComponent?: JSX.Element
   closeHandler: () => void
+  parentRef: HTMLElement
 }
