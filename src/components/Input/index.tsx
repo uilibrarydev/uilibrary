@@ -96,10 +96,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         <label className="input__inner">
           {input}
           {leftIconProps && (
-            <Icon className="input__icon input__icon--left" size='small' {...leftIconProps} />
+            <Icon className="input__icon input__icon--left" size="small" {...leftIconProps} />
           )}
           {rightIconProps && (
-            <Icon className="input__icon input__icon--right"  size='small' {...rightIconProps} />
+            <Icon className="input__icon input__icon--right" size="small" {...rightIconProps} />
           )}
         </label>
 

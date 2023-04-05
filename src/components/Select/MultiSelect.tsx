@@ -100,7 +100,7 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
 
   const selectedItemsLabels = useMemo(() => {
     const currentValue = options.reduce(
-      (acc: { inputValue: string, visibleOptionsLength: number }, item: TSelectOption) => {
+      (acc: { inputValue: string; visibleOptionsLength: number }, item: TSelectOption) => {
         if (selectedValues.indexOf(item.value) !== -1) {
           const { inputValue, visibleOptionsLength } = acc
           const accNextValue = `${inputValue}${inputValue !== '' ? ', ' : ''}${item.label}`
