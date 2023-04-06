@@ -1,16 +1,18 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import { useOnOutsideClick } from '../../hooks'
-import { getStringWidth } from '../../utils'
-import { useGetElemSizes } from '../../hooks/useGetElemSizes'
-import { TMultiSelectPropTypes } from './types'
-import '../../assets/styles/components/_select.scss'
-import { SelectItem } from './SelectItem'
-import Footer from './Footer'
-import { TClickEventType, TItemValue, TSelectOption } from '../../types/globals'
-import Input from '../Input'
-import Checkbox from '../Checkbox'
 
-const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
+import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
+import { TItemValue, TSelectOption } from '../../../types/globals'
+
+import Input from '../../Input'
+import Checkbox from '../../Checkbox'
+
+import { DROPDOWN_MAX_HEIGHT, incrementOverflowedinitial } from './utils'
+
+import { SelectItem } from '../SelectItem'
+import { TMultiSelectPropTypes } from '../types'
+import '../../../assets/styles/components/_select.scss'
+
+export const MultiSelect = (props: TMultiSelectPropTypes): JSX.Element | null => {
   const {
     options,
     placeHolder,
@@ -20,83 +22,20 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
     optionRightIconComponent,
     labelRightIconComponent,
     avatar,
-    selectButtonTexts = {
-      selectAll: 'Select all',
-      clearAll: 'Clear all'
-    },
-    footerButtonProps = {
-      confirm: {
-        buttonText: 'Apply'
-      },
-      cancel: { buttonText: 'Cancel' }
-    },
-    selectedItems,
-    setSelectedItems,
-    name,
-    setFieldValue
+    selectedValues,
+    setSelectedValues,
+    isOpen,
+    toggleDropdown,
+    checkIsValueOverflowed,
+    selectButtonTexts,
+    onItemDeselect,
+    onItemSelect,
+    footer
   } = props
 
-  const [isOpen, setIsOpen] = useState(false)
-
-  const [selectedValues, setSelectedValues] = useState<TItemValue[]>(selectedItems)
-  const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
   const [contentContainerRef, setContentContainerRef] = useState<HTMLDivElement | null>(null)
-  const { width } = useGetElemSizes(containerRef)
 
   const { scrollHeight } = useGetElemSizes(contentContainerRef)
-
-  const closeDropdown = () => setIsOpen(false)
-  const openDropdown = () => setIsOpen(true)
-  useOnOutsideClick(containerRef, closeDropdown)
-
-  const checkIsValueOverflowed = useCallback(
-    (value: string) => {
-      const elemWidth = getStringWidth(value, 14)
-      return elemWidth > width - 80 // padding and width of (+number)
-    },
-    [width]
-  )
-
-  const onItemSelect = useCallback((item: TItemValue) => {
-    setSelectedValues((selected) => [...selected, item])
-  }, [])
-
-  const submitSelectedValue = (selections: TItemValue[]) => {
-    if (setSelectedItems) {
-      setSelectedItems(selections)
-    }
-    if (name && setFieldValue) {
-      setFieldValue(name, selections, { shouldValidate: true })
-    }
-
-    closeDropdown()
-  }
-
-  const applySelectedItems = useCallback(() => {
-    submitSelectedValue(selectedValues)
-    closeDropdown()
-  }, [selectedValues])
-
-  const cancelCelectedItems = () => {
-    submitSelectedValue(selectedItems)
-    closeDropdown()
-  }
-
-  const onItemDeselect = (item: TItemValue) => {
-    setSelectedValues((selected) =>
-      selected.filter((optionValue: TItemValue) => optionValue !== item)
-    )
-  }
-
-  const toggleDropdown = (e?: TClickEventType) => {
-    const clickedElement = e?.target as HTMLDivElement
-    if (e && clickedElement.className && clickedElement.className.indexOf('icon-') !== -1) {
-      setIsOpen(!isOpen)
-      e.preventDefault()
-    } else {
-      openDropdown()
-    }
-  }
 
   const selectedItemsLabels = useMemo(() => {
     const currentValue = options.reduce(
@@ -107,14 +46,10 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
           const isOverflowed = checkIsValueOverflowed(accNextValue)
 
           if (isOverflowed) {
-            if (inputValue.indexOf('+') !== -1) {
-              acc.inputValue = inputValue.replace(
-                `+${selectedValues.length - visibleOptionsLength - 1}`,
-                `+${inputValue} ... +${selectedValues.length - visibleOptionsLength}`
-              )
-            } else {
-              acc.inputValue = `${inputValue} ... +${selectedValues.length - visibleOptionsLength}`
-            }
+            acc.inputValue = incrementOverflowedinitial(
+              inputValue,
+              selectedValues.length - visibleOptionsLength
+            )
 
             return acc
           }
@@ -144,7 +79,7 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
   const isAnyItemSelected = selectedValues.length > 0
 
   return (
-    <div className="select" ref={setContainerRef}>
+    <>
       <div onClick={toggleDropdown}>
         <Input
           className="select__input"
@@ -170,11 +105,12 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
           <div
             ref={setContentContainerRef}
             className={`select__options__scroll scrollbar scrollbar--vertical ${
-              scrollHeight > 260 ? 'mr-6' : ''
+              scrollHeight > DROPDOWN_MAX_HEIGHT ? 'mr-6' : ''
             }`}
           >
             {options.map((item: TSelectOption) => {
               const isSelected = checkIsSelected(item.value)
+
               return (
                 <SelectItem
                   data={item}
@@ -191,16 +127,9 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
               )
             })}
           </div>
-
-          <Footer
-            buttonProps={footerButtonProps}
-            onCancel={cancelCelectedItems}
-            onApply={applySelectedItems}
-          />
+          {footer}
         </div>
       )}
-    </div>
+    </>
   )
 }
-
-export default Select

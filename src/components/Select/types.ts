@@ -11,6 +11,63 @@ export interface TMultiSelectPropTypes extends IFormCompProps {
   label?: string | JSX.Element
   options: TSelectOptions
   placeHolder?: string
+  selectedValues: TItemValue[]
+  setSelectedValues: (values: TItemValue[]) => void
+  isRequiredField?: boolean
+  labelLeftIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
+  }
+  avatar?: string
+  optionRightIconComponent?: JSX.Element
+  labelRightIconComponent?: JSX.Element
+  selectButtonTexts: {
+    selectAll: string
+    clearAll: string
+  }
+  toggleDropdown: () => void
+  checkIsValueOverflowed: (value: string) => boolean
+  isOpen: boolean
+  onItemSelect: (item: TItemValue) => void
+  onItemDeselect: (item: TItemValue) => void
+  footer: JSX.Element
+}
+export interface TMultiSelectGroupedProps extends IFormCompProps {
+  label?: string | JSX.Element
+  options: TSelectGroupOptions
+  placeHolder?: string
+  selectedValues: TItemValue[]
+  setSelectedValues: (values: TItemValue[]) => void
+  isRequiredField?: boolean
+  labelLeftIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
+  }
+  avatar?: string
+  optionRightIconComponent?: JSX.Element
+  labelRightIconComponent?: JSX.Element
+  selectButtonTexts: {
+    selectAll: string
+    clearAll: string
+  }
+  toggleDropdown: () => void
+  checkIsValueOverflowed: (value: string) => boolean
+  isOpen: boolean
+  onItemSelect: (item: TItemValue) => void
+  onItemDeselect: (item: TItemValue) => void
+  footer: JSX.Element
+}
+
+export interface TMultiSelectTypes extends IFormCompProps {
+  withTabs?: boolean
+  isGrouped?: boolean
+  label?: string | JSX.Element
+  options: TSelectOptions | TSelectGroupOptions
+  placeHolder?: string
   selectedItems: [TItemValue]
   setSelectedItems: (items: TItemValue[]) => void
   isRequiredField?: boolean
@@ -27,6 +84,32 @@ export interface TMultiSelectPropTypes extends IFormCompProps {
   }
   optionRightIconComponent?: JSX.Element
   labelRightIconComponent?: JSX.Element
+  selectButtonTexts?: {
+    selectAll: string
+    clearAll: string
+  }
+}
+
+export interface TMultiSelectContentProps {
+  isAnyItemSelected: boolean
+  setSelectedValues: (values: TItemValue[]) => void
+  checkIsSelected: (item: TItemValue) => boolean
+  options: TSelectOptions
+  labelLeftIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
+  }
+  avatar?: string
+  footerButtonProps?: {
+    cancel: TButtonPropTypes
+    confirm: TButtonPropTypes
+  }
+  optionRightIconComponent?: JSX.Element
+  labelRightIconComponent?: JSX.Element
+  onItemSelect: (item: TItemValue) => void
+  onItemDeselect: (item: TItemValue) => void
   selectButtonTexts?: {
     selectAll: string
     clearAll: string
@@ -66,6 +149,7 @@ export type TSelectFooterPropTypes = {
 }
 
 export interface TFilterProps extends IFormCompProps {
+  withTabs: boolean
   isGrouped: boolean
   isOpen: boolean
   options: TSelectOptions | TSelectGroupOptions
@@ -124,7 +208,6 @@ export interface TFilterGroupDropdownContentProps extends IFormCompProps {
   }
   optionRightIconComponent?: JSX.Element
   labelRightIconComponent?: JSX.Element
-  // closeHandler: () => void
   filterValue: string
   onItemSelect: (item: TItemValue) => void
   onItemDeselect: (item: TItemValue) => void

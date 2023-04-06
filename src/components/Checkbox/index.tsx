@@ -18,6 +18,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   } = props
 
   const isChecked = !!value || selectedValue
+
   const changeHandler = () => {
     if (name && setFieldValue) {
       setFieldValue(name, !isChecked, { shouldValidate: !isChecked })

@@ -107,6 +107,8 @@ const MultiSelect1 = (args): JSX.Element => {
     <div style={{ width: 300 }}>
       <MultiSelectComp
         {...args}
+        // isGrouped
+        // withTabs
         selectedItems={selectedValues}
         setSelectedItems={setSelectedValues}
       />
@@ -117,7 +119,7 @@ export const MultiSelect = MultiSelect1.bind({})
 
 MultiSelect.args = {
   label: 'Select',
-  options: OPTIONS,
+  options: OPTIONS_GROUPED,
   avatar: image.src,
   labelLeftIconProps: { name: 'user' },
   labelRightIconComponent: <Icon name="user" size="xsmall" className="mr-4" />,
