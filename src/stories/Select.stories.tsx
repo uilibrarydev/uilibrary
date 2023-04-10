@@ -107,7 +107,7 @@ const MultiSelect1 = (args): JSX.Element => {
     <div style={{ width: 300 }}>
       <MultiSelectComp
         {...args}
-        // isGrouped
+        isGrouped
         // withTabs
         selectedItems={selectedValues}
         setSelectedItems={setSelectedValues}

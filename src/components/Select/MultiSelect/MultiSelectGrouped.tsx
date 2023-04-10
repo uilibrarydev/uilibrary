@@ -10,6 +10,7 @@ import { SelectItem } from '../SelectItem'
 import { incrementOverflowedinitial, DROPDOWN_MAX_HEIGHT } from './utils'
 import { TMultiSelectGroupedProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
+import Icon from '../../Icon'
 
 export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element | null => {
   const {
@@ -33,6 +34,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
   } = props
 
   const [contentContainerRef, setContentContainerRef] = useState<HTMLDivElement | null>(null)
+  const [activeGroupId, setActiveGroupId] = useState(0)
 
   const { scrollHeight } = useGetElemSizes(contentContainerRef)
 
@@ -118,27 +120,40 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
               scrollHeight > DROPDOWN_MAX_HEIGHT ? 'mr-6' : ''
             }`}
           >
-            {options.map(({ title, data }: TSelectGroupOption) => {
+            {options.map(({ title, data }: TSelectGroupOption, index: number) => {
+              const isActive = index === activeGroupId
               return (
                 <div className="group_container" key={title}>
-                  <span>{title}</span>
-                  {data.map((item: TSelectOption) => {
-                    const isSelected = checkIsSelected(item.value)
-                    return (
-                      <SelectItem
-                        data={item}
-                        key={item.value}
-                        isCheckbox
-                        onClick={isSelected ? onItemDeselect : onItemSelect}
-                        labelLeftIconProps={labelLeftIconProps}
-                        optionRightIconComponent={optionRightIconComponent}
-                        labelRightIconComponent={labelRightIconComponent}
-                        avatar={avatar}
-                        disabled={item.disabled}
-                        isSelected={isSelected}
-                      />
-                    )
-                  })}
+                  <div
+                    onClick={() => setActiveGroupId(index)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between'
+                    }}
+                  >
+                    <span>{title}</span>
+                    <Icon name={isActive ? 'caret-up' : 'caret-down'} />
+                  </div>
+
+                  {isActive &&
+                    data.map((item: TSelectOption) => {
+                      const isSelected = checkIsSelected(item.value)
+                      return (
+                        <SelectItem
+                          data={item}
+                          key={item.value}
+                          isCheckbox
+                          onClick={isSelected ? onItemDeselect : onItemSelect}
+                          labelLeftIconProps={labelLeftIconProps}
+                          optionRightIconComponent={optionRightIconComponent}
+                          labelRightIconComponent={labelRightIconComponent}
+                          avatar={avatar}
+                          disabled={item.disabled}
+                          isSelected={isSelected}
+                        />
+                      )
+                    })}
                 </div>
               )
             })}
