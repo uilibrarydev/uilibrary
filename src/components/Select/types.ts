@@ -8,6 +8,7 @@ import {
 import { TButtonPropTypes } from '../Button/types'
 
 export interface TMultiSelectPropTypes extends IFormCompProps {
+  isLoading?: boolean
   label?: string | JSX.Element
   options: TSelectOptions
   placeHolder?: string
@@ -35,6 +36,7 @@ export interface TMultiSelectPropTypes extends IFormCompProps {
   footer: JSX.Element
 }
 export interface TMultiSelectGroupedProps extends IFormCompProps {
+  isLoading?: boolean
   label?: string | JSX.Element
   options: TSelectGroupOptions
   placeHolder?: string
@@ -117,6 +119,7 @@ export interface TMultiSelectContentProps {
 }
 
 export interface TSelectPropTypes extends IFormCompProps {
+  isLoading?: boolean
   withFooter?: boolean
   label?: string | JSX.Element
   options: TSelectOptions
@@ -149,6 +152,7 @@ export type TSelectFooterPropTypes = {
 }
 
 export interface TFilterProps extends IFormCompProps {
+  isLoading?: boolean
   withTabs: boolean
   isGrouped: boolean
   isOpen: boolean

@@ -90,6 +90,7 @@ const Template = (args): JSX.Element => {
 export const Select = Template.bind({})
 
 Select.args = {
+  isLoading: false,
   options: OPTIONS,
   withFooter: true,
   avatar: image.src,
@@ -108,7 +109,7 @@ const MultiSelect1 = (args): JSX.Element => {
       <MultiSelectComp
         {...args}
         isGrouped
-        // withTabs
+        withTabs
         selectedItems={selectedValues}
         setSelectedItems={setSelectedValues}
       />
@@ -118,6 +119,7 @@ const MultiSelect1 = (args): JSX.Element => {
 export const MultiSelect = MultiSelect1.bind({})
 
 MultiSelect.args = {
+  isLoading: false,
   label: 'Select',
   options: OPTIONS_GROUPED,
   avatar: image.src,
@@ -158,6 +160,7 @@ const FilterDropdown1 = (args): JSX.Element => {
 export const FilterDropdown = FilterDropdown1.bind({})
 
 FilterDropdown.args = {
+  isLoading: true,
   options: OPTIONS_GROUPED,
   avatar: image.src,
   labelLeftIconProps: { name: 'user' },

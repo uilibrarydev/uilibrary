@@ -11,9 +11,11 @@ import { DROPDOWN_MAX_HEIGHT, incrementOverflowedinitial } from './utils'
 import { SelectItem } from '../SelectItem'
 import { TMultiSelectPropTypes } from '../types'
 import '../../../assets/styles/components/_select.scss'
+import { Loading } from '../Loading'
 
 export const MultiSelect = (props: TMultiSelectPropTypes): JSX.Element | null => {
   const {
+    isLoading,
     options,
     placeHolder,
     label,
@@ -93,41 +95,49 @@ export const MultiSelect = (props: TMultiSelectPropTypes): JSX.Element | null =>
 
       {isOpen && (
         <div className="select__options">
-          <div className="select__top">
-            <Checkbox
-              IconProps={{ name: 'minus' }}
-              value={isAnyItemSelected}
-              onClick={isAnyItemSelected ? clearAll : selectAll}
-              label={isAnyItemSelected ? selectButtonTexts.clearAll : selectButtonTexts.selectAll}
-            />
-          </div>
-
-          <div
-            ref={setContentContainerRef}
-            className={`select__options__scroll scrollbar scrollbar--vertical ${
-              scrollHeight > DROPDOWN_MAX_HEIGHT ? 'mr-6' : ''
-            }`}
-          >
-            {options.map((item: TSelectOption) => {
-              const isSelected = checkIsSelected(item.value)
-
-              return (
-                <SelectItem
-                  data={item}
-                  key={item.value}
-                  isCheckbox
-                  onClick={isSelected ? onItemDeselect : onItemSelect}
-                  labelLeftIconProps={labelLeftIconProps}
-                  optionRightIconComponent={optionRightIconComponent}
-                  labelRightIconComponent={labelRightIconComponent}
-                  avatar={avatar}
-                  disabled={item.disabled}
-                  isSelected={isSelected}
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <>
+              <div className="select__top">
+                <Checkbox
+                  IconProps={{ name: 'minus' }}
+                  value={isAnyItemSelected}
+                  onClick={isAnyItemSelected ? clearAll : selectAll}
+                  label={
+                    isAnyItemSelected ? selectButtonTexts.clearAll : selectButtonTexts.selectAll
+                  }
                 />
-              )
-            })}
-          </div>
-          {footer}
+              </div>
+
+              <div
+                ref={setContentContainerRef}
+                className={`select__options__scroll scrollbar scrollbar--vertical ${
+                  scrollHeight > DROPDOWN_MAX_HEIGHT ? 'mr-6' : ''
+                }`}
+              >
+                {options.map((item: TSelectOption) => {
+                  const isSelected = checkIsSelected(item.value)
+
+                  return (
+                    <SelectItem
+                      data={item}
+                      key={item.value}
+                      isCheckbox
+                      onClick={isSelected ? onItemDeselect : onItemSelect}
+                      labelLeftIconProps={labelLeftIconProps}
+                      optionRightIconComponent={optionRightIconComponent}
+                      labelRightIconComponent={labelRightIconComponent}
+                      avatar={avatar}
+                      disabled={item.disabled}
+                      isSelected={isSelected}
+                    />
+                  )
+                })}
+              </div>
+              {footer}
+            </>
+          )}
         </div>
       )}
     </>

@@ -11,9 +11,11 @@ import { SelectItem } from '../SelectItem'
 import { incrementOverflowedinitial, DROPDOWN_MAX_HEIGHT } from './utils'
 import { TMultiSelectGroupedProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
+import { Loading } from '../Loading'
 
 export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Element => {
   const {
+    isLoading,
     isOpen,
     footer,
     label,
@@ -121,47 +123,60 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
 
       {isOpen && (
         <div className="select__options">
-          <div className="tab_container" style={{ padding: '0 20px', width: '100%' }}>
-            {<Tab selectedValue={activeTab} tabItems={tabs} onSelect={onTabSelect} size="small" />}
-          </div>
-          <div className="select__top">
-            <Checkbox
-              IconProps={{ name: 'minus' }}
-              value={isAnyItemSelectedInCurrentTab}
-              onClick={isAnyItemSelectedInCurrentTab ? clearAll : selectAll}
-              label={
-                isAnyItemSelectedInCurrentTab
-                  ? selectButtonTexts.clearAll
-                  : selectButtonTexts.selectAll
-              }
-            />
-          </div>
-          <div
-            ref={setContentContainerRef}
-            className={`select__options__scroll scrollbar scrollbar--vertical ${
-              scrollHeight > DROPDOWN_MAX_HEIGHT ? 'mr-6' : ''
-            }`}
-          >
-            {currentTabData.map((item: TSelectOption) => {
-              const isSelected = checkIsSelected(item.value)
-
-              return (
-                <SelectItem
-                  data={item}
-                  key={item.value}
-                  isCheckbox
-                  onClick={isSelected ? onItemDeselect : onItemSelect}
-                  labelLeftIconProps={labelLeftIconProps}
-                  optionRightIconComponent={optionRightIconComponent}
-                  labelRightIconComponent={labelRightIconComponent}
-                  avatar={avatar}
-                  disabled={item.disabled}
-                  isSelected={isSelected}
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <>
+              <div className="tab_container" style={{ padding: '0 20px', width: '100%' }}>
+                {
+                  <Tab
+                    selectedValue={activeTab}
+                    tabItems={tabs}
+                    onSelect={onTabSelect}
+                    size="small"
+                  />
+                }
+              </div>
+              <div className="select__top">
+                <Checkbox
+                  IconProps={{ name: 'minus' }}
+                  value={isAnyItemSelectedInCurrentTab}
+                  onClick={isAnyItemSelectedInCurrentTab ? clearAll : selectAll}
+                  label={
+                    isAnyItemSelectedInCurrentTab
+                      ? selectButtonTexts.clearAll
+                      : selectButtonTexts.selectAll
+                  }
                 />
-              )
-            })}
-          </div>
-          {footer}
+              </div>
+              <div
+                ref={setContentContainerRef}
+                className={`select__options__scroll scrollbar scrollbar--vertical ${
+                  scrollHeight > DROPDOWN_MAX_HEIGHT ? 'mr-6' : ''
+                }`}
+              >
+                {currentTabData.map((item: TSelectOption) => {
+                  const isSelected = checkIsSelected(item.value)
+
+                  return (
+                    <SelectItem
+                      data={item}
+                      key={item.value}
+                      isCheckbox
+                      onClick={isSelected ? onItemDeselect : onItemSelect}
+                      labelLeftIconProps={labelLeftIconProps}
+                      optionRightIconComponent={optionRightIconComponent}
+                      labelRightIconComponent={labelRightIconComponent}
+                      avatar={avatar}
+                      disabled={item.disabled}
+                      isSelected={isSelected}
+                    />
+                  )
+                })}
+              </div>
+              {footer}
+            </>
+          )}
         </div>
       )}
     </>

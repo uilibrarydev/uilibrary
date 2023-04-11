@@ -7,9 +7,11 @@ import Footer from './Footer'
 import { TClickEventType, TItemValue, TSelectOption } from '../../types/globals'
 import Input from '../Input'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
+import { Loading } from './Loading'
 
 const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
   const {
+    isLoading,
     options,
     placeHolder,
     value,
@@ -120,36 +122,42 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
 
       {isOpen && (
         <div className="select__options">
-          <div
-            ref={scrollRef}
-            className={`select__options__scroll scrollbar scrollbar--vertical  ${
-              scrollHeight > 260 ? 'mr-6' : ''
-            }`}
-          >
-            {options.map((item: TSelectOption) => {
-              const isSelected = item.value === currentSelection
-              return (
-                <SelectItem
-                  data={item}
-                  key={item.value}
-                  onClick={isSelected ? onItemDeselect : onItemSelect}
-                  labelLeftIconProps={labelLeftIconProps}
-                  optionRightIconComponent={optionRightIconComponent}
-                  labelRightIconComponent={labelRightIconComponent}
-                  avatar={avatar}
-                  disabled={item.disabled}
-                  isSelected={isSelected}
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <>
+              <div
+                ref={scrollRef}
+                className={`select__options__scroll scrollbar scrollbar--vertical  ${
+                  scrollHeight > 260 ? 'mr-6' : ''
+                }`}
+              >
+                {options.map((item: TSelectOption) => {
+                  const isSelected = item.value === currentSelection
+                  return (
+                    <SelectItem
+                      data={item}
+                      key={item.value}
+                      onClick={isSelected ? onItemDeselect : onItemSelect}
+                      labelLeftIconProps={labelLeftIconProps}
+                      optionRightIconComponent={optionRightIconComponent}
+                      labelRightIconComponent={labelRightIconComponent}
+                      avatar={avatar}
+                      disabled={item.disabled}
+                      isSelected={isSelected}
+                    />
+                  )
+                })}
+              </div>
+              {withFooter ? (
+                <Footer
+                  buttonProps={footerButtonProps}
+                  onCancel={cancelCelectedItems}
+                  onApply={applySelectedItems}
                 />
-              )
-            })}
-          </div>
-          {withFooter ? (
-            <Footer
-              buttonProps={footerButtonProps}
-              onCancel={cancelCelectedItems}
-              onApply={applySelectedItems}
-            />
-          ) : null}
+              ) : null}
+            </>
+          )}
         </div>
       )}
     </div>

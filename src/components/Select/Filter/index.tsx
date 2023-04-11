@@ -12,9 +12,11 @@ import Footer from '../Footer'
 
 import '../../../assets/styles/components/_select.scss'
 import { TFilterProps } from '../types'
+import { Loading } from '../Loading'
 
 export const Filter = (props: TFilterProps): JSX.Element | null => {
   const {
+    isLoading,
     isGrouped,
     options,
     isOpen,
@@ -104,7 +106,9 @@ export const Filter = (props: TFilterProps): JSX.Element | null => {
           }}
         />
         <div className={'select__options__scroll scrollbar scrollbar--vertical '}>
-          {isGrouped ? (
+          {isLoading ? (
+            <Loading />
+          ) : isGrouped ? (
             <FilterGroupDropdownContent
               checkIsSelected={checkIsSelected}
               onItemDeselect={onItemDeselect}
@@ -124,11 +128,13 @@ export const Filter = (props: TFilterProps): JSX.Element | null => {
             />
           )}
         </div>
-        <Footer
-          buttonProps={footerButtonProps}
-          onCancel={cancelCelectedItems}
-          onApply={applySelectedItems}
-        />
+        {isLoading ? null : (
+          <Footer
+            buttonProps={footerButtonProps}
+            onCancel={cancelCelectedItems}
+            onApply={applySelectedItems}
+          />
+        )}
       </div>
     </div>,
     parentRef
