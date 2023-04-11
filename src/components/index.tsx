@@ -9,7 +9,6 @@ import Button from './Button'
 import FormField from './FormField'
 import FileUpload from './FileUpload'
 import Container from './Container'
-import Dialog from './Dialog'
 import Divider from './Divider'
 import Progress from './Progress'
 import Checkbox from './Checkbox'
@@ -43,7 +42,6 @@ export {
   FormField,
   FileUpload,
   Container,
-  Dialog,
   Divider,
   Progress,
   Checkbox,
