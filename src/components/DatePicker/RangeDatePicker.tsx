@@ -32,8 +32,8 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
   }
   return (
     <DatePicker
-      startDate={rangeArray[0]}
-      endDate={rangeArray[1]}
+      startDate={rangeArray[0] as Date}
+      endDate={rangeArray[1] as Date}
       selectsRange
       onChange={onChange}
       customInput={

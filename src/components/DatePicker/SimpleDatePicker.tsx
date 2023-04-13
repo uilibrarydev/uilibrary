@@ -5,7 +5,6 @@ import hy from 'date-fns/locale/hy'
 import Input from '../Input'
 import { ISimpleDatePickerProps } from './types'
 import Label from '../../helperComponents/Label'
-import Icon from '../Icon'
 
 registerLocale('hy', hy)
 

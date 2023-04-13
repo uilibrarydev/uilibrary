@@ -124,8 +124,8 @@ export interface TSelectPropTypes extends IFormCompProps {
   label?: string | JSX.Element
   options: TSelectOptions
   placeHolder?: string
-  selectedItem: TItemValue
-  setSelectedItem: (items: TItemValue) => void
+  selectedItem?: TItemValue
+  setSelectedItem?: (items: TItemValue | undefined) => void
   isRequiredField?: boolean
   labelLeftIconProps?: {
     name: string
