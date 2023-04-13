@@ -1,8 +1,8 @@
 import React from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
-import { FormContainer, Switcher, Select, Button } from '../components'
-import { IFormCompProps, TSelectOptions } from '../types/globals'
+import { FormContainer, Switcher, Select, Button, MultiSelect } from '../components'
+import { IFormCompProps, TSelectGroupOptions, TSelectOptions } from '../types/globals'
 
 export default {
   title: 'Form',
@@ -36,15 +36,48 @@ const OPTIONS: TSelectOptions = [
     meta: 'De'
   }
 ]
+
+const OPTIONS_CITIES: TSelectOptions = [
+  {
+    value: 'yerevan',
+    label: 'Yerevan'
+  },
+  {
+    value: 'rome',
+    label: 'Rome'
+  },
+  {
+    value: 'paris',
+    label: 'Paris'
+  },
+  {
+    value: 'aaaa',
+    label: 'iiii'
+  }
+]
+
+const OPTIONS_GROUPED: TSelectGroupOptions = [
+  {
+    title: 'Countries',
+    data: OPTIONS
+  },
+  {
+    title: 'Cities',
+    data: OPTIONS_CITIES
+  }
+]
+
 const VALIDATION_SCHEME = yup.object({
   switcher: yup.boolean().required(),
-  select: yup.string().required()
+  select: yup.string().required(),
+  multiselect: yup.array().required()
 })
 
 const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
     switcher: false,
-    select: OPTIONS[0].value
+    select: OPTIONS[0].value,
+    multiselect: []
   }
 
   return (
@@ -69,6 +102,14 @@ const Template = (): JSX.Element => {
             name={'select'}
             As={(props: IFormCompProps) => {
               return <Select {...props} options={OPTIONS} />
+            }}
+          />
+          <FormField
+            isControlled
+            isNeedChangeHandler
+            name={'multiselect'}
+            As={(props: IFormCompProps) => {
+              return <MultiSelect {...props} isGrouped options={OPTIONS_GROUPED} />
             }}
           />
           <Button buttonActionType="submit" buttonText={'Ok'} />

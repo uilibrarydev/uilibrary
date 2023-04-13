@@ -71,6 +71,7 @@ export const MultiSelect = (props: TMultiSelectPropTypes): JSX.Element | null =>
 
   const selectAll = useCallback(() => {
     const allValues = options.map((item: TSelectOption) => item.value)
+
     setSelectedValues(allValues)
   }, [options])
 

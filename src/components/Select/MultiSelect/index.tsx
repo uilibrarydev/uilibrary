@@ -35,11 +35,14 @@ const Select = (props: TMultiSelectTypes): JSX.Element | null => {
     setSelectedItems,
     name,
     setFieldValue,
+    value,
     ...rest
   } = props
 
+  const initialSelected = (value as TItemValue[]) || selectedItems || null
+
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedValues, setSelectedValues] = useState<TItemValue[]>(selectedItems)
+  const [selectedValues, setSelectedValues] = useState<TItemValue[]>(initialSelected)
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
 
   const closeDropdown = () => setIsOpen(false)
@@ -47,8 +50,8 @@ const Select = (props: TMultiSelectTypes): JSX.Element | null => {
 
   const { width } = useGetElemSizes(containerRef)
   const cancelCelectedItems = () => {
-    submitSelectedValue(selectedItems)
-    setSelectedValues(selectedItems)
+    submitSelectedValue(initialSelected)
+    setSelectedValues(initialSelected)
     closeDropdown()
   }
 

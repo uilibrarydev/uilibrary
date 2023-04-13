@@ -70,8 +70,8 @@ export interface TMultiSelectTypes extends IFormCompProps {
   label?: string | JSX.Element
   options: TSelectOptions | TSelectGroupOptions
   placeHolder?: string
-  selectedItems: [TItemValue]
-  setSelectedItems: (items: TItemValue[]) => void
+  selectedItems?: [TItemValue]
+  setSelectedItems?: (items: TItemValue[]) => void
   isRequiredField?: boolean
   labelLeftIconProps?: {
     name: string
