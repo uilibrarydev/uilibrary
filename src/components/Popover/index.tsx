@@ -26,7 +26,7 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
     setIsClicked(false)
   }
 
-  useOnOutsideClick({ current: popoverRef }, hideMessage)
+  useOnOutsideClick(popoverRef, hideMessage)
 
   useEffect(() => {
     if (elemRef) {

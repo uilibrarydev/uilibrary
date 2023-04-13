@@ -46,7 +46,7 @@ export const Switcher = (props: TSwitcherProps): JSX.Element => {
       />
       <span className="controller__icon">
         <span className="controller__icon__inner">
-          {isChecked ? <Icon name="mark" size="xsmall" /> : null}
+          <Icon name="mark" size="xsmall" className="controller__mark" />
         </span>
       </span>
     </label>

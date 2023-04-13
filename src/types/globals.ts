@@ -1,9 +1,23 @@
-declare type TSelectedValue = string | number
+export type TItemValue = string | number | null
+declare type TItemLabel = string | number
+
+export type TClickHandler = (e: TClickEventType) => void
 
 export type TSelectOption = {
-  value: TSelectedValue
-  label: TSelectedValue
+  value: TItemValue
+  label: TItemLabel
+  meta?: string
+  disabled?: boolean
 }
+
+export type TSelectOptions = TSelectOption[]
+
+export type TSelectGroupOption = {
+  title: string
+  data: TSelectOptions
+}
+
+export type TSelectGroupOptions = TSelectGroupOption[]
 
 export type TRangePickerValues = [Date | null, Date | null]
 
@@ -17,10 +31,12 @@ declare type TFormValue =
   | number
   | boolean
   | TSelectOption
+  | TItemValue
   | File
   | Date
   | TRangePickerValues
   | null
+  | TItemValue[]
 declare type TOnChange = (event: TChangeEventType) => void
 
 // Props which will pass FormField to component

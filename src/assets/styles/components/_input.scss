@@ -58,7 +58,6 @@
     display: block;
     outline: none;
     font: var(--ds-input-font);
-    margin: var(--ds-input-margin);
     padding: 0 var(--ds-input-padding);
     color: var(--ds-input-body-text-default);
     background-color: var(--ds-input-bg-default);
@@ -79,7 +78,7 @@
 
     &:valid {
       color: var(--ds-input-body-text-validated);
-      background-color: var(--ds-input-bg-validatedd);
+      background-color: var(--ds-input-bg-validated);
       border-color: var(--ds-input-border-color-validated);
 
       & + #{$this}__icon {
@@ -127,7 +126,7 @@
     }
 
     &[disabled] {
-      cursor: not-allowed;
+      cursor: default;
       background-color: var(--ds-input-bg-default);
       border-color: var(--ds-input-border-color-disabled);
       color: var(--ds-input-body-text-disabled);
@@ -143,7 +142,7 @@
          color: var(--ds-input-text-disabled);
 
         &--right {
-          cursor: not-allowed;
+          cursor: default;
         }
       }
     }

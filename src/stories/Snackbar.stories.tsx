@@ -13,7 +13,7 @@ export const Snackbar = Template.bind({})
 Snackbar.args = {
   text: 'Prompt text',
   iconProps: {
-    name: 'info-fill',
+    name: 'info-hover',
     type: 'information'
   },
   withAction: false

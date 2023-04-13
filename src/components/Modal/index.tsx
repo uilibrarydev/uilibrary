@@ -43,7 +43,7 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
     children
   } = props
   const containerRef = useRef(null)
-  useOnOutsideClick(containerRef, onClose)
+  useOnOutsideClick(containerRef.current, onClose)
 
   if (!isOpen) {
     return null

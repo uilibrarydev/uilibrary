@@ -19,7 +19,7 @@ export default {
     },
     isLoading: {
       options: ['true', 'false'],
-      control: { disabled: 'false' }
+      control: { isLoading: 'false' }
     }
   }
 }
@@ -29,8 +29,7 @@ const Template = (args) => <ButtonComp {...args} />
 export const Button = Template.bind({})
 Button.args = {
   iconProps: {
-    name: 'home',
-    alignment: 'left'
+    name: 'home'
   },
   type: 'primary',
   size: 'large',

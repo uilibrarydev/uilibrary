@@ -19,11 +19,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       onChange,
       currentValue,
       name,
-      leftIcon,
-      rightIcon,
+      leftIconProps,
+      rightIconProps,
       disabled,
       required,
-      iconProps,
       placeholder,
       type = 'text',
       helperText,
@@ -80,7 +79,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         placeholder={!label ? placeholder : ''}
         onChange={changeHandler}
         {...rest}
-        {...(currentValue ? { value: currentValue } : {})}
+        {...(currentValue !== undefined ? { value: currentValue } : {})}
       />
     )
 
@@ -88,19 +87,19 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       <div
         className={`input input--${size} 
                              ${className}
-                             ${leftIcon ? 'input--icon-left' : ''}
-                             ${rightIcon ? 'input--icon-right' : ''}
+                             ${leftIconProps ? 'input--icon-left' : ''}
+                             ${rightIconProps ? 'input--icon-right' : ''}
                              ${error ? 'input--invalid' : ''}
                              `}
       >
         <Label text={label} required={required} disabled={disabled} />
         <label className="input__inner">
           {input}
-          {leftIcon && (
-            <Icon {...iconProps} className="input__icon input__icon--left" size="small" />
+          {leftIconProps && (
+            <Icon className="input__icon input__icon--left" size="small" {...leftIconProps} />
           )}
-          {rightIcon && (
-            <Icon {...iconProps} className="input__icon input__icon--right" size="small" />
+          {rightIconProps && (
+            <Icon className="input__icon input__icon--right" size="small" {...rightIconProps} />
           )}
         </label>
 

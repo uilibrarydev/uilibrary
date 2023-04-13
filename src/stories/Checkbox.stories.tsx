@@ -9,6 +9,7 @@ export default {
 
 const Template = (args) => {
   const [isChecked, setIsChecked] = useState(false)
+
   return <CheckboxComp {...args} selectedValue={isChecked} onClick={setIsChecked} />
 }
 

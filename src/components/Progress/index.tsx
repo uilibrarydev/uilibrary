@@ -8,7 +8,14 @@ enum CIRCLE_SIZES {
 }
 
 const Progress = (props: TProgressPropTypes): JSX.Element => {
-  const { percent, type = 'linear', size = 'large', noText = false, dimension } = props
+  const {
+    percent,
+    type = 'linear',
+    size = 'large',
+    noText = false,
+    dimension,
+    className = ''
+  } = props
   const _dimension = dimension ? dimension : CIRCLE_SIZES[size]
   const r = _dimension - 5
 
@@ -16,7 +23,7 @@ const Progress = (props: TProgressPropTypes): JSX.Element => {
 
   return (
     <div
-      className={`progress-bar progress-bar--${type} progress-bar--${size}`}
+      className={`progress-bar progress-bar--${type} progress-bar--${size} ${className}`}
       style={
         type == 'circle'
           ? {

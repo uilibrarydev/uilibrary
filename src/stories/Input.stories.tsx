@@ -28,13 +28,12 @@ const Template = (args) => {
 export const Input = Template.bind({})
 Input.args = {
   type: 'text',
-  iconProps: {
-    name: 'info'
-  },
   label: 'Some text',
   size: 'large',
-  leftIcon: false,
-  rightIcon: false,
+  leftIconProps: {
+    name: 'info'
+  },
+  rightIconProps: {},
   disabled: false,
   required: false,
   maxCount: 15,

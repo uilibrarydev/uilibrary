@@ -7,7 +7,7 @@ const Text: React.FC<TextPropTypes> = (props: TextPropTypes) => {
     children,
     className = '',
     type = 'primary',
-    size = 'standart',
+    size = 'standard',
     weight = 'regular',
     lineHeight = 'medium',
     onClick = noop

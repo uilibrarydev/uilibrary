@@ -6,5 +6,8 @@ export interface TCheckboxProps extends IFormCompProps {
   disabled?: boolean
   required?: boolean
   selectedValue?: boolean
+  IconProps?: {
+    name: string
+  }
   onClick?: (isChecked: boolean) => void
 }

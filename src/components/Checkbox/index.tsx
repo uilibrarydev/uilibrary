@@ -13,10 +13,12 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
     selectedValue,
     value,
     className = '',
+    IconProps = { name: 'mark' },
     onClick
   } = props
 
   const isChecked = !!value || selectedValue
+
   const changeHandler = () => {
     if (name && setFieldValue) {
       setFieldValue(name, !isChecked, { shouldValidate: !isChecked })
@@ -41,14 +43,12 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
         disabled={disabled}
       />
       <span className="controller__icon">
-        {isChecked && (
-          <Icon
-            name="mark"
-            size="xsmall"
-            type={`${disabled ? 'disabled' : 'inverse'}`}
-            className="controller__mark"
-          />
-        )}
+        <Icon
+          name={IconProps.name}
+          size="xsmall"
+          type={`${disabled ? 'disabled' : 'inverse'}`}
+          className="controller__mark"
+        />
       </span>
       {label ? (
         <span className="controller__label">

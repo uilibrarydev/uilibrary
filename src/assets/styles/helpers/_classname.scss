@@ -31,6 +31,7 @@ $space-values: (
                 0,
                 2,
                 4,
+                6,
                 8,
                 12,
                 16,
@@ -408,22 +409,38 @@ $space-prefixes: (
 //icons sizes
 
 .icon {
-  --icon-lg: var(--font-size-24);
-  --icon-md: var(--font-size-18);
-  --icon-sm: var(--font-size-14);
-  --icon-xs: var(--font-size-10);
+  --icon-lg: var(--ds-size-32);
+  --icon-lg-font-size: var(--font-size-24);
+  --icon-md: var(--ds-size-24);
+  --icon-md-font-size: var(--font-size-18);
+  --icon-sm: var(--ds-size-20);
+  --icon-sm-font-size: var(--font-size-14);
+  --icon-xs: var(--ds-size-16);
+  --icon-xs-font-size: var(--font-size-10);
 
-  $icon-type: (
-      large: var(--icon-lg),
-      medium: var(--icon-md),
-      small: var(--icon-sm),
-      xsmall: var(--icon-xs),
-  );
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
 
-  @each $type, $size in $icon-type {
-    &--#{$type} {
-      font-size: $size;
-    }
+  &--xsmall {
+    font-size: var(--icon-xs-font-size);
+    width: var(--icon-xs);
+    height: var(--icon-xs);
+  }
+  &--small {
+    font-size: var(--icon-sm-font-size);
+    width: var(--icon-sm);
+    height: var(--icon-sm);
+  }
+  &--medium {
+    font-size: var(--icon-md-font-size);
+    width: var(--icon-md);
+    height: var(--icon-md);
+  }
+  &--large {
+    font-size: var(--icon-lg-font-size);
+    width: var(--icon-lg);
+    height: var(--icon-lg);
   }
 }
 
@@ -439,11 +456,13 @@ $space-prefixes: (
 
   &::-webkit-scrollbar-track {
     background: transparent;
+    margin: 8px 0;
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: var(--grey-50);
     border-radius: var(--border-radius-100);
+
   }
 
   &--vertical {
@@ -452,6 +471,7 @@ $space-prefixes: (
     /* Works on Chrome, Edge, and Safari */
     &::-webkit-scrollbar {
       width: 4px;
+
     }
   }
 

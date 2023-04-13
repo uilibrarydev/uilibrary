@@ -1,5 +1,10 @@
 import { RefObject } from 'react'
-import { IFormCompProps, TChangeEventType } from '../../types/globals'
+import {
+  IFormCompProps,
+  TChangeEventType,
+  TClickHandler,
+  TClickEventType
+} from '../../types/globals'
 
 export interface InputCustomProps extends IFormCompProps {
   mask?: string
@@ -8,14 +13,21 @@ export interface InputCustomProps extends IFormCompProps {
   currentValue?: string
   error?: string | JSX.Element
   label?: string | JSX.Element
-  leftIcon?: boolean
-  rightIcon?: boolean
+  leftIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
+  }
+  rightIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
+  }
   disabled?: boolean
   required?: boolean
-  iconProps?: {
-    name: string
-    size?: string
-  }
+
   ref?: RefObject<HTMLInputElement>
   style?: Record<string, string>
   type?: 'text' | 'number' | 'time' | 'password' | 'email' | 'file' | 'tel' | 'date'
@@ -24,4 +36,5 @@ export interface InputCustomProps extends IFormCompProps {
   helperText?: string
   successMessage?: string
   maxCount?: number
+  onFocus?: (event: TClickEventType) => void
 }

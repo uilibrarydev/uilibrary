@@ -4,4 +4,5 @@ export interface TProgressPropTypes {
   size?: 'large' | 'small'
   noText?: boolean
   dimension?: number
+  className?: string
 }
