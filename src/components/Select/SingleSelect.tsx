@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { useOnOutsideClick } from '../../hooks'
 import { TSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
@@ -65,7 +65,7 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
       }
       submitSelectedValue(value)
     },
-    [withFooter]
+    [withFooter, submitSelectedValue]
   )
 
   const onItemDeselect = useCallback(() => {
@@ -75,7 +75,7 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
     }
     submitSelectedValue(null)
     closeDropdown()
-  }, [withFooter])
+  }, [withFooter, submitSelectedValue])
 
   const open = (e?: TClickEventType) => {
     const result = e?.target as HTMLDivElement
