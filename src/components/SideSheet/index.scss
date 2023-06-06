@@ -1,0 +1,23 @@
+.site-sheet {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: gray; // todo mer colorneric
+    transition: left 0.3s ease-in-out;
+  }
+  
+
+  .site-sheet.open {
+    left: 0;
+  }
+
+  .site-sheet-content {
+    padding: 20px;
+  }
+
+  .site-sheet-close {
+    display: block;
+    margin-top: 20px;
+  }

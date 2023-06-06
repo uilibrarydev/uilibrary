@@ -28,6 +28,7 @@ import Popover from './Popover'
 import Breadcrumb from './Breadcrumb'
 import Image from './Image'
 import Link from './Link'
+import SideSheet from './SideSheet'
 
 export {
   Text,
@@ -63,5 +64,6 @@ export {
   Tab,
   Snackbar,
   Breadcrumb,
-  Image
+  Image,
+  SideSheet
 }
