@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { SideSheet as SiteSheetComp } from '../components'
+import {SideSheet as SideSheetComp} from '../components'
 
 export default {
   title: 'SideSheet',
-  component: SiteSheetComp,
+  component: SideSheetComp,
   argTypes: {
     position: {
       options: ['left', 'right'],
@@ -13,22 +13,27 @@ export default {
 }
 
 const Template = (args): JSX.Element => {
-  const [isSheetOpen, setIsSheetOpen] = useState(false)
-
-  const handleOpenSheet = () => {
-    setIsSheetOpen(true)
-  }
-
-  const handleCloseSheet = () => {
-    setIsSheetOpen(false)
-  }
+  const [isOpen, setIsOpen] = useState(false)
+  const handleCloseSheet = () => setIsOpen(false)
+  const handleOpenSheet = () => setIsOpen(true)
   return (
     <div>
-      <button onClick={handleOpenSheet}>Open Site Sheet</button>
-      <SiteSheetComp {...args} isOpen={isSheetOpen} onClose={handleCloseSheet}>
-        <h2>Site Sheet Content</h2>
-        <p>This is the content of the site sheet.</p>
-      </SiteSheetComp>
+      <button onClick={handleOpenSheet}>Open Side Sheet</button>
+      <SideSheetComp
+          {...args}
+          onClose={handleCloseSheet}
+          isOpen={isOpen}
+          onSumbit={() => console.log('submit')}
+          buttonProps={{
+            confirm: {
+              buttonText: 'Register',
+              buttonActionType: 'submit'
+            },
+            cancel: { buttonText: 'Cancel' }
+          }}
+      >
+        <div>Side Sheet content</div>
+      </SideSheetComp>
     </div>
   )
 }
@@ -36,8 +41,6 @@ const Template = (args): JSX.Element => {
 export const SideSheet = Template.bind({})
 
 SideSheet.args = {
-  isOpen: false,
-  onClose: () => ({}),
-  children: null,
+  title: 'Side sheet title',
   position: 'right'
 }
