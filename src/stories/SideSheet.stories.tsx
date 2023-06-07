@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {SideSheet as SideSheetComp} from '../components'
+import { SideSheet as SideSheetComp } from '../components'
 
 export default {
   title: 'SideSheet',
@@ -20,17 +20,17 @@ const Template = (args): JSX.Element => {
     <div>
       <button onClick={handleOpenSheet}>Open Side Sheet</button>
       <SideSheetComp
-          {...args}
-          onClose={handleCloseSheet}
-          isOpen={isOpen}
-          onSumbit={() => console.log('submit')}
-          buttonProps={{
-            confirm: {
-              buttonText: 'Register',
-              buttonActionType: 'submit'
-            },
-            cancel: { buttonText: 'Cancel' }
-          }}
+        {...args}
+        onClose={handleCloseSheet}
+        isOpen={isOpen}
+        onSumbit={() => console.log('submit')}
+        buttonProps={{
+          confirm: {
+            buttonText: 'Register',
+            buttonActionType: 'submit'
+          },
+          cancel: { buttonText: 'Cancel' }
+        }}
       >
         <div>Side Sheet content</div>
       </SideSheetComp>
