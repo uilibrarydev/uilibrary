@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { Button, Menu as MenuComp } from '../components'
 
 export default {
@@ -15,21 +15,27 @@ export default {
 const items = [
   {
     label: 'some text',
-    icon: null,
+    iconProps: {
+      name: 'edit'
+    },
     handler: () => {
       console.log('klslks')
     }
   },
   {
     label: 'some text - 2',
-    icon: null,
+    iconProps: {
+      name: 'add'
+    },
     handler: () => {
       console.log('klslks')
     }
   },
   {
     label: 'some text-3',
-    icon: null,
+    iconProps: {
+      name: 'add'
+    },
     handler: () => {
       console.log('klslks')
     }
@@ -43,7 +49,7 @@ const Template = (args): JSX.Element => {
 
   return (
     <div>
-      <div style={{ position: 'relative', width: '100px' }} ref={setRef}>
+      <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
         <Button onClick={() => setOpen(!open)} buttonText="Click me" />
         {open ? <MenuComp {...args} parentRef={ref} menuItems={items} /> : null}
       </div>

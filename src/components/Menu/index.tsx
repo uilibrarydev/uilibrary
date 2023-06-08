@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 
 import { TMenuPropTypes } from './types'
 
-import './index.scss'
+import '../../assets/styles/components/_menu.scss'
+import Icon from '../Icon'
 
 const Menu: React.FC<TMenuPropTypes> = (props: TMenuPropTypes) => {
   const { menuItems = [], parentRef } = props
@@ -14,11 +15,15 @@ const Menu: React.FC<TMenuPropTypes> = (props: TMenuPropTypes) => {
 
   return ReactDOM.createPortal(
     <div className="menu-container">
-      {menuItems.map(({ label, handler, icon }) => {
+      {menuItems.map(({ label, handler, iconProps }) => {
         return (
-          <>
-            <p>{icon}</p>
-            <p> {label}</p>
+            <>
+            <div className="menu-item">
+              {iconProps?.name ? (
+                <Icon {...iconProps} type="brand" size="xsmall" className="menu-item__icon" />
+              ) : null}
+              <span className="menu-item__label">{label}</span>
+            </div>
           </>
         )
       })}
