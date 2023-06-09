@@ -1,0 +1,50 @@
+@import "../shared";
+
+.menu-container {
+
+  --ds-menu-bg: var(--ds-color-bg-cta-secondary-default);
+  --ds-menu-border-radius: var(--ds-border-radius-sm);
+  --ds-menu-shadow: var(--shadow-2);
+  --ds-menu-width: var(--ds-size-120);
+
+  @include absolute(0, unset, unset, calc(100% + var(--ds-space-16)));
+  background-color: var(--ds-menu-bg);
+  box-shadow: var(--ds-menu-shadow);
+  border-radius: var(--ds-menu-border-radius);
+  width: var(--ds-menu-width);
+}
+
+.menu-item {
+  $this: &;
+
+  --ds-menu-item-height: var(--ds-size-32);
+  --ds-menu-item-padding: var(--ds-space-4) var(--ds-space-8);
+  --ds-menu-item-hover-bg: var(--ds-color-bg-cta-secondary-hover);
+
+  --ds-menu-item-label-color: var(--ds-color-text-primary);
+  --ds-menu-item-font: var(--ds-font-weight-default)  var(--ds-paragraph-std)/var(--ds-line-height-default) var(--ds-font-family);
+
+  --ds-menu-icon-size: var(--ds-size-16);
+  --ds-menu-icon-space: var(--ds-space-2);
+
+  @include flexbox;
+  @include align-items(center);
+  min-height: var(--ds-menu-item-height);
+  padding: var(--ds-menu-item-padding);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--ds-menu-item-hover-bg);
+  }
+
+  &__icon {
+    min-width: var(--ds-menu-icon-size);
+    margin-right: var(--ds-menu-icon-space);
+  }
+
+  &__label {
+    color: var(--ds-menu-item-label-color);
+    font: var(--ds-menu-item-font);
+    flex: 1;
+  }
+}
