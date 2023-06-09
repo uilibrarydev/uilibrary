@@ -22,7 +22,6 @@ jobs:
       - name: Build
         run: npm run build
 
-
       # - name: Publish to npm
       #   run: npm publish
       #   env:
@@ -37,7 +36,7 @@ jobs:
 
       - name: Deploy Storybook to GitHub Pages
         run: |
-          npm run build-storybook
+          npx build-storybook -o ./storybook-static
           git config --global user.email "<valodyapapikyan@gmail.com>"
           git config --global user.name "<valodyapapikyan>"
           git checkout -b gh-pages
