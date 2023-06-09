@@ -35,6 +35,7 @@ jobs:
 
       - name: Deploy Storybook to GitHub Pages
         run: |
+          rm -rf storybook-static
           npx build-storybook -o ./storybook-static
           git config --global user.email "valodyapapikyan@gmail.com"
           git config --global user.name "valodyapapikyan"
