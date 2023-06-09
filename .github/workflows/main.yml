@@ -16,9 +16,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+
+      - name:  update package version
+        run: npm ci
+
       - name: Create .npmrc file
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
-
 
       - name: Build
         run: npm run build
