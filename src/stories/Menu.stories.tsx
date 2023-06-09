@@ -14,30 +14,30 @@ export default {
 
 const items = [
   {
-    label: 'some text',
+    label: 'edit',
     iconProps: {
       name: 'edit'
     },
     handler: () => {
-      console.log('klslks')
+      console.log('edit')
     }
   },
   {
-    label: 'some text - 2',
+    label: 'add ',
     iconProps: {
       name: 'add'
     },
     handler: () => {
-      console.log('klslks')
+      console.log('add')
     }
   },
   {
-    label: 'some text-3',
+    label: 'delete',
     iconProps: {
-      name: 'add'
+      name: 'delete'
     },
     handler: () => {
-      console.log('klslks')
+      console.log('delete')
     }
   }
 ]

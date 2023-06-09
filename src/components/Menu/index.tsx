@@ -18,7 +18,7 @@ const Menu: React.FC<TMenuPropTypes> = (props: TMenuPropTypes) => {
       {menuItems.map(({ label, handler, iconProps }) => {
         return (
           <>
-            <div className="menu-item">
+            <div className="menu-item" onClick={handler}>
               {iconProps?.name ? (
                 <Icon {...iconProps} type="brand" size="xsmall" className="menu-item__icon" />
               ) : null}
