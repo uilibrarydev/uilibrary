@@ -19,9 +19,6 @@ jobs:
       - name: Update package version
          run: npm run updateVersion
 
-        - name: Update package version
-         run: npm run updateVersion
-
       - name: Build
          run: npm run build
 
