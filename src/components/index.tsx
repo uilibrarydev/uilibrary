@@ -29,6 +29,8 @@ import Breadcrumb from './Breadcrumb'
 import Image from './Image'
 import Link from './Link'
 import Menu from './Menu'
+import SideSheet from './SideSheet'
+
 
 export {
   Text,
@@ -65,5 +67,6 @@ export {
   Snackbar,
   Breadcrumb,
   Image,
-  Menu
+  Menu,
+  SideSheet
 }
