@@ -108,7 +108,6 @@
     "typescript": "^4.9.5",
     "yup": "^0.32.11"
   },
-
   "husky": {
     "hooks": {
       "pre-commit": "npm run check",
