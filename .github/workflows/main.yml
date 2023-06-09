@@ -29,6 +29,12 @@ jobs:
       #     NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
 
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
       - name: Deploy Storybook to GitHub Pages
         run: |
           npm run build-storybook
