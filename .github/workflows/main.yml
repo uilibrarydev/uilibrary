@@ -39,8 +39,6 @@ jobs:
           npx build-storybook -o ./storybook-static
           git config --global user.email "valodyapapikyan@gmail.com"
           git config --global user.name "valodyapapikyan"
-          git checkout -b gh-pages
           git add .
           git commit -m "Deploy Storybook to GitHub Pages"
           git subtree push --prefix storybook-static origin gh-pages
-
