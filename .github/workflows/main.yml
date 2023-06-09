@@ -16,8 +16,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Update package version
-        run: npm run updateVersion
+      - name:  update package version
+        run: npm run  updateVersion
+
+      - name: Create .npmrc file
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
 
       - name: Build
         run: npm run build
@@ -26,3 +29,19 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: 14
+
+      # - name: Deploy Storybook to GitHub Pages
+      #   run: |
+      #     rm -rf storybook-static
+      #     npx build-storybook -o ./storybook-static
+      #     git config --global user.email "valodyapapikyan@gmail.com"
+      #     git config --global user.name "valodyapapikyan"
+      #     git add .
+      #     git commit -m "Deploy Storybook to GitHub Pages"
+      #     git subtree push --prefix storybook-static origin gh-pages
