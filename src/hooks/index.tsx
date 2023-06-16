@@ -7,8 +7,6 @@ export const useOnOutsideClick = (
   const [isTouchMoved, setTouchMoved] = useState(false)
   useEffect(() => {
     const listener = (event: MouseEvent): void => {
-      console.log('element.contains(event.target)', element)
-
       if (!element || element.contains(event.target)) {
         return
       }
