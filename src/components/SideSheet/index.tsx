@@ -80,17 +80,22 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
             <div className="side-sheet__header">
               <div className="side-sheet__header__left pr-16">
                 {headerButtons.back ? (
-                <Button size="small" type="tertiary" {...headerButtons.back} className="mr-8" />
+                  <Button size="small" type="tertiary" {...headerButtons.back} className="mr-8" />
                 ) : null}
-                <Text className="side-sheet__title" weight="bolder" lineHeight="large" size="medium">
+                <Text
+                  className="side-sheet__title"
+                  weight="bolder"
+                  lineHeight="large"
+                  size="medium"
+                >
                   {title}
                 </Text>
               </div>
               <div className="side-sheet__header__right">
                 {headerButtons.pin ? (
-                  <Button size="small" type="tertiary" {...headerButtons.pin}  className="mr-8"/>
+                  <Button size="small" type="tertiary" {...headerButtons.pin} className="mr-8" />
                 ) : null}
-                <Button size="small" type="tertiary" onClick={onClose} {...headerButtons.close}/>
+                <Button size="small" type="tertiary" onClick={onClose} {...headerButtons.close} />
               </div>
             </div>
             <div className="side-sheet__content scrollbar scrollbar--vertical">{children}</div>
