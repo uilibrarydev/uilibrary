@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import 'src/assets/styles/helpers/colors';
 
 ::-webkit-scrollbar {
   width: 4px;
@@ -17,7 +16,7 @@
 .react-datepicker__year-read-view--down-arrow,
 .react-datepicker__month-read-view--down-arrow,
 .react-datepicker__month-year-read-view--down-arrow, .react-datepicker__navigation-icon::before {
-  border-color: $dropdownGray;
+  border-color: #8F9096;
   border-style: solid;
   border-width: 1px 1px 0 0;
   content: "";
@@ -180,7 +179,7 @@ display: none;
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
-  clear: $textBlack;
+  clear: #0E0E0E;
 }
 
 .react-datepicker-time__header {
@@ -450,7 +449,7 @@ display: none;
 .react-datepicker__quarter-text:hover,
 .react-datepicker__year-text:hover {
   border-radius: 0.3rem;
-  outline: 1px solid $textBlack;
+  outline: 1px solid #0E0E0E;
   box-sizing: border-box;
   background-color: #F6F8FA;
 }
@@ -562,8 +561,8 @@ display: none;
 .react-datepicker__month-text--in-selecting-range,
 .react-datepicker__quarter-text--in-selecting-range,
 .react-datepicker__year-text--in-selecting-range) {
-  color: $textBlack;
-  outline: 1px solid $textBlack;
+  color: #0E0E0E;
+  outline: 1px solid #0E0E0E;
   box-sizing: border-box;
   background-color: #F6F8FA;
 }
