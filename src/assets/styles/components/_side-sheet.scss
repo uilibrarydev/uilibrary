@@ -20,7 +20,7 @@
 
   --ds-side-sheet-footer-height: var(--ds-space-64);
   --ds-side-sheet-footer-padding: var(--ds-space-8) var(--ds-space-24);
-
+  
   @include fixed(0,0,0,0);
   z-index: 99999;
   padding: var(--ds-side-sheet-overlay-padding);
@@ -36,12 +36,7 @@
     background-color: var(--ds-side-sheet-bg);
     max-width: var(--ds-side-sheet-width);
 
-    &#{$this}__right {
-      right: 0;
-    }
-    &#{$this}__left {
-      left: 0;
-    }
+
   }
 
   &__header {

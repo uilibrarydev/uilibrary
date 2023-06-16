@@ -42,5 +42,29 @@ export const SideSheet = Template.bind({})
 
 SideSheet.args = {
   title: 'Side sheet title',
-  position: 'right'
+  headerButtons: {
+    close: {
+      iconProps: {
+        name: 'close'
+      }
+    },
+    back: {
+      iconProps: {
+        name: 'close'
+      }
+    },
+    pin: {
+      iconProps: {
+        name: 'close'
+      }
+    }
+  },
+  footerButtons: {
+    confirm: {
+      buttonText: 'Save'
+    },
+    cancel: { buttonText: 'Cancel' },
+    extraButton: { buttonText: 'Cancel' }
+  }
+  // position: 'left'
 }

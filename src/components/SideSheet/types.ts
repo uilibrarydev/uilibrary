@@ -7,10 +7,16 @@ export interface TSideSheetPropTypes {
   onSumbit: () => void
   position?: 'right' | 'left'
   title?: string
-  buttonProps?: {
-    cancel?: TButtonPropTypes
+  footerButtons?: {
+    cancel: TButtonPropTypes
     confirm: TButtonPropTypes
+    extraButton?: TButtonPropTypes
   }
   children?: string | JSX.Element | JSX.Element[] | ReactNode
   className?: string
+  headerButtons?: {
+    close: TButtonPropTypes
+    pin?: TButtonPropTypes
+    back?: TButtonPropTypes
+  }
 }

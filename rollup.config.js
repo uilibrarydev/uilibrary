@@ -31,11 +31,12 @@ export default {
     copy({
       targets: [
         // Need to copy the files over for usage
-        { src: 'src/assets/fonts/icomoon', dest: 'dist/assets' }
+        { src: 'src/assets/fonts/icomoon', dest: 'dist/assets' },
+        { src: 'src/assets/styles/tokens', dest: 'dist/tokens' }
       ]
     }),
     postcss({
-      extensions: ['.css']
+      extensions: ['.css', 'scss']
     }),
     external()
   ],
