@@ -363,11 +363,11 @@ display: none;
   background-color: #f0f0f0;
 }
 .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {
-  background-color: $buttonGreen;
+  background-color: #72BF44;
   color: white;
 }
 .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected:hover {
-  background-color: $buttonGreen;
+  background-color: #72BF44;
 }
 .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--disabled {
   color: #ccc;
@@ -483,7 +483,7 @@ display: none;
 .react-datepicker__month-text--highlighted-custom-2,
 .react-datepicker__quarter-text--highlighted-custom-2,
 .react-datepicker__year-text--highlighted-custom-2 {
-  color: $buttonGreen;
+  color: #72BF44;
 }
 .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range,
 .react-datepicker__month-text--selected,
@@ -496,7 +496,7 @@ display: none;
 .react-datepicker__year-text--in-selecting-range,
 .react-datepicker__year-text--in-range {
   border-radius: 0.3rem;
-  background-color: $buttonGreen;
+  background-color: #72BF44;
   color: #fff;
 }
 .react-datepicker__day--selected:hover, .react-datepicker__day--in-selecting-range:hover, .react-datepicker__day--in-range:hover,
@@ -509,7 +509,7 @@ display: none;
 .react-datepicker__year-text--selected:hover,
 .react-datepicker__year-text--in-selecting-range:hover,
 .react-datepicker__year-text--in-range:hover {
-  background-color: $buttonGreen;
+  background-color: #72BF44;
   font-weight: 400;
 }
 .react-datepicker__day--keyboard-selected,
@@ -518,7 +518,7 @@ display: none;
 .react-datepicker__year-text--keyboard-selected {
   border-radius: 0.3rem;
   font-weight: 400;
-  background-color: $buttonGreen;
+  background-color: #72BF44;
   color: #fff;
 }
 .react-datepicker__day--keyboard-selected:hover,
