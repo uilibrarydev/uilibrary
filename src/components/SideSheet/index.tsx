@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
 import { AnimatedComponent } from '../../helperComponents/AnimatePresenceWrapper'
@@ -33,10 +33,9 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
     },
     children
   } = props
+  const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
 
-  const containerRef = useRef(null)
-
-  useOnOutsideClick(containerRef.current, onClose)
+  useOnOutsideClick(containerRef, onClose)
 
   const handleSubmit = useCallback(() => {
     onSumbit()
@@ -63,7 +62,6 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
               delay: 0.3
             }
           }}
-          // ref={containerRef}
           transition={{ duration: 0.2 }}
         >
           <motion.div
@@ -77,7 +75,7 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
             }}
             transition={{ duration: 0.5 }}
             className={`side-sheet__container side-sheet__${position} ${className}`}
-            ref={containerRef}
+            ref={setContainerRef}
           >
             <div className="side-sheet__header">
               <Button size="small" type="tertiary" {...headerButtons.back} />
