@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 
 import { AnimatedComponent } from '../../helperComponents/AnimatePresenceWrapper'
@@ -45,8 +45,9 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
     },
     children
   } = props
-  const containerRef = useRef(null)
-  useOnOutsideClick(containerRef.current, onClose)
+  const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
+
+  useOnOutsideClick(containerRef, onClose)
 
   const handleSubmit = () => {
     onSumbit()
@@ -66,7 +67,7 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <div className="modal__container" ref={containerRef} {...DESKTOP_ANIMATION}>
+          <div className="modal__container" ref={setContainerRef} {...DESKTOP_ANIMATION}>
             {title ? (
               <div className="modal__header">
                 <Text className="modal__title" weight="semibold" lineHeight="large" size="medium">
