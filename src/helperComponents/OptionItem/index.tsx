@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react'
-import Icon from '../../Icon'
-import { TSelectItemProps } from './types'
-import Avatar from '../../Avatar'
-import Checkbox from '../../Checkbox'
-import { TClickEventType } from '../../../types/globals'
 
-export const SelectItem = (props: TSelectItemProps): JSX.Element => {
+import { Checkbox, Avatar, Icon } from '../../components'
+import { TClickEventType } from '../../types/globals'
+import '../../assets/styles/components/_selectOption.scss'
+
+import { TSelectItemProps } from './types'
+
+export const OptionItem = (props: TSelectItemProps): JSX.Element => {
   const {
     data,
     onClick,

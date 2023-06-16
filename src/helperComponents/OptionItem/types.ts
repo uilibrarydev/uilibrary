@@ -1,7 +1,7 @@
-import { TClickHandler, TItemValue, TSelectOption } from '../../../types/globals'
+import { TClickHandler, TItemValue, TSelectOption } from '../../types/globals'
 
 export type TSelectItemProps = {
-  isSelected: boolean
+  isSelected?: boolean
   data: TSelectOption
   onClick: (itemValue: TItemValue) => void
   labelLeftIconProps?: {

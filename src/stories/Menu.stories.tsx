@@ -20,7 +20,8 @@ const items = [
     },
     handler: () => {
       console.log('edit')
-    }
+    },
+    value: 1
   },
   {
     label: 'add ',
@@ -29,7 +30,8 @@ const items = [
     },
     handler: () => {
       console.log('add')
-    }
+    },
+    value: 2
   },
   {
     label: 'delete',
@@ -38,7 +40,8 @@ const items = [
     },
     handler: () => {
       console.log('delete')
-    }
+    },
+    value: 3
   }
 ]
 

@@ -2,9 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import { TMenuPropTypes } from './types'
+import '../../assets/styles/components/_select.scss'
 
 import '../../assets/styles/components/_menu.scss'
-import Icon from '../Icon'
+import { OptionItem } from '../../helperComponents/OptionItem'
 
 const Menu: React.FC<TMenuPropTypes> = (props: TMenuPropTypes) => {
   const { menuItems = [], parentRef } = props
@@ -15,16 +16,17 @@ const Menu: React.FC<TMenuPropTypes> = (props: TMenuPropTypes) => {
 
   return ReactDOM.createPortal(
     <div className="menu-container">
-      {menuItems.map(({ label, handler, iconProps }) => {
+      {menuItems.map(({ label, value, handler, iconProps }) => {
         return (
-          <>
-            <div className="menu-item" onClick={handler}>
-              {iconProps?.name ? (
-                <Icon {...iconProps} type="brand" size="xsmall" className="menu-item__icon" />
-              ) : null}
-              <span className="menu-item__label">{label}</span>
-            </div>
-          </>
+          <OptionItem
+            key={value}
+            data={{
+              label,
+              value
+            }}
+            labelLeftIconProps={iconProps}
+            onClick={handler}
+          />
         )
       })}
     </div>,

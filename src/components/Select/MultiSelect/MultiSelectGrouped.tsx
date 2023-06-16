@@ -5,7 +5,7 @@ import { TItemValue, TSelectGroupOption, TSelectOption } from '../../../types/gl
 import Input from '../../Input'
 import Checkbox from '../../Checkbox'
 
-import { SelectItem } from '../SelectItem'
+import { OptionItem } from '../../../helperComponents/OptionItem'
 
 import { incrementOverflowedinitial, DROPDOWN_MAX_HEIGHT } from './utils'
 import { TMultiSelectGroupedProps } from '../types'
@@ -148,7 +148,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                         data.map((item: TSelectOption) => {
                           const isSelected = checkIsSelected(item.value)
                           return (
-                            <SelectItem
+                            <OptionItem
                               data={item}
                               key={item.value}
                               isCheckbox
