@@ -46,10 +46,22 @@
     height: var(--ds-side-sheet-header-height);
     padding: var(--ds-side-sheet-header-padding);
     border-bottom: var(--ds-side-sheet-content-border-width) solid var(--ds-side-sheet-content-border-color);
+
+    &__left, &__right {
+      @include flexbox;
+      @include align-items(center);
+      @include justify-content(flex-start);
+    }
+
+    &__left {
+      flex: 1;
+      max-width: calc(100% - 64px);
+    }
   }
 
+
   &__title {
-    @include truncate(94%);
+    @include truncate(90%);
   }
 
   &__content {

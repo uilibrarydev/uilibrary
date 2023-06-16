@@ -78,15 +78,20 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
             ref={setContainerRef}
           >
             <div className="side-sheet__header">
-              <Button size="small" type="tertiary" {...headerButtons.back} />
-              <Text className="side-sheet__title" weight="bolder" lineHeight="large" size="medium">
-                {title}
-              </Text>
-
-              {headerButtons.pin ? (
-                <Button size="small" type="tertiary" {...headerButtons.pin} />
-              ) : null}
-              <Button size="small" type="tertiary" onClick={onClose} {...headerButtons.close} />
+              <div className="side-sheet__header__left pr-16">
+                {headerButtons.back ? (
+                <Button size="small" type="tertiary" {...headerButtons.back} className="mr-8" />
+                ) : null}
+                <Text className="side-sheet__title" weight="bolder" lineHeight="large" size="medium">
+                  {title}
+                </Text>
+              </div>
+              <div className="side-sheet__header__right">
+                {headerButtons.pin ? (
+                  <Button size="small" type="tertiary" {...headerButtons.pin}  className="mr-8"/>
+                ) : null}
+                <Button size="small" type="tertiary" onClick={onClose} {...headerButtons.close}/>
+              </div>
             </div>
             <div className="side-sheet__content scrollbar scrollbar--vertical">{children}</div>
             <div className="side-sheet__footer">
@@ -94,7 +99,7 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
                 <Button
                   size="large"
                   type="secondary"
-                  {...footerButtons.confirm}
+                  {...footerButtons.extraButton}
                   className="mr-12"
                 />
               ) : null}

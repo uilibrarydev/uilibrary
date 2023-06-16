@@ -50,12 +50,12 @@ SideSheet.args = {
     },
     back: {
       iconProps: {
-        name: 'close'
+        name: 'arrow2-left'
       }
     },
     pin: {
       iconProps: {
-        name: 'close'
+        name: 'attach'
       }
     }
   },
@@ -64,7 +64,7 @@ SideSheet.args = {
       buttonText: 'Save'
     },
     cancel: { buttonText: 'Cancel' },
-    extraButton: { buttonText: 'Cancel' }
+    extraButton: { buttonText: 'Other action' }
   }
   // position: 'left'
 }
