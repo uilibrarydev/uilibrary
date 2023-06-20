@@ -14,7 +14,7 @@ export default {
 
 const items = [
   {
-    label: 'edit',
+    label: 'Edit',
     iconProps: {
       name: 'edit'
     },
@@ -24,7 +24,7 @@ const items = [
     value: 1
   },
   {
-    label: 'add ',
+    label: 'Add ',
     iconProps: {
       name: 'add'
     },
@@ -34,9 +34,9 @@ const items = [
     value: 2
   },
   {
-    label: 'delete',
+    label: 'Delete',
     iconProps: {
-      name: 'delete'
+      name: 'close'
     },
     handler: () => {
       console.log('delete')

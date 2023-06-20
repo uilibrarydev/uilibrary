@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom'
 import { TMenuPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
 
-import '../../assets/styles/components/_menu.scss'
 import { OptionItem } from '../../helperComponents/OptionItem'
 
 const Menu: React.FC<TMenuPropTypes> = (props: TMenuPropTypes) => {
@@ -15,7 +14,7 @@ const Menu: React.FC<TMenuPropTypes> = (props: TMenuPropTypes) => {
   }
 
   return ReactDOM.createPortal(
-    <div className="menu-container">
+    <div className="select select--menu">
       {menuItems.map(({ label, value, handler, iconProps }) => {
         return (
           <OptionItem
