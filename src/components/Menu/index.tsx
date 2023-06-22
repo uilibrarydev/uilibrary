@@ -1,30 +1,37 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { TMenuPropTypes } from './types'
+import { TMenuProps, TMenuItem } from './types'
+import '../../assets/styles/components/_select.scss'
 
-import '../../assets/styles/components/_menu.scss'
-import Icon from '../Icon'
+import { OptionItem } from '../../helperComponents/OptionItem'
+import { useOnOutsideClick } from '../../hooks'
 
-const Menu: React.FC<TMenuPropTypes> = (props: TMenuPropTypes) => {
-  const { menuItems = [], parentRef } = props
+const Menu = (props: TMenuProps): JSX.Element | null => {
+  const { menuItems = [], parentRef, onClose } = props
+
+  useOnOutsideClick(parentRef, onClose)
 
   if (!parentRef) {
     return null
   }
 
   return ReactDOM.createPortal(
-    <div className="menu-container">
-      {menuItems.map(({ label, handler, iconProps }) => {
+    <div className="select select--menu">
+      {menuItems.map(({ label, value, handler, iconProps }: TMenuItem) => {
         return (
-          <>
-            <div className="menu-item" onClick={handler}>
-              {iconProps?.name ? (
-                <Icon {...iconProps} type="brand" size="xsmall" className="menu-item__icon" />
-              ) : null}
-              <span className="menu-item__label">{label}</span>
-            </div>
-          </>
+          <OptionItem
+            key={value}
+            data={{
+              label,
+              value
+            }}
+            labelLeftIconProps={iconProps}
+            onClick={() => {
+              onClose()
+              handler()
+            }}
+          />
         )
       })}
     </div>,

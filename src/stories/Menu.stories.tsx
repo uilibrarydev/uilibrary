@@ -14,31 +14,34 @@ export default {
 
 const items = [
   {
-    label: 'edit',
+    label: 'Edit',
     iconProps: {
       name: 'edit'
     },
     handler: () => {
       console.log('edit')
-    }
+    },
+    value: 1
   },
   {
-    label: 'add ',
+    label: 'Add ',
     iconProps: {
       name: 'add'
     },
     handler: () => {
       console.log('add')
-    }
+    },
+    value: 2
   },
   {
-    label: 'delete',
+    label: 'Delete',
     iconProps: {
-      name: 'delete'
+      name: 'close'
     },
     handler: () => {
       console.log('delete')
-    }
+    },
+    value: 3
   }
 ]
 
@@ -51,7 +54,9 @@ const Template = (args): JSX.Element => {
     <div>
       <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
         <Button onClick={() => setOpen(!open)} buttonText="Click me" />
-        {open ? <MenuComp {...args} parentRef={ref} menuItems={items} /> : null}
+        {open ? (
+          <MenuComp {...args} onClose={() => setOpen(false)} parentRef={ref} menuItems={items} />
+        ) : null}
       </div>
     </div>
   )

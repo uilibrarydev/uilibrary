@@ -6,9 +6,9 @@ import { TItemValue, TSelectOption } from '../../../types/globals'
 import Input from '../../Input'
 import Checkbox from '../../Checkbox'
 
-import { DROPDOWN_MAX_HEIGHT, incrementOverflowedinitial } from './utils'
+import { DROPDOWN_MAX_HEIGHT, incrementOverflowedinitial } from '../utils'
 
-import { SelectItem } from '../SelectItem'
+import { OptionItem } from '../../../helperComponents/OptionItem'
 import { TMultiSelectPropTypes } from '../types'
 import '../../../assets/styles/components/_select.scss'
 import { Loading } from '../Loading'
@@ -121,7 +121,7 @@ export const MultiSelect = (props: TMultiSelectPropTypes): JSX.Element | null =>
                   const isSelected = checkIsSelected(item.value)
 
                   return (
-                    <SelectItem
+                    <OptionItem
                       data={item}
                       key={item.value}
                       isCheckbox

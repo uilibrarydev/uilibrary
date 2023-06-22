@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import { TSelectOption } from '../../../types/globals'
-import { SelectItem } from '../SelectItem'
+import { OptionItem } from '../../../helperComponents/OptionItem'
 import { TFilterDropdownContentProps } from '../types'
 export const FilterDropdownContent = (props: TFilterDropdownContentProps): JSX.Element => {
   const {
@@ -27,7 +27,7 @@ export const FilterDropdownContent = (props: TFilterDropdownContentProps): JSX.E
         const isSelected = checkIsSelected(item.value)
 
         return (
-          <SelectItem
+          <OptionItem
             data={item}
             key={item.value}
             onClick={isSelected ? onItemDeselect : onItemSelect}
