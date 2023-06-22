@@ -16,6 +16,7 @@ declare global {
     label: TItemLabel
     meta?: string
     disabled?: boolean
+    children?: TSelectOption[]
   }
 
   type TSelectOptions = TSelectOption[]

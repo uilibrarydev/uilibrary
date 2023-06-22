@@ -42,6 +42,10 @@
 
   position: relative;
 
+  .nested-select-button{
+    min-width: 300px
+  }
+
   &__input {
     .input__icon {
       &--right {

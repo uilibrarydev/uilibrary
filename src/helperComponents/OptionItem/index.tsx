@@ -34,7 +34,7 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
 
   return (
     <div
-      className={`select__option ${disabled ? 'select__option--disabled' : ''}`}
+      className={`select__option   ${disabled ? 'select__option--disabled' : ''}`}
       onClick={handleClick}
     >
       {isCheckbox ? (
