@@ -22,7 +22,8 @@
     "check": "npm run prettier && npm run lint",
     "updateVersion": "node  ./scripts/updateVersion.js",
     "finilize": "npm run build && npm run updateVersion",
-    "chromatic": "npx chromatic --project-token=6b1f1965af98"
+    "chromatic": "npx chromatic --project-token=6b1f1965af98",
+    "pub": "npm version patch --force "
   },
   "eslintConfig": {
     "extends": [
