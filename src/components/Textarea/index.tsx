@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
 import Label from '../../helperComponents/Label'
-import { TChangeEventType } from '../../types/globals'
 import { TTextAreaTypeProps } from './types'
 import Text from '../Text'
 import Icon from '../Icon'

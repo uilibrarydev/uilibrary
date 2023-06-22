@@ -31,8 +31,10 @@ import Breadcrumb from './components/Breadcrumb'
 import Image from './components/Image'
 import './assets/styles/index.scss'
 import Link from './components/Link'
+import { SideSheet, Menu } from './components'
 
 export {
+  Menu,
   Text,
   Link,
   Heading,
@@ -65,5 +67,6 @@ export {
   Tab,
   Snackbar,
   Breadcrumb,
-  Image
+  Image,
+  SideSheet
 }

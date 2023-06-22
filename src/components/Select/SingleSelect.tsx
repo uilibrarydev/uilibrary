@@ -2,9 +2,8 @@ import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { useOnOutsideClick } from '../../hooks'
 import { TSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
-import { SelectItem } from './SelectItem'
+import { OptionItem } from '../../helperComponents/OptionItem'
 import Footer from './Footer'
-import { TClickEventType, TItemValue, TSelectOption } from '../../types/globals'
 import Input from '../Input'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
 import { Loading } from './Loading'
@@ -137,7 +136,7 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
                 {options.map((item: TSelectOption) => {
                   const isSelected = item.value === currentSelection
                   return (
-                    <SelectItem
+                    <OptionItem
                       data={item}
                       key={item.value}
                       onClick={isSelected ? onItemDeselect : onItemSelect}

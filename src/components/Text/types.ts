@@ -1,5 +1,3 @@
-import { TClickEventType } from '../../types/globals'
-
 export interface TextPropTypes {
   children?: string | JSX.Element
   type?:

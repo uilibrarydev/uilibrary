@@ -3,7 +3,7 @@ import Heading from './Heading'
 import Icon from './Icon'
 import FormContainer from './FormContainer'
 import Input from './Input'
-import { MultiSelect, Select, Filter } from './Select'
+import { MultiSelect, Select, Filter, NestedSelect } from './Select'
 import Modal from './Modal'
 import Button from './Button'
 import FormField from './FormField'
@@ -28,6 +28,8 @@ import Popover from './Popover'
 import Breadcrumb from './Breadcrumb'
 import Image from './Image'
 import Link from './Link'
+import Menu from './Menu'
+import SideSheet from './SideSheet'
 
 export {
   Text,
@@ -38,6 +40,7 @@ export {
   Input,
   Select,
   MultiSelect,
+  NestedSelect,
   Filter,
   Modal,
   Button,
@@ -63,5 +66,7 @@ export {
   Tab,
   Snackbar,
   Breadcrumb,
-  Image
+  Image,
+  Menu,
+  SideSheet
 }

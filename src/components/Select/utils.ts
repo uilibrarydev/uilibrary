@@ -1,3 +1,5 @@
+import { getStringWidth } from '../../utils'
+
 export const incrementOverflowedinitial = (
   initial: string,
   currentOverflowedLength: number
@@ -12,3 +14,8 @@ export const incrementOverflowedinitial = (
 }
 
 export const DROPDOWN_MAX_HEIGHT = 260
+
+export const checkIsValueOverflowed = (value: string, width: number): boolean => {
+  const elemWidth = getStringWidth(value, 14)
+  return elemWidth > width - 80 // padding and width of (+number)
+}

@@ -33,7 +33,18 @@
   --ds-select-footer-padding: 0 var(--ds-size-16);
   --ds-select-footer-border-top: 1px solid var(--ds-color-divider);
 
+  --ds-select-menu-bg: var(--ds-color-bg-cta-secondary-default);
+  --ds-select-menu-border-radius: var(--ds-border-radius-sm);
+  --ds-select-menu-shadow: var(--shadow-2);
+  --ds-select-menu-width: var(--ds-size-120);
+  --ds-select-menu-icon-color: var(--ds-color-icon-success);
+  --ds-select-menu-option-padding: var(--ds-space-6) var(--ds-space-8);
+
   position: relative;
+
+  .nested-select-button{
+    min-width: 300px
+  }
 
   &__input {
     .input__icon {
@@ -78,6 +89,10 @@
   &__option {
     padding: var(--ds-select-option-padding);
     margin-bottom: var(--ds-select-option-margin);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     &:hover {
       cursor: pointer;
@@ -143,6 +158,22 @@
     height: var(--ds-select-footer-height);
     padding: var(--ds-select-footer-padding);
     border-top: var(--ds-select-footer-border-top);
+  }
+
+  &--menu {
+    @include absolute(0, unset, unset, calc(100% + var(--ds-space-16)));
+    background-color: var(--ds-select-menu-bg);
+    box-shadow: var(--ds-select-menu-shadow);
+    border-radius: var(--ds-select-menu-border-radius);
+    width: var(--ds-select-menu-width);
+
+    #{$this}__option {
+      padding: var(--ds-select-menu-option-padding);
+    }
+
+    .icon {
+      color: var(--ds-select-menu-icon-color);
+    }
   }
 }
 

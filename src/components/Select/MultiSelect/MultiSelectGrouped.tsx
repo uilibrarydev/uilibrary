@@ -1,13 +1,12 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
-import { TItemValue, TSelectGroupOption, TSelectOption } from '../../../types/globals'
 
 import Input from '../../Input'
 import Checkbox from '../../Checkbox'
 
-import { SelectItem } from '../SelectItem'
+import { OptionItem } from '../../../helperComponents/OptionItem'
 
-import { incrementOverflowedinitial, DROPDOWN_MAX_HEIGHT } from './utils'
+import { incrementOverflowedinitial, DROPDOWN_MAX_HEIGHT } from '../utils'
 import { TMultiSelectGroupedProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
 import Icon from '../../Icon'
@@ -148,7 +147,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                         data.map((item: TSelectOption) => {
                           const isSelected = checkIsSelected(item.value)
                           return (
-                            <SelectItem
+                            <OptionItem
                               data={item}
                               key={item.value}
                               isCheckbox

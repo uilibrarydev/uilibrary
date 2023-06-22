@@ -4,12 +4,6 @@ import '../../../assets/styles/components/_select.scss'
 
 import { MultiSelect } from './MultiSelect'
 import { MultiSelectGrouped } from './MultiSelectGrouped'
-import {
-  TClickEventType,
-  TItemValue,
-  TSelectGroupOptions,
-  TSelectOptions
-} from '../../../types/globals'
 import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
 import { useOnOutsideClick } from '../../../hooks'
 import Footer from '../Footer'

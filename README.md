@@ -22,3 +22,4 @@ Please run `npm install` after every change you make.
         `npm run build`
     7. After updating the bundle publish a new version by the command
         `npm publish`
+

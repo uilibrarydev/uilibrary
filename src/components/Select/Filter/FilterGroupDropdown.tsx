@@ -1,5 +1,4 @@
 import React from 'react'
-import { TSelectGroupOption } from '../../../types/globals'
 import { TFilterGroupDropdownContentProps } from '../types'
 import { FilterDropdownContent } from './FilterDropdown'
 

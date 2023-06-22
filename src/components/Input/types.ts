@@ -1,10 +1,4 @@
 import { RefObject } from 'react'
-import {
-  IFormCompProps,
-  TChangeEventType,
-  TClickHandler,
-  TClickEventType
-} from '../../types/globals'
 
 export interface InputCustomProps extends IFormCompProps {
   mask?: string

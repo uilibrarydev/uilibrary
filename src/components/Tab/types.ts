@@ -1,5 +1,3 @@
-import { IFormCompProps } from '../../types/globals'
-
 export type TTablItem = {
   value: number | string
   label: string | JSX.Element

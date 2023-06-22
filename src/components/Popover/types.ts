@@ -1,5 +1,3 @@
-import { IFormCompProps } from '../../types/globals'
-
 export interface TPopoverProps extends IFormCompProps {
   text?: string | JSX.Element
   children?: string | JSX.Element

@@ -1,10 +1,3 @@
-import {
-  IFormCompProps,
-  TClickHandler,
-  TItemValue,
-  TSelectGroupOptions,
-  TSelectOptions
-} from '../../types/globals'
 import { TButtonPropTypes } from '../Button/types'
 
 export interface TMultiSelectPropTypes extends IFormCompProps {
@@ -35,6 +28,20 @@ export interface TMultiSelectPropTypes extends IFormCompProps {
   onItemDeselect: (item: TItemValue) => void
   footer: JSX.Element
 }
+
+export interface TNestedSelectProps extends IFormCompProps {
+  options: TSelectOptions
+  isRequiredField?: boolean
+  label?: string | JSX.Element
+  placeHolder?: string
+  checkIsValueOverflowed: (value: string) => boolean
+  selectedItems?: TItemValue[]
+  setSelectedValue: (value: TItemValue) => void
+  optionRightIconComponent?: JSX.Element
+  labelRightIconComponent?: JSX.Element
+  avatar?: string
+}
+
 export interface TMultiSelectGroupedProps extends IFormCompProps {
   isLoading?: boolean
   label?: string | JSX.Element
@@ -65,6 +72,7 @@ export interface TMultiSelectGroupedProps extends IFormCompProps {
 }
 
 export interface TMultiSelectTypes extends IFormCompProps {
+  isNestedList?: boolean
   withTabs?: boolean
   isGrouped?: boolean
   label?: string | JSX.Element

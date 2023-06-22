@@ -4,11 +4,10 @@ import Tab from '../../Tab'
 import Input from '../../Input'
 import Checkbox from '../../Checkbox'
 import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
-import { TItemValue, TSelectGroupOption, TSelectOption } from '../../../types/globals'
 
-import { SelectItem } from '../SelectItem'
+import { OptionItem } from '../../../helperComponents/OptionItem'
 
-import { incrementOverflowedinitial, DROPDOWN_MAX_HEIGHT } from './utils'
+import { incrementOverflowedinitial, DROPDOWN_MAX_HEIGHT } from '../utils'
 import { TMultiSelectGroupedProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
 import { Loading } from '../Loading'
@@ -159,7 +158,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
                   const isSelected = checkIsSelected(item.value)
 
                   return (
-                    <SelectItem
+                    <OptionItem
                       data={item}
                       key={item.value}
                       isCheckbox

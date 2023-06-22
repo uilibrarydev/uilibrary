@@ -1,5 +1,3 @@
-import { IFormCompProps } from '../../types/globals'
-
 export interface TTooltipProps extends IFormCompProps {
   text: string
   children?: string | JSX.Element

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Textarea as TextareaComp } from '../components'
-import { TChangeEventType } from '../types/globals'
+
+type TChangeEventType = React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
 
 export default {
   title: 'Textarea',

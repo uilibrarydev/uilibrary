@@ -13,6 +13,7 @@ export const useOnOutsideClick = (
 
       handler(event)
     }
+
     const onTouchEnd = (event: MouseEvent) => {
       if (!isTouchMoved) {
         listener(event)
