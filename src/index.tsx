@@ -3,7 +3,8 @@ import Heading from './components/Heading'
 import Icon from './components/Icon'
 import FormContainer from './components/FormContainer'
 import Input from './components/Input'
-import Select from './components/Select/SingleSelect'
+
+import { MultiSelect, Select, Filter, NestedSelect } from './components/Select'
 import Modal from './components/Modal'
 import Button from './components/Button'
 import FormField from './components/FormField'
@@ -41,7 +42,10 @@ export {
   Icon,
   FormContainer,
   Input,
+  MultiSelect,
   Select,
+  Filter,
+  NestedSelect,
   Modal,
   Button,
   FormField,
