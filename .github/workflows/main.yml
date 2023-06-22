@@ -19,6 +19,10 @@ jobs:
       - name:  update package version
 
         run: npm run  updateVersion
+        
+      - name : update project package version
+        
+        run : npm run pub
 
 
       - name: Create .npmrc file
