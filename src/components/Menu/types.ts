@@ -1,12 +1,12 @@
-export type TMenuPropTypes = {
-  menuItems: Array<{
-    label: string
-    value: number | string
-    iconProps?: {
-      name: string
-      alignment?: string
-    }
-    handler: () => void
-  }>
+export type TMenuItem = {
+  label: TItemLabel
+  value: TItemValue
+  iconProps?: TSelectIconProps
+  handler: TCallBackFn
+}
+
+export type TMenuProps = {
+  menuItems: TMenuItem[]
   parentRef: HTMLElement
+  onClose: TCallBackFn
 }

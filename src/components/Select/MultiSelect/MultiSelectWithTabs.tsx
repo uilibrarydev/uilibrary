@@ -8,7 +8,7 @@ import { TItemValue, TSelectGroupOption, TSelectOption } from '../../../types/gl
 
 import { OptionItem } from '../../../helperComponents/OptionItem'
 
-import { incrementOverflowedinitial, DROPDOWN_MAX_HEIGHT } from './utils'
+import { incrementOverflowedinitial, DROPDOWN_MAX_HEIGHT } from '../utils'
 import { TMultiSelectGroupedProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
 import { Loading } from '../Loading'

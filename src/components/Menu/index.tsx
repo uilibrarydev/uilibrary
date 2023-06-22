@@ -1,13 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { TMenuPropTypes } from './types'
+import { TMenuProps, TMenuItem } from './types'
 import '../../assets/styles/components/_select.scss'
 
 import { OptionItem } from '../../helperComponents/OptionItem'
+import { useOnOutsideClick } from '../../hooks'
 
-const Menu: React.FC<TMenuPropTypes> = (props: TMenuPropTypes) => {
-  const { menuItems = [], parentRef } = props
+const Menu = (props: TMenuProps): JSX.Element | null => {
+  const { menuItems = [], parentRef, onClose } = props
+
+  useOnOutsideClick(parentRef, onClose)
 
   if (!parentRef) {
     return null
@@ -15,7 +18,7 @@ const Menu: React.FC<TMenuPropTypes> = (props: TMenuPropTypes) => {
 
   return ReactDOM.createPortal(
     <div className="select select--menu">
-      {menuItems.map(({ label, value, handler, iconProps }) => {
+      {menuItems.map(({ label, value, handler, iconProps }: TMenuItem) => {
         return (
           <OptionItem
             key={value}
@@ -24,7 +27,10 @@ const Menu: React.FC<TMenuPropTypes> = (props: TMenuPropTypes) => {
               value
             }}
             labelLeftIconProps={iconProps}
-            onClick={handler}
+            onClick={() => {
+              onClose()
+              handler()
+            }}
           />
         )
       })}

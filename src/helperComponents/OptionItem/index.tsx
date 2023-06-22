@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react'
 
 import { Checkbox, Avatar, Icon } from '../../components'
-import { TClickEventType } from '../../types/globals'
 import '../../assets/styles/components/_selectOption.scss'
 
 import { TSelectItemProps } from './types'
@@ -35,7 +34,7 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
 
   return (
     <div
-      className={`select__option ${disabled ? 'select__option--disabled' : ''}`}
+      className={`select__option   ${disabled ? 'select__option--disabled' : ''}`}
       onClick={handleClick}
     >
       {isCheckbox ? (

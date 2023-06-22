@@ -15,9 +15,11 @@ import { useOnOutsideClick } from '../../../hooks'
 import Footer from '../Footer'
 import { getStringWidth } from '../../../utils'
 import { MultiSelectWithTabs } from './MultiSelectWithTabs'
+// import NestedSelect from './NestedSelect'
 
 const Select = (props: TMultiSelectTypes): JSX.Element | null => {
   const {
+    // withNestedList,
     withTabs,
     isGrouped,
     options,

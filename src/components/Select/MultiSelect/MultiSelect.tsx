@@ -6,7 +6,7 @@ import { TItemValue, TSelectOption } from '../../../types/globals'
 import Input from '../../Input'
 import Checkbox from '../../Checkbox'
 
-import { DROPDOWN_MAX_HEIGHT, incrementOverflowedinitial } from './utils'
+import { DROPDOWN_MAX_HEIGHT, incrementOverflowedinitial } from '../utils'
 
 import { OptionItem } from '../../../helperComponents/OptionItem'
 import { TMultiSelectPropTypes } from '../types'
