@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react'
 
 import { Checkbox, Avatar, Icon } from '../../components'
-import { TClickEventType } from '../../types/globals'
 import '../../assets/styles/components/_selectOption.scss'
 
 import { TSelectItemProps } from './types'
