@@ -1,5 +1,3 @@
-import { TClickEventType } from '../../types/globals'
-
 export interface TButtonPropTypes {
   disabled?: boolean
   buttonActionType?: 'submit'

@@ -3,7 +3,6 @@ import Text from '../Text'
 
 import { TMorePropTypes } from './types'
 import './index.scss'
-import { TClickEventType } from '../../types/globals'
 
 const More = (props: TMorePropTypes): JSX.Element => {
   const { expandedText, collapsedText } = props

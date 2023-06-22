@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Input as InputComp } from '../components'
-import { TChangeEventType } from '../types/globals'
 
 export default {
   title: 'Input',

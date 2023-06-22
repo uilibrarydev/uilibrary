@@ -4,7 +4,6 @@ import {
   TimePicker as TimePicker_,
   RangeDatePicker as RangeDatePicker_
 } from '../components'
-import { TRangePickerValues } from '../types/globals'
 
 export default {
   title: 'DatePicker',

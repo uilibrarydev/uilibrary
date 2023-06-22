@@ -4,7 +4,6 @@ import Tab from '../../Tab'
 import Input from '../../Input'
 import Checkbox from '../../Checkbox'
 import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
-import { TItemValue, TSelectGroupOption, TSelectOption } from '../../../types/globals'
 
 import { OptionItem } from '../../../helperComponents/OptionItem'
 

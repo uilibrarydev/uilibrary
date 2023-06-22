@@ -4,22 +4,14 @@ import '../../../assets/styles/components/_select.scss'
 
 import { MultiSelect } from './MultiSelect'
 import { MultiSelectGrouped } from './MultiSelectGrouped'
-import {
-  TClickEventType,
-  TItemValue,
-  TSelectGroupOptions,
-  TSelectOptions
-} from '../../../types/globals'
 import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
 import { useOnOutsideClick } from '../../../hooks'
 import Footer from '../Footer'
 import { getStringWidth } from '../../../utils'
 import { MultiSelectWithTabs } from './MultiSelectWithTabs'
-// import NestedSelect from './NestedSelect'
 
 const Select = (props: TMultiSelectTypes): JSX.Element | null => {
   const {
-    // withNestedList,
     withTabs,
     isGrouped,
     options,

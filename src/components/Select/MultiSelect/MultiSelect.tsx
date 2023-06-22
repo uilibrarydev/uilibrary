@@ -1,7 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react'
 
 import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
-import { TItemValue, TSelectOption } from '../../../types/globals'
 
 import Input from '../../Input'
 import Checkbox from '../../Checkbox'

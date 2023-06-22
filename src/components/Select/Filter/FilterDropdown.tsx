@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react'
-import { TSelectOption } from '../../../types/globals'
 import { OptionItem } from '../../../helperComponents/OptionItem'
 import { TFilterDropdownContentProps } from '../types'
 export const FilterDropdownContent = (props: TFilterDropdownContentProps): JSX.Element => {

@@ -1,5 +1,4 @@
 import { LegacyRef } from 'react'
-import { TClickHandler } from '../../types/globals'
 
 export interface IconPropTypes {
   name?: string

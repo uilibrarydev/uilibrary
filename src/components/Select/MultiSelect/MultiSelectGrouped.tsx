@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
-import { TItemValue, TSelectGroupOption, TSelectOption } from '../../../types/globals'
 
 import Input from '../../Input'
 import Checkbox from '../../Checkbox'
@@ -12,7 +11,6 @@ import { TMultiSelectGroupedProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
 import Icon from '../../Icon'
 import { Loading } from '../Loading'
-import NestedSelect from './NestedSelect'
 
 export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element | null => {
   const {

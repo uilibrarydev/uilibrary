@@ -2,7 +2,6 @@ import React from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
 import { FormContainer, Switcher, Select, Button, MultiSelect } from '../components'
-import { IFormCompProps, TSelectGroupOptions, TSelectOptions } from '../types/globals'
 
 export default {
   title: 'Form',

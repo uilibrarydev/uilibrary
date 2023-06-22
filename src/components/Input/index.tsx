@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react'
 import InputMask from 'react-input-mask'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
-import { TChangeEventType } from '../../types/globals'
 import { InputCustomProps } from './types'
 import '../../assets/styles/components/_input.scss'
 import Icon from '../Icon'

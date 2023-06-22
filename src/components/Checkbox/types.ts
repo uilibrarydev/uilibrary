@@ -1,5 +1,3 @@
-import { IFormCompProps } from '../../types/globals'
-
 export interface TCheckboxProps extends IFormCompProps {
   label?: string | JSX.Element
   className?: string

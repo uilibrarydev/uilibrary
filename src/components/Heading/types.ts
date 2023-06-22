@@ -1,5 +1,4 @@
 import { ElementType } from 'react'
-import { TClickEventType } from '../../types/globals'
 
 export interface HeadingPropTypes {
   children?: string | JSX.Element

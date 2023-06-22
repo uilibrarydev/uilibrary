@@ -6,7 +6,7 @@ import Input from '../Input'
 import { IRangeDatePickerProps } from './types'
 
 import './index.scss'
-import { TRangePickerValues } from '../../types/globals'
+
 registerLocale('hy', hy)
 
 const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {

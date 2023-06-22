@@ -1,9 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import ReactDOM from 'react-dom'
 
-import { TChangeEventType, TItemValue, TSelectGroupOptions } from '../../../types/globals'
 import { useOnOutsideClick } from '../../../hooks'
-import { TSelectOptions } from '../../../types/globals'
 import Input from '../../Input'
 
 import { FilterDropdownContent } from './FilterDropdown'
