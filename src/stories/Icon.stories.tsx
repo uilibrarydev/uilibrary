@@ -3,6 +3,9 @@ import { Meta } from '@storybook/react'
 import { Icon as IconComp, Text } from '../components'
 
 const ICONS = [
+  'project-product',
+  'only-employee',
+  'units-employee',
   'dram',
   'percent',
   'facebook',
