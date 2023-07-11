@@ -34,7 +34,6 @@ export interface TNestedSelectProps extends IFormCompProps {
   isRequiredField?: boolean
   label?: string | JSX.Element
   placeHolder?: string
-  checkIsValueOverflowed: (value: string) => boolean
   selectedItems?: TItemValue[]
   setSelectedValue: (value: TItemValue) => void
   optionRightIconComponent?: JSX.Element

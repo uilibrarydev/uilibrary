@@ -147,7 +147,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
     )
 
     return currentValue.inputValue
-  }, [options, selectedValues, _checkIsValueOverflowed])
+  }, [options, selectedValues, _checkIsValueOverflowed, getSelectedItemsLabels])
 
   const generateFolders = (foldersArr: TSelectOption[], level: number): Array<JSX.Element> =>
     foldersArr.reduce((acc: Array<JSX.Element>, option: TSelectOption) => {
