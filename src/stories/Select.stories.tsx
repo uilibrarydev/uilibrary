@@ -101,15 +101,15 @@ const OPTIONS_GROUPED: TSelectGroupOptions = [
 const OPTIONS_NESTED: TSelectOptions = [
   {
     value: 1,
-    label: '1',
+    label: 'Ameribank',
     children: [
       {
         value: 2,
-        label: '2',
+        label: 'BOD',
         children: [
           {
             value: 3,
-            label: '3'
+            label: 'Managment board'
           },
           {
             value: 4,
@@ -118,7 +118,7 @@ const OPTIONS_NESTED: TSelectOptions = [
         ]
       },
       {
-        value: 3,
+        value: 10,
         label: '3',
         children: [
           {
