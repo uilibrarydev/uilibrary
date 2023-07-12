@@ -7,6 +7,7 @@ import { checkIsValueOverflowed, incrementOverflowedinitial } from '../utils'
 
 import { TNestedSelectProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
+import { useOnOutsideClick } from '../../../hooks'
 
 const LEVEL_LEFT_MARGIN = 16
 type TSelectedItemsWithLevels = {
@@ -35,6 +36,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
   const { width } = useGetElemSizes(containerRef)
 
   const openDropdown = () => setIsOpen(true)
+  const closeDropdown = () => setIsOpen(false)
 
   const toggleDropdown = (e?: TClickEventType) => {
     const clickedElement = e?.target as HTMLDivElement
@@ -46,6 +48,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
     }
   }
 
+  useOnOutsideClick(containerRef, closeDropdown)
   const _checkIsValueOverflowed = useCallback(
     (value: string) => checkIsValueOverflowed(value, width),
     [width]
@@ -105,18 +108,34 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
     [selectedValues, selectedItemsWithLevels]
   )
 
-  const getSelectedItemsLabels = (option: TSelectOption, _label: string): string => {
+  // get selected option labels based on opened child units
+  const getSelectedItemsLabels = (
+    option: TSelectOption,
+    labelCurrentValue: { value: string; overflowCount: number }
+  ): string => {
+    const { overflowCount, value } = labelCurrentValue
+    let _overflowCount = overflowCount
     const isOpen = selectedValues.indexOf(option.value) !== -1
 
     if (isOpen) {
-      const current = `${_label}${_label ? ', ' : ''}${option.label}`
+      const current = `${value}${value ? ', ' : ''}${option.label}`
+
+      if (_checkIsValueOverflowed(current)) {
+        _overflowCount = _overflowCount + 1
+        return incrementOverflowedinitial(value, _overflowCount)
+      }
+
       if (option.children) {
-        return option.children.reduce((acc, item) => getSelectedItemsLabels(item, acc), current)
+        return option.children.reduce(
+          (acc, item) =>
+            getSelectedItemsLabels(item, { value: acc, overflowCount: _overflowCount }),
+          current
+        )
       }
       return current
     }
 
-    return _label
+    return value
   }
 
   const selectedItemsLabels = useMemo(() => {
@@ -125,20 +144,11 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
     }
     const currentValue = options.reduce(
       (acc: { inputValue: string; visibleOptionsLength: number }, option: TSelectOption) => {
-        const label = getSelectedItemsLabels(option, '')
+        const label = getSelectedItemsLabels(option, { value: '', overflowCount: 0 })
 
         const { inputValue, visibleOptionsLength } = acc
         const accNextValue = `${inputValue}${label}`
-        const isOverflowed = _checkIsValueOverflowed(accNextValue)
 
-        if (isOverflowed) {
-          acc.inputValue = incrementOverflowedinitial(
-            inputValue,
-            selectedValues.length - visibleOptionsLength
-          )
-
-          return acc
-        }
         acc = { inputValue: accNextValue, visibleOptionsLength: visibleOptionsLength + 1 }
 
         return acc
