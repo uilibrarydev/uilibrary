@@ -73,7 +73,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         disabled={disabled}
         name={name}
         ref={ref}
-        required={required}
+        required={!!error}
         type={type}
         placeholder={!label ? placeholder : ''}
         onChange={changeHandler}
@@ -91,7 +91,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
                              ${error ? 'input--invalid' : ''}
                              `}
       >
-        <Label text={label} required={required} disabled={disabled} />
+        <Label text={label} invalid={!!error} required={required} disabled={disabled} />
         <label className="input__inner">
           {input}
           {leftIconProps && (

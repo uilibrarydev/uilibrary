@@ -75,7 +75,7 @@ const VALIDATION_SCHEME = yup.object({
 const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
     switcher: false,
-    select: OPTIONS[0].value,
+    select: null,
     multiselect: []
   }
 
@@ -100,7 +100,7 @@ const Template = (): JSX.Element => {
             isNeedChangeHandler
             name={'select'}
             As={(props: IFormCompProps) => {
-              return <Select {...props} options={OPTIONS} />
+              return <Select {...props} label="jjjj" isRequiredField options={OPTIONS} />
             }}
           />
           <FormField

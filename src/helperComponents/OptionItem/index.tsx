@@ -51,10 +51,9 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
         {avatar ? <Avatar size="xxsmall" imagePath={avatar} className="mr-4" /> : null}
         {labelLeftIconProps ? (
           <Icon
-            {...labelLeftIconProps}
-            size="xsmall"
             type={`${disabled ? 'disabled' : 'primary'}`}
             className="mr-4"
+            {...labelLeftIconProps}
           />
         ) : null}
         <div className="select__option__content">
