@@ -103,6 +103,15 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
     closeDropdown()
   }
 
+  const clickHandler = (isSelected: boolean) => (value: TItemValue) => {
+    if (!isSelected) {
+      onItemSelect(value)
+    }
+    if (!isRequiredField) {
+      onItemDeselect()
+    }
+  }
+
   const scrollRef = useRef(null)
   const { scrollHeight } = useGetElemSizes(scrollRef.current)
 
@@ -139,7 +148,7 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
                     <OptionItem
                       data={item}
                       key={item.value}
-                      onClick={isSelected ? onItemDeselect : onItemSelect}
+                      onClick={clickHandler(isSelected)}
                       labelLeftIconProps={labelLeftIconProps}
                       optionRightIconComponent={optionRightIconComponent}
                       labelRightIconComponent={labelRightIconComponent}
