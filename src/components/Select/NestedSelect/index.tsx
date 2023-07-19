@@ -176,7 +176,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
             disabled={disabled}
             optionRightIconComponent={optionRightIconComponent}
             labelRightIconComponent={labelRightIconComponent}
-            labelLeftIconProps={children ? { name: 'caret-down' } : undefined}
+            labelLeftIconProps={children ? { name: 'caret-down', size: 'xsmall' } : undefined}
           />
         </div>
       )

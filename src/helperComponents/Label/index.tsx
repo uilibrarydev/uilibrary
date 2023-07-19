@@ -4,17 +4,20 @@ import './index.scss'
 import { Text } from '../../index'
 
 const Label: React.FC<TextPropTypes> = (props: TextPropTypes) => {
-  const { text, required = false, disabled = false } = props
+  const { text, required = false, disabled = false, invalid = false } = props
   if (!text) {
     return null
   }
   return (
     <Text
       size="small"
-      type={required ? 'danger' : disabled ? 'disabled' : 'primary'}
+      type={invalid ? 'danger' : disabled ? 'disabled' : 'primary'}
       className="label"
     >
-      {text}
+      <>
+        {text}
+        {required ? <span className="label_important">*</span> : null}
+      </>
     </Text>
   )
 }

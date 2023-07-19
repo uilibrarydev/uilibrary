@@ -30,7 +30,8 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
       cancel: { buttonText: 'Cancel' }
     },
     selectedItem,
-    setSelectedItem
+    setSelectedItem,
+    error
   } = props
 
   const [isOpen, setIsOpen] = useState(false)
@@ -106,6 +107,7 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
   const clickHandler = (isSelected: boolean) => (value: TItemValue) => {
     if (!isSelected) {
       onItemSelect(value)
+      return
     }
     if (!isRequiredField) {
       onItemDeselect()
@@ -119,6 +121,7 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
     <div className="select" ref={setContainerRef}>
       <div onClick={open}>
         <Input
+          error={error}
           className="select__input"
           label={label}
           required={isRequiredField}
