@@ -111,7 +111,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
   // get selected option labels based on opened child units
   const getSelectedItemsLabels = (
     option: TSelectOption,
-    labelCurrentValue: { value: string, overflowCount: number }
+    labelCurrentValue: { value: string; overflowCount: number }
   ): string => {
     const { overflowCount, value } = labelCurrentValue
     let _overflowCount = overflowCount
@@ -143,7 +143,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
       return ''
     }
     const currentValue = options.reduce(
-      (acc: { inputValue: string, visibleOptionsLength: number }, option: TSelectOption) => {
+      (acc: { inputValue: string; visibleOptionsLength: number }, option: TSelectOption) => {
         const label = getSelectedItemsLabels(option, { value: '', overflowCount: 0 })
 
         const { inputValue, visibleOptionsLength } = acc
@@ -176,7 +176,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
             disabled={disabled}
             optionRightIconComponent={optionRightIconComponent}
             labelRightIconComponent={labelRightIconComponent}
-            labelLeftIconProps={children ? { name: 'caret-down'} : undefined}
+            labelLeftIconProps={children ? { name: 'caret-down' } : undefined}
           />
         </div>
       )

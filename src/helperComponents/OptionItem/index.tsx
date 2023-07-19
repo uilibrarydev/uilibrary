@@ -15,7 +15,7 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
     labelLeftIconProps,
     optionRightIconComponent,
     isCheckbox,
-    className=''
+    className = ''
   } = props
 
   const { label, meta, value } = data

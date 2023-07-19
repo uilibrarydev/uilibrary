@@ -11,7 +11,7 @@ import { TMultiSelectGroupedProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
 import Icon from '../../Icon'
 import { Loading } from '../Loading'
-import Text from '../../Text';
+import Text from '../../Text'
 
 export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element | null => {
   const {
@@ -42,7 +42,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
 
   const selectedItemsLabels = useMemo(() => {
     const currentValue = options.reduce(
-      (acc: { inputValue: string, visibleOptionsLength: number }, option: TSelectGroupOption) => {
+      (acc: { inputValue: string; visibleOptionsLength: number }, option: TSelectGroupOption) => {
         const { data } = option
         if (!data) {
           return acc
@@ -133,12 +133,15 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                   const isActive = index === activeGroupId
                   return (
                     <div className="select__group group-item" key={title}>
-                      <div
-                        onClick={() => setActiveGroupId(index)}
-                        className="group-item__top"
-                      >
-                        <Text size="xxsmall" type="tertiary" className="group-item__title pr-4">{title}</Text>
-                        <Icon size="xsmall" name={isActive ? 'caret-up' : 'caret-down'} className="group-item__icon" />
+                      <div onClick={() => setActiveGroupId(index)} className="group-item__top">
+                        <Text size="xxsmall" type="tertiary" className="group-item__title pr-4">
+                          {title}
+                        </Text>
+                        <Icon
+                          size="xsmall"
+                          name={isActive ? 'caret-up' : 'caret-down'}
+                          className="group-item__icon"
+                        />
                       </div>
 
                       {isActive &&
