@@ -11,6 +11,7 @@ import { TMultiSelectGroupedProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
 import Icon from '../../Icon'
 import { Loading } from '../Loading'
+import Text from '../../Text';
 
 export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element | null => {
   const {
@@ -41,7 +42,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
 
   const selectedItemsLabels = useMemo(() => {
     const currentValue = options.reduce(
-      (acc: { inputValue: string; visibleOptionsLength: number }, option: TSelectGroupOption) => {
+      (acc: { inputValue: string, visibleOptionsLength: number }, option: TSelectGroupOption) => {
         const { data } = option
         if (!data) {
           return acc
@@ -101,6 +102,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
           rightIconProps={{ name: isOpen ? 'caret-up' : 'caret-down' }}
           placeholder={placeHolder}
           currentValue={selectedItemsLabels}
+          readonly={true}
         />
       </div>
 
@@ -130,17 +132,13 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                 {options.map(({ title, data }: TSelectGroupOption, index: number) => {
                   const isActive = index === activeGroupId
                   return (
-                    <div className="group_container" key={title}>
+                    <div className="select__group group-item" key={title}>
                       <div
                         onClick={() => setActiveGroupId(index)}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between'
-                        }}
+                        className="group-item__top"
                       >
-                        <span>{title}</span>
-                        <Icon name={isActive ? 'caret-up' : 'caret-down'} />
+                        <Text size="xxsmall" type="tertiary" className="group-item__title pr-4">{title}</Text>
+                        <Icon size="xsmall" name={isActive ? 'caret-up' : 'caret-down'} className="group-item__icon" />
                       </div>
 
                       {isActive &&
@@ -148,6 +146,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                           const isSelected = checkIsSelected(item.value)
                           return (
                             <OptionItem
+                              className="group-item__option"
                               data={item}
                               key={item.value}
                               isCheckbox

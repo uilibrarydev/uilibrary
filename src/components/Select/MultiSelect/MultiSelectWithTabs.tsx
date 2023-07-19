@@ -43,7 +43,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
 
   const selectedItemsLabels = useMemo(() => {
     const currentValue = options.reduce(
-      (acc: { inputValue: string; visibleOptionsLength: number }, option: TSelectGroupOption) => {
+      (acc: { inputValue: string, visibleOptionsLength: number }, option: TSelectGroupOption) => {
         const { data } = option
         if (!data) {
           return acc
@@ -117,6 +117,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
           rightIconProps={{ name: isOpen ? 'caret-up' : 'caret-down' }}
           placeholder={placeHolder}
           currentValue={selectedItemsLabels}
+          readonly={true}
         />
       </div>
 

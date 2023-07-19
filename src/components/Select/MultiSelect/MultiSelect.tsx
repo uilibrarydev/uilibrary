@@ -40,7 +40,7 @@ export const MultiSelect = (props: TMultiSelectPropTypes): JSX.Element | null =>
 
   const selectedItemsLabels = useMemo(() => {
     const currentValue = options.reduce(
-      (acc: { inputValue: string; visibleOptionsLength: number }, item: TSelectOption) => {
+      (acc: { inputValue: string, visibleOptionsLength: number }, item: TSelectOption) => {
         if (selectedValues.indexOf(item.value) !== -1) {
           const { inputValue, visibleOptionsLength } = acc
           const accNextValue = `${inputValue}${inputValue !== '' ? ', ' : ''}${item.label}`
@@ -90,6 +90,7 @@ export const MultiSelect = (props: TMultiSelectPropTypes): JSX.Element | null =>
           rightIconProps={{ name: isOpen ? 'caret-up' : 'caret-down' }}
           placeholder={placeHolder}
           currentValue={selectedItemsLabels}
+          readonly={true}
         />
       </div>
 

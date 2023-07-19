@@ -14,7 +14,8 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
     labelRightIconComponent,
     labelLeftIconProps,
     optionRightIconComponent,
-    isCheckbox
+    isCheckbox,
+    className=''
   } = props
 
   const { label, meta, value } = data
@@ -33,7 +34,7 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
 
   return (
     <div
-      className={`select__option   ${disabled ? 'select__option--disabled' : ''}`}
+      className={`select__option   ${disabled ? 'select__option--disabled' : ''} ${className}`}
       onClick={handleClick}
     >
       {isCheckbox ? (
@@ -54,7 +55,7 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
             {...labelLeftIconProps}
             size="xsmall"
             type={`${disabled ? 'disabled' : 'primary'}`}
-            className="mr-4"
+            className="mr-4 select__left-icon"
           />
         ) : null}
         <div className="select__option__content">
@@ -63,8 +64,8 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
           </span>
           {labelRightIconComponent}
           {meta ? (
-            <span className={`select__option__text ${disabled ? 'color-disabled' : ''}`}>
-              - {meta}
+            <span className={`select__option__meta ${disabled ? 'color-disabled' : ''}`}>
+              {meta}
             </span>
           ) : null}
         </div>

@@ -9,7 +9,7 @@ import { TNestedSelectProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
 import { useOnOutsideClick } from '../../../hooks'
 
-const LEVEL_LEFT_MARGIN = 16
+const LEVEL_LEFT_MARGIN = 10
 type TSelectedItemsWithLevels = {
   [key: string | number]: TItemValue[]
 }
@@ -111,7 +111,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
   // get selected option labels based on opened child units
   const getSelectedItemsLabels = (
     option: TSelectOption,
-    labelCurrentValue: { value: string; overflowCount: number }
+    labelCurrentValue: { value: string, overflowCount: number }
   ): string => {
     const { overflowCount, value } = labelCurrentValue
     let _overflowCount = overflowCount
@@ -143,7 +143,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
       return ''
     }
     const currentValue = options.reduce(
-      (acc: { inputValue: string; visibleOptionsLength: number }, option: TSelectOption) => {
+      (acc: { inputValue: string, visibleOptionsLength: number }, option: TSelectOption) => {
         const label = getSelectedItemsLabels(option, { value: '', overflowCount: 0 })
 
         const { inputValue, visibleOptionsLength } = acc
@@ -167,6 +167,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
       acc.push(
         <div style={{ paddingLeft: LEVEL_LEFT_MARGIN * level }}>
           <OptionItem
+            className="nested-item"
             data={option}
             key={value}
             isSelected={isSelected}
@@ -175,7 +176,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
             disabled={disabled}
             optionRightIconComponent={optionRightIconComponent}
             labelRightIconComponent={labelRightIconComponent}
-            labelLeftIconProps={children ? { name: 'caret-down' } : undefined}
+            labelLeftIconProps={children ? { name: 'caret-down'} : undefined}
           />
         </div>
       )
@@ -196,6 +197,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
           rightIconProps={{ name: isDropdownOpen ? 'caret-up' : 'caret-down' }}
           placeholder={placeHolder}
           currentValue={selectedItemsLabels}
+          readonly={true}
         />
       </div>
 

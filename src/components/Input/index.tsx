@@ -22,6 +22,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       rightIconProps,
       disabled,
       required,
+      readonly,
       placeholder,
       type = 'text',
       helperText,
@@ -70,6 +71,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       <input
+        readOnly={readonly}
         disabled={disabled}
         name={name}
         ref={ref}
