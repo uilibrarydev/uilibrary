@@ -107,7 +107,7 @@ const Select = (props: TMultiSelectTypes): JSX.Element | null => {
 
   if (!isGrouped) {
     return (
-      <div className="select" ref={setContainerRef}>
+      <div className="select select--multi" ref={setContainerRef}>
         <MultiSelect
           isOpen={isOpen}
           onItemSelect={onItemSelect}
@@ -127,7 +127,7 @@ const Select = (props: TMultiSelectTypes): JSX.Element | null => {
 
   if (withTabs) {
     return (
-      <div className="select" ref={setContainerRef}>
+      <div className="select select--multi" ref={setContainerRef}>
         <MultiSelectWithTabs
           isOpen={isOpen}
           onItemSelect={onItemSelect}
@@ -146,7 +146,7 @@ const Select = (props: TMultiSelectTypes): JSX.Element | null => {
   }
 
   return (
-    <div className="select" ref={setContainerRef}>
+    <div className="select select--multi" ref={setContainerRef}>
       <MultiSelectGrouped
         isOpen={isOpen}
         onItemSelect={onItemSelect}
