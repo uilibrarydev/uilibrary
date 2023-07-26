@@ -19,12 +19,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Update package version
-        run: npm run updateVersion
-
-      - name: Update project package version
-        run: npm run pub
-
       - name: Create .npmrc file
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
 
