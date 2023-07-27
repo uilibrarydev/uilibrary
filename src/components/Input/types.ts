@@ -21,6 +21,7 @@ export interface InputCustomProps extends IFormCompProps {
   }
   disabled?: boolean
   required?: boolean
+  readonly?: boolean
 
   ref?: RefObject<HTMLInputElement>
   style?: Record<string, string>

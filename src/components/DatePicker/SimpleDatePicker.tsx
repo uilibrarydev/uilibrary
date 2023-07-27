@@ -18,6 +18,7 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
     changeHandler,
     format = 'M/D/YYYY',
     required = false,
+    error,
     ...rest
   } = props
 
@@ -41,7 +42,7 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
 
   return (
     <div className="picker-container">
-      <Label text={label} required={required} />
+      <Label text={label} required={required} invalid={!!error} />
 
       <DatePicker
         selected={moment.isDate(selectedDate) ? selectedDate : undefined}

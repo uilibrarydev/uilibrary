@@ -13,13 +13,20 @@ export default {
 }
 const Template = (args) => {
   const [value, setValue] = useState('')
+  const [isErrorVisible, setIsErrorVisible] = useState(false)
   const changeHandler = (e: TChangeEventType) => {
     setValue(e.target.value)
+    setIsErrorVisible(true)
   }
 
   return (
     <div style={{ maxWidth: 300 }}>
-      <InputComp {...args} currentValue={value} onChange={changeHandler} />
+      <InputComp
+        {...args}
+        error={!value && isErrorVisible ? 'requeired field' : ''}
+        currentValue={value}
+        onChange={changeHandler}
+      />
     </div>
   )
 }
@@ -34,10 +41,9 @@ Input.args = {
   },
   rightIconProps: {},
   disabled: false,
-  required: false,
+  required: true,
   maxCount: 15,
-  placeholder: 'Some text',
-  helperText: 'This is your helper text',
-  successMessage: 'Success message',
-  error: 'Error message'
+  placeholder: 'Some text'
+  // helperText: 'This is your helper text'
+  // successMessage: 'Success message'
 }

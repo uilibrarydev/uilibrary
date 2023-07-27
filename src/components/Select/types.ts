@@ -126,6 +126,7 @@ export interface TMultiSelectContentProps {
 }
 
 export interface TSelectPropTypes extends IFormCompProps {
+  error?: string
   isLoading?: boolean
   withFooter?: boolean
   label?: string | JSX.Element

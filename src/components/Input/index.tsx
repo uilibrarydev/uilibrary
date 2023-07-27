@@ -22,6 +22,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       rightIconProps,
       disabled,
       required,
+      readonly,
       placeholder,
       type = 'text',
       helperText,
@@ -70,10 +71,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       <input
+        readOnly={readonly}
         disabled={disabled}
         name={name}
         ref={ref}
-        required={required}
+        required={!!error}
         type={type}
         placeholder={!label ? placeholder : ''}
         onChange={changeHandler}
@@ -91,7 +93,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
                              ${error ? 'input--invalid' : ''}
                              `}
       >
-        <Label text={label} required={required} disabled={disabled} />
+        <Label text={label} invalid={!!error} required={required} disabled={disabled} />
         <label className="input__inner">
           {input}
           {leftIconProps && (
