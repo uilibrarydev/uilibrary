@@ -37,7 +37,8 @@
   --ds-select-menu-bg: var(--ds-color-bg-cta-secondary-default);
   --ds-select-menu-border-radius: var(--ds-border-radius-sm);
   --ds-select-menu-shadow: var(--shadow-2);
-  --ds-select-menu-width: var(--ds-size-120);
+  --ds-select-min-menu-width: var(--ds-size-120);
+  --ds-select-max-menu-width: var(--ds-size-240);
   --ds-select-menu-icon-color: var(--ds-color-icon-success);
   --ds-select-menu-option-padding: var(--ds-space-6) var(--ds-space-8);
 
@@ -171,11 +172,12 @@
   }
 
   &--menu {
-    @include absolute(0, unset, unset, calc(100% + var(--ds-space-16)));
+    position: fixed;
     background-color: var(--ds-select-menu-bg);
     box-shadow: var(--ds-select-menu-shadow);
     border-radius: var(--ds-select-menu-border-radius);
-    width: var(--ds-select-menu-width);
+    min-width: var(--ds-select-min-menu-width);
+    max-width: var(--ds-select-max-menu-width);
 
     #{$this}__option {
       padding: var(--ds-select-menu-option-padding);
