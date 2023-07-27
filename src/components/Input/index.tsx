@@ -41,6 +41,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         onChange(event)
       }
     }
+
     const currentLength = useMemo(() => {
       if (currentValue) {
         return currentValue.length
