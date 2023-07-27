@@ -1,6 +1,6 @@
 {
   "name": "dino_ui_tools",
-  "version": "1.2.100",
+  "version": "1.2.101",
   "description": "",
   "private": false,
   "main": "dist/index.js",
