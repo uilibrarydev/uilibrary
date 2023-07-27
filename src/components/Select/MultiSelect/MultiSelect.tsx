@@ -90,6 +90,7 @@ export const MultiSelect = (props: TMultiSelectPropTypes): JSX.Element | null =>
           rightIconProps={{ name: isOpen ? 'caret-up' : 'caret-down' }}
           placeholder={placeHolder}
           currentValue={selectedItemsLabels}
+          readonly={true}
         />
       </div>
 

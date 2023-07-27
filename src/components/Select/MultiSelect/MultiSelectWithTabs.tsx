@@ -117,6 +117,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
           rightIconProps={{ name: isOpen ? 'caret-up' : 'caret-down' }}
           placeholder={placeHolder}
           currentValue={selectedItemsLabels}
+          readonly={true}
         />
       </div>
 

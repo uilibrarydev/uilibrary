@@ -142,7 +142,7 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
               <div
                 ref={scrollRef}
                 className={`select__options__scroll scrollbar scrollbar--vertical  ${
-                  scrollHeight > 260 ? 'mr-6' : ''
+                  scrollHeight > 372 ? 'mr-6' : ''
                 }`}
               >
                 {options.map((item: TSelectOption) => {

@@ -1,15 +1,15 @@
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
 
 import { Input } from '../../index'
 import { OptionItem } from '../../../helperComponents/OptionItem'
 import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
-import { checkIsValueOverflowed, incrementOverflowedinitial } from '../utils'
+import { checkIsValueOverflowed, DROPDOWN_MAX_HEIGHT, incrementOverflowedinitial } from '../utils'
 
 import { TNestedSelectProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
 import { useOnOutsideClick } from '../../../hooks'
 
-const LEVEL_LEFT_MARGIN = 16
+const LEVEL_LEFT_MARGIN = 10
 type TSelectedItemsWithLevels = {
   [key: string | number]: TItemValue[]
 }
@@ -167,6 +167,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
       acc.push(
         <div style={{ paddingLeft: LEVEL_LEFT_MARGIN * level }}>
           <OptionItem
+            className="nested-item"
             data={option}
             key={value}
             isSelected={isSelected}
@@ -187,7 +188,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
     }, [])
 
   return (
-    <div className="select" ref={setContainerRef}>
+    <div className="select select--multi" ref={setContainerRef}>
       <div onClick={toggleDropdown}>
         <Input
           className="select__input"
@@ -196,10 +197,17 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
           rightIconProps={{ name: isDropdownOpen ? 'caret-up' : 'caret-down' }}
           placeholder={placeHolder}
           currentValue={selectedItemsLabels}
+          readonly={true}
         />
       </div>
 
-      {isDropdownOpen && <div className="select__options">{generateFolders(options, 0)}</div>}
+      {isDropdownOpen && (
+        <div className="select__options">
+          <div className="select__options__scroll scrollbar scrollbar--vertical">
+            {generateFolders(options, 0)}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
