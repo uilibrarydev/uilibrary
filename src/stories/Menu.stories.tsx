@@ -6,8 +6,8 @@ export default {
   component: MenuComp,
   argTypes: {
     position: {
-      //   options: ['left', 'right'],
-      //   control: { type: 'radio' }
+      type: ['left', 'right', 'bottom'],
+      control: { type: 'radio' }
     }
   }
 }
@@ -24,7 +24,7 @@ const items = [
     value: 1
   },
   {
-    label: 'Add ',
+    label: 'Save changes',
     iconProps: {
       name: 'add'
     },
@@ -53,7 +53,7 @@ const Template = (args): JSX.Element => {
   return (
     <div>
       <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
-        <Button onClick={() => setOpen(!open)} buttonText="Click me" />
+        <Button onClick={() => setOpen(!open)} iconProps={{ name: 'more' }} />
         {open ? (
           <MenuComp {...args} onClose={() => setOpen(false)} parentRef={ref} menuItems={items} />
         ) : null}

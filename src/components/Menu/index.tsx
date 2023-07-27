@@ -1,23 +1,35 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import ReactDOM from 'react-dom'
 
-import { TMenuProps, TMenuItem } from './types'
+import { TMenuProps, TMenuItem, PositionTypes } from './types'
 import '../../assets/styles/components/_select.scss'
 
 import { OptionItem } from '../../helperComponents/OptionItem'
 import { useOnOutsideClick } from '../../hooks'
+import { useGetElemPositions } from '../../hooks/useGetElemPositions'
+import { useGetElemSizes } from '../../hooks/useGetElemSizes'
 
 const Menu = (props: TMenuProps): JSX.Element | null => {
-  const { menuItems = [], parentRef, onClose } = props
+  const { menuItems = [], parentRef, onClose, position = 'right' } = props
 
   useOnOutsideClick(parentRef, onClose)
+
+  const { left, top } = useGetElemPositions(parentRef)
+  const { width } = useGetElemSizes(parentRef)
+
+  const menuStyles = useMemo(() => {
+    if (position === PositionTypes.right) {
+      return { left: left + width + 10, top: top }
+    }
+    return { left: left, top: top + 10 }
+  }, [left, top, width, position])
 
   if (!parentRef) {
     return null
   }
 
   return ReactDOM.createPortal(
-    <div className="select select--menu">
+    <div className="select select--menu" style={menuStyles}>
       {menuItems.map(({ label, value, handler, iconProps }: TMenuItem) => {
         return (
           <OptionItem
