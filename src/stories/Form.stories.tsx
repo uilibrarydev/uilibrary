@@ -1,7 +1,7 @@
 import React from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
-import { FormContainer, Switcher, Select, Button, MultiSelect } from '../components'
+import { FormContainer, Switcher, Select, Button, MultiSelect, Input } from '../components'
 
 export default {
   title: 'Form',
@@ -69,7 +69,8 @@ const OPTIONS_GROUPED: TSelectGroupOptions = [
 const VALIDATION_SCHEME = yup.object({
   switcher: yup.boolean().required(),
   select: yup.string().required(),
-  multiselect: yup.array().required()
+  multiselect: yup.array().required(),
+  ['esiminch']: yup.string().required('sdsd')
 })
 
 const Template = (): JSX.Element => {
@@ -111,6 +112,15 @@ const Template = (): JSX.Element => {
               return <MultiSelect {...props} isGrouped options={OPTIONS_GROUPED} />
             }}
           />
+
+          <FormField
+            isControlled
+            name={'esiminch'}
+            As={(props: IFormCompProps) => (
+              <Input required label="Unit name" placeholder="Unit name" {...props} />
+            )}
+          />
+
           <Button buttonActionType="submit" buttonText={'Ok'} />
         </>
       </FormContainer>

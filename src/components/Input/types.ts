@@ -26,10 +26,11 @@ export interface InputCustomProps extends IFormCompProps {
   ref?: RefObject<HTMLInputElement>
   style?: Record<string, string>
   type?: 'text' | 'number' | 'time' | 'password' | 'email' | 'file' | 'tel' | 'date'
-  changeHandler?: (event: TChangeEventType) => void
+  handleChange?: (event: TChangeEventType) => void
   placeholder?: string
   helperText?: string
   successMessage?: string
   maxCount?: number
   onFocus?: (event: TClickEventType) => void
+  showError?: boolean
 }

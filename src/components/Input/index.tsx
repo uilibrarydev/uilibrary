@@ -28,6 +28,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       helperText,
       successMessage,
       maxCount,
+      showError,
+      handleChange,
       ...rest
     },
     ref
@@ -39,6 +41,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       }
       if (onChange) {
         onChange(event)
+      }
+      if (handleChange) {
+        handleChange(event)
       }
     }
 
@@ -107,7 +112,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
 
         {error || successMessage || helperText || maxCount ? (
           <div className="input__message mt-4">
-            {error ? <ErrorMessage message={error} icon="info-hover" /> : null}
+            {error && showError ? <ErrorMessage message={error} icon="info-hover" /> : null}
             {successMessage ? (
               <Text size="small" type="success" className="flexbox align-items--center">
                 <>
