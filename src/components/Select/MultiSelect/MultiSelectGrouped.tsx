@@ -164,8 +164,10 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
               ) : null}
               <div className="select_search_container">
                 <Input
+                  size="small"
                   handleChange={onSearch}
                   currentValue={searchValue}
+                  ref={(current) => current?.focus()}
                   rightIconProps={{
                     name: searchValue ? 'close' : 'search',
                     size: searchValue ? 'xsmall' : 'small',

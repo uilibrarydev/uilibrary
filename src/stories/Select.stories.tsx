@@ -181,7 +181,6 @@ Select.args = {
 // -----------MULTISELECT---------
 const MultiSelect1 = (args): JSX.Element => {
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
-  console.log('selectedValues', selectedValues)
 
   return (
     <div style={{ width: 300 }}>
