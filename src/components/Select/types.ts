@@ -1,6 +1,7 @@
 import { TButtonPropTypes } from '../Button/types'
 
 export interface TMultiSelectPropTypes extends IFormCompProps {
+  emptyListMessage?: string
   isLoading?: boolean
   label?: string | JSX.Element
   options: TSelectOptions
@@ -17,7 +18,7 @@ export interface TMultiSelectPropTypes extends IFormCompProps {
   avatar?: string
   optionRightIconComponent?: JSX.Element
   labelRightIconComponent?: JSX.Element
-  selectButtonTexts: {
+  selectButtonTexts?: {
     selectAll: string
     clearAll: string
   }
@@ -42,6 +43,7 @@ export interface TNestedSelectProps extends IFormCompProps {
 }
 
 export interface TMultiSelectGroupedProps extends IFormCompProps {
+  emptyListMessage?: string
   isLoading?: boolean
   label?: string | JSX.Element
   options: TSelectGroupOptions
@@ -58,7 +60,7 @@ export interface TMultiSelectGroupedProps extends IFormCompProps {
   avatar?: string
   optionRightIconComponent?: JSX.Element
   labelRightIconComponent?: JSX.Element
-  selectButtonTexts: {
+  selectButtonTexts?: {
     selectAll: string
     clearAll: string
   }
@@ -71,6 +73,7 @@ export interface TMultiSelectGroupedProps extends IFormCompProps {
 }
 
 export interface TMultiSelectTypes extends IFormCompProps {
+  emptyListMessage?: string
   isNestedList?: boolean
   withTabs?: boolean
   isGrouped?: boolean

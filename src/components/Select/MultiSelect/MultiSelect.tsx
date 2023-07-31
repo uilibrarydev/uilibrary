@@ -100,16 +100,18 @@ export const MultiSelect = (props: TMultiSelectPropTypes): JSX.Element | null =>
             <Loading />
           ) : (
             <>
-              <div className="select__top">
-                <Checkbox
-                  IconProps={{ name: 'minus' }}
-                  value={isAnyItemSelected}
-                  onClick={isAnyItemSelected ? clearAll : selectAll}
-                  label={
-                    isAnyItemSelected ? selectButtonTexts.clearAll : selectButtonTexts.selectAll
-                  }
-                />
-              </div>
+              {selectButtonTexts ? (
+                <div className="select__top">
+                  <Checkbox
+                    IconProps={{ name: 'minus' }}
+                    value={isAnyItemSelected}
+                    onClick={isAnyItemSelected ? clearAll : selectAll}
+                    label={
+                      isAnyItemSelected ? selectButtonTexts.clearAll : selectButtonTexts.selectAll
+                    }
+                  />
+                </div>
+              ) : null}
 
               <div
                 ref={setContentContainerRef}

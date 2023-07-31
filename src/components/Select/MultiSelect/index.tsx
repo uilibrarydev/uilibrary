@@ -15,10 +15,7 @@ const Select = (props: TMultiSelectTypes): JSX.Element | null => {
     withTabs,
     isGrouped,
     options,
-    selectButtonTexts = {
-      selectAll: 'Select all',
-      clearAll: 'Clear all'
-    },
+    selectButtonTexts,
     footerButtonProps = {
       confirm: {
         buttonText: 'Apply'
@@ -30,6 +27,7 @@ const Select = (props: TMultiSelectTypes): JSX.Element | null => {
     name,
     setFieldValue,
     value,
+    emptyListMessage,
     ...rest
   } = props
 
@@ -110,6 +108,7 @@ const Select = (props: TMultiSelectTypes): JSX.Element | null => {
       <div className="select select--multi" ref={setContainerRef}>
         <MultiSelect
           isOpen={isOpen}
+          emptyListMessage={emptyListMessage}
           onItemSelect={onItemSelect}
           onItemDeselect={onItemDeselect}
           toggleDropdown={toggleDropdown}
@@ -130,6 +129,7 @@ const Select = (props: TMultiSelectTypes): JSX.Element | null => {
       <div className="select select--multi" ref={setContainerRef}>
         <MultiSelectWithTabs
           isOpen={isOpen}
+          emptyListMessage={emptyListMessage}
           onItemSelect={onItemSelect}
           onItemDeselect={onItemDeselect}
           toggleDropdown={toggleDropdown}
@@ -149,6 +149,7 @@ const Select = (props: TMultiSelectTypes): JSX.Element | null => {
     <div className="select select--multi" ref={setContainerRef}>
       <MultiSelectGrouped
         isOpen={isOpen}
+        emptyListMessage={emptyListMessage}
         onItemSelect={onItemSelect}
         onItemDeselect={onItemDeselect}
         toggleDropdown={toggleDropdown}

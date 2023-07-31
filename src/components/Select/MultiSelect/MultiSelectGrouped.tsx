@@ -5,6 +5,7 @@ import Input from '../../Input'
 import Checkbox from '../../Checkbox'
 
 import { OptionItem } from '../../../helperComponents/OptionItem'
+import { SelectEmptyState } from '../SelectEmptyState'
 
 import { incrementOverflowedinitial, DROPDOWN_MAX_HEIGHT } from '../utils'
 import { TMultiSelectGroupedProps } from '../types'
@@ -32,13 +33,50 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     onItemDeselect,
     toggleDropdown,
     setSelectedValues,
-    checkIsValueOverflowed
+    checkIsValueOverflowed,
+    emptyListMessage
   } = props
 
   const [contentContainerRef, setContentContainerRef] = useState<HTMLDivElement | null>(null)
   const [activeGroupId, setActiveGroupId] = useState(0)
+  const [searchValue, setSearchValue] = useState('')
+
+  const filteredData = useMemo(() => {
+    if (!searchValue) {
+      return options
+    }
+
+    const filtered = options.reduce(
+      (acc: TSelectGroupOptions, group: TSelectGroupOption, index: number): TSelectGroupOptions => {
+        const { data, title } = group
+        const groupData = data.filter((dataItem) => {
+          return typeof dataItem.label === 'string' && dataItem.label.includes(searchValue)
+        })
+
+        if (groupData.length) {
+          return [
+            ...acc,
+            {
+              title,
+              data: groupData
+            }
+          ]
+        }
+        return acc
+      },
+      []
+    )
+
+    return filtered
+  }, [searchValue, options, activeGroupId])
 
   const { scrollHeight } = useGetElemSizes(contentContainerRef)
+
+  const onSearch = (e: TChangeEventType) => {
+    setSearchValue(e.target.value)
+  }
+
+  const removeFilter = () => setSearchValue('')
 
   const selectedItemsLabels = useMemo(() => {
     const currentValue = options.reduce(
@@ -71,20 +109,20 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     )
 
     return currentValue.inputValue
-  }, [options, selectedValues, checkIsValueOverflowed])
+  }, [filteredData, selectedValues, checkIsValueOverflowed])
 
   const clearAll = useCallback(() => {
     setSelectedValues([])
   }, [])
 
   const selectAll = useCallback(() => {
-    const allValues = options.reduce((acc: TItemValue[], { data }: TSelectGroupOption) => {
+    const allValues = filteredData.reduce((acc: TItemValue[], { data }: TSelectGroupOption) => {
       acc = acc.concat(data.map((item) => acc.push(item.value)))
       return acc
     }, [])
 
     setSelectedValues(allValues)
-  }, [options])
+  }, [filteredData])
 
   const checkIsSelected = (itemValue: TItemValue) => {
     return selectedValues.find((item) => item === itemValue) !== undefined
@@ -112,24 +150,36 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
             <Loading />
           ) : (
             <>
-              <div className="select__top">
-                <Checkbox
-                  IconProps={{ name: 'minus' }}
-                  value={isAnyItemSelected}
-                  onClick={isAnyItemSelected ? clearAll : selectAll}
-                  label={
-                    isAnyItemSelected ? selectButtonTexts.clearAll : selectButtonTexts.selectAll
-                  }
+              {selectButtonTexts ? (
+                <div className="select__top">
+                  <Checkbox
+                    IconProps={{ name: 'minus' }}
+                    value={isAnyItemSelected}
+                    onClick={isAnyItemSelected ? clearAll : selectAll}
+                    label={
+                      isAnyItemSelected ? selectButtonTexts.clearAll : selectButtonTexts.selectAll
+                    }
+                  />
+                </div>
+              ) : null}
+              <div className="select_search_container">
+                <Input
+                  handleChange={onSearch}
+                  currentValue={searchValue}
+                  rightIconProps={{
+                    name: searchValue ? 'close' : 'search',
+                    size: searchValue ? 'xsmall' : 'small',
+                    onClick: removeFilter
+                  }}
                 />
               </div>
-
               <div
                 ref={setContentContainerRef}
                 className={`select__options__scroll scrollbar scrollbar--vertical ${
                   scrollHeight > DROPDOWN_MAX_HEIGHT ? 'mr-6' : ''
                 }`}
               >
-                {options.map(({ title, data }: TSelectGroupOption, index: number) => {
+                {filteredData.map(({ title, data }: TSelectGroupOption, index: number) => {
                   const isActive = index === activeGroupId
                   return (
                     <div className="select__group group-item" key={title}>
@@ -143,7 +193,6 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                           className="group-item__icon"
                         />
                       </div>
-
                       {isActive &&
                         data.map((item: TSelectOption) => {
                           const isSelected = checkIsSelected(item.value)
@@ -167,6 +216,9 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                   )
                 })}
               </div>
+              {emptyListMessage && filteredData.length === 0 ? (
+                <SelectEmptyState message={emptyListMessage} />
+              ) : null}
               {footer}
             </>
           )}

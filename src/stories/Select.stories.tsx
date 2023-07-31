@@ -11,7 +11,7 @@ import imageFile from '../assets/images/avatar.jpg'
 import Icon from '../components/Icon'
 
 type TItemValue = string | number | null
-declare type TItemLabel = string | number
+declare type TItemLabel = string
 
 type TSelectOption = {
   value: TItemValue
@@ -189,6 +189,7 @@ const MultiSelect1 = (args): JSX.Element => {
         {...args}
         isGrouped
         // withTabs
+        emptyListMessage="List is Empty"
         selectedItems={selectedValues}
         setSelectedItems={setSelectedValues}
       />

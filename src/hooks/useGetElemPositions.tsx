@@ -2,7 +2,7 @@ declare type TPositionReturnTypes = {
   left: number
   top: number
   bottom: number
-  right?: number
+  right: number
   x?: number
   y?: number
 }
@@ -12,7 +12,8 @@ export const useGetElemPositions = (elemRef: HTMLElement | null): TPositionRetur
     return {
       left: 0,
       top: 0,
-      bottom: 0
+      bottom: 0,
+      right: 0
     }
   }
 
@@ -20,6 +21,7 @@ export const useGetElemPositions = (elemRef: HTMLElement | null): TPositionRetur
 
   return {
     left: elemDimensions.left + window.scrollX,
+    right: elemDimensions.right + window.scrollX,
     top: elemDimensions.top + window.scrollY,
     bottom: elemDimensions.bottom + window.scrollY
   }

@@ -137,18 +137,20 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
                   />
                 }
               </div>
-              <div className="select__top">
-                <Checkbox
-                  IconProps={{ name: 'minus' }}
-                  value={isAnyItemSelectedInCurrentTab}
-                  onClick={isAnyItemSelectedInCurrentTab ? clearAll : selectAll}
-                  label={
-                    isAnyItemSelectedInCurrentTab
-                      ? selectButtonTexts.clearAll
-                      : selectButtonTexts.selectAll
-                  }
-                />
-              </div>
+              {selectButtonTexts ? (
+                <div className="select__top">
+                  <Checkbox
+                    IconProps={{ name: 'minus' }}
+                    value={isAnyItemSelectedInCurrentTab}
+                    onClick={isAnyItemSelectedInCurrentTab ? clearAll : selectAll}
+                    label={
+                      isAnyItemSelectedInCurrentTab
+                        ? selectButtonTexts.clearAll
+                        : selectButtonTexts.selectAll
+                    }
+                  />
+                </div>
+              ) : null}
               <div
                 ref={setContentContainerRef}
                 className={`select__options__scroll scrollbar scrollbar--vertical ${
