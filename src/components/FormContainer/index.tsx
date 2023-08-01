@@ -22,7 +22,7 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
     register,
     setValue,
     control,
-    formState: { errors,isDirty },
+    formState: { errors, isDirty },
     getValues,
     watch,
     reset
