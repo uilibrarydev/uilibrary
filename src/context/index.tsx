@@ -4,7 +4,8 @@ import {
   FieldValues,
   UseFormRegister,
   UseFormGetValues,
-  UseFormWatch, UseFormReset
+  UseFormWatch,
+  UseFormReset
 } from 'react-hook-form'
 import { noop } from '../utils'
 

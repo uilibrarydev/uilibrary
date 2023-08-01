@@ -34,7 +34,9 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit || noop)} className={`form-container ${className}`}>
-      <FormContext.Provider value={{ register, errors, control, setValue, getValues, watch ,reset }}>
+      <FormContext.Provider
+        value={{ register, errors, control, setValue, getValues, watch, reset }}
+      >
         <>
           {children}
           {buttonConfigs && (
