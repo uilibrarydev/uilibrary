@@ -106,4 +106,18 @@
             transform: translate(-50%, -50%);
         }
     }
+
+    &--loop {
+        svg {
+            @keyframes infinite-loading {
+                0% {
+                    transform: rotate(0);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            animation: infinite-loading 1.2s infinite linear;
+        }
+    }
 }
