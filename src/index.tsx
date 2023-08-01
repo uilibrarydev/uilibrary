@@ -20,7 +20,6 @@ import Switcher from './components/Switcher'
 import Radio from './components/Radio'
 import Badge from './components/Badge'
 
-import { HttpClient } from './helpers'
 import More from './components/More'
 import { WithFormFeedback } from './context/FormContextProvider'
 import Avatar from './components/Avatar'
@@ -62,7 +61,6 @@ export {
   Switcher,
   Textarea,
   More,
-  HttpClient,
   WithFormFeedback,
   Badge,
   Avatar,

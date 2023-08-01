@@ -88,17 +88,17 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
             {withFooter ? (
               <div className="modal__footer">
                 <Button
-                  {...(buttonProps.cancel || {})}
                   type="tertiary"
                   size="medium"
                   className="mr-12"
                   onClick={onClose}
+                  {...(buttonProps.cancel || {})}
                 />
                 <Button
-                  {...buttonProps.confirm}
                   type="primary"
                   size="medium"
                   onClick={handleSubmit}
+                  {...buttonProps.confirm}
                 />
               </div>
             ) : null}
