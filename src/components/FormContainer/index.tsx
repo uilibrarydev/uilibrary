@@ -11,6 +11,8 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
   const {
     children,
     className = '',
+    shouldUnregister = false,
+    shouldFocusError = true,
     initialValues,
     validationScheme,
     buttonConfigs,
@@ -35,7 +37,18 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
   return (
     <form onSubmit={handleSubmit(onSubmit || noop)} className={`form-container ${className}`}>
       <FormContext.Provider
-        value={{ register, errors, control, setValue, getValues, watch, reset, isDirty }}
+        value={{
+          register,
+          errors,
+          control,
+          setValue,
+          getValues,
+          watch,
+          reset,
+          isDirty,
+          shouldFocusError,
+          shouldUnregister
+        }}
       >
         <>
           {children}

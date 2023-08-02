@@ -8,4 +8,6 @@ export interface FormPropTypes {
   validationScheme: AnyObjectSchema
   initialValues: TFormData
   buttonConfigs?: TButtonPropTypes[]
+  shouldUnregister?: boolean
+  shouldFocusError?: boolean
 }
