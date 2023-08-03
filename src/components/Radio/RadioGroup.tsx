@@ -7,7 +7,6 @@ import './index.scss'
 const RadioGroup = (props: TRadioGroupProps): JSX.Element => {
   const { isHorizontal = false, name, options, setFieldValue, value } = props
 
-
   const onSelect = (selected: number) => {
     if (name && setFieldValue) {
       setFieldValue(name, selected, { shouldValidate: true })
