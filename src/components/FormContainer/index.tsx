@@ -19,23 +19,23 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
     onSubmit
   } = props
 
-  const {
-    handleSubmit,
-    register,
-    setValue,
-    control,
-    formState: { errors, isDirty },
-    getValues,
-    watch,
-    reset
-  } = useForm({
-    reValidateMode: 'onChange',
-    resolver: yupResolver(validationScheme),
-    defaultValues: initialValues
-  })
+  const { handleSubmit, register, setValue, control, formState, getValues, watch, reset } = useForm(
+    {
+      reValidateMode: 'onChange',
+      resolver: yupResolver(validationScheme),
+      defaultValues: initialValues
+    }
+  )
 
+  const customSubmit = (data: TFormData) => {
+    if (onSubmit) {
+      onSubmit(data, formState)
+    }
+  }
+
+  const { errors, isDirty } = formState
   return (
-    <form onSubmit={handleSubmit(onSubmit || noop)} className={`form-container ${className}`}>
+    <form onSubmit={handleSubmit(customSubmit)} className={`form-container ${className}`}>
       <FormContext.Provider
         value={{
           register,
