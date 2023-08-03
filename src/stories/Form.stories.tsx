@@ -83,7 +83,7 @@ const Template = (): JSX.Element => {
   return (
     <div style={{ maxWidth: 300 }}>
       <FormContainer
-        onSubmit={(date) => console.log('sdsd', date)}
+        onSubmit={(data, fieldData) => console.log('sdsd', data, fieldData)}
         validationScheme={VALIDATION_SCHEME}
         initialValues={INITIAL_VALUES}
       >
