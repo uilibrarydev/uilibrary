@@ -17,5 +17,8 @@ export type TFormContextProps = {
   getValues?: UseFormGetValues<TFormData>
   watch?: UseFormWatch<TFormData>
   reset?: UseFormReset<TFormData>
+  isDirty?: boolean
+  shouldUnregister?: boolean
+  shouldFocusError?: boolean
 }
 export const FormContext = createContext<TFormContextProps>({ setValue: noop })
