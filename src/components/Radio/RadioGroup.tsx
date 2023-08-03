@@ -11,7 +11,7 @@ const RadioGroup = (props: TRadioGroupProps): JSX.Element => {
     if (name && setFieldValue) {
       setFieldValue(name, selected, { shouldValidate: true })
     }
-    if(handleChange){
+    if (handleChange) {
       handleChange(selected)
     }
   }
