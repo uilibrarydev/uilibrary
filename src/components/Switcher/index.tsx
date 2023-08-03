@@ -21,7 +21,7 @@ export const Switcher = (props: TSwitcherProps): JSX.Element => {
 
   const changeHandler = () => {
     if (name && setFieldValue) {
-      setFieldValue(name, !isChecked, { shouldValidate: true })
+      setFieldValue(name, !isChecked)
     }
 
     if (onClick) {

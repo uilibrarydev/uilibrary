@@ -33,7 +33,7 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
     setSelectedDate(date)
 
     if (setFieldValue && name) {
-      setFieldValue(name, date, { shouldValidate: true })
+      setFieldValue(name, date)
     }
     if (changeHandler) {
       changeHandler(date)
