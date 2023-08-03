@@ -35,7 +35,7 @@ const TimePicker = (props: ITimePickerProps): JSX.Element => {
       changeHandler(date)
     }
     if (setFieldValue && name) {
-      setFieldValue(name, date, { shouldValidate: true })
+      setFieldValue(name, date)
     }
   }
 

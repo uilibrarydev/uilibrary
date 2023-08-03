@@ -28,7 +28,16 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
               error: errorMessage,
               ...field,
               ...registerOptions,
-              ...(isNeedChangeHandler ? { setFieldValue: setValue } : {})
+              ...(isNeedChangeHandler
+                ? {
+                    setFieldValue: (data, name) =>
+                      setValue(data, name, {
+                        shouldValidate: true,
+                        shouldDirty: true,
+                        shouldTouch: true
+                      })
+                  }
+                : {})
             })
           }
         />

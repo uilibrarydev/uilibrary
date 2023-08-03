@@ -51,7 +51,7 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
       setSelectedItem(value)
     }
     if (name && setFieldValue) {
-      setFieldValue(name, value, { shouldValidate: true })
+      setFieldValue(name, value)
     }
 
     closeDropdown()
