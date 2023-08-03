@@ -5,11 +5,14 @@ import { TRadioGroupProps, TRadioOptionItem } from './types'
 import './index.scss'
 
 const RadioGroup = (props: TRadioGroupProps): JSX.Element => {
-  const { isHorizontal = false, name, options, setFieldValue, value } = props
+  const { isHorizontal = false, name, options, setFieldValue, value, handleChange } = props
 
   const onSelect = (selected: number) => {
     if (name && setFieldValue) {
       setFieldValue(name, selected, { shouldValidate: true })
+    }
+    if (handleChange) {
+      handleChange(selected)
     }
   }
 

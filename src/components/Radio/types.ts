@@ -16,4 +16,5 @@ export interface TRadioGroupProps extends IFormCompProps {
   className?: string
   isHorizontal?: boolean
   options: TRadioOptionItem[]
+  handleChange?: (selected: number) => void
 }
