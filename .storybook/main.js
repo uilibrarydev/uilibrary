@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  basePath: '/storybook/'
+  basePath: '/storybook/',
   addons: [
     { name: 'storybook-design-token', options: { preserveCSSVars: true } },
     '@storybook/addon-viewport',
