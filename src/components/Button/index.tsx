@@ -33,16 +33,20 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
                   ${className}`}
       onClick={onClick}
     >
-      {iconProps?.name ? (
-        <Icon
-          {...iconProps}
-          className="btn__icon"
-          size={`${size == 'large' ? 'small' : size == 'medium' ? 'small' : 'xsmall'}`}
-        />
-      ) : null}
-
-      {buttonText ? <span className="btn__text">{!justIcon && buttonText}</span> : null}
-      {isLoading ? <Loader /> : null}
+      {isLoading ? (
+        <Loader size={size} type={type === 'primary' || type === 'danger' ? 'lite' : 'dark'} />
+      ) : (
+        <>
+          {iconProps?.name ? (
+            <Icon
+              {...iconProps}
+              className="btn__icon"
+              size={`${size == 'large' ? 'small' : size == 'medium' ? 'small' : 'xsmall'}`}
+            />
+          ) : null}
+          {buttonText ? <span className="btn__text">{buttonText}</span> : null}
+        </>
+      )}
     </button>
   )
 }
