@@ -1,0 +1,54 @@
+@import 'src/assets/styles/shared';
+
+.loader {
+    --ds-loader-size: var(--ds-size-32);
+    --ds-loader-inner-size: var(--ds-size-32);
+    --ds-loader-inner-size-part: calc(var(--ds-size-32)/2);
+
+    --ds-loader-inner-border: var(--ds-border-strong) solid var(--white);
+    --ds-loader-inner-border-radius: var(--ds-border-radius-full);
+
+    height: var(--ds-loader-size);
+    width: var(--ds-loader-size);
+    @include animation('loader1 4.8s linear infinite');
+
+    &__inner {
+        display: block;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        clip: rect(0, var(--ds-loader-inner-size), var(--ds-loader-inner-size), var(--ds-loader-inner-size-part));
+        @include absolute(0,0,0,0);
+        @include animation(' loader2 1.2s linear infinite');
+
+
+        &:after {
+            content: "";
+            margin: auto;
+            height: 100%;
+            width: 100%;
+            border: var(--ds-loader-inner-border);
+            border-radius: (--ds-loader-inner-border-radius);
+            box-sizing: border-box;
+            clip: rect(0, var(--ds-loader-inner-size), var(--ds-loader-inner-size), var(--ds-loader-inner-size-part));
+            @include absolute(0,0,0,0);
+            @include animation('loader3 1.2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite');
+        }
+    }
+}
+
+@include keyframes(loader1) {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@include keyframes(loader2) {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(220deg); }
+}
+
+@include keyframes(loader3) {
+    0%   { transform: rotate(-140deg); }
+    50%  { transform: rotate(-160deg); }
+    100% { transform: rotate(140deg); }
+}

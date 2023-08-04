@@ -2,6 +2,7 @@ import React from 'react'
 import Icon from '../Icon'
 import { TButtonPropTypes } from './types'
 import '../../assets/styles/components/_button.scss'
+import Loader from '../../helperComponents/Loader'
 
 const Button = (props: TButtonPropTypes): JSX.Element => {
   const {
@@ -32,17 +33,19 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
                   ${className}`}
       onClick={onClick}
     >
-      {iconProps?.name ? (
-        <Icon
-          {...iconProps}
-          className="btn__icon"
-          size={`${size == 'large' ? 'small' : size == 'medium' ? 'small' : 'xsmall'}`}
-        />
-      ) : null}
+        {iconProps?.name ? (
+            <Icon
+                {...iconProps}
+                className="btn__icon"
+                size={`${size == 'large' ? 'small' : size == 'medium' ? 'small' : 'xsmall'}`}
+            />
+        ) : null}
 
-      {buttonText ? (
-        <span className="btn__text">{isLoading || (!justIcon && buttonText)}</span>
-      ) : null}
+        {buttonText ? (
+            <span className="btn__text">{!justIcon && buttonText}</span>
+        ) : null}
+        {isLoading ? <Loader/> : null}
+
     </button>
   )
 }
