@@ -3,4 +3,5 @@ export interface TextPropTypes {
   disabled?: boolean
   invalid?: boolean
   text?: string | JSX.Element
+  className: string
 }

@@ -3,9 +3,19 @@ import Radio from '.'
 
 import { TRadioGroupProps, TRadioOptionItem } from './types'
 import './index.scss'
+import Label from '../../helperComponents/Label'
 
 const RadioGroup = (props: TRadioGroupProps): JSX.Element => {
-  const { isHorizontal = false, name, options, setFieldValue, value, handleChange } = props
+  const {
+    isHorizontal = false,
+    name,
+    options,
+    setFieldValue,
+    value,
+    handleChange,
+    label,
+    required
+  } = props
 
   const onSelect = (selected: number) => {
     if (name && setFieldValue) {
@@ -22,6 +32,8 @@ const RadioGroup = (props: TRadioGroupProps): JSX.Element => {
         isHorizontal ? 'radio-group--horizontal' : 'radio-group--vertical'
       }`}
     >
+      <Label className="radio-group__label" text={label} required={required} />
+
       {options.map((radioOption: TRadioOptionItem) => {
         return (
           <Radio
