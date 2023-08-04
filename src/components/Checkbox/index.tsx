@@ -2,7 +2,7 @@ import React from 'react'
 import Icon from '../Icon'
 import { TCheckboxProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
-import Link from '../Link';
+import Link from '../Link'
 
 export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   const {
@@ -53,16 +53,14 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
         />
       </span>
       {label ? (
-          link ? (
-              <Link url={link}>
-                {label}
-              </Link>
-          ) : (
-              <span className="controller__label">
-              {label}
-                {required && <sup>*</sup>}
-              </span>
-          )
+        link ? (
+          <Link url={link}>{label}</Link>
+        ) : (
+          <span className="controller__label">
+            {label}
+            {required && <sup>*</sup>}
+          </span>
+        )
       ) : null}
     </label>
   )
