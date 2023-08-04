@@ -2,6 +2,7 @@ import React from 'react'
 import Icon from '../Icon'
 import { TButtonPropTypes } from './types'
 import '../../assets/styles/components/_button.scss'
+import classnames from 'classnames'
 
 const Button = (props: TButtonPropTypes): JSX.Element => {
   const {
@@ -10,9 +11,10 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     size = 'large',
     className = '',
     iconProps,
-    buttonActionType,
+    buttonActionType = 'submit',
     disabled,
     isLoading,
+    formId,
     onClick
   } = props
   const justIcon = !buttonText && iconProps !== undefined
@@ -20,17 +22,20 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     <button
       disabled={disabled}
       type={buttonActionType}
-      className={`btn btn--${type} btn--${size}
-                  ${
-                    !isLoading &&
-                    !justIcon &&
-                    iconProps?.name &&
-                    `btn--icon-${iconProps?.alignment || 'left'}`
-                  } 
-                  ${justIcon ? 'btn--icon' : ''}
-                  ${isLoading ? 'btn--loading' : ''}
-                  ${className}`}
+      className={classnames(
+        'btn',
+        `btn--${type}`,
+        `btn--${size}`,
+        {
+          'btn--icon': justIcon,
+          [`btn--icon-${iconProps?.alignment || 'left'}`]:
+            !isLoading && !justIcon && iconProps?.name,
+          'btn--loading': isLoading
+        },
+        className
+      )}
       onClick={onClick}
+      form={formId}
     >
       {iconProps?.name ? (
         <Icon

@@ -4,7 +4,7 @@ import { TButtonPropTypes } from '../Button/types'
 export interface TSideSheetPropTypes {
   isOpen: boolean
   onClose: () => void
-  onSumbit: () => void
+  onSumbit?: () => void
   position?: 'right' | 'left'
   title?: string
   footerButtons?: {

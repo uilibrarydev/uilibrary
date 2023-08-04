@@ -11,4 +11,5 @@ export interface TButtonPropTypes {
     alignment?: string
   }
   onClick?: (event: TClickEventType) => void
+  formId?: string
 }

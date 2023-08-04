@@ -38,9 +38,8 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   useOnOutsideClick(containerRef, onClose)
 
   const handleSubmit = useCallback(() => {
-    onSumbit()
-    onClose()
-  }, [onSumbit, onClose])
+    onSumbit?.()
+  }, [onSumbit])
 
   const isFromLeft = position === 'left'
 

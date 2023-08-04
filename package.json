@@ -1,6 +1,6 @@
 {
   "name": "dino_ui_tools",
-  "version": "1.2.114",
+  "version": "1.2.115",
   "description": "",
   "private": false,
   "main": "dist/index.js",
@@ -14,16 +14,15 @@
     "build": "npm run clean && rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006  public",
-    "build-storybook": "build-storybook  public",
+    "storybook": "start-storybook -p 6006 public",
+    "build-storybook": "build-storybook public",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "clean": "rm -rf dist",
     "prettier": "prettier --write \"./{src,stories}/**/**.{js,jsx,ts,tsx}\"",
     "check": "npm run prettier && npm run lint",
     "updateVersion": "node  ./scripts/updateVersion.js",
     "finilize": "npm run build && npm run updateVersion",
-    "chromatic": "npx chromatic --project-token=6b1f1965af98",
-    "pub": "npm version patch --force "
+    "chromatic": "npx chromatic --project-token=6b1f1965af98"
   },
   "eslintConfig": {
     "extends": [

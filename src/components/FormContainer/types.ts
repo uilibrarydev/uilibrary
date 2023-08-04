@@ -11,4 +11,5 @@ export interface FormPropTypes {
   buttonConfigs?: TButtonPropTypes[]
   shouldUnregister?: boolean
   shouldFocusError?: boolean
+  formId?: string
 }
