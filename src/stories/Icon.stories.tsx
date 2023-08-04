@@ -83,7 +83,7 @@ const ICONS = [
   'arrow2-left',
   'arrow2-right',
   'arrow2-up',
-  'arrow2-down',
+  'arrow2-down'
 ]
 
 export default {
