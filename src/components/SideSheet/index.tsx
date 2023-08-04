@@ -115,10 +115,10 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
                 {...footerButtons.cancel}
               />
               <Button
-                {...footerButtons.confirm}
                 type="primary"
                 size="large"
                 onClick={handleSubmit}
+                {...footerButtons.confirm}
               />
             </div>
           </motion.div>

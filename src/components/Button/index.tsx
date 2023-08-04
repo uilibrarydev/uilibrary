@@ -11,7 +11,7 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     size = 'large',
     className = '',
     iconProps,
-    buttonActionType = 'submit',
+    buttonActionType,
     disabled,
     isLoading,
     formId,
