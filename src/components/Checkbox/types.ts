@@ -3,6 +3,7 @@ export interface TCheckboxProps extends IFormCompProps {
   className?: string
   disabled?: boolean
   required?: boolean
+  link?:string
   selectedValue?: boolean
   IconProps?: {
     name: string
