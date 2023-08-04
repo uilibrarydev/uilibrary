@@ -3,11 +3,6 @@ import { Meta } from '@storybook/react'
 import { Icon as IconComp, Text } from '../components'
 
 const ICONS = [
-  'project-product',
-  'only-employee',
-  'units-employee',
-  'dram',
-  'percent',
   'facebook',
   'twitter',
   'instagram',
@@ -15,6 +10,15 @@ const ICONS = [
   'apple',
   'medium',
   'telegram',
+  'project-product',
+  'only-employee',
+  'units-employee',
+  'percent',
+  'attach',
+  'close',
+  'add',
+  'mark',
+  'dram',
   'phone',
   'phone-hover',
   'menu',
@@ -68,11 +72,10 @@ const ICONS = [
   'share-hover',
   'home',
   'home-hover',
-  'circle-mark',
-  'circle-mark-hover',
+  'checkmark',
+  'checkmark-hover',
   'calendar',
   'calendar-hover',
-  'mark',
   'arrow-left',
   'arrow-right',
   'arrow-up',
@@ -81,9 +84,6 @@ const ICONS = [
   'arrow2-right',
   'arrow2-up',
   'arrow2-down',
-  'attach',
-  'close',
-  'add'
 ]
 
 export default {
