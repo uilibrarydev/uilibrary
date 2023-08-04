@@ -11,15 +11,20 @@
   @include flexbox;
   @include align-items(center);
   @include center(horizontal);
-  @include fixed(30px, unset, unset, 50%);
+  @include fixed(unset, unset, 30px, 50%);
   padding: var(--ds-snackbar-padding);
   background-color: var(--ds-snackbar-bg);
   border-radius: var(--ds-snackbar-border-radius);
   box-shadow: var(--ds-snackbar-shadow);
   max-width: 80%;
+  //@include animation('show-snackbar 0.4s linear');
 
   &__text {
     @include truncate(100%);
   }
 }
 
+//@include keyframes(show-snackbar) {
+//  0% { bottom: -80px; }
+//  100% { bottom: 30px; }
+//}
