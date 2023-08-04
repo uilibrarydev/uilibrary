@@ -38,9 +38,8 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   useOnOutsideClick(containerRef, onClose)
 
   const handleSubmit = useCallback(() => {
-    onSumbit()
-    onClose()
-  }, [onSumbit, onClose])
+    onSumbit?.()
+  }, [onSumbit])
 
   const isFromLeft = position === 'left'
 
@@ -116,10 +115,10 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
                 {...footerButtons.cancel}
               />
               <Button
-                {...footerButtons.confirm}
                 type="primary"
                 size="large"
                 onClick={handleSubmit}
+                {...footerButtons.confirm}
               />
             </div>
           </motion.div>

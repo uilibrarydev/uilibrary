@@ -4,8 +4,8 @@ import { FormContext } from '../../context'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { FormPropTypes } from './types'
 import Button from '../Button'
-import { noop } from '../../utils'
 import '../../assets/styles/components/_form.scss'
+import classnames from 'classnames'
 
 const FormContainer = (props: FormPropTypes): JSX.Element => {
   const {
@@ -16,6 +16,7 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
     initialValues,
     validationScheme,
     buttonConfigs,
+    formId,
     onSubmit
   } = props
 
@@ -35,7 +36,11 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
 
   const { errors, isDirty } = formState
   return (
-    <form onSubmit={handleSubmit(customSubmit)} className={`form-container ${className}`}>
+    <form
+      onSubmit={handleSubmit(customSubmit)}
+      id={formId}
+      className={classnames('form-container', className)}
+    >
       <FormContext.Provider
         value={{
           register,
