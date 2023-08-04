@@ -2,7 +2,16 @@ import React from 'react'
 import Icon from '../Icon'
 import { TButtonPropTypes } from './types'
 import '../../assets/styles/components/_button.scss'
+import Loader from '../../helperComponents/Loader'
 import classnames from 'classnames'
+
+const LITE_LOADER_TYPES = ['primary', 'danger']
+
+const ICON_SIZE_MAPPING: { [key: string]: TIconSize } = {
+  large: 'small',
+  medium: 'small',
+  small: 'xsmall'
+}
 
 const Button = (props: TButtonPropTypes): JSX.Element => {
   const {
@@ -17,7 +26,9 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     formId,
     onClick
   } = props
+
   const justIcon = !buttonText && iconProps !== undefined
+
   return (
     <button
       disabled={disabled}
@@ -37,17 +48,16 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
       onClick={onClick}
       form={formId}
     >
-      {iconProps?.name ? (
-        <Icon
-          {...iconProps}
-          className="btn__icon"
-          size={`${size == 'large' ? 'small' : size == 'medium' ? 'small' : 'xsmall'}`}
-        />
-      ) : null}
-
-      {buttonText ? (
-        <span className="btn__text">{isLoading || (!justIcon && buttonText)}</span>
-      ) : null}
+      {isLoading ? (
+        <Loader size={size} type={LITE_LOADER_TYPES.indexOf(type) === -1 ? 'dark' : 'lite'} />
+      ) : (
+        <>
+          {iconProps?.name ? (
+            <Icon className="btn__icon" size={ICON_SIZE_MAPPING[size]} {...iconProps} />
+          ) : null}
+          {buttonText ? <span className="btn__text">{buttonText}</span> : null}
+        </>
+      )}
     </button>
   )
 }
