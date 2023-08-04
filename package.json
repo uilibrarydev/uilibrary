@@ -1,6 +1,7 @@
 {
+  "homepage": "http://valodyapapikyan.github.io/ameria_ui_library",
   "name": "dino_ui_tools",
-  "version": "1.2.115",
+  "version": "1.2.116",
   "description": "",
   "private": false,
   "main": "dist/index.js",
@@ -22,7 +23,9 @@
     "check": "npm run prettier && npm run lint",
     "updateVersion": "node  ./scripts/updateVersion.js",
     "finilize": "npm run build && npm run updateVersion",
-    "chromatic": "npx chromatic --project-token=6b1f1965af98"
+    "chromatic": "npx chromatic --project-token=6b1f1965af98",
+    "predeploy": "npm run build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "eslintConfig": {
     "extends": [
