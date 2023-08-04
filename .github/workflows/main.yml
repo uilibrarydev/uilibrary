@@ -32,7 +32,6 @@ jobs:
       - name: Publish to npm
         run: npm publish
 
-
       - name: Deploy
         run: npm run deploy-storybook
         env:
