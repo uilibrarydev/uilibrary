@@ -6,7 +6,6 @@
   --ds-select-size-lg: var(--ds-size-40);
   --ds-select-size-sm: var(--ds-size-32);
 
-  --ds-select-input-arrow-size: var(--font-size-10);
   --ds-select-input-arrow-position: var(--ds-space-14);
   --ds-select-input-color: var(--ds-color-text-primary);
 
@@ -51,7 +50,6 @@
   &__input {
     .input__icon {
       &--right {
-        font-size: var(--ds-select-input-arrow-size);
         right: var(--ds-select-input-arrow-position);
       }
     }
@@ -207,7 +205,6 @@
 
 .group-item {
   --ds-select-group-item-top-padding: var(--ds-space-8) var(--ds-space-16);
-  --ds-select-group-item-icon-size: var(--ds-size-6);
 
   &__top {
     @include flexbox;
@@ -216,16 +213,5 @@
   }
   &__title {
     flex: 1;
-  }
-  &__icon {
-    font-size: var(--ds-select-group-item-icon-size) !important;
-  }
-}
-
-.nested-item {
-  --ds-select-nested-item-icon-size: var(--ds-size-6);
-
-  .select__left-icon {
-    font-size: var(--ds-select-nested-item-icon-size) !important;
   }
 }

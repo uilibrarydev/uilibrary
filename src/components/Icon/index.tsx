@@ -6,7 +6,7 @@ const Icon = (props: IconPropTypes): JSX.Element => {
   const { name, type, size = 'medium', onClick, className = '', refHandler } = props
 
   return (
-    <span className={`icon icon--${size} color-${type} ${className}`}>
+    <span className={`icon icon--${size} ${type ? `color-${type}` : ''} ${className}`}>
       <i ref={refHandler} onClick={onClick} className={`icon-${name}`} />
     </span>
   )
