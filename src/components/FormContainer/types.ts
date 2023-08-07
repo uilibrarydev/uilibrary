@@ -1,6 +1,7 @@
 import { FormState } from 'react-hook-form'
 import { AnyObjectSchema } from 'yup'
 import { TButtonPropTypes } from '../Button/types'
+import {ValidationMode} from 'react-hook-form/dist/types/form';
 
 export interface FormPropTypes {
   className?: string
@@ -11,5 +12,7 @@ export interface FormPropTypes {
   buttonConfigs?: TButtonPropTypes[]
   shouldUnregister?: boolean
   shouldFocusError?: boolean
+  mode?:   keyof ValidationMode
+  reValidateMode?: 'onChange' | 'onSubmit' | 'onBlur' | undefined
   formId?: string
 }

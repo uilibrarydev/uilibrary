@@ -13,6 +13,8 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
     className = '',
     shouldUnregister = false,
     shouldFocusError = true,
+    mode='onSubmit',
+    reValidateMode='onChange',
     initialValues,
     validationScheme,
     buttonConfigs,
@@ -22,9 +24,12 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
 
   const { handleSubmit, register, setValue, control, formState, getValues, watch, reset } = useForm(
     {
-      reValidateMode: 'onChange',
+      mode: mode,
+      reValidateMode: reValidateMode,
       resolver: yupResolver(validationScheme),
-      defaultValues: initialValues
+      defaultValues: initialValues,
+      shouldFocusError: shouldFocusError,
+      shouldUnregister: shouldUnregister
     }
   )
 
@@ -50,9 +55,7 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
           getValues,
           watch,
           reset,
-          isDirty,
-          shouldFocusError,
-          shouldUnregister
+          isDirty
         }}
       >
         <>
