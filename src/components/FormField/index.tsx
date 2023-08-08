@@ -49,12 +49,15 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
           ...(isNeedChangeHandler ? { setFieldValue: setValue } : {})
         })
       )}
-      errorMessage ? <ErrorMessage message={errorMessage || ''} /> :
-      <ReactHookFormErrorMessage
-        name={name}
-        errors={errors}
-        render={({ message }) => <p className="error-message">{message}</p>}
-      />
+      {errorMessage ? (
+        <ErrorMessage message={errorMessage || ''} />
+      ) : (
+        <ReactHookFormErrorMessage
+          name={name}
+          errors={errors}
+          render={({ message }) => <p className="error-message">{message}</p>}
+        />
+      )}
     </div>
   )
 }
