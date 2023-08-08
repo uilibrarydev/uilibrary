@@ -74,6 +74,12 @@ interface FileEventTarget extends EventTarget {
 
 declare type TTextAreaEventType = ChangeEventHandler<HTMLTextAreaElement>
 
+declare type TCreateErrorFieldParams = {
+  errorMessage: string | undefined
+  name: string
+  errors: FieldErrors | undefined
+}
+
 declare type TImageMimeTypes =
   | 'image/jpeg'
   | 'image/jpg'

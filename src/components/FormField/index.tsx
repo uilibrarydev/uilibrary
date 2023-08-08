@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { FormContext } from '../../context'
 import { Controller } from 'react-hook-form'
-import { ErrorMessage as ReactHookFormErrorMessage } from '@hookform/error-message'
-import ErrorMessage from '../../helperComponents/ErrorMessage'
 import { TFormFieldPropTypes } from './types'
 import '../../assets/styles/components/_form.scss'
+
+import { createErrorField } from '../../utils/createErrorMessage'
 
 const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
   const { As, name, isNeedChangeHandler = false, isControlled = false, className = '' } = props
@@ -49,15 +49,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
           ...(isNeedChangeHandler ? { setFieldValue: setValue } : {})
         })
       )}
-      {errorMessage ? (
-        <ErrorMessage message={errorMessage || ''} />
-      ) : (
-        <ReactHookFormErrorMessage
-          name={name}
-          errors={errors}
-          render={({ message }) => <p className="error-message">{message}</p>}
-        />
-      )}
+      {createErrorField({ name, errors, errorMessage })}
     </div>
   )
 }
