@@ -35,6 +35,8 @@ import Link from './components/Link'
 import { SideSheet, Menu } from './components'
 import { FormContext } from './context'
 
+import { useFormProps } from './hooks/useFormProps'
+
 export {
   Menu,
   Text,
@@ -74,5 +76,6 @@ export {
   Snackbar,
   Breadcrumb,
   Image,
-  SideSheet
+  SideSheet,
+  useFormProps
 }
