@@ -33,7 +33,6 @@ import Image from './components/Image'
 import './assets/styles/index.scss'
 import Link from './components/Link'
 import { SideSheet, Menu } from './components'
-import { FormContext } from './context'
 
 import { useFormProps } from './hooks/useFormProps'
 
@@ -49,7 +48,6 @@ export {
   Select,
   Filter,
   NestedSelect,
-  FormContext,
   Modal,
   Button,
   FormField,

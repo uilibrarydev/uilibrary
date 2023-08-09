@@ -67,7 +67,9 @@ const OPTIONS_GROUPED: TSelectGroupOptions = [
 ]
 
 const VALIDATION_SCHEME = yup.object({
+  obj: yup.object().shape({ name: yup.string().required(), surname: yup.string().required() }),
   switcher: yup.boolean().required(),
+  firstname: yup.string().required(),
   select: yup.string().required(),
   multiselect: yup.array().required(),
   ['esiminch']: yup.string().required('sdsd')
@@ -75,6 +77,11 @@ const VALIDATION_SCHEME = yup.object({
 
 const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
+    obj: {
+      name: '',
+      surname: ''
+    },
+    firstname: '',
     switcher: false,
     select: null,
     multiselect: []
@@ -89,15 +96,14 @@ const Template = (): JSX.Element => {
       >
         <>
           <FormField
-            isControlled
             isNeedChangeHandler
             name={'switcher'}
             As={(props: IFormCompProps) => {
               return <Switcher {...props} />
             }}
           />
-          <FormField
-            isControlled
+          {/* <FormField
+            
             isNeedChangeHandler
             name={'select'}
             As={(props: IFormCompProps) => {
@@ -105,7 +111,7 @@ const Template = (): JSX.Element => {
             }}
           />
           <FormField
-            isControlled
+            
             isNeedChangeHandler
             name={'multiselect'}
             As={(props: IFormCompProps) => {
@@ -114,11 +120,29 @@ const Template = (): JSX.Element => {
           />
 
           <FormField
-            isControlled
+            
             name={'esiminch'}
             As={(props: IFormCompProps) => (
               <Input required label="Unit name" placeholder="Unit name" {...props} />
             )}
+          /> */}
+
+          <FormField
+            isNeedChangeHandler
+            name={'obj.name'}
+            As={(props) => <Input label="name" {...props} />}
+          />
+
+          <FormField
+            isNeedChangeHandler
+            name={'obj.surname'}
+            As={(props) => <Input label="surname" {...props} />}
+          />
+
+          <FormField
+            isNeedChangeHandler
+            name={'firstname'}
+            As={(props) => <Input label="firstname" {...props} />}
           />
 
           <Button buttonActionType="submit" buttonText={'Ok'} />
