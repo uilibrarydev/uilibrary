@@ -49,7 +49,6 @@ export {
   Select,
   Filter,
   NestedSelect,
-  FormContext,
   Modal,
   Button,
   FormField,
@@ -78,5 +77,6 @@ export {
   Image,
   SideSheet,
   Counter,
-  useFormProps
+  useFormProps,
+  FormContext
 }
