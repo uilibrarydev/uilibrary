@@ -1,7 +1,16 @@
 import React from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
-import { FormContainer, Switcher, Select, Button, MultiSelect, Input } from '../components'
+import {
+  FormContainer,
+  Switcher,
+  Select,
+  Button,
+  MultiSelect,
+  Input,
+  Counter,
+  RadioGroup
+} from '../components'
 
 export default {
   title: 'Form',
@@ -84,7 +93,8 @@ const Template = (): JSX.Element => {
     firstname: '',
     switcher: false,
     select: null,
-    multiselect: []
+    multiselect: [],
+    counter: 9
   }
 
   return (
@@ -115,8 +125,32 @@ const Template = (): JSX.Element => {
             isNeedChangeHandler
             name={'multiselect'}
             As={(props: IFormCompProps) => {
-              return <MultiSelect {...props} isGrouped options={OPTIONS_GROUPED} />
+              return (
+                <MultiSelect
+                  {...props}
+                  options={[
+                    {
+                      label: 'label'
+                    }
+                  ]}
+                />
+              )
             }}
+          />
+          <FormField
+            isControlled
+            isNeedChangeHandler
+            name={'radio'}
+            As={(props: IFormCompProps) => {
+              return <RadioGroup {...props} isGrouped options={OPTIONS_GROUPED} />
+            }}
+          />
+
+          <FormField
+            isControlled
+            isNeedChangeHandler
+            name="counter"
+            As={(props) => <Counter {...props} />}
           />
 
           <FormField
