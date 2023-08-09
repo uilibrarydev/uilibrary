@@ -33,6 +33,7 @@ import Image from './components/Image'
 import './assets/styles/index.scss'
 import Link from './components/Link'
 import { SideSheet, Menu } from './components'
+import { Counter } from './components'
 
 export {
   Menu,
@@ -72,5 +73,6 @@ export {
   Snackbar,
   Breadcrumb,
   Image,
-  SideSheet
+  SideSheet,
+  Counter
 }

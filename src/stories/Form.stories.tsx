@@ -1,7 +1,16 @@
 import React from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
-import { FormContainer, Switcher, Select, Button, MultiSelect, Input } from '../components'
+import {
+  FormContainer,
+  Switcher,
+  Select,
+  Button,
+  MultiSelect,
+  Input,
+  Counter,
+  RadioGroup
+} from '../components'
 
 export default {
   title: 'Form',
@@ -67,6 +76,7 @@ const OPTIONS_GROUPED: TSelectGroupOptions = [
 ]
 
 const VALIDATION_SCHEME = yup.object({
+  counter: yup.number().required('required').min(4, 'min is 4').max(20, 'max is 20'),
   switcher: yup.boolean().required(),
   select: yup.string().required(),
   multiselect: yup.array().required(),
@@ -77,7 +87,8 @@ const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
     switcher: false,
     select: null,
-    multiselect: []
+    multiselect: [],
+    counter: 9
   }
 
   return (
@@ -109,8 +120,32 @@ const Template = (): JSX.Element => {
             isNeedChangeHandler
             name={'multiselect'}
             As={(props: IFormCompProps) => {
-              return <MultiSelect {...props} isGrouped options={OPTIONS_GROUPED} />
+              return (
+                <MultiSelect
+                  {...props}
+                  options={[
+                    {
+                      label: 'label'
+                    }
+                  ]}
+                />
+              )
             }}
+          />
+          <FormField
+            isControlled
+            isNeedChangeHandler
+            name={'radio'}
+            As={(props: IFormCompProps) => {
+              return <RadioGroup {...props} isGrouped options={OPTIONS_GROUPED} />
+            }}
+          />
+
+          <FormField
+            isControlled
+            isNeedChangeHandler
+            name="counter"
+            As={(props) => <Counter {...props} />}
           />
 
           <FormField

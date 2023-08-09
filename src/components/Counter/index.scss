@@ -1,0 +1,32 @@
+.counter{
+  display: flex;
+  flex-direction: column;
+    .counter-container {
+        width: 120px;
+        height: var(--ds-space-40);
+        border-radius: var(--ds-border-radius-xs);
+        padding: var(--ds-space-10) var(--ds-space-12);
+        border: var(--ds-border-thin) solid var(--ds-color-border-cta);
+        background: var(--ds-color-bg-cta-secondary-default);
+        display: inline-flex;
+        align-items: center;
+        flex-direction: row;
+      
+        & p {
+          padding: 0 var(--ds-space-8);
+        }
+        input {
+          border: none;
+          width: 40px;
+          text-align: center;
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none
+        }
+        }
+        .action_active{
+          cursor: pointer;
+        }
+      }
+      
+}

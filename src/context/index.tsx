@@ -15,8 +15,8 @@ export type TFormContextProps = {
   setValue: TSetValue
   control?: Control<FieldValues, unknown>
   getValues?: UseFormGetValues<TFormData>
-  watch?: UseFormWatch<TFormData>
-  reset?: UseFormReset<TFormData>
+  watch: UseFormWatch<TFormData>
+  reset: UseFormReset<TFormData>
   isDirty?: boolean
   shouldUnregister?: boolean
   shouldFocusError?: boolean
