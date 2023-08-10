@@ -36,6 +36,7 @@ import { SideSheet, Menu } from './components'
 import { Counter } from './components'
 import { FormContext } from './context'
 import { useFormProps } from './hooks/useFormProps'
+import { useFieldArray } from 'react-hook-form'
 
 export {
   Menu,
@@ -78,5 +79,6 @@ export {
   SideSheet,
   Counter,
   useFormProps,
+  useFieldArray,
   FormContext
 }
