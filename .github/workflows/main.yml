@@ -32,8 +32,7 @@ jobs:
       - name: Publish to npm
         run: npm publish
 
-
-      - name: Deploy
-        run: npm run deploy-storybook
+      # - name: Deploy
+      #   run: npm run deploy-storybook
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

@@ -11,6 +11,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
     {
       className,
       error,
+      hasError,
       label,
       disabled,
       currentValue,
@@ -44,7 +45,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
     }, [rest, currentValue])
 
     return (
-      <div className={`textarea  ${className} ${error ? 'textarea--invalid' : ''}`}>
+      <div className={`textarea  ${className} ${hasError ? 'textarea--invalid' : ''}`}>
         <Label text={label} required={required} disabled={disabled} />
         <div className="textarea__inner">
           {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
