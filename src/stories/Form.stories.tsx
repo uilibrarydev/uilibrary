@@ -76,9 +76,10 @@ const OPTIONS_GROUPED: TSelectGroupOptions = [
 ]
 
 const VALIDATION_SCHEME = yup.object({
+  counter: yup.number().typeError('required').required('validation.required').min(5).max(90),
   obj: yup.object().shape({ name: yup.string().required(), surname: yup.string().required() }),
   switcher: yup.boolean().required(),
-  firstname: yup.string().required(),
+  firstname: yup.string().required().min(19),
   select: yup.string().required(),
   multiselect: yup.array().required(),
   ['esiminch']: yup.string().required('sdsd')
@@ -146,12 +147,7 @@ const Template = (): JSX.Element => {
             }}
           />
 
-          <FormField
-            isControlled
-            isNeedChangeHandler
-            name="counter"
-            As={(props) => <Counter {...props} />}
-          />
+        
 
           <FormField
             
@@ -160,6 +156,12 @@ const Template = (): JSX.Element => {
               <Input required label="Unit name" placeholder="Unit name" {...props} />
             )}
           /> */}
+
+          <FormField
+            isNeedChangeHandler
+            name="counter"
+            As={(props) => <Counter {...props} min={5} max={90} />}
+          />
 
           <FormField
             isNeedChangeHandler

@@ -11,10 +11,9 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
   const {
     children,
     className = '',
-    shouldUnregister = false,
+    shouldUnregister,
     shouldFocusError = true,
-    mode = 'onSubmit',
-    reValidateMode = 'onChange',
+    mode = 'onBlur',
     initialValues,
     validationScheme,
     buttonConfigs,
@@ -25,7 +24,6 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
   const { handleSubmit, register, setValue, control, formState, getValues, watch, reset } = useForm(
     {
       mode: mode,
-      reValidateMode: reValidateMode,
       resolver: yupResolver(validationScheme),
       defaultValues: initialValues,
       shouldFocusError: shouldFocusError,

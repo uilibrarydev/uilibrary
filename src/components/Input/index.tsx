@@ -83,7 +83,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         disabled={disabled}
         name={name}
         ref={ref}
-        required={isErrorVisible}
+        required={isErrorVisible || !!error}
         type={type}
         placeholder={!label ? placeholder : ''}
         onChange={changeHandler}
@@ -105,10 +105,22 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         <label className="input__inner">
           {input}
           {leftIconProps && (
-            <Icon className="input__icon input__icon--left" size="small" {...leftIconProps} />
+            <Icon
+              size="small"
+              {...leftIconProps}
+              className={`input__icon input__icon--left ${
+                leftIconProps.className ? leftIconProps.className : ''
+              }`}
+            />
           )}
           {rightIconProps && (
-            <Icon className="input__icon input__icon--right" size="small" {...rightIconProps} />
+            <Icon
+              size="small"
+              {...rightIconProps}
+              className={`input__icon input__icon--right ${
+                rightIconProps.className ? rightIconProps.className : ''
+              }`}
+            />
           )}
         </label>
 
