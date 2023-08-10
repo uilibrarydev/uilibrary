@@ -1,10 +1,9 @@
 import React from 'react'
-import { Icon } from '../index'
+import { Input } from '../index'
 import { ICounterProps } from './types'
 
 import './index.scss'
-import ErrorMessage from '../../helperComponents/ErrorMessage'
-import Label from '../../helperComponents/Label'
+
 import classNames from 'classnames'
 import { noop } from '../../utils'
 
@@ -13,71 +12,65 @@ const Counter = (props: ICounterProps): JSX.Element => {
     max = 99999999,
     min = 0,
     handleChange,
-    value,
+
     name,
     counter = 0,
     setFieldValue,
     customError,
     label,
-    required = false
+    required = false,
+    value,
+    ...rest
   } = props
 
-  const counterValue = value ? (value as number) : counter
+  const counterValue = value !== undefined ? parseInt(value as string) : counter
 
-  const customChangeHandler = (value: number) => {
-    if (value < min) {
-      return
-    }
+  const isFormField = value !== undefined
+
+  const customChangeHandler = (inputedValue: number | string) => {
     if (handleChange) {
-      handleChange(value)
+      handleChange(inputedValue)
     }
 
     if (setFieldValue && name) {
-      setFieldValue(name, value, { shouldValidate: false })
+      setFieldValue(name, inputedValue)
     }
-  }
-
-  const onInputChange = (e: TChangeEventType) => {
-    const inputValue = parseInt(e.target.value)
-    if (inputValue > max) {
-      return
-    }
-
-    customChangeHandler(inputValue)
   }
 
   const increase = () => customChangeHandler(counterValue - 1)
   const decrease = () => customChangeHandler(counterValue + 1)
+  const onInputChange = (e: TChangeEventType) => customChangeHandler(parseInt(e.target.value))
 
   const isIncreaseIconDisabled = counterValue <= min
 
-  const isDecreaseIconDisabled = !counterValue || counterValue >= max
+  const isDecreaseIconDisabled = counterValue === undefined || counterValue >= max
+
   return (
     <div className="counter">
-      {label ? <Label text={label} required={required} /> : null}
-      <div className="counter-container">
-        <Icon
-          size="small"
-          name="minus"
-          className={classNames({ action_active: !isIncreaseIconDisabled })}
-          onClick={isIncreaseIconDisabled ? noop : increase}
-          type={isIncreaseIconDisabled ? 'disabled' : 'primary'}
-        />
-        <input
-          type="number"
-          name={name}
-          value={isNaN(counterValue) ? '' : counterValue}
-          onChange={onInputChange}
-        />
-        <Icon
-          name="add"
-          size="small"
-          className={classNames({ action_active: !isDecreaseIconDisabled })}
-          onClick={isDecreaseIconDisabled ? noop : decrease}
-          type={isDecreaseIconDisabled ? 'disabled' : 'primary'}
-        />
-      </div>
-      {customError ? <ErrorMessage message={customError} /> : null}
+      <Input
+        {...rest}
+        error={isFormField ? '' : customError}
+        label={label}
+        required={required}
+        leftIconProps={{
+          size: 'small',
+          name: 'minus',
+          className: classNames({ action_active: !isIncreaseIconDisabled }),
+          type: isIncreaseIconDisabled ? 'disabled' : 'primary',
+          onClick: isIncreaseIconDisabled ? noop : increase
+        }}
+        rightIconProps={{
+          name: 'add',
+          size: 'small',
+          className: classNames({ action_active: !isDecreaseIconDisabled }),
+          onClick: isDecreaseIconDisabled ? noop : decrease,
+          type: isDecreaseIconDisabled ? 'disabled' : 'primary'
+        }}
+        type="number"
+        name={name}
+        value={counterValue}
+        onChange={onInputChange}
+      />
     </div>
   )
 }
