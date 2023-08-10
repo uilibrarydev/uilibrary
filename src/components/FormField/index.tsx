@@ -31,11 +31,12 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
                 ...registerOptions,
                 ...(isNeedChangeHandler
                   ? {
-                      setFieldValue: (data, name) =>
+                      setFieldValue: (data, name, options) =>
                         setValue(data, name, {
                           shouldValidate: true,
                           shouldDirty: true,
-                          shouldTouch: true
+                          shouldTouch: true,
+                          ...options
                         })
                     }
                   : {}),

@@ -20,6 +20,7 @@ const Counter = (props: ICounterProps): JSX.Element => {
     label,
     required = false,
     value,
+    hasError = false,
     ...rest
   } = props
 
@@ -33,7 +34,7 @@ const Counter = (props: ICounterProps): JSX.Element => {
     }
 
     if (setFieldValue && name) {
-      setFieldValue(name, inputedValue)
+      setFieldValue(name, inputedValue, { shouldValidate: hasError })
     }
   }
 
