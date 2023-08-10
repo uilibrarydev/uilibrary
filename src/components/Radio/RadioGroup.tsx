@@ -17,7 +17,7 @@ const RadioGroup = (props: TRadioGroupProps): JSX.Element => {
     required
   } = props
 
-  const onSelect = (selected: number) => {
+  const onSelect = (selected: number | string) => {
     if (name && setFieldValue) {
       setFieldValue(name, selected, { shouldValidate: true })
     }

@@ -35,6 +35,7 @@ Radio.args = {
 }
 
 const RadioGroupTemplate = (args) => {
+  const [selected, setSelected] = useState(1)
   return <RadioGroupComp {...args} />
 }
 export const RadioGroup = RadioGroupTemplate.bind({})

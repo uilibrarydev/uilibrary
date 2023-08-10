@@ -7,7 +7,7 @@ export interface TRadioProps extends IFormCompProps {
 }
 
 export type TRadioOptionItem = {
-  value: number
+  value: number | string
   label: string
 }
 
@@ -16,6 +16,6 @@ export interface TRadioGroupProps extends IFormCompProps {
   className?: string
   isHorizontal?: boolean
   options: TRadioOptionItem[]
-  handleChange?: (selected: number) => void
+  handleChange?: (selected: number | string) => void
   required?: boolean
 }

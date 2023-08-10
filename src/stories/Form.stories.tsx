@@ -75,6 +75,21 @@ const OPTIONS_GROUPED: TSelectGroupOptions = [
   }
 ]
 
+const RADIO_OPTIONS = [
+  {
+    label: 'Text1',
+    value: '1'
+  },
+  {
+    label: 'Text2',
+    value: '2'
+  },
+  {
+    label: 'Text3',
+    value: '3'
+  }
+]
+
 const VALIDATION_SCHEME = yup.object({
   counter: yup.number().typeError('required').required('validation.required').min(5).max(90),
   obj: yup.object().shape({ name: yup.string().required(), surname: yup.string().required() }),
@@ -95,7 +110,8 @@ const Template = (): JSX.Element => {
     switcher: false,
     select: null,
     multiselect: [],
-    counter: 9
+    counter: 9,
+    radio: '2'
   }
 
   return (
@@ -138,14 +154,7 @@ const Template = (): JSX.Element => {
               )
             }}
           />
-          <FormField
-            isControlled
-            isNeedChangeHandler
-            name={'radio'}
-            As={(props: IFormCompProps) => {
-              return <RadioGroup {...props} isGrouped options={OPTIONS_GROUPED} />
-            }}
-          />
+        
 
         
 
@@ -161,6 +170,14 @@ const Template = (): JSX.Element => {
             isNeedChangeHandler
             name="counter"
             As={(props) => <Counter {...props} min={5} max={90} />}
+          />
+
+          <FormField
+            isNeedChangeHandler
+            name={'radio'}
+            As={(props: IFormCompProps) => {
+              return <RadioGroup {...props} options={RADIO_OPTIONS} />
+            }}
           />
 
           <FormField
