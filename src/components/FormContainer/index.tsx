@@ -21,15 +21,25 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
     onSubmit
   } = props
 
-  const { handleSubmit, register, setValue, control, formState, getValues, watch, reset } = useForm(
-    {
-      mode: mode,
-      resolver: yupResolver(validationScheme),
-      defaultValues: initialValues,
-      shouldFocusError: shouldFocusError,
-      shouldUnregister: shouldUnregister
-    }
-  )
+  const {
+    handleSubmit,
+    register,
+    setValue,
+    control,
+    formState,
+    getValues,
+    watch,
+    reset,
+    clearErrors,
+    setError
+  } = useForm({
+    mode: mode,
+    resolver: yupResolver(validationScheme),
+    defaultValues: initialValues,
+
+    shouldFocusError: shouldFocusError,
+    shouldUnregister: shouldUnregister
+  })
 
   const customSubmit = (data: TFormData) => {
     if (onSubmit) {
@@ -53,7 +63,9 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
           getValues,
           watch,
           reset,
-          isDirty
+          isDirty,
+          clearErrors,
+          setError
         }}
       >
         <>
