@@ -1,4 +1,5 @@
 import { RefObject } from 'react'
+import { IconPropTypes } from '../Icon/types'
 
 export interface InputCustomProps extends IFormCompProps {
   mask?: string
@@ -7,18 +8,8 @@ export interface InputCustomProps extends IFormCompProps {
   currentValue?: string
   error?: string | JSX.Element
   label?: string | JSX.Element
-  leftIconProps?: {
-    name: string
-    size?: TIconSize
-    className?: string
-    onClick?: TClickHandler
-  }
-  rightIconProps?: {
-    name: string
-    size?: TIconSize
-    className?: string
-    onClick?: TClickHandler
-  }
+  leftIconProps?: IconPropTypes
+  rightIconProps?: IconPropTypes
   disabled?: boolean
   required?: boolean
   readonly?: boolean
@@ -32,5 +23,4 @@ export interface InputCustomProps extends IFormCompProps {
   successMessage?: string
   maxCount?: number
   onFocus?: (event: TClickEventType) => void
-  showError?: boolean
 }

@@ -14,7 +14,8 @@ const Progress = (props: TProgressPropTypes): JSX.Element => {
     size = 'large',
     noText = false,
     dimension,
-    className = ''
+    className = '',
+    loop = false
   } = props
   const _dimension = dimension ? dimension : CIRCLE_SIZES[size]
   const r = _dimension - 5
@@ -23,7 +24,9 @@ const Progress = (props: TProgressPropTypes): JSX.Element => {
 
   return (
     <div
-      className={`progress-bar progress-bar--${type} progress-bar--${size} ${className}`}
+      className={`progress-bar progress-bar--${type} progress-bar--${size} ${className}${
+        loop ? ' progress-bar--loop' : ''
+      }`}
       style={
         type == 'circle'
           ? {

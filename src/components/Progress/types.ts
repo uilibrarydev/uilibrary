@@ -5,4 +5,5 @@ export interface TProgressPropTypes {
   noText?: boolean
   dimension?: number
   className?: string
+  loop?: boolean
 }

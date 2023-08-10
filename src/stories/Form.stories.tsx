@@ -1,7 +1,16 @@
 import React from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
-import { FormContainer, Switcher, Select, Button, MultiSelect, Input } from '../components'
+import {
+  FormContainer,
+  Switcher,
+  Select,
+  Button,
+  MultiSelect,
+  Input,
+  Counter,
+  RadioGroup
+} from '../components'
 
 export default {
   title: 'Form',
@@ -66,8 +75,26 @@ const OPTIONS_GROUPED: TSelectGroupOptions = [
   }
 ]
 
+const RADIO_OPTIONS = [
+  {
+    label: 'Text1',
+    value: '1'
+  },
+  {
+    label: 'Text2',
+    value: '2'
+  },
+  {
+    label: 'Text3',
+    value: '3'
+  }
+]
+
 const VALIDATION_SCHEME = yup.object({
+  counter: yup.number().typeError('required').required('validation.required').min(5).max(90),
+  obj: yup.object().shape({ name: yup.string().required(), surname: yup.string().required() }),
   switcher: yup.boolean().required(),
+  firstname: yup.string().required().min(19),
   select: yup.string().required(),
   multiselect: yup.array().required(),
   ['esiminch']: yup.string().required('sdsd')
@@ -75,29 +102,35 @@ const VALIDATION_SCHEME = yup.object({
 
 const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
+    obj: {
+      name: '',
+      surname: ''
+    },
+    firstname: '',
     switcher: false,
     select: null,
-    multiselect: []
+    multiselect: [],
+    counter: 9,
+    radio: '2'
   }
 
   return (
     <div style={{ maxWidth: 300 }}>
       <FormContainer
-        onSubmit={(date) => console.log('sdsd', date)}
+        onSubmit={(data, fieldData) => console.log('sdsd', data, fieldData)}
         validationScheme={VALIDATION_SCHEME}
         initialValues={INITIAL_VALUES}
       >
         <>
           <FormField
-            isControlled
             isNeedChangeHandler
             name={'switcher'}
             As={(props: IFormCompProps) => {
               return <Switcher {...props} />
             }}
           />
-          <FormField
-            isControlled
+          {/* <FormField
+            
             isNeedChangeHandler
             name={'select'}
             As={(props: IFormCompProps) => {
@@ -105,20 +138,64 @@ const Template = (): JSX.Element => {
             }}
           />
           <FormField
-            isControlled
+            
             isNeedChangeHandler
             name={'multiselect'}
             As={(props: IFormCompProps) => {
-              return <MultiSelect {...props} isGrouped options={OPTIONS_GROUPED} />
+              return (
+                <MultiSelect
+                  {...props}
+                  options={[
+                    {
+                      label: 'label'
+                    }
+                  ]}
+                />
+              )
             }}
           />
+        
+
+        
 
           <FormField
-            isControlled
+            
             name={'esiminch'}
             As={(props: IFormCompProps) => (
               <Input required label="Unit name" placeholder="Unit name" {...props} />
             )}
+          /> */}
+
+          <FormField
+            isNeedChangeHandler
+            name="counter"
+            As={(props) => <Counter {...props} min={5} max={90} />}
+          />
+
+          <FormField
+            isNeedChangeHandler
+            name={'radio'}
+            As={(props: IFormCompProps) => {
+              return <RadioGroup {...props} options={RADIO_OPTIONS} />
+            }}
+          />
+
+          <FormField
+            isNeedChangeHandler
+            name={'obj.name'}
+            As={(props) => <Input label="name" {...props} />}
+          />
+
+          <FormField
+            isNeedChangeHandler
+            name={'obj.surname'}
+            As={(props) => <Input label="surname" {...props} />}
+          />
+
+          <FormField
+            isNeedChangeHandler
+            name={'firstname'}
+            As={(props) => <Input label="firstname" {...props} />}
           />
 
           <Button buttonActionType="submit" buttonText={'Ok'} />

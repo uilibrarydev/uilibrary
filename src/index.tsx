@@ -18,9 +18,9 @@ import Stepper from './components/Stepper'
 import { TimePicker, SimpleDatePicker, RangeDatePicker } from './components/DatePicker'
 import Switcher from './components/Switcher'
 import Radio from './components/Radio'
+import RadioGroup from './components/Radio/RadioGroup'
 import Badge from './components/Badge'
 
-import { HttpClient } from './helpers'
 import More from './components/More'
 import { WithFormFeedback } from './context/FormContextProvider'
 import Avatar from './components/Avatar'
@@ -33,6 +33,10 @@ import Image from './components/Image'
 import './assets/styles/index.scss'
 import Link from './components/Link'
 import { SideSheet, Menu } from './components'
+import { Counter } from './components'
+import { FormContext } from './context'
+import { useFormProps } from './hooks/useFormProps'
+import { useFieldArray } from 'react-hook-form'
 
 export {
   Menu,
@@ -55,6 +59,7 @@ export {
   Progress,
   Checkbox,
   Radio,
+  RadioGroup,
   Stepper,
   TimePicker,
   SimpleDatePicker,
@@ -62,7 +67,6 @@ export {
   Switcher,
   Textarea,
   More,
-  HttpClient,
   WithFormFeedback,
   Badge,
   Avatar,
@@ -72,5 +76,9 @@ export {
   Snackbar,
   Breadcrumb,
   Image,
-  SideSheet
+  SideSheet,
+  Counter,
+  useFormProps,
+  useFieldArray,
+  FormContext
 }

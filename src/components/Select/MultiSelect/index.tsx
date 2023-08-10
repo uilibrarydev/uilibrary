@@ -54,7 +54,7 @@ const Select = (props: TMultiSelectTypes): JSX.Element | null => {
       setSelectedItems(selections)
     }
     if (name && setFieldValue) {
-      setFieldValue(name, selections, { shouldValidate: true })
+      setFieldValue(name, selections)
     }
 
     closeDropdown()

@@ -1,6 +1,7 @@
 {
+  "homepage": "http://valodyapapikyan.github.io/ameria_ui_library",
   "name": "dino_ui_tools",
-  "version": "1.2.104",
+  "version": "1.2.139",
   "description": "",
   "private": false,
   "main": "dist/index.js",
@@ -14,8 +15,8 @@
     "build": "npm run clean && rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006  public",
-    "build-storybook": "build-storybook  public",
+    "storybook": "start-storybook -p 6006 public",
+    "build-storybook": "build-storybook public",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "clean": "rm -rf dist",
     "prettier": "prettier --write \"./{src,stories}/**/**.{js,jsx,ts,tsx}\"",
@@ -23,7 +24,7 @@
     "updateVersion": "node  ./scripts/updateVersion.js",
     "finilize": "npm run build && npm run updateVersion",
     "chromatic": "npx chromatic --project-token=6b1f1965af98",
-    "pub": "npm version patch --force "
+    "deploy-storybook": "npm run build-storybook && gh-pages -d storybook-static"
   },
   "eslintConfig": {
     "extends": [
@@ -82,6 +83,8 @@
     "postcss": "^8.1.9",
     "postcss-import": "12.0.1",
     "prettier": "^2.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "rollup": "^2.76.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -90,13 +93,14 @@
     "ts-loader": "^8.0.4"
   },
   "dependencies": {
+    "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^2.9.10",
     "@rollup/plugin-json": "^6.0.0",
     "@types/react-input-mask": "^3.0.2",
-    "axios": "1.2.0",
     "classnames": "^2.3.2",
     "framer-motion": "4.1.17",
     "fs": "^0.0.1-security",
+    "gh-pages": "^5.0.0",
     "moment": "^2.29.4",
     "npm": "^9.2.0",
     "react-datepicker": "^4.8.0",
@@ -111,8 +115,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run check",
-      "pre-push": "npm run check"
+      "pre-commit": "npm run check"
     }
   },
   "readme": "ERROR: No README data found!",

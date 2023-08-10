@@ -13,6 +13,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       className,
       size = 'large',
       error,
+      hasError,
       label,
       mask,
       onChange,
@@ -28,12 +29,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       helperText,
       successMessage,
       maxCount,
-      showError,
       handleChange,
       ...rest
     },
     ref
   ): JSX.Element => {
+    const isErrorVisible = hasError !== undefined ? hasError : !!error
+
     const changeHandler = (event: TChangeEventType) => {
       const length = event.target.value.length
       if (length - 1 === maxCount) {
@@ -70,7 +72,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         placeholder={placeholder}
         onChange={changeHandler}
         disabled={disabled}
-        className={`${error ? 'with-error-styles' : ''}`}
+        className={`${isErrorVisible ? 'with-error-styles' : ''}`}
         {...(currentValue ? { value: currentValue } : {})}
       />
     ) : (
@@ -81,7 +83,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         disabled={disabled}
         name={name}
         ref={ref}
-        required={!!error}
+        required={isErrorVisible || !!error}
         type={type}
         placeholder={!label ? placeholder : ''}
         onChange={changeHandler}
@@ -96,23 +98,35 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
                              ${className}
                              ${leftIconProps ? 'input--icon-left' : ''}
                              ${rightIconProps ? 'input--icon-right' : ''}
-                             ${error ? 'input--invalid' : ''}
+                             ${isErrorVisible ? 'input--invalid' : ''}
                              `}
       >
-        <Label text={label} invalid={!!error} required={required} disabled={disabled} />
+        <Label text={label} invalid={isErrorVisible} required={required} disabled={disabled} />
         <label className="input__inner">
           {input}
           {leftIconProps && (
-            <Icon className="input__icon input__icon--left" size="small" {...leftIconProps} />
+            <Icon
+              size="small"
+              {...leftIconProps}
+              className={`input__icon input__icon--left ${
+                leftIconProps.className ? leftIconProps.className : ''
+              }`}
+            />
           )}
           {rightIconProps && (
-            <Icon className="input__icon input__icon--right" size="small" {...rightIconProps} />
+            <Icon
+              size="small"
+              {...rightIconProps}
+              className={`input__icon input__icon--right ${
+                rightIconProps.className ? rightIconProps.className : ''
+              }`}
+            />
           )}
         </label>
 
         {error || successMessage || helperText || maxCount ? (
           <div className="input__message mt-4">
-            {error && showError ? <ErrorMessage message={error} icon="info-hover" /> : null}
+            {isErrorVisible && error ? <ErrorMessage message={error} icon="info-hover" /> : null}
             {successMessage ? (
               <Text size="small" type="success" className="flexbox align-items--center">
                 <>

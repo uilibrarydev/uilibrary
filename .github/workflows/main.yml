@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - 'master'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,11 +12,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Specify Node Version
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
       - name: Set Git user name
         run: git config user.name "LilitArz"
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps
 
       - name: Create .npmrc file
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
@@ -27,5 +31,8 @@ jobs:
 
       - name: Publish to npm
         run: npm publish
+
+      # - name: Deploy
+      #   run: npm run deploy-storybook
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

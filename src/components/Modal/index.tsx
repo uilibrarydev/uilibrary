@@ -37,22 +37,13 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
     className = '',
     size = 'small',
     withFooter = true,
-    buttonProps = {
-      confirm: {
-        buttonText: 'Save'
-      },
-      cancel: { buttonText: 'Cancel' }
-    },
+    buttonProps,
     children
   } = props
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
 
   useOnOutsideClick(containerRef, onClose)
 
-  const handleSubmit = () => {
-    onSumbit()
-    onClose()
-  }
   return (
     <AnimatedComponent>
       {isOpen ? (
@@ -78,28 +69,23 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
                     type="tertiary"
                     size="small"
                     iconProps={{ name: 'close' }}
-                    onClick={handleSubmit}
+                    onClick={onClose}
                   />
                 ) : null}
               </div>
             ) : null}
 
             <div className="modal__content">{children}</div>
-            {withFooter ? (
+            {withFooter && buttonProps ? (
               <div className="modal__footer">
                 <Button
-                  {...(buttonProps.cancel || {})}
                   type="tertiary"
                   size="medium"
                   className="mr-12"
                   onClick={onClose}
+                  {...(buttonProps.cancel || {})}
                 />
-                <Button
-                  {...buttonProps.confirm}
-                  type="primary"
-                  size="medium"
-                  onClick={handleSubmit}
-                />
+                <Button type="primary" size="medium" onClick={onSumbit} {...buttonProps.confirm} />
               </div>
             ) : null}
           </div>
