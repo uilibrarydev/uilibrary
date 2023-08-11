@@ -17,7 +17,6 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
     footer,
     avatar,
     options,
-    withSearch,
     selectedValues,
     onItemSelect,
     onItemDeselect,
@@ -121,7 +120,6 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
                 }
               </div>
               <ContentTop
-                withSearch={withSearch}
                 clearAll={clearAll}
                 selectAll={selectAll}
                 helperText={helperText}
