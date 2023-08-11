@@ -42,9 +42,11 @@
   --ds-select-menu-option-padding: var(--ds-space-6) var(--ds-space-8);
 
   position: relative;
-
+  .tabs-container{
+    width: 100%;
+  }
   .nested-select-button {
-    min-width: 300px
+    min-width: 320px
   }
 
   &__input {
@@ -75,6 +77,7 @@
       padding: var(--ds-select-scroll-padding);
 
       &.scrollbar {
+        max-height: 350px;
         overflow-y: auto;
       }
     }

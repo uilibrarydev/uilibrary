@@ -31,16 +31,17 @@ const Menu = (props: TMenuProps): JSX.Element | null => {
 
   return ReactDOM.createPortal(
     <div className="select select--menu" style={menuStyles}>
-      {menuItems.map(({ label, value, handler, iconProps }: TMenuItem) => {
+      {menuItems.map(({ label, value, handler, iconProps, disabled }: TMenuItem) => {
         return (
           <OptionItem
+            disabled={disabled}
             key={value}
             data={{
               label,
               value
             }}
             labelLeftIconProps={iconProps}
-            onClick={() => {
+            onClick={(e) => {
               onClose()
               handler()
             }}
