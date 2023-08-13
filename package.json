@@ -1,7 +1,7 @@
 {
   "homepage": "http://valodyapapikyan.github.io/ameria_ui_library",
   "name": "dino_ui_tools",
-  "version": "1.2.129",
+  "version": "1.2.142",
   "description": "",
   "private": false,
   "main": "dist/index.js",
