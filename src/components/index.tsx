@@ -30,8 +30,10 @@ import Image from './Image'
 import Link from './Link'
 import Menu from './Menu'
 import SideSheet from './SideSheet'
+import Counter from './Counter'
 
 export {
+  Counter,
   Text,
   Link,
   Heading,

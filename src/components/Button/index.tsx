@@ -20,7 +20,7 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     size = 'large',
     className = '',
     iconProps,
-    buttonActionType,
+    buttonActionType = 'button',
     disabled,
     isLoading,
     formId,

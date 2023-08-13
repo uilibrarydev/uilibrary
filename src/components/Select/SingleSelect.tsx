@@ -31,7 +31,7 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
     },
     selectedItem,
     setSelectedItem,
-    error
+    hasError
   } = props
 
   const [isOpen, setIsOpen] = useState(false)
@@ -121,7 +121,7 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
     <div className="select" ref={setContainerRef}>
       <div onClick={open}>
         <Input
-          error={error}
+          hasError={hasError}
           className="select__input"
           label={label}
           required={isRequiredField}
