@@ -3,5 +3,5 @@ export interface TFormFieldPropTypes {
   name: string
   className?: string
   isNeedChangeHandler?: boolean
-  dataId?:string
+  dataId?: string
 }

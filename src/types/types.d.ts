@@ -53,7 +53,7 @@ declare global {
     hasError?: boolean
     value?: TFormValue
     onChange?: TOnChange
-    dataId?:string
+    dataId?: string
     name?: string
     setFieldValue?: (
       name: string,
