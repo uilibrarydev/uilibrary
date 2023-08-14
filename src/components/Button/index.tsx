@@ -24,6 +24,7 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     disabled,
     isLoading,
     formId,
+    dataId='',
     onClick
   } = props
 
@@ -31,6 +32,7 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
 
   return (
     <button
+      data-id={dataId}
       disabled={disabled}
       type={buttonActionType}
       className={classnames(

@@ -16,6 +16,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
     value,
     className = '',
     IconProps = { name: 'mark' },
+    dataId = '',
     onClick
   } = props
 
@@ -38,6 +39,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
                   `}
     >
       <input
+        data-id={dataId}
         type="checkbox"
         tabIndex={0}
         onChange={changeHandler}
@@ -54,7 +56,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
       </span>
       {label ? (
         link ? (
-          <Link url={link}>{label}</Link>
+          <Link dataId={dataId}  url={link}>{label}</Link>
         ) : (
           <span className="controller__label">
             {label}
