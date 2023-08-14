@@ -43,6 +43,7 @@ const RadioGroup = (props: TRadioGroupProps): JSX.Element => {
             className="radio-group__item"
             isSelected={radioOption.value === value}
             onClick={() => onSelect(radioOption.value)}
+            dataId={(radioOption.dataId = '')}
           />
         )
       })}

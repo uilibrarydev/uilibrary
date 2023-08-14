@@ -22,6 +22,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
       maxCount,
       helperText,
       successMessage,
+      dataId = '',
       ...rest
     },
     ref
@@ -51,6 +52,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
           {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore */}
           <textarea
+            data-id={dataId}
             disabled={disabled}
             ref={ref}
             placeholder={label ? '' : placeHolder}

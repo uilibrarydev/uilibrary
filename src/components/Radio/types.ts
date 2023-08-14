@@ -9,6 +9,7 @@ export interface TRadioProps extends IFormCompProps {
 export type TRadioOptionItem = {
   value: number | string
   label: string
+  dataId?: string
 }
 
 export interface TRadioGroupProps extends IFormCompProps {
