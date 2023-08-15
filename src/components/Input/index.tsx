@@ -30,6 +30,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       successMessage,
       maxCount,
       handleChange,
+      dataId = '',
       ...rest
     },
     ref
@@ -72,6 +73,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         placeholder={placeholder}
         onChange={changeHandler}
         disabled={disabled}
+        data-id={dataId}
         className={`${isErrorVisible ? 'with-error-styles' : ''}`}
         {...(currentValue ? { value: currentValue } : {})}
       />
@@ -87,6 +89,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         type={type}
         placeholder={!label ? placeholder : ''}
         onChange={changeHandler}
+        data-id={dataId}
         {...rest}
         {...(currentValue !== undefined ? { value: currentValue } : {})}
       />
@@ -126,7 +129,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
 
         {error || successMessage || helperText || maxCount ? (
           <div className="input__message mt-4">
-            {isErrorVisible && error ? <ErrorMessage message={error} icon="info-hover" /> : null}
+            {isErrorVisible && error ? (
+              <ErrorMessage message={error} icon="info-hover" dataId={dataId} />
+            ) : null}
             {successMessage ? (
               <Text size="small" type="success" className="flexbox align-items--center">
                 <>

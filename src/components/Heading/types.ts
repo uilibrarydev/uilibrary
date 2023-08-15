@@ -8,4 +8,5 @@ export interface HeadingPropTypes {
   lineHeight?: 'xsmall' | 'small' | 'medium' | 'large'
   className?: string
   onClick?: (event: TClickEventType) => void
+  dataId?: string
 }
