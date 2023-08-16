@@ -50,9 +50,10 @@ declare global {
 
   // Props which will pass FormField to component
   interface IFormCompProps {
-    error?: errorMessage
+    hasError?: boolean
     value?: TFormValue
     onChange?: TOnChange
+    dataId?: string
     name?: string
     setFieldValue?: (
       name: string,

@@ -4,7 +4,7 @@ import { FormContext, TFormContextProps } from './index'
 export const WithFormFeedback = ({
   children
 }: {
-  children?: (context: TFormContextProps) => JSX.Element
+  children?: (context: TFormContextProps) => JSX.Element | null
 }): JSX.Element | null => {
   const context = useContext(FormContext)
 

@@ -17,5 +17,6 @@ export interface TextPropTypes {
   weight?: 'regular' | 'semibold' | 'bold' | 'bolder'
   lineHeight?: 'xsmall' | 'small' | 'medium' | 'large'
   className?: string
+  dataId?: string
   onClick?: (event: TClickEventType) => void
 }

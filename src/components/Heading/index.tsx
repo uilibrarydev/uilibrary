@@ -10,11 +10,13 @@ const Heading: React.FC<HeadingPropTypes> = (props: HeadingPropTypes) => {
     lineHeight = 'large',
     type: As = 'h1',
     weight = 'regular',
-    onClick = noop
+    onClick = noop,
+    dataId = ''
   } = props
 
   return (
     <As
+      dataid={dataId}
       onClick={onClick}
       className={`heading 
                   ${size ? `heading-${size}` : ''} 

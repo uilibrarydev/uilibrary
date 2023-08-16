@@ -10,10 +10,12 @@ const Text: React.FC<TextPropTypes> = (props: TextPropTypes) => {
     size = 'standard',
     weight = 'regular',
     lineHeight = 'medium',
+    dataId = '',
     onClick = noop
   } = props
   return (
     <p
+      data-id={dataId}
       onClick={onClick}
       className={`body ${size ? `body-${size}` : ''} 
                        ${type ? `color-${type}` : ''}
