@@ -1,11 +1,15 @@
-export interface TSnackbarProps extends IFormCompProps {
-  text?: string | JSX.Element
-  type?: 'success' | 'error' | 'warning' | 'information'
+import { TButtonPropTypes } from '../Button/types'
 
+export type TSnackbarTypes = 'success' | 'error' | 'warning' | 'information'
+
+export interface TSnackbarProps extends IFormCompProps {
+  isVisible?: boolean
+  text?: string | JSX.Element
+  type?: TSnackbarTypes
+  timer?: number
   className?: string
-  iconProps?: {
-    name: string
-    color: string
-  }
-  withAction?: boolean
+  closeSnackbar: () => void
+  actionProps?: TButtonPropTypes
 }
+
+export type Timer = ReturnType<typeof setTimeout>
