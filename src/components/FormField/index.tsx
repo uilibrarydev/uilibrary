@@ -4,11 +4,10 @@ import { ErrorMessage } from '../../helperComponents/index'
 import { FormContext } from '../../context'
 import { Controller } from 'react-hook-form'
 import { TFormFieldPropTypes } from './types'
-
 import '../../assets/styles/components/_form.scss'
 
 const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
-  const { As, name, isNeedChangeHandler = false, className = '' } = props
+  const { As, name, isNeedChangeHandler = false, className = '', dataId = '' } = props
   const { register, errors, setValue, control } = useContext(FormContext)
 
   if (!register) {
@@ -27,7 +26,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
             <>
               {As({
                 hasError: !!fieldState.error,
-
+                dataId,
                 ...registerOptions,
                 ...(isNeedChangeHandler
                   ? {
@@ -46,7 +45,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
                 name={name}
                 errors={errors}
                 render={({ message }: { message: string }) => (
-                  <ErrorMessage message={message || ''} />
+                  <ErrorMessage dataId={dataId} message={message || ''} />
                 )}
               />
             </>
