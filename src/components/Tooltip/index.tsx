@@ -11,7 +11,14 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const [tooltipRef, setTooltipRef] = useState<HTMLDivElement | null>(null)
   const [elemRef, setElemRef] = useState<HTMLSpanElement | null>(null)
 
-  const { size = 'large', text, className = '', position = 'bottom-center', children } = props
+  const {
+    size = 'large',
+    text,
+    className = '',
+    position = 'bottom-center',
+    dataId = '',
+    children
+  } = props
   const tooltipPosition = useGetTooltipPosition({ tooltipRef, elemRef, initialPosition: position })
 
   const onMouseEnter = () => setIsHoverved(true)
@@ -27,6 +34,7 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   return (
     <>
       <span
+        data-id={dataId}
         style={{
           position: 'relative',
           display: 'inline-block'
@@ -35,10 +43,12 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
       >
         {isHovered && (
           <div
+            data-id={dataId}
             className={`tooltip tooltip--${size} tooltip--${tooltipPosition} ${className}`}
             ref={setTooltipRef}
           >
             <Text
+              dataId={`${dataId}-text`}
               className="tooltip__inner"
               type="primary"
               weight="regular"
