@@ -1,20 +1,38 @@
-import React from 'react'
-import { Snackbar as SnackbarComp } from '../components'
+import React, { useState } from 'react'
+import { Button, Snackbar as SnackbarComp } from '../components'
 
 export default {
   title: 'Snackbar',
   component: SnackbarComp,
-  argTypes: {}
+  argTypes: {
+    type: {
+      options: ['information', 'success', 'error', 'warning'],
+      control: { type: 'radio' }
+    }
+  }
 }
 
-const Template = (args) => <SnackbarComp {...args} />
+const Template = (args) => {
+  const [isVisible, setVisibility] = useState(false)
+
+  const closeSnackbar = () => setVisibility(false)
+
+  return (
+    <div>
+      <Button buttonText={'open snackbar'} onClick={() => setVisibility(true)} />
+
+      <SnackbarComp
+        {...args}
+        isVisible={isVisible}
+        closeSnackbar={closeSnackbar}
+        actionProps={{ buttonText: 'Close', onClick: closeSnackbar }}
+      />
+    </div>
+  )
+}
 export const Snackbar = Template.bind({})
 
 Snackbar.args = {
-  text: 'Prompt text',
-  iconProps: {
-    name: 'info-hover',
-    type: 'information'
-  },
-  withAction: false
+  type: 'information',
+  text: 'Prompt text'
 }

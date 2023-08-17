@@ -11,12 +11,13 @@
   @include flexbox;
   @include align-items(center);
   @include center(horizontal);
-  @include fixed(30px, unset, unset, 50%);
+  @include fixed(unset, unset, 30px, 50%);
   padding: var(--ds-snackbar-padding);
   background-color: var(--ds-snackbar-bg);
   border-radius: var(--ds-snackbar-border-radius);
   box-shadow: var(--ds-snackbar-shadow);
-  max-width: 80%;
+  // max-width: 80%;
+
 
   &__text {
     @include truncate(100%);

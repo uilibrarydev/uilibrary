@@ -2,9 +2,6 @@
   display: flex;
   flex-direction: column;
   width: 120px;
-    & p {
-      padding: 0 var(--ds-space-8);
-    }
     input {
       text-align: center;
       &::-webkit-outer-spin-button,
