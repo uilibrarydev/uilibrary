@@ -1,14 +1,14 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { useOnOutsideClick } from '../../hooks'
-import { TSelectPropTypes } from './types'
+import { TSingleSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
 import { OptionItem } from '../../helperComponents/OptionItem'
-import Footer from './Footer'
+// import Footer from './Footer'
 import Input from '../Input'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
-import { Loading } from './Loading'
+import { Loading } from './SharedComponents/Loading'
 
-const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
+const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
     isLoading,
     options,
@@ -23,12 +23,12 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
     labelRightIconComponent,
     avatar,
     withFooter,
-    footerButtonProps = {
-      confirm: {
-        buttonText: 'Apply'
-      },
-      cancel: { buttonText: 'Cancel' }
-    },
+    // footerButtonProps = {
+    //   confirm: {
+    //     buttonText: 'Apply'
+    //   },
+    //   cancel: { buttonText: 'Cancel' }
+    // },
     selectedItem,
     setSelectedItem,
     hasError,
@@ -95,15 +95,15 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
     return selected?.label.toString() || ''
   }, [options, value, currentSelection])
 
-  const applySelectedItems = () => {
-    submitSelectedValue(currentSelection)
-    closeDropdown()
-  }
+  // const applySelectedItems = () => {
+  //   submitSelectedValue(currentSelection)
+  //   closeDropdown()
+  // }
 
-  const cancelCelectedItems = () => {
-    setCurrentSelection(selectedItem || null)
-    closeDropdown()
-  }
+  // const cancelCelectedItems = () => {
+  //   setCurrentSelection(selectedItem || null)
+  //   closeDropdown()
+  // }
 
   const clickHandler = (isSelected: boolean) => (value: TItemValue) => {
     if (!isSelected) {
@@ -164,13 +164,13 @@ const SingleSelect = (props: TSelectPropTypes): JSX.Element | null => {
                   )
                 })}
               </div>
-              {withFooter ? (
+              {/* {withFooter ? (
                 <Footer
                   buttonProps={footerButtonProps}
                   onCancel={cancelCelectedItems}
                   onApply={applySelectedItems}
                 />
-              ) : null}
+              ) : null} */}
             </>
           )}
         </div>

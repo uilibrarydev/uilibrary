@@ -6,11 +6,11 @@ import Input from '../../Input'
 
 import { FilterDropdownContent } from './FilterDropdown'
 import { FilterGroupDropdownContent } from './FilterGroupDropdown'
-import Footer from '../Footer'
+import { Footer } from '../SharedComponents'
 
 import '../../../assets/styles/components/_select.scss'
 import { TFilterProps } from '../types'
-import { Loading } from '../Loading'
+import { Loading } from '../SharedComponents/Loading'
 
 export const Filter = (props: TFilterProps): JSX.Element | null => {
   const {
