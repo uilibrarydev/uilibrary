@@ -5,7 +5,9 @@ import {
   UseFormRegister,
   UseFormGetValues,
   UseFormWatch,
-  UseFormReset, UseFormClearErrors, UseFormSetError
+  UseFormReset,
+  UseFormClearErrors,
+  UseFormSetError
 } from 'react-hook-form'
 import { noop } from '../utils'
 
@@ -18,7 +20,7 @@ export type TFormContextProps = {
   watch?: UseFormWatch<TFormData>
   reset?: UseFormReset<TFormData>
   isDirty?: boolean
-  clearErrors?:UseFormClearErrors<TFormData>
-  setError?:UseFormSetError<TFormData>
+  clearErrors?: UseFormClearErrors<TFormData>
+  setError?: UseFormSetError<TFormData>
 }
 export const FormContext = createContext<TFormContextProps>({ setValue: noop })
