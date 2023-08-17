@@ -1,9 +1,9 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 
 import { Input } from '../../index'
 import { OptionItem } from '../../../helperComponents/OptionItem'
 import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
-import { checkIsValueOverflowed, DROPDOWN_MAX_HEIGHT, incrementOverflowedinitial } from '../utils'
+import { checkIsValueOverflowed, incrementOverflowedinitial } from '../utils'
 
 import { TNestedSelectProps } from '../types'
 import '../../../assets/styles/components/_select.scss'

@@ -23,6 +23,7 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
   const handleClick = useCallback(
     (e: TClickEventType) => {
       e.preventDefault()
+      e.stopPropagation()
 
       if (disabled) {
         return

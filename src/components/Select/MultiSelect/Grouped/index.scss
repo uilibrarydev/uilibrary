@@ -1,0 +1,17 @@
+.content_top_container{
+    padding: 0 var(--space-16);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+    .select_search_input{
+        padding: var(--space-8) 0;
+    }
+
+    .action_field{
+        padding: var(--space-6) 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

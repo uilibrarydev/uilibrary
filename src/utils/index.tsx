@@ -23,3 +23,7 @@ export const getStringWidth = (text: string, fontSize: number): number => {
 
   return width
 }
+
+export const setTranslationValue = (translation: string, value: string | number): string => {
+  return translation.replace('%s', value.toString())
+}
