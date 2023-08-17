@@ -6,6 +6,7 @@ import '../../assets/styles/components/_input.scss'
 import Icon from '../Icon'
 import Label from '../../helperComponents/Label'
 import Text from '../Text'
+import classNames from 'classnames'
 
 export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
   (
@@ -61,8 +62,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
     }, [rest, currentValue])
 
     const input = mask ? (
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       <InputMask
         name={name}
         mask={mask}
@@ -97,12 +96,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
 
     return (
       <div
-        className={`input input--${size} 
-                             ${className}
-                             ${leftIconProps ? 'input--icon-left' : ''}
-                             ${rightIconProps ? 'input--icon-right' : ''}
-                             ${isErrorVisible ? 'input--invalid' : ''}
-                             `}
+        className={classNames(`input input--${size} `, className, {
+          'input--icon-left': leftIconProps,
+          'input--icon-right': rightIconProps,
+          'input--invalid': isErrorVisible
+        })}
       >
         <Label text={label} invalid={isErrorVisible} required={required} disabled={disabled} />
         <label className="input__inner">

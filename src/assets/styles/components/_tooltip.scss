@@ -4,11 +4,11 @@
   $this: &;
 
   --ds-tooltip-bg: var(--ds-color-bg-cta-secondary-default);
+  --ds-tooltip-color: var(--ds-color-text-inverse);
   --ds-tooltip-padding: 0 var(--ds-space-8);
   --ds-tooltip-siz-lg: var(--ds-size-32);
   --ds-tooltip-size-sm: var(--ds-size-24);
   --ds-tooltip-border-radius: var(--ds-border-radius-xs);
-  --ds-tooltip-shadow: drop-shadow(0px 1px 2px rgba(34, 34, 34, 0.06)) drop-shadow(0px 2px 2px rgba(34, 34, 34, 0.08)) drop-shadow(0px 1px 4px rgba(34, 34, 34, 0.08));;
 
   --ds-tooltip-arrow-size: var(--ds-size-4);
   --ds-tooltip-arrow-position: var(--ds-space-20);
@@ -24,6 +24,7 @@
   min-width: var(--ds-size-80);
   padding: var(--ds-tooltip-padding);
   white-space: nowrap;
+  z-index: 9999;
 
   &:after {
     content: "";

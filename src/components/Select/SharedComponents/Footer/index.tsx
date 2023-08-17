@@ -1,8 +1,8 @@
 import React from 'react'
-import Button from '../../Button'
-import { TSelectFooterPropTypes } from '../types'
+import { Button } from '../../../index'
+import { TSelectFooterPropTypes } from '../../types'
 
-const Footer = (props: TSelectFooterPropTypes): JSX.Element => {
+export const Footer = (props: TSelectFooterPropTypes): JSX.Element => {
   const { buttonProps, onApply, onCancel } = props
   return (
     <div className="select__footer">
@@ -17,5 +17,3 @@ const Footer = (props: TSelectFooterPropTypes): JSX.Element => {
     </div>
   )
 }
-
-export default Footer
