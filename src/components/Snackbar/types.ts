@@ -3,6 +3,7 @@ import { TButtonPropTypes } from '../Button/types'
 export type TSnackbarTypes = 'success' | 'error' | 'warning' | 'information'
 
 export interface TToastProps {
+  duration?: number
   type?: TSnackbarTypes
   toastId: number | string
   closeSnackbar?: (id: number | string) => void
