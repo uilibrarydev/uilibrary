@@ -3,20 +3,23 @@
 .snackbar {
   $this: &;
 
-  --ds-snackbar-bg: var(--ds-color-bg-cta-secondary-default);
-  --ds-snackbar-padding: var(--ds-space-16) var(--ds-space-24);
-  --ds-snackbar-border-radius: var(--ds-border-radius-xs);
-  --ds-snackbar-shadow: var(--ds-shadow-2);
+
+  // --ds-snackbar-bg: var(--ds-color-bg-cta-secondary-default);
+  // --ds-snackbar-padding: var(--ds-space-16) var(--ds-space-24);
+  // --ds-snackbar-border-radius: var(--ds-border-radius-xs);
+  // --ds-snackbar-shadow: var(--ds-shadow-2);
 
   @include flexbox;
-  @include align-items(center);
-  @include center(horizontal);
-  @include fixed(30px, unset, unset, 50%);
-  padding: var(--ds-snackbar-padding);
-  background-color: var(--ds-snackbar-bg);
-  border-radius: var(--ds-snackbar-border-radius);
-  box-shadow: var(--ds-snackbar-shadow);
-  max-width: 80%;
+  // @include align-items(center);
+  // @include center(horizontal);
+  // @include fixed(unset, unset, 30px, 50%);
+  // padding: var(--ds-snackbar-padding);
+  // background-color: var(--ds-snackbar-bg);
+  // border-radius: var(--ds-snackbar-border-radius);
+  // box-shadow: var(--ds-snackbar-shadow);
+  // max-width: 80%;
+
+
 
   &__text {
     @include truncate(100%);

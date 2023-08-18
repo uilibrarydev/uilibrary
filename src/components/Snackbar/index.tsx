@@ -1,17 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { ToastContainer, toast, Slide } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
-import { TSnackbarProps } from './types'
+import { Text, Icon, Button } from '../index'
+
 import '../../assets/styles/components/_snackbar.scss'
-import Text from '../Text'
-import Icon from '../Icon'
-import Button from '../Button'
+import { TSnackbarProps } from './types'
+import { ICONS_MAPPING, TYPE_MAPPING } from './consts'
 
 export const Snackbar = (props: TSnackbarProps): JSX.Element | null => {
-  const { text, iconProps, className = '', withAction } = props
+  const {
+    text,
+    actionProps,
+    closeSnackbar,
+    duration = 6000,
+    type = 'information',
+    position = 'bottom-center'
+  } = props
 
-  return (
-    <div className={`snackbar ${className}`}>
-      {iconProps?.name ? <Icon {...iconProps} className="mr-16" size="medium" /> : null}
+  const CustomToastWithLink = () => (
+    <div className="snackbar">
+      <Icon name={ICONS_MAPPING[type]} type={TYPE_MAPPING[type]} className="mr-16" size="medium" />
+
       <Text
         className="snackbar__text"
         type="primary"
@@ -21,10 +31,39 @@ export const Snackbar = (props: TSnackbarProps): JSX.Element | null => {
       >
         {text}
       </Text>
-      {withAction ? (
-        <Button className="ml-16" size="small" type="tertiary" buttonText="Action" />
+      {actionProps ? (
+        <Button
+          size="small"
+          type="tertiary"
+          {...actionProps}
+          className="ml-16"
+          onClick={(e) => {
+            toast.dismiss()
+            actionProps?.onClick?.(e)
+          }}
+        />
       ) : null}
     </div>
+  )
+
+  useEffect(() => {
+    toast(CustomToastWithLink, {
+      onClose: closeSnackbar,
+      bodyClassName: '__body',
+      className: '_container'
+    })
+  }, [])
+
+  return (
+    <ToastContainer
+      position={position}
+      autoClose={duration}
+      hideProgressBar
+      closeButton={() => null}
+      transition={Slide}
+      theme="light"
+      className="snackbar"
+    />
   )
 }
 

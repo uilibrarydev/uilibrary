@@ -123,80 +123,26 @@ const Template = (): JSX.Element => {
       >
         <>
           <FormField
-            isNeedChangeHandler
             name={'switcher'}
             As={(props: IFormCompProps) => {
               return <Switcher {...props} />
             }}
           />
-          {/* <FormField
-            
-            isNeedChangeHandler
-            name={'select'}
-            As={(props: IFormCompProps) => {
-              return <Select {...props} label="jjjj" isRequiredField options={OPTIONS} />
-            }}
-          />
-          <FormField
-            
-            isNeedChangeHandler
-            name={'multiselect'}
-            As={(props: IFormCompProps) => {
-              return (
-                <MultiSelect
-                  {...props}
-                  options={[
-                    {
-                      label: 'label'
-                    }
-                  ]}
-                />
-              )
-            }}
-          />
-        
 
-        
+          <FormField name="counter" As={(props) => <Counter {...props} min={5} max={90} />} />
 
           <FormField
-            
-            name={'esiminch'}
-            As={(props: IFormCompProps) => (
-              <Input required label="Unit name" placeholder="Unit name" {...props} />
-            )}
-          /> */}
-
-          <FormField
-            isNeedChangeHandler
-            name="counter"
-            As={(props) => <Counter {...props} min={5} max={90} />}
-          />
-
-          <FormField
-            isNeedChangeHandler
             name={'radio'}
             As={(props: IFormCompProps) => {
               return <RadioGroup {...props} options={RADIO_OPTIONS} />
             }}
           />
 
-          <FormField
-            isNeedChangeHandler
-            name={'obj.name'}
-            As={(props) => <Input label="name" {...props} />}
-          />
+          <FormField name={'obj.name'} As={(props) => <Input label="name" {...props} />} />
 
-          <FormField
-            isNeedChangeHandler
-            name={'obj.surname'}
-            As={(props) => <Input label="surname" {...props} />}
-          />
+          <FormField name={'obj.surname'} As={(props) => <Input label="surname" {...props} />} />
 
-          <FormField
-            isNeedChangeHandler
-            name={'firstname'}
-            As={(props) => <Input label="firstname" {...props} />}
-          />
+          <FormField name={'firstname'} As={(props) => <Input label="firstname" {...props} />} />
 
           <Button buttonActionType="submit" buttonText={'Ok'} />
         </>
