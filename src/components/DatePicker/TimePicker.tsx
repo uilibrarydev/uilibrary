@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import moment from 'moment'
+import moment from 'moment' // TODO check if we can not to use this  package
 import DatePicker, { registerLocale } from 'react-datepicker'
 import hy from 'date-fns/locale/hy'
 import Input from '../Input'
