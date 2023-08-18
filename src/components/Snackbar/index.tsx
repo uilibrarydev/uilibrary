@@ -11,7 +11,6 @@ import { ICONS_MAPPING, TYPE_MAPPING } from './consts'
 export const Snackbar = (props: TSnackbarProps): JSX.Element | null => {
   const {
     text,
-    isVisible,
     actionProps,
     closeSnackbar,
     duration = 6000,
@@ -48,15 +47,12 @@ export const Snackbar = (props: TSnackbarProps): JSX.Element | null => {
   )
 
   useEffect(() => {
-    if (isVisible) {
-      toast(CustomToastWithLink, {
-        onClose: closeSnackbar,
-        bodyClassName: '__body',
-        className: '_container'
-      })
-      closeSnackbar()
-    }
-  }, [isVisible])
+    toast(CustomToastWithLink, {
+      onClose: closeSnackbar,
+      bodyClassName: '__body',
+      className: '_container'
+    })
+  }, [])
 
   return (
     <ToastContainer

@@ -21,12 +21,13 @@ const Template = (args) => {
     <div>
       <Button buttonText={'open snackbar'} onClick={() => setVisibility(true)} />
 
-      <SnackbarComp
-        {...args}
-        isVisible={isVisible}
-        closeSnackbar={closeSnackbar}
-        actionProps={{ buttonText: 'Close', onClick: closeSnackbar }}
-      />
+      {isVisible ? (
+        <SnackbarComp
+          {...args}
+          closeSnackbar={closeSnackbar}
+          actionProps={{ buttonText: 'Close', onClick: closeSnackbar }}
+        />
+      ) : null}
     </div>
   )
 }
