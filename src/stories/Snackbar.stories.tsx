@@ -1,10 +1,9 @@
 import React from 'react'
-import { Button, Snackbar as SnackbarComp } from '../components'
-import useGetSnackbar from '../components/Snackbar'
+import { Button, useGetSnackbar } from '../components'
 
 export default {
   title: 'Snackbar',
-  component: SnackbarComp,
+  component: useGetSnackbar,
   argTypes: {
     type: {
       options: ['information', 'success', 'error', 'warning'],
