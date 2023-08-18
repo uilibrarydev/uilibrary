@@ -26,7 +26,7 @@ import { WithFormFeedback } from './context/FormContextProvider'
 import Avatar from './components/Avatar'
 import Tooltip from './components/Tooltip'
 import Tab from './components/Tab'
-import Snackbar from './components/Snackbar'
+import { useGetSnackbar } from './components/Snackbar'
 import Popover from './components/Popover'
 import Breadcrumb from './components/Breadcrumb'
 import Image from './components/Image'
@@ -73,7 +73,7 @@ export {
   Tooltip,
   Popover,
   Tab,
-  Snackbar,
+  useGetSnackbar,
   Breadcrumb,
   Image,
   SideSheet,

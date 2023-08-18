@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button, Snackbar as SnackbarComp } from '../components'
+import useGetSnackbar from '../components/Snackbar'
 
 export default {
   title: 'Snackbar',
@@ -12,28 +13,30 @@ export default {
   }
 }
 
-const Template = (args) => {
-  const [isVisible, setVisibility] = useState(false)
-
-  const closeSnackbar = () => setVisibility(false)
+const Template = () => {
+  const { _toast, Comp } = useGetSnackbar({ duration: 60000, position: 'bottom-center' })
 
   return (
     <div>
-      <Button buttonText={'open snackbar'} onClick={() => setVisibility(true)} />
-
-      {isVisible ? (
-        <SnackbarComp
-          {...args}
-          closeSnackbar={closeSnackbar}
-          actionProps={{ buttonText: 'Close', onClick: closeSnackbar }}
+      <>
+        <Button
+          buttonText={'notify'}
+          onClick={() => {
+            const __id = Math.random()
+            _toast({
+              text: `${__id}`,
+              toastId: __id,
+              actionProps: {
+                buttonText: 'Close'
+              }
+            })
+          }}
         />
-      ) : null}
+        <Comp />
+      </>
     </div>
   )
 }
 export const Snackbar = Template.bind({})
 
-Snackbar.args = {
-  type: 'information',
-  text: 'Prompt text'
-}
+Snackbar.args = {}
