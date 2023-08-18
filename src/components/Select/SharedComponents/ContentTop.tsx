@@ -29,7 +29,7 @@ export const ContentTop = (props: TProps): JSX.Element => {
 
   const {
     searchInputPlaceHolder,
-    innerLabel = 'select',
+    innerLabel = 'Group name',
     clearAllLabel = 'Clear All',
     selectAllLabel = 'Select All'
   } = translations || {}
@@ -63,14 +63,14 @@ export const ContentTop = (props: TProps): JSX.Element => {
   const removeFilter = () => setSearchValue('')
 
   return (
-    <div className="content_top_container">
+    <div className="content-top">
       {helperText ? (
-        <Text size="xsmall" type="secondary">
+        <Text size="xsmall" type="secondary" className="content-top__label">
           {helperText}
         </Text>
       ) : null}
       <Input
-        className="select_search_input"
+        className="content-top__search"
         size="small"
         placeholder={searchInputPlaceHolder}
         handleChange={onSearch}

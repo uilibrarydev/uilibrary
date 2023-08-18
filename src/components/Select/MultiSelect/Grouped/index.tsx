@@ -138,7 +138,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
               >
                 <div>
                   {isSearchAvailable && (
-                    <div className="selected_container">
+                    <div className="selected-items">
                       {selectedOptions.map((selectedItem: TSelectOption) => {
                         return (
                           <OptionItem

@@ -457,7 +457,7 @@ $space-prefixes: (
   }
 
   &--vertical {
-    overflow-y: scroll;
+    overflow-y: auto;
 
     /* Works on Chrome, Edge, and Safari */
     &::-webkit-scrollbar {
@@ -467,7 +467,7 @@ $space-prefixes: (
   }
 
   &--horizontal {
-    overflow-x: scroll;
+    overflow-x: auto;
 
     /* Works on Chrome, Edge, and Safari */
     &::-webkit-scrollbar {

@@ -8,7 +8,6 @@ import { OptionItem } from '../../helperComponents/OptionItem'
 import { useOnOutsideClick } from '../../hooks'
 import { useGetElemPositions } from '../../hooks/useGetElemPositions'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
-import './index.scss'
 
 const Menu = (props: TMenuProps): JSX.Element | null => {
   const { menuItems = [], parentRef, onClose, position = 'right' } = props

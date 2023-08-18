@@ -16,16 +16,16 @@ export const Actions = (props: TProps): JSX.Element | null => {
   const close = () => setIsMenuOpen(false)
 
   return selectActions.length ? (
-    <div className="action_field">
+    <div className="action-bar">
       {innerLabel ? (
-        <Text size="xsmall" type="secondary">
+        <Text size="xsmall" type="secondary" className="action-bar__label">
           {innerLabel}
         </Text>
       ) : null}
-      <div ref={setButtonRef}>
+      <div ref={setButtonRef} className="action-bar__right">
         <Button type="tertiary" onClick={open} iconProps={{ name: 'more' }} size="small" />
         {isMenuOpen && buttonRef ? (
-          <Menu menuItems={selectActions} parentRef={buttonRef} onClose={close} />
+          <Menu menuItems={selectActions} parentRef={buttonRef} onClose={close}/>
         ) : null}
       </div>
     </div>
