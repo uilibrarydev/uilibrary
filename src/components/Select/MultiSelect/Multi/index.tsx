@@ -10,9 +10,9 @@ import { ContentTop, Loading } from '../../SharedComponents'
 import { TMultySingleTabPropTypes } from '../../types'
 import '../../../../assets/styles/components/_select.scss'
 import { DROPDOWN_MAX_HEIGHT } from '../consts'
-import Text from "../../../Text";
-import Image from "../../../Image";
-import {NoResult} from "../../SharedComponents/NoResult";
+import Text from '../../../Text'
+import Image from '../../../Image'
+import { NoResult } from '../../SharedComponents/NoResult'
 
 export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null => {
   const {
@@ -145,8 +145,7 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
                   )
                 })}
 
-                <NoResult/>
-
+                <NoResult />
               </div>
               {footer}
             </>
