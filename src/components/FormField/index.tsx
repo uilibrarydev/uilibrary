@@ -7,7 +7,7 @@ import { TFormFieldPropTypes } from './types'
 import '../../assets/styles/components/_form.scss'
 
 const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
-  const { As, name, isNeedChangeHandler = false, className = '', dataId = '' } = props
+  const { As, name, className = '', dataId = '' } = props
   const { register, errors, setValue, control } = useContext(FormContext)
 
   if (!register) {
@@ -28,17 +28,13 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
                 hasError: !!fieldState.error,
                 dataId,
                 ...registerOptions,
-                ...(isNeedChangeHandler
-                  ? {
-                      setFieldValue: (data, name, options) =>
-                        setValue(data, name, {
-                          shouldValidate: true,
-                          shouldDirty: true,
-                          shouldTouch: true,
-                          ...options
-                        })
-                    }
-                  : {}),
+                setFieldValue: (data, name, options) =>
+                  setValue(data, name, {
+                    shouldValidate: true,
+                    shouldDirty: true,
+                    shouldTouch: true,
+                    ...options
+                  }),
                 ...field
               })}
               <ReactHookFormErrorMessage
