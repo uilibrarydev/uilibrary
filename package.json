@@ -106,7 +106,6 @@
     "react-datepicker": "^4.8.0",
     "react-hook-form": "^7.39.7",
     "react-input-mask": "^2.0.4",
-    "react-toastify": "^9.0.3",
     "sass": "^1.56.1",
     "storybook-design-token": "^2.8.2",
     "yup": "^0.32.11"
