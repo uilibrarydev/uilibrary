@@ -23,7 +23,7 @@ import Avatar from './Avatar'
 import Tooltip from './Tooltip'
 import RadioGroup from './Radio/RadioGroup'
 import Tab from './Tab'
-import { useGetSnackbar } from './Snackbar'
+import { Snackbar, notify } from './Snackbar'
 import Popover from './Popover'
 import Breadcrumb from './Breadcrumb'
 import Image from './Image'
@@ -66,7 +66,8 @@ export {
   Popover,
   RadioGroup,
   Tab,
-  useGetSnackbar,
+  Snackbar,
+  notify,
   Breadcrumb,
   Image,
   Menu,
