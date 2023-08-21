@@ -5,14 +5,11 @@ import { useGetElemSizes } from '../../../../hooks/useGetElemSizes'
 
 import { OptionItem } from '../../../../helperComponents/OptionItem'
 
-import { ContentTop, Loading } from '../../SharedComponents'
+import { ContentTop, Loading, NoResult } from '../../SharedComponents'
 
+import { DROPDOWN_MAX_HEIGHT } from '../consts'
 import { TMultySingleTabPropTypes } from '../../types'
 import '../../../../assets/styles/components/_select.scss'
-import { DROPDOWN_MAX_HEIGHT } from '../consts'
-import Text from '../../../Text'
-import Image from '../../../Image'
-import { NoResult } from '../../SharedComponents/NoResult'
 
 export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null => {
   const {
@@ -32,6 +29,8 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
     labelRightIconComponent,
     optionRightIconComponent
   } = props
+
+  const { emptyListMainMessage, emptyListSecondaryMessage } = translations
 
   const [contentContainerRef, setContentContainerRef] = useState<HTMLDivElement | null>(null)
 
@@ -144,9 +143,13 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
                     />
                   )
                 })}
-
-                <NoResult />
               </div>
+              {filteredData.length === 0 ? (
+                <NoResult
+                  mainMessage={emptyListMainMessage}
+                  paragraphMessage={emptyListSecondaryMessage}
+                />
+              ) : null}
               {footer}
             </>
           )}

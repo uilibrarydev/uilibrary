@@ -5,7 +5,7 @@ import { useGetElemSizes } from '../../../../hooks/useGetElemSizes'
 import { OptionItem } from '../../../../helperComponents/OptionItem'
 
 import { DROPDOWN_MAX_HEIGHT } from '../consts'
-import { ContentTop, SelectEmptyState, Loading } from '../../SharedComponents'
+import { ContentTop, Loading, NoResult } from '../../SharedComponents'
 
 import { TMultiSelectGroupedProps } from '../../types'
 import '../../../../assets/styles/components/_select.scss'
@@ -167,7 +167,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
                   )
                 })}
                 {filteredData.length === 0 ? (
-                  <SelectEmptyState
+                  <NoResult
                     mainMessage={emptyListMainMessage}
                     paragraphMessage={emptyListSecondaryMessage}
                   />

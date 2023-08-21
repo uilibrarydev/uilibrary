@@ -43,14 +43,21 @@ export const ContentTop = (props: TProps): JSX.Element => {
           label: selectAllLabel,
           value: 1,
           handler: selectAll,
-          disabled: isSelectAllDisabled
+          disabled: isSelectAllDisabled,
+          iconProps: { name: 'select-all' }
         }
       ]
     }
     if (clearAllLabel) {
       options = [
         ...options,
-        { label: clearAllLabel, value: 2, handler: clearAll, disabled: isAnySelected }
+        {
+          label: clearAllLabel,
+          value: 2,
+          handler: clearAll,
+          disabled: isAnySelected,
+          iconProps: { name: 'close' }
+        }
       ]
     }
     return options

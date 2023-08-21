@@ -1,3 +1,5 @@
+import { TIconTypes } from '../components/Icon/types'
+
 export {}
 
 declare global {
@@ -6,6 +8,7 @@ declare global {
 
   type TClickHandler = (e: TClickEventType) => void
   type TSelectIconProps = {
+    type?: TIconTypes
     name: string
     size?: TIconSize
     className?: string
