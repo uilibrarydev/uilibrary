@@ -61,7 +61,8 @@
       position: absolute;
       bottom: calc(var(--ds-size-16) * -1);
       border-radius: 50%;
-      left: calc(var(--ds-side-sheet-width) / 2  - var(--ds-size-16))
+      left: calc(var(--ds-side-sheet-width) / 2  - var(--ds-size-16));
+      z-index: 999;
     }
   }
 
