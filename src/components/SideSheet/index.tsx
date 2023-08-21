@@ -1,5 +1,6 @@
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import classnames from 'classnames'
 
 import { AnimatedComponent } from '../../helperComponents/AnimatePresenceWrapper'
 import { useOnOutsideClick } from '../../hooks'
@@ -31,15 +32,36 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
       },
       cancel: { buttonText: 'Cancel' }
     },
+    scrollToTopOptions,
     children
   } = props
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
+  const [isShownScrollIcon, setIsShownScrollIcon] = useState<boolean>(false)
+  const scrollbarContainerRef = useRef<HTMLDivElement>(null)
 
   useOnOutsideClick(containerRef, onClose)
 
   const handleSubmit = useCallback(() => {
     onSumbit?.()
   }, [onSumbit])
+
+  useEffect(() => {
+    if (isOpen && scrollToTopOptions) {
+      const handleOnScroll = (e: Event) => {
+        setIsShownScrollIcon(
+          (e.currentTarget as HTMLDivElement).scrollTop > scrollToTopOptions.onPixel
+        )
+      }
+      scrollbarContainerRef.current?.addEventListener('scroll', handleOnScroll)
+    }
+  }, [isOpen, scrollToTopOptions])
+
+  const handleScrollToTop = useCallback(() => {
+    scrollbarContainerRef.current?.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, [])
 
   const isFromLeft = position === 'left'
 
@@ -73,7 +95,7 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
               }
             }}
             transition={{ duration: 0.5 }}
-            className={`side-sheet__container side-sheet__${position} ${className}`}
+            className={classnames('side-sheet__container', `side-sheet__${position}`, className)}
             ref={setContainerRef}
           >
             <div className="side-sheet__header">
@@ -96,8 +118,22 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
                 ) : null}
                 <Button size="small" type="tertiary" onClick={onClose} {...headerButtons.close} />
               </div>
+              {isShownScrollIcon && (
+                <Button
+                  size="large"
+                  type="secondary"
+                  iconProps={{ name: 'caret-up' }}
+                  className="side-sheet__header__scroll-top"
+                  onClick={handleScrollToTop}
+                />
+              )}
             </div>
-            <div className="side-sheet__content scrollbar scrollbar--vertical">{children}</div>
+            <div
+              className="side-sheet__content scrollbar scrollbar--vertical"
+              ref={scrollbarContainerRef}
+            >
+              {children}
+            </div>
             <div className="side-sheet__footer">
               {footerButtons.extraButton ? (
                 <Button

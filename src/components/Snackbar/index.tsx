@@ -1,25 +1,17 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { ToastContainer, toast, Slide } from 'react-toastify'
+import type { ToastItem } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import { Text, Icon, Button } from '../index'
 
 import '../../assets/styles/components/_snackbar.scss'
-import { TSnackbarProps } from './types'
+import { TSnackbarProps, TToastProps } from './types'
 import { ICONS_MAPPING, TYPE_MAPPING } from './consts'
-
-export const Snackbar = (props: TSnackbarProps): JSX.Element | null => {
-  const {
-    text,
-    actionProps,
-    closeSnackbar,
-    duration = 6000,
-    type = 'information',
-    position = 'bottom-center'
-  } = props
-
-  const CustomToastWithLink = () => (
-    <div className="snackbar">
+const DEFAULT_DURAION = 6000
+const CustomToast = ({ actionProps, toastId, type = 'information', text }: TToastProps) => {
+  return (
+    <div className="snackbar" key={toastId}>
       <Icon name={ICONS_MAPPING[type]} type={TYPE_MAPPING[type]} className="mr-16" size="medium" />
 
       <Text
@@ -38,33 +30,43 @@ export const Snackbar = (props: TSnackbarProps): JSX.Element | null => {
           {...actionProps}
           className="ml-16"
           onClick={(e) => {
-            toast.dismiss()
+            toast.dismiss(toastId)
             actionProps?.onClick?.(e)
           }}
         />
       ) : null}
     </div>
   )
+}
 
-  useEffect(() => {
-    toast(CustomToastWithLink, {
-      onClose: closeSnackbar,
-      bodyClassName: '__body',
-      className: '_container'
-    })
-  }, [])
+const notify = (toastProps: TToastProps): void => {
+  const { toastId, closeSnackbar, actionProps, duration = DEFAULT_DURAION } = toastProps
+  toast(() => CustomToast(toastProps), {
+    bodyClassName: '__body',
+    className: '_container',
+    toastId,
+    autoClose: actionProps ? false : duration
+  })
+  toast.onChange((payload: ToastItem) => {
+    if (payload.status === 'removed') {
+      closeSnackbar?.(payload.id)
+    }
+  })
+}
+
+const Snackbar = (props: TSnackbarProps): JSX.Element => {
+  const { duration = 1000, position = 'bottom-center' } = props
 
   return (
     <ToastContainer
+      theme="light"
+      hideProgressBar
+      transition={Slide}
       position={position}
       autoClose={duration}
-      hideProgressBar
       closeButton={() => null}
-      transition={Slide}
-      theme="light"
-      className="snackbar"
     />
   )
 }
 
-export default Snackbar
+export { Snackbar, notify }
