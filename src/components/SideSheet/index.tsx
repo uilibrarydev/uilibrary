@@ -58,7 +58,8 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
 
   const handleScrollToTop = useCallback(() => {
     scrollbarContainerRef.current?.scrollTo({
-      top: 0
+      top: 0,
+      behavior: 'smooth'
     })
   }, [])
 
