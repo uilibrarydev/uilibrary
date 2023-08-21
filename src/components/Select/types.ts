@@ -5,8 +5,8 @@ export interface TNestedSelectProps extends IFormCompProps {
   isRequiredField?: boolean
   label?: string | JSX.Element
   placeHolder?: string
-  selectedItems?: TItemValue[]
-  setSelectedValue: (value: TItemValue) => void
+  selectedItems?: TSelectedValue[]
+  setSelectedValue: (value: TSelectedValue) => void
   optionRightIconComponent?: JSX.Element
   labelRightIconComponent?: JSX.Element
   avatar?: string
@@ -23,13 +23,14 @@ export type TSelectTranslations = {
 }
 
 interface TMultiSelectCompProps extends IFormCompProps {
+  maxSelectCount: number
   isSearchAvailable: boolean
   helperText?: string
   isOpen: boolean
   isLoading?: boolean
   translations: TSelectTranslations
-  selectedValues: TItemValue[]
-  setSelectedValues: (values: TItemValue[]) => void
+  selectedValues: TSelectedValue[]
+  setSelectedValues: (values: TSelectedValue[]) => void
   labelLeftIconProps?: {
     name: string
     size?: TIconSize
@@ -39,8 +40,8 @@ interface TMultiSelectCompProps extends IFormCompProps {
   avatar?: string
   optionRightIconComponent?: JSX.Element
   labelRightIconComponent?: JSX.Element
-  onItemSelect: (item: TItemValue) => void
-  onItemDeselect: (item: TItemValue) => void
+  onItemSelect: (item: TSelectedValue) => void
+  onItemDeselect: (item: TSelectedValue) => void
   footer: JSX.Element
 }
 
@@ -53,14 +54,15 @@ export interface TMultiSelectGroupedProps extends TMultiSelectCompProps {
 }
 
 export interface TMultiSelectPropTypes extends IFormCompProps {
+  maxSelectCount?: number
   withTabs?: boolean
   isGrouped?: boolean
   placeHolder?: string
   label?: string | JSX.Element
-  selectedItems?: [TItemValue]
+  selectedItems?: TSelectedValue[]
   translations: TSelectTranslations
   options: TSelectOptions | TSelectGroupOptions
-  setSelectedItems?: (items: TItemValue[]) => void
+  setSelectedItems?: (items: TSelectedValue[]) => void
   isRequiredField?: boolean
   footerButtonProps: {
     cancel: TButtonPropTypes
@@ -84,8 +86,8 @@ export interface TSingleSelectPropTypes extends IFormCompProps {
   label?: string | JSX.Element
   options: TSelectOptions
   placeHolder?: string
-  selectedItem?: TItemValue
-  setSelectedItem?: (items: TItemValue | undefined) => void
+  selectedItem?: TSelectedValue
+  setSelectedItem?: (items: TSelectedValue | undefined) => void
   isRequiredField?: boolean
   labelLeftIconProps?: {
     name: string
@@ -117,8 +119,8 @@ export interface TFilterProps extends IFormCompProps {
   isGrouped: boolean
   isOpen: boolean
   options: TSelectOptions | TSelectGroupOptions
-  selectedItems: [TItemValue]
-  setSelectedItems: (items: TItemValue[]) => void
+  selectedItems: TSelectedValue[]
+  setSelectedItems: (items: TSelectedValue[]) => void
   labelLeftIconProps?: {
     name: string
     size?: TIconSize
@@ -153,8 +155,8 @@ export interface TFilterDropdownContentProps extends IFormCompProps {
   labelRightIconComponent?: JSX.Element
   // closeHandler: () => void
   filterValue: string
-  onItemSelect: (item: TItemValue) => void
-  onItemDeselect: (item: TItemValue) => void
+  onItemSelect: (item: TSelectedValue) => void
+  onItemDeselect: (item: TSelectedValue) => void
   checkIsSelected: (item: TItemValue) => boolean
 }
 
@@ -174,7 +176,7 @@ export interface TFilterGroupDropdownContentProps extends IFormCompProps {
   optionRightIconComponent?: JSX.Element
   labelRightIconComponent?: JSX.Element
   filterValue: string
-  onItemSelect: (item: TItemValue) => void
-  onItemDeselect: (item: TItemValue) => void
+  onItemSelect: (item: TSelectedValue) => void
+  onItemDeselect: (item: TSelectedValue) => void
   checkIsSelected: (item: TItemValue) => boolean
 }

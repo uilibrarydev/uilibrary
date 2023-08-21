@@ -44,22 +44,22 @@ export default {
 
 const OPTIONS: TSelectOptions = [
   {
-    value: 'armenia',
+    value: 1,
     label: 'Armenia',
     meta: 'AM'
   },
   {
-    value: 'italy',
+    value: 2,
     label: 'Italy',
     meta: 'IT'
   },
   {
-    value: 'france',
+    value: 3,
     label: 'France',
     meta: 'FR'
   },
   {
-    value: 'spain',
+    value: 4,
     label: 'Spain',
     meta: 'SP'
   },
@@ -219,6 +219,8 @@ const MultiSelect1 = (args): JSX.Element => {
     <div style={{ width: 320 }}>
       <MultiSelectComp
         {...args}
+        isGrouped
+        maxSelectCount={3}
         emptyListMessage="List is Empty"
         selectedItems={selectedValues}
         setSelectedItems={setSelectedValues}
@@ -243,7 +245,7 @@ export const MultiSelect = MultiSelect1.bind({})
 MultiSelect.args = {
   isLoading: false,
   label: 'Select',
-  options: OPTIONS,
+  options: OPTIONS_GROUPED,
   avatar: image.src,
   placeHolder: 'Select country',
   innerLabel: 'Select',

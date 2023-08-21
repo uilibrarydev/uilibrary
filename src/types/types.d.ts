@@ -4,6 +4,7 @@ export {}
 
 declare global {
   type TItemValue = string | number | null
+  type TSelectedValue = { value: TItemValue; label: TItemLabel }
   declare type TItemLabel = string | number
 
   type TClickHandler = (e: TClickEventType) => void
@@ -49,6 +50,7 @@ declare global {
     | TRangePickerValues
     | null
     | TItemValue[]
+    | TSelectedValue[]
   declare type TOnChange = (event: TChangeEventType) => void
 
   // Props which will pass FormField to component

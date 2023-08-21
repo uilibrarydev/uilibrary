@@ -42,10 +42,10 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
 
   const { overflowText } = localizations
 
-  const initialSelected = (value as TItemValue[]) || selectedItems || null
+  const initialSelected = (value as TSelectedValue[]) || selectedItems || null
 
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedValues, setSelectedValues] = useState<TItemValue[]>(initialSelected)
+  const [selectedValues, setSelectedValues] = useState<TSelectedValue[]>(initialSelected)
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
 
   const closeDropdown = () => setIsOpen(false)
@@ -60,7 +60,7 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
 
   useOnOutsideClick(containerRef, cancelCelectedItems)
 
-  const submitSelectedValue = (selections: TItemValue[]) => {
+  const submitSelectedValue = (selections: TSelectedValue[]) => {
     if (setSelectedItems) {
       setSelectedItems(selections)
     }
@@ -104,18 +104,19 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
     }
   }
 
-  const onItemSelect = useCallback((item: TItemValue) => {
-    setSelectedValues((selected: TItemValue[]) => [...selected, item])
+  const onItemSelect = useCallback((item: TSelectedValue) => {
+    setSelectedValues((selected: TSelectedValue[]) => [...selected, item])
   }, [])
 
-  const onItemDeselect = (item: TItemValue) => {
-    setSelectedValues((selected: TItemValue[]) =>
-      selected.filter((optionValue: TItemValue) => optionValue !== item)
+  const onItemDeselect = (item: TSelectedValue) => {
+    setSelectedValues((selected: TSelectedValue[]) =>
+      selected.filter((optionValue: TSelectedValue) => optionValue.value !== item.value)
     )
   }
 
   const selectedItemsLabels = useMemo(() => {
-    const joinedLabel = selectedValues.join(', ')
+    const onlyLabels = selectedValues.map((selected) => selected.label)
+    const joinedLabel = onlyLabels.join(', ')
 
     return checkIsValueOverflowed(joinedLabel)
       ? setTranslationValue(overflowText, selectedValues.length)
@@ -148,6 +149,7 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
           rightIconProps={{ name: isOpen ? 'caret-up' : 'caret-down' }}
         />
       </div>
+
       <SelectComp
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore

@@ -26,7 +26,8 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
     labelRightIconComponent,
     helperText,
     translations,
-    isSearchAvailable
+    isSearchAvailable,
+    maxSelectCount
   } = props
 
   const { emptyListMainMessage, emptyListSecondaryMessage } = translations
@@ -52,22 +53,25 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
 
   const clearAll = useCallback(() => {
     setAllSelected(false)
-    const filteredValues = selectedValues.filter((value: TItemValue) => {
+    const filteredValues = selectedValues.filter((selectedItem: TSelectedValue) => {
       const currentTabValues = currentTabData.map((item) => item.value)
-      return currentTabValues.indexOf(value) === -1
+      return currentTabValues.indexOf(selectedItem.value) === -1
     })
 
     setSelectedValues(filteredValues)
   }, [selectedValues, activeTab, currentTabData])
 
-  const onDeselect = (item: TItemValue) => {
+  const onDeselect = (item: TSelectedValue) => {
     setAllSelected(false)
     onItemDeselect(item)
   }
 
   const selectAll = useCallback(() => {
     setAllSelected(true)
-    const allValues = currentTabData.map((item: TSelectOption) => item.value)
+    const allValues = currentTabData.map((item: TSelectOption) => {
+      const { value, label } = item
+      return { value, label }
+    })
     setSelectedValues(selectedValues.concat(allValues))
   }, [currentTabData, activeTab, selectedValues])
 
@@ -85,7 +89,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
     return options.reduce((acc: TSelectOption[], option: TSelectGroupOption) => {
       const { data } = option
       const selectedItems = data.filter(
-        (item: TSelectOption) => selectedValues.indexOf(item.value) !== -1
+        (item: TSelectOption) => selectedValues.findIndex((s) => s.value === item.value) !== -1
       )
       return [...acc, ...selectedItems]
     }, [])
@@ -153,14 +157,16 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
                 )}
                 <Divider type="primary" isHorizontal />
                 {filteredData.map((item: TSelectOption) => {
-                  const isSelected = selectedValues.indexOf(item.value) !== -1
+                  const isSelected = selectedValues.findIndex((s) => s.value === item.value) !== -1
 
                   return (
                     <OptionItem
                       data={item}
                       key={item.value}
                       onClick={isSelected ? onDeselect : onItemSelect}
-                      disabled={item.disabled}
+                      disabled={
+                        item.disabled || (!isSelected && selectedValues.length === maxSelectCount)
+                      }
                       isSelected={isSelected}
                       {...optionProps}
                     />

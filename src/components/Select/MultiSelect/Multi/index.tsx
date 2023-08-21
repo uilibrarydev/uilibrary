@@ -27,7 +27,8 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
     selectedValues,
     labelLeftIconProps,
     labelRightIconComponent,
-    optionRightIconComponent
+    optionRightIconComponent,
+    maxSelectCount
   } = props
 
   const { emptyListMainMessage, emptyListSecondaryMessage } = translations
@@ -46,18 +47,21 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
 
   const selectAll = useCallback(() => {
     setAllSelected(true)
-    const allValues = options.map((item: TSelectOption) => item.value)
+    const allValues = options.map((item: TSelectOption) => {
+      const { value, label } = item
+      return { value, label }
+    })
 
     setSelectedValues(allValues)
   }, [options])
 
-  const onDeselect = (item: TItemValue) => {
+  const onDeselect = (item: TSelectedValue) => {
     setAllSelected(false)
     onItemDeselect(item)
   }
 
   const checkIsSelected = (itemValue: TItemValue) => {
-    return selectedValues.find((item) => item === itemValue) !== undefined
+    return selectedValues.find((item) => item.value === itemValue) !== undefined
   }
 
   const filteredData = useMemo(() => {
@@ -71,7 +75,10 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
   }, [searchValue, options])
 
   const selectedOptions = useMemo(
-    () => options.filter((item: TSelectOption) => selectedValues.indexOf(item.value) !== -1),
+    () =>
+      options.filter(
+        (item: TSelectOption) => selectedValues.findIndex((s) => s.value === item.value) !== -1
+      ),
     [options, selectedValues]
   )
 
@@ -113,7 +120,8 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
                 {isSearchAvailable && (
                   <div className="selected-items">
                     {selectedOptions.map((item: TSelectOption) => {
-                      const isSelected = selectedValues.indexOf(item.value) !== -1
+                      const isSelected =
+                        selectedValues.findIndex((s) => s.value === item.value) !== -1
 
                       return (
                         <OptionItem
@@ -137,7 +145,9 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
                       data={item}
                       key={item.value}
                       onClick={isSelected ? onDeselect : onItemSelect}
-                      disabled={item.disabled}
+                      disabled={
+                        item.disabled || (!isSelected && selectedValues.length === maxSelectCount)
+                      }
                       isSelected={isSelected}
                       {...optionProps}
                     />
