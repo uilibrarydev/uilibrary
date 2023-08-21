@@ -47,32 +47,31 @@ const Counter = (props: ICounterProps): JSX.Element => {
   const isDecreaseIconDisabled = counterValue === undefined || counterValue >= max
 
   return (
-    <div className="counter">
-      <Input
-        {...rest}
-        error={isFormField ? '' : customError}
-        label={label}
-        required={required}
-        leftIconProps={{
-          size: 'small',
-          name: 'minus',
-          className: classNames({ action_active: !isIncreaseIconDisabled }),
-          type: isIncreaseIconDisabled ? 'disabled' : 'primary',
-          onClick: isIncreaseIconDisabled ? noop : increase
-        }}
-        rightIconProps={{
-          name: 'add',
-          size: 'small',
-          className: classNames({ action_active: !isDecreaseIconDisabled }),
-          onClick: isDecreaseIconDisabled ? noop : decrease,
-          type: isDecreaseIconDisabled ? 'disabled' : 'primary'
-        }}
-        type="number"
-        name={name}
-        value={counterValue}
-        onChange={onInputChange}
-      />
-    </div>
+    <Input
+      {...rest}
+      className="counter"
+      error={isFormField ? '' : customError}
+      label={label}
+      required={required}
+      leftIconProps={{
+        size: 'small',
+        name: 'minus',
+        className: classNames({ action_active: !isIncreaseIconDisabled }),
+        type: isIncreaseIconDisabled ? 'disabled' : 'primary',
+        onClick: isIncreaseIconDisabled ? noop : increase
+      }}
+      rightIconProps={{
+        name: 'add',
+        size: 'small',
+        className: classNames({ action_active: !isDecreaseIconDisabled }),
+        onClick: isDecreaseIconDisabled ? noop : decrease,
+        type: isDecreaseIconDisabled ? 'disabled' : 'primary'
+      }}
+      type="number"
+      name={name}
+      value={counterValue}
+      onChange={onInputChange}
+    />
   )
 }
 

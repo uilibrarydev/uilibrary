@@ -165,10 +165,6 @@
     #{$this}__option {
       padding: var(--ds-select-menu-option-padding);
     }
-
-    // .icon {
-    //   color: var(--ds-select-menu-icon-color);
-    // }
   }
 
   &--multi {
@@ -213,13 +209,4 @@
   &__icon {
     font-size: var(--ds-select-group-item-icon-size) !important;
   }
-}
-
-.no-result {
-  @include flexbox;
-  @include align-items(center);
-  @include justify-content(center);
-  @include flex-direction(column);
-  gap: 8px;
-  height: 160px;
 }

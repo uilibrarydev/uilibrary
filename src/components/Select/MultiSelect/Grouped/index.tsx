@@ -189,6 +189,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
               </div>
               {filteredData.length === 0 ? (
                 <NoResult
+                  type="small"
                   mainMessage={emptyListMainMessage}
                   paragraphMessage={emptyListSecondaryMessage}
                 />

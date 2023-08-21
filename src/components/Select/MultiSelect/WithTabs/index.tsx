@@ -168,6 +168,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
                 })}
                 {filteredData.length === 0 ? (
                   <NoResult
+                    type="small"
                     mainMessage={emptyListMainMessage}
                     paragraphMessage={emptyListSecondaryMessage}
                   />
