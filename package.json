@@ -1,7 +1,7 @@
 {
   "homepage": "http://valodyapapikyan.github.io/ameria_ui_library",
   "name": "dino_ui_tools",
-  "version": "1.2.152",
+  "version": "1.2.153",
   "description": "",
   "private": false,
   "main": "dist/index.js",
@@ -22,7 +22,8 @@
     "prettier": "prettier --write \"./{src,stories}/**/**.{js,jsx,ts,tsx}\"",
     "check": "npm run prettier && npm run lint",
     "chromatic": "npx chromatic --project-token=6b1f1965af98",
-    "deploy-storybook": "npm run build-storybook && gh-pages -d storybook-static"
+    "deploy-storybook": "npm run build-storybook && gh-pages -d storybook-static",
+    "install-latest": "npm install --legacy-peer-deps"
   },
   "eslintConfig": {
     "extends": [
@@ -86,12 +87,12 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "rollup": "^2.76.0",
+    "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-typescript2": "^0.32.1",
-    "ts-loader": "^8.0.4",
-    "rollup-plugin-copy": "^3.4.0",
     "sass-loader": "^10.4.1",
+    "ts-loader": "^8.0.4",
     "typescript": "^4.9.5"
   },
   "dependencies": {
@@ -105,7 +106,6 @@
     "react-datepicker": "^4.8.0",
     "react-hook-form": "^7.39.7",
     "react-input-mask": "^2.0.4",
-    "react-toastify": "9.0.3",
     "sass": "^1.56.1",
     "storybook-design-token": "^2.8.2",
     "yup": "^0.32.11"

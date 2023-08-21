@@ -35,8 +35,6 @@
     width: 100%;
     background-color: var(--ds-side-sheet-bg);
     max-width: var(--ds-side-sheet-width);
-
-
   }
 
   &__header {
@@ -46,6 +44,7 @@
     height: var(--ds-side-sheet-header-height);
     padding: var(--ds-side-sheet-header-padding);
     border-bottom: var(--ds-side-sheet-content-border-width) solid var(--ds-side-sheet-content-border-color);
+    position: relative;
 
     &__left, &__right {
       @include flexbox;
@@ -56,6 +55,13 @@
     &__left {
       flex: 1;
       max-width: calc(100% - 64px);
+    }
+
+    &__scroll-top {
+      position: absolute;
+      bottom: calc(var(--ds-size-16) * -1);
+      border-radius: 50%;
+      left: calc(var(--ds-side-sheet-width) / 2  - var(--ds-size-16))
     }
   }
 
