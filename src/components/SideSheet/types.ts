@@ -19,4 +19,7 @@ export interface TSideSheetPropTypes {
     pin?: TButtonPropTypes
     back?: TButtonPropTypes
   }
+  scrollToTopOptions?: {
+    onPixel: number
+  }
 }

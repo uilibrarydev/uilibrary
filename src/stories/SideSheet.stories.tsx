@@ -31,8 +31,13 @@ const Template = (args): JSX.Element => {
           },
           cancel: { buttonText: 'Cancel' }
         }}
+        scrollToTopOptions={{
+          onPixel: 100
+        }}
       >
-        <div>Side Sheet content</div>
+        <>
+          <div style={{ height: 1000 }}>Side Sheet content</div>
+        </>
       </SideSheetComp>
     </div>
   )
