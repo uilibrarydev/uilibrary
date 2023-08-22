@@ -47,7 +47,7 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
     }
   }
 
-  const { errors, isDirty } = formState
+  const { errors, isDirty, isSubmitted, isSubmitting } = formState
   return (
     <form
       onSubmit={handleSubmit(customSubmit)}
@@ -64,6 +64,8 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
           watch,
           reset,
           isDirty,
+          isSubmitted,
+          isSubmitting,
           clearErrors,
           setError
         }}

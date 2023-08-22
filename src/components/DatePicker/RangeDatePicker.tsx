@@ -39,7 +39,11 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
       customInput={
         <div className="date-picker_input-container">
           <Input
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             currentValue={`${moment(rangeArray[0]).format('MMMM d, YYYY')}  - ${moment(
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
               rangeArray[1]
             ).format(format)}`}
           />
