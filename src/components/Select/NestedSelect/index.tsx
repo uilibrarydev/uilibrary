@@ -167,7 +167,6 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
       acc.push(
         <div style={{ paddingLeft: LEVEL_LEFT_MARGIN * level }}>
           <OptionItem
-            className="nested-item"
             data={option}
             key={value}
             isSelected={isSelected}

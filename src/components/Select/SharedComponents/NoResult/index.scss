@@ -1,0 +1,29 @@
+@import "../../../../assets/styles/shared";
+
+.no-result {
+  $this: &;
+
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+  @include flex-direction(column);
+  text-align: center;
+
+  &--large {
+    gap: 8px;
+    padding: 80px 24px;
+
+    #{$this}__icon {
+      width: 95px;
+    }
+  }
+
+  &--small {
+    gap: 4px;
+    padding: 40px 16px;
+
+    #{$this}__icon {
+      width: 67px;
+    }
+  }
+}

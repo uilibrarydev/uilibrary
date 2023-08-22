@@ -3,6 +3,8 @@ import { Meta } from '@storybook/react'
 import { Icon as IconComp, Text } from '../components'
 
 const ICONS = [
+  'add-circle',
+  'select-all',
   'facebook',
   'twitter',
   'instagram',

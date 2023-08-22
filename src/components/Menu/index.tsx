@@ -8,7 +8,6 @@ import { OptionItem } from '../../helperComponents/OptionItem'
 import { useOnOutsideClick } from '../../hooks'
 import { useGetElemPositions } from '../../hooks/useGetElemPositions'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
-import './index.scss'
 
 const Menu = (props: TMenuProps): JSX.Element | null => {
   const { menuItems = [], parentRef, onClose, position = 'right' } = props
@@ -16,13 +15,14 @@ const Menu = (props: TMenuProps): JSX.Element | null => {
   useOnOutsideClick(parentRef, onClose)
 
   const { left, top } = useGetElemPositions(parentRef)
-  const { width } = useGetElemSizes(parentRef)
+  const { width, height } = useGetElemSizes(parentRef)
 
   const menuStyles = useMemo(() => {
     if (position === 'right') {
       return { left: left + width + 4, top: top }
     }
-    return { left: left, top: top + 4 }
+
+    return { left: left, top: top + 4 + height }
   }, [left, top, width, position])
 
   if (!parentRef) {
@@ -41,7 +41,7 @@ const Menu = (props: TMenuProps): JSX.Element | null => {
               value
             }}
             labelLeftIconProps={iconProps}
-            onClick={(e) => {
+            onClick={() => {
               onClose()
               handler()
             }}

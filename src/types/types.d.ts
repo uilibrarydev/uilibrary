@@ -1,11 +1,15 @@
+import { TIconTypes } from '../components/Icon/types'
+
 export {}
 
 declare global {
   type TItemValue = string | number | null
+  type TSelectedValue = { value: TItemValue; label: TItemLabel }
   declare type TItemLabel = string | number
 
   type TClickHandler = (e: TClickEventType) => void
   type TSelectIconProps = {
+    type?: TIconTypes
     name: string
     size?: TIconSize
     className?: string
@@ -46,6 +50,7 @@ declare global {
     | TRangePickerValues
     | null
     | TItemValue[]
+    | TSelectedValue[]
   declare type TOnChange = (event: TChangeEventType) => void
 
   // Props which will pass FormField to component

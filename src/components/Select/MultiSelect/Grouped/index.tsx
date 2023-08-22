@@ -4,7 +4,7 @@ import { Text, Icon, Divider } from '../../../index'
 import { useGetElemSizes } from '../../../../hooks/useGetElemSizes'
 import { OptionItem } from '../../../../helperComponents/OptionItem'
 
-import { ContentTop, SelectEmptyState, Loading } from '../../SharedComponents'
+import { ContentTop, NoResult, Loading } from '../../SharedComponents'
 import { DROPDOWN_MAX_HEIGHT } from '../consts'
 
 import { TMultiSelectGroupedProps } from '../../types'
@@ -27,7 +27,8 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     isSearchAvailable,
     labelLeftIconProps,
     optionRightIconComponent,
-    labelRightIconComponent
+    labelRightIconComponent,
+    maxSelectCount
   } = props
 
   const { emptyListMainMessage, emptyListSecondaryMessage } = translations
@@ -76,9 +77,14 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
   const selectAll = useCallback(() => {
     setAllSelected(true)
     const allValues = options.reduce(
-      (acc: TItemValue[], { data }: TSelectGroupOption) => [
+      (acc: TSelectedValue[], { data }: TSelectGroupOption) => [
         ...acc,
-        ...data.map((item) => item.value)
+        ...data.map((item) => {
+          return {
+            value: item.value,
+            label: item.label
+          }
+        })
       ],
       []
     )
@@ -90,13 +96,13 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     return options.reduce((acc: TSelectOption[], option: TSelectGroupOption) => {
       const { data } = option
       const selectedItems = data.filter(
-        (item: TSelectOption) => selectedValues.indexOf(item.value) !== -1
+        (item: TSelectOption) => selectedValues.findIndex((s) => s.value === item.value) !== -1
       )
       return [...acc, ...selectedItems]
     }, [])
   }, [options, selectedValues])
 
-  const onDeselect = (item: TItemValue) => {
+  const onDeselect = (item: TSelectedValue) => {
     setAllSelected(false)
     onItemDeselect(item)
   }
@@ -138,7 +144,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
               >
                 <div>
                   {isSearchAvailable && (
-                    <div className="selected_container">
+                    <div className="selected-items">
                       {selectedOptions.map((selectedItem: TSelectOption) => {
                         return (
                           <OptionItem
@@ -170,13 +176,17 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                         </div>
                         {isActive &&
                           data.map((item: TSelectOption) => {
-                            const isSelected = selectedValues.indexOf(item.value) !== -1
+                            const isSelected =
+                              selectedValues.findIndex((s) => s.value === item.value) !== -1
                             return (
                               <OptionItem
                                 data={item}
                                 key={item.value}
                                 isSelected={isSelected}
-                                disabled={item.disabled}
+                                disabled={
+                                  item.disabled ||
+                                  (!isSelected && selectedValues.length === maxSelectCount)
+                                }
                                 onClick={isSelected ? onDeselect : onItemSelect}
                                 {...optionProps}
                               />
@@ -188,7 +198,8 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                 </div>
               </div>
               {filteredData.length === 0 ? (
-                <SelectEmptyState
+                <NoResult
+                  type="small"
                   mainMessage={emptyListMainMessage}
                   paragraphMessage={emptyListSecondaryMessage}
                 />
