@@ -6,7 +6,6 @@ import Button from '../Button'
 import Label from '../../helperComponents/Label'
 
 const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
-
   const {
     allowedTypes = ['*'],
     label,
@@ -61,24 +60,23 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   }
 
   const handleChange = useCallback(
-      (event: React.ChangeEvent<HTMLInputElement>) => {
-        const selectedFiles = event.target?.files
-        if (selectedFiles) {
-          const fileArray = Array.from(selectedFiles)
-          setFiles([...files, ...fileArray])
-          updateInForm(fileArray)
-          if (getFiles) {
-            if (toBase64) {
-              getFormattedValues(fileArray)
-            } else {
-              getFiles(fileArray)
-            }
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const selectedFiles = event.target?.files
+      if (selectedFiles) {
+        const fileArray = Array.from(selectedFiles)
+        setFiles([...files, ...fileArray])
+        updateInForm(fileArray)
+        if (getFiles) {
+          if (toBase64) {
+            getFormattedValues(fileArray)
+          } else {
+            getFiles(fileArray)
           }
         }
-      },
-      [files,toBase64],
-  );
-
+      }
+    },
+    [files, toBase64]
+  )
 
   const handleFileRemove = useCallback(
     (file: File, index: number) => {
