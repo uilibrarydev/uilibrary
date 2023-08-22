@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
 import UploadItem from './upload-item'
 import { TFileUploadProps } from './types'
 import '../../assets/styles/components/_upload.scss'
@@ -6,20 +6,23 @@ import Button from '../Button'
 import Label from '../../helperComponents/Label'
 
 const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
+
   const {
     allowedTypes = ['*'],
     label,
     getFiles,
+    removeFiles,
     name,
     setFieldValue,
     toBase64,
     required,
     disabled,
     isFileUploaded,
-    buttonText
+    buttonText,
+    viewFiles = true
   } = props
 
-  const [file, setFile] = useState<File | null>(null)
+  const [files, setFiles] = useState<File[]>([])
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const handleClick = () => {
@@ -28,56 +31,66 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     }
   }
 
-  const getFileType = () => {
-    if (file && file.type) {
-      return file.type.split('/')[1]
-    }
-    return ''
-  }
-
   const updateInForm = useCallback(
-    (value: File | null) => {
+    (values: File[] | null) => {
       if (name && setFieldValue) {
-        setFieldValue(name, value, { shouldValidate: !!value })
+        setFieldValue(name, values as TFormValue, { shouldValidate: !!values })
       }
     },
     [name, setFieldValue]
   )
 
-  const getFormattedValue = (file: File) => {
-    const reader = new FileReader()
-    reader.onloadend = () => {
-      console.log(reader.result)
-    }
-    reader.readAsDataURL(file)
-    return reader
-  }
+  const createAcceptFormat = useMemo(
+    () => (allowedTypes.includes('*') ? '*' : allowedTypes.map((type) => '.' + type).join(',')),
+    [allowedTypes]
+  )
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target?.files && event?.target?.files[0]) {
-      setFile(event?.target?.files[0])
-      updateInForm(event?.target?.files[0])
+  const getFormattedValues = (files: File[]) => {
+    const readers: FileReader[] = []
 
-      if (getFiles) {
-        if (toBase64) {
-          getFormattedValue(event?.target?.files[0])
-        } else {
-          getFiles(event?.target?.files[0])
-        }
+    for (let i = 0; i < files.length; i++) {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        console.log(reader.result)
       }
+      reader.readAsDataURL(files[i])
+      readers.push(reader)
     }
+
+    return readers
   }
 
-  const handleFileRemove = useCallback(() => {
-    setFile(null)
-    updateInForm(null)
-  }, [updateInForm])
+  const handleChange = useCallback(
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        const selectedFiles = event.target?.files
+        if (selectedFiles) {
+          const fileArray = Array.from(selectedFiles)
+          setFiles([...files, ...fileArray])
+          updateInForm(fileArray)
+          if (getFiles) {
+            if (toBase64) {
+              getFormattedValues(fileArray)
+            } else {
+              getFiles(fileArray)
+            }
+          }
+        }
+      },
+      [files,toBase64],
+  );
 
-  // if (file) {
-  //   return (
-  //     <UploadedState name={file?.['name']} onRemove={handleFileRemove} fileType={getFileType()} />
-  //   )
-  // }
+
+  const handleFileRemove = useCallback(
+    (file: File, index: number) => {
+      const filteredFiles = files.filter((_, i) => i !== index)
+      setFiles(filteredFiles)
+
+      if (removeFiles) {
+        removeFiles(file)
+      }
+    },
+    [files, removeFiles]
+  )
 
   return (
     <div className="file-upload">
@@ -86,9 +99,10 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
         <input
           name={name}
           type="file"
+          multiple
           className="hide"
           ref={fileInputRef}
-          accept={`${allowedTypes.join(',')}`}
+          accept={createAcceptFormat}
           onChange={handleChange}
         />
         <Button
@@ -99,17 +113,12 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
           onClick={handleClick}
           buttonText={buttonText}
         />
-
-        {/*<Text>{`Թույլատրելի տեսակներ ${allowedTypes.join(', ')}`}</Text>*/}
-
-        {file ? (
-          <UploadItem
-            name={file?.['name']}
-            onRemove={handleFileRemove}
-            fileType={getFileType()}
-            isFileUploaded={isFileUploaded}
-          />
-        ) : null}
+        <UploadItem
+          onRemove={handleFileRemove}
+          isFileUploaded={isFileUploaded}
+          files={files}
+          viewFiles={viewFiles}
+        />
       </div>
     </div>
   )

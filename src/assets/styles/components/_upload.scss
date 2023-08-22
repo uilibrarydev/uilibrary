@@ -62,5 +62,6 @@
 
   &__text {
     @include truncate(100%);
+    cursor: pointer;
   }
 }

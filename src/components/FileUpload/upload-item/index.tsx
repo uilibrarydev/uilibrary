@@ -7,42 +7,61 @@ import Progress from '../../Progress'
 import Image from '../../Image'
 import ErrorMessage from '../../../helperComponents/ErrorMessage'
 
-// const FILE_ICON_NAME: Record<string, string> = {
-//   png: 'file_png',
-//   jpeg: 'file_jpeg',
-//   pdf: 'file_pdf'
-// }
-
 const UploadItem = (props: TUploadItemPropTypes): JSX.Element => {
-  const { name, onRemove, fileType, isFileUploaded = false, error } = props
+  const { files, onRemove, isFileUploaded = false, error, viewFiles } = props
+
+  const openFileInNewWindow = (file: File) => {
+    const fileURL = URL.createObjectURL(file)
+    window.open(fileURL)
+  }
   // TODO check this
   // const iconName = FILE_ICON_NAME[fileType] || FILE_ICON_NAME.png
-
   return (
-    <div className="upload-item mt-4">
-      {isFileUploaded ? (
-        <div className="upload-item__image">
-          <Image
-            isBackgroundImage={true}
-            backgroundSize="cover"
-            imagePath="static/media/src/assets/images/avatar.jpg"
-          />
-        </div>
-      ) : null}
+    <>
+      {files.map((file, index) => (
+        <div className="upload-item mt-4" key={index}>
+          {isFileUploaded ? (
+            <div className="upload-item__image">
+              <Image
+                isBackgroundImage={true}
+                backgroundSize="cover"
+                imagePath="static/media/src/assets/images/avatar.jpg"
+              />
+            </div>
+          ) : null}
 
-      <div className="upload-item__inner">
-        <div className="upload-item__content mb-2">
-          <div className="upload-item__content__inner pr-8">
-            <Text size="small" lineHeight="medium" className="upload-item__text">
-              {name}
-            </Text>
-            {error ? <ErrorMessage message="Maximum image size: 8 MB" /> : null}
+          <div className="upload-item__inner">
+            <div className="upload-item__content mb-2">
+              <div className="upload-item__content__inner pr-8">
+                <Text
+                  size="small"
+                  lineHeight="medium"
+                  className="upload-item__text"
+                  onClick={(e) => {
+                    if (viewFiles) {
+                      e.preventDefault()
+                      openFileInNewWindow(file)
+                    }
+                  }}
+                >
+                  {file.name}
+                </Text>
+                {error ? <ErrorMessage message="Maximum image size: 8 MB" /> : null}
+              </div>
+              <Button
+                type="tertiary"
+                size="small"
+                iconProps={{ name: 'trash' }}
+                onClick={() => {
+                  onRemove(file, index)
+                }}
+              />
+            </div>
+            {!isFileUploaded ? <Progress size="small" noText={true} /> : null}
           </div>
-          <Button type="tertiary" size="small" iconProps={{ name: 'trash' }} onClick={onRemove} />
         </div>
-        {!isFileUploaded ? <Progress size="small" noText={true} /> : null}
-      </div>
-    </div>
+      ))}
+    </>
   )
 }
 
