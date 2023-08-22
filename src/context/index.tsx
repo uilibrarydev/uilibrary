@@ -22,5 +22,11 @@ export type TFormContextProps = {
   isDirty?: boolean
   clearErrors?: UseFormClearErrors<TFormData>
   setError?: UseFormSetError<TFormData>
+  isSubmitted: boolean
+  isSubmitting: boolean
 }
-export const FormContext = createContext<TFormContextProps>({ setValue: noop })
+export const FormContext = createContext<TFormContextProps>({
+  setValue: noop,
+  isSubmitted: false,
+  isSubmitting: false
+})

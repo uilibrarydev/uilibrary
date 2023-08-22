@@ -105,9 +105,9 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   //   closeDropdown()
   // }
 
-  const clickHandler = (isSelected: boolean) => (value: TItemValue) => {
+  const clickHandler = (isSelected: boolean) => (value: TSelectedValue) => {
     if (!isSelected) {
-      onItemSelect(value)
+      onItemSelect(value.value)
       return
     }
     if (!isRequiredField) {
