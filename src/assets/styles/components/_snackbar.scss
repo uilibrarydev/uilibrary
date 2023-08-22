@@ -1,28 +1,49 @@
 @import "../shared";
 
+:root {
+  --toastify-toast-width: 80%;
+  --toastify-color-light: var(--ds-color-bg-cta-secondary-default);
+  --toastify-toast-min-height: var(--ds-size-56);
+}
+
 .snackbar {
   $this: &;
 
-
-  // --ds-snackbar-bg: var(--ds-color-bg-cta-secondary-default);
-  // --ds-snackbar-padding: var(--ds-space-16) var(--ds-space-24);
-  // --ds-snackbar-border-radius: var(--ds-border-radius-xs);
-  // --ds-snackbar-shadow: var(--ds-shadow-2);
-
   @include flexbox;
-  // @include align-items(center);
-  // @include center(horizontal);
-  // @include fixed(unset, unset, 30px, 50%);
-  // padding: var(--ds-snackbar-padding);
-  // background-color: var(--ds-snackbar-bg);
-  // border-radius: var(--ds-snackbar-border-radius);
-  // box-shadow: var(--ds-snackbar-shadow);
-  // max-width: 80%;
+  @include align-items(center);
 
-
+  &__content {
+    @include flexbox;
+    @include align-items(flex-start);
+    flex: 1;
+  }
 
   &__text {
-    @include truncate(100%);
+    flex: 1;
+    word-break: break-all;
   }
 }
 
+.Toastify {
+  --ds-snackbar-padding: var(--ds-space-16) var(--ds-space-24);
+  --ds-snackbar-border-radius: var(--ds-border-radius-xs);
+  --ds-snackbar-shadow: var(--ds-shadow-2);
+
+  &__toast {
+    padding: var(--ds-snackbar-padding);
+    border-radius: var(--ds-snackbar-border-radius);
+    box-shadow: var(--ds-snackbar-shadow);
+
+    &-container {
+      max-width: 400px;
+    }
+    &-body {
+      width: 100%;
+      padding: 0;
+
+      >div {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -12,23 +12,24 @@ const DEFAULT_DURAION = 6000
 const CustomToast = ({ actionProps, toastId, type = 'information', text }: TToastProps) => {
   return (
     <div className="snackbar" key={toastId}>
-      <Icon name={ICONS_MAPPING[type]} type={TYPE_MAPPING[type]} className="mr-16" size="medium" />
+      <div className="snackbar__content">
+        <Icon name={ICONS_MAPPING[type]} type={TYPE_MAPPING[type]} size="medium" />
+        <Text
+          className="snackbar__text pl-16 pr-8"
+          type="primary"
+          size="standard"
+          weight="regular"
+          lineHeight="large"
+        >
+          {text}
+        </Text>
+      </div>
 
-      <Text
-        className="snackbar__text"
-        type="primary"
-        size="standard"
-        weight="regular"
-        lineHeight="medium"
-      >
-        {text}
-      </Text>
       {actionProps ? (
         <Button
           size="small"
           type="tertiary"
           {...actionProps}
-          className="ml-16"
           onClick={(e) => {
             toast.dismiss(toastId)
             actionProps?.onClick?.(e)
