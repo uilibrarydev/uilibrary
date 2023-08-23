@@ -1,6 +1,5 @@
 export const TRANSLATIONS_DEFAULT_VALUES = {
   emptyListMainMessage: "Sorry, we couldn't find any results",
-  emptyListSecondaryMessage: 'Paragraph text comes here',
   overflowText: '%s selected'
 }
 

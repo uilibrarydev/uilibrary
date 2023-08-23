@@ -76,7 +76,9 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
 
   const selectAll = useCallback(() => {
     setAllSelected(true)
-    const allValues = options.reduce(
+    console.log('filteredData', filteredData)
+
+    const allValues = filteredData.reduce(
       (acc: TSelectedValue[], { data }: TSelectGroupOption) => [
         ...acc,
         ...data.map((item) => {

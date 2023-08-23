@@ -58,7 +58,7 @@ export const ContentTop = (props: TProps): JSX.Element => {
       ]
     }
     return options
-  }, [selectAllLabel, clearAllLabel, isSelectAllDisabled, isAnySelected])
+  }, [selectAllLabel, selectAll, clearAll, clearAllLabel, isSelectAllDisabled, isAnySelected])
 
   const onSearch = (e: TChangeEventType) => {
     setSearchValue(e.target.value)
