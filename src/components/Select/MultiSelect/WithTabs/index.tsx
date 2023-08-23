@@ -130,6 +130,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
                 searchValue={searchValue}
                 translations={translations}
                 setSearchValue={setSearchValue}
+                hasLimitation={!!maxSelectCount}
                 isAnySelected={selectedValues.length === 0}
                 isSelectAllDisabled={isAllSelected || filteredData.length === 0}
               />
