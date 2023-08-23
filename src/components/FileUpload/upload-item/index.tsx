@@ -22,11 +22,11 @@ const UploadItem = (props: TUploadItemPropTypes): JSX.Element => {
         <div className="upload-item mt-4" key={index}>
           {isFileUploaded ? (
             <div className="upload-item__image">
-              <Image
-                isBackgroundImage={true}
-                backgroundSize="cover"
-                imagePath="static/media/src/assets/images/avatar.jpg"
-              />
+              {/*<Image*/}
+              {/*  isBackgroundImage={true}*/}
+              {/*  backgroundSize="cover"*/}
+              {/*  imagePath="static/media/src/assets/images/avatar.jpg"*/}
+              {/*/>*/}
             </div>
           ) : null}
 
@@ -57,7 +57,7 @@ const UploadItem = (props: TUploadItemPropTypes): JSX.Element => {
                 }}
               />
             </div>
-            {!isFileUploaded ? <Progress size="small" noText={true} /> : null}
+            {/*{!isFileUploaded ? <Progress size="small" noText={true} /> : null}*/}
           </div>
         </div>
       ))}
