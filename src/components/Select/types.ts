@@ -54,6 +54,7 @@ export interface TMultiSelectGroupedProps extends TMultiSelectCompProps {
 }
 
 export interface TMultiSelectPropTypes extends IFormCompProps {
+  helperText?: string
   maxSelectCount?: number
   withTabs?: boolean
   isGrouped?: boolean

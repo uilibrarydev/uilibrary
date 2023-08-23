@@ -103,6 +103,7 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
               <ContentTop
                 selectAll={selectAll}
                 clearAll={clearAll}
+                hasLimitation={!!maxSelectCount}
                 isAnySelected={selectedValues.length === 0}
                 helperText={helperText}
                 isSelectAllDisabled={isAllSelected || filteredData.length === 0}

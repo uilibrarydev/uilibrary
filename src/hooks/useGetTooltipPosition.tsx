@@ -6,7 +6,7 @@ const GAP = 20
 const ARROW_DISTANCE = 20
 
 export const useGetTooltipPosition = (info: TTooltipInfo): TTooltipPosition => {
-  const { initialPosition, elemRef, tooltipRef } = info
+  const { initialPosition, elemRef, tooltipRef, hasTriangle = true } = info
 
   const { left, top, bottom } = useGetElemPositions(elemRef)
   const { width: tooltipWidth, height: tooltipHeight } = useGetElemSizes(tooltipRef)
@@ -20,6 +20,7 @@ export const useGetTooltipPosition = (info: TTooltipInfo): TTooltipPosition => {
 
     const hasLeftSpace = tooltipWidth + GAP < left
     const hasRightSpace = tooltipWidth + GAP < window.innerWidth - left
+    // eslint-disable-next-line no-debugger
 
     if (!hasTopSpace && initialPosition.includes('top')) {
       return initialPosition.replace('top', 'bottom')
@@ -67,6 +68,8 @@ export const useGetTooltipPosition = (info: TTooltipInfo): TTooltipPosition => {
     }
     return calculatedPosition
   }, [calculatedPosition, tooltipWidth, itemWidth, left])
-
+  if (!hasTriangle) {
+    return calculatedPosition as TTooltipPosition
+  }
   return finalPosition as TTooltipPosition
 }
