@@ -26,7 +26,7 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
       },
       cancel: { buttonText: 'Cancel' }
     },
-    selectedItems,
+    selectedItems = [],
     setSelectedItems,
     name,
     setFieldValue,
@@ -42,7 +42,7 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
 
   const { overflowText } = localizations
 
-  const initialSelected = (value as TSelectedValue[]) || selectedItems || null
+  const initialSelected = (value as TSelectedValue[]) || selectedItems
 
   const [isOpen, setIsOpen] = useState(false)
   const [selectedValues, setSelectedValues] = useState<TSelectedValue[]>(initialSelected)
@@ -115,6 +115,9 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
   }
 
   const selectedItemsLabels = useMemo(() => {
+    if (!selectedValues || !selectedValues.length) {
+      return ''
+    }
     const onlyLabels = selectedValues.map((selected) => selected.label)
     const joinedLabel = onlyLabels.join(', ')
 

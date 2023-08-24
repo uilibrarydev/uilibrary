@@ -68,12 +68,12 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
 
   const selectAll = useCallback(() => {
     setAllSelected(true)
-    const allValues = currentTabData.map((item: TSelectOption) => {
+    const allValues = filteredData.map((item: TSelectOption) => {
       const { value, label } = item
       return { value, label }
     })
     setSelectedValues(selectedValues.concat(allValues))
-  }, [currentTabData, activeTab, selectedValues])
+  }, [activeTab, selectedValues, filteredData])
 
   const tabs = useMemo(() => {
     return options.map((option: TSelectGroupOption, index: number) => {
