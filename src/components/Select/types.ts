@@ -54,6 +54,7 @@ export interface TMultiSelectGroupedProps extends TMultiSelectCompProps {
 }
 
 export interface TMultiSelectPropTypes extends IFormCompProps {
+  helperText?: string
   maxSelectCount?: number
   withTabs?: boolean
   isGrouped?: boolean
@@ -82,7 +83,6 @@ export interface TMultiSelectPropTypes extends IFormCompProps {
 export interface TSingleSelectPropTypes extends IFormCompProps {
   error?: string
   isLoading?: boolean
-  withFooter?: boolean
   label?: string | JSX.Element
   options: TSelectOptions
   placeHolder?: string
@@ -98,10 +98,6 @@ export interface TSingleSelectPropTypes extends IFormCompProps {
   optionRightIconComponent?: JSX.Element
   labelRightIconComponent?: JSX.Element
   avatar?: string
-  footerButtonProps?: {
-    cancel: TButtonPropTypes
-    confirm: TButtonPropTypes
-  }
 }
 
 export type TSelectFooterPropTypes = {

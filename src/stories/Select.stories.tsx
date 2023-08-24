@@ -220,6 +220,7 @@ const MultiSelect1 = (args): JSX.Element => {
       <MultiSelectComp
         {...args}
         isGrouped
+        withTabs
         maxSelectCount={3}
         emptyListMessage="List is Empty"
         selectedItems={selectedValues}
@@ -235,6 +236,11 @@ const MultiSelect1 = (args): JSX.Element => {
             }}
           />
         }
+        translations={{
+          innerLabel: 'Group name',
+          clearAllLabel: 'Clear All',
+          selectAllLabel: 'Select All'
+        }}
         optionRightIconComponent={<ButtonMenu />}
       />
     </div>
