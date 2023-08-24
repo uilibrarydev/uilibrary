@@ -84,7 +84,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         disabled={disabled}
         name={name}
         ref={ref}
-        required={isErrorVisible || !!error}
+        // required={isErrorVisible || !!error} // Todo test validation without this property, please fix related design issues
         type={type}
         placeholder={!label ? placeholder : ''}
         onChange={changeHandler}
@@ -99,7 +99,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         className={classNames(`input input--${size} `, className, {
           'input--icon-left': leftIconProps,
           'input--icon-right': rightIconProps,
-          'input--invalid': isErrorVisible
+          'input--invalid': isErrorVisible || !!error
         })}
       >
         <Label text={label} invalid={isErrorVisible} required={required} disabled={disabled} />
