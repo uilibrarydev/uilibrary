@@ -76,25 +76,25 @@
       color: var(--ds-input-body-icon-default);
     }
 
-    &:valid {
-      color: var(--ds-input-body-text-validated);
-      background-color: var(--ds-input-bg-validated);
-      border-color: var(--ds-input-border-color-validated);
-
-      & + #{$this}__icon {
-        color: var(--ds-input-body-icon-validated);
-      }
-    }
-
-    &:invalid {
-      color: var(--ds-input-body-text-invalid);
-      background-color: var(--ds-input-bg-invalid);
-      border-color: var(--ds-input-border-color-invalid);
-
-      & + #{$this}__icon {
-        color: var(--ds-input-body-icon-invalid);
-      }
-    }
+    //&:valid {
+    //  color: var(--ds-input-body-text-validated);
+    //  background-color: var(--ds-input-bg-validated);
+    //  border-color: var(--ds-input-border-color-validated);
+    //
+    //  & + #{$this}__icon {
+    //    color: var(--ds-input-body-icon-validated);
+    //  }
+    //}
+    //
+    //&:invalid {
+    //  color: var(--ds-input-body-text-invalid);
+    //  background-color: var(--ds-input-bg-invalid);
+    //  border-color: var(--ds-input-border-color-invalid);
+    //
+    //  & + #{$this}__icon {
+    //    color: var(--ds-input-body-icon-invalid);
+    //  }
+    //}
 
     &:hover {
       background-color: var(--ds-input-bg-hover);
@@ -150,6 +150,30 @@
     &[readonly] {
       cursor: default;
     }
+  }
+
+  &--valid {
+    input {
+      color: var(--ds-input-body-text-validated);
+      background-color: var(--ds-input-bg-validated);
+      border-color: var(--ds-input-border-color-validated);
+
+      & + #{$this}__icon {
+        color: var(--ds-input-body-icon-validated);
+      }
+    }
+  }
+
+  &--invalid {
+   input {
+     color: var(--ds-input-body-text-invalid);
+     background-color: var(--ds-input-bg-invalid);
+     border-color: var(--ds-input-border-color-invalid);
+
+     & + #{$this}__icon {
+       color: var(--ds-input-body-icon-invalid);
+     }
+   }
   }
 
   &__inner {
