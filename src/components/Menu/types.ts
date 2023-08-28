@@ -10,5 +10,5 @@ export type TMenuProps = {
   menuItems: TMenuItem[]
   parentRef: HTMLElement
   onClose: TCallBackFn
-  position?: 'right' | 'left' | 'top' | 'bottom'
+  position?: TTooltipPosition // 'right' | 'left' | 'top' | 'bottom'
 }

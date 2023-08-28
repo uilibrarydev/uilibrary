@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import { TButtonPropTypes } from '../Button/types'
 
 export interface TSideSheetPropTypes {
+  isLoading?: boolean
   isOpen: boolean
   onClose: () => void
   onSumbit?: () => void

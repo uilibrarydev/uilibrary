@@ -13,6 +13,7 @@ import '../../assets/styles/components/_side-sheet.scss'
 
 const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   const {
+    isLoading,
     isOpen,
     onClose,
     onSumbit,
@@ -154,6 +155,7 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
                 type="primary"
                 size="large"
                 onClick={handleSubmit}
+                disabled={isLoading}
                 {...footerButtons.confirm}
               />
             </div>

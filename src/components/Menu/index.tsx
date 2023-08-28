@@ -1,36 +1,54 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import ReactDOM from 'react-dom'
-
-import { TMenuProps, TMenuItem } from './types'
-import '../../assets/styles/components/_select.scss'
 
 import { OptionItem } from '../../helperComponents/OptionItem'
 import { useOnOutsideClick } from '../../hooks'
 import { useGetElemPositions } from '../../hooks/useGetElemPositions'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
 
-const Menu = (props: TMenuProps): JSX.Element | null => {
-  const { menuItems = [], parentRef, onClose, position = 'right' } = props
+import { TMenuProps, TMenuItem } from './types'
+import '../../assets/styles/components/_select.scss'
+import { useGetTooltipPosition } from '../../hooks/useGetTooltipPosition'
 
+const Menu = (props: TMenuProps): JSX.Element | null => {
+  const { menuItems = [], parentRef, onClose, position = 'bottom-right' } = props
+  const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null)
   useOnOutsideClick(parentRef, onClose)
 
   const { left, top } = useGetElemPositions(parentRef)
   const { width, height } = useGetElemSizes(parentRef)
+  const { width: menuWidth, height: menuHeight } = useGetElemSizes(menuRef)
+
+  const tooltipPosition = useGetTooltipPosition({
+    tooltipRef: menuRef,
+    elemRef: parentRef,
+    initialPosition: position,
+    hasTriangle: false
+  })
 
   const menuStyles = useMemo(() => {
-    if (position === 'right') {
-      return { left: left + width + 4, top: top }
+    if (tooltipPosition === 'bottom-right') {
+      return { left: left + 4, top: top + 4 + height }
+    }
+    if (tooltipPosition === 'bottom-left') {
+      return { left: left - menuWidth + width, top: top + 4 + height }
+    }
+    if (tooltipPosition === 'top-right') {
+      return { left: left + 4, top: top - menuHeight - 4 }
+    }
+    if (tooltipPosition === 'top-left') {
+      return { left: left - menuWidth + width, top: top - menuHeight - 4 }
     }
 
     return { left: left, top: top + 4 + height }
-  }, [left, top, width, position])
+  }, [left, top, width, tooltipPosition, menuWidth, height, menuHeight])
 
   if (!parentRef) {
     return null
   }
 
   return ReactDOM.createPortal(
-    <div className="select select--menu" style={menuStyles}>
+    <div className="select select--menu" style={menuStyles} ref={setMenuRef}>
       {menuItems.map(({ label, value, handler, iconProps, disabled }: TMenuItem) => {
         return (
           <OptionItem

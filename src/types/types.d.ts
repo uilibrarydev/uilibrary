@@ -82,6 +82,7 @@ declare global {
     | 'middle-right'
 
   type TTooltipInfo = {
+    hasTriangle?: boolean
     initialPosition: TTooltipPosition
     elemRef: HTMLElement | null
     tooltipRef: HTMLElement | null

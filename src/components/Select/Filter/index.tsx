@@ -34,16 +34,16 @@ export const Filter = (props: TFilterProps): JSX.Element | null => {
   } = props
 
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
-  const [selectedValues, setSelectedValues] = useState<TItemValue[]>(selectedItems)
+  const [selectedValues, setSelectedValues] = useState<TSelectedValue[]>(selectedItems)
   const [filterValue, setFilterValue] = useState('')
 
   useOnOutsideClick(containerRef, closeHandler)
 
-  const onItemSelect = useCallback((item: TItemValue) => {
+  const onItemSelect = useCallback((item: TSelectedValue) => {
     setSelectedValues((selected) => [...selected, item])
   }, [])
 
-  const submitSelectedValue = (selections: TItemValue[]) => {
+  const submitSelectedValue = (selections: TSelectedValue[]) => {
     if (setSelectedItems) {
       setSelectedItems(selections)
     }
@@ -55,7 +55,7 @@ export const Filter = (props: TFilterProps): JSX.Element | null => {
   }
 
   const checkIsSelected = (itemValue: TItemValue) => {
-    return selectedValues.find((item) => item === itemValue) !== undefined
+    return selectedValues.find((item) => item.value === itemValue) !== undefined
   }
 
   const applySelectedItems = useCallback(() => {
@@ -69,9 +69,9 @@ export const Filter = (props: TFilterProps): JSX.Element | null => {
     closeHandler()
   }
 
-  const onItemDeselect = (item: TItemValue) => {
+  const onItemDeselect = ({ value }: TSelectedValue) => {
     setSelectedValues((selected) =>
-      selected.filter((optionValue: TItemValue) => optionValue !== item)
+      selected.filter((optionValue: TSelectedValue) => optionValue.value !== value)
     )
   }
 

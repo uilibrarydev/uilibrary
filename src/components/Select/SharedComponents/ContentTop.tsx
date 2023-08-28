@@ -13,6 +13,7 @@ type TProps = {
   isSelectAllDisabled: boolean
   isAnySelected: boolean
   translations?: TSelectTranslations
+  hasLimitation?: boolean
 }
 
 export const ContentTop = (props: TProps): JSX.Element => {
@@ -24,20 +25,16 @@ export const ContentTop = (props: TProps): JSX.Element => {
     translations,
     isAnySelected,
     setSearchValue,
+    hasLimitation = false,
     isSelectAllDisabled
   } = props
 
-  const {
-    searchInputPlaceHolder,
-    innerLabel = 'Group name',
-    clearAllLabel = 'Clear All',
-    selectAllLabel = 'Select All'
-  } = translations || {}
+  const { searchInputPlaceHolder, innerLabel, clearAllLabel, selectAllLabel } = translations || {}
 
   const selectActions = useMemo(() => {
     let options: TMenuItem[] = []
 
-    if (selectAllLabel) {
+    if (selectAllLabel && !hasLimitation) {
       options = [
         {
           label: selectAllLabel,
@@ -61,7 +58,7 @@ export const ContentTop = (props: TProps): JSX.Element => {
       ]
     }
     return options
-  }, [selectAllLabel, clearAllLabel, isSelectAllDisabled, isAnySelected])
+  }, [selectAllLabel, selectAll, clearAll, clearAllLabel, isSelectAllDisabled, isAnySelected])
 
   const onSearch = (e: TChangeEventType) => {
     setSearchValue(e.target.value)

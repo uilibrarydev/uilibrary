@@ -3,6 +3,10 @@ import { Meta } from '@storybook/react'
 import { Icon as IconComp, Text } from '../components'
 
 const ICONS = [
+  'login',
+  'logout',
+  'add-user',
+  'add-user-hover',
   'add-circle',
   'select-all',
   'facebook',
@@ -35,7 +39,6 @@ const ICONS = [
   'eye-off',
   'mail',
   'mail-hover',
-  'logout',
   'image',
   'link',
   'wallet',

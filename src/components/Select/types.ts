@@ -5,8 +5,8 @@ export interface TNestedSelectProps extends IFormCompProps {
   isRequiredField?: boolean
   label?: string | JSX.Element
   placeHolder?: string
-  selectedItems?: TSelectedValue[]
-  setSelectedValue: (value: TSelectedValue) => void
+  selectedItems?: TItemValue[]
+  setSelectedValue: (value: TItemValue) => void
   optionRightIconComponent?: JSX.Element
   labelRightIconComponent?: JSX.Element
   avatar?: string
@@ -54,6 +54,7 @@ export interface TMultiSelectGroupedProps extends TMultiSelectCompProps {
 }
 
 export interface TMultiSelectPropTypes extends IFormCompProps {
+  helperText?: string
   maxSelectCount?: number
   withTabs?: boolean
   isGrouped?: boolean
@@ -82,12 +83,11 @@ export interface TMultiSelectPropTypes extends IFormCompProps {
 export interface TSingleSelectPropTypes extends IFormCompProps {
   error?: string
   isLoading?: boolean
-  withFooter?: boolean
   label?: string | JSX.Element
   options: TSelectOptions
   placeHolder?: string
-  selectedItem?: TSelectedValue
-  setSelectedItem?: (items: TSelectedValue | undefined) => void
+  selectedItem?: TItemValue
+  setSelectedItem?: (items: TItemValue | undefined) => void
   isRequiredField?: boolean
   labelLeftIconProps?: {
     name: string
@@ -98,10 +98,6 @@ export interface TSingleSelectPropTypes extends IFormCompProps {
   optionRightIconComponent?: JSX.Element
   labelRightIconComponent?: JSX.Element
   avatar?: string
-  footerButtonProps?: {
-    cancel: TButtonPropTypes
-    confirm: TButtonPropTypes
-  }
 }
 
 export type TSelectFooterPropTypes = {

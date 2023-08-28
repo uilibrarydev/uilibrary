@@ -10,44 +10,35 @@ import { Loading } from './SharedComponents/Loading'
 
 const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
-    isLoading,
-    options,
-    placeHolder,
+    name,
     value,
     label,
+    avatar,
+    options,
+    hasError,
+    isLoading,
+    dataId = '',
+    placeHolder,
+    selectedItem,
     setFieldValue,
-    name,
+    setSelectedItem,
     isRequiredField,
     labelLeftIconProps,
-    optionRightIconComponent,
     labelRightIconComponent,
-    avatar,
-    withFooter,
-    // footerButtonProps = {
-    //   confirm: {
-    //     buttonText: 'Apply'
-    //   },
-    //   cancel: { buttonText: 'Cancel' }
-    // },
-    selectedItem,
-    setSelectedItem,
-    hasError,
-    dataId = ''
+    optionRightIconComponent
   } = props
 
   const [isOpen, setIsOpen] = useState(false)
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
 
-  const selected = (value as TItemValue) || selectedItem || null
-
-  const [currentSelection, setCurrentSelection] = useState<TItemValue | null>(selected)
+  const currentSelection = (value as TItemValue) || selectedItem || null
 
   const closeDropdown = () => setIsOpen(false)
   const openDropdown = () => setIsOpen(true)
 
   useOnOutsideClick(containerRef, closeDropdown)
 
-  const submitSelectedValue = (value: TItemValue | null) => {
+  const onItemSelect = useCallback((value: TItemValue) => {
     if (setSelectedItem) {
       setSelectedItem(value)
     }
@@ -56,27 +47,9 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     }
 
     closeDropdown()
-  }
+  }, [])
 
-  const onItemSelect = useCallback(
-    (value: TItemValue) => {
-      setCurrentSelection(value)
-      if (withFooter) {
-        return
-      }
-      submitSelectedValue(value)
-    },
-    [withFooter, submitSelectedValue]
-  )
-
-  const onItemDeselect = useCallback(() => {
-    setCurrentSelection(null)
-    if (withFooter) {
-      return
-    }
-    submitSelectedValue(null)
-    closeDropdown()
-  }, [withFooter, submitSelectedValue])
+  const onItemDeselect = useCallback(() => onItemSelect(null), [])
 
   const open = (e?: TClickEventType) => {
     const result = e?.target as HTMLDivElement
@@ -95,25 +68,17 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     return selected?.label.toString() || ''
   }, [options, value, currentSelection])
 
-  // const applySelectedItems = () => {
-  //   submitSelectedValue(currentSelection)
-  //   closeDropdown()
-  // }
-
-  // const cancelCelectedItems = () => {
-  //   setCurrentSelection(selectedItem || null)
-  //   closeDropdown()
-  // }
-
-  const clickHandler = (isSelected: boolean) => (value: TItemValue) => {
-    if (!isSelected) {
-      onItemSelect(value)
-      return
+  const clickHandler =
+    (isSelected: boolean) =>
+    ({ value }: TSelectedValue) => {
+      if (!isSelected) {
+        onItemSelect(value)
+        return
+      }
+      if (!isRequiredField) {
+        onItemDeselect()
+      }
     }
-    if (!isRequiredField) {
-      onItemDeselect()
-    }
-  }
 
   const scrollRef = useRef(null)
   const { scrollHeight } = useGetElemSizes(scrollRef.current)
@@ -164,13 +129,6 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
                   )
                 })}
               </div>
-              {/* {withFooter ? (
-                <Footer
-                  buttonProps={footerButtonProps}
-                  onCancel={cancelCelectedItems}
-                  onApply={applySelectedItems}
-                />
-              ) : null} */}
             </>
           )}
         </div>
