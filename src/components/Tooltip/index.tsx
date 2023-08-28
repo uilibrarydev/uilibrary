@@ -33,7 +33,14 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
 
   return (
     <>
-      <div data-id={dataId} ref={setElemRef} className="tooltip-wrapper">
+      <span
+        data-id={dataId}
+        style={{
+          position: 'relative',
+          display: 'inline-block'
+        }}
+        ref={setElemRef}
+      >
         {isHovered && (
           <div
             data-id={dataId}
@@ -53,7 +60,7 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
           </div>
         )}
         {children}
-      </div>
+      </span>
     </>
   )
 }
