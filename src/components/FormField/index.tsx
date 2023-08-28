@@ -41,7 +41,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
                 name={name}
                 errors={errors}
                 render={({ message }: { message: string }) => {
-                    return <ErrorMessage dataId={dataId} message={message || ''} />
+                  return <ErrorMessage dataId={dataId} message={message || ''} />
                 }}
               />
             </>

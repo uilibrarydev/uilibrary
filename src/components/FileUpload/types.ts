@@ -1,5 +1,5 @@
 export interface TFileUploadProps extends IFormCompProps {
-  allowedTypes?: Array<string>
+  allowedTypes?: string
   label?: string | JSX.Element
   buttonText?: string | JSX.Element
   getFiles?: (files: File[]) => void
@@ -10,4 +10,5 @@ export interface TFileUploadProps extends IFormCompProps {
   isFileUploaded?: boolean
   withFileView?: boolean
   uploadedFiles?: File[]
+  multiple?: boolean
 }

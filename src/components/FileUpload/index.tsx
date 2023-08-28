@@ -1,15 +1,14 @@
-import React, { useCallback, useMemo, useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
 import { TFileUploadProps } from './types'
-import '../../assets/styles/components/_upload.scss'
 import Button from '../Button'
 import Label from '../../helperComponents/Label'
 import { getFormattedValues } from '../../utils'
 import UploadItems from './uploadItems'
-import { useFormProps } from '../../hooks/useFormProps'
+import '../../assets/styles/components/_upload.scss'
 
 const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const {
-    allowedTypes = ['*'],
+    allowedTypes = '*',
     label,
     getFiles,
     removeFiles,
@@ -20,6 +19,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     disabled,
     buttonText,
     withFileView = true,
+    multiple = true,
     uploadedFiles,
     value
   } = props
@@ -40,36 +40,29 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     [name, setFieldValue]
   )
 
-  const createAcceptFormat = useMemo(
-    () => (allowedTypes.includes('*') ? '*' : allowedTypes.map((type) => '.' + type).join(',')),
-    [allowedTypes]
-  )
-
   const setFiles = (selectedFiles: FileList) => {
-    const fileArray = Array.from(selectedFiles)
+    // const fileArray = Array.from(selectedFiles)
+    const fileArray = multiple ? Array.from(selectedFiles) : [selectedFiles[0]]
     updateInForm([...files, ...fileArray])
     if (getFiles) {
       if (toBase64) {
-        getFormattedValues(fileArray)
+        getFormattedValues([...files, ...fileArray])
       } else {
-        getFiles(fileArray)
+        getFiles([...files, ...fileArray])
       }
     }
   }
 
-  const handleChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      const selectedFiles = event.target?.files
-      if (selectedFiles) {
-        setFiles(selectedFiles)
-      }
-    },
-    [value, toBase64]
-  )
+  const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFiles = event.target?.files
+    if (selectedFiles) {
+      setFiles(selectedFiles)
+    }
+  }, [])
 
   const handleFileRemove = useCallback(
     (file: File, index: number) => {
-      if (value) {
+      if (files) {
         const filteredFiles = files.filter((_, i) => i !== index)
         updateInForm(filteredFiles)
         if (removeFiles) {
@@ -77,9 +70,8 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
         }
       }
     },
-    [value, removeFiles]
+    [files, removeFiles]
   )
-
   return (
     <div className="file-upload">
       <Label text={label} required={required} disabled={disabled} />
@@ -87,10 +79,10 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
         <input
           name={name}
           type="file"
-          multiple
+          multiple={multiple}
           className="hide"
           ref={fileInputRef}
-          accept={createAcceptFormat}
+          accept={allowedTypes}
           onChange={handleChange}
         />
         <Button

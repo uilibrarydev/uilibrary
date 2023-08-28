@@ -28,8 +28,7 @@ export const setTranslationValue = (translation: string, value: string | number)
   return translation.replace('%s', value.toString())
 }
 
-
-export const openFileInNewWindow = (e:TClickEventType, file: File) => {
+export const openFileInNewWindow = (e: TClickEventType, file: File) => {
   e.preventDefault()
   const fileURL = URL.createObjectURL(file)
   return window.open(fileURL)
@@ -49,3 +48,6 @@ export const getFormattedValues = (files: File[]) => {
 
   return readers
 }
+
+
+
