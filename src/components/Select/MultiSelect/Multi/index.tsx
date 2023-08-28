@@ -45,25 +45,6 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
     setSelectedValues([])
   }, [])
 
-  const selectAll = useCallback(() => {
-    setAllSelected(true)
-    const allValues = options.map((item: TSelectOption) => {
-      const { value, label } = item
-      return { value, label }
-    })
-
-    setSelectedValues(allValues)
-  }, [options])
-
-  const onDeselect = (item: TSelectedValue) => {
-    setAllSelected(false)
-    onItemDeselect(item)
-  }
-
-  const checkIsSelected = (itemValue: TItemValue) => {
-    return selectedValues.find((item) => item.value === itemValue) !== undefined
-  }
-
   const filteredData = useMemo(() => {
     if (!searchValue) {
       return options
@@ -73,6 +54,25 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
       return typeof dataItem.label === 'string' && dataItem.label.includes(searchValue)
     })
   }, [searchValue, options])
+
+  const selectAll = useCallback(() => {
+    setAllSelected(true)
+    const allValues = filteredData.map((item: TSelectOption) => {
+      const { value, label } = item
+      return { value, label }
+    })
+
+    setSelectedValues(allValues)
+  }, [filteredData])
+
+  const onDeselect = (item: TSelectedValue) => {
+    setAllSelected(false)
+    onItemDeselect(item)
+  }
+
+  const checkIsSelected = (itemValue: TItemValue) => {
+    return selectedValues.find((item) => item.value === itemValue) !== undefined
+  }
 
   const selectedOptions = useMemo(
     () =>
@@ -103,6 +103,7 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
               <ContentTop
                 selectAll={selectAll}
                 clearAll={clearAll}
+                hasLimitation={!!maxSelectCount}
                 isAnySelected={selectedValues.length === 0}
                 helperText={helperText}
                 isSelectAllDisabled={isAllSelected || filteredData.length === 0}
