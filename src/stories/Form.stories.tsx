@@ -4,10 +4,8 @@ import FormField from '../components/FormField'
 import {
   FormContainer,
   Switcher,
-  Select,
   Button,
-    FileUpload,
-  MultiSelect,
+  FileUpload,
   Input,
   Counter,
   RadioGroup
@@ -104,13 +102,6 @@ const VALIDATION_SCHEME = yup.object({
         )
     )
     .required('Please select at least one file.')
-  // counter: yup.number().typeError('required').required('validation.required').min(5).max(90),
-  // obj: yup.object().shape({ name: yup.string().required(), surname: yup.string().required() }),
-  // switcher: yup.boolean().required(),
-  // firstname: yup.string().required().min(19),
-  // select: yup.string().required(),
-  // multiselect: yup.array().required(),
-  // ['esiminch']: yup.string().required('sdsd')
 })
 
 const Template = (): JSX.Element => {
@@ -130,7 +121,7 @@ const Template = (): JSX.Element => {
   return (
     <div style={{ maxWidth: 300 }}>
       <FormContainer
-        onSubmit={(data, fieldData) => console.log('sdsd', data)}
+        onSubmit={(data) => console.log('data', data)}
         validationScheme={VALIDATION_SCHEME}
         initialValues={INITIAL_VALUES}
       >
