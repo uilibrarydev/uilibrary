@@ -33,11 +33,7 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
 
   return (
     <>
-      <div
-        data-id={dataId}
-        ref={setElemRef}
-        className="tooltip-wrapper"
-      >
+      <div data-id={dataId} ref={setElemRef} className="tooltip-wrapper">
         {isHovered && (
           <div
             data-id={dataId}
