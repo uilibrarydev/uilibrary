@@ -6,6 +6,7 @@ import {
   Switcher,
   Select,
   Button,
+    FileUpload,
   MultiSelect,
   Input,
   Counter,
@@ -91,13 +92,25 @@ const RADIO_OPTIONS = [
 ]
 
 const VALIDATION_SCHEME = yup.object({
-  counter: yup.number().typeError('required').required('validation.required').min(5).max(90),
-  obj: yup.object().shape({ name: yup.string().required(), surname: yup.string().required() }),
-  switcher: yup.boolean().required(),
-  firstname: yup.string().required().min(19),
-  select: yup.string().required(),
-  multiselect: yup.array().required(),
-  ['esiminch']: yup.string().required('sdsd')
+  files: yup
+    .array()
+    .of(
+      yup
+        .mixed()
+        .test(
+          'fileSize',
+          'File size is too large',
+          (value) => !value || value.size <= 3 * 1024 * 1024
+        )
+    )
+    .required('Please select at least one file.')
+  // counter: yup.number().typeError('required').required('validation.required').min(5).max(90),
+  // obj: yup.object().shape({ name: yup.string().required(), surname: yup.string().required() }),
+  // switcher: yup.boolean().required(),
+  // firstname: yup.string().required().min(19),
+  // select: yup.string().required(),
+  // multiselect: yup.array().required(),
+  // ['esiminch']: yup.string().required('sdsd')
 })
 
 const Template = (): JSX.Element => {
@@ -117,7 +130,7 @@ const Template = (): JSX.Element => {
   return (
     <div style={{ maxWidth: 300 }}>
       <FormContainer
-        onSubmit={(data, fieldData) => console.log('sdsd', data, fieldData)}
+        onSubmit={(data, fieldData) => console.log('sdsd', data)}
         validationScheme={VALIDATION_SCHEME}
         initialValues={INITIAL_VALUES}
       >
@@ -143,6 +156,10 @@ const Template = (): JSX.Element => {
           <FormField name={'obj.surname'} As={(props) => <Input label="surname" {...props} />} />
 
           <FormField name={'firstname'} As={(props) => <Input label="firstname" {...props} />} />
+          <FormField
+            name={'files'}
+            As={(props) => <FileUpload label={'files'} buttonText={'Attach'} {...props} />}
+          />
 
           <Button buttonActionType="submit" buttonText={'Ok'} />
         </>

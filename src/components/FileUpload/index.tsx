@@ -1,9 +1,11 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react'
-import UploadItem from './upload-item'
+import React, { useCallback, useMemo, useRef } from 'react'
 import { TFileUploadProps } from './types'
 import '../../assets/styles/components/_upload.scss'
 import Button from '../Button'
 import Label from '../../helperComponents/Label'
+import { getFormattedValues } from '../../utils'
+import UploadItems from './uploadItems'
+import { useFormProps } from '../../hooks/useFormProps'
 
 const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const {
@@ -16,14 +18,13 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     toBase64,
     required,
     disabled,
-    isFileUploaded,
     buttonText,
-    viewFiles = true
+    withFileView = true,
+    uploadedFiles,
+    value
   } = props
-
-  const [files, setFiles] = useState<File[]>([])
+  const files = (value as File[]) || uploadedFiles || []
   const fileInputRef = useRef<HTMLInputElement>(null)
-
   const handleClick = () => {
     if (fileInputRef.current) {
       fileInputRef.current.click()
@@ -33,7 +34,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const updateInForm = useCallback(
     (values: File[] | null) => {
       if (name && setFieldValue) {
-        setFieldValue(name, values as TFormValue, { shouldValidate: !!values })
+        setFieldValue(name, values as TFormValue)
       }
     },
     [name, setFieldValue]
@@ -44,50 +45,39 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     [allowedTypes]
   )
 
-  const getFormattedValues = (files: File[]) => {
-    const readers: FileReader[] = []
-
-    for (let i = 0; i < files.length; i++) {
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        console.log(reader.result)
+  const setFiles = (selectedFiles: FileList) => {
+    const fileArray = Array.from(selectedFiles)
+    updateInForm([...files, ...fileArray])
+    if (getFiles) {
+      if (toBase64) {
+        getFormattedValues(fileArray)
+      } else {
+        getFiles(fileArray)
       }
-      reader.readAsDataURL(files[i])
-      readers.push(reader)
     }
-
-    return readers
   }
 
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const selectedFiles = event.target?.files
       if (selectedFiles) {
-        const fileArray = Array.from(selectedFiles)
-        setFiles([...files, ...fileArray])
-        updateInForm(fileArray)
-        if (getFiles) {
-          if (toBase64) {
-            getFormattedValues(fileArray)
-          } else {
-            getFiles(fileArray)
-          }
-        }
+        setFiles(selectedFiles)
       }
     },
-    [files, toBase64]
+    [value, toBase64]
   )
 
   const handleFileRemove = useCallback(
     (file: File, index: number) => {
-      const filteredFiles = files.filter((_, i) => i !== index)
-      setFiles(filteredFiles)
-
-      if (removeFiles) {
-        removeFiles(file)
+      if (value) {
+        const filteredFiles = files.filter((_, i) => i !== index)
+        updateInForm(filteredFiles)
+        if (removeFiles) {
+          removeFiles(file)
+        }
       }
     },
-    [files, removeFiles]
+    [value, removeFiles]
   )
 
   return (
@@ -111,12 +101,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
           onClick={handleClick}
           buttonText={buttonText}
         />
-        <UploadItem
-          onRemove={handleFileRemove}
-          isFileUploaded={isFileUploaded}
-          files={files}
-          viewFiles={viewFiles}
-        />
+        <UploadItems onRemove={handleFileRemove} files={files} withFileView={withFileView} />
       </div>
     </div>
   )

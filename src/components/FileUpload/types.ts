@@ -8,5 +8,6 @@ export interface TFileUploadProps extends IFormCompProps {
   required?: boolean
   disabled?: boolean
   isFileUploaded?: boolean
-  viewFiles?: boolean
+  withFileView?: boolean
+  uploadedFiles?: File[]
 }

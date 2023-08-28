@@ -45,7 +45,7 @@ declare global {
     | boolean
     | TSelectOption
     | TItemValue
-    | File
+    | File[]
     | Date
     | TRangePickerValues
     | null

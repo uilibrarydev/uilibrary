@@ -40,9 +40,9 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
               <ReactHookFormErrorMessage
                 name={name}
                 errors={errors}
-                render={({ message }: { message: string }) => (
-                  <ErrorMessage dataId={dataId} message={message || ''} />
-                )}
+                render={({ message }: { message: string }) => {
+                    return <ErrorMessage dataId={dataId} message={message || ''} />
+                }}
               />
             </>
           )
