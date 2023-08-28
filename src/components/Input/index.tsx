@@ -32,6 +32,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       maxCount,
       handleChange,
       dataId = '',
+      isValid,
       ...rest
     },
     ref
@@ -84,7 +85,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         disabled={disabled}
         name={name}
         ref={ref}
-        required={isErrorVisible || !!error}
         type={type}
         placeholder={!label ? placeholder : ''}
         onChange={changeHandler}
@@ -96,10 +96,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
 
     return (
       <div
-        className={classNames(`input input--${size} `, className, {
+        className={classNames(`input input--${size}`, className, {
           'input--icon-left': leftIconProps,
           'input--icon-right': rightIconProps,
-          'input--invalid': isErrorVisible
+          'input--invalid': isErrorVisible || !!error,
+          'input--valid': isValid
         })}
       >
         <Label text={label} invalid={isErrorVisible} required={required} disabled={disabled} />

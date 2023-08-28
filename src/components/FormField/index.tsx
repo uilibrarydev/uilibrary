@@ -26,6 +26,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
             <>
               {As({
                 hasError: !!fieldState.error,
+                isValid: fieldState.isTouched && fieldState.isDirty && !fieldState.invalid,
                 dataId,
                 ...registerOptions,
                 setFieldValue: (data, name, options) =>

@@ -34,7 +34,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
   const { emptyListMainMessage, emptyListSecondaryMessage } = translations
 
   const [searchValue, setSearchValue] = useState('')
-  const [activeGroupId, setActiveGroupId] = useState(0)
+  const [activeGroupId, setActiveGroupId] = useState<number | null>(0)
   const [isAllSelected, setAllSelected] = useState(false)
   const [contentContainerRef, setContentContainerRef] = useState<HTMLDivElement | null>(null)
 
@@ -67,7 +67,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     )
 
     return filtered
-  }, [searchValue, options, activeGroupId])
+  }, [searchValue, options])
 
   const clearAll = useCallback(() => {
     setAllSelected(false)
@@ -76,7 +76,9 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
 
   const selectAll = useCallback(() => {
     setAllSelected(true)
-    const allValues = options.reduce(
+    console.log('filteredData', filteredData)
+
+    const allValues = filteredData.reduce(
       (acc: TSelectedValue[], { data }: TSelectGroupOption) => [
         ...acc,
         ...data.map((item) => {
@@ -107,6 +109,14 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     onItemDeselect(item)
   }
 
+  const onGroupClick = (index: number) => {
+    if (activeGroupId == index) {
+      setActiveGroupId(null)
+      return
+    }
+    setActiveGroupId(index)
+  }
+
   const optionProps = useMemo(() => {
     return {
       isCheckbox: true,
@@ -127,6 +137,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
           ) : (
             <>
               <ContentTop
+                hasLimitation={!!maxSelectCount}
                 selectAll={selectAll}
                 clearAll={clearAll}
                 isAnySelected={selectedValues.length === 0}
@@ -164,7 +175,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                     const isActive = index === activeGroupId
                     return (
                       <div className="select__group group-item" key={title}>
-                        <div onClick={() => setActiveGroupId(index)} className="group-item__top">
+                        <div onClick={() => onGroupClick(index)} className="group-item__top">
                           <Text size="xxsmall" type="tertiary" className="group-item__title pr-4">
                             {title}
                           </Text>
