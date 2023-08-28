@@ -149,7 +149,15 @@ const Template = (): JSX.Element => {
           <FormField name={'firstname'} As={(props) => <Input label="firstname" {...props} />} />
           <FormField
             name={'files'}
-            As={(props) => <FileUpload label={'files'} buttonText={'Attach'} allowedTypes={'.pdf, .dmg'} multiple={false} {...props} />}
+            As={(props) => (
+              <FileUpload
+                label={'files'}
+                buttonText={'Attach'}
+                allowedTypes={'.pdf, .dmg'}
+                multiple={false}
+                {...props}
+              />
+            )}
           />
 
           <Button buttonActionType="submit" buttonText={'Ok'} />

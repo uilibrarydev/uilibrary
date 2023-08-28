@@ -48,6 +48,3 @@ export const getFormattedValues = (files: File[]) => {
 
   return readers
 }
-
-
-
