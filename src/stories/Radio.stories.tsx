@@ -36,7 +36,7 @@ Radio.args = {
 
 const RadioGroupTemplate = (args) => {
   const [selected, setSelected] = useState(null)
-  return <RadioGroupComp {...args} value={selected} handleChange={setSelected}/>
+  return <RadioGroupComp {...args} value={selected} handleChange={setSelected} />
 }
 export const RadioGroup = RadioGroupTemplate.bind({})
 

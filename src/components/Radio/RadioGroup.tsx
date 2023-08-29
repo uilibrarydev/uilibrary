@@ -1,10 +1,10 @@
-import React, {forwardRef} from 'react'
+import React, { forwardRef } from 'react'
 import Radio from '.'
 
 import { TRadioGroupProps, TRadioOptionItem } from './types'
 import './index.scss'
 import Label from '../../helperComponents/Label'
-import classnames from 'classnames';
+import classnames from 'classnames'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element => {
@@ -32,7 +32,7 @@ const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element => {
     <div
       className={classnames('radio-group', {
         'radio-group--horizontal': isHorizontal,
-        'radio-group--vertical': !isHorizontal,
+        'radio-group--vertical': !isHorizontal
       })}
     >
       <Label className="radio-group__label" text={label} required={required} />

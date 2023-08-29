@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react'
+import React, { forwardRef } from 'react'
 import { TRadioProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
 

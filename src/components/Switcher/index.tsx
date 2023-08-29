@@ -1,10 +1,10 @@
-import React, {forwardRef} from 'react'
+import React, { forwardRef } from 'react'
 
 import Icon from '../Icon'
 
 import { TSwitcherProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
-import classnames from 'classnames';
+import classnames from 'classnames'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => {
@@ -17,7 +17,7 @@ export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => 
     size = 'large',
     setFieldValue,
     selectedValue,
-    className = '',
+    className = ''
   } = props
   const isChecked = !!value || !!selectedValue
 
@@ -35,11 +35,11 @@ export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => 
     <label
       id={id}
       className={classnames(
-          'controller',
-          'controller--switch',
-          `controller--switch-${size}`,
-          className,
-          { 'controller--disabled': disabled }
+        'controller',
+        'controller--switch',
+        `controller--switch-${size}`,
+        className,
+        { 'controller--disabled': disabled }
       )}
     >
       <input

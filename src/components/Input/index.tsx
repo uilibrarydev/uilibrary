@@ -16,6 +16,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       error,
       hasError,
       label,
+      mask,
       onChange,
       currentValue,
       name,
@@ -62,7 +63,22 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       return 0
     }, [rest, currentValue])
 
-    const input =
+    const input = mask ? (
+      <InputMask
+        name={name}
+        mask={mask}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        ref={ref}
+        {...rest}
+        placeholder={placeholder}
+        onChange={changeHandler}
+        disabled={disabled}
+        data-id={dataId}
+        className={`${isErrorVisible ? 'with-error-styles' : ''}`}
+        {...(currentValue ? { value: currentValue } : {})}
+      />
+    ) : (
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       <input
@@ -77,7 +93,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         {...rest}
         {...(currentValue !== undefined ? { value: currentValue } : {})}
       />
-
+    )
 
     return (
       <div

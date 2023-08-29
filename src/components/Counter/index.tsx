@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react'
+import React, { forwardRef } from 'react'
 import { Input } from '../index'
 import { ICounterProps } from './types'
 
@@ -76,5 +76,5 @@ const Counter = forwardRef((props: ICounterProps, ref): JSX.Element => {
   )
 })
 
-Counter.displayName = 'Counter';
+Counter.displayName = 'Counter'
 export default Counter
