@@ -41,22 +41,22 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
         }}
         ref={setElemRef}
       >
-          <div
-            data-id={dataId}
-            className={`tooltip tooltip--${size} tooltip--${tooltipPosition} ${className}`}
-            ref={setTooltipRef}
+        <div
+          data-id={dataId}
+          className={`tooltip tooltip--${size} tooltip--${tooltipPosition} ${className}`}
+          ref={setTooltipRef}
+        >
+          <Text
+            dataId={`${dataId}-text`}
+            className="tooltip__inner"
+            type="primary"
+            weight="regular"
+            lineHeight="small"
+            size={`${size == 'small' ? 'xsmall' : 'small'}`}
           >
-            <Text
-              dataId={`${dataId}-text`}
-              className="tooltip__inner"
-              type="primary"
-              weight="regular"
-              lineHeight="small"
-              size={`${size == 'small' ? 'xsmall' : 'small'}`}
-            >
-              {text}
-            </Text>
-          </div>
+            {text}
+          </Text>
+        </div>
         {children}
       </span>
     </>
