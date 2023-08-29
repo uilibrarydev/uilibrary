@@ -16,7 +16,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       error,
       hasError,
       label,
-      mask,
       onChange,
       currentValue,
       name,
@@ -33,6 +32,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       handleChange,
       dataId = '',
       isValid,
+      setFieldValue,
       ...rest
     },
     ref
@@ -62,22 +62,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       return 0
     }, [rest, currentValue])
 
-    const input = mask ? (
-      <InputMask
-        name={name}
-        mask={mask}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        ref={ref}
-        {...rest}
-        placeholder={placeholder}
-        onChange={changeHandler}
-        disabled={disabled}
-        data-id={dataId}
-        className={`${isErrorVisible ? 'with-error-styles' : ''}`}
-        {...(currentValue ? { value: currentValue } : {})}
-      />
-    ) : (
+    const input =
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       <input
@@ -92,7 +77,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         {...rest}
         {...(currentValue !== undefined ? { value: currentValue } : {})}
       />
-    )
+
 
     return (
       <div
@@ -139,7 +124,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
                 </>
               </Text>
             ) : null}
-            {helperText && !successMessage ? (
+            {helperText && !successMessage && !(isErrorVisible && error) ? (
               <Text size="small" type="secondary">
                 {helperText}
               </Text>

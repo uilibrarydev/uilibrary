@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {forwardRef} from 'react'
 import { TRadioProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
 
-export const Radio = (props: TRadioProps): JSX.Element | null => {
+export const Radio = forwardRef((props: TRadioProps, ref): JSX.Element | null => {
   const {
     name,
     label,
@@ -14,7 +14,7 @@ export const Radio = (props: TRadioProps): JSX.Element | null => {
     onClick,
     dataId = ''
   } = props
-  const isChecked = !!value || isSelected
+  const isChecked = !!value || !!isSelected
 
   const changeHandler = () => {
     if (name && setFieldValue) {
@@ -44,6 +44,8 @@ export const Radio = (props: TRadioProps): JSX.Element | null => {
       {label ? <span className="controller__label">{label}</span> : null}
     </label>
   )
-}
+})
+
+Radio.displayName = 'Radio'
 
 export default Radio

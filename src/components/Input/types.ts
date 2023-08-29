@@ -2,7 +2,6 @@ import { RefObject } from 'react'
 import { IconPropTypes } from '../Icon/types'
 
 export interface InputCustomProps extends IFormCompProps {
-  mask?: string
   className?: string
   size?: 'large' | 'small'
   currentValue?: string

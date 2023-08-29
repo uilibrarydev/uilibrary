@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {forwardRef} from 'react'
 import Radio from '.'
 
 import { TRadioGroupProps, TRadioOptionItem } from './types'
 import './index.scss'
 import Label from '../../helperComponents/Label'
+import classnames from 'classnames';
 
-const RadioGroup = (props: TRadioGroupProps): JSX.Element => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element => {
   const {
     isHorizontal = false,
     name,
@@ -28,9 +30,10 @@ const RadioGroup = (props: TRadioGroupProps): JSX.Element => {
 
   return (
     <div
-      className={`radio-group ${
-        isHorizontal ? 'radio-group--horizontal' : 'radio-group--vertical'
-      }`}
+      className={classnames('radio-group', {
+        'radio-group--horizontal': isHorizontal,
+        'radio-group--vertical': !isHorizontal,
+      })}
     >
       <Label className="radio-group__label" text={label} required={required} />
 
@@ -49,6 +52,7 @@ const RadioGroup = (props: TRadioGroupProps): JSX.Element => {
       })}
     </div>
   )
-}
+})
 
+RadioGroup.displayName = 'RadioGroup'
 export default RadioGroup
