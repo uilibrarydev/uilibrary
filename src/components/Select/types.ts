@@ -98,6 +98,7 @@ export interface TSingleSelectPropTypes extends IFormCompProps {
   optionRightIconComponent?: JSX.Element
   labelRightIconComponent?: JSX.Element
   avatar?: string
+  size?: 'small' | 'large'
 }
 
 export type TSelectFooterPropTypes = {

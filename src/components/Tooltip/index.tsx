@@ -41,7 +41,6 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
         }}
         ref={setElemRef}
       >
-        {isHovered && (
           <div
             data-id={dataId}
             className={`tooltip tooltip--${size} tooltip--${tooltipPosition} ${className}`}
@@ -58,7 +57,6 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
               {text}
             </Text>
           </div>
-        )}
         {children}
       </span>
     </>

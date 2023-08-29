@@ -57,6 +57,7 @@
   &__options {
     @include flexbox;
     @include flex-direction(column);
+    @include absolute(100%, 0, unset, 0);
     z-index: 1;
     background-color: var(--ds-select-options-bg);
     padding: var(--ds-select-options-padding);
