@@ -13,14 +13,15 @@
   --ds-tooltip-arrow-size: var(--ds-size-4);
   --ds-tooltip-arrow-position: var(--ds-space-20);
   --ds-tooltip-arrow-bg: var(--ds-color-bg-cta-secondary-default);
+  --ds-tooltip-shadow: 0px 2px 4px rgba(34, 34, 34, 0.16);
 
   @include flexbox;
   @include align-items(center);
-  position: absolute;
+  position: fixed;
   color: var(--ds-tooltip-color);
   background-color: var(--ds-tooltip-bg);
   border-radius: var(--ds-tooltip-border-radius);
-  filter: var(--ds-tooltip-shadow);
+  filter: drop-shadow(var(--ds-tooltip-shadow));
   min-width: var(--ds-size-80);
   padding: var(--ds-tooltip-padding);
   white-space: nowrap;
@@ -43,7 +44,6 @@
 
   &--top {
     &-left, &-center, &-right {
-      bottom: calc(100% + var(--ds-size-8));
       &:after {
         top: 100%;
         border-color: var(--ds-tooltip-arrow-bg) transparent transparent transparent;
@@ -53,7 +53,6 @@
 
   &--bottom {
     &-left, &-center, &-right {
-      top: calc(100% + var(--ds-size-8));
 
       &:after {
         bottom: 100%;
@@ -64,7 +63,6 @@
 
   &--top, &--bottom {
     &-left {
-      left: 0;
 
       &:after {
         left: var(--ds-tooltip-arrow-position);
@@ -74,7 +72,6 @@
 
   &--top, &--bottom {
     &-right {
-      right: 0;
 
       &:after {
         right: var(--ds-tooltip-arrow-position);
@@ -84,8 +81,6 @@
 
   &--top, &--bottom {
     &-center {
-      left: 50%;
-      transform: translateX(-50%);
 
       &:after {
         left: 50%;
@@ -96,8 +91,6 @@
 
   &--middle {
     &-left, &-right {
-      top: 50%;
-      transform: translateY(-50%);
 
       &:after {
         top: 50%;
@@ -106,7 +99,6 @@
     }
 
     &-left {
-      right: calc(calc(100% + var(--ds-size-8)));
 
       &:after {
         left: 100%;
@@ -115,7 +107,7 @@
     }
 
     &-right {
-      left: calc(calc(100% + var(--ds-size-8)));
+      
 
       &:after {
         right: 100%;

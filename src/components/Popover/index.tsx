@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { useGetTooltipPosition } from '../../hooks/useGetTooltipPosition'
 import Text from '../Text'
 
 import '../../assets/styles/components/_popover.scss'
 import { TPopoverProps } from './types'
 import { useOnOutsideClick } from '../../hooks'
+import { useGetPopoverStyles } from '../../hooks/useGetPopoverStyles'
 
 export const Popover = (props: TPopoverProps): JSX.Element | null => {
   const [isClicked, setIsClicked] = useState(false)
   const [popoverRef, setPopoverRef] = useState<HTMLElement | null>(null)
-  const [elemRef, setElemRef] = useState<HTMLSpanElement | null>(null)
 
-  const { text, className = '', position = 'top-left', children } = props
+  const { text, className = '', position = 'top-left', children, elemRef } = props
 
-  const tooltipPosition = useGetTooltipPosition({
-    tooltipRef: popoverRef,
+  const { popoverPosition, popoverStyles } = useGetPopoverStyles({
     elemRef,
+    popoverRef: popoverRef,
     initialPosition: position
   })
 
@@ -36,23 +35,20 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
 
   return (
     <>
-      <span
-        style={{
-          position: 'relative'
-        }}
-        ref={setElemRef}
-      >
-        {isClicked && (
-          <div className={`popover popover--${tooltipPosition} ${className}`} ref={setPopoverRef}>
-            <div className="popover__inner scrollbar scrollbar--vertical pr-8">
-              <Text type="primary" weight="regular" lineHeight="medium" size="small">
-                {text}
-              </Text>
-            </div>
+      {isClicked && (
+        <div
+          className={`popover popover--${popoverPosition} ${className}`}
+          ref={setPopoverRef}
+          style={popoverStyles}
+        >
+          <div className="popover__inner scrollbar scrollbar--vertical pr-8">
+            <Text type="primary" weight="regular" lineHeight="medium" size="small">
+              {text}
+            </Text>
           </div>
-        )}
-        {children}
-      </span>
+        </div>
+      )}
+      {children}
     </>
   )
 }

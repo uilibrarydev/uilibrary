@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { useGetTooltipPosition } from '../../hooks/useGetTooltipPosition'
+import { useGetTooltipStyles } from '../../hooks/useGetTooltipStyles'
 import Text from '../Text'
 
 import { TTooltipProps } from './types'
@@ -9,20 +9,25 @@ import '../../assets/styles/components/_tooltip.scss'
 export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const [isHovered, setIsHoverved] = useState(false)
   const [tooltipRef, setTooltipRef] = useState<HTMLDivElement | null>(null)
-  const [elemRef, setElemRef] = useState<HTMLSpanElement | null>(null)
 
   const {
     size = 'large',
     text,
     className = '',
-    position = 'bottom-center',
+    position = 'bottom-left',
     dataId = '',
-    children
+    children,
+    elemRef
   } = props
-  const tooltipPosition = useGetTooltipPosition({ tooltipRef, elemRef, initialPosition: position })
 
   const onMouseEnter = () => setIsHoverved(true)
   const onMouseLeave = () => setIsHoverved(false)
+
+  const { tooltipStyles, tooltipPosition } = useGetTooltipStyles({
+    elemRef,
+    tooltipRef,
+    initialPosition: position
+  })
 
   useEffect(() => {
     if (elemRef) {
@@ -33,34 +38,26 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
 
   return (
     <>
-      <span
-        data-id={dataId}
-        style={{
-          position: 'relative',
-          display: 'inline-block'
-        }}
-        ref={setElemRef}
-      >
-        {isHovered && (
-          <div
-            data-id={dataId}
-            className={`tooltip tooltip--${size} tooltip--${tooltipPosition} ${className}`}
-            ref={setTooltipRef}
+      {isHovered && (
+        <div
+          style={tooltipStyles}
+          data-id={dataId}
+          className={`tooltip tooltip--${size} tooltip--${tooltipPosition} ${className}`}
+          ref={setTooltipRef}
+        >
+          <Text
+            dataId={`${dataId}-text`}
+            className="tooltip__inner"
+            type="primary"
+            weight="regular"
+            lineHeight="small"
+            size={`${size == 'small' ? 'xsmall' : 'small'}`}
           >
-            <Text
-              dataId={`${dataId}-text`}
-              className="tooltip__inner"
-              type="primary"
-              weight="regular"
-              lineHeight="small"
-              size={`${size == 'small' ? 'xsmall' : 'small'}`}
-            >
-              {text}
-            </Text>
-          </div>
-        )}
-        {children}
-      </span>
+            {text}
+          </Text>
+        </div>
+      )}
+      {children}
     </>
   )
 }

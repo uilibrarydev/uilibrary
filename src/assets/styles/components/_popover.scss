@@ -7,21 +7,21 @@
   --ds-popover-padding: var(--ds-space-12);
   --ds-popover-border-radius: var(--ds-border-radius-xs);
   --ds-popover-shadow: drop-shadow(0px 1px 2px rgba(34, 34, 34, 0.06)) drop-shadow(0px 2px 2px rgba(34, 34, 34, 0.08)) drop-shadow(0px 1px 4px rgba(34, 34, 34, 0.08));;
-  --ds-popover-width: 200px;
+  --ds-popover-width: 400px;
   --ds-popover-height: 216px;
   --ds-popover-arrow-size: var(--ds-size-6);
   --ds-popover-arrow-position: var(--ds-space-20);
   --ds-popover-arrow-bg: var(--ds-color-bg-cta-secondary-default);
 
   @include flexbox;
-  position: absolute;
+  position: fixed;
   color: var(--ds-popover-color);
   background-color: var(--ds-popover-bg);
   border-radius: var(--ds-popover-border-radius);
   filter: var(--ds-popover-shadow);
   min-width: var(--ds-size-80);
   padding: var(--ds-popover-padding);
-  width: var(--ds-popover-width);
+  max-width: var(--ds-popover-width);
   max-height: var(--ds-popover-height);
 
   &:after {
@@ -37,7 +37,6 @@
 
   &--top {
     &-left, &-center, &-right {
-      bottom: calc(100% + var(--ds-size-8));
       &:after {
         top: 100%;
         border-color: var(--ds-popover-arrow-bg) transparent transparent transparent;
@@ -47,7 +46,6 @@
 
   &--bottom {
     &-left, &-center, &-right {
-      top: calc(100% + var(--ds-size-8));
 
       &:after {
         bottom: 100%;
@@ -58,8 +56,6 @@
 
   &--top, &--bottom {
     &-left {
-      left: 0;
-
       &:after {
         left: var(--ds-popover-arrow-position);
       }
@@ -68,8 +64,6 @@
 
   &--top, &--bottom {
     &-right {
-      right: 0;
-
       &:after {
         right: var(--ds-popover-arrow-position);
       }
@@ -78,8 +72,6 @@
 
   &--top, &--bottom {
     &-center {
-      left: 50%;
-      transform: translateX(-50%);
 
       &:after {
         left: 50%;
@@ -90,8 +82,6 @@
 
   &--middle {
     &-left, &-right {
-      top: 50%;
-      transform: translateY(-50%);
 
       &:after {
         top: 50%;
@@ -100,7 +90,6 @@
     }
 
     &-left {
-      right: calc(calc(100% + var(--ds-size-8)));
 
       &:after {
         left: 100%;
@@ -109,7 +98,6 @@
     }
 
     &-right {
-      left: calc(calc(100% + var(--ds-size-8)));
 
       &:after {
         right: 100%;
