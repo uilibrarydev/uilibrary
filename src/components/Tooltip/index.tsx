@@ -5,6 +5,7 @@ import Text from '../Text'
 
 import { TTooltipProps } from './types'
 import '../../assets/styles/components/_tooltip.scss'
+import classNames from 'classnames'
 
 export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const [isHovered, setIsHoverved] = useState(false)
@@ -42,7 +43,7 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
         <div
           style={tooltipStyles}
           data-id={dataId}
-          className={`tooltip tooltip--${size} tooltip--${tooltipPosition} ${className}`}
+          className={classNames(`tooltip tooltip--${size} tooltip--${tooltipPosition}`, className)}
           ref={setTooltipRef}
         >
           <Text

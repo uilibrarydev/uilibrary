@@ -10,6 +10,7 @@ import { Loading } from './SharedComponents/Loading'
 
 const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
+    size,
     name,
     value,
     label,
@@ -84,9 +85,10 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const { scrollHeight } = useGetElemSizes(scrollRef.current)
 
   return (
-    <div className="select" ref={setContainerRef}>
+    <div className={`select select--${size}`} ref={setContainerRef}>
       <div onClick={open}>
         <Input
+          size={size}
           data-id={dataId}
           hasError={hasError}
           className="select__input"
