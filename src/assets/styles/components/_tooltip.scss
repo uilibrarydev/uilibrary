@@ -9,6 +9,7 @@
   --ds-tooltip-siz-lg: var(--ds-size-32);
   --ds-tooltip-size-sm: var(--ds-size-24);
   --ds-tooltip-border-radius: var(--ds-border-radius-xs);
+  --ds-tooltip-max-width: var(--ds-size-240);
 
   --ds-tooltip-arrow-size: var(--ds-size-4);
   --ds-tooltip-arrow-position: var(--ds-space-20);
@@ -22,7 +23,7 @@
   background-color: var(--ds-tooltip-bg);
   border-radius: var(--ds-tooltip-border-radius);
   filter: drop-shadow(var(--ds-tooltip-shadow));
-  min-width: var(--ds-size-80);
+  max-width: var(--ds-tooltip-max-width);
   padding: var(--ds-tooltip-padding);
   white-space: nowrap;
   z-index: 9999;
