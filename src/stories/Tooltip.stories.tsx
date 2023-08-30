@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Tooltip as TooltipComp } from '../components'
 
 export default {
@@ -26,13 +26,29 @@ export default {
 }
 
 const Template = (args) => {
-  return <TooltipComp {...args}>Hover on meeeeeee</TooltipComp>
+  const [elemRef, setelemRef] = useState<HTMLElement | null>(null)
+  return (
+    <TooltipComp {...args} elemRef={elemRef}>
+      <div
+        style={{
+          width: 100,
+
+          position: 'absolute',
+          top: 200,
+          left: 400
+        }}
+        ref={setelemRef}
+      >
+        Hover on meeeeeee
+      </div>
+    </TooltipComp>
+  )
 }
 
 export const Tooltip = Template.bind({})
 
 Tooltip.args = {
   text: 'Prompt text Prompt text Prompt text Prompt text',
-  // position: 'top-left',
+  // position: 'top-right',
   size: 'large'
 }

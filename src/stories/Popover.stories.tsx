@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Popover as PopoverComp } from '../components'
 
 export default {
@@ -22,12 +22,28 @@ export default {
 }
 
 const Template = (args) => {
-  return <PopoverComp {...args}>Click on me</PopoverComp>
+  const [ref, setRef] = useState<HTMLElement | null>(null)
+  return (
+    <PopoverComp {...args} elemRef={ref}>
+      <div
+        ref={setRef}
+        style={{
+          position: 'absolute',
+          left: 300,
+          top: 300,
+          width: 100,
+          height: 50,
+          background: 'red'
+        }}
+      >
+        Click on me
+      </div>
+    </PopoverComp>
+  )
 }
 
 export const Popover = Template.bind({})
 
 Popover.args = {
-  text: 'Lorem ipsum dolor sit amet. Ea accusamus laboriosam sit sintEa accusamus laboriosam sit sint expedita et numquam sunt. A sunt assumenda id quos sequi qui eius nulla. Est saepe dolorem qui nemo enim id velit voluptas.Est saepe dolorem qui nemo enim id velit voluptas.Est saepe dolorem qui nemo enim id velit voluptas.Est saepe dolorem.',
-  position: 'top-left'
+  text: 'Lorem ipsum dolor sit amet. Ea accusamus laboriosam sit sintEa accusamus laboriosam sit sint expedita et numquam sunt. A sunt assumenda id quos sequi qui eius nulla. Est saepe dolorem qui nemo enim id velit voluptas.Est saepe dolorem qui nemo enim id velit voluptas.Est saepe dolorem qui nemo enim id velit voluptas.Est saepe dolorem.'
 }
