@@ -5,6 +5,7 @@ import Text from '../Text'
 
 import { TTooltipProps } from './types'
 import '../../assets/styles/components/_tooltip.scss'
+import classNames from 'classnames';
 
 export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const [isHovered, setIsHoverved] = useState(false)
@@ -41,22 +42,24 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
         }}
         ref={setElemRef}
       >
-        <div
-          data-id={dataId}
-          className={`tooltip tooltip--${size} tooltip--${tooltipPosition} ${className}`}
-          ref={setTooltipRef}
-        >
-          <Text
-            dataId={`${dataId}-text`}
-            className="tooltip__inner"
-            type="primary"
-            weight="regular"
-            lineHeight="small"
-            size={`${size == 'small' ? 'xsmall' : 'small'}`}
+        {isHovered && (
+          <div
+            data-id={dataId}
+            className={classNames(`tooltip tooltip--${size} tooltip--${tooltipPosition}`, className)}
+            ref={setTooltipRef}
           >
-            {text}
-          </Text>
-        </div>
+            <Text
+              dataId={`${dataId}-text`}
+              className="tooltip__inner"
+              type="primary"
+              weight="regular"
+              lineHeight="small"
+              size={`${size == 'small' ? 'xsmall' : 'small'}`}
+            >
+              {text}
+            </Text>
+          </div>
+        )}
         {children}
       </span>
     </>
