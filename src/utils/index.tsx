@@ -27,3 +27,24 @@ export const getStringWidth = (text: string, fontSize: number): number => {
 export const setTranslationValue = (translation: string, value: string | number): string => {
   return translation.replace('%s', value.toString())
 }
+
+export const openFileInNewWindow = (e: TClickEventType, file: File) => {
+  e.preventDefault()
+  const fileURL = URL.createObjectURL(file)
+  return window.open(fileURL)
+}
+
+export const getFormattedValues = (files: File[]) => {
+  const readers: FileReader[] = []
+
+  for (let i = 0; i < files.length; i++) {
+    const reader = new FileReader()
+    reader.onloadend = () => {
+      console.log(reader.result)
+    }
+    reader.readAsDataURL(files[i])
+    readers.push(reader)
+  }
+
+  return readers
+}
