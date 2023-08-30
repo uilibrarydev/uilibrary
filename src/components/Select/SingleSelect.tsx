@@ -7,9 +7,11 @@ import { OptionItem } from '../../helperComponents/OptionItem'
 import Input from '../Input'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
 import { Loading } from './SharedComponents/Loading'
+import classNames from 'classnames'
 
 const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
+    className,
     size,
     name,
     value,
@@ -85,7 +87,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const { scrollHeight } = useGetElemSizes(scrollRef.current)
 
   return (
-    <div className={`select select--${size}`} ref={setContainerRef}>
+    <div className={classNames(`select select--${size}`, className)} ref={setContainerRef}>
       <div onClick={open}>
         <Input
           size={size}
