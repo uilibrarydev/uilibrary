@@ -5,6 +5,7 @@ import '../../assets/styles/components/_popover.scss'
 import { TPopoverProps } from './types'
 import { useOnOutsideClick } from '../../hooks'
 import { useGetPopoverStyles } from '../../hooks/useGetPopoverStyles'
+import classNames from 'classnames'
 
 export const Popover = (props: TPopoverProps): JSX.Element | null => {
   const [isClicked, setIsClicked] = useState(false)
@@ -37,7 +38,7 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
     <>
       {isClicked && (
         <div
-          className={`popover popover--${popoverPosition} ${className}`}
+          className={classNames(`popover popover--${popoverPosition}`, className)}
           ref={setPopoverRef}
           style={popoverStyles}
         >
