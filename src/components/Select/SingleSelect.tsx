@@ -7,7 +7,7 @@ import { OptionItem } from '../../helperComponents/OptionItem'
 import Input from '../Input'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
 import { Loading } from './SharedComponents/Loading'
-import classNames from "classnames";
+import classNames from 'classnames'
 
 const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
