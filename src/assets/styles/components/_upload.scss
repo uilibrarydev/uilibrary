@@ -31,6 +31,10 @@
   border: var(--ds-upload-item-border);
   border-radius: (--ds-upload-item-border-radius);
 
+  &--error {
+    border-color: var(--ds-color-bg-cta-danger-default);
+  }
+
   &__image {
     min-width: var(--ds-upload-item-image-size);
     width: var(--ds-upload-item-image-size);
@@ -62,5 +66,6 @@
 
   &__text {
     @include truncate(100%);
+    cursor: pointer;
   }
 }

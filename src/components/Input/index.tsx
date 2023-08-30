@@ -33,6 +33,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       handleChange,
       dataId = '',
       isValid,
+      setFieldValue,
       ...rest
     },
     ref
@@ -139,7 +140,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
                 </>
               </Text>
             ) : null}
-            {helperText && !successMessage ? (
+            {helperText && !successMessage && !(isErrorVisible && error) ? (
               <Text size="small" type="secondary">
                 {helperText}
               </Text>

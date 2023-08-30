@@ -12,7 +12,6 @@ const Stepper = (props: TStepperProps): JSX.Element => {
     setActiveStepIndex(newIndex)
     if (setActiveStep) {
       setActiveStep(newIndex)
-      console.log(newIndex)
     }
   }
 

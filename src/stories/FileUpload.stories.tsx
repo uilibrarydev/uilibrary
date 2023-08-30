@@ -15,7 +15,7 @@ const getFiles = (files: FileList) => {
 const Template = (args): JSX.Element => {
   return (
     <div style={{ width: 400 }}>
-      <FileUploadComp {...args} allowedTypes={['PDF', 'XYZ', 'MKT']} getFiles={getFiles} />
+      <FileUploadComp {...args} getFiles={getFiles} />
     </div>
   )
 }
@@ -24,5 +24,6 @@ export const FileUpload = Template.bind({})
 FileUpload.args = {
   label: 'Label',
   buttonText: 'Attach file',
-  isFileUploaded: false
+  isFileUploaded: false,
+  allowedTypes: ['PDF']
 }
