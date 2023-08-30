@@ -549,6 +549,9 @@ $space-prefixes: (
   &--end {
     @include justify-content(flex-end);
   }
+  &--center {
+    @include justify-content(center);
+  }
 }
 
 //width
