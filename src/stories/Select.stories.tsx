@@ -39,7 +39,12 @@ const image = {
 export default {
   title: 'Select',
   component: SelectComp,
-  argTypes: {}
+  argTypes: {
+    size: {
+      options: ['large', 'small'],
+      control: { type: 'radio' }
+    }
+  }
 }
 
 const OPTIONS: TSelectOptions = [
@@ -201,6 +206,7 @@ const ButtonMenu = () => {
   )
 }
 Select.args = {
+  size: 'large',
   isLoading: false,
   options: OPTIONS,
   withFooter: true,

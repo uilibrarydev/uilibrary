@@ -3,7 +3,9 @@
 
 @import "./mixin";
 
-
+body {
+  font-family: var(--ds-font-family);
+}
 
 //***** font sizes *****//
 
