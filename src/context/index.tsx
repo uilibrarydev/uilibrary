@@ -9,6 +9,7 @@ import {
   UseFormClearErrors,
   UseFormSetError
 } from 'react-hook-form'
+import { TDirtyFields } from '../components/FormContainer/types'
 import { noop } from '../utils'
 
 export type TFormContextProps = {
@@ -24,9 +25,11 @@ export type TFormContextProps = {
   setError?: UseFormSetError<TFormData>
   isSubmitted: boolean
   isSubmitting: boolean
+  dirtyFields: TDirtyFields
 }
 export const FormContext = createContext<TFormContextProps>({
   setValue: noop,
   isSubmitted: false,
-  isSubmitting: false
+  isSubmitting: false,
+  dirtyFields: {}
 })

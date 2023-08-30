@@ -41,13 +41,14 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
     shouldUnregister: shouldUnregister
   })
 
+  const { errors, isDirty, isSubmitted, isSubmitting, dirtyFields } = formState
+
   const customSubmit = (data: TFormData) => {
     if (onSubmit) {
-      onSubmit(data, formState)
+      onSubmit(data, formState, dirtyFields)
     }
   }
 
-  const { errors, isDirty, isSubmitted, isSubmitting } = formState
   return (
     <form
       onSubmit={handleSubmit(customSubmit)}
@@ -67,7 +68,8 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
           isSubmitted,
           isSubmitting,
           clearErrors,
-          setError
+          setError,
+          dirtyFields
         }}
       >
         <>
