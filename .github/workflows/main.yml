@@ -29,6 +29,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - run: echo "VERSION=$(npm run version --silent)" >> $GITHUB_ENV
+      - run: echo "PACKAGE_NAME=$(npm run name --silent)" >> $GITHUB_ENV
+
       - name: Publish to npm
         run: npm publish
 
@@ -36,3 +39,16 @@ jobs:
       #   run: npm run deploy-storybook
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      # Slack notification
+      - run: echo "PIPE_URL=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID|Pipeline#$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
+      - name: Post to a Slack channel
+        id: slack
+        uses: slackapi/slack-github-action@v1.17.0
+        with:
+           payload: |
+             {"attachments":[{"color":"#70aeff","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"Notification sent from <${{ env.PIPE_URL }}>"}},{"type":"section","text":{"type":"mrkdwn","text":"${{ env.PACKAGE_NAME }}@${{ env.VERSION }} has been published"}}]}]}
+        env:
+           SLACK_WEBHOOK_URL: ${{ secrets.WEB_SLACK_WEBHOOK_URL }}
+           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+

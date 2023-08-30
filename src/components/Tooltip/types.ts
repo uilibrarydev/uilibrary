@@ -1,6 +1,8 @@
+import { ReactElement } from 'react'
+
 export interface TTooltipProps extends IFormCompProps {
   text: string
-  children?: string | JSX.Element
+  children?: ReactElement
   position?:
     | 'top-left'
     | 'top-center'
@@ -12,4 +14,5 @@ export interface TTooltipProps extends IFormCompProps {
     | 'middle-right'
   size?: 'large' | 'small'
   className?: string
+  elemRef: HTMLElement | null
 }

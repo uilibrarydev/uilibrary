@@ -20,7 +20,7 @@ export const useGetTooltipPosition = (info: TTooltipInfo): TTooltipPosition => {
 
     const hasLeftSpace = tooltipWidth + GAP < left
     const hasRightSpace = tooltipWidth + GAP < window.innerWidth - left
-    // eslint-disable-next-line no-debugger
+    const hasMiddleRightSpace = tooltipWidth + GAP < window.innerWidth - left - itemWidth
 
     if (!hasTopSpace && initialPosition.includes('top')) {
       return initialPosition.replace('top', 'bottom')
@@ -34,9 +34,12 @@ export const useGetTooltipPosition = (info: TTooltipInfo): TTooltipPosition => {
     if (!hasRightSpace && initialPosition.includes('right')) {
       return initialPosition.replace('right', 'left')
     }
+    if (!hasMiddleRightSpace && initialPosition.includes('middle-right')) {
+      return initialPosition.replace('right', 'left')
+    }
 
     return initialPosition
-  }, [tooltipHeight, tooltipWidth, bottom, initialPosition])
+  }, [tooltipHeight, tooltipWidth, bottom, initialPosition, tooltipRef])
 
   // this is calculations for triangle position
   const finalPosition = useMemo(() => {
@@ -67,7 +70,7 @@ export const useGetTooltipPosition = (info: TTooltipInfo): TTooltipPosition => {
       return calculatedPosition
     }
     return calculatedPosition
-  }, [calculatedPosition, tooltipWidth, itemWidth, left])
+  }, [calculatedPosition, tooltipWidth, itemWidth, left, tooltipRef])
   if (!hasTriangle) {
     return calculatedPosition as TTooltipPosition
   }
