@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 
 import Icon from '../Icon'
 
 import { TSwitcherProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
+import classnames from 'classnames'
 
-export const Switcher = (props: TSwitcherProps): JSX.Element => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => {
   const {
     onClick,
     id = '',
@@ -17,7 +19,7 @@ export const Switcher = (props: TSwitcherProps): JSX.Element => {
     selectedValue,
     className = ''
   } = props
-  const isChecked = !!value || selectedValue
+  const isChecked = !!value || !!selectedValue
 
   const changeHandler = () => {
     if (name && setFieldValue) {
@@ -32,10 +34,13 @@ export const Switcher = (props: TSwitcherProps): JSX.Element => {
   return (
     <label
       id={id}
-      className={`controller controller--switch controller--switch-${size} 
-                    ${className}
-                    ${disabled ? 'controller--disabled' : ''} 
-                    `}
+      className={classnames(
+        'controller',
+        'controller--switch',
+        `controller--switch-${size}`,
+        className,
+        { 'controller--disabled': disabled }
+      )}
     >
       <input
         type="checkbox"
@@ -51,7 +56,7 @@ export const Switcher = (props: TSwitcherProps): JSX.Element => {
       </span>
     </label>
   )
-}
+})
 
 Switcher.displayName = 'Switcher'
 export default Switcher

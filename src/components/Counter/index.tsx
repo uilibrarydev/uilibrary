@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { Input } from '../index'
 import { ICounterProps } from './types'
 
@@ -7,7 +7,8 @@ import './index.scss'
 import classNames from 'classnames'
 import { noop } from '../../utils'
 
-const Counter = (props: ICounterProps): JSX.Element => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Counter = forwardRef((props: ICounterProps, ref): JSX.Element => {
   const {
     max = 99999999,
     min = 0,
@@ -73,6 +74,7 @@ const Counter = (props: ICounterProps): JSX.Element => {
       onChange={onInputChange}
     />
   )
-}
+})
 
+Counter.displayName = 'Counter'
 export default Counter
