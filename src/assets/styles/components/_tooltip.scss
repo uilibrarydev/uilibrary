@@ -5,7 +5,7 @@
 
   --ds-tooltip-bg: var(--ds-color-bg-cta-secondary-default);
   --ds-tooltip-color: var(--ds-color-text-inverse);
-  --ds-tooltip-padding: 0 var(--ds-space-8);
+  --ds-tooltip-padding: var(--ds-space-4) var(--ds-space-8);
   --ds-tooltip-siz-lg: var(--ds-size-32);
   --ds-tooltip-size-sm: var(--ds-size-24);
   --ds-tooltip-border-radius: var(--ds-border-radius-xs);
@@ -25,7 +25,6 @@
   filter: drop-shadow(var(--ds-tooltip-shadow));
   max-width: var(--ds-tooltip-max-width);
   padding: var(--ds-tooltip-padding);
-  white-space: nowrap;
   z-index: 9999;
 
   &:after {
@@ -36,11 +35,11 @@
   }
 
   &--large {
-    height: var(--ds-tooltip-siz-lg);
+    min-height: var(--ds-tooltip-siz-lg);
   }
 
   &--small {
-    height: var(--ds-tooltip-size-sm);
+    min-height: var(--ds-tooltip-size-sm);
   }
 
   &--top {
@@ -73,7 +72,6 @@
 
   &--top, &--bottom {
     &-right {
-
       &:after {
         right: var(--ds-tooltip-arrow-position);
       }
@@ -82,7 +80,6 @@
 
   &--top, &--bottom {
     &-center {
-
       &:after {
         left: 50%;
         transform: translateX(-50%);
@@ -92,7 +89,6 @@
 
   &--middle {
     &-left, &-right {
-
       &:after {
         top: 50%;
         transform: translateY(-50%);
@@ -100,7 +96,6 @@
     }
 
     &-left {
-
       &:after {
         left: 100%;
         border-color: transparent transparent transparent var(--ds-tooltip-arrow-bg);
@@ -108,8 +103,6 @@
     }
 
     &-right {
-      
-
       &:after {
         right: 100%;
         border-color: transparent var(--ds-tooltip-arrow-bg) transparent transparent ;

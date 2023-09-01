@@ -9,7 +9,7 @@ export const TYPE_MAPPING: { [key: string]: TIconTypes } = {
 
 export const ICONS_MAPPING: { [key: string]: string } = {
   warning: 'warning-hover',
-  success: 'circle-mark-hover',
+  success: 'checkmark-hover',
   error: 'error',
   information: 'info-hover'
 }
