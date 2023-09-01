@@ -14,5 +14,6 @@ export interface TTooltipProps extends IFormCompProps {
     | 'middle-right'
   size?: 'large' | 'small'
   className?: string
-  elemRef: HTMLElement | null
+  elemRef?: HTMLElement | null
+  id?: string
 }

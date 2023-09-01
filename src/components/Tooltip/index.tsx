@@ -18,14 +18,24 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
     position = 'bottom-left',
     dataId = '',
     children,
+    id,
     elemRef
   } = props
+
+  const [parnet, setElement] = useState<HTMLElement | null>(elemRef || null)
+
+  useEffect(() => {
+    if (id) {
+      const element = document.getElementById(id)
+      setElement(element)
+    }
+  }, [children])
 
   const onMouseEnter = () => setIsHoverved(true)
   const onMouseLeave = () => setIsHoverved(false)
 
   const { tooltipStyles, tooltipPosition } = useGetTooltipStyles({
-    elemRef,
+    elemRef: parnet,
     tooltipRef,
     initialPosition: position
   })
@@ -33,11 +43,11 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   console.log('tooltipPosition', tooltipPosition)
 
   useEffect(() => {
-    if (elemRef) {
-      elemRef.addEventListener('mouseenter', onMouseEnter, false)
-      elemRef.addEventListener('mouseleave', onMouseLeave, false)
+    if (parnet) {
+      parnet.addEventListener('mouseenter', onMouseEnter, false)
+      parnet.addEventListener('mouseleave', onMouseLeave, false)
     }
-  }, [elemRef])
+  }, [parnet])
 
   return (
     <>
