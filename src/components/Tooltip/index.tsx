@@ -30,6 +30,8 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
     initialPosition: position
   })
 
+  console.log('tooltipPosition', tooltipPosition)
+
   useEffect(() => {
     if (elemRef) {
       elemRef.addEventListener('mouseenter', onMouseEnter, false)
