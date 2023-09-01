@@ -153,6 +153,8 @@
   &__label, &__link {
     font: var(--ds-controller-font);
     padding: var(--ds-controller-label-padding);
+    width: calc(100% - var(--ds-size-24));
+    word-break: break-word;
 
     sup {
       margin-left: 2px;
