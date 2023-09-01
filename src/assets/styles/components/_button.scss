@@ -352,6 +352,7 @@
     #{$this}__icon {
       @include animation(var(--ds-button-loader-animation));
     }
+    pointer-events: none;
   }
 }
 
