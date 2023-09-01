@@ -39,9 +39,7 @@
   --ds-controller-label-disabled: var(--ds-color-text-disabled);
   --ds-controller-label-padding: 0 0 0 var(--ds-space-8);
 
-  --ds-controller-disclaimer-font: var(--ds-font-weight-default) var(--ds-paragraph-sm)/var(--ds-line-height-caption) var(--ds-font-family);
-  --ds-controller-disclaimer-default: var(--ds-color-text-secondary);
-  --ds-controller-disclaimer-padding: var(--ds-space-2) 0 0 var(--ds-space-24);
+  --ds-controller-helper-padding: var(--ds-space-2) 0 0 var(--ds-space-24);
 
   --ds-controller-transition: background-color .3s linear, border .3s linear;
 
@@ -140,7 +138,7 @@
         & + #{$this}__label {
           color: var(--ds-controller-label-disabled);
 
-          & + #{$this}__disclaimer {
+          & + #{$this}__helper-text {
             color: var(--ds-controller-label-disabled);
           }
         }
@@ -152,9 +150,8 @@
     cursor: default;
   }
 
-  &__label {
+  &__label, &__link {
     font: var(--ds-controller-font);
-    color: var(--ds-controller-label-default);
     padding: var(--ds-controller-label-padding);
 
     sup {
@@ -162,15 +159,13 @@
     }
   }
 
-  &__disclaimer {
-    flex: 100%;
-    font: var(--ds-controller-disclaimer-font);
-    color: var(--ds-controller-disclaimer-default);
-    padding: var(--ds-controller-disclaimer-padding);
+  &__label {
+    color: var(--ds-controller-label-default);
+  }
 
-    sup {
-      margin-left: 2px;
-    }
+  &__helper {
+    flex: 100%;
+    padding: var(--ds-controller-helper-padding);
   }
 
   &--radio {

@@ -1,6 +1,6 @@
 export interface TRadioProps extends IFormCompProps {
   label?: string | JSX.Element
-  disclaimer?: string | JSX.Element
+  helperText?: string | JSX.Element
   className?: string
   disabled?: boolean
   isSelected?: boolean
@@ -10,7 +10,7 @@ export interface TRadioProps extends IFormCompProps {
 export type TRadioOptionItem = {
   value: number | string
   label: string
-  disclaimer?: string | JSX.Element
+  helperText?: string | JSX.Element
   dataId?: string
 }
 

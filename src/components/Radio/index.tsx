@@ -1,12 +1,13 @@
 import React, { forwardRef } from 'react'
 import { TRadioProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
+import Text from "../Text";
 
 export const Radio = forwardRef((props: TRadioProps, ref): JSX.Element | null => {
   const {
     name,
     label,
-    disclaimer,
+    helperText,
     disabled,
     setFieldValue,
     isSelected,
@@ -43,7 +44,7 @@ export const Radio = forwardRef((props: TRadioProps, ref): JSX.Element | null =>
       />
       <span className="controller__icon"></span>
       {label ? <span className="controller__label">{label}</span> : null}
-      {disclaimer ? <span className="controller__disclaimer">{disclaimer}</span> : null}
+      {helperText ?  <Text size="small" type={disabled ? 'disabled' : 'secondary'} className="controller__helper">{helperText}</Text> : null}
     </label>
   )
 })
