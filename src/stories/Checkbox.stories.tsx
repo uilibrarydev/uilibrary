@@ -18,5 +18,6 @@ export const Checkbox = Template.bind({})
 Checkbox.args = {
   disabled: false,
   required: false,
-  label: 'Label for checkbox'
+  label: 'Label for checkbox',
+  link: 'https://ameriabank.am/Portals/0/files/Business/General/SME_Ecosystem_Text_of_agreements.pdf'
 }

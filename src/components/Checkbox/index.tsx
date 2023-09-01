@@ -56,7 +56,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
       </span>
       {label ? (
         link ? (
-          <Link dataId={dataId} url={link}>
+          <Link dataId={dataId} url={link} taget="_blank" className="controller__link">
             {label}
           </Link>
         ) : (

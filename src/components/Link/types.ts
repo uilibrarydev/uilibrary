@@ -3,4 +3,5 @@ export interface LinkPropTypes {
   className?: string
   url?: string
   dataId?: string
+  taget?: string
 }

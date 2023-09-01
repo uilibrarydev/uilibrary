@@ -41,6 +41,7 @@ const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element => {
         return (
           <Radio
             label={radioOption.label}
+            helperText={radioOption.helperText}
             key={radioOption.value}
             name={name}
             className="radio-group__item"
