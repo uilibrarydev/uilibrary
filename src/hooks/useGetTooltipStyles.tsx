@@ -25,19 +25,29 @@ export const useGetTooltipStyles = ({
   const tooltipPosition = useGetTooltipPosition({ tooltipRef, elemRef, initialPosition })
 
   const tooltipStyles = useMemo(() => {
-    const coef = tooltipPosition.includes('top') ? -1 : 1
-
-    if (tooltipPosition === 'bottom-left' || tooltipPosition === 'top-left') {
-      return { top: top + (height + TOOLTIP_GAP) * coef, left }
+    if (tooltipPosition === 'bottom-left') {
+      return { top: top + (height + TOOLTIP_GAP), left }
     }
-    if (tooltipPosition === 'bottom-right' || tooltipPosition === 'top-right') {
+    if (tooltipPosition === 'top-left') {
+      return { top: top - (tooltipHeight + TOOLTIP_GAP), left }
+    }
+    if (tooltipPosition === 'bottom-right') {
       return {
-        top: top + (height + TOOLTIP_GAP) * coef,
+        top: top + (height + TOOLTIP_GAP),
         left: right - tooltipWidth - TOOLTIP_GAP
       }
     }
-    if (tooltipPosition === 'bottom-center' || tooltipPosition === 'top-center') {
-      return { top: top + (height + TOOLTIP_GAP) * coef, left: left - (tooltipWidth - width) / 2 }
+    if (tooltipPosition === 'top-right') {
+      return {
+        top: top - tooltipHeight - TOOLTIP_GAP,
+        left: right - tooltipWidth - TOOLTIP_GAP
+      }
+    }
+    if (tooltipPosition === 'bottom-center') {
+      return { top: top + (height + TOOLTIP_GAP), left: left - (tooltipWidth - width) / 2 }
+    }
+    if (tooltipPosition === 'top-center') {
+      return { top: top - (tooltipHeight + TOOLTIP_GAP), left: left - (tooltipWidth - width) / 2 }
     }
     if (tooltipPosition === 'middle-left') {
       return { top: top + height / 2 - tooltipHeight / 2, left: left - tooltipWidth - TOOLTIP_GAP }
@@ -46,7 +56,7 @@ export const useGetTooltipStyles = ({
       return { top: top + height / 2 - tooltipHeight / 2, left: left + width + TOOLTIP_GAP }
     }
     return { left, top }
-  }, [top, left, width, height, tooltipPosition, tooltipWidth, tooltipRef])
+  }, [top, left, width, height, tooltipPosition, tooltipWidth])
 
   return { tooltipStyles, tooltipPosition }
 }

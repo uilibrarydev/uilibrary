@@ -12,7 +12,7 @@ import classNames from 'classnames'
 const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
     className,
-    size,
+    size = 'large',
     name,
     value,
     label,
@@ -20,6 +20,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     options,
     hasError,
     isLoading,
+    isValid,
     dataId = '',
     placeHolder,
     selectedItem,
@@ -101,6 +102,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
           }}
           placeholder={placeHolder}
           currentValue={selectedItemLabel}
+          isValid={isValid}
         />
       </div>
 
