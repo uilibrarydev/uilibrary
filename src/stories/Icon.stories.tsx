@@ -3,6 +3,7 @@ import { Meta } from '@storybook/react'
 import { Icon as IconComp, Text } from '../components'
 
 const ICONS = [
+  'pdf-dark',
   'login',
   'logout',
   'add-user',

@@ -6,6 +6,7 @@ export const Radio = forwardRef((props: TRadioProps, ref): JSX.Element | null =>
   const {
     name,
     label,
+    disclaimer,
     disabled,
     setFieldValue,
     isSelected,
@@ -42,6 +43,7 @@ export const Radio = forwardRef((props: TRadioProps, ref): JSX.Element | null =>
       />
       <span className="controller__icon"></span>
       {label ? <span className="controller__label">{label}</span> : null}
+      {disclaimer ? <span className="controller__disclaimer">{disclaimer}</span> : null}
     </label>
   )
 })

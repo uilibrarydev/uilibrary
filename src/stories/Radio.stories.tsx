@@ -4,10 +4,12 @@ import { Radio as RadioComp, RadioGroup as RadioGroupComp } from '../components'
 const RADIO_OPTIONS = [
   {
     label: 'Text1',
+    disclaimer: 'Label for radio',
     value: 1
   },
   {
     label: 'Text2',
+    disclaimer: 'Label for radio',
     value: 2
   },
   {
@@ -31,7 +33,8 @@ export const Radio = Template.bind({})
 
 Radio.args = {
   disabled: false,
-  label: 'Label for radio'
+  label: 'Label for radio',
+  disclaimer: 'Label for radio'
 }
 
 const RadioGroupTemplate = (args) => {
