@@ -61,6 +61,9 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
         const updatedFiles = uniqueFiles([...fileArray, ...files])
         setFiles(updatedFiles)
       }
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
     },
     [files, multiple]
   )
