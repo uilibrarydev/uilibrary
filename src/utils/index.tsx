@@ -48,3 +48,9 @@ export const getFormattedValues = (files: File[]) => {
 
   return readers
 }
+
+export const uniqueFiles = (files: File[]) =>
+    files.filter((file, index, self) => {
+      return index === self.findIndex((f) => f.name === file.name)
+    })
+
