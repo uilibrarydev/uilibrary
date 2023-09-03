@@ -26,10 +26,11 @@ export default {
 }
 
 const Template = (args) => {
-  const [elemRef, setelemRef] = useState<HTMLElement | null>(null)
+  // const [elemRef, setelemRef] = useState<HTMLElement | null>(null)
   return (
-    <TooltipComp {...args} elemRef={elemRef}>
+    <TooltipComp {...args} id="ooooo">
       <div
+        id="ooooo"
         style={{
           width: 100,
 
@@ -37,7 +38,7 @@ const Template = (args) => {
           top: 200,
           left: 400
         }}
-        ref={setelemRef}
+        // ref={setelemRef}
       >
         Hover on meeeeeee
       </div>

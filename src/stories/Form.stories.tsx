@@ -154,7 +154,7 @@ const Template = (): JSX.Element => {
                 label={'files'}
                 buttonText={'Attach'}
                 allowedTypes={'.pdf, .dmg'}
-                multiple={false}
+                multiple={true}
                 {...props}
               />
             )}

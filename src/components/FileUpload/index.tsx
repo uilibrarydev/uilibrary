@@ -2,7 +2,7 @@ import React, { useCallback, useRef } from 'react'
 import { TFileUploadProps } from './types'
 import Button from '../Button'
 import Label from '../../helperComponents/Label'
-import { getFormattedValues } from '../../utils'
+import { getFormattedValues, uniqueFiles } from '../../utils'
 import UploadItems from './uploadItems'
 import '../../assets/styles/components/_upload.scss'
 
@@ -25,6 +25,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   } = props
   const files = (value as File[]) || uploadedFiles || []
   const fileInputRef = useRef<HTMLInputElement>(null)
+
   const handleClick = () => {
     if (fileInputRef.current) {
       fileInputRef.current.click()
@@ -40,25 +41,32 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     [name, setFieldValue]
   )
 
-  const setFiles = (selectedFiles: FileList) => {
-    // const fileArray = Array.from(selectedFiles)
-    const fileArray = multiple ? Array.from(selectedFiles) : [selectedFiles[0]]
-    updateInForm([...files, ...fileArray])
+  const setFiles = (selectedFiles: File[]) => {
+    updateInForm(selectedFiles)
     if (getFiles) {
       if (toBase64) {
-        getFormattedValues([...files, ...fileArray])
+        getFormattedValues(selectedFiles)
       } else {
-        getFiles([...files, ...fileArray])
+        getFiles(selectedFiles)
       }
     }
   }
 
-  const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFiles = event.target?.files
-    if (selectedFiles) {
-      setFiles(selectedFiles)
-    }
-  }, [])
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const fileList = event.target?.files as FileList
+      const fileArray = multiple ? Array.from(fileList) : [fileList[0]]
+
+      if (fileArray) {
+        const updatedFiles = uniqueFiles([...fileArray, ...files])
+        setFiles(updatedFiles)
+      }
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    },
+    [files, multiple]
+  )
 
   const handleFileRemove = useCallback(
     (file: File, index: number) => {
