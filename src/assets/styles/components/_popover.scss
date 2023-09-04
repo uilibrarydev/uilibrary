@@ -23,6 +23,7 @@
   padding: var(--ds-popover-padding);
   max-width: var(--ds-popover-max-width);
   max-height: var(--ds-popover-height);
+  z-index: 9999;
 
   &:after {
     content: "";

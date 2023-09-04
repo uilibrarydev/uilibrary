@@ -22,7 +22,9 @@
   --ds-input-bg-invalid: var(--ds-color-bg-cta-secondary-default);
   --ds-input-bg-disabled: var(--ds-color-bg-cta-secondary-default);
 
-  --ds-input-body-text-default: var(--ds-color-text-tertiary);
+  --ds-input-body-placeholder: var(--ds-color-text-tertiary);
+
+  --ds-input-body-text-default: var(--ds-color-text-primary);
   --ds-input-body-text-focused: var(--ds-color-text-primary);
   --ds-input-body-text-activated: var(--ds-color-text-primary);
   --ds-input-body-text-validated: var(--ds-color-text-primary);
@@ -66,14 +68,14 @@
     transition: var(--ds-input-transition);
 
     &:-ms-input-placeholder {
-      color: var(--ds-input-body-text-default);
+      color: var(--ds-input-body-placeholder);
     }
     &::placeholder {
-      color: var(--ds-input-body-text-default);
+      color: var(--ds-input-body-placeholder);
     }
 
     & + #{$this}__icon {
-      color: var(--ds-input-body-icon-default);
+      color: var(--ds-input-body-placeholder);
     }
 
     &:hover {
