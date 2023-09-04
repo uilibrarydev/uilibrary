@@ -24,8 +24,9 @@ export default {
 const Template = (args) => {
   const [ref, setRef] = useState<HTMLElement | null>(null)
   return (
-    <PopoverComp {...args} elemRef={ref}>
+    <PopoverComp {...args} id="sss">
       <div
+        id="sss"
         ref={setRef}
         style={{
           position: 'absolute',

@@ -4,18 +4,20 @@ import Text from '../Text'
 import '../../assets/styles/components/_popover.scss'
 import { TPopoverProps } from './types'
 import { useOnOutsideClick } from '../../hooks'
-import { useGetPopoverStyles } from '../../hooks/useGetPopoverStyles'
+
 import classNames from 'classnames'
+import { useGetTooltipStyles } from '../../hooks/useGetTooltipStyles'
 
 export const Popover = (props: TPopoverProps): JSX.Element | null => {
   const [isClicked, setIsClicked] = useState(false)
   const [popoverRef, setPopoverRef] = useState<HTMLElement | null>(null)
 
-  const { text, className = '', position = 'top-left', children, elemRef } = props
+  const { text, className = '', position = 'top-left', children, elemRef, id } = props
+  const [parent, setElement] = useState<HTMLElement | null>(elemRef || null)
 
-  const { popoverPosition, popoverStyles } = useGetPopoverStyles({
-    elemRef,
-    popoverRef: popoverRef,
+  const { tooltipPosition: popoverPosition, tooltipStyles: popoverStyles } = useGetTooltipStyles({
+    elemRef: parent,
+    tooltipRef: popoverRef,
     initialPosition: position
   })
 
@@ -26,13 +28,20 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
     setIsClicked(false)
   }
 
+  useEffect(() => {
+    if (id) {
+      const element = document.getElementById(id.toString())
+      setElement(element)
+    }
+  }, [id])
+
   useOnOutsideClick(popoverRef, hideMessage)
 
   useEffect(() => {
-    if (elemRef) {
-      elemRef.addEventListener('click', showMessage, false)
+    if (parent) {
+      parent.addEventListener('click', showMessage, false)
     }
-  }, [elemRef])
+  }, [parent])
 
   return (
     <>

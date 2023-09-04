@@ -12,4 +12,5 @@ export interface TPopoverProps extends IFormCompProps {
     | 'middle-right'
   className?: string
   elemRef?: any
+  id?: string | number
 }
