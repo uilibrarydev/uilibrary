@@ -12,6 +12,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     label,
     getFiles,
     removeFiles,
+    handleClick,
     name,
     setFieldValue,
     toBase64,
@@ -26,7 +27,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const files = (value as File[]) || uploadedFiles || []
   const fileInputRef = useRef<HTMLInputElement>(null)
 
-  const handleClick = () => {
+  const onUploadClick = () => {
     if (fileInputRef.current) {
       fileInputRef.current.click()
     }
@@ -98,10 +99,10 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
           size="medium"
           disabled={disabled}
           iconProps={{ name: 'attach', alignment: 'left' }}
-          onClick={handleClick}
+          onClick={onUploadClick}
           buttonText={buttonText}
         />
-        <UploadItems onRemove={handleFileRemove} files={files} withFileView={withFileView} />
+        <UploadItems handleClick={handleClick} onRemove={handleFileRemove} files={files} withFileView={withFileView} />
       </div>
     </div>
   )

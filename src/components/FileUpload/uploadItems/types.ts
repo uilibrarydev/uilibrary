@@ -4,6 +4,7 @@ export interface TUploadItemPropTypes {
   fileType?: string
   isFileUploaded?: boolean
   error?: boolean
+  handleClick?:(file:File)=>void
   withFileView?: boolean
   files: File[]
 }

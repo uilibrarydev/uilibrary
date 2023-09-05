@@ -28,11 +28,23 @@ export const setTranslationValue = (translation: string, value: string | number)
   return translation.replace('%s', value.toString())
 }
 
-export const openFileInNewWindow = (e: TClickEventType, file: File) => {
-  e.preventDefault()
-  const fileURL = URL.createObjectURL(file)
-  return window.open(fileURL)
+
+declare type TCreateErrorFieldParams = {
+  e: TClickEventType
+  file: File
+  handleClick?: (file: File) => void
 }
+
+export const openFileInNewWindow = ({ e, file, handleClick }: TCreateErrorFieldParams) => {
+  e.preventDefault();
+
+  if (handleClick) {
+    return handleClick(file);
+  }
+
+  const fileURL = URL.createObjectURL(file);
+  return window.open(fileURL);
+};
 
 export const getFormattedValues = (files: File[]) => {
   const readers: FileReader[] = []
