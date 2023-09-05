@@ -59,6 +59,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
       const fileArray = multiple ? Array.from(fileList) : [fileList[0]]
 
       if (fileArray) {
+        //TODO if multiple false update only fileArray
         const updatedFiles = uniqueFiles([...fileArray, ...files])
         setFiles(updatedFiles)
       }
