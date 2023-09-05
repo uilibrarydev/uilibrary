@@ -140,7 +140,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
                 </>
               </Text>
             ) : null}
-            {helperText && !successMessage && !(isErrorVisible && error) ? (
+            {helperText && !successMessage && !(isErrorVisible || error) ? (
               <Text size="small" type="secondary">
                 {helperText}
               </Text>
