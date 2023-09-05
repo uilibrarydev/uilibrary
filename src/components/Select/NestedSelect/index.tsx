@@ -1,18 +1,14 @@
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 
 import { Input } from '../../index'
 import { OptionItem } from '../../../helperComponents/OptionItem'
-import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
-import { checkIsValueOverflowed, incrementOverflowedinitial } from '../utils'
 
 import { TNestedSelectProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
 import { useOnOutsideClick } from '../../../hooks'
 
 const LEVEL_LEFT_MARGIN = 10
-type TSelectedItemsWithLevels = {
-  [key: string | number]: TItemValue[]
-}
+
 export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
   const {
     value,
@@ -31,9 +27,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
   const [isDropdownOpen, setIsOpen] = useState(false)
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>(initialSelected)
-  const [selectedItemsWithLevels, setSelectedLevels] = useState<TSelectedItemsWithLevels>({})
-
-  const { width } = useGetElemSizes(containerRef)
+  const [selected, setSelected] = useState<TSelectOption | null>(null)
 
   const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => setIsOpen(false)
@@ -49,128 +43,47 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
   }
 
   useOnOutsideClick(containerRef, closeDropdown)
-  const _checkIsValueOverflowed = useCallback(
-    (value: string) => checkIsValueOverflowed(value, width),
-    [width]
-  )
 
   const onSelect = useCallback(
-    (
-      optionValue: TItemValue,
-      hasChildren: boolean,
-      level: string | number,
-      isSelected: boolean
-    ) => {
+    (option: TSelectOption, hasChildren: boolean) => {
+      const { value: optionValue } = option
+
       if (!hasChildren) {
-        setSelectedValue(optionValue)
-      }
-
-      const isLevelAlreadyClicked = !!selectedItemsWithLevels[level]
-
-      if (isLevelAlreadyClicked) {
-        const idsTobeClosed = Object.keys(selectedItemsWithLevels).reduce(
-          (acc: TItemValue[], levelKey: TItemValue) => {
-            if (levelKey && levelKey >= level) {
-              acc = [...acc, ...selectedItemsWithLevels[levelKey]]
-            }
-            return acc
-          },
-          []
-        )
-
-        const filtered = selectedValues.filter((item) => idsTobeClosed.indexOf(item) === -1)
+        const isSelected = optionValue === selected?.value
 
         if (isSelected) {
-          setSelectedValues([...filtered])
+          setSelected(null)
+          setSelectedValue(null)
         } else {
-          setSelectedValues([...filtered, optionValue])
+          setSelectedValue(optionValue)
+          setSelected(option)
         }
-        const reduceInitialValue = isSelected ? {} : { [level]: [optionValue] }
+        return
+      }
 
-        setSelectedLevels((levels: TSelectedItemsWithLevels) => {
-          return Object.keys(levels).reduce(
-            (acc: TSelectedItemsWithLevels, levelKey: string | number) => {
-              if (levelKey && levelKey < level) {
-                acc[levelKey] = levels[levelKey]
-              }
-              return acc
-            },
-            reduceInitialValue
-          )
-        })
+      const isSelected = selectedValues.findIndex((i) => i === optionValue) !== -1
+      if (isSelected) {
+        setSelectedValues(selectedValues.filter((i) => i !== optionValue))
       } else {
         setSelectedValues([...selectedValues, optionValue])
-        setSelectedLevels((levels: TSelectedItemsWithLevels) => {
-          return { ...levels, [level]: [optionValue] }
-        })
       }
     },
-    [selectedValues, selectedItemsWithLevels]
+    [selected, selectedValues]
   )
-
-  // get selected option labels based on opened child units
-  const getSelectedItemsLabels = (
-    option: TSelectOption,
-    labelCurrentValue: { value: string; overflowCount: number }
-  ): string => {
-    const { overflowCount, value } = labelCurrentValue
-    let _overflowCount = overflowCount
-    const isOpen = selectedValues.indexOf(option.value) !== -1
-
-    if (isOpen) {
-      const current = `${value}${value ? ', ' : ''}${option.label}`
-
-      if (_checkIsValueOverflowed(current)) {
-        _overflowCount = _overflowCount + 1
-        return incrementOverflowedinitial(value, _overflowCount)
-      }
-
-      if (option.children) {
-        return option.children.reduce(
-          (acc, item) =>
-            getSelectedItemsLabels(item, { value: acc, overflowCount: _overflowCount }),
-          current
-        )
-      }
-      return current
-    }
-
-    return value
-  }
-
-  const selectedItemsLabels = useMemo(() => {
-    if (!selectedValues.length) {
-      return ''
-    }
-    const currentValue = options.reduce(
-      (acc: { inputValue: string; visibleOptionsLength: number }, option: TSelectOption) => {
-        const label = getSelectedItemsLabels(option, { value: '', overflowCount: 0 })
-
-        const { inputValue, visibleOptionsLength } = acc
-        const accNextValue = `${inputValue}${label}`
-
-        acc = { inputValue: accNextValue, visibleOptionsLength: visibleOptionsLength + 1 }
-
-        return acc
-      },
-      { inputValue: '', visibleOptionsLength: 0 }
-    )
-
-    return currentValue.inputValue
-  }, [options, selectedValues, _checkIsValueOverflowed, getSelectedItemsLabels])
 
   const generateFolders = (foldersArr: TSelectOption[], level: number): Array<JSX.Element> =>
     foldersArr.reduce((acc: Array<JSX.Element>, option: TSelectOption) => {
       const { value, children, disabled } = option
       const isOpen = selectedValues.indexOf(option.value) !== -1
-      const isSelected = isOpen && !option.children
+      const isSelected = option.value === selected?.value
+
       acc.push(
         <div style={{ paddingLeft: LEVEL_LEFT_MARGIN * level }}>
           <OptionItem
             data={option}
             key={value}
             isSelected={isSelected}
-            onClick={() => onSelect(value, !!children, level, isOpen)}
+            onClick={() => onSelect({ value, label: option.label }, !!children)}
             avatar={avatar}
             disabled={disabled}
             optionRightIconComponent={optionRightIconComponent}
@@ -195,7 +108,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
           required={isRequiredField}
           rightIconProps={{ name: isDropdownOpen ? 'caret-up' : 'caret-down' }}
           placeholder={placeHolder}
-          currentValue={selectedItemsLabels}
+          currentValue={selected?.label.toString() || ''}
           readonly={true}
         />
       </div>
