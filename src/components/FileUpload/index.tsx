@@ -103,7 +103,12 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
           onClick={onUploadClick}
           buttonText={buttonText}
         />
-        <UploadItems handleClick={handleClick} onRemove={handleFileRemove} files={files} withFileView={withFileView} />
+        <UploadItems
+          handleClick={handleClick}
+          onRemove={handleFileRemove}
+          files={files}
+          withFileView={withFileView}
+        />
       </div>
     </div>
   )
