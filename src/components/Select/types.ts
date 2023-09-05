@@ -1,12 +1,13 @@
 import { TButtonPropTypes } from '../Button/types'
 
-export interface TNestedSelectProps extends IFormCompProps {
+export interface TNestedSelectProps {
   options: TSelectOptions
   isRequiredField?: boolean
   label?: string | JSX.Element
   placeHolder?: string
-  selectedItems?: TItemValue[]
-  setSelectedValue: (value: TItemValue) => void
+  initialSelectedFolderIds?: TItemValue[]
+  setSelectedValue: (value: TSelectOption | null) => void
+  selected?: TSelectOption | null
   optionRightIconComponent?: JSX.Element
   labelRightIconComponent?: JSX.Element
   avatar?: string

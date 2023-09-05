@@ -270,20 +270,18 @@ MultiSelect.args = {
 // ----------NESTED_SELECT---------------
 
 const NestedSelect1 = (args): JSX.Element => {
-  const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
-  const [isOpen, setIsOpen] = useState(false)
-  const containerRef = useRef(null)
-  const closeHandler = () => setIsOpen(false)
+  const [selected, setSelected] = useState<TSelectOption>({
+    value: 3,
+    label: 'Managment board'
+  })
+
   return (
     <div style={{ width: 320 }}>
       <NestedSelectComp
         {...args}
-        isGrouped
-        parentRef={containerRef.current}
-        closeHandler={closeHandler}
-        isOpen={isOpen}
-        selectedItems={selectedValues}
-        setSelectedValue={setSelectedValues}
+        selected={selected}
+        setSelectedValue={setSelected}
+        initialSelectedFolderIds={[1, 2]}
       />
     </div>
   )
@@ -294,7 +292,6 @@ NestedSelect.args = {
   isLoading: false,
   label: 'Select',
   options: OPTIONS_NESTED,
-  // avatar: image.src,
   placeHolder: 'Select country',
   labelLeftIconProps: { name: 'user' },
   labelRightIconComponent: <Icon name="user" size="xsmall" className="mr-4" />,
