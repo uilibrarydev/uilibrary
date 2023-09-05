@@ -294,22 +294,20 @@ NestedSelect.args = {
   isLoading: false,
   label: 'Select',
   options: OPTIONS_NESTED,
-  avatar: image.src,
+  // avatar: image.src,
   placeHolder: 'Select country',
   labelLeftIconProps: { name: 'user' },
-  labelRightIconComponent: (
+  labelRightIconComponent: <Icon name="user" size="xsmall" className="mr-4" />,
+  optionRightIconComponent: (
     <Icon
-      name="user"
+      name="more"
       size="xsmall"
-      className="mr-4"
       onClick={(e) => {
         e.preventDefault()
         e.stopPropagation()
-        console.log('click')
       }}
     />
-  ),
-  optionRightIconComponent: <Icon name="more" size="xsmall" />
+  )
 }
 // ----------FILTERDROPDOWN---------------
 
