@@ -102,7 +102,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
           'input--icon-right': rightIconProps,
           'input--invalid': isErrorVisible || !!error,
           'input--valid': isValid,
-          'input--disabled': disabled
         })}
       >
         <Label text={label} invalid={isErrorVisible} required={required} disabled={disabled} />
