@@ -36,21 +36,22 @@ const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element => {
       })}
     >
       <Label className="radio-group__label" text={label} required={required} />
-
-      {options.map((radioOption: TRadioOptionItem) => {
-        return (
-          <Radio
-            label={radioOption.label}
-            helperText={radioOption.helperText}
-            key={radioOption.value}
-            name={name}
-            className="radio-group__item"
-            isSelected={radioOption.value === value}
-            onClick={() => onSelect(radioOption.value)}
-            dataId={radioOption.dataId}
-          />
-        )
-      })}
+      <div className="radio-group__inner">
+        {options.map((radioOption: TRadioOptionItem) => {
+          return (
+            <Radio
+              label={radioOption.label}
+              helperText={radioOption.helperText}
+              key={radioOption.value}
+              name={name}
+              className="radio-group__item"
+              isSelected={radioOption.value === value}
+              onClick={() => onSelect(radioOption.value)}
+              dataId={radioOption.dataId}
+            />
+          )
+        })}
+      </div>
     </div>
   )
 })
