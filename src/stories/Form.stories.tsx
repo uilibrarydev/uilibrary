@@ -153,7 +153,6 @@ const Template = (): JSX.Element => {
               <FileUpload
                 label={'files'}
                 buttonText={'Attach'}
-                allowedTypes={'.pdf, .dmg'}
                 multiple={true}
                 {...props}
               />
