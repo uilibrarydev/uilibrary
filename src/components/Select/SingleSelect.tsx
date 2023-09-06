@@ -21,6 +21,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     hasError,
     isLoading,
     isValid,
+    disabled,
     dataId = '',
     placeHolder,
     selectedItem,
@@ -103,6 +104,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
           placeholder={placeHolder}
           currentValue={selectedItemLabel}
           isValid={isValid}
+          disabled={disabled}
         />
       </div>
 

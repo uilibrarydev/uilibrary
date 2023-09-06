@@ -207,6 +207,7 @@ const ButtonMenu = () => {
 }
 Select.args = {
   size: 'large',
+  disabled: false,
   isLoading: false,
   options: OPTIONS,
   withFooter: true,

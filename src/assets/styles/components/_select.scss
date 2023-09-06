@@ -114,13 +114,6 @@
         content: '- ';
       }
     }
-
-    &--disabled {
-      &:hover {
-        cursor: default;
-        background-color: transparent;
-      }
-    }
   }
 
   &__icon {
