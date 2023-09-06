@@ -8,11 +8,9 @@ import { openFileInNewWindow } from '../../../utils'
 import { useFormProps } from '../../../hooks/useFormProps'
 
 const UploadItems = (props: TUploadItemPropTypes): JSX.Element => {
-  const { files, onRemove, withFilePreview,handleFileClick } = props
+  const { files, onRemove, withFilePreview, handleFileClick } = props
   const { errors } = useFormProps()
-  const filesErrors = errors && errors.files && errors.files.length > 0;
-
-
+  const filesErrors = errors && errors.files && errors.files.length > 0
 
   return (
     <>
@@ -31,11 +29,14 @@ const UploadItems = (props: TUploadItemPropTypes): JSX.Element => {
                     size="small"
                     lineHeight="medium"
                     className="upload-item__text"
-                    onClick={(e) => withFilePreview && openFileInNewWindow({
-                      e,
-                      file,
-                      handleFileClick,
-                    })}
+                    onClick={(e) =>
+                      withFilePreview &&
+                      openFileInNewWindow({
+                        e,
+                        file,
+                        handleFileClick
+                      })
+                    }
                   >
                     {file.name}
                   </Text>
