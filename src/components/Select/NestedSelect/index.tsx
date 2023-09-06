@@ -11,23 +11,21 @@ const LEVEL_LEFT_MARGIN = 10
 
 export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
   const {
-    value,
     label,
+    avatar,
     options,
+    selected,
     placeHolder,
-    selectedItems,
     isRequiredField,
     setSelectedValue,
+    initialSelectedFolderIds,
     optionRightIconComponent,
-    labelRightIconComponent,
-    avatar
+    labelRightIconComponent
   } = props
-  const initialSelected = (value as TItemValue[]) || selectedItems || []
 
   const [isDropdownOpen, setIsOpen] = useState(false)
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
-  const [selectedValues, setSelectedValues] = useState<TItemValue[]>(initialSelected)
-  const [selected, setSelected] = useState<TSelectOption | null>(null)
+  const [selectedValues, setSelectedValues] = useState<TItemValue[]>(initialSelectedFolderIds || [])
 
   const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => setIsOpen(false)
@@ -49,15 +47,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
       const { value: optionValue } = option
 
       if (!hasChildren) {
-        const isSelected = optionValue === selected?.value
-
-        if (isSelected) {
-          setSelected(null)
-          setSelectedValue(null)
-        } else {
-          setSelectedValue(optionValue)
-          setSelected(option)
-        }
+        setSelectedValue(optionValue === selected?.value ? null : option)
         return
       }
 
