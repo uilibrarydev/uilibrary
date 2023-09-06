@@ -12,14 +12,14 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     label,
     getFiles,
     removeFiles,
-    handleClick,
+    handleFileClick,
     name,
     setFieldValue,
     toBase64,
     required,
     disabled,
     buttonText,
-    withFileView = true,
+    withFilePreview = true,
     multiple = true,
     uploadedFiles,
     value
@@ -54,21 +54,23 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   }
 
   const handleChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      const fileList = event.target?.files as FileList
-      const fileArray = multiple ? Array.from(fileList) : [fileList[0]]
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        const fileList = event.target?.files as FileList;
+        const fileArray = multiple ? Array.from(fileList) : [fileList[0]];
 
-      if (fileArray) {
-        //TODO if multiple false update only fileArray
-        const updatedFiles = uniqueFiles([...fileArray, ...files])
-        setFiles(updatedFiles)
-      }
-      if (fileInputRef.current) {
-        fileInputRef.current.value = ''
-      }
-    },
-    [files, multiple]
-  )
+        if (fileArray) {
+          const updatedFiles = uniqueFiles(
+              multiple ? [...fileArray, ...files] : fileArray
+          );
+          setFiles(updatedFiles);
+        }
+        if (fileInputRef.current) {
+          fileInputRef.current.value = '';
+        }
+      },
+      [files, multiple]
+  );
+
 
   const handleFileRemove = useCallback(
     (file: File, index: number) => {
@@ -104,10 +106,10 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
           buttonText={buttonText}
         />
         <UploadItems
-          handleClick={handleClick}
+            handleFileClick={handleFileClick}
           onRemove={handleFileRemove}
           files={files}
-          withFileView={withFileView}
+            withFilePreview={withFilePreview}
         />
       </div>
     </div>

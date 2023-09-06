@@ -32,14 +32,14 @@ export const setTranslationValue = (translation: string, value: string | number)
 declare type TCreateErrorFieldParams = {
   e: TClickEventType
   file: File
-  handleClick?: (file: File) => void
+  handleFileClick?: (file: File) => void
 }
 
-export const openFileInNewWindow = ({ e, file, handleClick }: TCreateErrorFieldParams) => {
+export const openFileInNewWindow = ({ e, file, handleFileClick }: TCreateErrorFieldParams) => {
   e.preventDefault();
 
-  if (handleClick) {
-    return handleClick(file);
+  if (handleFileClick) {
+    return handleFileClick(file);
   }
 
   const fileURL = URL.createObjectURL(file);
