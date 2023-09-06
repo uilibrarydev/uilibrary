@@ -3,7 +3,7 @@ name: Slack Notification on Pull Request Events
 on:
   pull_request:
     types:
-      - opened
+      - [opened, reopened]
 
 jobs:
   send_slack_notification:
