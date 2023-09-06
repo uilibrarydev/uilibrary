@@ -83,6 +83,7 @@ export interface TMultiSelectPropTypes extends IFormCompProps {
 export interface TSingleSelectPropTypes extends IFormCompProps {
   error?: string
   isLoading?: boolean
+  disabled?: boolean
   label?: string | JSX.Element
   options: TSelectOptions
   placeHolder?: string
