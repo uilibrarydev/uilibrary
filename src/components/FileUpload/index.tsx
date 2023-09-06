@@ -8,7 +8,7 @@ import '../../assets/styles/components/_upload.scss'
 
 const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const {
-    allowedTypes = '*',
+    allowedTypes = 'text/plain, image/*, .pdf, .doc, .docx',
     label,
     getFiles,
     removeFiles,
