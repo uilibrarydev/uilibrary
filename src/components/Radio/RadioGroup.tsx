@@ -16,7 +16,8 @@ const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element => {
     value,
     handleChange,
     label,
-    required
+    required,
+    className
   } = props
 
   const onSelect = (selected: number | string) => {
@@ -30,10 +31,14 @@ const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element => {
 
   return (
     <div
-      className={classnames('radio-group', {
-        'radio-group--horizontal': isHorizontal,
-        'radio-group--vertical': !isHorizontal
-      })}
+      className={classnames(
+        'radio-group',
+        {
+          'radio-group--horizontal': isHorizontal,
+          'radio-group--vertical': !isHorizontal
+        },
+        className
+      )}
     >
       <Label className="radio-group__label" text={label} required={required} />
       <div className="radio-group__inner">
