@@ -3,7 +3,7 @@ export interface TFileUploadProps extends IFormCompProps {
   label?: string | JSX.Element
   buttonText?: string | JSX.Element
   getFiles?: (files: File[]) => void
-  handleFileClick?:(file:File)=>void
+  handleFileClick?: (file: File) => void
   removeFiles?: (file: File) => void
   toBase64?: boolean
   required?: boolean

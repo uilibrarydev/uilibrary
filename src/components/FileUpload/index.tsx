@@ -54,23 +54,20 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   }
 
   const handleChange = useCallback(
-      (event: React.ChangeEvent<HTMLInputElement>) => {
-        const fileList = event.target?.files as FileList;
-        const fileArray = multiple ? Array.from(fileList) : [fileList[0]];
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const fileList = event.target?.files as FileList
+      const fileArray = multiple ? Array.from(fileList) : [fileList[0]]
 
-        if (fileArray) {
-          const updatedFiles = uniqueFiles(
-              multiple ? [...fileArray, ...files] : fileArray
-          );
-          setFiles(updatedFiles);
-        }
-        if (fileInputRef.current) {
-          fileInputRef.current.value = '';
-        }
-      },
-      [files, multiple]
-  );
-
+      if (fileArray) {
+        const updatedFiles = uniqueFiles(multiple ? [...fileArray, ...files] : fileArray)
+        setFiles(updatedFiles)
+      }
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
+    },
+    [files, multiple]
+  )
 
   const handleFileRemove = useCallback(
     (file: File, index: number) => {
@@ -106,10 +103,10 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
           buttonText={buttonText}
         />
         <UploadItems
-            handleFileClick={handleFileClick}
+          handleFileClick={handleFileClick}
           onRemove={handleFileRemove}
           files={files}
-            withFilePreview={withFilePreview}
+          withFilePreview={withFilePreview}
         />
       </div>
     </div>

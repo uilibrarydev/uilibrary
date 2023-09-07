@@ -150,12 +150,7 @@ const Template = (): JSX.Element => {
           <FormField
             name={'files'}
             As={(props) => (
-              <FileUpload
-                label={'files'}
-                buttonText={'Attach'}
-                multiple={true}
-                {...props}
-              />
+              <FileUpload label={'files'} buttonText={'Attach'} multiple={true} {...props} />
             )}
           />
 

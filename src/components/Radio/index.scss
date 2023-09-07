@@ -5,14 +5,25 @@
 
     --radio-group-item-space: var(--ds-space-20);
 
-    @include inline-flex;
+    @include flexbox;
+    @include flex-direction(column);
 
-    &--horizontal {
+    &__inner {
+        @include inline-flex;
         @include flex-wrap(wrap);
         @include align-items(flex-start);
+    }
+
+    &--horizontal {
+        #{$this}__inner {
+            @include flex-wrap(wrap);
+            @include align-items(flex-start);
+            margin-top: calc(var(--radio-group-item-space) * -1);
+        }
 
         #{$this}__item {
             margin-right: var(--radio-group-item-space);
+            margin-top: var(--radio-group-item-space);
 
             &:last-child {
                 margin-right: 0;
@@ -21,7 +32,9 @@
     }
 
     &--vertical {
-        @include flex-direction(column);
+        #{$this}__inner {
+            @include flex-direction(column);
+        }
 
         #{$this}__item {
             margin-bottom: var(--radio-group-item-space);
