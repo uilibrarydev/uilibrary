@@ -40,11 +40,11 @@ const Template = (args): JSX.Element => {
 export const Modal = Template.bind({})
 
 Modal.args = {
-    size: 'small',
-    title: 'Title',
-    closeIcon: false,
-    withFooter: true,
-    iconProps: {
-        name: 'checkmark-hover'
-    }
+  size: 'small',
+  title: 'Title',
+  closeIcon: false,
+  withFooter: true,
+  iconProps: {
+    name: 'checkmark-hover'
+  }
 }

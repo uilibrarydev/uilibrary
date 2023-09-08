@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { TButtonPropTypes } from '../Button/types'
-import {TIconTypes} from '../Icon/types';
+import { TIconTypes } from '../Icon/types'
 
 export interface TModalPropTypes {
   isOpen: boolean

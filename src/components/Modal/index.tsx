@@ -8,7 +8,7 @@ import { Button, Text } from '../index'
 
 import { TModalPropTypes } from './types'
 import '../../assets/styles/components/_modal.scss'
-import Icon from "../Icon";
+import Icon from '../Icon'
 
 const DESKTOP_ANIMATION = {
   initial: { opacity: 0.5, scale: 0.65 },
@@ -63,7 +63,7 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
           <div className="modal__container" ref={setContainerRef} {...DESKTOP_ANIMATION}>
             {title ? (
               <div className="modal__header">
-               {iconProps?.name ? <Icon size="small" {...iconProps} className="mr-12" /> : null}
+                {iconProps?.name ? <Icon size="small" {...iconProps} className="mr-12" /> : null}
                 <Text className="modal__title" weight="semibold" lineHeight="large" size="medium">
                   {title}
                 </Text>
