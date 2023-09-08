@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import { TButtonPropTypes } from '../Button/types'
+import {TIconTypes} from '../Icon/types';
 
 export interface TModalPropTypes {
   isOpen: boolean
@@ -11,6 +12,10 @@ export interface TModalPropTypes {
   buttonProps?: {
     cancel?: TButtonPropTypes
     confirm: TButtonPropTypes
+  }
+  iconProps?: {
+    name: string
+    type: TIconTypes
   }
   closeIcon?: boolean
   children?: string | JSX.Element | JSX.Element[] | ReactNode
