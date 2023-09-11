@@ -83,7 +83,7 @@
 
     &:not(&[readonly]):hover {
         color: var(--ds-input-body-text-hover);
-        background-color: red;
+        background-color: var(--ds-input-bg-hover);
         border-color: var(--ds-input-border-color-hover);
 
         & + #{$this}__icon,
