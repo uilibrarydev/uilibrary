@@ -13,4 +13,5 @@ export interface TButtonPropTypes {
   onClick?: (event: TClickEventType) => void
   formId?: string
   dataId?: string
+  refHandler?: (ref: HTMLButtonElement | null) => void
 }

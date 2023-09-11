@@ -25,13 +25,15 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     isLoading,
     formId,
     dataId = '',
-    onClick
+    onClick,
+    refHandler
   } = props
 
   const justIcon = !buttonText && iconProps !== undefined
 
   return (
     <button
+      ref={refHandler}
       data-id={dataId}
       disabled={disabled}
       type={buttonActionType}
