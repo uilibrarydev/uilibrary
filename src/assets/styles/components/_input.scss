@@ -81,18 +81,18 @@
       color: var(--ds-input-body-icon-default);
     }
 
-    &:hover {
-      color: (--ds-input-body-text-hover);
-      background-color: var(--ds-input-bg-hover);
-      border-color: var(--ds-input-border-color-hover);
+    &:not(&[readonly]):hover {
+        color: var(--ds-input-body-text-hover);
+        background-color: red;
+        border-color: var(--ds-input-border-color-hover);
 
-      & + #{$this}__icon,
-      & + #{$this}__icon + #{$this}__icon {
-        color: var(--ds-input-body-icon-hover);
-      }
+        & + #{$this}__icon,
+        & + #{$this}__icon + #{$this}__icon {
+          color: var(--ds-input-body-icon-hover);
+        }
     }
 
-    &:focus {
+    &:not(&[readonly]):focus {
       color: var(--ds-input-body-text-focused);
       background-color: var(--ds-input-bg-focused);
       border-color: var(--ds-input-border-color-focused);
@@ -103,7 +103,7 @@
       }
     }
 
-    &:active {
+    &:not(&[readonly]):active {
       color: var(--ds-input-body-text-activated);
       background-color: var(--ds-input-bg-activated);
       border-color: var(--ds-input-border-color-activated);

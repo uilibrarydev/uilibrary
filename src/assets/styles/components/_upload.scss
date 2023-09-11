@@ -29,7 +29,7 @@
   height: var(--ds-upload-item-height);
   padding: var(--ds-upload-item-padding);
   border: var(--ds-upload-item-border);
-  border-radius: (--ds-upload-item-border-radius);
+  border-radius: var(--ds-upload-item-border-radius);
 
   &--error {
     border-color: var(--ds-color-bg-cta-danger-default);
