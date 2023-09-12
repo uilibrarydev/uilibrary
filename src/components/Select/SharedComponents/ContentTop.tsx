@@ -7,11 +7,11 @@ import { Actions } from './Actions'
 type TProps = {
   searchValue: string
   helperText?: string
-  selectAll: TCallBackFn
+  selectAll?: TCallBackFn
   setSearchValue: (value: string) => void
-  clearAll: TCallBackFn
+  clearAll?: TCallBackFn
   isSelectAllDisabled: boolean
-  isAnySelected: boolean
+  isAnySelected?: boolean
   translations?: TSelectTranslations
   hasLimitation?: boolean
 }
@@ -34,7 +34,7 @@ export const ContentTop = (props: TProps): JSX.Element => {
   const selectActions = useMemo(() => {
     let options: TMenuItem[] = []
 
-    if (selectAllLabel && !hasLimitation) {
+    if (selectAll && selectAllLabel && !hasLimitation) {
       options = [
         {
           label: selectAllLabel,
@@ -45,7 +45,7 @@ export const ContentTop = (props: TProps): JSX.Element => {
         }
       ]
     }
-    if (clearAllLabel) {
+    if (clearAll && clearAllLabel && isAnySelected) {
       options = [
         ...options,
         {

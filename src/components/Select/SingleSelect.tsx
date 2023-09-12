@@ -3,11 +3,11 @@ import { useOnOutsideClick } from '../../hooks'
 import { TSingleSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
 import { OptionItem } from '../../helperComponents/OptionItem'
-// import Footer from './Footer'
 import Input from '../Input'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
-import { Loading } from './SharedComponents/Loading'
+import { Loading } from './SharedComponents'
 import classNames from 'classnames'
+import { ContentTop } from './SharedComponents'
 
 const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
@@ -27,6 +27,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     selectedItem,
     setFieldValue,
     setSelectedItem,
+    isSearchAvailable = true,
     isRequiredField,
     labelLeftIconProps,
     labelRightIconComponent,
@@ -35,13 +36,26 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   const [isOpen, setIsOpen] = useState(false)
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
-
+  const [searchValue, setSearchValue] = useState('')
   const currentSelection = (value as TItemValue) || selectedItem || null
 
   const closeDropdown = () => setIsOpen(false)
   const openDropdown = () => setIsOpen(true)
 
   useOnOutsideClick(containerRef, closeDropdown)
+
+  const filteredData = useMemo(() => {
+    if (!searchValue) {
+      return options
+    }
+
+    return options.filter((dataItem) => {
+      return (
+        typeof dataItem.label === 'string' &&
+        dataItem.label.toLowerCase().includes(searchValue.toLowerCase())
+      )
+    })
+  }, [searchValue, options])
 
   const onItemSelect = useCallback((value: TItemValue) => {
     if (setSelectedItem) {
@@ -95,6 +109,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
           size={size}
           data-id={dataId}
           hasError={hasError}
+          readonly
           className="select__input"
           label={label}
           required={isRequiredField}
@@ -120,7 +135,15 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
                   scrollHeight > 372 ? 'mr-6' : ''
                 }`}
               >
-                {options.map((item: TSelectOption) => {
+                {isSearchAvailable ? (
+                  <ContentTop
+                    isSelectAllDisabled={filteredData.length === 0}
+                    setSearchValue={setSearchValue}
+                    searchValue={searchValue}
+                  />
+                ) : null}
+
+                {filteredData.map((item: TSelectOption) => {
                   const isSelected = item.value === currentSelection
                   return (
                     <OptionItem
