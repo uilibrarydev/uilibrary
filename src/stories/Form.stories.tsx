@@ -1,15 +1,7 @@
 import React from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
-import {
-  FormContainer,
-  Switcher,
-  Button,
-  FileUpload,
-  Input,
-  Counter,
-  RadioGroup
-} from '../components'
+import { FormContainer, Button, Input } from '../components'
 
 export default {
   title: 'Form',
@@ -90,32 +82,12 @@ const RADIO_OPTIONS = [
 ]
 
 const VALIDATION_SCHEME = yup.object({
-  files: yup
-    .array()
-    .of(
-      yup
-        .mixed()
-        .test(
-          'fileSize',
-          'File size is too large',
-          (value) => !value || value.size <= 3 * 1024 * 1024
-        )
-    )
-    .required('Please select at least one file.')
+  firstname: yup.string().required('validation.required')
 })
 
 const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
-    obj: {
-      name: '',
-      surname: ''
-    },
-    firstname: '',
-    switcher: false,
-    select: null,
-    multiselect: [],
-    counter: 9,
-    radio: '2'
+    firstname: null
   }
 
   return (
@@ -127,30 +99,15 @@ const Template = (): JSX.Element => {
       >
         <>
           <FormField
-            name={'switcher'}
-            As={(props: IFormCompProps) => {
-              return <Switcher {...props} />
-            }}
-          />
-
-          <FormField name="counter" As={(props) => <Counter {...props} min={5} max={90} />} />
-
-          <FormField
-            name={'radio'}
-            As={(props: IFormCompProps) => {
-              return <RadioGroup {...props} options={RADIO_OPTIONS} />
-            }}
-          />
-
-          <FormField name={'obj.name'} As={(props) => <Input label="name" {...props} />} />
-
-          <FormField name={'obj.surname'} As={(props) => <Input label="surname" {...props} />} />
-
-          <FormField name={'firstname'} As={(props) => <Input label="firstname" {...props} />} />
-          <FormField
-            name={'files'}
+            name={'firstname'}
             As={(props) => (
-              <FileUpload label={'files'} buttonText={'Attach'} multiple={true} {...props} />
+              <Input
+                {...props}
+                required
+                label={'firstname'}
+                mask={'15700 99999999999'}
+                placeholder="15700 __ ______"
+              />
             )}
           />
 
