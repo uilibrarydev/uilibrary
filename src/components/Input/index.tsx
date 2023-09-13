@@ -33,7 +33,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       handleChange,
       dataId = '',
       isValid,
-      setFieldValue,
       ...rest
     },
     ref
@@ -69,7 +68,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         mask={mask}
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        ref={ref}
+        ref={() => ref && ref()}
         {...rest}
         placeholder={placeholder}
         onChange={changeHandler}
