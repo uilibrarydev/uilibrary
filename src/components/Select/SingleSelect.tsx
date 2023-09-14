@@ -38,8 +38,8 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const [isOpen, setIsOpen] = useState(false)
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
   const [searchValue, setSearchValue] = useState('')
+  const [itemLabe, setItemLabel] = useState<string>('')
   const currentSelection = (value as TItemValue) || selectedItem || null
-
   const closeDropdown = () => setIsOpen(false)
   const openDropdown = () => setIsOpen(true)
 
@@ -84,13 +84,21 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   const selectedItemLabel = useMemo(() => {
     const currentValue = value || currentSelection
-    const selected = options.find((item) => item.value === currentValue)
-    return selected?.label.toString() || ''
-  }, [options, value, currentSelection])
+    if(searchValue){
+      return null
+    }else{
+      const selected = options.find((item) => item.value === currentValue)
+      return selected?.label.toString() || ''
+    }
+
+  }, [options, value, currentSelection,searchValue])
 
   const clickHandler =
     (isSelected: boolean) =>
     ({ value }: TSelectedValue) => {
+    setSearchValue('')
+
+      console.log(value)
       if (!isSelected) {
         onItemSelect(value)
         return
@@ -103,7 +111,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const onSearch = (e: TChangeEventType) => {
     setSearchValue(e.target.value)
   }
-
+  console.log(searchValue,'searchValue')
   const removeFilter = () => setSearchValue('')
 
 
@@ -125,7 +133,8 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
             name: isOpen ? 'caret-up' : 'caret-down'
           }}
           placeholder={placeHolder}
-          currentValue={selectedItemLabel}
+          // value={selectedItemLabel}
+          // currentValue={selectedItemLabel}
           isValid={isValid}
           disabled={disabled}
         />

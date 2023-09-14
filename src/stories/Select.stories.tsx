@@ -69,40 +69,40 @@ const OPTIONS: TSelectOptions = [
     meta: 'SP'
   },
   {
-    value: 'germany',
+    value: 5,
     label: 'Germany',
     meta: 'De'
   },
   {
-    value: 'australia',
+    value: 6,
     label: 'Australia',
     meta: 'AU'
   },
   {
-    value: 'hungary',
+    value: 7,
     label: 'Hungary',
     meta: 'HY'
   },
   {
-    value: 'georgia',
+    value: 8,
     label: 'Georgia',
     meta: 'GE'
   },
   {
-    value: 'brazil',
+    value: 9,
     label: 'Brazil',
     meta: 'BR'
   },
   {
-    value: 'norway',
+    value: 10,
     label: 'Norway',
     meta: 'NR'
   },
   {
-    value: 'mexico',
+    value: 11,
     label: 'Mexico',
     meta: 'MC'
-  },
+  }
 ]
 const OPTIONS_CITIES: TSelectOptions = [
   {
@@ -250,7 +250,7 @@ Select.args = {
   placeHolder: 'Select country',
   labelLeftIconProps: { name: 'user' },
   optionRightIconComponent: null,
-  labelRightIconComponent: null,
+  labelRightIconComponent: null
 }
 
 // -----------MULTISELECT---------
