@@ -37,6 +37,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       allowLeadingZeros,
       thousandSeparator,
       allowNegative = false,
+      hideCounter = false,
       ...rest
     },
     ref
@@ -109,7 +110,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       >
         <Label text={label} invalid={isErrorVisible} required={required} disabled={disabled} />
         <label className="input__inner">
-
           {type === 'numeric' ? (
             <NumericFormat
               name={name}
@@ -167,7 +167,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
               </Text>
             ) : null}
 
-            {maxCount ? (
+            {maxCount && !hideCounter? (
               <Text size="small" type="secondary" className="input__counter">
                 {`${currentLength}/${maxCount}`}
               </Text>
