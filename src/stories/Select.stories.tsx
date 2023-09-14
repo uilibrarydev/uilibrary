@@ -72,6 +72,11 @@ const OPTIONS: TSelectOptions = [
     value: 'germany',
     label: 'Germany',
     meta: 'De'
+  },
+  {
+    value: 'sss',
+    label: 'ss  ',
+    meta: 'De'
   }
 ]
 const OPTIONS_CITIES: TSelectOptions = [
@@ -167,7 +172,12 @@ const Template = (args): JSX.Element => {
 
   return (
     <div style={{ width: 320 }}>
-      <SelectComp {...args} selectedItem={selectedValue} setSelectedItem={setSelectedValue} />
+      <SelectComp
+        {...args}
+        selectedItem={selectedValue}
+        setSelectedItem={setSelectedValue}
+        withSearch
+      />
     </div>
   )
 }

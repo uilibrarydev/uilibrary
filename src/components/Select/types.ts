@@ -99,7 +99,7 @@ export interface TSingleSelectPropTypes extends IFormCompProps {
   }
   optionRightIconComponent?: JSX.Element
   labelRightIconComponent?: JSX.Element
-  isSearchAvailable?: boolean
+  withSearch?: boolean
   avatar?: string
   size?: 'small' | 'large'
   className?: string

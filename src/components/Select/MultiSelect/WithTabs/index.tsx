@@ -124,6 +124,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
                 }
               </div>
               <ContentTop
+                isSearchAvailable={isSearchAvailable}
                 clearAll={clearAll}
                 selectAll={selectAll}
                 helperText={helperText}

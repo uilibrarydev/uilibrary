@@ -104,8 +104,9 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
                 selectAll={selectAll}
                 clearAll={clearAll}
                 hasLimitation={!!maxSelectCount}
-                isAnySelected={selectedValues.length === 0}
+                isAnySelected={selectedValues.length !== 0}
                 helperText={helperText}
+                isSearchAvailable={isSearchAvailable}
                 isSelectAllDisabled={isAllSelected || filteredData.length === 0}
                 setSearchValue={setSearchValue}
                 searchValue={searchValue}

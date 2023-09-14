@@ -3,7 +3,7 @@ export const TRANSLATIONS_DEFAULT_VALUES = {
   overflowText: '%s selected'
 }
 
-export const SELECTED_VISIBLE_MIN_COUNT = 4
+export const SELECTED_VISIBLE_MIN_COUNT = 15
 
 export const DROPDOWN_MAX_HEIGHT = 260
 export const DROPDOWN_MAX_HEIGHT_PART = 106
