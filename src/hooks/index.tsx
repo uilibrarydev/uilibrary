@@ -26,11 +26,11 @@ export const useOnOutsideClick = (
         setTouchMoved(true)
       }
     }
-    document.addEventListener('click', listener)
+    document.addEventListener('mousedown', listener)
     document.addEventListener('touchend', onTouchEnd as EventListener)
     document.addEventListener('touchmove', onTouchMove)
     return () => {
-      document.removeEventListener('click', listener)
+      document.removeEventListener('mousedown', listener)
       document.removeEventListener('touchend', onTouchEnd as EventListener)
       document.removeEventListener('touchmove', onTouchMove)
     }

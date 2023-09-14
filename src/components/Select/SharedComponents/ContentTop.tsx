@@ -13,6 +13,7 @@ type TProps = {
   isSelectAllDisabled: boolean
   isAnySelected?: boolean
   translations?: TSelectTranslations
+  isSearchAvailable: boolean
   hasLimitation?: boolean
 }
 
@@ -25,6 +26,7 @@ export const ContentTop = (props: TProps): JSX.Element => {
     translations,
     isAnySelected,
     setSearchValue,
+    isSearchAvailable,
     hasLimitation = false,
     isSelectAllDisabled
   } = props
@@ -45,14 +47,14 @@ export const ContentTop = (props: TProps): JSX.Element => {
         }
       ]
     }
-    if (clearAll && clearAllLabel && isAnySelected) {
+    if (clearAll && clearAllLabel) {
       options = [
         ...options,
         {
           label: clearAllLabel,
           value: 2,
           handler: clearAll,
-          disabled: isAnySelected,
+          disabled: !isAnySelected,
           iconProps: { name: 'close' }
         }
       ]
@@ -73,18 +75,20 @@ export const ContentTop = (props: TProps): JSX.Element => {
           {helperText}
         </Text>
       ) : null}
-      <Input
-        className="content-top__search"
-        size="small"
-        placeholder={searchInputPlaceHolder}
-        handleChange={onSearch}
-        currentValue={searchValue}
-        rightIconProps={{
-          name: searchValue ? 'close' : 'search',
-          size: searchValue ? 'xsmall' : 'small',
-          onClick: removeFilter
-        }}
-      />
+      {isSearchAvailable && (
+        <Input
+          className="content-top__search"
+          size="small"
+          placeholder={searchInputPlaceHolder}
+          handleChange={onSearch}
+          currentValue={searchValue}
+          rightIconProps={{
+            name: searchValue ? 'close' : 'search',
+            size: searchValue ? 'xsmall' : 'small',
+            onClick: removeFilter
+          }}
+        />
+      )}
 
       <Actions selectActions={selectActions} innerLabel={innerLabel} />
     </div>
