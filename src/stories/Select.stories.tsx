@@ -74,10 +74,35 @@ const OPTIONS: TSelectOptions = [
     meta: 'De'
   },
   {
-    value: 'sss',
-    label: 'ss  ',
-    meta: 'De'
-  }
+    value: 'australia',
+    label: 'Australia',
+    meta: 'AU'
+  },
+  {
+    value: 'hungary',
+    label: 'Hungary',
+    meta: 'HY'
+  },
+  {
+    value: 'georgia',
+    label: 'Georgia',
+    meta: 'GE'
+  },
+  {
+    value: 'brazil',
+    label: 'Brazil',
+    meta: 'BR'
+  },
+  {
+    value: 'norway',
+    label: 'Norway',
+    meta: 'NR'
+  },
+  {
+    value: 'mexico',
+    label: 'Mexico',
+    meta: 'MC'
+  },
 ]
 const OPTIONS_CITIES: TSelectOptions = [
   {
@@ -176,7 +201,7 @@ const Template = (args): JSX.Element => {
         {...args}
         selectedItem={selectedValue}
         setSelectedItem={setSelectedValue}
-        withSearch
+        withSearch={true}
       />
     </div>
   )
@@ -225,7 +250,7 @@ Select.args = {
   placeHolder: 'Select country',
   labelLeftIconProps: { name: 'user' },
   optionRightIconComponent: null,
-  labelRightIconComponent: null
+  labelRightIconComponent: null,
 }
 
 // -----------MULTISELECT---------

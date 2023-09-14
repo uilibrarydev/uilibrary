@@ -100,6 +100,13 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
       }
     }
 
+  const onSearch = (e: TChangeEventType) => {
+    setSearchValue(e.target.value)
+  }
+
+  const removeFilter = () => setSearchValue('')
+
+
   const scrollRef = useRef(null)
   const { scrollHeight } = useGetElemSizes(scrollRef.current)
 
@@ -110,9 +117,9 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
           size={size}
           data-id={dataId}
           hasError={hasError}
-          readonly
           className="select__input"
           label={label}
+          onChange={onSearch}
           required={isRequiredField}
           rightIconProps={{
             name: isOpen ? 'caret-up' : 'caret-down'
@@ -136,12 +143,12 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
                   scrollHeight > 372 ? 'mr-6' : ''
                 }`}
               >
-                <ContentTop
-                  isSearchAvailable={options.length > SELECTED_VISIBLE_MIN_COUNT && withSearch}
-                  isSelectAllDisabled={filteredData.length === 0}
-                  setSearchValue={setSearchValue}
-                  searchValue={searchValue}
-                />
+                {/*<ContentTop*/}
+                {/*  isSearchAvailable={options.length > SELECTED_VISIBLE_MIN_COUNT}*/}
+                {/*  isSelectAllDisabled={filteredData.length === 0}*/}
+                {/*  setSearchValue={setSearchValue}*/}
+                {/*  searchValue={searchValue}*/}
+                {/*/>*/}
 
                 {filteredData.map((item: TSelectOption) => {
                   const isSelected = item.value === currentSelection
