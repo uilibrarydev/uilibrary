@@ -108,7 +108,7 @@ const Template = (): JSX.Element => {
               <Input
                 {...props}
                 required
-                type={'numeric'}
+                type={'text'}
                 label={'numeric input'}
                 thousandSeparator={','}
                 allowLeadingZeros={false}

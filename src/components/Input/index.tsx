@@ -82,6 +82,20 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         className={`${isErrorVisible ? 'with-error-styles' : ''}`}
         {...(currentValue ? { value: currentValue } : {})}
       />
+    ) : type === 'numeric' ? (
+      <NumericFormat
+        name={name}
+        onChange={changeHandler}
+        placeholder={placeholder}
+        readOnly={readonly}
+        allowLeadingZeros={allowLeadingZeros}
+        thousandSeparator={thousandSeparator}
+        allowNegative={allowNegative}
+        maxLength={maxCount}
+        inputMode={'numeric'}
+        disabled={disabled}
+        {...(currentValue !== undefined ? { value: currentValue } : {})}
+      />
     ) : (
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -111,23 +125,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       >
         <Label text={label} invalid={isErrorVisible} required={required} disabled={disabled} />
         <label className="input__inner">
-          {type === 'numeric' ? (
-            <NumericFormat
-              name={name}
-              onChange={changeHandler}
-              placeholder={placeholder}
-              readOnly={readonly}
-              allowLeadingZeros={allowLeadingZeros}
-              thousandSeparator={thousandSeparator}
-              allowNegative={allowNegative}
-              maxLength={maxCount}
-              inputMode={'numeric'}
-              disabled={disabled}
-              {...(currentValue !== undefined ? { value: currentValue } : {})}
-            />
-          ) : (
-            input
-          )}
+          {input}
           {leftIconProps && (
             <Icon
               size="small"
@@ -167,7 +165,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
               </Text>
             ) : null}
 
-            {maxCount && !hideCounter && !hasError? (
+            {maxCount && !hideCounter && !hasError ? (
               <Text size="small" type="secondary" className="input__counter">
                 {`${currentLength}/${maxCount}`}
               </Text>
