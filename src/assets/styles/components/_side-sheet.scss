@@ -22,7 +22,7 @@
   --ds-side-sheet-footer-padding: var(--ds-space-8) var(--ds-space-24);
   
   @include fixed(0,0,0,0);
-  z-index: 99999;
+  z-index: 999;
   padding: var(--ds-side-sheet-overlay-padding);
   background-color: var(--ds-side-sheet-overlay-bg);
 
