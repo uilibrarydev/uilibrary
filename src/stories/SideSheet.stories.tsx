@@ -15,7 +15,9 @@ export default {
 const Template = (args): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
   const handleCloseSheet = () => setIsOpen(false)
-  const handleOpenSheet = () => setIsOpen(true)
+  const handleOpenSheet = () => {
+    setIsOpen(true)
+  }
   return (
     <div>
       <button onClick={handleOpenSheet}>Open Side Sheet</button>

@@ -13,7 +13,7 @@ import { useGetTooltipPosition } from '../../hooks/useGetTooltipPosition'
 const Menu = (props: TMenuProps): JSX.Element | null => {
   const { menuItems = [], parentRef, onClose, position = 'bottom-right' } = props
   const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null)
-  useOnOutsideClick(parentRef, onClose)
+  useOnOutsideClick(menuRef, onClose)
 
   const { left, top } = useGetElemPositions(parentRef)
   const { width, height } = useGetElemSizes(parentRef)

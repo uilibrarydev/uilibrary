@@ -8,6 +8,7 @@ import { useGetElemSizes } from '../../hooks/useGetElemSizes'
 import { Loading } from './SharedComponents'
 import classNames from 'classnames'
 import { ContentTop } from './SharedComponents'
+import { SELECTED_VISIBLE_MIN_COUNT } from './MultiSelect/consts'
 
 const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
@@ -27,7 +28,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     selectedItem,
     setFieldValue,
     setSelectedItem,
-    isSearchAvailable = true,
+    withSearch = false,
     isRequiredField,
     labelLeftIconProps,
     labelRightIconComponent,
@@ -135,13 +136,12 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
                   scrollHeight > 372 ? 'mr-6' : ''
                 }`}
               >
-                {isSearchAvailable ? (
-                  <ContentTop
-                    isSelectAllDisabled={filteredData.length === 0}
-                    setSearchValue={setSearchValue}
-                    searchValue={searchValue}
-                  />
-                ) : null}
+                <ContentTop
+                  isSearchAvailable={options.length > SELECTED_VISIBLE_MIN_COUNT && withSearch}
+                  isSelectAllDisabled={filteredData.length === 0}
+                  setSearchValue={setSearchValue}
+                  searchValue={searchValue}
+                />
 
                 {filteredData.map((item: TSelectOption) => {
                   const isSelected = item.value === currentSelection
