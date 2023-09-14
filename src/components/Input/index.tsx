@@ -71,7 +71,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         mask={mask}
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        ref={ref}
+        ref={() => ref && ref()}
         {...rest}
         placeholder={placeholder}
         onChange={changeHandler}
@@ -88,11 +88,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         disabled={disabled}
         name={name}
         ref={ref}
-        {...rest}
         type={type}
         placeholder={!label ? placeholder : ''}
         onChange={changeHandler}
         data-id={dataId}
+        {...rest}
         {...(currentValue !== undefined ? { value: currentValue } : {})}
       />
     )
