@@ -43,6 +43,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
     ref
   ): JSX.Element => {
     const isErrorVisible = hasError !== undefined ? hasError : !!error
+
     const changeHandler = (event: TChangeEventType) => {
       const length = event.target.value.length
       if (length - 1 === maxCount) {
@@ -115,7 +116,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
               name={name}
               onChange={changeHandler}
               placeholder={placeholder}
-              className={className}
               readOnly={readonly}
               allowLeadingZeros={allowLeadingZeros}
               thousandSeparator={thousandSeparator}
@@ -167,7 +167,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
               </Text>
             ) : null}
 
-            {maxCount && !hideCounter? (
+            {maxCount && !hideCounter && !hasError? (
               <Text size="small" type="secondary" className="input__counter">
                 {`${currentLength}/${maxCount}`}
               </Text>
