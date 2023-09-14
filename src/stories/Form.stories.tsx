@@ -82,7 +82,8 @@ const RADIO_OPTIONS = [
 ]
 
 const VALIDATION_SCHEME = yup.object({
-  firstname: yup.string().required('validation.required')
+  test: yup.string().required('validation').nullable(),
+  firstname: yup.string().required('validation').nullable()
 })
 
 const Template = (): JSX.Element => {
@@ -100,17 +101,27 @@ const Template = (): JSX.Element => {
         <>
           <FormField
             name={'firstname'}
+            As={(props) => <Input {...props} required type={'text'} label={'firstname'} />}
+          />
+          <FormField
             As={(props) => (
               <Input
                 {...props}
                 required
-                label={'firstname'}
-                mask={'15700 99999999999'}
-                placeholder="15700 __ ______"
+                type={'numeric'}
+                label={'numeric input'}
+                thousandSeparator={','}
+                allowLeadingZeros={false}
+                allowNegative={false}
+                placeholder={'money'}
+                maxCount={10}
+                leftIconProps={{
+                  name: 'moneybox'
+                }}
               />
             )}
+            name={'test'}
           />
-
           <Button buttonActionType="submit" buttonText={'Ok'} />
         </>
       </FormContainer>

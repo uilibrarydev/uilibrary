@@ -7,6 +7,7 @@ import Icon from '../Icon'
 import Label from '../../helperComponents/Label'
 import Text from '../Text'
 import classNames from 'classnames'
+import { NumericFormat } from 'react-number-format'
 
 export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
   (
@@ -33,12 +34,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       handleChange,
       dataId = '',
       isValid,
+      allowLeadingZeros,
+      thousandSeparator,
+      allowNegative = false,
       ...rest
     },
     ref
   ): JSX.Element => {
     const isErrorVisible = hasError !== undefined ? hasError : !!error
-
     const changeHandler = (event: TChangeEventType) => {
       const length = event.target.value.length
       if (length - 1 === maxCount) {
@@ -68,7 +71,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         mask={mask}
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        ref={() => ref && ref()}
+        ref={ref}
         {...rest}
         placeholder={placeholder}
         onChange={changeHandler}
@@ -85,11 +88,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         disabled={disabled}
         name={name}
         ref={ref}
+        {...rest}
         type={type}
         placeholder={!label ? placeholder : ''}
         onChange={changeHandler}
         data-id={dataId}
-        {...rest}
         {...(currentValue !== undefined ? { value: currentValue } : {})}
       />
     )
@@ -100,12 +103,31 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
           'input--icon-left': leftIconProps,
           'input--icon-right': rightIconProps,
           'input--invalid': isErrorVisible || !!error,
-          'input--valid': isValid
+          'input--valid': isValid,
+          'input--disabled': disabled
         })}
       >
         <Label text={label} invalid={isErrorVisible} required={required} disabled={disabled} />
         <label className="input__inner">
-          {input}
+
+          {type === 'numeric' ? (
+            <NumericFormat
+              name={name}
+              onChange={changeHandler}
+              placeholder={placeholder}
+              className={className}
+              readOnly={readonly}
+              allowLeadingZeros={allowLeadingZeros}
+              thousandSeparator={thousandSeparator}
+              allowNegative={allowNegative}
+              maxLength={maxCount}
+              inputMode={'numeric'}
+              disabled={disabled}
+              {...(currentValue !== undefined ? { value: currentValue } : {})}
+            />
+          ) : (
+            input
+          )}
           {leftIconProps && (
             <Icon
               size="small"
