@@ -1,7 +1,7 @@
 import React from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
-import {FormContainer, Button, Input, Select} from '../components'
+import { FormContainer, Button, Input, Select } from '../components'
 
 export default {
   title: 'Form',
@@ -157,16 +157,11 @@ const Template = (): JSX.Element => {
       >
         <>
           <FormField
-              className="mb-20"
-              name={'firstname'}
-              As={(props) => {
-                return (
-                    <Select
-                        {...props}
-                        options={OPTIONS_COUNTRIES}
-                    />
-                );
-              }}
+            className="mb-20"
+            name={'firstname'}
+            As={(props) => {
+              return <Select {...props} options={OPTIONS_COUNTRIES} />
+            }}
           />
           {/*<FormField*/}
           {/*  name={'firstname'}*/}

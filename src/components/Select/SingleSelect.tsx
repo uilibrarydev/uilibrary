@@ -47,10 +47,13 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   const openDropdown = () => setIsOpen(true)
 
-  const findItemLabel = useMemo(() => (value:TItemValue) =>{
-    const label = options.find((item) =>item.value === currentSelection || item.value === value);
-    return label?.label.toString() || ''
-  }, [options,currentSelection]);
+  const findItemLabel = useMemo(
+    () => (value: TItemValue) => {
+      const label = options.find((item) => item.value === currentSelection || item.value === value)
+      return label?.label.toString() || ''
+    },
+    [options, currentSelection]
+  )
 
   const filteredData = useMemo(() => {
     if (!searchValue) {
@@ -65,18 +68,20 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     })
   }, [searchValue, options])
 
-  const onItemSelect = useCallback((value: TItemValue) => {
-    findItemLabel(value)
-    if (setSelectedItem) {
+  const onItemSelect = useCallback(
+    (value: TItemValue) => {
+      findItemLabel(value)
+      if (setSelectedItem) {
+        setSelectedItem(value)
+      }
+      if (name && setFieldValue) {
+        setFieldValue(name, value)
+      }
 
-      setSelectedItem(value)
-    }
-    if (name && setFieldValue) {
-      setFieldValue(name, value)
-    }
-
-    closeDropdown()
-  }, [options,findItemLabel])
+      closeDropdown()
+    },
+    [options, findItemLabel]
+  )
 
   const onItemDeselect = useCallback(() => onItemSelect(null), [])
 
@@ -92,11 +97,10 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   }
 
   useEffect(() => {
-      if(currentSelection){
-        setItemLabel(findItemLabel(currentSelection))
-      }
-  }, [currentSelection]);
-
+    if (currentSelection) {
+      setItemLabel(findItemLabel(currentSelection))
+    }
+  }, [currentSelection])
 
   const clickHandler =
     (isSelected: boolean) =>
@@ -117,8 +121,6 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   }
 
   const removeFilter = () => setSearchValue('')
-
-
 
   return (
     <div className={classNames(`select select--${size}`, className)} ref={setContainerRef}>
