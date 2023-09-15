@@ -7,6 +7,7 @@ import Icon from '../Icon'
 import Label from '../../helperComponents/Label'
 import Text from '../Text'
 import classNames from 'classnames'
+import { NumericFormat } from 'react-number-format'
 
 export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
   (
@@ -33,6 +34,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       handleChange,
       dataId = '',
       isValid,
+      allowLeadingZeros,
+      thousandSeparator,
+      allowNegative = false,
+      hideCounter = false,
       ...rest
     },
     ref
@@ -77,6 +82,20 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         className={`${isErrorVisible ? 'with-error-styles' : ''}`}
         {...(currentValue ? { value: currentValue } : {})}
       />
+    ) : type === 'numeric' ? (
+      <NumericFormat
+        name={name}
+        onChange={changeHandler}
+        placeholder={placeholder}
+        readOnly={readonly}
+        allowLeadingZeros={allowLeadingZeros}
+        thousandSeparator={thousandSeparator}
+        allowNegative={allowNegative}
+        maxLength={maxCount}
+        inputMode={'numeric'}
+        disabled={disabled}
+        {...(currentValue !== undefined ? { value: currentValue } : {})}
+      />
     ) : (
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -100,7 +119,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
           'input--icon-left': leftIconProps,
           'input--icon-right': rightIconProps,
           'input--invalid': isErrorVisible || !!error,
-          'input--valid': isValid
+          'input--valid': isValid,
+          'input--disabled': disabled
         })}
       >
         <Label text={label} invalid={isErrorVisible} required={required} disabled={disabled} />
@@ -145,7 +165,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
               </Text>
             ) : null}
 
-            {maxCount ? (
+            {maxCount && !hideCounter && !hasError ? (
               <Text size="small" type="secondary" className="input__counter">
                 {`${currentLength}/${maxCount}`}
               </Text>
