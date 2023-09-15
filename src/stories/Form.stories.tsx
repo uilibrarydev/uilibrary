@@ -140,7 +140,8 @@ const OPTIONS_COUNTRIES: TSelectOptions = [
 ]
 
 const VALIDATION_SCHEME = yup.object({
-  firstname: yup.string().required('validation.required')
+  test: yup.string().required('validation').nullable(),
+  firstname: yup.string().required('validation').nullable()
 })
 
 const Template = (): JSX.Element => {
@@ -159,31 +160,27 @@ const Template = (): JSX.Element => {
           <FormField
             className="mb-20"
             name={'firstname'}
-            As={(props) => {
-              return (
-                <Select
-                  {...props}
-                  options={OPTIONS_COUNTRIES}
-                  withSearch
-                  innerHelperText="innerHelperText"
-                  outerHelperText="outerHelperText"
-                />
-              )
-            }}
+            As={(props) => <Input {...props} required type={'text'} label={'firstname'} />}
           />
-          {/*<FormField*/}
-          {/*  name={'firstname'}*/}
-          {/*  As={(props) => (*/}
-          {/*    <Input*/}
-          {/*      {...props}*/}
-          {/*      required*/}
-          {/*      label={'firstname'}*/}
-          {/*      mask={'15700 99999999999'}*/}
-          {/*      placeholder="15700 __ ______"*/}
-          {/*    />*/}
-          {/*  )}*/}
-          {/*/>*/}
-
+          <FormField
+            As={(props) => (
+              <Input
+                {...props}
+                required
+                type={'numeric'}
+                label={'numeric input'}
+                thousandSeparator={','}
+                allowLeadingZeros={false}
+                allowNegative={false}
+                placeholder={'money'}
+                maxCount={10}
+                leftIconProps={{
+                  name: 'moneybox'
+                }}
+              />
+            )}
+            name={'test'}
+          />
           <Button buttonActionType="submit" buttonText={'Ok'} />
         </>
       </FormContainer>

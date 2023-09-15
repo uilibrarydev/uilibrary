@@ -5,7 +5,7 @@ export interface TSideSheetPropTypes {
   isLoading?: boolean
   isOpen: boolean
   onClose: () => void
-  onSumbit?: () => void
+  onSubmit?: () => void
   position?: 'right' | 'left'
   title?: string
   footerButtons?: {

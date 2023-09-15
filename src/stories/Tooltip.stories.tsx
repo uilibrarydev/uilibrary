@@ -33,23 +33,29 @@ const Template = (args) => {
         id="ooooo"
         style={{
           width: 100,
-
           position: 'absolute',
           top: 200,
           left: 400
         }}
         // ref={setelemRef}
       >
-        Hover on meeeeeee
+        Hover on me
       </div>
     </TooltipComp>
   )
 }
 
 export const Tooltip = Template.bind({})
+const Test = ()=> {
+    return <div>
+        <div>sadad</div>
+        <div>sadad</div>
+        <div>sadad</div>
+    </div>
+}
 
 Tooltip.args = {
-  text: 'Prompt text Prompt text Prompt text Prompt text Prompt text Prompt text Prompt text Prompt text Prompt text Prompt text Prompt text Prompt text',
+  text: Test,
   // position: 'top-right',
   size: 'large'
 }
