@@ -160,7 +160,15 @@ const Template = (): JSX.Element => {
             className="mb-20"
             name={'firstname'}
             As={(props) => {
-              return <Select {...props} options={OPTIONS_COUNTRIES} />
+              return (
+                <Select
+                  {...props}
+                  options={OPTIONS_COUNTRIES}
+                  withSearch
+                  innerHelperText="innerHelperText"
+                  outerHelperText="outerHelperText"
+                />
+              )
             }}
           />
           {/*<FormField*/}

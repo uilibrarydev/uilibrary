@@ -199,6 +199,7 @@ const Template = (args): JSX.Element => {
     <div style={{ width: 320 }}>
       <SelectComp
         {...args}
+        outerHelperText="helper text"
         selectedItem={selectedValue}
         setSelectedItem={setSelectedValue}
         withSearch={true}
