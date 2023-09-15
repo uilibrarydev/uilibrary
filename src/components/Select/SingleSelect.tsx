@@ -9,6 +9,7 @@ import { Loading } from './SharedComponents'
 import classNames from 'classnames'
 import { ContentTop } from './SharedComponents'
 import { SELECTED_VISIBLE_MIN_COUNT } from './MultiSelect/consts'
+import { Text } from '../../index'
 
 const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
@@ -29,6 +30,8 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     setFieldValue,
     setSelectedItem,
     withSearch = false,
+    outerHelperText,
+    innerHelperText,
     isRequiredField,
     labelLeftIconProps,
     labelRightIconComponent,
@@ -119,7 +122,6 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     setItemLabel(null)
     setSearchValue(e.target.value)
   }
-
   const removeFilter = () => setSearchValue('')
 
   return (
@@ -156,13 +158,13 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
                   scrollHeight > 372 ? 'mr-6' : ''
                 }`}
               >
-                {/*<ContentTop*/}
-                {/*  isSearchAvailable={options.length > SELECTED_VISIBLE_MIN_COUNT}*/}
-                {/*  isSelectAllDisabled={filteredData.length === 0}*/}
-                {/*  setSearchValue={setSearchValue}*/}
-                {/*  searchValue={searchValue}*/}
-                {/*/>*/}
-
+                <ContentTop
+                  isSearchAvailable={withSearch}
+                  isSelectAllDisabled={filteredData.length === 0}
+                  setSearchValue={setSearchValue}
+                  searchValue={searchValue}
+                  helperText={innerHelperText}
+                />
                 {filteredData.map((item: TSelectOption) => {
                   const isSelected = item.value === currentSelection
                   return (
@@ -183,6 +185,11 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
             </>
           )}
         </div>
+      )}
+      {!isOpen && (
+        <Text size="xsmall" type="secondary" className="content-top__label">
+          {outerHelperText}
+        </Text>
       )}
     </div>
   )
