@@ -3,7 +3,11 @@ import {useEffect} from 'react'
 const callbackStack: { ref: HTMLElement, callback: () => void}[] = [];
 
 function handleDocumentClick(event: MouseEvent) {
-  const { ref, callback } = callbackStack[callbackStack.length - 1];
+  const callbackObject = callbackStack[callbackStack.length - 1];
+  if(!callbackObject){
+    return
+  }
+  const { ref, callback } = callbackObject
   if (ref && !ref.contains(event.target)) {
       callbackStack.splice(callbackStack.length - 1, 1);
       callback();
