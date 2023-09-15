@@ -88,7 +88,7 @@ const VALIDATION_SCHEME = yup.object({
 
 const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
-    firstname: null
+    firstname: '12312312321'
   }
 
   return (
@@ -108,7 +108,7 @@ const Template = (): JSX.Element => {
               <Input
                 {...props}
                 required
-                type={'text'}
+                type={'numeric'}
                 label={'numeric input'}
                 thousandSeparator={','}
                 allowLeadingZeros={false}
