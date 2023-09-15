@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
-import {Button, Menu as MenuComp, Modal as ModalComp, SideSheet as SideSheetComp} from '../components'
+import {
+  Button,
+  Menu as MenuComp,
+  Modal as ModalComp,
+  SideSheet as SideSheetComp
+} from '../components'
 
 export default {
   title: 'SideSheet',
@@ -36,7 +41,7 @@ const Template = (args): JSX.Element => {
         openModal()
       },
       value: 1
-    },
+    }
   ]
 
   return (
@@ -63,22 +68,27 @@ const Template = (args): JSX.Element => {
             <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
               <Button onClick={() => setOpen(!open)} iconProps={{ name: 'more' }} />
               {open ? (
-                  <MenuComp {...args} onClose={() => setOpen(false)} parentRef={ref} menuItems={items} />
+                <MenuComp
+                  {...args}
+                  onClose={() => setOpen(false)}
+                  parentRef={ref}
+                  menuItems={items}
+                />
               ) : null}
             </div>
           </div>
           <ModalComp
-              {...args}
-              onClose={closeModal}
-              isOpen={isModalOpen}
-              onSumbit={() => console.log('submit')}
-              buttonProps={{
-                confirm: {
-                  buttonText: 'Register',
-                  buttonActionType: 'submit'
-                },
-                cancel: { buttonText: 'Cancel' }
-              }}
+            {...args}
+            onClose={closeModal}
+            isOpen={isModalOpen}
+            onSumbit={() => console.log('submit')}
+            buttonProps={{
+              confirm: {
+                buttonText: 'Register',
+                buttonActionType: 'submit'
+              },
+              cancel: { buttonText: 'Cancel' }
+            }}
           >
             <div>Modal content</div>
           </ModalComp>

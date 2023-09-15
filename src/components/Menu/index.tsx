@@ -67,7 +67,7 @@ const Menu = (props: TMenuProps): JSX.Element | null => {
         )
       })}
     </div>,
-    document.body
+    parentRef
   )
 }
 
