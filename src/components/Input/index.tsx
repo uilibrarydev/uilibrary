@@ -6,7 +6,7 @@ import Icon from '../Icon'
 import Label from '../../helperComponents/Label'
 import Text from '../Text'
 import classNames from 'classnames'
-import { NumericFormat  } from 'react-number-format'
+import { NumericFormat } from 'react-number-format'
 import '../../assets/styles/components/_input.scss'
 
 export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
@@ -46,17 +46,17 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
 
     const changeHandler = (event: TChangeEventType) => {
       const eventValue = event.target.value
-      const removeThousandSeparators =
+      const valueWithoutSeparator =
         type === 'numeric' ? eventValue.replace(new RegExp(thousandSeparator, 'g'), '') : eventValue
 
       if (eventValue.length - 1 === maxCount) {
         return
       }
       if (setFieldValue && name) {
-        setFieldValue(name, removeThousandSeparators)
+        setFieldValue(name, valueWithoutSeparator)
       }
       if (handleChange) {
-        handleChange(event)
+        handleChange(event,valueWithoutSeparator)
       }
     }
 

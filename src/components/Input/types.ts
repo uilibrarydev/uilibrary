@@ -16,7 +16,7 @@ export interface InputCustomProps extends IFormCompProps {
   ref?: RefObject<HTMLInputElement>
   style?: Record<string, string>
   type?: 'text' | 'number' | 'time' | 'password' | 'email' | 'file' | 'tel' | 'date' | 'numeric'
-  handleChange?: (event: TChangeEventType) => void
+  handleChange?: (event: TChangeEventType, value: string) => void
   placeholder?: string
   helperText?: string
   successMessage?: string
