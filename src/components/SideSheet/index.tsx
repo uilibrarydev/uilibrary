@@ -16,7 +16,7 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
     isLoading,
     isOpen,
     onClose,
-    onSumbit,
+    onSubmit,
     title,
     position = 'right',
     className = '',
@@ -33,6 +33,7 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
       },
       cancel: { buttonText: 'Cancel' }
     },
+
     scrollToTopOptions,
     children
   } = props
@@ -43,8 +44,8 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   useOnOutsideClick(containerRef, onClose)
 
   const handleSubmit = useCallback(() => {
-    onSumbit?.()
-  }, [onSumbit])
+    onSubmit?.()
+  }, [onSubmit])
 
   useEffect(() => {
     if (isOpen && scrollToTopOptions) {

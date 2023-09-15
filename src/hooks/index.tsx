@@ -1,38 +1,32 @@
-import { useState, useEffect } from 'react'
+import {useEffect} from 'react'
+
+const callbackStack: { ref: HTMLElement, callback: () => void}[] = [];
+
+function handleDocumentClick(event: MouseEvent) {
+  const { ref, callback } = callbackStack[callbackStack.length - 1];
+  if (ref && !ref.contains(event.target)) {
+      callbackStack.splice(callbackStack.length - 1, 1);
+      callback();
+  }
+}
 
 export const useOnOutsideClick = (
-  element: HTMLElement | null,
-  handler: (event: MouseEvent) => void
+  ref: HTMLElement | null,
+  callback: () => void,
 ): void => {
-  const [isTouchMoved, setTouchMoved] = useState(false)
   useEffect(() => {
-    const listener = (event: MouseEvent): void => {
-      if (!element || element.contains(event.target)) {
-        return
+    if(ref){
+      callbackStack.push({ ref, callback });
+
+      if (callbackStack.length === 1) {
+        document.addEventListener('mousedown', handleDocumentClick);
       }
 
-      handler(event)
+      return () => {
+        if (callbackStack.length === 0) {
+          document.removeEventListener('mousedown', handleDocumentClick);
+        }
+      };
     }
-
-    const onTouchEnd = (event: MouseEvent) => {
-      if (!isTouchMoved) {
-        listener(event)
-      } else {
-        setTouchMoved(false)
-      }
-    }
-    const onTouchMove = () => {
-      if (!isTouchMoved) {
-        setTouchMoved(true)
-      }
-    }
-    document.addEventListener('mousedown', listener)
-    document.addEventListener('touchend', onTouchEnd as EventListener)
-    document.addEventListener('touchmove', onTouchMove)
-    return () => {
-      document.removeEventListener('mousedown', listener)
-      document.removeEventListener('touchend', onTouchEnd as EventListener)
-      document.removeEventListener('touchmove', onTouchMove)
-    }
-  }, [element, handler, isTouchMoved])
+  }, [ref, callback]);
 }

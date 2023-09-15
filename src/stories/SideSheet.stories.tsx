@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SideSheet as SideSheetComp } from '../components'
+import {Button, Menu as MenuComp, Modal as ModalComp, SideSheet as SideSheetComp} from '../components'
 
 export default {
   title: 'SideSheet',
@@ -18,6 +18,27 @@ const Template = (args): JSX.Element => {
   const handleOpenSheet = () => {
     setIsOpen(true)
   }
+  const [ref, setRef] = useState<any>(null)
+
+  const [open, setOpen] = useState(false)
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const closeModal = () => setIsModalOpen(false)
+  const openModal = () => setIsModalOpen(true)
+  const items = [
+    {
+      label: 'Edit',
+      iconProps: {
+        name: 'edit'
+      },
+      handler: () => {
+        openModal()
+      },
+      value: 1
+    },
+  ]
+
   return (
     <div>
       <button onClick={handleOpenSheet}>Open Side Sheet</button>
@@ -38,7 +59,29 @@ const Template = (args): JSX.Element => {
         }}
       >
         <>
-          <div style={{ height: 2000 }}>Side Sheet content</div>
+          <div style={{ height: 2000 }}>
+            <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
+              <Button onClick={() => setOpen(!open)} iconProps={{ name: 'more' }} />
+              {open ? (
+                  <MenuComp {...args} onClose={() => setOpen(false)} parentRef={ref} menuItems={items} />
+              ) : null}
+            </div>
+          </div>
+          <ModalComp
+              {...args}
+              onClose={closeModal}
+              isOpen={isModalOpen}
+              onSumbit={() => console.log('submit')}
+              buttonProps={{
+                confirm: {
+                  buttonText: 'Register',
+                  buttonActionType: 'submit'
+                },
+                cancel: { buttonText: 'Cancel' }
+              }}
+          >
+            <div>Modal content</div>
+          </ModalComp>
         </>
       </SideSheetComp>
     </div>
