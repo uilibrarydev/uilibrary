@@ -39,6 +39,9 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   })
   useEffect(() => {
     document.addEventListener('scroll', onMouseLeave, false)
+    return () => {
+      document.removeEventListener('scroll', onMouseLeave)
+    }
   }, [])
 
   useEffect(() => {

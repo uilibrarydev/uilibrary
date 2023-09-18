@@ -42,6 +42,9 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
 
   useEffect(() => {
     document.addEventListener('scroll', hideMessage, false)
+    return () => {
+      document.removeEventListener('scroll', hideMessage)
+    }
   }, [])
 
   return (
