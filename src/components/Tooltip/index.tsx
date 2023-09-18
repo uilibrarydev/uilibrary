@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { useGetTooltipStyles } from '../../hooks/useGetTooltipStyles'
 import Text from '../Text'
@@ -9,15 +9,13 @@ import classNames from 'classnames'
 
 export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const [isHovered, setIsHoverved] = useState(false)
-  const [tooltipRef, setTooltipRef] = useState<HTMLDivElement | null>(null)
-
+  const tooltipRef = useRef<HTMLDivElement | null>(null)
   const {
     size = 'large',
     text,
     className = '',
     position = 'bottom-left',
     dataId = '',
-    children,
     id,
     elemRef
   } = props
@@ -36,9 +34,12 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
 
   const { tooltipStyles, tooltipPosition } = useGetTooltipStyles({
     elemRef: parent,
-    tooltipRef,
+    tooltipRef: tooltipRef.current,
     initialPosition: position
   })
+  useEffect(() => {
+    document.addEventListener('scroll', onMouseLeave, false)
+  }, [])
 
   useEffect(() => {
     if (parent) {
@@ -54,7 +55,7 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
           style={tooltipStyles}
           data-id={dataId}
           className={classNames(`tooltip tooltip--${size} tooltip--${tooltipPosition}`, className)}
-          ref={setTooltipRef}
+          ref={tooltipRef}
         >
           <Text
             dataId={`${dataId}-text`}
@@ -68,7 +69,6 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
           </Text>
         </div>
       )}
-      {children}
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useGetElemPositions } from './useGetElemPositions'
 import { useGetElemSizes } from './useGetElemSizes'
 
@@ -39,7 +39,7 @@ export const useGetTooltipPosition = (info: TTooltipInfo): TTooltipPosition => {
     }
 
     return initialPosition
-  }, [tooltipHeight, tooltipWidth, bottom, initialPosition, tooltipRef])
+  }, [tooltipHeight, tooltipWidth, bottom, initialPosition])
 
   // this is calculations for triangle position
   const finalPosition = useMemo(() => {
@@ -70,7 +70,7 @@ export const useGetTooltipPosition = (info: TTooltipInfo): TTooltipPosition => {
       return calculatedPosition
     }
     return calculatedPosition
-  }, [calculatedPosition, tooltipWidth, itemWidth, left, tooltipRef])
+  }, [calculatedPosition, tooltipWidth, itemWidth, left])
   if (!hasTriangle) {
     return calculatedPosition as TTooltipPosition
   }
