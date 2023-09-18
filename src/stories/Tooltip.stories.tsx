@@ -46,12 +46,14 @@ const Template = (args) => {
 }
 
 export const Tooltip = Template.bind({})
-const Test = ()=> {
-    return <div>
-        <div>sadad</div>
-        <div>sadad</div>
-        <div>sadad</div>
+const Test = () => {
+  return (
+    <div>
+      <div>sadad</div>
+      <div>sadad</div>
+      <div>sadad</div>
     </div>
+  )
 }
 
 Tooltip.args = {
