@@ -36,12 +36,12 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
 
   useEffect(() => {
     if (parent) {
-      parent.addEventListener('click', showMessage, false)
+      parent.addEventListener('click', showMessage)
     }
   }, [parent])
 
   useEffect(() => {
-    document.addEventListener('scroll', hideMessage, false)
+    document.addEventListener('scroll', hideMessage)
     return () => {
       document.removeEventListener('scroll', hideMessage)
     }

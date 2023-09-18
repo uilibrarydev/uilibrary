@@ -38,7 +38,7 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
     initialPosition: position
   })
   useEffect(() => {
-    document.addEventListener('scroll', onMouseLeave, false)
+    document.addEventListener('scroll', onMouseLeave)
     return () => {
       document.removeEventListener('scroll', onMouseLeave)
     }
@@ -46,8 +46,8 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
 
   useEffect(() => {
     if (parent) {
-      parent.addEventListener('mouseenter', onMouseEnter, false)
-      parent.addEventListener('mouseleave', onMouseLeave, false)
+      parent.addEventListener('mouseenter', onMouseEnter)
+      parent.addEventListener('mouseleave', onMouseLeave)
     }
   }, [parent])
 
