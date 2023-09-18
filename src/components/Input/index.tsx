@@ -56,7 +56,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         setFieldValue(name, valueWithoutSeparator)
       }
       if (handleChange) {
-        handleChange(event,valueWithoutSeparator)
+        handleChange(event, valueWithoutSeparator)
       }
     }
 
