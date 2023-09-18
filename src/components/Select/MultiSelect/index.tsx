@@ -1,4 +1,4 @@
-import React, {ReactElement, useCallback, useMemo, useRef, useState} from 'react'
+import React, { ReactElement, useCallback, useMemo, useRef, useState } from 'react'
 import { Input } from '../../index'
 import { useOnOutsideClick } from '../../../hooks'
 import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
@@ -11,7 +11,7 @@ import { SELECTED_VISIBLE_MIN_COUNT, TRANSLATIONS_DEFAULT_VALUES } from './const
 import { TMultiSelectPropTypes } from '../types'
 import '../../../assets/styles/components/_select.scss'
 
-const Select = (props: TMultiSelectPropTypes): ReactElement  | null => {
+const Select = (props: TMultiSelectPropTypes): ReactElement | null => {
   const {
     withTabs,
     isGrouped,
@@ -42,7 +42,7 @@ const Select = (props: TMultiSelectPropTypes): ReactElement  | null => {
 
   const [isOpen, setIsOpen] = useState(false)
   const [selectedValues, setSelectedValues] = useState<TSelectedValue[]>(initialSelected)
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null)
 
   const closeDropdown = () => setIsOpen(false)
   const openDropdown = () => setIsOpen(true)
