@@ -1,7 +1,7 @@
 import React from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
-import { FormContainer, Button, Input } from '../components'
+import {FormContainer, Button, Input, MultiSelect} from '../components'
 
 export default {
   title: 'Form',
@@ -100,27 +100,26 @@ const Template = (): JSX.Element => {
       >
         <>
           <FormField
-            name={'firstname'}
-            As={(props) => <Input {...props} required type={'text'} label={'firstname'} />}
-          />
-          <FormField
-            As={(props) => (
-              <Input
-                {...props}
-                required
-                type={'text'}
-                label={'numeric input'}
-                thousandSeparator={','}
-                allowLeadingZeros={false}
-                allowNegative={false}
-                placeholder={'money'}
-                maxCount={10}
-                leftIconProps={{
-                  name: 'moneybox'
-                }}
-              />
-            )}
-            name={'test'}
+              name={'attachedEmployees'}
+              As={(props) => (
+                  <MultiSelect
+                      {...props}
+                      isGrouped
+                      label={'attachedEmployees'}
+                      maxSelectCount={1}
+                      translations={{
+                        innerLabel: 'Selected employees',
+                        clearAllLabel: 'Clear All',
+                        overflowText: '%s selected',
+                        emptyListMainMessage: 'Sorry, we couldn\'t find any results',
+                      }}
+                      helperText={'You cannot add more than 1 employees.'}
+                      options={[{
+                        title : 'Software development and automation center',
+                        data: [{label: 'Armen', value: 3}, ]
+                      }]}
+                  />
+              )}
           />
           <Button buttonActionType="submit" buttonText={'Ok'} />
         </>
