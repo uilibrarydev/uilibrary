@@ -1,4 +1,4 @@
-import { Collapse } from './CollapseItem'
+import { CollapseItem } from './CollapseItem'
 import { CollapseGroup } from './CollapseGroup'
 
-export { Collapse, CollapseGroup }
+export { CollapseItem, CollapseGroup }

@@ -24,22 +24,22 @@ export default {
 const Template = (args) => {
   const [ref, setRef] = useState<HTMLElement | null>(null)
   return (
-    <PopoverComp {...args} id="sss">
+    <>
+      <PopoverComp {...args} id="sss" />
       <div
-        id="sss"
         ref={setRef}
         style={{
           position: 'absolute',
           left: 300,
           top: 300,
           width: 100,
-          height: 50,
+          height: 500,
           background: 'red'
         }}
       >
-        Click on me
+        <div id="sss"> Click on me</div>
       </div>
-    </PopoverComp>
+    </>
   )
 }
 

@@ -7,14 +7,19 @@ import { AnimatedComponent } from '../../../helperComponents/AnimatePresenceWrap
 import { TCollapseProps } from '../types'
 import '../../../assets/styles/components/_collapse.scss'
 
-export const Collapse = (props: TCollapseProps): JSX.Element => {
-  const { title, isOpen, toggle, children, titleSize = 'medium', titleColor = 'primary' } = props
+export const CollapseItem = (props: TCollapseProps): JSX.Element => {
+  const {
+    title: { text, size, color },
+    isOpen,
+    toggle,
+    children
+  } = props
 
   return (
     <div className="collapse">
       <div className="collapse_header" onClick={toggle}>
-        <Text size={titleSize} type={titleColor}>
-          {title}
+        <Text size={size} type={color}>
+          {text}
         </Text>
         <Icon
           name="arrow-right"
