@@ -31,9 +31,12 @@ import Link from './Link'
 import Menu from './Menu'
 import SideSheet from './SideSheet'
 import Counter from './Counter'
+import { Collapse, CollapseGroup } from './Collapse'
 
 export {
   Counter,
+  CollapseGroup,
+  Collapse,
   Text,
   Link,
   Heading,

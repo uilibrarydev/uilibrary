@@ -34,11 +34,14 @@ import './assets/styles/index.scss'
 import Link from './components/Link'
 import { SideSheet, Menu } from './components'
 import { Counter } from './components'
+import { Collapse, CollapseGroup } from './components'
 import { FormContext } from './context'
 import { useFormProps } from './hooks/useFormProps'
 import { useFieldArray } from 'react-hook-form'
 
 export {
+  Collapse,
+  CollapseGroup,
   Menu,
   Text,
   Link,
