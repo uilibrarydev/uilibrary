@@ -103,6 +103,8 @@ export interface TSingleSelectPropTypes extends IFormCompProps {
   avatar?: string
   size?: 'small' | 'large'
   className?: string
+  outerHelperText?: string
+  innerHelperText?: string
 }
 
 export type TSelectFooterPropTypes = {

@@ -17,6 +17,7 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
     isCheckbox,
     className = ''
   } = props
+  console.log('OptionItem is rerendered')
 
   const { label, meta, value } = data
 

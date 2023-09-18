@@ -1,7 +1,7 @@
 import React from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
-import { FormContainer, Button, Input, MultiSelect } from '../components'
+import { FormContainer, Button, Input, Select } from '../components'
 
 export default {
   title: 'Form',
@@ -81,6 +81,64 @@ const RADIO_OPTIONS = [
   }
 ]
 
+const OPTIONS_COUNTRIES: TSelectOptions = [
+  {
+    value: 1,
+    label: 'Armenia',
+    meta: 'AM'
+  },
+  {
+    value: 2,
+    label: 'Italy',
+    meta: 'IT'
+  },
+  {
+    value: 3,
+    label: 'France',
+    meta: 'FR'
+  },
+  {
+    value: 4,
+    label: 'Spain',
+    meta: 'SP'
+  },
+  {
+    value: 5,
+    label: 'Germany',
+    meta: 'De'
+  },
+  {
+    value: 6,
+    label: 'Australia',
+    meta: 'AU'
+  },
+  {
+    value: 7,
+    label: 'Hungary',
+    meta: 'HY'
+  },
+  {
+    value: 8,
+    label: 'Georgia',
+    meta: 'GE'
+  },
+  {
+    value: 9,
+    label: 'Brazil',
+    meta: 'BR'
+  },
+  {
+    value: 10,
+    label: 'Norway',
+    meta: 'NR'
+  },
+  {
+    value: 11,
+    label: 'Mexico',
+    meta: 'MC'
+  }
+]
+
 const VALIDATION_SCHEME = yup.object({
   test: yup.string().required('validation').nullable(),
   firstname: yup.string().required('validation').nullable()
@@ -88,7 +146,7 @@ const VALIDATION_SCHEME = yup.object({
 
 const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
-    firstname: null
+    firstname: 5
   }
 
   return (
@@ -100,28 +158,28 @@ const Template = (): JSX.Element => {
       >
         <>
           <FormField
-            name={'attachedEmployees'}
+            className="mb-20"
+            name={'firstname'}
+            As={(props) => <Input {...props} required type={'text'} label={'firstname'} />}
+          />
+          <FormField
             As={(props) => (
-              <MultiSelect
+              <Input
                 {...props}
-                isGrouped
-                label={'attachedEmployees'}
-                maxSelectCount={1}
-                translations={{
-                  innerLabel: 'Selected employees',
-                  clearAllLabel: 'Clear All',
-                  overflowText: '%s selected',
-                  emptyListMainMessage: "Sorry, we couldn't find any results"
+                required
+                type={'numeric'}
+                label={'numeric input'}
+                thousandSeparator={','}
+                allowLeadingZeros={false}
+                allowNegative={false}
+                placeholder={'money'}
+                maxCount={10}
+                leftIconProps={{
+                  name: 'moneybox'
                 }}
-                helperText={'You cannot add more than 1 employees.'}
-                options={[
-                  {
-                    title: 'Software development and automation center',
-                    data: [{ label: 'Armen', value: 3 }]
-                  }
-                ]}
               />
             )}
+            name={'test'}
           />
           <Button buttonActionType="submit" buttonText={'Ok'} />
         </>

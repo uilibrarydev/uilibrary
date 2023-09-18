@@ -69,14 +69,39 @@ const OPTIONS: TSelectOptions = [
     meta: 'SP'
   },
   {
-    value: 'germany',
+    value: 5,
     label: 'Germany',
     meta: 'De'
   },
   {
-    value: 'sss',
-    label: 'ss  ',
-    meta: 'De'
+    value: 6,
+    label: 'Australia',
+    meta: 'AU'
+  },
+  {
+    value: 7,
+    label: 'Hungary',
+    meta: 'HY'
+  },
+  {
+    value: 8,
+    label: 'Georgia',
+    meta: 'GE'
+  },
+  {
+    value: 9,
+    label: 'Brazil',
+    meta: 'BR'
+  },
+  {
+    value: 10,
+    label: 'Norway',
+    meta: 'NR'
+  },
+  {
+    value: 11,
+    label: 'Mexico',
+    meta: 'MC'
   }
 ]
 const OPTIONS_CITIES: TSelectOptions = [
@@ -174,9 +199,10 @@ const Template = (args): JSX.Element => {
     <div style={{ width: 320 }}>
       <SelectComp
         {...args}
+        outerHelperText="helper text"
         selectedItem={selectedValue}
         setSelectedItem={setSelectedValue}
-        withSearch
+        withSearch={true}
       />
     </div>
   )

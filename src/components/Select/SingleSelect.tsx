@@ -1,14 +1,16 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react'
+import classNames from 'classnames'
 import { useOnOutsideClick } from '../../hooks'
+import { useGetElemSizes } from '../../hooks/useGetElemSizes'
+
+import { OptionItem } from '../../helperComponents/OptionItem'
+import { Text, Input } from '../../index'
+
+import { Loading } from './SharedComponents'
+import { SELECTED_VISIBLE_MIN_COUNT } from './MultiSelect/consts'
+
 import { TSingleSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
-import { OptionItem } from '../../helperComponents/OptionItem'
-import Input from '../Input'
-import { useGetElemSizes } from '../../hooks/useGetElemSizes'
-import { Loading } from './SharedComponents'
-import classNames from 'classnames'
-import { ContentTop } from './SharedComponents'
-import { SELECTED_VISIBLE_MIN_COUNT } from './MultiSelect/consts'
 
 const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
@@ -29,19 +31,30 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     setFieldValue,
     setSelectedItem,
     withSearch = false,
+    outerHelperText,
+    innerHelperText,
     isRequiredField,
     labelLeftIconProps,
     labelRightIconComponent,
     optionRightIconComponent
   } = props
-
+  const scrollRef = useRef(null)
+  const { scrollHeight } = useGetElemSizes(scrollRef.current)
   const [isOpen, setIsOpen] = useState(false)
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
   const [searchValue, setSearchValue] = useState('')
   const currentSelection = (value as TItemValue) || selectedItem || null
+  const findItemLabel = useCallback(
+    (value: TItemValue) => {
+      const label = options.find((item) => item.value === value)
+      return label?.label.toString() || ''
+    },
+    [options]
+  )
+  const [itemLabel, setItemLabel] = useState<string | null>(findItemLabel(currentSelection))
 
-  const closeDropdown = () => setIsOpen(false)
   const openDropdown = () => setIsOpen(true)
+  const closeDropdown = () => setIsOpen(false)
 
   useOnOutsideClick(containerRef, closeDropdown)
 
@@ -58,7 +71,9 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     })
   }, [searchValue, options])
 
-  const onItemSelect = useCallback((value: TItemValue) => {
+  const onItemSelect = (value: TItemValue) => {
+    setItemLabel(findItemLabel(value))
+    console.log('onItemSelect', value, findItemLabel(value))
     if (setSelectedItem) {
       setSelectedItem(value)
     }
@@ -67,9 +82,9 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     }
 
     closeDropdown()
-  }, [])
+  }
 
-  const onItemDeselect = useCallback(() => onItemSelect(null), [])
+  const onItemDeselect = () => onItemSelect(null)
 
   const open = (e?: TClickEventType) => {
     const result = e?.target as HTMLDivElement
@@ -82,15 +97,10 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     }
   }
 
-  const selectedItemLabel = useMemo(() => {
-    const currentValue = value || currentSelection
-    const selected = options.find((item) => item.value === currentValue)
-    return selected?.label.toString() || ''
-  }, [options, value, currentSelection])
-
   const clickHandler =
     (isSelected: boolean) =>
     ({ value }: TSelectedValue) => {
+      setSearchValue('')
       if (!isSelected) {
         onItemSelect(value)
         return
@@ -100,8 +110,10 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
       }
     }
 
-  const scrollRef = useRef(null)
-  const { scrollHeight } = useGetElemSizes(scrollRef.current)
+  const onSearch = (e: TChangeEventType) => {
+    setItemLabel(null)
+    setSearchValue(e.target.value)
+  }
 
   return (
     <div className={classNames(`select select--${size}`, className)} ref={setContainerRef}>
@@ -110,17 +122,19 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
           size={size}
           data-id={dataId}
           hasError={hasError}
-          readonly
           className="select__input"
           label={label}
+          onChange={onSearch}
           required={isRequiredField}
           rightIconProps={{
             name: isOpen ? 'caret-up' : 'caret-down'
           }}
+          readonly={withSearch && options.length <= SELECTED_VISIBLE_MIN_COUNT}
           placeholder={placeHolder}
-          currentValue={selectedItemLabel}
+          value={itemLabel}
           isValid={isValid}
           disabled={disabled}
+          helperText={isOpen ? '' : outerHelperText}
         />
       </div>
 
@@ -136,12 +150,13 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
                   scrollHeight > 372 ? 'mr-6' : ''
                 }`}
               >
-                <ContentTop
-                  isSearchAvailable={options.length > SELECTED_VISIBLE_MIN_COUNT && withSearch}
-                  isSelectAllDisabled={filteredData.length === 0}
-                  setSearchValue={setSearchValue}
-                  searchValue={searchValue}
-                />
+                {innerHelperText ? (
+                  <div className="content-top">
+                    <Text size="xsmall" type="secondary" className="content-top__label">
+                      {innerHelperText}
+                    </Text>
+                  </div>
+                ) : null}
 
                 {filteredData.map((item: TSelectOption) => {
                   const isSelected = item.value === currentSelection
