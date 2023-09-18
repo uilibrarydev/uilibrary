@@ -21,12 +21,9 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
     initialPosition: position
   })
 
-  const showMessage = () => {
-    setIsClicked(true)
-  }
-  const hideMessage = () => {
-    setIsClicked(false)
-  }
+  const showMessage = () => setIsClicked(true)
+
+  const hideMessage = () => setIsClicked(false)
 
   useEffect(() => {
     if (id) {
@@ -39,9 +36,16 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
 
   useEffect(() => {
     if (parent) {
-      parent.addEventListener('click', showMessage, false)
+      parent.addEventListener('click', showMessage)
     }
   }, [parent])
+
+  useEffect(() => {
+    document.addEventListener('scroll', hideMessage)
+    return () => {
+      document.removeEventListener('scroll', hideMessage)
+    }
+  }, [])
 
   return (
     <>

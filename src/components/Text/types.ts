@@ -1,3 +1,17 @@
+export type TTextTypes =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'disabled'
+  | 'inverse'
+  | 'selected'
+  | 'brand'
+  | 'danger'
+  | 'warning'
+  | 'success'
+  | 'information'
+  | 'discovery'
+
 export interface TextPropTypes {
   children?: string | JSX.Element
   type?:

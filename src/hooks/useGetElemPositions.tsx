@@ -20,9 +20,9 @@ export const useGetElemPositions = (elemRef: HTMLElement | null): TPositionRetur
   const elemDimensions = elemRef.getBoundingClientRect()
 
   return {
-    left: elemDimensions.left + window.scrollX,
-    right: elemDimensions.right + window.scrollX,
-    top: elemDimensions.top + window.scrollY,
-    bottom: elemDimensions.bottom + window.scrollY
+    left: elemDimensions.left,
+    right: elemDimensions.right,
+    top: elemDimensions.top,
+    bottom: elemDimensions.bottom
   }
 }
