@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { Collapse } from '..'
+import { CollapseItem } from '..'
 import '../../../assets/styles/components/_collapse.scss'
 
 import { TCollapseGroupProps, TColapseItem, TCollapseValue } from '../types'
 
 export const CollapseGroup = (props: TCollapseGroupProps): JSX.Element => {
-  const { items, singleSelection, titleSize, titleColor } = props
+  const { items, singleSelection, titleProps = {} } = props
+  const { size, color } = titleProps
   const [openValues, setOpenValues] = useState<TCollapseValue[]>([])
 
   useEffect(() => {
-    const initialOpenItems = items.filter((item: TColapseItem) => item.isOpen)
-    setOpenValues(initialOpenItems.map((item) => item.value))
+    const initialOpenItems = items
+      .filter((item: TColapseItem) => item.isOpen)
+      .map((item) => item.value)
+    setOpenValues(initialOpenItems)
   }, [items])
 
   const onCollapseSelect = (value: TCollapseValue) => {
@@ -29,16 +32,14 @@ export const CollapseGroup = (props: TCollapseGroupProps): JSX.Element => {
         const { title, value, content } = colapseItem
         const isOpen = openValues.indexOf(value) !== -1
         return (
-          <Collapse
-            title={title}
+          <CollapseItem
             isOpen={isOpen}
             key={value}
-            titleSize={titleSize}
-            titleColor={titleColor}
+            title={{ size, color, text: title }}
             toggle={() => (isOpen ? onCollapseDeselect(value) : onCollapseSelect(value))}
           >
             {content}
-          </Collapse>
+          </CollapseItem>
         )
       })}
     </>

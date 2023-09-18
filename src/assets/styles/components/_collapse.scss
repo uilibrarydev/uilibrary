@@ -1,7 +1,7 @@
 @import "../shared";
 
 .collapse{
-    border-radius: 4px;
+    border-radius: var(--border-radius-4);
     border: 1px solid var(--alias-tokens-ds-color-border-divider, #CCC);
     margin: var(--ds-space-8) 0;
     overflow: hidden;
