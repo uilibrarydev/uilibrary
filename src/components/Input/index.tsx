@@ -70,6 +70,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       return 0
     }, [rest, currentValue])
 
+
+
     const input = mask ? (
       <InputMask
         name={name}
