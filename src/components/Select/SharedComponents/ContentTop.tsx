@@ -5,18 +5,19 @@ import { TSelectTranslations } from '../types'
 import { Actions } from './Actions'
 
 type TProps = {
-  searchValue: string
+  searchValue?: string
   helperText?: string
-  selectAll: TCallBackFn
-  setSearchValue: (value: string) => void
-  clearAll: TCallBackFn
-  isSelectAllDisabled: boolean
-  isAnySelected: boolean
+  selectAll?: TCallBackFn
+  setSearchValue?: (value: string) => void
+  clearAll?: TCallBackFn
+  isSelectAllDisabled?: boolean
+  isAnySelected?: boolean
   translations?: TSelectTranslations
+  isSearchAvailable?: boolean
   hasLimitation?: boolean
 }
 
-export const ContentTop = (props: TProps): JSX.Element => {
+export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
   const {
     clearAll,
     selectAll,
@@ -25,8 +26,9 @@ export const ContentTop = (props: TProps): JSX.Element => {
     translations,
     isAnySelected,
     setSearchValue,
+    isSearchAvailable = false,
     hasLimitation = false,
-    isSelectAllDisabled
+    isSelectAllDisabled = false
   } = props
 
   const { searchInputPlaceHolder, innerLabel, clearAllLabel, selectAllLabel } = translations || {}
@@ -34,7 +36,7 @@ export const ContentTop = (props: TProps): JSX.Element => {
   const selectActions = useMemo(() => {
     let options: TMenuItem[] = []
 
-    if (selectAllLabel && !hasLimitation) {
+    if (selectAll && selectAllLabel && !hasLimitation) {
       options = [
         {
           label: selectAllLabel,
@@ -45,14 +47,14 @@ export const ContentTop = (props: TProps): JSX.Element => {
         }
       ]
     }
-    if (clearAllLabel) {
+    if (clearAll && clearAllLabel) {
       options = [
         ...options,
         {
           label: clearAllLabel,
           value: 2,
           handler: clearAll,
-          disabled: isAnySelected,
+          disabled: !isAnySelected,
           iconProps: { name: 'close' }
         }
       ]
@@ -61,10 +63,10 @@ export const ContentTop = (props: TProps): JSX.Element => {
   }, [selectAllLabel, selectAll, clearAll, clearAllLabel, isSelectAllDisabled, isAnySelected])
 
   const onSearch = (e: TChangeEventType) => {
-    setSearchValue(e.target.value)
+    setSearchValue && setSearchValue(e.target.value)
   }
 
-  const removeFilter = () => setSearchValue('')
+  const removeFilter = () => setSearchValue && setSearchValue('')
 
   return (
     <div className="content-top">
@@ -73,20 +75,24 @@ export const ContentTop = (props: TProps): JSX.Element => {
           {helperText}
         </Text>
       ) : null}
-      <Input
-        className="content-top__search"
-        size="small"
-        placeholder={searchInputPlaceHolder}
-        handleChange={onSearch}
-        currentValue={searchValue}
-        rightIconProps={{
-          name: searchValue ? 'close' : 'search',
-          size: searchValue ? 'xsmall' : 'small',
-          onClick: removeFilter
-        }}
-      />
+      {isSearchAvailable && (
+        <Input
+          className="content-top__search"
+          size="small"
+          placeholder={searchInputPlaceHolder}
+          handleChange={onSearch}
+          currentValue={searchValue}
+          rightIconProps={{
+            name: searchValue ? 'close' : 'search',
+            size: searchValue ? 'xsmall' : 'small',
+            onClick: removeFilter
+          }}
+        />
+      )}
 
       <Actions selectActions={selectActions} innerLabel={innerLabel} />
     </div>
   )
-}
+})
+
+ContentTop.displayName = 'ContentTop'

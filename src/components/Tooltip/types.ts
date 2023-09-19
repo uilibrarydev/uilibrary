@@ -1,8 +1,7 @@
 import { ReactElement } from 'react'
 
 export interface TTooltipProps extends IFormCompProps {
-  text: string
-  children?: ReactElement
+  text: string | ReactElement
   position?:
     | 'top-left'
     | 'top-center'

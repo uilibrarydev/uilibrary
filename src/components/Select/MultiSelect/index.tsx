@@ -1,21 +1,17 @@
-import React, { useCallback, useMemo, useState } from 'react'
-
+import React, { ReactElement, useCallback, useMemo, useRef, useState } from 'react'
 import { Input } from '../../index'
-
 import { useOnOutsideClick } from '../../../hooks'
 import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
 import { getStringWidth, setTranslationValue } from '../../../utils'
-
 import { Footer } from '../SharedComponents'
 import { MultiSelect } from './Multi'
 import { MultiSelectGrouped } from './Grouped'
 import { MultiSelectWithTabs } from './WithTabs'
 import { SELECTED_VISIBLE_MIN_COUNT, TRANSLATIONS_DEFAULT_VALUES } from './consts'
-
 import { TMultiSelectPropTypes } from '../types'
 import '../../../assets/styles/components/_select.scss'
 
-const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
+const Select = (props: TMultiSelectPropTypes): ReactElement | null => {
   const {
     withTabs,
     isGrouped,
@@ -46,19 +42,17 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
 
   const [isOpen, setIsOpen] = useState(false)
   const [selectedValues, setSelectedValues] = useState<TSelectedValue[]>(initialSelected)
-  const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
+  const containerRef = useRef<HTMLDivElement | null>(null)
 
   const closeDropdown = () => setIsOpen(false)
   const openDropdown = () => setIsOpen(true)
 
-  const { width } = useGetElemSizes(containerRef)
-  const cancelCelectedItems = () => {
+  const { width } = useGetElemSizes(containerRef.current)
+  const cancelSelectedItems = useCallback(() => {
     submitSelectedValue(initialSelected)
-    setSelectedValues(initialSelected)
-    closeDropdown()
-  }
+  }, [])
 
-  useOnOutsideClick(containerRef, cancelCelectedItems)
+  useOnOutsideClick(containerRef.current, cancelSelectedItems)
 
   const submitSelectedValue = (selections: TSelectedValue[]) => {
     if (setSelectedItems) {
@@ -80,11 +74,11 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
     return (
       <Footer
         buttonProps={footerButtonProps}
-        onCancel={cancelCelectedItems}
+        onCancel={cancelSelectedItems}
         onApply={applySelectedItems}
       />
     )
-  }, [cancelCelectedItems, applySelectedItems])
+  }, [cancelSelectedItems, applySelectedItems])
 
   const checkIsValueOverflowed = useCallback(
     (value: string) => {
@@ -140,7 +134,7 @@ const Select = (props: TMultiSelectPropTypes): JSX.Element | null => {
   const SelectComp = withTabs ? MultiSelectWithTabs : isGrouped ? MultiSelectGrouped : MultiSelect
 
   return (
-    <div className="select select--multi" ref={setContainerRef}>
+    <div className="select select--multi" ref={containerRef}>
       <div onClick={toggleDropdown}>
         <Input
           readonly

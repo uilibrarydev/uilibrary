@@ -1,15 +1,7 @@
 import React from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
-import {
-  FormContainer,
-  Switcher,
-  Button,
-  FileUpload,
-  Input,
-  Counter,
-  RadioGroup
-} from '../components'
+import { FormContainer, Button, Input, Select } from '../components'
 
 export default {
   title: 'Form',
@@ -89,33 +81,72 @@ const RADIO_OPTIONS = [
   }
 ]
 
+const OPTIONS_COUNTRIES: TSelectOptions = [
+  {
+    value: 1,
+    label: 'Armenia',
+    meta: 'AM'
+  },
+  {
+    value: 2,
+    label: 'Italy',
+    meta: 'IT'
+  },
+  {
+    value: 3,
+    label: 'France',
+    meta: 'FR'
+  },
+  {
+    value: 4,
+    label: 'Spain',
+    meta: 'SP'
+  },
+  {
+    value: 5,
+    label: 'Germany',
+    meta: 'De'
+  },
+  {
+    value: 6,
+    label: 'Australia',
+    meta: 'AU'
+  },
+  {
+    value: 7,
+    label: 'Hungary',
+    meta: 'HY'
+  },
+  {
+    value: 8,
+    label: 'Georgia',
+    meta: 'GE'
+  },
+  {
+    value: 9,
+    label: 'Brazil',
+    meta: 'BR'
+  },
+  {
+    value: 10,
+    label: 'Norway',
+    meta: 'NR'
+  },
+  {
+    value: 11,
+    label: 'Mexico',
+    meta: 'MC'
+  }
+]
+
 const VALIDATION_SCHEME = yup.object({
-  files: yup
-    .array()
-    .of(
-      yup
-        .mixed()
-        .test(
-          'fileSize',
-          'File size is too large',
-          (value) => !value || value.size <= 3 * 1024 * 1024
-        )
-    )
-    .required('Please select at least one file.')
+  test: yup.string().required('validation').nullable(),
+  firstname: yup.string().required('validation').nullable()
 })
 
 const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
-    obj: {
-      name: '',
-      surname: ''
-    },
-    firstname: '',
-    switcher: false,
-    select: null,
-    multiselect: [],
-    counter: 9,
-    radio: '2'
+    firstname: 5
   }
 
   return (
@@ -127,33 +158,29 @@ const Template = (): JSX.Element => {
       >
         <>
           <FormField
-            name={'switcher'}
-            As={(props: IFormCompProps) => {
-              return <Switcher {...props} />
-            }}
+            className="mb-20"
+            name={'firstname'}
+            As={(props) => <Input {...props} required type={'text'} label={'firstname'} />}
           />
-
-          <FormField name="counter" As={(props) => <Counter {...props} min={5} max={90} />} />
-
           <FormField
-            name={'radio'}
-            As={(props: IFormCompProps) => {
-              return <RadioGroup {...props} options={RADIO_OPTIONS} />
-            }}
-          />
-
-          <FormField name={'obj.name'} As={(props) => <Input label="name" {...props} />} />
-
-          <FormField name={'obj.surname'} As={(props) => <Input label="surname" {...props} />} />
-
-          <FormField name={'firstname'} As={(props) => <Input label="firstname" {...props} />} />
-          <FormField
-            name={'files'}
             As={(props) => (
-              <FileUpload label={'files'} buttonText={'Attach'} multiple={true} {...props} />
+              <Input
+                {...props}
+                required
+                type={'numeric'}
+                label={'numeric input'}
+                thousandSeparator={','}
+                allowLeadingZeros={false}
+                allowNegative={false}
+                placeholder={'money'}
+                maxCount={10}
+                leftIconProps={{
+                  name: 'moneybox'
+                }}
+              />
             )}
+            name={'test'}
           />
-
           <Button buttonActionType="submit" buttonText={'Ok'} />
         </>
       </FormContainer>

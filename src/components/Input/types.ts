@@ -13,14 +13,19 @@ export interface InputCustomProps extends IFormCompProps {
   disabled?: boolean
   required?: boolean
   readonly?: boolean
-
   ref?: RefObject<HTMLInputElement>
   style?: Record<string, string>
-  type?: 'text' | 'number' | 'time' | 'password' | 'email' | 'file' | 'tel' | 'date'
-  handleChange?: (event: TChangeEventType) => void
+  type?: 'text' | 'number' | 'time' | 'password' | 'email' | 'file' | 'tel' | 'date' | 'numeric'
+  handleChange?: (event: TChangeEventType, value: string) => void
   placeholder?: string
   helperText?: string
   successMessage?: string
   maxCount?: number
   onFocus?: (event: TClickEventType) => void
+  hideCounter?: boolean
+  allowNegative?: boolean
+  currencySymbol?: string
+  separatorSymbol?: string
+  allowLeadingZeros?: boolean
+  thousandSeparator?: string
 }

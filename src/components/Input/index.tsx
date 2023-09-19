@@ -2,11 +2,12 @@ import React, { useMemo } from 'react'
 import InputMask from 'react-input-mask'
 import ErrorMessage from '../../helperComponents/ErrorMessage'
 import { InputCustomProps } from './types'
-import '../../assets/styles/components/_input.scss'
 import Icon from '../Icon'
 import Label from '../../helperComponents/Label'
 import Text from '../Text'
 import classNames from 'classnames'
+import { NumericFormat } from 'react-number-format'
+import '../../assets/styles/components/_input.scss'
 
 export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
   (
@@ -17,7 +18,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       hasError,
       label,
       mask,
-      onChange,
       currentValue,
       name,
       leftIconProps,
@@ -30,10 +30,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       helperText,
       successMessage,
       maxCount,
+      setFieldValue,
       handleChange,
       dataId = '',
       isValid,
-      setFieldValue,
+      allowLeadingZeros,
+      thousandSeparator = '',
+      allowNegative = false,
+      hideCounter = false,
       ...rest
     },
     ref
@@ -41,15 +45,18 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
     const isErrorVisible = hasError !== undefined ? hasError : !!error
 
     const changeHandler = (event: TChangeEventType) => {
-      const length = event.target.value.length
-      if (length - 1 === maxCount) {
+      const eventValue = event.target.value
+      const valueWithoutSeparator =
+        type === 'numeric' ? eventValue.replace(new RegExp(thousandSeparator, 'g'), '') : eventValue
+
+      if (eventValue.length - 1 === maxCount) {
         return
       }
-      if (onChange) {
-        onChange(event)
+      if (setFieldValue && name) {
+        setFieldValue(name, valueWithoutSeparator)
       }
       if (handleChange) {
-        handleChange(event)
+        handleChange(event, valueWithoutSeparator)
       }
     }
 
@@ -69,7 +76,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         mask={mask}
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        ref={ref}
+        ref={() => ref && ref()}
         {...rest}
         placeholder={placeholder}
         onChange={changeHandler}
@@ -77,6 +84,23 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         data-id={dataId}
         className={`${isErrorVisible ? 'with-error-styles' : ''}`}
         {...(currentValue ? { value: currentValue } : {})}
+      />
+    ) : type === 'numeric' ? (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      <NumericFormat
+        {...rest}
+        name={name}
+        onChange={changeHandler}
+        placeholder={placeholder}
+        readOnly={readonly}
+        allowLeadingZeros={allowLeadingZeros}
+        thousandSeparator={thousandSeparator}
+        allowNegative={allowNegative}
+        maxLength={maxCount}
+        inputMode={'numeric'}
+        disabled={disabled}
+        {...(currentValue !== undefined ? { value: currentValue } : {})}
       />
     ) : (
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -101,7 +125,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
           'input--icon-left': leftIconProps,
           'input--icon-right': rightIconProps,
           'input--invalid': isErrorVisible || !!error,
-          'input--valid': isValid
+          'input--valid': isValid,
+          'input--disabled': disabled
         })}
       >
         <Label text={label} invalid={isErrorVisible} required={required} disabled={disabled} />
@@ -146,7 +171,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
               </Text>
             ) : null}
 
-            {maxCount ? (
+            {maxCount && !hideCounter && !hasError ? (
               <Text size="small" type="secondary" className="input__counter">
                 {`${currentLength}/${maxCount}`}
               </Text>

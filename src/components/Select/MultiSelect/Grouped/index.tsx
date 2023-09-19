@@ -127,6 +127,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
       className: 'group-item__option'
     }
   }, [avatar, labelLeftIconProps, optionRightIconComponent, labelRightIconComponent])
+  const hasTopContent = isSearchAvailable || helperText
 
   return (
     <>
@@ -136,17 +137,20 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
             <Loading />
           ) : (
             <>
-              <ContentTop
-                hasLimitation={!!maxSelectCount}
-                selectAll={selectAll}
-                clearAll={clearAll}
-                isAnySelected={selectedValues.length === 0}
-                helperText={helperText}
-                isSelectAllDisabled={isAllSelected || filteredData.length === 0}
-                setSearchValue={setSearchValue}
-                searchValue={searchValue}
-                translations={translations}
-              />
+              {hasTopContent ? (
+                <ContentTop
+                  isSearchAvailable={isSearchAvailable}
+                  hasLimitation={!!maxSelectCount}
+                  selectAll={selectAll}
+                  clearAll={clearAll}
+                  isAnySelected={selectedValues.length !== 0}
+                  helperText={helperText}
+                  isSelectAllDisabled={isAllSelected || filteredData.length === 0}
+                  setSearchValue={setSearchValue}
+                  searchValue={searchValue}
+                  translations={translations}
+                />
+              ) : null}
               <div
                 ref={setContentContainerRef}
                 className={`select__options__scroll scrollbar scrollbar--vertical ${
@@ -170,7 +174,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                       })}
                     </div>
                   )}
-                  <Divider type="primary" isHorizontal />
+                  {hasTopContent ? <Divider type="primary" isHorizontal /> : null}
                   {filteredData.map(({ title, data }: TSelectGroupOption, index: number) => {
                     const isActive = index === activeGroupId
                     return (
