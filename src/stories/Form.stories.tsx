@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
 import { FormContainer, Button, Input, Select } from '../components'
+import {useFormProps} from "../hooks/useFormProps";
 
 export default {
   title: 'Form',
@@ -146,7 +147,6 @@ const VALIDATION_SCHEME = yup.object({
 
 const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
-    firstname: 5
   }
 
   return (
@@ -157,34 +157,86 @@ const Template = (): JSX.Element => {
         initialValues={INITIAL_VALUES}
       >
         <>
-          <FormField
-            className="mb-20"
-            name={'firstname'}
-            As={(props) => <Input {...props} required type={'text'} label={'firstname'} />}
-          />
-          <FormField
-            As={(props) => (
-              <Input
-                {...props}
-                required
-                type={'numeric'}
-                label={'numeric input'}
-                thousandSeparator={','}
-                allowLeadingZeros={false}
-                allowNegative={false}
-                placeholder={'money'}
-                maxCount={10}
-                leftIconProps={{
-                  name: 'moneybox'
-                }}
-              />
-            )}
-            name={'test'}
-          />
+        <Test/>
+          {/*<FormField*/}
+          {/*  className="mb-20"*/}
+          {/*  name={'firstname'}*/}
+          {/*  As={(props) => <Input {...props} required type={'text'} label={'firstname'} />}*/}
+          {/*/>*/}
+          {/*<FormField*/}
+          {/*  As={(props) => (*/}
+          {/*    <Input*/}
+          {/*      {...props}*/}
+          {/*      required*/}
+          {/*      type={'numeric'}*/}
+          {/*      label={'numeric input'}*/}
+          {/*      thousandSeparator={','}*/}
+          {/*      allowLeadingZeros={false}*/}
+          {/*      allowNegative={false}*/}
+          {/*      placeholder={'money'}*/}
+          {/*      maxCount={10}*/}
+          {/*      leftIconProps={{*/}
+          {/*        name: 'moneybox'*/}
+          {/*      }}*/}
+          {/*    />*/}
+          {/*  )}*/}
+          {/*  name={'test'}*/}
+          {/*/>*/}
           <Button buttonActionType="submit" buttonText={'Ok'} />
         </>
       </FormContainer>
     </div>
+  )
+}
+
+
+export const Test = () => {
+
+  const {setValue,getValues, reset} = useFormProps()
+
+  useEffect(() => {
+setTimeout(()=> {
+  reset?.({
+    COUNTRIES: 1
+  })
+}, 2000)
+  }, []);
+
+  return (
+      <>
+        <FormField
+            className="input-block"
+            name={'COUNTRIES'}
+            As={(props) => {
+              return (
+                  <Select
+                      {...props}
+                      isRequiredField
+                      label={'COUNTRIES'}
+                      options={OPTIONS_COUNTRIES}
+                      setSelectedItem={(selected)=> {
+                        setValue('CITIES','')
+                        // console.log(selected)
+                      }}
+                  />
+              );
+            }}
+        />
+        <FormField
+            className="input-block"
+            name={'CITIES'}
+            As={(props) => {
+              return (
+                  <Select
+                      {...props}
+                      isRequiredField
+                      label={'CITIES'}
+                      options={OPTIONS_COUNTRIES}
+                  />
+              );
+            }}
+        />
+      </>
   )
 }
 export const Form = Template.bind({})
