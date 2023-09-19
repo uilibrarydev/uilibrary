@@ -42,5 +42,9 @@ export const Modal = Template.bind({})
 Modal.args = {
   size: 'small',
   title: 'Title',
-  closeIcon: false
+  closeIcon: false,
+  withFooter: true,
+  titleIconProps: {
+    name: 'checkmark-hover'
+  }
 }
