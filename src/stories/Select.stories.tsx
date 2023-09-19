@@ -247,6 +247,7 @@ Select.args = {
   isLoading: false,
   options: OPTIONS,
   withFooter: true,
+  label:'country',
   avatar: image.src,
   placeHolder: 'Select country',
   labelLeftIconProps: { name: 'user' },

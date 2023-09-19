@@ -78,7 +78,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         // @ts-ignore
         ref={() => ref && ref()}
         {...rest}
-        placeholder={placeholder}
+        placeholder={label !== placeholder ? placeholder : ''}
         onChange={changeHandler}
         disabled={disabled}
         data-id={dataId}
@@ -92,7 +92,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         {...rest}
         name={name}
         onChange={changeHandler}
-        placeholder={placeholder}
+        placeholder={label !== placeholder ? placeholder : ''}
         readOnly={readonly}
         allowLeadingZeros={allowLeadingZeros}
         thousandSeparator={thousandSeparator}
@@ -111,7 +111,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         name={name}
         ref={ref}
         type={type}
-        placeholder={placeholder}
+        placeholder={label !== placeholder ? placeholder : ''}
         onChange={changeHandler}
         data-id={dataId}
         {...rest}
