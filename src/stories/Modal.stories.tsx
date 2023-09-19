@@ -44,7 +44,7 @@ Modal.args = {
   title: 'Title',
   closeIcon: false,
   withFooter: true,
-  iconProps: {
+  titleIconProps: {
     name: 'checkmark-hover'
   }
 }
