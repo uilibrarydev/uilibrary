@@ -3,6 +3,7 @@ import Icon from '../Icon'
 import { TCheckboxProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
 import Link from '../Link'
+import Text from "../Text";
 
 export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   const {
@@ -60,10 +61,12 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
             {label}
           </Link>
         ) : (
-          <span className="controller__label">
-            {label}
-            {required && <sup>*</sup>}
-          </span>
+            <Text type={disabled ? 'disabled' : 'primary'} className="controller__label">
+              <>
+                {label}
+                {required && <sup>*</sup>}
+              </>
+            </Text>
         )
       ) : null}
     </label>
