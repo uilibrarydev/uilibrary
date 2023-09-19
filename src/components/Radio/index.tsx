@@ -43,7 +43,11 @@ export const Radio = forwardRef((props: TRadioProps, ref): JSX.Element | null =>
         disabled={disabled}
       />
       <span className="controller__icon"></span>
-      {label ? <span className="controller__label">{label}</span> : null}
+      {label ? (
+        <Text type={disabled ? 'disabled' : 'primary'} className="controller__label">
+          {label}
+        </Text>
+      ) : null}
       {helperText ? (
         <Text
           size="small"

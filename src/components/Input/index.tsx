@@ -166,13 +166,17 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
               </Text>
             ) : null}
             {helperText && !successMessage && !(isErrorVisible || error) ? (
-              <Text size="small" type="secondary">
+              <Text size="small" type={disabled ? 'disabled' : 'secondary'}>
                 {helperText}
               </Text>
             ) : null}
 
             {maxCount && !hideCounter && !hasError ? (
-              <Text size="small" type="secondary" className="input__counter">
+              <Text
+                size="small"
+                type={disabled ? 'disabled' : 'secondary'}
+                className="input__counter"
+              >
                 {`${currentLength}/${maxCount}`}
               </Text>
             ) : null}
