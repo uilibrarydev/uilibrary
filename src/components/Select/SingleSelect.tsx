@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react'
+import React, { useEffect, useMemo, useRef, useState} from 'react'
 import classNames from 'classnames'
 import { useOnOutsideClick } from '../../hooks'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
@@ -109,12 +109,6 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
       }
     }
 
-
-  // const selectedItemLabel = useMemo(() => {
-  //   const currentValue = value || currentSelection;
-  //   const selected = options.find((item) => item.value === currentValue)
-  //   return selected?.label.toString() || ''
-  // }, [options, value, currentSelection])
   const onSearch = (e: TChangeEventType) => {
     setItemLabel(null)
     setSearchValue(e.target.value)
@@ -137,7 +131,6 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
           readonly={options.length <= SELECTED_VISIBLE_MIN_COUNT}
           placeholder={placeHolder}
           value={itemLabel}
-            // currentValue={selectedItemLabel as any}
           isValid={isValid}
           disabled={disabled}
           helperText={isOpen ? '' : outerHelperText}
