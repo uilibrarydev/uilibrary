@@ -34,12 +34,12 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
     onClose,
     onSumbit,
     title,
+    titleIconProps,
     closeIcon,
     className = '',
     size = 'small',
     withFooter = true,
     buttonProps,
-    iconProps,
     children
   } = props
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
@@ -63,7 +63,7 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
           <div className="modal__container" ref={setContainerRef} {...DESKTOP_ANIMATION}>
             {title ? (
               <div className="modal__header">
-                {iconProps?.name ? <Icon size="small" {...iconProps} className="mr-12" /> : null}
+                {titleIconProps?.name ? <Icon size="small" {...titleIconProps} className="mr-12" /> : null}
                 <Text className="modal__title" weight="semibold" lineHeight="large" size="medium">
                   {title}
                 </Text>

@@ -7,15 +7,15 @@ export interface TModalPropTypes {
   onClose: () => void
   onSumbit: () => void
   title?: string
+  titleIconProps?: {
+    name: string
+    type: TIconTypes
+  }
   size?: 'small' | 'medium' | 'large'
   withFooter?: boolean
   buttonProps?: {
     cancel?: TButtonPropTypes
     confirm: TButtonPropTypes
-  }
-  iconProps?: {
-    name: string
-    type: TIconTypes
   }
   closeIcon?: boolean
   children?: string | JSX.Element | JSX.Element[] | ReactNode
