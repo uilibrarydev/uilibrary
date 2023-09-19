@@ -80,7 +80,11 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
             ) : null}
 
             {maxCount ? (
-              <Text size="small" type={disabled ? 'disabled' : 'secondary'} className="textarea__counter">
+              <Text
+                size="small"
+                type={disabled ? 'disabled' : 'secondary'}
+                className="textarea__counter"
+              >
                 {`${currentLength}/${maxCount}`}
               </Text>
             ) : null}
