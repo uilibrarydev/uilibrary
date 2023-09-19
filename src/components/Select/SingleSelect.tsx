@@ -30,7 +30,6 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     selectedItem,
     setFieldValue,
     setSelectedItem,
-    withSearch = false,
     outerHelperText,
     innerHelperText,
     isRequiredField,
@@ -114,7 +113,6 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     setItemLabel(null)
     setSearchValue(e.target.value)
   }
-
   return (
     <div className={classNames(`select select--${size}`, className)} ref={setContainerRef}>
       <div onClick={open}>
@@ -129,7 +127,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
           rightIconProps={{
             name: isOpen ? 'caret-up' : 'caret-down'
           }}
-          readonly={withSearch && options.length <= SELECTED_VISIBLE_MIN_COUNT}
+          readonly={options.length <= SELECTED_VISIBLE_MIN_COUNT}
           placeholder={placeHolder}
           value={itemLabel}
           isValid={isValid}
