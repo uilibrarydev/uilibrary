@@ -76,42 +76,6 @@ const Template = (args): JSX.Element => {
         }}
       >
         <>
-          {/*<div>*/}
-          {/*  <FormContainer*/}
-          {/*      onSubmit={(data) => console.log('data', data)}*/}
-          {/*      validationScheme={VALIDATION_SCHEME}*/}
-          {/*      initialValues={INITIAL_VALUES}*/}
-          {/*  >*/}
-          {/*    <>*/}
-          {/*      <FormField*/}
-          {/*          name={'attachedEmployees'}*/}
-          {/*          As={(props) => {*/}
-          {/*            return (*/}
-          {/*                <MultiSelect*/}
-          {/*                    {...props}*/}
-          {/*                    isGrouped*/}
-          {/*                    label={'attachedEmployees'}*/}
-          {/*                    maxSelectCount={1}*/}
-          {/*                    translations={{*/}
-          {/*                      innerLabel: 'Selected employees',*/}
-          {/*                      clearAllLabel: 'Clear All',*/}
-          {/*                      overflowText: '%s selected',*/}
-          {/*                      emptyListMainMessage: "Sorry, we couldn't find any results"*/}
-          {/*                    }}*/}
-          {/*                    helperText={'You cannot add more than 1 employees.'}*/}
-          {/*                    options={[*/}
-          {/*                      {*/}
-          {/*                        title: 'Software development and automation center',*/}
-          {/*                        data: [{ label: 'Armen', value: 3 }]*/}
-          {/*                      }*/}
-          {/*                    ]}*/}
-          {/*                />*/}
-          {/*            )*/}
-          {/*          }}*/}
-          {/*      />*/}
-          {/*    </>*/}
-          {/*  </FormContainer>*/}
-          {/*</div>*/}
           <div style={{ height: 2000 }}>
             <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
               <Button onClick={() => setOpen(!open)} iconProps={{ name: 'more' }} />
