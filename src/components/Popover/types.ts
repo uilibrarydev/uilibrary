@@ -1,4 +1,4 @@
-import {ReactElement} from 'react';
+import { ReactElement } from 'react'
 
 export interface TPopoverProps extends IFormCompProps {
   text?: string | ReactElement

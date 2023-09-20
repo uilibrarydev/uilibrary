@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const callbackStack: { ref: HTMLElement, callback: () => void }[] = []
+const callbackStack: { ref: HTMLElement; callback: () => void }[] = []
 
 function handleMouseDownEvent(event: MouseEvent) {
   const callbackObject = callbackStack[callbackStack.length - 1]

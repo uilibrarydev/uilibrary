@@ -48,7 +48,7 @@ interface StringEventTarget extends EventTarget {
   text: string
 }
 interface InputEvent extends EventTarget {
-  target: { value: string, className?: string }
+  target: { value: string; className?: string }
 }
 interface MouseEvent extends EventTarget {
   target: TextEventTarget | StringEventTarget

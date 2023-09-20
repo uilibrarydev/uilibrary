@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Popover as PopoverComp } from '../components'
 
 export default {
@@ -22,12 +22,10 @@ export default {
 }
 
 const Template = (args) => {
-  const [ref, setRef] = useState<HTMLElement | null>(null)
   return (
     <>
       <PopoverComp {...args} id="sss" />
       <div
-        ref={setRef}
         style={{
           position: 'absolute',
           left: 300,

@@ -1,16 +1,11 @@
 import React, { useState } from 'react'
 import {
   Button,
-  Input,
   Menu as MenuComp,
   Modal as ModalComp,
-  MultiSelect,
   SideSheet as SideSheetComp
 } from '../components'
-import { FormContainer } from '../index'
-import FormField from '../components/FormField'
 import * as yup from 'yup'
-import { log } from 'util'
 
 export default {
   title: 'SideSheet',
@@ -23,11 +18,13 @@ export default {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const VALIDATION_SCHEME = yup.object({
   test: yup.string().required('validation').nullable(),
   firstname: yup.string().required('validation').nullable()
 })
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const INITIAL_VALUES = {
   firstname: 5
 }
@@ -38,7 +35,7 @@ const Template = (args): JSX.Element => {
   const handleOpenSheet = () => {
     setIsOpen(true)
   }
-  const [ref, setRef] = useState<any>(null)
+  const [ref, setRef] = useState<HTMLDivElement>(null)
 
   const [open, setOpen] = useState(false)
 
