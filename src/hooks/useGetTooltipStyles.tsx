@@ -7,7 +7,7 @@ const TOOLTIP_GAP = 8
 
 type TReturn = {
   tooltipPosition: TTooltipPosition
-  tooltipStyles: { top: number; left: number }
+  tooltipStyles: { top: number, left: number }
 }
 export const useGetTooltipStyles = ({
   initialPosition,

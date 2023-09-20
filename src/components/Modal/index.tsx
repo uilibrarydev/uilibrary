@@ -1,5 +1,5 @@
-import React, {ReactElement, useRef} from 'react'
-import classnames from 'classnames';
+import React, { ReactElement, useRef } from 'react'
+import classnames from 'classnames'
 import { motion } from 'framer-motion'
 import { AnimatedComponent } from '../../helperComponents/AnimatePresenceWrapper'
 import { useOnOutsideClick } from '../../hooks'

@@ -20,12 +20,12 @@ export const useOnOutsideClick = (ref: HTMLElement | null, callback: () => void)
       callbackStack.push({ ref, callback })
 
       if (callbackStack.length === 1) {
-        document.addEventListener('mousedown',handleMouseDownEvent)
+        document.addEventListener('mousedown', handleMouseDownEvent)
       }
 
       return () => {
         if (callbackStack.length === 0) {
-          document.removeEventListener('mousedown',handleMouseDownEvent)
+          document.removeEventListener('mousedown', handleMouseDownEvent)
         }
       }
     }

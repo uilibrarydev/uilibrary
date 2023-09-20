@@ -1,6 +1,6 @@
 import { useContext } from 'react'
-import { FormContext } from '../context/index'
+import {FormContext, TFormContextProps} from '../context'
 
-export const useFormProps = () => {
+export const useFormProps = (): TFormContextProps => {
   return useContext(FormContext)
 }

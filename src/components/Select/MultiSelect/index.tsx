@@ -1,4 +1,4 @@
-import React, {forwardRef, ReactElement, useCallback, useMemo, useRef, useState} from 'react'
+import React, { forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from 'react'
 import { Input } from '../../index'
 import { useOnOutsideClick } from '../../../hooks'
 import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
@@ -168,5 +168,5 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   )
 })
 
-Select.displayName = 'Select';
+Select.displayName = 'Select'
 export default Select

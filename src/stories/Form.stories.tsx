@@ -1,7 +1,7 @@
 import React from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
-import {FormContainer, Button, MultiSelect} from '../components'
+import { FormContainer, Button, MultiSelect } from '../components'
 
 export default {
   title: 'Form',
@@ -55,6 +55,7 @@ const OPTIONS_CITIES: TSelectOptions = [
   }
 ]
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const OPTIONS_GROUPED: TSelectGroupOptions = [
   {
     title: 'Countries',
@@ -66,6 +67,7 @@ const OPTIONS_GROUPED: TSelectGroupOptions = [
   }
 ]
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const RADIO_OPTIONS = [
   {
     label: 'Text1',
@@ -81,6 +83,7 @@ const RADIO_OPTIONS = [
   }
 ]
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const OPTIONS_COUNTRIES: TSelectOptions = [
   {
     value: 1,
@@ -158,7 +161,7 @@ const Template = (): JSX.Element => {
       >
         <>
           <FormField
-              name={'attachedEmployees'}
+            name={'attachedEmployees'}
             As={(props) => (
               <MultiSelect
                 {...props}

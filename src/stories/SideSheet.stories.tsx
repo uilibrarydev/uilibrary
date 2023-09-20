@@ -1,14 +1,16 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import {
-  Button, Input,
+  Button,
+  Input,
   Menu as MenuComp,
-  Modal as ModalComp, MultiSelect,
+  Modal as ModalComp,
+  MultiSelect,
   SideSheet as SideSheetComp
 } from '../components'
-import {FormContainer} from '../index';
-import FormField from '../components/FormField';
-import * as yup from 'yup';
-import {log} from 'util';
+import { FormContainer } from '../index'
+import FormField from '../components/FormField'
+import * as yup from 'yup'
+import { log } from 'util'
 
 export default {
   title: 'SideSheet',
@@ -21,7 +23,6 @@ export default {
   }
 }
 
-
 const VALIDATION_SCHEME = yup.object({
   test: yup.string().required('validation').nullable(),
   firstname: yup.string().required('validation').nullable()
@@ -30,7 +31,6 @@ const VALIDATION_SCHEME = yup.object({
 const INITIAL_VALUES = {
   firstname: 5
 }
-
 
 const Template = (args): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
@@ -128,24 +128,23 @@ const Template = (args): JSX.Element => {
               ) : null}
             </div>
           </div>
-          {
-              isModalOpen &&
-          <ModalComp
-            {...args}
-            onClose={closeModal}
-            isOpen={isModalOpen}
-            onSumbit={() => console.log('submit')}
-            buttonProps={{
-              confirm: {
-                buttonText: 'Register',
-                buttonActionType: 'submit'
-              },
-              cancel: { buttonText: 'Cancel' }
-            }}
-          >
-            <div>Modal content</div>
-          </ModalComp>
-          }
+          {isModalOpen && (
+            <ModalComp
+              {...args}
+              onClose={closeModal}
+              isOpen={isModalOpen}
+              onSumbit={() => console.log('submit')}
+              buttonProps={{
+                confirm: {
+                  buttonText: 'Register',
+                  buttonActionType: 'submit'
+                },
+                cancel: { buttonText: 'Cancel' }
+              }}
+            >
+              <div>Modal content</div>
+            </ModalComp>
+          )}
         </>
       </SideSheetComp>
     </div>

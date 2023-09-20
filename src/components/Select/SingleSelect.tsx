@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState  } from 'react'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
 import classNames from 'classnames'
 import { useOnOutsideClick } from '../../hooks'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
@@ -11,7 +11,7 @@ import { SELECTED_VISIBLE_MIN_COUNT } from './MultiSelect/consts'
 
 import { TSingleSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
-import classnames from 'classnames';
+import classnames from 'classnames'
 
 const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
@@ -147,12 +147,12 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
               <div
                 ref={scrollRef}
                 className={classnames(
-                    'select__options__scroll',
-                    'scrollbar',
-                    'scrollbar--vertical',
-                    {
-                      'mr-6': scrollHeight > 372,
-                    }
+                  'select__options__scroll',
+                  'scrollbar',
+                  'scrollbar--vertical',
+                  {
+                    'mr-6': scrollHeight > 372
+                  }
                 )}
               >
                 {innerHelperText ? (
