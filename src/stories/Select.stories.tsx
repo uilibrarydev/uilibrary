@@ -229,7 +229,7 @@ const ButtonMenu = () => {
             {
               label: 'delete',
               value: 'delete',
-              handler: (e) => {
+              handler: () => {
                 console.log('delete')
               }
             }

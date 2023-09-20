@@ -1,4 +1,4 @@
-import React, { ReactElement, useCallback, useMemo, useRef, useState } from 'react'
+import React, { forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from 'react'
 import { Input } from '../../index'
 import { useOnOutsideClick } from '../../../hooks'
 import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
@@ -11,7 +11,8 @@ import { SELECTED_VISIBLE_MIN_COUNT, TRANSLATIONS_DEFAULT_VALUES } from './const
 import { TMultiSelectPropTypes } from '../types'
 import '../../../assets/styles/components/_select.scss'
 
-const Select = (props: TMultiSelectPropTypes): ReactElement | null => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | null => {
   const {
     withTabs,
     isGrouped,
@@ -165,6 +166,7 @@ const Select = (props: TMultiSelectPropTypes): ReactElement | null => {
       />
     </div>
   )
-}
+})
 
+Select.displayName = 'Select'
 export default Select

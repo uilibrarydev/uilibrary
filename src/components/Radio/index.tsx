@@ -3,6 +3,7 @@ import { TRadioProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
 import Text from '../Text'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Radio = forwardRef((props: TRadioProps, ref): JSX.Element | null => {
   const {
     name,

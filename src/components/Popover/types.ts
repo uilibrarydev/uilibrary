@@ -1,6 +1,8 @@
+import { ReactElement } from 'react'
+
 export interface TPopoverProps extends IFormCompProps {
-  text?: string | JSX.Element
-  children?: string | JSX.Element
+  text?: string | ReactElement
+  children?: string | ReactElement
   position?:
     | 'top-left'
     | 'top-center'
@@ -11,6 +13,6 @@ export interface TPopoverProps extends IFormCompProps {
     | 'middle-left'
     | 'middle-right'
   className?: string
-  elemRef?: any
+  elemRef?: HTMLElement
   id?: string | number
 }
