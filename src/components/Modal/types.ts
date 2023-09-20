@@ -4,7 +4,7 @@ import { TButtonPropTypes } from '../Button/types'
 export interface TModalPropTypes {
   isOpen: boolean
   onClose: () => void
-  onSumbit: () => void
+  onSubmit: () => void
   title?: string
   size?: 'small' | 'medium' | 'large'
   withFooter?: boolean

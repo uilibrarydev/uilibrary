@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Collapse as CollapseComp, CollapseGroup as CollapseGroupComp } from '../components'
+import { CollapseItem as CollapseComp, CollapseGroup as CollapseGroupComp } from '../components'
 
 export default {
   title: 'Collapse',

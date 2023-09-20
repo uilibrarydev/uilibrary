@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 
-const callbackStack: { ref: HTMLElement; callback: () => void }[] = []
+const callbackStack: { ref: HTMLElement, callback: () => void }[] = []
 
-function handleDocumentClick(event: MouseEvent) {
+function handleMouseDownEvent(event: MouseEvent) {
   const callbackObject = callbackStack[callbackStack.length - 1]
   if (!callbackObject) {
     return
@@ -20,14 +20,14 @@ export const useOnOutsideClick = (ref: HTMLElement | null, callback: () => void)
       callbackStack.push({ ref, callback })
 
       if (callbackStack.length === 1) {
-        document.addEventListener('mousedown', handleDocumentClick)
+        document.addEventListener('mousedown',handleMouseDownEvent)
       }
 
       return () => {
         if (callbackStack.length === 0) {
-          document.removeEventListener('mousedown', handleDocumentClick)
+          document.removeEventListener('mousedown',handleMouseDownEvent)
         }
       }
     }
-  }, [ref, callback])
+  }, [ref])
 }

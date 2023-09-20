@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useMemo, useRef, useState  } from 'react'
 import classNames from 'classnames'
 import { useOnOutsideClick } from '../../hooks'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
@@ -11,6 +11,7 @@ import { SELECTED_VISIBLE_MIN_COUNT } from './MultiSelect/consts'
 
 import { TSingleSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
+import classnames from 'classnames';
 
 const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
@@ -38,11 +39,11 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     labelRightIconComponent,
     optionRightIconComponent
   } = props
-  const scrollRef = useRef(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
   const { scrollHeight } = useGetElemSizes(scrollRef.current)
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
-  const [searchValue, setSearchValue] = useState('')
+  const [searchValue, setSearchValue] = useState<string>('')
   const currentSelection = (value as TItemValue) || selectedItem || null
   const findItemLabel = useCallback(
     (value: TItemValue) => {
@@ -73,7 +74,6 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   const onItemSelect = (value: TItemValue) => {
     setItemLabel(findItemLabel(value))
-    console.log('onItemSelect', value, findItemLabel(value))
     if (setSelectedItem) {
       setSelectedItem(value)
     }
@@ -146,9 +146,14 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
             <>
               <div
                 ref={scrollRef}
-                className={`select__options__scroll scrollbar scrollbar--vertical  ${
-                  scrollHeight > 372 ? 'mr-6' : ''
-                }`}
+                className={classnames(
+                    'select__options__scroll',
+                    'scrollbar',
+                    'scrollbar--vertical',
+                    {
+                      'mr-6': scrollHeight > 372,
+                    }
+                )}
               >
                 {innerHelperText ? (
                   <div className="content-top">
