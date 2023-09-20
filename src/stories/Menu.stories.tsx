@@ -46,7 +46,7 @@ const items = [
 ]
 
 const Template = (args): JSX.Element => {
-  const [ref, setRef] = useState<any>(null)
+  const [ref, setRef] = useState<HTMLDivElement>(null)
 
   const [open, setOpen] = useState(false)
 

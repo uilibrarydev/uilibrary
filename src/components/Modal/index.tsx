@@ -1,11 +1,9 @@
-import React, { useRef } from 'react'
+import React, { ReactElement, useRef } from 'react'
+import classnames from 'classnames'
 import { motion } from 'framer-motion'
-
 import { AnimatedComponent } from '../../helperComponents/AnimatePresenceWrapper'
 import { useOnOutsideClick } from '../../hooks'
-
 import { Button, Text } from '../index'
-
 import { TModalPropTypes } from './types'
 import '../../assets/styles/components/_modal.scss'
 import Icon from '../Icon'
@@ -28,11 +26,11 @@ const DESKTOP_ANIMATION = {
   }
 }
 
-const Modal = (props: TModalPropTypes): JSX.Element | null => {
+const Modal = (props: TModalPropTypes): ReactElement => {
   const {
     isOpen,
     onClose,
-    onSumbit,
+    onSubmit,
     title,
     titleIconProps,
     closeIcon,
@@ -50,7 +48,7 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
     <AnimatedComponent>
       {isOpen ? (
         <motion.div
-          className={`modal modal--${size} ${className}`}
+          className={classnames('modal', `modal--${size}`, className)}
           initial={{
             opacity: 0
           }}
@@ -90,7 +88,7 @@ const Modal = (props: TModalPropTypes): JSX.Element | null => {
                   onClick={onClose}
                   {...(buttonProps.cancel || {})}
                 />
-                <Button type="primary" size="medium" onClick={onSumbit} {...buttonProps.confirm} />
+                <Button type="primary" size="medium" onClick={onSubmit} {...buttonProps.confirm} />
               </div>
             ) : null}
           </div>

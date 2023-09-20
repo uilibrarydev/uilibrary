@@ -5,6 +5,7 @@ import {
   Modal as ModalComp,
   SideSheet as SideSheetComp
 } from '../components'
+import * as yup from 'yup'
 
 export default {
   title: 'SideSheet',
@@ -17,13 +18,24 @@ export default {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const VALIDATION_SCHEME = yup.object({
+  test: yup.string().required('validation').nullable(),
+  firstname: yup.string().required('validation').nullable()
+})
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const INITIAL_VALUES = {
+  firstname: 5
+}
+
 const Template = (args): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
   const handleCloseSheet = () => setIsOpen(false)
   const handleOpenSheet = () => {
     setIsOpen(true)
   }
-  const [ref, setRef] = useState<any>(null)
+  const [ref, setRef] = useState<HTMLDivElement>(null)
 
   const [open, setOpen] = useState(false)
 
@@ -77,21 +89,23 @@ const Template = (args): JSX.Element => {
               ) : null}
             </div>
           </div>
-          <ModalComp
-            {...args}
-            onClose={closeModal}
-            isOpen={isModalOpen}
-            onSumbit={() => console.log('submit')}
-            buttonProps={{
-              confirm: {
-                buttonText: 'Register',
-                buttonActionType: 'submit'
-              },
-              cancel: { buttonText: 'Cancel' }
-            }}
-          >
-            <div>Modal content</div>
-          </ModalComp>
+          {isModalOpen && (
+            <ModalComp
+              {...args}
+              onClose={closeModal}
+              isOpen={isModalOpen}
+              onSumbit={() => console.log('submit')}
+              buttonProps={{
+                confirm: {
+                  buttonText: 'Register',
+                  buttonActionType: 'submit'
+                },
+                cancel: { buttonText: 'Cancel' }
+              }}
+            >
+              <div>Modal content</div>
+            </ModalComp>
+          )}
         </>
       </SideSheetComp>
     </div>

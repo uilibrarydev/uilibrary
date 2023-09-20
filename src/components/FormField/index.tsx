@@ -5,6 +5,7 @@ import { FormContext } from '../../context'
 import { Controller } from 'react-hook-form'
 import { TFormFieldPropTypes } from './types'
 import '../../assets/styles/components/_form.scss'
+import classnames from 'classnames'
 
 const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
   const { As, name, className = '', dataId = '' } = props
@@ -17,7 +18,7 @@ const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
   const registerOptions = register(name)
 
   return (
-    <div className={`form-container__field ${className}`}>
+    <div className={classnames('form-container__field', className)}>
       <Controller
         control={control}
         name={name}
