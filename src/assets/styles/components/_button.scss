@@ -130,19 +130,19 @@
       &:focus {
         background-color: var(--ds-button-primary-bg-focused);
       }
+
+      &[disabled] {
+        background-color: var(--ds-button-primary-bg-disabled);
+        color: var(--ds-button-primary-text-disabled);
+
+        #{$this}__icon {
+          color: var(--ds-button-primary-text-disabled);
+        }
+      }
     }
 
     #{$this}__icon {
       color: var(--ds-button-primary-text-default);
-    }
-
-    &[disabled] {
-      background-color: var(--ds-button-primary-bg-disabled);
-      color: var(--ds-button-primary-text-disabled);
-
-      #{$this}__icon {
-        color: var(--ds-button-primary-text-disabled);
-      }
     }
   }
 
@@ -164,20 +164,20 @@
       &:focus {
         background-color: var(--ds-button-secondary-bg-focused);
       }
+
+      &[disabled] {
+        background-color: var(--ds-button-secondary-bg-disabled);
+        color: var(--ds-button-secondary-text-disabled);
+        border-color: var(--ds-button-secondary-disabled-border-color);
+
+        #{$this}__icon {
+          color: var(--ds-button-secondary-text-disabled);
+        }
+      }
     }
 
     #{$this}__icon {
       color: var(--ds-button-secondary-text-default);
-    }
-
-    &[disabled] {
-      background-color: var(--ds-button-secondary-bg-disabled);
-      color: var(--ds-button-secondary-text-disabled);
-      border-color: var(--ds-button-secondary-disabled-border-color);
-
-      #{$this}__icon {
-        color: var(--ds-button-secondary-text-disabled);
-      }
     }
   }
 
@@ -198,19 +198,19 @@
       &:focus {
         background-color: var(--ds-button-tertiary-bg-focused);
       }
+
+      &[disabled] {
+        background-color: var(--ds-button-tertiary-bg-disabled);
+        color: var(--ds-button-tertiary-text-disabled);
+
+        #{$this}__icon {
+          color: var(--ds-button-tertiary-text-disabled);
+        }
+      }
     }
 
     #{$this}__icon {
       color: var(--ds-button-tertiary-text-default);
-    }
-
-    &[disabled] {
-      background-color: var(--ds-button-tertiary-bg-disabled);
-      color: var(--ds-button-tertiary-text-disabled);
-
-      #{$this}__icon {
-        color: var(--ds-button-tertiary-text-disabled);
-      }
     }
   }
 
@@ -231,19 +231,19 @@
       &:focus {
         background-color: var(--ds-button-danger-bg-focused);
       }
+
+      &[disabled] {
+        background-color: var(--ds-button-danger-bg-disabled);
+        color: var(--ds-button-danger-disbled-color);
+
+        #{$this}__icon {
+          color: var(--ds-button-danger-text-disabled);
+        }
+      }
     }
 
     #{$this}__icon {
       color: var(--ds-button-danger-text-default);
-    }
-
-    &[disabled] {
-      background-color: var(--ds-button-danger-bg-disabled);
-      color: var(--ds-button-danger-disbled-color);
-
-      #{$this}__icon {
-        color: var(--ds-button-danger-text-disabled);
-      }
     }
   }
 
@@ -278,18 +278,18 @@
           color: var(--ds-button-text-focused);
         }
       }
+
+      &[disabled] {
+        color: var(--ds-button-text-disabled);
+
+        #{$this}__icon {
+          color: var(--ds-button-text-disabled);
+        }
+      }
     }
 
     #{$this}__icon {
       color: var(--ds-button-text-defult);
-    }
-
-    &[disabled] {
-      color: var(--ds-button-text-disabled);
-
-      #{$this}__icon {
-        color: var(--ds-button-text-disabled);
-      }
     }
   }
 
