@@ -6,6 +6,7 @@ import { useOnOutsideClick } from '../../hooks'
 import { Button, Text } from '../index'
 import { TModalPropTypes } from './types'
 import '../../assets/styles/components/_modal.scss'
+import Icon from '../Icon'
 
 const DESKTOP_ANIMATION = {
   initial: { opacity: 0.5, scale: 0.65 },
@@ -31,6 +32,7 @@ const Modal = (props: TModalPropTypes): ReactElement => {
     onClose,
     onSubmit,
     title,
+    titleIconProps,
     closeIcon,
     className = '',
     size = 'small',
@@ -59,6 +61,9 @@ const Modal = (props: TModalPropTypes): ReactElement => {
           <div className="modal__container" ref={containerRef} {...DESKTOP_ANIMATION}>
             {title ? (
               <div className="modal__header">
+                {titleIconProps?.name ? (
+                  <Icon size="small" {...titleIconProps} className="mr-12" />
+                ) : null}
                 <Text className="modal__title" weight="semibold" lineHeight="large" size="medium">
                   {title}
                 </Text>

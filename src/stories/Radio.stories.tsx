@@ -47,6 +47,7 @@ RadioGroup.args = {
   options: RADIO_OPTIONS,
   isHorizontal: false,
   label: 'Label',
+  disabled: false,
   required: false,
   name: 'option'
 }

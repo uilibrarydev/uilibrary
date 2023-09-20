@@ -35,9 +35,9 @@
   --ds-controller-border-radius-sm: var(--ds-border-radius-xs);
   --ds-controller-border-radius-lg: var(--ds-border-radius-xl);
 
-  --ds-controller-label-default: var(--ds-color-text-primary);
-  --ds-controller-label-disabled: var(--ds-color-text-disabled);
   --ds-controller-label-padding: 0 0 0 var(--ds-space-8);
+
+  --ds-controller-icon-disabled: var(--ds-color-text-disabled);
 
   --ds-controller-helper-padding: var(--ds-space-2) 0 0 var(--ds-space-24);
 
@@ -134,14 +134,6 @@
       & + #{$this}__icon {
         background-color: var(--ds-controller-bg-disabled);
         border-color: var(--ds-controller-border-color-disabled);
-
-        & + #{$this}__label {
-          color: var(--ds-controller-label-disabled);
-
-          & + #{$this}__helper-text {
-            color: var(--ds-controller-label-disabled);
-          }
-        }
       }
     }
   }
@@ -159,10 +151,6 @@
     sup {
       margin-left: 2px;
     }
-  }
-
-  &__label {
-    color: var(--ds-controller-label-default);
   }
 
   &__helper {
@@ -262,7 +250,7 @@
       &:disabled {
         #{$this}__icon {
           background-color: var(--ds-controller-bg-disabled);
-          color: var(--ds-controller-label-disabled);
+          color: var(--ds-controller-icon-disabled);
         }
       }
     }

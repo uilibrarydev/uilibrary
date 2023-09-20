@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState} from 'react'
 import classNames from 'classnames'
 import { useOnOutsideClick } from '../../hooks'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
@@ -31,7 +31,6 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     selectedItem,
     setFieldValue,
     setSelectedItem,
-    withSearch = false,
     outerHelperText,
     innerHelperText,
     isRequiredField,
@@ -45,14 +44,15 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
   const [searchValue, setSearchValue] = useState<string>('')
   const currentSelection = (value as TItemValue) || selectedItem || null
-  const findItemLabel = useCallback(
-    (value: TItemValue) => {
-      const label = options.find((item) => item.value === value)
-      return label?.label.toString() || ''
-    },
-    [options]
-  )
-  const [itemLabel, setItemLabel] = useState<string | null>(findItemLabel(currentSelection))
+
+
+  const [itemLabel, setItemLabel] = useState<string | null>('')
+
+  useEffect(() => {
+    const label = options.find((item) => item.value === currentSelection);
+    setItemLabel(label?.label.toString() || '')
+  }, [currentSelection]);
+
 
   const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => setIsOpen(false)
@@ -73,7 +73,6 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   }, [searchValue, options])
 
   const onItemSelect = (value: TItemValue) => {
-    setItemLabel(findItemLabel(value))
     if (setSelectedItem) {
       setSelectedItem(value)
     }
@@ -83,6 +82,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
     closeDropdown()
   }
+
 
   const onItemDeselect = () => onItemSelect(null)
 
@@ -129,7 +129,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
           rightIconProps={{
             name: isOpen ? 'caret-up' : 'caret-down'
           }}
-          readonly={withSearch && options.length <= SELECTED_VISIBLE_MIN_COUNT}
+          readonly={options.length <= SELECTED_VISIBLE_MIN_COUNT}
           placeholder={placeHolder}
           value={itemLabel}
           isValid={isValid}

@@ -21,4 +21,5 @@ export interface TRadioGroupProps extends IFormCompProps {
   options: TRadioOptionItem[]
   handleChange?: (selected: number | string) => void
   required?: boolean
+  disabled?: boolean
 }

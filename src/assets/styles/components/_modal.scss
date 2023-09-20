@@ -51,6 +51,7 @@
 
   &__title {
     @include truncate(100%);
+    flex: 1;
   }
 
   &__content {

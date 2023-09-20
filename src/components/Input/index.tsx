@@ -43,7 +43,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
     ref
   ): JSX.Element => {
     const isErrorVisible = hasError !== undefined ? hasError : !!error
-
+    const placeHolder = label !== placeholder ? placeholder : ''
     const changeHandler = (event: TChangeEventType) => {
       const eventValue = event.target.value
       const valueWithoutSeparator =
@@ -78,7 +78,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         // @ts-ignore
         ref={() => ref && ref()}
         {...rest}
-        placeholder={placeholder}
+        placeholder={placeHolder}
         onChange={changeHandler}
         disabled={disabled}
         data-id={dataId}
@@ -92,7 +92,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         {...rest}
         name={name}
         onChange={changeHandler}
-        placeholder={placeholder}
+        placeholder={placeHolder}
         readOnly={readonly}
         allowLeadingZeros={allowLeadingZeros}
         thousandSeparator={thousandSeparator}
@@ -111,7 +111,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         name={name}
         ref={ref}
         type={type}
-        placeholder={!label ? placeholder : ''}
+        placeholder={placeHolder}
         onChange={changeHandler}
         data-id={dataId}
         {...rest}
@@ -166,13 +166,17 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
               </Text>
             ) : null}
             {helperText && !successMessage && !(isErrorVisible || error) ? (
-              <Text size="small" type="secondary">
+              <Text size="small" type={disabled ? 'disabled' : 'secondary'}>
                 {helperText}
               </Text>
             ) : null}
 
             {maxCount && !hideCounter && !hasError ? (
-              <Text size="small" type="secondary" className="input__counter">
+              <Text
+                size="small"
+                type={disabled ? 'disabled' : 'secondary'}
+                className="input__counter"
+              >
                 {`${currentLength}/${maxCount}`}
               </Text>
             ) : null}
