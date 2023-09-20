@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState} from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import classNames from 'classnames'
 import { useOnOutsideClick } from '../../hooks'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
@@ -44,14 +44,12 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const [searchValue, setSearchValue] = useState('')
   const currentSelection = (value as TItemValue) || selectedItem || null
 
-
   const [itemLabel, setItemLabel] = useState<string | null>('')
 
   useEffect(() => {
-    const label = options.find((item) => item.value === currentSelection);
+    const label = options.find((item) => item.value === currentSelection)
     setItemLabel(label?.label.toString() || '')
-  }, [currentSelection]);
-
+  }, [currentSelection])
 
   const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => setIsOpen(false)
@@ -81,7 +79,6 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
     closeDropdown()
   }
-
 
   const onItemDeselect = () => onItemSelect(null)
 

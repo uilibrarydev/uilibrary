@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
 import { FormContainer, Button, Input, Select } from '../components'
-import {useFormProps} from "../hooks/useFormProps";
+import { useFormProps } from '../hooks/useFormProps'
 
 export default {
   title: 'Form',
@@ -146,8 +146,7 @@ const VALIDATION_SCHEME = yup.object({
 })
 
 const Template = (): JSX.Element => {
-  const INITIAL_VALUES = {
-  }
+  const INITIAL_VALUES = {}
 
   return (
     <div style={{ maxWidth: 300 }}>
@@ -157,7 +156,7 @@ const Template = (): JSX.Element => {
         initialValues={INITIAL_VALUES}
       >
         <>
-        <Test/>
+          <Test />
           {/*<FormField*/}
           {/*  className="mb-20"*/}
           {/*  name={'firstname'}*/}
@@ -189,54 +188,45 @@ const Template = (): JSX.Element => {
   )
 }
 
-
 export const Test = () => {
-
-  const {setValue,getValues, reset} = useFormProps()
+  const { setValue, getValues, reset } = useFormProps()
 
   useEffect(() => {
-setTimeout(()=> {
-  reset?.({
-    COUNTRIES: 1
-  })
-}, 2000)
-  }, []);
+    setTimeout(() => {
+      reset?.({
+        COUNTRIES: 1
+      })
+    }, 2000)
+  }, [])
 
   return (
-      <>
-        <FormField
-            className="input-block"
-            name={'COUNTRIES'}
-            As={(props) => {
-              return (
-                  <Select
-                      {...props}
-                      isRequiredField
-                      label={'COUNTRIES'}
-                      options={OPTIONS_COUNTRIES}
-                      setSelectedItem={(selected)=> {
-                        setValue('CITIES','')
-                        // console.log(selected)
-                      }}
-                  />
-              );
-            }}
-        />
-        <FormField
-            className="input-block"
-            name={'CITIES'}
-            As={(props) => {
-              return (
-                  <Select
-                      {...props}
-                      isRequiredField
-                      label={'CITIES'}
-                      options={OPTIONS_COUNTRIES}
-                  />
-              );
-            }}
-        />
-      </>
+    <>
+      <FormField
+        className="input-block"
+        name={'COUNTRIES'}
+        As={(props) => {
+          return (
+            <Select
+              {...props}
+              isRequiredField
+              label={'COUNTRIES'}
+              options={OPTIONS_COUNTRIES}
+              setSelectedItem={(selected) => {
+                setValue('CITIES', '')
+                // console.log(selected)
+              }}
+            />
+          )
+        }}
+      />
+      <FormField
+        className="input-block"
+        name={'CITIES'}
+        As={(props) => {
+          return <Select {...props} isRequiredField label={'CITIES'} options={OPTIONS_COUNTRIES} />
+        }}
+      />
+    </>
   )
 }
 export const Form = Template.bind({})
