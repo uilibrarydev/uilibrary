@@ -88,7 +88,7 @@
       border-color: var(--ds-textarea-border-color-focused);
     }
 
-    &:active, &:visited {
+    &:active {
       color: var(--ds-textarea-body-text-activated);
       background-color: var(--ds-textarea-bg-activated);
       border-color: var(--ds-textarea-border-color-activated);
