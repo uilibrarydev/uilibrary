@@ -16,7 +16,6 @@ export type TIconTypes =
 export interface IconPropTypes {
   name?: string
   type?: TIconTypes
-
   size?: TIconSize
   onClick?: TClickHandler
   className?: string
