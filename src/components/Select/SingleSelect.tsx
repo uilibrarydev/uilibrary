@@ -41,7 +41,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const scrollRef = useRef<HTMLDivElement>(null)
   const { scrollHeight } = useGetElemSizes(scrollRef.current)
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const [searchValue, setSearchValue] = useState<string>('')
   const currentSelection = (value as TItemValue) || selectedItem || null
 
@@ -55,7 +55,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => setIsOpen(false)
 
-  useOnOutsideClick(containerRef, closeDropdown)
+  useOnOutsideClick(containerRef.current, closeDropdown, isOpen)
 
   const filteredData = useMemo(() => {
     if (!searchValue) {
@@ -83,7 +83,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   const onItemDeselect = () => onItemSelect(null)
 
-  const open = (e?: TClickEventType) => {
+  const onOpenOptions = (e: TClickEventType): void => {
     const result = e?.target as HTMLDivElement
     if (e && result.className && result.className.indexOf('icon-') !== -1) {
       setIsOpen(!isOpen)
@@ -113,8 +113,8 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   }
 
   return (
-    <div className={classNames(`select select--${size}`, className)} ref={setContainerRef}>
-      <div onClick={open}>
+    <div className={classNames(`select select--${size}`, className)} ref={containerRef}>
+      <div onClick={onOpenOptions}>
         <Input
           size={size}
           data-id={dataId}

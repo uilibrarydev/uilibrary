@@ -37,7 +37,7 @@ export const Filter = (props: TFilterProps): JSX.Element | null => {
   const [selectedValues, setSelectedValues] = useState<TSelectedValue[]>(selectedItems)
   const [filterValue, setFilterValue] = useState('')
 
-  useOnOutsideClick(containerRef, closeHandler)
+  useOnOutsideClick(containerRef, closeHandler, isOpen)
 
   const onItemSelect = useCallback((item: TSelectedValue) => {
     setSelectedValues((selected) => [...selected, item])

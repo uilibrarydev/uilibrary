@@ -41,7 +41,7 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   const [isShownScrollIcon, setIsShownScrollIcon] = useState<boolean>(false)
   const scrollbarContainerRef = useRef<HTMLDivElement>(null)
 
-  useOnOutsideClick(containerRef, onClose)
+  useOnOutsideClick(containerRef, onClose, isOpen)
 
   const handleSubmit = useCallback(() => {
     onSubmit?.()

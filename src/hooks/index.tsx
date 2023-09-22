@@ -1,6 +1,11 @@
 import { useEffect } from 'react'
 
-const callbackStack: { ref: HTMLElement; callback: () => void }[] = []
+type TProps = {
+  ref: HTMLElement
+  callback: () => void
+}
+
+const callbackStack: TProps[] = []
 
 function handleMouseDownEvent(event: MouseEvent) {
   const callbackObject = callbackStack[callbackStack.length - 1]
@@ -14,9 +19,13 @@ function handleMouseDownEvent(event: MouseEvent) {
   }
 }
 
-export const useOnOutsideClick = (ref: HTMLElement | null, callback: () => void): void => {
+export const useOnOutsideClick = (
+  ref: HTMLElement | null,
+  callback: () => void,
+  state: boolean
+): void => {
   useEffect(() => {
-    if (ref) {
+    if (ref && state) {
       callbackStack.push({ ref, callback })
 
       if (callbackStack.length === 1) {
@@ -29,5 +38,5 @@ export const useOnOutsideClick = (ref: HTMLElement | null, callback: () => void)
         }
       }
     }
-  }, [ref])
+  }, [ref, state])
 }

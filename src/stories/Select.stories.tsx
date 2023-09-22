@@ -263,8 +263,8 @@ const MultiSelect1 = (args): JSX.Element => {
     <div style={{ width: 320 }}>
       <MultiSelectComp
         {...args}
-        isGrouped
-        withTabs
+        isGrouped={false}
+        withTabs={false}
         maxSelectCount={3}
         emptyListMessage="List is Empty"
         selectedItems={selectedValues}

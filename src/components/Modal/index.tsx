@@ -1,4 +1,4 @@
-import React, { ReactElement, useRef } from 'react'
+import React, { ReactElement, useState } from 'react'
 import classnames from 'classnames'
 import { motion } from 'framer-motion'
 import { AnimatedComponent } from '../../helperComponents/AnimatePresenceWrapper'
@@ -41,8 +41,8 @@ const Modal = (props: TModalPropTypes): ReactElement => {
     children
   } = props
 
-  const containerRef = useRef<HTMLDivElement | null>(null)
-  useOnOutsideClick(containerRef.current, onClose)
+  const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
+  useOnOutsideClick(containerRef, onClose, isOpen)
 
   return (
     <AnimatedComponent>
@@ -58,7 +58,7 @@ const Modal = (props: TModalPropTypes): ReactElement => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <div className="modal__container" ref={containerRef} {...DESKTOP_ANIMATION}>
+          <div className="modal__container" ref={setContainerRef} {...DESKTOP_ANIMATION}>
             {title ? (
               <div className="modal__header">
                 {titleIconProps?.name ? (
