@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { ReactElement, useMemo, useState } from 'react'
 import ReactDOM from 'react-dom'
 
 import { OptionItem } from '../../helperComponents/OptionItem'
@@ -10,10 +10,10 @@ import { TMenuProps, TMenuItem } from './types'
 import '../../assets/styles/components/_select.scss'
 import { useGetTooltipPosition } from '../../hooks/useGetTooltipPosition'
 
-const Menu = (props: TMenuProps): JSX.Element | null => {
+const Menu = (props: TMenuProps): ReactElement | null => {
   const { menuItems = [], parentRef, onClose, position = 'bottom-right' } = props
   const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null)
-  useOnOutsideClick(menuRef, onClose)
+  useOnOutsideClick(menuRef, onClose, true)
 
   const { left, top } = useGetElemPositions(parentRef)
   const { width, height } = useGetElemSizes(parentRef)

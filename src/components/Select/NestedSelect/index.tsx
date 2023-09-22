@@ -40,7 +40,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
     }
   }
 
-  useOnOutsideClick(containerRef, closeDropdown)
+  useOnOutsideClick(containerRef, closeDropdown, isDropdownOpen)
 
   const onSelect = useCallback(
     (option: TSelectOption, hasChildren: boolean) => {

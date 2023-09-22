@@ -53,7 +53,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
     submitSelectedValue(initialSelected)
   }, [])
 
-  useOnOutsideClick(containerRef.current, cancelSelectedItems)
+  useOnOutsideClick(containerRef.current, cancelSelectedItems, isOpen)
 
   const submitSelectedValue = (selections: TSelectedValue[]) => {
     if (setSelectedItems) {
