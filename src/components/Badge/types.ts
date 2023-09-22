@@ -3,4 +3,5 @@ export interface TBadgeProps extends IFormCompProps {
   type?: 'primary' | 'secondary'
   size?: 'large' | 'small'
   className?: string
+  onClick?: (e: TClickEventType) => void
 }
