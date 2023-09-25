@@ -1,7 +1,7 @@
 {
   "homepage": "http://valodyapapikyan.github.io/ameria_ui_library",
   "name": "dino_ui_tools",
-  "version": "1.2.213",
+  "version": "1.2.214",
   "description": "",
   "private": false,
   "main": "dist/index.js",
@@ -25,7 +25,9 @@
     "check": "npm run prettier && npm run lint && tsc",
     "chromatic": "npx chromatic --project-token=6b1f1965af98",
     "deploy-storybook": "npm run build-storybook",
-    "install-latest": "npm install --legacy-peer-deps"
+    "install-latest": "npm install --legacy-peer-deps",
+    "bm": "node buildAndMove.mjs",
+    "light-build": "rollup -c"
   },
   "eslintConfig": {
     "extends": [
@@ -71,6 +73,7 @@
     "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
+    "chalk": "^5.3.0",
     "chromatic": "^6.14.0",
     "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
@@ -78,6 +81,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.10",
     "extract-loader": "^5.1.0",
+    "fs-extra": "^11.1.1",
     "husky": "^4.3.0",
     "less": "^3.12.2",
     "less-loader": "^7.0.1",
