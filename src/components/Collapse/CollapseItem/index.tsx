@@ -9,7 +9,7 @@ import '../../../assets/styles/components/_collapse.scss'
 
 export const CollapseItem = (props: TCollapseProps): JSX.Element => {
   const {
-    title: { text, size, color },
+    title: { text, size = 'medium', color },
     isOpen,
     toggle,
     children
@@ -18,7 +18,7 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
   return (
     <div className="collapse">
       <div className="collapse_header" onClick={toggle}>
-        <Text size={size} type={color}>
+        <Text size={size} type={color} weight="bolder">
           {text}
         </Text>
         <Icon
