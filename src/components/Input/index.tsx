@@ -130,7 +130,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         })}
       >
         <Label text={label} invalid={isErrorVisible} required={required} disabled={disabled} />
-        <label className="input__inner">
+        <div className="input__inner">
           {input}
           {leftIconProps && (
             <Icon
@@ -150,7 +150,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
               }`}
             />
           )}
-        </label>
+        </div>
 
         {error || successMessage || helperText || maxCount ? (
           <div className="input__message mt-4">
