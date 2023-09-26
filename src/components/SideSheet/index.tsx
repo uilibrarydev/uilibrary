@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import classnames from 'classnames'
 
 import { AnimatedComponent } from '../../helperComponents/AnimatePresenceWrapper'
-import { useOnOutsideClick } from '../../hooks'
+import { useOnOutsideClick } from '../../hooks/useOnOutsideClick'
 
 import Button from '../Button'
 import Text from '../Text'
@@ -41,7 +41,7 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   const [isShownScrollIcon, setIsShownScrollIcon] = useState<boolean>(false)
   const scrollbarContainerRef = useRef<HTMLDivElement>(null)
 
-  useOnOutsideClick(containerRef, onClose, isOpen)
+  useOnOutsideClick(containerRef, onClose, isOpen, useId())
 
   const handleSubmit = useCallback(() => {
     onSubmit?.()

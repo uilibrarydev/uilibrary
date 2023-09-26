@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
 import classNames from 'classnames'
-import { useOnOutsideClick } from '../../hooks'
+import { useOnOutsideClick } from '../../hooks/useOnOutsideClick'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
 
 import { OptionItem } from '../../helperComponents/OptionItem'
@@ -55,7 +55,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => setIsOpen(false)
 
-  useOnOutsideClick(containerRef.current, closeDropdown, isOpen)
+  useOnOutsideClick(containerRef.current, closeDropdown, isOpen, useId())
 
   const filteredData = useMemo(() => {
     if (!searchValue) {

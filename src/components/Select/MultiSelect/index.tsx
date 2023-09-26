@@ -1,6 +1,14 @@
-import React, { forwardRef, ReactElement, useCallback, useMemo, useRef, useState } from 'react'
+import React, {
+  forwardRef,
+  ReactElement,
+  useCallback,
+  useId,
+  useMemo,
+  useRef,
+  useState
+} from 'react'
 import { Input } from '../../index'
-import { useOnOutsideClick } from '../../../hooks'
+import { useOnOutsideClick } from '../../../hooks/useOnOutsideClick'
 import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
 import { getStringWidth, setTranslationValue } from '../../../utils'
 import { Footer } from '../SharedComponents'
@@ -53,7 +61,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
     submitSelectedValue(initialSelected)
   }, [])
 
-  useOnOutsideClick(containerRef.current, cancelSelectedItems, isOpen)
+  useOnOutsideClick(containerRef.current, cancelSelectedItems, isOpen, useId())
 
   const submitSelectedValue = (selections: TSelectedValue[]) => {
     if (setSelectedItems) {

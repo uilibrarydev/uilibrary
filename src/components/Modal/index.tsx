@@ -1,8 +1,8 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement, useId, useState } from 'react'
 import classnames from 'classnames'
 import { motion } from 'framer-motion'
 import { AnimatedComponent } from '../../helperComponents/AnimatePresenceWrapper'
-import { useOnOutsideClick } from '../../hooks'
+import { useOnOutsideClick } from '../../hooks/useOnOutsideClick'
 import { Button, Text } from '../index'
 import { TModalPropTypes } from './types'
 import '../../assets/styles/components/_modal.scss'
@@ -42,7 +42,7 @@ const Modal = (props: TModalPropTypes): ReactElement => {
   } = props
 
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
-  useOnOutsideClick(containerRef, onClose, isOpen)
+  useOnOutsideClick(containerRef, onClose, isOpen, useId())
 
   return (
     <AnimatedComponent>

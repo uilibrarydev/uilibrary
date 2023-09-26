@@ -192,7 +192,7 @@ const OPTIONS_NESTED: TSelectOptions = [
 ]
 
 // -----------SINGLESELECT---------
-const Template = (args): JSX.Element => {
+const Template = (args: any): JSX.Element => {
   const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
 
   return (
@@ -213,7 +213,7 @@ const ButtonMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [buttonRef, setButtonRef] = useState<HTMLDivElement | null>(null)
 
-  const open = (e) => {
+  const open = (e: any) => {
     e.preventDefault()
     e.stopPropagation()
     setIsOpen(true)
@@ -223,7 +223,7 @@ const ButtonMenu = () => {
   return (
     <div ref={setButtonRef}>
       <Button type="tertiary" onClick={open} iconProps={{ name: 'more' }} size="small" />
-      {isOpen && buttonRef ? (
+      {buttonRef ? (
         <Menu
           menuItems={[
             {
@@ -236,11 +236,14 @@ const ButtonMenu = () => {
           ]}
           parentRef={buttonRef}
           onClose={close}
+          isOpen={isOpen}
         />
       ) : null}
     </div>
   )
 }
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 Select.args = {
   size: 'large',
   disabled: false,
@@ -256,7 +259,7 @@ Select.args = {
 }
 
 // -----------MULTISELECT---------
-const MultiSelect1 = (args): JSX.Element => {
+const MultiSelect1 = (args: any): JSX.Element => {
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
 
   return (
@@ -274,7 +277,7 @@ const MultiSelect1 = (args): JSX.Element => {
             name="user"
             size="xsmall"
             className="mr-4"
-            onClick={(e) => {
+            onClick={(e: any) => {
               e.preventDefault()
               e.stopPropagation()
             }}
@@ -292,6 +295,8 @@ const MultiSelect1 = (args): JSX.Element => {
 }
 export const MultiSelect = MultiSelect1.bind({})
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 MultiSelect.args = {
   isLoading: false,
   label: 'Select',
@@ -307,7 +312,7 @@ MultiSelect.args = {
 
 // ----------NESTED_SELECT---------------
 
-const NestedSelect1 = (args): JSX.Element => {
+const NestedSelect1 = (args: any): JSX.Element => {
   const [selected, setSelected] = useState<TSelectOption>({
     value: 3,
     label: 'Managment board'
@@ -326,6 +331,8 @@ const NestedSelect1 = (args): JSX.Element => {
 }
 export const NestedSelect = NestedSelect1.bind({})
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 NestedSelect.args = {
   isLoading: false,
   label: 'Select',
@@ -337,7 +344,7 @@ NestedSelect.args = {
     <Icon
       name="more"
       size="xsmall"
-      onClick={(e) => {
+      onClick={(e: any) => {
         e.preventDefault()
         e.stopPropagation()
       }}
@@ -346,7 +353,7 @@ NestedSelect.args = {
 }
 // ----------FILTERDROPDOWN---------------
 
-const FilterDropdown1 = (args): JSX.Element => {
+const FilterDropdown1 = (args: any): JSX.Element => {
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
   const [isOpen, setIsOpen] = useState(false)
   const containerRef = useRef(null)
@@ -375,6 +382,8 @@ const FilterDropdown1 = (args): JSX.Element => {
 }
 export const FilterDropdown = FilterDropdown1.bind({})
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 FilterDropdown.args = {
   isLoading: true,
   options: OPTIONS_NESTED,

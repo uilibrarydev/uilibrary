@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useId, useState } from 'react'
 import Text from '../Text'
 
 import '../../assets/styles/components/_popover.scss'
 import { TPopoverProps } from './types'
-import { useOnOutsideClick } from '../../hooks'
+import { useOnOutsideClick } from '../../hooks/useOnOutsideClick'
 
 import classNames from 'classnames'
 import { useGetTooltipStyles } from '../../hooks/useGetTooltipStyles'
@@ -32,7 +32,7 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
     }
   }, [id])
 
-  useOnOutsideClick(popoverRef, hideMessage, isClicked)
+  useOnOutsideClick(popoverRef, hideMessage, isClicked, useId())
 
   useEffect(() => {
     if (parent) {

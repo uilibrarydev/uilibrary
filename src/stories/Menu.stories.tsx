@@ -45,8 +45,8 @@ const items = [
   }
 ]
 
-const Template = (args): JSX.Element => {
-  const [ref, setRef] = useState<HTMLDivElement>(null)
+const Template = (args: any) => {
+  const [ref, setRef] = useState<HTMLDivElement | null>(null)
 
   const [open, setOpen] = useState(false)
 
@@ -54,9 +54,13 @@ const Template = (args): JSX.Element => {
     <div>
       <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
         <Button onClick={() => setOpen(!open)} iconProps={{ name: 'more' }} />
-        {open ? (
-          <MenuComp {...args} onClose={() => setOpen(false)} parentRef={ref} menuItems={items} />
-        ) : null}
+        <MenuComp
+          {...args}
+          onClose={() => setOpen(false)}
+          parentRef={ref}
+          menuItems={items}
+          isOpen={open}
+        />
       </div>
     </div>
   )
@@ -64,6 +68,8 @@ const Template = (args): JSX.Element => {
 
 export const Menu = Template.bind({})
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 Menu.args = {
   menuItems: []
 }
