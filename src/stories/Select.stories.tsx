@@ -213,7 +213,7 @@ const ButtonMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [buttonRef, setButtonRef] = useState<HTMLDivElement | null>(null)
 
-  const open = (e) => {
+  const open = (e: any) => {
     e.preventDefault()
     e.stopPropagation()
     setIsOpen(true)

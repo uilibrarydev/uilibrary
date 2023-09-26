@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 type TProps = {
   ref: HTMLElement
   callback: () => void
+  uid: string
 }
 
 const callbackStack: TProps[] = []
@@ -22,12 +23,12 @@ function handleMouseDownEvent(event: MouseEvent) {
 export const useOnOutsideClick = (
   ref: HTMLElement | null,
   callback: () => void,
-  state: boolean
+  state: boolean,
+  uid: string
 ): void => {
   useEffect(() => {
-    if (ref && state) {
-      callbackStack.push({ ref, callback })
-
+    if (ref && state && uid) {
+      callbackStack.push({ ref, callback, uid })
       if (callbackStack.length === 1) {
         document.addEventListener('mousedown', handleMouseDownEvent)
       }
@@ -38,5 +39,14 @@ export const useOnOutsideClick = (
         }
       }
     }
-  }, [ref, state])
+  }, [ref, state, uid])
+
+  useEffect(() => {
+    if (!state && callbackStack.length > 0) {
+      const activeElementIndex = callbackStack.findIndex((stack) => stack.uid === uid)
+      if (activeElementIndex >= 0) {
+        callbackStack.splice(activeElementIndex, 1)
+      }
+    }
+  }, [state])
 }

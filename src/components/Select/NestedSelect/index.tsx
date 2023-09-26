@@ -1,11 +1,11 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useId, useState } from 'react'
 
 import { Input } from '../../index'
 import { OptionItem } from '../../../helperComponents/OptionItem'
 
 import { TNestedSelectProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
-import { useOnOutsideClick } from '../../../hooks'
+import { useOnOutsideClick } from '../../../hooks/useOnOutsideClick'
 
 const LEVEL_LEFT_MARGIN = 10
 
@@ -40,7 +40,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
     }
   }
 
-  useOnOutsideClick(containerRef, closeDropdown, isDropdownOpen)
+  useOnOutsideClick(containerRef, closeDropdown, isDropdownOpen, useId())
 
   const onSelect = useCallback(
     (option: TSelectOption, hasChildren: boolean) => {

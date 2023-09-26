@@ -11,4 +11,5 @@ export type TMenuProps = {
   parentRef: HTMLElement
   onClose: TCallBackFn
   position?: TTooltipPosition // 'right' | 'left' | 'top' | 'bottom'
+  isOpen: boolean
 }

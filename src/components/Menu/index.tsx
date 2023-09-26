@@ -1,8 +1,8 @@
-import React, { ReactElement, useMemo, useState } from 'react'
+import React, { ReactElement, useId, useMemo, useState } from 'react'
 import ReactDOM from 'react-dom'
 
 import { OptionItem } from '../../helperComponents/OptionItem'
-import { useOnOutsideClick } from '../../hooks'
+import { useOnOutsideClick } from '../../hooks/useOnOutsideClick'
 import { useGetElemPositions } from '../../hooks/useGetElemPositions'
 import { useGetElemSizes } from '../../hooks/useGetElemSizes'
 
@@ -11,9 +11,9 @@ import '../../assets/styles/components/_select.scss'
 import { useGetTooltipPosition } from '../../hooks/useGetTooltipPosition'
 
 const Menu = (props: TMenuProps): ReactElement | null => {
-  const { menuItems = [], parentRef, onClose, position = 'bottom-right' } = props
+  const { menuItems = [], parentRef, onClose, isOpen, position = 'bottom-right' } = props
   const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null)
-  useOnOutsideClick(menuRef, onClose, true)
+  useOnOutsideClick(menuRef, onClose, isOpen, useId())
 
   const { left, top } = useGetElemPositions(parentRef)
   const { width, height } = useGetElemSizes(parentRef)
@@ -43,7 +43,7 @@ const Menu = (props: TMenuProps): ReactElement | null => {
     return { left: left, top: top + 4 + height }
   }, [left, top, width, tooltipPosition, menuWidth, height, menuHeight])
 
-  if (!parentRef) {
+  if (!parentRef || !isOpen) {
     return null
   }
 

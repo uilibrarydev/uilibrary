@@ -1,7 +1,7 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useId, useState } from 'react'
 import ReactDOM from 'react-dom'
 
-import { useOnOutsideClick } from '../../../hooks'
+import { useOnOutsideClick } from '../../../hooks/useOnOutsideClick'
 import Input from '../../Input'
 
 import { FilterDropdownContent } from './FilterDropdown'
@@ -37,7 +37,7 @@ export const Filter = (props: TFilterProps): JSX.Element | null => {
   const [selectedValues, setSelectedValues] = useState<TSelectedValue[]>(selectedItems)
   const [filterValue, setFilterValue] = useState('')
 
-  useOnOutsideClick(containerRef, closeHandler, isOpen)
+  useOnOutsideClick(containerRef, closeHandler, isOpen, useId())
 
   const onItemSelect = useCallback((item: TSelectedValue) => {
     setSelectedValues((selected) => [...selected, item])

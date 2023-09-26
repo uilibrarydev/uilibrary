@@ -23,7 +23,10 @@ const Template = (args): JSX.Element => {
         {...args}
         onClose={closeModal}
         isOpen={isOpen}
-        onSumbit={() => console.log('submit')}
+        onSumbit={() => {
+          closeModal()
+          console.log('submit')
+        }}
         buttonProps={{
           confirm: {
             buttonText: 'Register',

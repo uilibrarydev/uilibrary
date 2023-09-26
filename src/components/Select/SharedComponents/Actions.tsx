@@ -24,12 +24,13 @@ export const Actions = (props: TProps): JSX.Element | null => {
       ) : null}
       <div ref={setButtonRef} className="action-bar__right">
         <Button type="tertiary" onClick={open} iconProps={{ name: 'more' }} size="small" />
-        {isMenuOpen && buttonRef ? (
+        {buttonRef ? (
           <Menu
             menuItems={selectActions}
             parentRef={buttonRef}
             onClose={close}
             position="bottom-left"
+            isOpen={isMenuOpen}
           />
         ) : null}
       </div>
