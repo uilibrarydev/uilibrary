@@ -12,7 +12,7 @@ export default {
   }
 }
 
-const Template = (args): JSX.Element => {
+const Template = (args: any): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
   const closeModal = () => setIsOpen(false)
   const openModal = () => setIsOpen(true)
@@ -42,6 +42,8 @@ const Template = (args): JSX.Element => {
 }
 export const Modal = Template.bind({})
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 Modal.args = {
   size: 'small',
   title: 'Title',

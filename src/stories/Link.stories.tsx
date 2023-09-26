@@ -6,7 +6,7 @@ export default {
   component: LinkComp
 }
 
-const Template = (args) => {
+const Template = (args: any) => {
   return (
     <Text size="medium">
       <LinkComp {...args}></LinkComp>
@@ -16,6 +16,8 @@ const Template = (args) => {
 
 export const Link = Template.bind({})
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 Link.args = {
   children: 'Link text',
   url: '/'

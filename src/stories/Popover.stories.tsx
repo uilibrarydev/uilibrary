@@ -21,7 +21,7 @@ export default {
   }
 }
 
-const Template = (args) => {
+const Template = (args: any) => {
   return (
     <>
       <PopoverComp {...args} id="popover_test" />

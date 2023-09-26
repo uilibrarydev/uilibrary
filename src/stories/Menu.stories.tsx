@@ -45,7 +45,7 @@ const items = [
   }
 ]
 
-const Template = (args) => {
+const Template = (args: any) => {
   const [ref, setRef] = useState<HTMLDivElement | null>(null)
 
   const [open, setOpen] = useState(false)
