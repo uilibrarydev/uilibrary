@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { CollapseItem } from '..'
 import '../../../assets/styles/components/_collapse.scss'
 
@@ -7,14 +7,9 @@ import { TCollapseGroupProps, TColapseItem, TCollapseValue } from '../types'
 export const CollapseGroup = (props: TCollapseGroupProps): JSX.Element => {
   const { items, singleSelection, titleProps = {} } = props
   const { size, color } = titleProps
-  const [openValues, setOpenValues] = useState<TCollapseValue[]>([])
-
-  useEffect(() => {
-    const initialOpenItems = items
-      .filter((item: TColapseItem) => item.isOpen)
-      .map((item) => item.value)
-    setOpenValues(initialOpenItems)
-  }, [items])
+  const [openValues, setOpenValues] = useState<TCollapseValue[]>(
+    items.filter((item: TColapseItem) => item.isOpen).map((item) => item.value)
+  )
 
   const onCollapseSelect = (value: TCollapseValue) => {
     if (singleSelection) {
@@ -26,6 +21,7 @@ export const CollapseGroup = (props: TCollapseGroupProps): JSX.Element => {
   const onCollapseDeselect = (value: TCollapseValue) => {
     setOpenValues(openValues.filter((item) => item !== value))
   }
+
   return (
     <>
       {items.map((colapseItem) => {
