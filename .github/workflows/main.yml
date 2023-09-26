@@ -17,6 +17,9 @@ jobs:
         with:
           node-version: 16
 
+      - name: Set Git user name
+        run: git config user.name "LilitArz"
+
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
