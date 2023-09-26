@@ -46,22 +46,3 @@ jobs:
         env:
            SLACK_WEBHOOK_URL: ${{ secrets.WEB_SLACK_WEBHOOK_URL }}
            SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-
-      - name: Configure Git Identity
-        run: |
-            git config user.email "dinofront.libs@gmail.com"
-            git config user.name "dinofrontend"
-
-      - name: Build Storybook
-        run: npm run build-storybook
-
-      - name: Deploy Storybook
-        run: npm run deploy-storybook
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .storybook-static
-          branch: gh-pages
-
