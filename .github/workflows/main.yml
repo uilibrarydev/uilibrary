@@ -50,7 +50,7 @@ jobs:
       - name: Configure Git Identity
         run: |
             git config user.email "dinofront.libs@gmail.com"
-            git config user.name "dinoFront123"
+            git config user.name "dinofrontend"
 
       - name: Build Storybook
         run: npm run build-storybook
