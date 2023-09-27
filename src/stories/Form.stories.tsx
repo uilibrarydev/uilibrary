@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import * as yup from 'yup'
 import FormField from '../components/FormField'
-import { FormContainer, Button, Select } from '../components'
+import { FormContainer, Button, Select, MultiSelect } from '../components'
 import { useFormProps } from '../hooks/useFormProps'
 
 export default {
@@ -144,12 +144,14 @@ const OPTIONS_COUNTRIES: TSelectOptions = [
 ]
 
 const VALIDATION_SCHEME = yup.object({
-  test: yup.string().required('validation').nullable(),
-  firstname: yup.string().required('validation').nullable()
+  // test: yup.string().required('validation').nullable(),
+  // firstname: yup.string().required('validation').nullable()
 })
 
 const Template = (): JSX.Element => {
-  const INITIAL_VALUES = {}
+  const INITIAL_VALUES = {
+    // list: [{ value: 'armenia', label: 'Armenia' }]
+  }
 
   return (
     <div style={{ maxWidth: 300 }}>
@@ -160,30 +162,6 @@ const Template = (): JSX.Element => {
       >
         <>
           <Test />
-          {/*<FormField*/}
-          {/*  className="mb-20"*/}
-          {/*  name={'firstname'}*/}
-          {/*  As={(props) => <Input {...props} required type={'text'} label={'firstname'} />}*/}
-          {/*/>*/}
-          {/*<FormField*/}
-          {/*  As={(props) => (*/}
-          {/*    <Input*/}
-          {/*      {...props}*/}
-          {/*      required*/}
-          {/*      type={'numeric'}*/}
-          {/*      label={'numeric input'}*/}
-          {/*      thousandSeparator={','}*/}
-          {/*      allowLeadingZeros={false}*/}
-          {/*      allowNegative={false}*/}
-          {/*      placeholder={'money'}*/}
-          {/*      maxCount={10}*/}
-          {/*      leftIconProps={{*/}
-          {/*        name: 'moneybox'*/}
-          {/*      }}*/}
-          {/*    />*/}
-          {/*  )}*/}
-          {/*  name={'test'}*/}
-          {/*/>*/}
           <Button buttonActionType="submit" buttonText={'Ok'} />
         </>
       </FormContainer>
@@ -196,8 +174,10 @@ export const Test = () => {
 
   useEffect(() => {
     setTimeout(() => {
+      console.log('reset')
+
       reset?.({
-        COUNTRIES: 1
+        list: [{ value: 'armenia', label: 'Armenia' }]
       })
     }, 2000)
   }, [])
@@ -206,29 +186,26 @@ export const Test = () => {
     <>
       <FormField
         className="input-block"
-        name={'COUNTRIES'}
+        name={'list'}
         As={(props) => {
           return (
-            <Select
+            <MultiSelect
               {...props}
+              isGrouped
               isRequiredField
               label={'COUNTRIES'}
-              options={OPTIONS_COUNTRIES}
-              setSelectedItem={(selected) => {
-                setValue('CITIES', '')
-                // console.log(selected)
-              }}
+              options={OPTIONS_GROUPED}
             />
           )
         }}
       />
-      <FormField
+      {/* <FormField
         className="input-block"
         name={'CITIES'}
         As={(props) => {
           return <Select {...props} isRequiredField label={'CITIES'} options={OPTIONS_COUNTRIES} />
         }}
-      />
+      /> */}
     </>
   )
 }

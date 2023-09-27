@@ -2,6 +2,7 @@ import React, {
   forwardRef,
   ReactElement,
   useCallback,
+  useEffect,
   useId,
   useMemo,
   useRef,
@@ -57,6 +58,11 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   const openDropdown = () => setIsOpen(true)
 
   const { width } = useGetElemSizes(containerRef.current)
+
+  useEffect(() => {
+    setSelectedValues(initialSelected)
+  }, [initialSelected])
+
   const cancelSelectedItems = useCallback(() => {
     submitSelectedValue(initialSelected)
   }, [])
