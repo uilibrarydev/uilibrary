@@ -8,7 +8,6 @@ import '../../assets/styles/components/_tooltip.scss'
 import classNames from 'classnames'
 
 export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
-  const [isHovered, setIsHoverved] = useState(false)
   const tooltipRef = useRef<HTMLDivElement | null>(null)
   const {
     size = 'large',
@@ -17,9 +16,11 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
     position = 'bottom-left',
     dataId = '',
     id,
-    elemRef
+    elemRef,
+    hovered = false
   } = props
 
+  const [isHovered, setIsHoverved] = useState(hovered)
   const [parent, setElement] = useState<HTMLElement | null>(elemRef || null)
 
   useEffect(() => {

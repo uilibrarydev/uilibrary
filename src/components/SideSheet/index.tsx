@@ -27,13 +27,7 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
         }
       }
     },
-    footerButtons = {
-      confirm: {
-        buttonText: 'Save'
-      },
-      cancel: { buttonText: 'Cancel' }
-    },
-
+    footerButtons,
     scrollToTopOptions,
     children
   } = props
@@ -136,30 +130,34 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
             >
               {children}
             </div>
-            <div className="side-sheet__footer">
-              {footerButtons.extraButton ? (
+            {footerButtons ? (
+              <div className="side-sheet__footer">
+                {footerButtons.extraButton ? (
+                  <Button
+                    size="large"
+                    type="secondary"
+                    {...footerButtons.extraButton}
+                    className="mr-12"
+                  />
+                ) : null}
+                {
+                  <Button
+                    type="secondary"
+                    size="large"
+                    className="mr-12"
+                    onClick={onClose}
+                    {...footerButtons.cancel}
+                  />
+                }
                 <Button
+                  type="primary"
                   size="large"
-                  type="secondary"
-                  {...footerButtons.extraButton}
-                  className="mr-12"
+                  onClick={handleSubmit}
+                  disabled={isLoading}
+                  {...footerButtons.confirm}
                 />
-              ) : null}
-              <Button
-                type="secondary"
-                size="large"
-                className="mr-12"
-                onClick={onClose}
-                {...footerButtons.cancel}
-              />
-              <Button
-                type="primary"
-                size="large"
-                onClick={handleSubmit}
-                disabled={isLoading}
-                {...footerButtons.confirm}
-              />
-            </div>
+              </div>
+            ) : null}
           </motion.div>
         </motion.div>
       ) : null}

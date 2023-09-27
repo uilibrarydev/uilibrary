@@ -15,4 +15,5 @@ export interface TTooltipProps extends IFormCompProps {
   className?: string
   elemRef?: HTMLElement | null
   id?: string | number
+  hovered?: boolean
 }
