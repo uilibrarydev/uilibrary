@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 
 export interface TPopoverProps extends IFormCompProps {
+  clicked?: boolean
   text?: string | ReactElement
   children?: string | ReactElement
   position?:

@@ -9,10 +9,18 @@ import classNames from 'classnames'
 import { useGetTooltipStyles } from '../../hooks/useGetTooltipStyles'
 
 export const Popover = (props: TPopoverProps): JSX.Element | null => {
-  const [isClicked, setIsClicked] = useState(false)
+  const {
+    text,
+    className = '',
+    position = 'top-left',
+    children,
+    elemRef,
+    id,
+    clicked = false
+  } = props
+  const [isClicked, setIsClicked] = useState(clicked)
   const [popoverRef, setPopoverRef] = useState<HTMLElement | null>(null)
 
-  const { text, className = '', position = 'top-left', children, elemRef, id } = props
   const [parent, setElement] = useState<HTMLElement | null>(elemRef || null)
 
   const { tooltipPosition: popoverPosition, tooltipStyles: popoverStyles } = useGetTooltipStyles({

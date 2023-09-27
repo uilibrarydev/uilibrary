@@ -38,8 +38,10 @@ import { CollapseItem, CollapseGroup } from './components'
 import { FormContext } from './context'
 import { useFormProps } from './hooks/useFormProps'
 import { useFieldArray } from 'react-hook-form'
+import { Copy } from './components/Copy'
 
 export {
+  Copy,
   CollapseItem,
   CollapseGroup,
   Menu,
