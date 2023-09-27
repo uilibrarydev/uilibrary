@@ -32,8 +32,10 @@ import Menu from './Menu'
 import SideSheet from './SideSheet'
 import Counter from './Counter'
 import { CollapseItem, CollapseGroup } from './Collapse'
+import { Copy } from './Copy'
 
 export {
+  Copy,
   Counter,
   CollapseGroup,
   CollapseItem,
