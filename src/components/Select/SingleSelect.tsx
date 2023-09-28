@@ -45,7 +45,9 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const [searchValue, setSearchValue] = useState<string>('')
   const currentSelection = (value as TItemValue) || selectedItem || null
 
-  const [itemLabel, setItemLabel] = useState<string | null>('')
+  const test = options.find((item) => item.value === currentSelection)
+
+  const [itemLabel, setItemLabel] = useState<string | null>(test?.label.toString() || '')
 
   useEffect(() => {
     const label = options.find((item) => item.value === currentSelection)
