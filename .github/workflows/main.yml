@@ -46,3 +46,14 @@ jobs:
         env:
            SLACK_WEBHOOK_URL: ${{ secrets.WEB_SLACK_WEBHOOK_URL }}
            SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+      # Deployment on github pages
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./storybook-static
+          enable_jekyll: false
