@@ -45,14 +45,12 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const [searchValue, setSearchValue] = useState<string>('')
   const currentSelection = (value as TItemValue) || selectedItem || null
 
-  const test = options.find((item) => item.value === currentSelection)
-
-  const [itemLabel, setItemLabel] = useState<string | null>(test?.label.toString() || '')
+  const [itemLabel, setItemLabel] = useState<string | null>('')
 
   useEffect(() => {
     const label = options.find((item) => item.value === currentSelection)
     setItemLabel(label?.label.toString() || '')
-  }, [currentSelection])
+  }, [currentSelection, options])
 
   const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => setIsOpen(false)
