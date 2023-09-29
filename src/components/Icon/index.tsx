@@ -1,6 +1,5 @@
 import React from 'react'
 import { IconPropTypes } from './types'
-import './index.scss'
 
 const Icon = (props: IconPropTypes): JSX.Element => {
   const { name, type, size = 'medium', onClick, className = '', refHandler, id } = props

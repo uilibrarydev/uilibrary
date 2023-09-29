@@ -414,15 +414,21 @@ $space-prefixes: (
 //icons sizes
 
 .icon {
-  --icon-lg: var(--ds-size-32);
+  --icon-xxl: var(--ds-size-48);
+  --icon-xl: var(--ds-size-32);
+  --icon-lg: var(--ds-size-28);
   --icon-md: var(--ds-size-24);
   --icon-sm: var(--ds-size-20);
   --icon-xs: var(--ds-size-16);
+  --icon-xxs: var(--ds-size-12);
 
   @include flexbox;
   @include align-items(center);
   @include justify-content(center);
 
+  &--xxsmall {
+    font-size: var(--icon-xxs);
+  }
   &--xsmall {
     font-size: var(--icon-xs);
   }
@@ -434,6 +440,12 @@ $space-prefixes: (
   }
   &--large {
     font-size: var(--icon-lg);
+  }
+  &--xlarge {
+    font-size: var(--icon-xl);
+  }
+  &--xxlarge {
+    font-size: var(--icon-xxl);
   }
 }
 
