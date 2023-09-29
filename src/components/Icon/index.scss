@@ -1,9 +1,0 @@
-@import 'src/assets/styles/shared';
-
-.icon {
-  @include flexbox;
-  @include align-items(center);
-  @include justify-content(center);
-}
-
-
