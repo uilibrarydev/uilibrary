@@ -18,13 +18,9 @@ export const Status = (props: TStatusProps): ReactElement => {
 
   return (
     <div className={classNames(`status status--${type} status--${size}`, className)}>
-      {!noIcon ? (
-        <>
-          {leftIconProps?.name && (
-            <Icon size="xsmall" type={type} {...leftIconProps} className="mr-8" />
-          )}
-        </>
-      ) : null}
+      {leftIconProps?.name && (
+        <Icon size="xsmall" type={type} {...leftIconProps} className="mr-8" />
+      )}
       {!noIcon && !leftIconProps?.name ? <span className="status__circle mr-8" /> : null}
       <Text
         type={noIcon ? type : 'primary'}
@@ -33,13 +29,9 @@ export const Status = (props: TStatusProps): ReactElement => {
       >
         <>{text}</>
       </Text>
-      {!noIcon ? (
-        <>
-          {rightIconProps?.name && (
-            <Icon size="xsmall" type={type} {...rightIconProps} className="ml-8" />
-          )}
-        </>
-      ) : null}
+      {rightIconProps?.name && (
+        <Icon size="xsmall" type={type} {...rightIconProps} className="ml-8" />
+      )}
     </div>
   )
 }
