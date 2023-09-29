@@ -26,7 +26,7 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
           className={isOpen ? 'collapse_icon_opened' : 'collapse_icon_closed'}
         />
       </div>
-      <AnimatedComponent>
+      <AnimatedComponent initial={false}>
         {isOpen && (
           <motion.div
             initial={{ height: 0 }}
