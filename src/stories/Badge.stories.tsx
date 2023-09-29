@@ -16,9 +16,7 @@ export default {
   }
 }
 
-const Template = (args) => (
-  <BadgeComp {...args} />
-)
+const Template = (args) => <BadgeComp {...args} />
 
 export const Badge = Template.bind({})
 
