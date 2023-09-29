@@ -50,7 +50,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   useEffect(() => {
     const label = options.find((item) => item.value === currentSelection)
     setItemLabel(label?.label.toString() || '')
-  }, [currentSelection])
+  }, [currentSelection, options])
 
   const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => setIsOpen(false)
