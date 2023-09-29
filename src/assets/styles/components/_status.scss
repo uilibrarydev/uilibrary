@@ -6,14 +6,14 @@
   --ds-status-circle-size-lg: var(--ds-size-8);
   --ds-status-circle-size-sm: var(--ds-size-6);
 
-  --ds-status-bg-primary: var(--ds-color-icon-primary);
-  --ds-status-bg-information: var(--ds-color-icon-information);
-  --ds-status-bg-brand: var(--ds-color-icon-brand);
-  --ds-status-bg-danger: var(--ds-color-icon-danger);
-  --ds-status-bg-warning: var(--ds-color-icon-warning);
-  --ds-status-bg-success: var(--ds-color-icon-success);
-  --ds-status-bg-discovery: var(--ds-color-icon-discovery);
-  --ds-status-bg-disabled: var(--ds-color-icon-disabled);
+  --ds-status-circle-bg-primary: var(--ds-color-icon-primary);
+  --ds-status-circle-bg-information: var(--ds-color-icon-information);
+  --ds-status-circle-bg-brand: var(--ds-color-icon-brand);
+  --ds-status-circle-bg-danger: var(--ds-color-icon-danger);
+  --ds-status-circle-bg-warning: var(--ds-color-icon-warning);
+  --ds-status-circle-bg-success: var(--ds-color-icon-success);
+  --ds-status-circle-bg-discovery: var(--ds-color-icon-discovery);
+  --ds-status-circle-bg-disabled: var(--ds-color-icon-disabled);
 
   @include inline-flex;
   @include align-items(center);
@@ -34,42 +34,42 @@
 
   &--primary {
     #{$this}__circle {
-      background-color: var(--ds-status-bg-primary);
+      background-color: var(--ds-status-circle-bg-primary);
     }
   }
   &--information {
     #{$this}__circle {
-      background-color: var(--ds-status-bg-information);
+      background-color: var(--ds-status-circle-bg-information);
     }
   }
   &--brand {
     #{$this}__circle {
-      background-color: var(--ds-status-bg-brand);
+      background-color: var(--ds-status-circle-bg-brand);
     }
   }
   &--danger {
     #{$this}__circle {
-      background-color: var(--ds-status-bg-danger);
+      background-color: var(--ds-status-circle-bg-danger);
     }
   }
   &--success {
     #{$this}__circle {
-      background-color: var(--ds-status-bg-success);
+      background-color: var(--ds-status-circle-bg-success);
     }
   }
   &--warning {
     #{$this}__circle {
-      background-color: var(--ds-status-bg-warning);
+      background-color: var(--ds-status-circle-bg-warning);
     }
   }
   &--discovery {
     #{$this}__circle {
-      background-color: var(--ds-status-bg-discovery);
+      background-color: var(--ds-status-circle-bg-discovery);
     }
   }
   &--disabled {
     #{$this}__circle {
-      background-color: var(--ds-status-bg-disabled);
+      background-color: var(--ds-status-circle-bg-disabled);
     }
   }
 }
