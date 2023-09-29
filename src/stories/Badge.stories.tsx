@@ -17,15 +17,7 @@ export default {
 }
 
 const Template = (args) => (
-  <BadgeComp
-    {...args}
-    leftIconProps={{ name: 'user', type: 'tertiary' }}
-    rightIconProps={{
-      name: 'arrow-right',
-
-      className: 'employee_badge_icon_opened'
-    }}
-  />
+  <BadgeComp {...args} />
 )
 
 export const Badge = Template.bind({})
