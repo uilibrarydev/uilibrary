@@ -114,7 +114,7 @@ export default {
       control: { type: 'radio' }
     },
     size: {
-      options: ['xxlarge','xlarge','large', 'medium', 'small', 'xsmall', 'xxsmall'],
+      options: ['xxlarge', 'xlarge', 'large', 'medium', 'small', 'xsmall', 'xxsmall'],
       control: { type: 'radio' }
     }
   }
