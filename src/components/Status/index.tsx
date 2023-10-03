@@ -29,7 +29,7 @@ export const Status = (props: TStatusProps): ReactElement => {
       )}
       {withCircle && !leftIconProps?.name ? <span className="status__circle mr-8" /> : null}
       <Text
-        type={withCircle ? type : 'primary'}
+        type={!withCircle ? type : 'primary'}
         size={StatusTextSize[size]}
         className="status__label"
       >
