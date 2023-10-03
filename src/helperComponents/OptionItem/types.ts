@@ -1,11 +1,13 @@
+import { ReactElement } from 'react'
+
 export type TSelectItemProps = {
   isSelected?: boolean
   data: TSelectOption
   className?: string
   onClick: (itemValue: TSelectedValue) => void
   labelLeftIconProps?: TSelectIconProps
-  optionRightIconComponent?: JSX.Element
-  labelRightIconComponent?: JSX.Element
+  OptionRightIconComponent?: (value: TItemValue) => ReactElement
+  LabelRightIconComponent?: (value: TItemValue) => ReactElement
   avatar?: string
   disabled?: boolean
   isCheckbox?: boolean

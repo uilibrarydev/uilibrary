@@ -1,3 +1,4 @@
+import { ReactElement } from 'react'
 import { TButtonPropTypes } from '../Button/types'
 
 export interface TNestedSelectProps {
@@ -8,8 +9,8 @@ export interface TNestedSelectProps {
   initialSelectedFolderIds?: TItemValue[]
   setSelectedValue: (value: TSelectOption | null) => void
   selected?: TSelectOption | null
-  optionRightIconComponent?: JSX.Element
-  labelRightIconComponent?: JSX.Element
+  optionRightIconComponent?: (value: TItemValue) => ReactElement
+  labelRightIconComponent?: (value: TItemValue) => ReactElement
   avatar?: string
 }
 
@@ -39,8 +40,8 @@ interface TMultiSelectCompProps extends IFormCompProps {
     onClick?: TClickHandler
   }
   avatar?: string
-  optionRightIconComponent?: JSX.Element
-  labelRightIconComponent?: JSX.Element
+  optionRightIconComponent?: (value: TItemValue) => ReactElement
+  labelRightIconComponent?: (value: TItemValue) => ReactElement
   onItemSelect: (item: TSelectedValue) => void
   onItemDeselect: (item: TSelectedValue) => void
   footer: JSX.Element
@@ -71,8 +72,8 @@ export interface TMultiSelectPropTypes extends IFormCompProps {
     confirm: TButtonPropTypes
   }
   avatar?: string
-  optionRightIconComponent?: JSX.Element
-  labelRightIconComponent?: JSX.Element
+  optionRightIconComponent?: (value: TItemValue) => ReactElement
+  labelRightIconComponent?: (value: TItemValue) => ReactElement
   labelLeftIconProps?: {
     name: string
     size?: TIconSize
@@ -97,8 +98,8 @@ export interface TSingleSelectPropTypes extends IFormCompProps {
     className?: string
     onClick?: TClickHandler
   }
-  optionRightIconComponent?: JSX.Element
-  labelRightIconComponent?: JSX.Element
+  optionRightIconComponent?: (value: TItemValue) => ReactElement
+  labelRightIconComponent?: (value: TItemValue) => ReactElement
   withSearch?: boolean
   avatar?: string
   size?: 'small' | 'large'
@@ -135,8 +136,8 @@ export interface TFilterProps extends IFormCompProps {
     cancel: TButtonPropTypes
     confirm: TButtonPropTypes
   }
-  optionRightIconComponent?: JSX.Element
-  labelRightIconComponent?: JSX.Element
+  optionRightIconComponent?: (value: TItemValue) => ReactElement
+  labelRightIconComponent?: (value: TItemValue) => ReactElement
   closeHandler: () => void
   parentRef: HTMLElement
 }
@@ -154,8 +155,8 @@ export interface TFilterDropdownContentProps extends IFormCompProps {
     cancel: TButtonPropTypes
     confirm: TButtonPropTypes
   }
-  optionRightIconComponent?: JSX.Element
-  labelRightIconComponent?: JSX.Element
+  optionRightIconComponent?: (value: TItemValue) => ReactElement
+  labelRightIconComponent?: (value: TItemValue) => ReactElement
   // closeHandler: () => void
   filterValue: string
   onItemSelect: (item: TSelectedValue) => void
@@ -176,8 +177,8 @@ export interface TFilterGroupDropdownContentProps extends IFormCompProps {
     cancel: TButtonPropTypes
     confirm: TButtonPropTypes
   }
-  optionRightIconComponent?: JSX.Element
-  labelRightIconComponent?: JSX.Element
+  optionRightIconComponent?: (value: TItemValue) => ReactElement
+  labelRightIconComponent?: (value: TItemValue) => ReactElement
   filterValue: string
   onItemSelect: (item: TSelectedValue) => void
   onItemDeselect: (item: TSelectedValue) => void

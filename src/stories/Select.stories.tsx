@@ -203,6 +203,7 @@ const Template = (args: any): JSX.Element => {
         selectedItem={selectedValue}
         setSelectedItem={setSelectedValue}
         withSearch={true}
+        optionRightIconComponent={(value) => <div>{value}</div>}
       />
     </div>
   )
@@ -339,7 +340,7 @@ NestedSelect.args = {
   options: OPTIONS_NESTED,
   placeHolder: 'Select country',
   labelLeftIconProps: { name: 'user' },
-  labelRightIconComponent: <Icon name="user" size="xsmall" className="mr-4" />,
+  labelRightIconComponent: () => <Icon name="user" size="xsmall" className="mr-4" />,
   optionRightIconComponent: (
     <Icon
       name="more"
@@ -389,6 +390,6 @@ FilterDropdown.args = {
   options: OPTIONS_NESTED,
   avatar: image.src,
   labelLeftIconProps: { name: 'user' },
-  labelRightIconComponent: <Icon name="user" size="xsmall" className="mr-4" />,
-  optionRightIconComponent: <Icon name="more" size="xsmall" />
+  labelRightIconComponent: () => <Icon name="user" size="xsmall" className="mr-4" />,
+  optionRightIconComponent: () => <Icon name="more" size="xsmall" />
 }
