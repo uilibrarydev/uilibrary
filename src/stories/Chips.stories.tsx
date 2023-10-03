@@ -25,8 +25,8 @@ const Template = (args) => <ChipsComp {...args} />
 export const Chips = Template.bind({})
 
 Chips.args = {
-  type: 'primary',
-  color: 'default',
+  type: 'filled',
+  color: 'primary',
   size: 'large',
   text: 'Badge',
   leftIconProps: {
