@@ -341,7 +341,7 @@ NestedSelect.args = {
   placeHolder: 'Select country',
   labelLeftIconProps: { name: 'user' },
   labelRightIconComponent: () => <Icon name="user" size="xsmall" className="mr-4" />,
-  optionRightIconComponent: (
+  optionRightIconComponent: () => (
     <Icon
       name="more"
       size="xsmall"

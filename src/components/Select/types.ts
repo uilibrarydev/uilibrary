@@ -1,6 +1,25 @@
 import { ReactElement } from 'react'
 import { TButtonPropTypes } from '../Button/types'
 
+interface TSelectBaseProps {
+  error?: string
+  isLoading?: boolean
+  disabled?: boolean
+  label?: string | JSX.Element
+  placeHolder?: string
+  isRequiredField?: boolean
+  labelLeftIconProps?: {
+    name: string
+    size?: TIconSize
+    className?: string
+    onClick?: TClickHandler
+  }
+  optionRightIconComponent?: (value: TItemValue) => ReactElement
+  labelRightIconComponent?: (value: TItemValue) => ReactElement
+  avatar?: string
+  size?: 'small' | 'large'
+  className?: string
+}
 export interface TNestedSelectProps {
   options: TSelectOptions
   isRequiredField?: boolean
@@ -24,24 +43,14 @@ export type TSelectTranslations = {
   innerLabel?: string
 }
 
-interface TMultiSelectCompProps extends IFormCompProps {
+interface TMultiSelectCompProps extends IFormCompProps, TSelectBaseProps {
   maxSelectCount: number
   isSearchAvailable: boolean
   helperText?: string
   isOpen: boolean
-  isLoading?: boolean
   translations: TSelectTranslations
   selectedValues: TSelectedValue[]
   setSelectedValues: (values: TSelectedValue[]) => void
-  labelLeftIconProps?: {
-    name: string
-    size?: TIconSize
-    className?: string
-    onClick?: TClickHandler
-  }
-  avatar?: string
-  optionRightIconComponent?: (value: TItemValue) => ReactElement
-  labelRightIconComponent?: (value: TItemValue) => ReactElement
   onItemSelect: (item: TSelectedValue) => void
   onItemDeselect: (item: TSelectedValue) => void
   footer: JSX.Element
@@ -55,55 +64,26 @@ export interface TMultiSelectGroupedProps extends TMultiSelectCompProps {
   options: TSelectGroupOptions
 }
 
-export interface TMultiSelectPropTypes extends IFormCompProps {
+export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps {
   helperText?: string
   maxSelectCount?: number
   withTabs?: boolean
   isGrouped?: boolean
-  placeHolder?: string
-  label?: string | JSX.Element
   selectedItems?: TSelectedValue[]
   translations: TSelectTranslations
   options: TSelectOptions | TSelectGroupOptions
   setSelectedItems?: (items: TSelectedValue[]) => void
-  isRequiredField?: boolean
   footerButtonProps: {
     cancel: TButtonPropTypes
     confirm: TButtonPropTypes
   }
-  avatar?: string
-  optionRightIconComponent?: (value: TItemValue) => ReactElement
-  labelRightIconComponent?: (value: TItemValue) => ReactElement
-  labelLeftIconProps?: {
-    name: string
-    size?: TIconSize
-    className?: string
-    onClick?: TClickHandler
-  }
 }
 
-export interface TSingleSelectPropTypes extends IFormCompProps {
-  error?: string
-  isLoading?: boolean
-  disabled?: boolean
-  label?: string | JSX.Element
+export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps {
   options: TSelectOptions
-  placeHolder?: string
   selectedItem?: TItemValue
   setSelectedItem?: (items: TItemValue | undefined) => void
-  isRequiredField?: boolean
-  labelLeftIconProps?: {
-    name: string
-    size?: TIconSize
-    className?: string
-    onClick?: TClickHandler
-  }
-  optionRightIconComponent?: (value: TItemValue) => ReactElement
-  labelRightIconComponent?: (value: TItemValue) => ReactElement
   withSearch?: boolean
-  avatar?: string
-  size?: 'small' | 'large'
-  className?: string
   outerHelperText?: string
   innerHelperText?: string
 }
@@ -117,7 +97,7 @@ export type TSelectFooterPropTypes = {
   onApply: () => void
 }
 
-export interface TFilterProps extends IFormCompProps {
+export interface TFilterProps extends IFormCompProps, TSelectBaseProps {
   isLoading?: boolean
   withTabs: boolean
   isGrouped: boolean
@@ -125,19 +105,10 @@ export interface TFilterProps extends IFormCompProps {
   options: TSelectOptions | TSelectGroupOptions
   selectedItems: TSelectedValue[]
   setSelectedItems: (items: TSelectedValue[]) => void
-  labelLeftIconProps?: {
-    name: string
-    size?: TIconSize
-    className?: string
-    onClick?: TClickHandler
-  }
-  avatar?: string
   footerButtonProps?: {
     cancel: TButtonPropTypes
     confirm: TButtonPropTypes
   }
-  optionRightIconComponent?: (value: TItemValue) => ReactElement
-  labelRightIconComponent?: (value: TItemValue) => ReactElement
   closeHandler: () => void
   parentRef: HTMLElement
 }
