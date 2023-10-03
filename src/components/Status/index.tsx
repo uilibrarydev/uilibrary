@@ -1,39 +1,45 @@
-import React, { ReactElement } from 'react'
-import { Icon, Text } from '../index'
+import React, {ReactElement} from 'react'
+import {Icon, Text} from '../index'
 
-import { TStatusProps } from './types'
+import {TStatusProps} from './types'
 import '../../assets/styles/components/_status.scss'
 import classNames from 'classnames'
 
-export const Status = (props: TStatusProps): ReactElement => {
-  const {
-    type = 'primary',
-    size = 'large',
-    text,
-    className = '',
-    leftIconProps,
-    rightIconProps,
-    noIcon
-  } = props
+enum StatusTextSize {
+    large = 'standard',
+    medium = 'small',
+    small = 'xsmall'
+}
 
-  return (
-    <div className={classNames(`status status--${type} status--${size}`, className)}>
-      {leftIconProps?.name && (
-        <Icon size="xsmall" type={type} {...leftIconProps} className="mr-8" />
-      )}
-      {!noIcon && !leftIconProps?.name ? <span className="status__circle mr-8" /> : null}
-      <Text
-        type={noIcon ? type : 'primary'}
-        size={size == 'large' ? 'standard' : size == 'medium' ? 'small' : 'xsmall'}
-        className="status__label"
-      >
-        <>{text}</>
-      </Text>
-      {rightIconProps?.name && (
-        <Icon size="xsmall" type={type} {...rightIconProps} className="ml-8" />
-      )}
-    </div>
-  )
+export const Status = (props: TStatusProps): ReactElement => {
+    const {
+        type = 'primary',
+        size = 'large',
+        text,
+        className = '',
+        leftIconProps,
+        rightIconProps,
+        withCircle = true
+    } = props
+
+    return (
+        <div className={classNames(`status status--${type} status--${size}`, className)}>
+            {leftIconProps?.name && (
+                <Icon size="xsmall" type={type} {...leftIconProps} className="mr-8"/>
+            )}
+            {withCircle && !leftIconProps?.name ? <span className="status__circle mr-8"/> : null}
+            <Text
+                type={withCircle ? type : 'primary'}
+                size={StatusTextSize[size]}
+                className="status__label"
+            >
+                {text}
+            </Text>
+            {rightIconProps?.name && (
+                <Icon size="xsmall" type={type} {...rightIconProps} className="ml-8"/>
+            )}
+        </div>
+    )
 }
 
 export default Status

@@ -1,7 +1,5 @@
-import { IconPropTypes } from '../Icon/types'
-
 export interface TBadgeProps extends IFormCompProps {
-  text?: string | number
+  text?: number | string
   type?: 'primary' | 'secondary'
   size?: 'large' | 'small'
   className?: string

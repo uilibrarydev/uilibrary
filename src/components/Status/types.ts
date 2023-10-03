@@ -10,11 +10,11 @@ export type TStatusTypes =
   | 'information'
   | 'discovery'
 export interface TStatusProps extends IFormCompProps {
-  text?: string | number
+  text: string
   leftIconProps?: IconPropTypes
   rightIconProps?: IconPropTypes
   type?: TStatusTypes
   size?: 'large' | 'medium' | 'small'
   className?: string
-  noIcon?: boolean
+  withCircle?: boolean
 }

@@ -33,7 +33,7 @@ Status.args = {
   text: 'Status label',
   type: 'primary',
   size: 'large',
-  noIcon: false,
+  withCircle: true,
   leftIconProps: {
     name: 'user'
   },
