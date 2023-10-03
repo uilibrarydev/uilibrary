@@ -5,15 +5,13 @@
 
   --ds-badge-primary-bg: var(--pink-500);
   --ds-badge-secondary-bg: var(--grey-50);
-  --ds-badge-primary-color: var(--ds-color-text-inverse);
-  --ds-badge-secondary-color: var(--ds-color-text-primary);
 
   --ds-badge-border-radius: var(--ds-border-radius-lg);
   --ds-badge-padding-lg: var(--ds-space-6);
   --ds-badge-padding-sm: var(--ds-space-4);
   --ds-badge-inner-padding-lg: 0 var(--ds-space-2);
   --ds-badge-inner-padding-sm: 0 var(--ds-space-4);
-  --ds-badge-font: var(--ds-font-weight-default) var(--ds-paragraph-xs)/1 var(--ds-font-family);
+  --ds-badge-font: var(--ds-font-weight-default) var(--ds-paragraph-xs)/0.8 var(--ds-font-family);
 
   @include inline-flex;
   @include align-items(center);
@@ -25,12 +23,10 @@
 
   &--primary {
     background-color: var(--ds-badge-primary-bg);
-    color: var(--ds-badge-primary-color)
   }
 
   &--secondary {
     background-color: var(--ds-badge-secondary-bg);
-    color: var(--ds-badge-secondary-color);
   }
 
   &--large {
