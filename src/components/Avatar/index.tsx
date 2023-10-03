@@ -18,7 +18,7 @@ export const Avatar = ({
   const getFiles = (files: File[]) => {
     if (files && files[0]) {
       setImage(URL.createObjectURL(files[0]))
-        onAvatarChange?.(files[0])
+      onAvatarChange?.(files[0])
     }
   }
   const style = {

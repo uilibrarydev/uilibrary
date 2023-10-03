@@ -76,8 +76,8 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
             onClick={() => onSelect({ value, label: option.label }, !!children)}
             avatar={avatar}
             disabled={disabled}
-            optionRightIconComponent={optionRightIconComponent}
-            labelRightIconComponent={labelRightIconComponent}
+            OptionRightIconComponent={optionRightIconComponent}
+            LabelRightIconComponent={labelRightIconComponent}
             labelLeftIconProps={children ? { name: 'caret-down', size: 'xsmall' } : undefined}
           />
         </div>

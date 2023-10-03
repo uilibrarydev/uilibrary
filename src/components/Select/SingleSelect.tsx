@@ -168,8 +168,8 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
                       key={item.value}
                       onClick={clickHandler(isSelected)}
                       labelLeftIconProps={labelLeftIconProps}
-                      optionRightIconComponent={optionRightIconComponent}
-                      labelRightIconComponent={labelRightIconComponent}
+                      OptionRightIconComponent={optionRightIconComponent}
+                      LabelRightIconComponent={labelRightIconComponent}
                       avatar={avatar}
                       disabled={item.disabled}
                       isSelected={isSelected}
