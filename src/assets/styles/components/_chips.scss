@@ -1,0 +1,140 @@
+@import "../shared";
+
+.chips {
+  $this: &;
+
+  --ds-chips-height-lg: var(--ds-size-28);
+  --ds-chips-height-md: var(--ds-size-24);
+  --ds-chips-height-sm: var(--ds-size-20);
+
+
+  --ds-chips-border-radius: var(--ds-border-radius-lg);
+  --ds-chips-padding: var(--ds-space-4);
+
+  --ds-chips-filled-bg-primary: var(--ds-color-icon-primary);
+  --ds-chips-filled-bg-information: var(--ds-color-icon-information);
+  --ds-chips-filled-bg-brand: var(--ds-color-icon-brand);
+  --ds-chips-filled-bg-danger: var(--ds-color-icon-danger);
+  --ds-chips-filled-bg-warning: var(--ds-color-icon-warning);
+  --ds-chips-filled-bg-success: var(--ds-color-icon-success);
+  --ds-chips-filled-bg-discovery: var(--ds-color-icon-discovery);
+  --ds-chips-filled-bg-disabled: var(--ds-color-icon-disabled);
+
+  --ds-chips-accent-bg-primary: var(--ds-color-icon-primary);
+  --ds-chips-accent-bg-information: var(--ds-color-icon-information);
+  --ds-chips-accent-bg-brand: var(--ds-color-icon-brand);
+  --ds-chips-accent-bg-danger: var(--ds-color-icon-danger);
+  --ds-chips-accent-bg-warning: var(--ds-color-icon-warning);
+  --ds-chips-accent-bg-success: var(--ds-color-icon-success);
+  --ds-chips-accent-bg-discovery: var(--ds-color-icon-discovery);
+  --ds-chips-accent-bg-disabled: var(--ds-color-icon-disabled);
+
+  --ds-chips-outlined-bg-primary: var(--ds-color-icon-primary);
+  --ds-chips-outlined-bg-information: var(--ds-color-icon-information);
+  --ds-chips-outlined-bg-brand: var(--ds-color-icon-brand);
+  --ds-chips-outlined-bg-danger: var(--ds-color-icon-danger);
+  --ds-chips-outlined-bg-warning: var(--ds-color-icon-warning);
+  --ds-chips-outlined-bg-success: var(--ds-color-icon-success);
+  --ds-chips-outlined-bg-discovery: var(--ds-color-icon-discovery);
+  --ds-chips-outlined-bg-disabled: var(--ds-color-icon-disabled);
+
+  @include inline-flex;
+  @include align-items(center);
+  border-radius: var(--ds-chips-border-radius);
+  padding: var(--ds-chips-padding);
+
+  &--large {
+    height: var(--ds-chips-height-lg);
+  }
+  &--medium {
+    height: var(--ds-chips-height-md);
+  }
+  &--small {
+    height: var(--ds-chips-height-sm);
+  }
+
+  &--filled {
+    &#{$this}--primary {
+      background-color: var(--ds-chips-filled-bg-primary);
+    }
+    &#{$this}--information {
+      background-color: var(--ds-chips-filled-bg-information);
+    }
+    &#{$this}--brand {
+      background-color: var(--ds-chips-filled-bg-brand);
+    }
+    &#{$this}--danger {
+      background-color: var(--ds-chips-filled-bg-danger);
+    }
+    &#{$this}--success {
+      background-color: var(--ds-chips-filled-bg-success);
+    }
+    &#{$this}--warning {
+      background-color: var(--ds-chips-filled-bg-warning);
+    }
+    &#{$this}--discovery {
+      background-color: var(--ds-chips-filled-bg-discovery);
+    }
+    &#{$this}--disabled {
+      background-color: var(--ds-chips-filled-bg-disabled);
+    }
+  }
+  &--accent {
+    &#{$this}--primary {
+      background-color: var(--ds-chips-filled-bg-primary);
+    }
+    &#{$this}--information {
+      background-color: var(--ds-chips-filled-bg-information);
+    }
+    &#{$this}--brand {
+      background-color: var(--ds-chips-filled-bg-brand);
+    }
+    &#{$this}--danger {
+      background-color: var(--ds-chips-filled-bg-danger);
+    }
+    &#{$this}--success {
+      background-color: var(--ds-chips-filled-bg-success);
+    }
+    &#{$this}--warning {
+      background-color: var(--ds-chips-filled-bg-warning);
+    }
+    &#{$this}--discovery {
+      background-color: var(--ds-chips-filled-bg-discovery);
+    }
+    &#{$this}--disabled {
+      background-color: var(--ds-chips-filled-bg-disabled);
+    }
+  }
+  &--outlined {
+    border: 1px solid;
+
+    &#{$this}--primary {
+      border-color: var(--ds-chips-filled-bg-primary);
+    }
+    &#{$this}--information {
+      border-color: var(--ds-chips-filled-bg-information);
+    }
+    &#{$this}--brand {
+      border-color: var(--ds-chips-filled-bg-brand);
+    }
+    &#{$this}--danger {
+      border-color: var(--ds-chips-filled-bg-danger);
+    }
+    &#{$this}--success {
+      border-color: var(--ds-chips-filled-bg-success);
+    }
+    &#{$this}--warning {
+      border-color: var(--ds-chips-filled-bg-warning);
+    }
+    &#{$this}--discovery {
+      border-color: var(--ds-chips-filled-bg-discovery);
+    }
+    &#{$this}--disabled {
+      border-color: var(--ds-chips-filled-bg-disabled);
+    }
+  }
+  
+  &__delete {
+    cursor: pointer;
+  }
+}

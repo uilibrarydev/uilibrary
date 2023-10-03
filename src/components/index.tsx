@@ -34,6 +34,7 @@ import Counter from './Counter'
 import { CollapseItem, CollapseGroup } from './Collapse'
 import { Copy } from './Copy'
 import Status from './Status'
+import Chips from './Chips'
 
 export {
   Copy,
@@ -78,5 +79,6 @@ export {
   Image,
   Menu,
   SideSheet,
-  Status
+  Status,
+  Chips
 }
