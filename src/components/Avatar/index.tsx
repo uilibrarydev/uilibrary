@@ -1,37 +1,48 @@
-import React, { useState } from 'react'
-import Icon from '../Icon'
-
+import React, { ReactElement, useState } from 'react'
 import { TAvatarProps } from './types'
+import classNames from 'classnames'
+import { FileUpload } from '../index'
+import { FileUploadMode } from '../FileUpload/types'
 import '../../assets/styles/components/_avatar.scss'
 
-export const Avatar = (props: TAvatarProps): JSX.Element | null => {
-  const {
-    color = 'default',
-    size = 'medium',
-    imagePath,
-    initials = '',
-    className = '',
-    isEditable
-  } = props
-  const [isHovered, setHoverState] = useState(false)
-
-  const onMouseEnter = () => setHoverState(true)
-  const onMouseLeave = () => setHoverState(false)
+export const Avatar = ({
+  color = 'default',
+  size = 'medium',
+  imagePath = '',
+  initials = '',
+  className = '',
+  isEditable = false,
+  onAvatarChange
+}: TAvatarProps): ReactElement => {
+  const [image, setImage] = useState<string>(imagePath)
+  const getFiles = (files: File[]) => {
+    if (files && files[0]) {
+      setImage(URL.createObjectURL(files[0]))
+      onAvatarChange?.(files[0])
+    }
+  }
+  const style = {
+    ...(image ? { backgroundImage: image ? `url(${image})` : 'none' } : null)
+  }
 
   return (
     <div
-      className={`avatar avatar--${color} avatar--${size} ${className} 
-                        ${imagePath ? 'avatar--image' : ''}
-                        ${isEditable ? 'avatar--edit' : ''}
-                       `}
-      style={{ backgroundImage: `url(${imagePath})` }}
+      className={classNames('avatar', `avatar--${color}`, `avatar--${size}`, className, {
+        'avatar--image': image,
+        'avatar--edit': isEditable
+      })}
+      style={style}
     >
-      {!imagePath ? initials : null}
-      {isEditable ? (
-        <span className="avatar__icon" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-          <Icon name={isHovered ? 'edit-hover' : 'edit'} size="xsmall" type="secondary" />
-        </span>
-      ) : null}
+      {!image ? initials : null}
+      {isEditable && (
+        <FileUpload
+          multiple={false}
+          withFilePreview={false}
+          getFiles={getFiles}
+          allowedTypes=".png, .jpg, .jpeg"
+          mode={FileUploadMode.edit}
+        />
+      )}
     </div>
   )
 }

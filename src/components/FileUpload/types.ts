@@ -12,4 +12,10 @@ export interface TFileUploadProps extends IFormCompProps {
   withFilePreview?: boolean
   uploadedFiles?: File[]
   multiple?: boolean
+  mode?: FileUploadMode
+}
+
+export enum FileUploadMode {
+  edit = 'edit',
+  attach = 'attach'
 }

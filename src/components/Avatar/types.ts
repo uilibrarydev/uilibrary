@@ -5,4 +5,5 @@ export interface TAvatarProps extends IFormCompProps {
   size?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall' | 'xxsmall'
   className?: string
   isEditable?: boolean
+  onAvatarChange?: (file: File) => void
 }
