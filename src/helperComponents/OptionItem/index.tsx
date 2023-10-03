@@ -11,9 +11,9 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
     disabled,
     avatar,
     isSelected,
-    labelRightIconComponent,
     labelLeftIconProps,
-    optionRightIconComponent,
+    LabelRightIconComponent,
+    OptionRightIconComponent,
     isCheckbox,
     className = ''
   } = props
@@ -63,7 +63,8 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
           <span className={`select__option__text pr-4 ${disabled ? 'color-disabled' : ''}`}>
             {label}
           </span>
-          {labelRightIconComponent}
+          {LabelRightIconComponent && LabelRightIconComponent(value)}
+
           {meta ? (
             <span className={`select__option__meta ${disabled ? 'color-disabled' : ''}`}>
               {meta}
@@ -71,7 +72,7 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
           ) : null}
         </div>
       </div>
-      {optionRightIconComponent}
+      {OptionRightIconComponent && OptionRightIconComponent(value)}
     </div>
   )
 }
