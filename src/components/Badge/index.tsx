@@ -3,7 +3,7 @@ import { Text } from '../index'
 
 import { TBadgeProps } from './types'
 import '../../assets/styles/components/_badge.scss'
-import classNames from 'classnames';
+import classNames from 'classnames'
 
 export const Badge = (props: TBadgeProps): ReactElement => {
   const { type = 'primary', size = 'large', text, className = '' } = props
