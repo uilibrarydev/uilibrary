@@ -9,7 +9,7 @@ export default {
 }
 
 const getFiles = (files: FileList) => {
-  console.log(files)
+  console.log('getFiles', files)
 }
 
 const Template = (args): JSX.Element => {

@@ -31,5 +31,8 @@ Avatar.args = {
   color: 'default',
   size: 'large',
   isEditable: false,
-  imagePath: image.src
+  imagePath: image.src,
+  onAvatarChange: (file: File) => {
+    console.log(file)
+  }
 }
