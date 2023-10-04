@@ -1,10 +1,11 @@
 import React, { forwardRef } from 'react'
+import classnames from 'classnames'
 
 import Icon from '../Icon'
+import Label from '../../helperComponents/Label'
 
 import { TSwitcherProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
-import classnames from 'classnames'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => {
@@ -14,6 +15,7 @@ export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => 
     name,
     value,
     disabled,
+    label,
     size = 'large',
     setFieldValue,
     selectedValue,
@@ -32,29 +34,32 @@ export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => 
   }
 
   return (
-    <label
-      id={id}
-      className={classnames(
-        'controller',
-        'controller--switch',
-        `controller--switch-${size}`,
-        className,
-        { 'controller--disabled': disabled }
-      )}
-    >
-      <input
-        type="checkbox"
-        tabIndex={0}
-        onChange={changeHandler}
-        checked={isChecked}
-        disabled={disabled}
-      />
-      <span className="controller__icon">
-        <span className="controller__icon__inner">
-          <Icon name="mark" size="xsmall" className="controller__mark" />
+    <div className="switcher">
+      {label && <Label text={label} />}
+      <label
+        id={id}
+        className={classnames(
+          'controller',
+          'controller--switch',
+          `controller--switch-${size}`,
+          className,
+          { 'controller--disabled': disabled }
+        )}
+      >
+        <input
+          type="checkbox"
+          tabIndex={0}
+          onChange={changeHandler}
+          checked={isChecked}
+          disabled={disabled}
+        />
+        <span className="controller__icon">
+          <span className="controller__icon__inner">
+            <Icon name="mark" size="xsmall" className="controller__mark" />
+          </span>
         </span>
-      </span>
-    </label>
+      </label>
+    </div>
   )
 })
 
