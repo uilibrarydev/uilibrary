@@ -17,5 +17,6 @@ export interface TChipsProps extends IFormCompProps {
   size?: 'large' | 'medium' | 'small'
   className?: string
   disabled?: boolean
+  withAction?: boolean
   onClick?: (e: TClickEventType) => void
 }

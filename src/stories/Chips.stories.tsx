@@ -32,5 +32,6 @@ Chips.args = {
   leftIconProps: {
     name: 'user'
   },
-  disabled: false
+  disabled: false,
+  withAction: false
 }
