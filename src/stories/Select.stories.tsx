@@ -196,7 +196,7 @@ const Template = (args: any): JSX.Element => {
   const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
 
   return (
-    <div style={{ width: 320 }}>
+    <div style={{ width: 320, position: 'absolute', left: 300 }}>
       <SelectComp
         {...args}
         outerHelperText="helper text"
