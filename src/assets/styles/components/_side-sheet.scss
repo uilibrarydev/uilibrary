@@ -3,7 +3,9 @@
 .side-sheet {
   $this: &;
 
-  --ds-side-sheet-width: 620px;
+  --ds-side-sheet-width-sm: 620px;
+  --ds-side-sheet-width-lg: 740px;
+  
 
   --ds-side-sheet-overlay-bg: var(--ds-overlay-9);
   --ds-side-sheet-overlay-padding: var(--ds-space-16);
@@ -34,7 +36,13 @@
     bottom: 0;
     width: 100%;
     background-color: var(--ds-side-sheet-bg);
-    max-width: var(--ds-side-sheet-width);
+    &--small {
+      max-width: var(--ds-side-sheet-width-sm);
+    }
+    &--large {
+      max-width: var(--ds-side-sheet-width-lg);
+    }
+    
   }
 
   &__header {
