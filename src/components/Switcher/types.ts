@@ -5,4 +5,5 @@ export interface TSwitcherProps extends IFormCompProps {
   selectedValue?: boolean
   size?: 'large' | 'small'
   id?: string
+  label?: string
 }
