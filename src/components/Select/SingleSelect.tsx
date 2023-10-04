@@ -1,17 +1,15 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
 import classNames from 'classnames'
-import { useOnOutsideClick } from '../../hooks/useOnOutsideClick'
-import { useGetElemSizes } from '../../hooks/useGetElemSizes'
+import { useOnOutsideClick, useGetElemPositions, useGetElemSizes } from '../../hooks'
 
-import { OptionItem } from '../../helperComponents/OptionItem'
 import { Text, Input } from '../../index'
+import { OptionItem } from '../../helperComponents/OptionItem'
 
 import { Loading } from './SharedComponents'
 import { SELECTED_VISIBLE_MIN_COUNT } from './MultiSelect/consts'
 
 import { TSingleSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
-import classnames from 'classnames'
 
 const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
@@ -39,6 +37,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     optionRightIconComponent
   } = props
   const scrollRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement | null>(null)
   const { scrollHeight } = useGetElemSizes(scrollRef.current)
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -56,6 +55,8 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const closeDropdown = () => setIsOpen(false)
 
   useOnOutsideClick(containerRef.current, closeDropdown, isOpen, useId())
+  const { bottom, left } = useGetElemPositions(inputRef.current)
+  const { width } = useGetElemSizes(containerRef.current)
 
   const filteredData = useMemo(() => {
     if (!searchValue) {
@@ -132,18 +133,19 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
           isValid={isValid}
           disabled={disabled}
           helperText={isOpen ? '' : outerHelperText}
+          ref={inputRef}
         />
       </div>
 
       {isOpen && (
-        <div className="select__options">
+        <div className="select__options" style={{ left, width, top: bottom }}>
           {isLoading ? (
             <Loading />
           ) : (
             <>
               <div
                 ref={scrollRef}
-                className={classnames(
+                className={classNames(
                   'select__options__scroll',
                   'scrollbar',
                   'scrollbar--vertical',
