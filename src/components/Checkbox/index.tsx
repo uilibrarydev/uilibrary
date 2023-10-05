@@ -60,19 +60,17 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
       {label ? (
         <Text type={disabled ? 'disabled' : 'primary'} className="controller__label">
           <>
-            {
-              link ? (
-                <>
-                  {beforeLink && <span className="mr-4">{beforeLink}</span>}
-                  <Link dataId={dataId} url={link} taget="_blank">
-                    {label}
-                  </Link>
-                  {afterLink && <span className="ml-4">{afterLink}</span>}
-
-                </>) : (
-                <>{label}</>
-              )
-            }
+            {link ? (
+              <>
+                {beforeLink && <span className="mr-4">{beforeLink}</span>}
+                <Link dataId={dataId} url={link} taget="_blank">
+                  {label}
+                </Link>
+                {afterLink && <span className="ml-4">{afterLink}</span>}
+              </>
+            ) : (
+              <>{label}</>
+            )}
             {required && <sup>*</sup>}
           </>
         </Text>
