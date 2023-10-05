@@ -18,6 +18,8 @@ export const Chips = (props: TChipsProps): ReactElement => {
     onClick
   } = props
 
+  const customType = disabled ? 'disabled' : type == 'filled' ? 'inverse' : color;
+
   return (
     <div
       className={classNames(
@@ -28,13 +30,13 @@ export const Chips = (props: TChipsProps): ReactElement => {
       {leftIconProps?.name && (
         <Icon
           size={size == 'small' ? 'xsmall' : 'small'}
-          type={disabled ? 'disabled' : type == 'filled' ? 'inverse' : color}
+          type={customType}
           {...leftIconProps}
           className="mr-4"
         />
       )}
       <Text
-        type={disabled ? 'disabled' : type == 'filled' ? 'inverse' : color}
+        type={customType}
         size={size == 'small' ? 'small' : 'standard'}
         className="status__label"
       >
@@ -44,7 +46,7 @@ export const Chips = (props: TChipsProps): ReactElement => {
         <Icon
           name="dismiss-circle-hover"
           size={size == 'small' ? 'xsmall' : 'small'}
-          type={disabled ? 'disabled' : type == 'filled' ? 'inverse' : color}
+          type={customType}
           className="chips__delete ml-4"
           onClick={onClick}
         />
