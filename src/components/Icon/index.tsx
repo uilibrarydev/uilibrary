@@ -1,11 +1,24 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { IconPropTypes } from './types'
+import classNames from 'classnames'
 
-const Icon = (props: IconPropTypes): JSX.Element => {
-  const { name, type, size = 'medium', onClick, className = '', refHandler, id } = props
-
+const Icon = ({
+  name,
+  type,
+  size = 'medium',
+  onClick,
+  className = '',
+  refHandler,
+  id = ''
+}: IconPropTypes): ReactElement => {
   return (
-    <span className={`icon icon--${size} ${type ? `color-${type}` : ''} ${className}`} id={`${id}`}>
+    <span
+      className={classNames('icon', `icon--${size}`, {
+        [`color-${type}`]: type,
+        [className]: className
+      })}
+      id={`${id}`}
+    >
       <i ref={refHandler} onClick={onClick} className={`icon-${name}`} />
     </span>
   )

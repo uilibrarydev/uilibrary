@@ -159,17 +159,4 @@
       }
     }
   }
-
-  &__icon {
-    z-index: 1;
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(center);
-    @include absolute(unset, 0, 0, unset);
-    width: var(--ds-avatar-icon-size);
-    height: var(--ds-avatar-icon-size);
-    border-radius: var(--ds-avatar-icon-border-radius);
-    box-shadow: var(--ds-avatar-icon-shadow);
-    background-color: var(--ds-avatar-icon-bg);
-  }
 }

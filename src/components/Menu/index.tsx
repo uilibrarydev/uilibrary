@@ -1,14 +1,16 @@
 import React, { ReactElement, useId, useMemo, useState } from 'react'
 import ReactDOM from 'react-dom'
 
+import {
+  useOnOutsideClick,
+  useGetElemPositions,
+  useGetElemSizes,
+  useGetTooltipPosition
+} from '../../hooks'
 import { OptionItem } from '../../helperComponents/OptionItem'
-import { useOnOutsideClick } from '../../hooks/useOnOutsideClick'
-import { useGetElemPositions } from '../../hooks/useGetElemPositions'
-import { useGetElemSizes } from '../../hooks/useGetElemSizes'
 
 import { TMenuProps, TMenuItem } from './types'
 import '../../assets/styles/components/_select.scss'
-import { useGetTooltipPosition } from '../../hooks/useGetTooltipPosition'
 
 const Menu = (props: TMenuProps): ReactElement | null => {
   const { menuItems = [], parentRef, onClose, isOpen, position = 'bottom-right' } = props

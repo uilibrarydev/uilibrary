@@ -64,6 +64,7 @@ const Template = (args: any) => {
       <button onClick={handleOpenSheet}>Open Side Sheet</button>
       <SideSheetComp
         {...args}
+        size="large"
         onClose={handleCloseSheet}
         isOpen={isOpen}
         onSumbit={() => console.log('submit')}

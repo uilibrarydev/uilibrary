@@ -33,6 +33,8 @@ import SideSheet from './SideSheet'
 import Counter from './Counter'
 import { CollapseItem, CollapseGroup } from './Collapse'
 import { Copy } from './Copy'
+import Status from './Status'
+import Chips from './Chips'
 
 export {
   Copy,
@@ -76,5 +78,7 @@ export {
   Breadcrumb,
   Image,
   Menu,
-  SideSheet
+  SideSheet,
+  Status,
+  Chips
 }

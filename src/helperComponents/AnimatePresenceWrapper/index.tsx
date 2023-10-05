@@ -7,8 +7,14 @@ interface NewAnimatePresenceProps extends Omit<AnimatePresenceProps, 'children'>
 
 //  This component is for exit animation
 
-export function AnimatedComponent({ children }: { children: React.ReactNode }): JSX.Element {
+export function AnimatedComponent({
+  children,
+  initial = true
+}: {
+  children: React.ReactNode
+  initial?: boolean
+}): JSX.Element {
   const NewAnimatePresence: React.FC<NewAnimatePresenceProps> = AnimatePresence
 
-  return <NewAnimatePresence>{children}</NewAnimatePresence>
+  return <NewAnimatePresence initial={initial}>{children}</NewAnimatePresence>
 }

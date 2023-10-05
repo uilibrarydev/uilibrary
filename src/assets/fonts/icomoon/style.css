@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?2ze5r5');
-  src:  url('fonts/icomoon.eot?2ze5r5#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?2ze5r5') format('truetype'),
-    url('fonts/icomoon.woff?2ze5r5') format('woff'),
-    url('fonts/icomoon.svg?2ze5r5#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?v6ijgb');
+  src:  url('fonts/icomoon.eot?v6ijgb#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?v6ijgb') format('truetype'),
+    url('fonts/icomoon.woff?v6ijgb') format('woff'),
+    url('fonts/icomoon.svg?v6ijgb#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,14 +25,29 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-pdf-dark .path1:before {
-  content: "\e95c";
-  color: rgb(34, 34, 34);
+.icon-dismiss-circle:before {
+  content: "\e962";
 }
-.icon-pdf-dark .path2:before {
+.icon-dismiss-circle-hover:before {
+  content: "\e963";
+}
+.icon-blocked:before {
+  content: "\e960";
+}
+.icon-blocked-hover:before {
+  content: "\e961";
+}
+.icon-briefcase:before {
+  content: "\e95c";
+}
+.icon-briefcase-hover:before {
   content: "\e95d";
-  margin-left: -0.818359375em;
-  color: rgb(254, 254, 254);
+}
+.icon-terminate:before {
+  content: "\e95e";
+}
+.icon-terminate-hover:before {
+  content: "\e95f";
 }
 .icon-add-user:before {
   content: "\e90e";

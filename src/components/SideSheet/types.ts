@@ -1,7 +1,9 @@
 import { ReactNode } from 'react'
 import { TButtonPropTypes } from '../Button/types'
 
+export type TSidesheet = 'small' | 'large'
 export interface TSideSheetPropTypes {
+  size?: TSidesheet
   isLoading?: boolean
   isOpen: boolean
   onClose: () => void

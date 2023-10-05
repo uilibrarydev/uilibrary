@@ -1,0 +1,261 @@
+@import "../shared";
+
+.chips {
+  $this: &;
+
+  --ds-chips-height-lg: var(--ds-size-28);
+  --ds-chips-height-md: var(--ds-size-24);
+  --ds-chips-height-sm: var(--ds-size-20);
+
+  --ds-chips-border-radius: var(--ds-border-radius-lg);
+  --ds-chips-padding: var(--ds-space-4);
+
+  --ds-chips-label-padding: 0 var(--ds-space-2);
+
+  --ds-chips-filled-bg-primary: var(--grey-400);
+  --ds-chips-filled-bg-primary-hover: var(--grey-500);
+  --ds-chips-filled-bg-information: var(--blue-400);
+  --ds-chips-filled-bg-information-hover: var(--blue-600);
+  --ds-chips-filled-bg-brand: var(--brand-500);
+  --ds-chips-filled-bg-brand-hover: var(--brand-600);
+  --ds-chips-filled-bg-danger: var(--red-700);
+  --ds-chips-filled-bg-danger-hover: var(--red-800);
+  --ds-chips-filled-bg-warning: var(--yellow-600);
+  --ds-chips-filled-bg-warning-hover: var(--yellow-800);
+  --ds-chips-filled-bg-success: var(--green-400);
+  --ds-chips-filled-bg-success-hover: var(--green-500);
+  --ds-chips-filled-bg-discovery: var(--purple-300);
+  --ds-chips-filled-bg-discovery-hover: var(--purple-500);
+
+  --ds-chips-accent-bg-primary: var(--grey-50);
+  --ds-chips-accent-bg-primary-hover: var(--grey-100);
+  --ds-chips-accent-bg-information: var(--blue-50);
+  --ds-chips-accent-bg-information-hover: var(--blue-100);
+  --ds-chips-accent-bg-brand: var(--brand-20);
+  --ds-chips-accent-bg-brand-hover: var(--brand-30);
+  --ds-chips-accent-bg-danger: var(--red-50);
+  --ds-chips-accent-bg-danger-hover: var(--red-100);
+  --ds-chips-accent-bg-warning: var(--yellow-50);
+  --ds-chips-accent-bg-warning-hover: var(--yellow-100);
+  --ds-chips-accent-bg-success: var(--green-50);
+  --ds-chips-accent-bg-success-hover: var(--green-100);
+  --ds-chips-accent-bg-discovery: var(--purple-50);
+  --ds-chips-accent-bg-discovery-hover: var(--purple-100);
+
+  --ds-chips-outlined-bg: var(--white);
+  --ds-chips-outlined-bg-primary-hover: var(--grey-50);
+  --ds-chips-outlined-bg-information-hover: var(--blue-50);
+  --ds-chips-outlined-bg-brand-hover: var(--brand-20);
+  --ds-chips-outlined-bg-danger-hover: var(--red-50);
+  --ds-chips-outlined-bg-warning-hover: var(--yellow-50);
+  --ds-chips-outlined-bg-success-hover: var(--green-50);
+  --ds-chips-outlined-bg-discovery-hover: var(--purple-50);
+
+  --ds-chips-bg-disabled: var(--grey-50);
+  --ds-chips-border-color-disabled: var(--ds-color-border-disabled);
+
+  @include inline-flex;
+  @include align-items(center);
+  @include justify-content(center);
+  border-radius: var(--ds-chips-border-radius);
+  padding: var(--ds-chips-padding);
+
+  &__label {
+    padding: var(--ds-chips-label-padding);
+  }
+
+  &:not(&#{$this}--disabled) {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  
+  &--disabled {
+    cursor: default;
+  }
+
+  &--large {
+    height: var(--ds-chips-height-lg);
+    min-width: var(--ds-chips-height-lg);
+  }
+  &--medium {
+    height: var(--ds-chips-height-md);
+    min-width: var(--ds-chips-height-md);
+  }
+  &--small {
+    height: var(--ds-chips-height-sm);
+    min-width: var(--ds-chips-height-sm);
+  }
+
+  &--filled {
+    &:not(&#{$this}--disabled) {
+      &#{$this}--primary {
+        background-color: var(--ds-chips-filled-bg-primary);
+
+        &:hover {
+          background-color: var(--ds-chips-filled-bg-primary-hover)
+        }
+      }
+
+      &#{$this}--information {
+        background-color: var(--ds-chips-filled-bg-information);
+
+        &:hover {
+          background-color: var(--ds-chips-filled-bg-information-hover)
+        }
+      }
+
+      &#{$this}--brand {
+        background-color: var(--ds-chips-filled-bg-brand);
+
+        &:hover {
+          background-color: var(--ds-chips-filled-bg-brand-hover)
+        }
+      }
+
+      &#{$this}--danger {
+        background-color: var(--ds-chips-filled-bg-danger);
+
+        &:hover {
+          background-color: var(--ds-chips-filled-bg-danger-hover)
+        }
+      }
+
+      &#{$this}--success {
+        background-color: var(--ds-chips-filled-bg-success);
+
+        &:hover {
+          background-color: var(--ds-chips-filled-bg-success-hover)
+        }
+      }
+
+      &#{$this}--warning {
+        background-color: var(--ds-chips-filled-bg-warning);
+
+        &:hover {
+          background-color: var(--ds-chips-filled-bg-warning-hover)
+        }
+      }
+
+      &#{$this}--discovery {
+        background-color: var(--ds-chips-filled-bg-discovery);
+
+        &:hover {
+          background-color: var(--ds-chips-filled-bg-discovery-hover)
+        }
+      }
+    }
+    &#{$this}--disabled {
+      background-color: var(--ds-chips-bg-disabled);
+    }
+  }
+  &--accent {
+    &:not(&#{$this}--disabled) {
+      &#{$this}--primary {
+        background-color: var(--ds-chips-accent-bg-primary);
+        &:hover {
+          background-color: var(--ds-chips-accent-bg-primary-hover)
+        }
+      }
+
+      &#{$this}--information {
+        background-color: var(--ds-chips-accent-bg-information);
+        &:hover {
+          background-color: var(--ds-chips-accent-bg-information-hover)
+        }
+      }
+
+      &#{$this}--brand {
+        background-color: var(--ds-chips-accent-bg-brand);
+        &:hover {
+          background-color: var(--ds-chips-accent-bg-brand-hover)
+        }
+      }
+
+      &#{$this}--danger {
+        background-color: var(--ds-chips-accent-bg-danger);
+        &:hover {
+          background-color: var(--ds-chips-accent-bg-danger-hover)
+        }
+      }
+
+      &#{$this}--success {
+        background-color: var(--ds-chips-accent-bg-success);
+        &:hover {
+          background-color: var(--ds-chips-accent-bg-success-hover)
+        }
+      }
+
+      &#{$this}--warning {
+        background-color: var(--ds-chips-accent-bg-warning);
+        &:hover {
+          background-color: var(--ds-chips-accent-bg-warning-hover)
+        }
+      }
+
+      &#{$this}--discovery {
+        background-color: var(--ds-chips-accent-bg-discovery);
+        &:hover {
+          background-color: var(--ds-chips-accent-bg-discovery-hover)
+        }
+      }
+    }
+    &#{$this}--disabled {
+      background-color: var(--ds-chips-bg-disabled);
+    }
+  }
+  &--outlined {
+    border: 1px solid;
+    background-color: var(--ds-chips-outlined-bg);
+
+    &:not(&#{$this}--disabled) {
+      &#{$this}--primary {
+        border-color: var(--ds-chips-filled-bg-primary);
+        &:hover {
+          background-color: var(--ds-chips-outlined-bg-primary-hover)
+        }
+      }
+      &#{$this}--information {
+        border-color: var(--ds-chips-filled-bg-information);
+        &:hover {
+          background-color: var(--ds-chips-outlined-bg-information-hover)
+        }
+      }
+      &#{$this}--brand {
+        border-color: var(--ds-chips-filled-bg-brand);
+        &:hover {
+          background-color: var(--ds-chips-outlined-bg-brand-hover)
+        }
+      }
+      &#{$this}--danger {
+        border-color: var(--ds-chips-filled-bg-danger);
+        &:hover {
+          background-color: var(--ds-chips-outlined-bg-danger-hover)
+        }
+      }
+      &#{$this}--success {
+        border-color: var(--ds-chips-filled-bg-success);
+        &:hover {
+          background-color: var(--ds-chips-outlined-bg-success-hover)
+        }
+      }
+      &#{$this}--warning {
+        border-color: var(--ds-chips-filled-bg-warning);
+        &:hover {
+          background-color: var(--ds-chips-outlined-bg-warning-hover)
+        }
+      }
+      &#{$this}--discovery {
+        border-color: var(--ds-chips-filled-bg-discovery);
+        &:hover {
+          background-color: var(--ds-chips-outlined-bg-discovery-hover)
+        }
+      }
+    }
+
+    &#{$this}--disabled {
+      border-color: var(--ds-chips-border-color-disabled);
+      background-color: var(--ds-chips-outlined-bg);
+    }
+  }
+}

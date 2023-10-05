@@ -22,5 +22,6 @@ export const Switcher = Template.bind({})
 
 Switcher.args = {
   size: 'small',
-  disabled: false
+  disabled: false,
+  label: 'label'
 }

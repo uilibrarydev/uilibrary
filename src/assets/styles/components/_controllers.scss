@@ -142,7 +142,7 @@
     cursor: default;
   }
 
-  &__label, &__link {
+  &__label {
     font: var(--ds-controller-font);
     padding: var(--ds-controller-label-padding);
     max-width: calc(100% - var(--ds-size-16));

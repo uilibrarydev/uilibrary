@@ -20,6 +20,8 @@ import Switcher from './components/Switcher'
 import Radio from './components/Radio'
 import RadioGroup from './components/Radio/RadioGroup'
 import Badge from './components/Badge'
+import Status from './components/Status'
+import Chips from './components/Chips'
 
 import More from './components/More'
 import { WithFormFeedback } from './context/FormContextProvider'
@@ -86,5 +88,7 @@ export {
   Counter,
   useFormProps,
   useFieldArray,
-  FormContext
+  FormContext,
+  Status,
+  Chips
 }

@@ -1,10 +1,11 @@
-import React, { useCallback, useRef } from 'react'
-import { TFileUploadProps } from './types'
+import React, { useCallback, useRef, useState } from 'react'
+import { FileUploadMode, TFileUploadProps } from './types'
 import Button from '../Button'
 import Label from '../../helperComponents/Label'
 import { getFormattedValues, uniqueFiles } from '../../utils'
 import UploadItems from './uploadItems'
 import '../../assets/styles/components/_upload.scss'
+import Icon from '../Icon'
 
 const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const {
@@ -22,10 +23,14 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     withFilePreview = true,
     multiple = true,
     uploadedFiles,
-    value
+    value,
+    mode = FileUploadMode.attach
   } = props
   const files = (value as File[]) || uploadedFiles || []
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const [isHovered, setHoverState] = useState(false)
+
+  const onMouseEnterOrLeave = () => setHoverState(!isHovered)
 
   const onUploadClick = () => {
     if (fileInputRef.current) {
@@ -94,14 +99,27 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
           accept={allowedTypes}
           onChange={handleChange}
         />
-        <Button
-          type="secondary"
-          size="medium"
-          disabled={disabled}
-          iconProps={{ name: 'attach', alignment: 'left' }}
-          onClick={onUploadClick}
-          buttonText={buttonText}
-        />
+        {mode === FileUploadMode.edit && (
+          <div
+            className="edit__icon"
+            onMouseEnter={onMouseEnterOrLeave}
+            onMouseLeave={onMouseEnterOrLeave}
+            onClick={onUploadClick}
+          >
+            <Icon name={isHovered ? 'edit-hover' : 'edit'} size="xsmall" type="secondary" />
+          </div>
+        )}
+        {mode === FileUploadMode.attach && (
+          <Button
+            type="secondary"
+            size="medium"
+            disabled={disabled}
+            iconProps={{ name: 'attach' }}
+            onClick={onUploadClick}
+            buttonText={buttonText}
+          />
+        )}
+
         <UploadItems
           handleFileClick={handleFileClick}
           onRemove={handleFileRemove}

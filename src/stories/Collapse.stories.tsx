@@ -30,17 +30,20 @@ const CollapseItems = [
   {
     title: 'collapse1',
     value: 1,
-    content: <div>collapse1 content</div>
+    content: <div>collapse1 content</div>,
+    isOpen: true
   },
   {
     title: 'collapse2',
     value: 2,
-    content: <div style={{ height: 100 }}>collapse2 content</div>
+    content: <div style={{ height: 100 }}>collapse2 content</div>,
+    isOpen: false
   },
   {
     title: 'collapse3',
     value: 3,
-    content: <div style={{ height: 200 }}>collapse3 content</div>
+    content: <div style={{ height: 200 }}>collapse3 content</div>,
+    isOpen: true
   }
 ]
 
