@@ -125,7 +125,7 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
                   size="large"
                   type="secondary"
                   iconProps={{ name: 'caret-up' }}
-                  className="side-sheet__header__scroll-top"
+                  className={`side-sheet__header__scroll-top side-sheet__header__scroll-top__${size}`}
                   onClick={handleScrollToTop}
                 />
               )}
