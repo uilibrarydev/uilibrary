@@ -4,6 +4,8 @@ import { Icon as IconComp, Text } from '../components'
 
 const ICONS = [
   'pos',
+  'dismiss-circle',
+  'dismiss-circle-hover',
   'blocked',
   'blocked-hover',
   'briefcase',
