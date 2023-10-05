@@ -1,11 +1,11 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import { Divider } from '../../../index'
+import { Divider, Empty } from '../../../index'
 
 import { useGetElemSizes } from '../../../../hooks/useGetElemSizes'
 
 import { OptionItem } from '../../../../helperComponents/OptionItem'
 
-import { ContentTop, Loading, NoResult } from '../../SharedComponents'
+import { ContentTop, Loading } from '../../SharedComponents'
 
 import { DROPDOWN_MAX_HEIGHT } from '../consts'
 import { TMultySingleTabPropTypes } from '../../types'
@@ -157,7 +157,7 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
                 })}
               </div>
               {filteredData.length === 0 ? (
-                <NoResult
+                <Empty
                   type="small"
                   mainMessage={emptyListMainMessage}
                   paragraphMessage={emptyListSecondaryMessage}

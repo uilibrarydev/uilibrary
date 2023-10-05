@@ -1,11 +1,11 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import { Tab, Divider } from '../../../index'
+import { Tab, Divider, Empty } from '../../../index'
 
 import { useGetElemSizes } from '../../../../hooks/useGetElemSizes'
 import { OptionItem } from '../../../../helperComponents/OptionItem'
 
 import { DROPDOWN_MAX_HEIGHT } from '../consts'
-import { ContentTop, Loading, NoResult } from '../../SharedComponents'
+import { ContentTop, Loading } from '../../SharedComponents'
 
 import { TMultiSelectGroupedProps } from '../../types'
 import '../../../../assets/styles/components/_select.scss'
@@ -175,7 +175,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
                   )
                 })}
                 {filteredData.length === 0 ? (
-                  <NoResult
+                  <Empty
                     type="small"
                     mainMessage={emptyListMainMessage}
                     paragraphMessage={emptyListSecondaryMessage}

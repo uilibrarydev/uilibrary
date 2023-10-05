@@ -1,17 +1,11 @@
 import React from 'react'
-import Text from '../../../Text'
-import Image from '../../../Image'
-import Button from '../../../Button'
+import Text from '../Text'
+import Image from '../Image'
+import Button from '../Button'
+import { TEmptyProps } from './types'
 import './index.scss'
 
-type TNoResultProps = {
-  type?: string
-  mainMessage: string
-  paragraphMessage?: string
-  buttonText?: string
-}
-
-export const NoResult = (props: TNoResultProps): JSX.Element => {
+const Empty = (props: TEmptyProps): JSX.Element => {
   const { type = 'large', mainMessage, paragraphMessage, buttonText } = props
 
   return (
@@ -29,3 +23,4 @@ export const NoResult = (props: TNoResultProps): JSX.Element => {
     </div>
   )
 }
+export default Empty
