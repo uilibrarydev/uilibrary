@@ -8,7 +8,9 @@
   --ds-chips-height-sm: var(--ds-size-20);
 
   --ds-chips-border-radius: var(--ds-border-radius-lg);
-  --ds-chips-padding: var(--ds-space-6);
+  --ds-chips-padding: var(--ds-space-4);
+
+  --ds-chips-label-padding: 0 var(--ds-space-2);
 
   --ds-chips-filled-bg-primary: var(--grey-400);
   --ds-chips-filled-bg-primary-hover: var(--grey-500);
@@ -57,6 +59,10 @@
   @include justify-content(center);
   border-radius: var(--ds-chips-border-radius);
   padding: var(--ds-chips-padding);
+
+  &__label {
+    padding: var(--ds-chips-label-padding);
+  }
 
   &:not(&#{$this}--disabled) {
     &:hover {

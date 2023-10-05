@@ -30,7 +30,7 @@ export const Chips = (props: TChipsProps): ReactElement => {
           size={size == 'small' ? 'xsmall' : 'small'}
           type={disabled ? 'disabled' : type == 'filled' ? 'inverse' : color}
           {...leftIconProps}
-          className="mr-6"
+          className="mr-4"
         />
       )}
       <Text
@@ -42,10 +42,10 @@ export const Chips = (props: TChipsProps): ReactElement => {
       </Text>
       {withAction && (
         <Icon
-          name="close"
+          name="dismiss-circle-hover"
           size={size == 'small' ? 'xsmall' : 'small'}
           type={disabled ? 'disabled' : type == 'filled' ? 'inverse' : color}
-          className="chips__delete ml-6"
+          className="chips__delete ml-4"
           onClick={onClick}
         />
       )}
