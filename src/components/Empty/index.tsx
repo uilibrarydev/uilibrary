@@ -12,7 +12,8 @@ const Empty = (props: TEmptyProps): JSX.Element => {
   return (
     <div
       className={classNames(
-        `no-result ${type == 'large' ? 'no-result--large' : 'no-result--small'}`, className
+        `no-result ${type == 'large' ? 'no-result--large' : 'no-result--small'}`,
+        className
       )}
     >
       <div className="no-result__icon mb-8">
