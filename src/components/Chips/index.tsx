@@ -18,7 +18,7 @@ export const Chips = (props: TChipsProps): ReactElement => {
     onClick
   } = props
 
-  const customType = disabled ? 'disabled' : type == 'filled' ? 'inverse' : color;
+  const customType = disabled ? 'disabled' : type == 'filled' ? 'inverse' : color
 
   return (
     <div
