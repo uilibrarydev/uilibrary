@@ -7,12 +7,12 @@ import './index.scss'
 import classNames from 'classnames'
 
 const Empty = (props: TEmptyProps): JSX.Element => {
-  const { type = 'large', mainMessage, paragraphMessage, buttonText } = props
+  const { type = 'large', mainMessage, paragraphMessage, buttonText, className } = props
 
   return (
     <div
       className={classNames(
-        `no-result ${type == 'large' ? 'no-result--large' : 'no-result--small'}, className`
+        `no-result ${type == 'large' ? 'no-result--large' : 'no-result--small'}`, className
       )}
     >
       <div className="no-result__icon mb-8">
