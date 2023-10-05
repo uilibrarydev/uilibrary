@@ -13,6 +13,7 @@ import '../../assets/styles/components/_side-sheet.scss'
 
 const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   const {
+    size = 'small',
     isLoading,
     isOpen,
     onClose,
@@ -91,7 +92,12 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
               }
             }}
             transition={{ duration: 0.5 }}
-            className={classnames('side-sheet__container', `side-sheet__${position}`, className)}
+            className={classnames(
+              'side-sheet__container',
+              `side-sheet__${position}`,
+              `side-sheet__container--${size}`,
+              className
+            )}
             ref={setContainerRef}
           >
             <div className="side-sheet__header">
