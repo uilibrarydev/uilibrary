@@ -31,7 +31,8 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
     watch,
     reset,
     clearErrors,
-    setError
+    setError,
+    trigger
   } = useForm({
     mode: mode,
     resolver: yupResolver(validationScheme),
@@ -57,6 +58,7 @@ const FormContainer = (props: FormPropTypes): JSX.Element => {
     >
       <FormContext.Provider
         value={{
+          trigger,
           register,
           errors,
           control,
