@@ -54,6 +54,11 @@ interface TMultiSelectCompProps extends IFormCompProps, TSelectBaseProps {
   onItemSelect: (item: TSelectedValue) => void
   onItemDeselect: (item: TSelectedValue) => void
   footer: JSX.Element
+  containerStyles: {
+    left: number
+    width: number
+    top: number
+  }
 }
 
 export interface TMultySingleTabPropTypes extends TMultiSelectCompProps {
