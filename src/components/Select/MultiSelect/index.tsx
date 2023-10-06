@@ -9,8 +9,7 @@ import React, {
   useState
 } from 'react'
 import { Input } from '../../index'
-import { useOnOutsideClick } from '../../../hooks/useOnOutsideClick'
-import { useGetElemSizes } from '../../../hooks/useGetElemSizes'
+import { useGetElemPositions, useOnOutsideClick, useGetElemSizes } from '../../../hooks'
 import { getStringWidth, setTranslationValue } from '../../../utils'
 import { Footer } from '../SharedComponents'
 import { MultiSelect } from './Multi'
@@ -49,6 +48,8 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   const { overflowText } = localizations
 
   const initialSelected = (value as TSelectedValue[]) || selectedItems
+
+  const inputRef = useRef<HTMLInputElement | null>(null)
 
   const [isOpen, setIsOpen] = useState(false)
   const [selectedValues, setSelectedValues] = useState<TSelectedValue[]>(initialSelected)
@@ -146,6 +147,9 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
     return options.length
   }, [options])
 
+  const { bottom, left } = useGetElemPositions(inputRef.current)
+  const { width: containerWidth } = useGetElemSizes(containerRef.current)
+
   const SelectComp = withTabs ? MultiSelectWithTabs : isGrouped ? MultiSelectGrouped : MultiSelect
 
   return (
@@ -154,6 +158,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
         <Input
           readonly
           label={label}
+          ref={inputRef}
           className="select__input"
           placeholder={placeHolder}
           required={isRequiredField}
@@ -168,6 +173,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
         options={options}
         isOpen={isOpen}
         footer={footer}
+        containerStyles={{ left, width: containerWidth, top: bottom }}
         translations={localizations}
         selectedValues={selectedValues}
         onItemSelect={onItemSelect}

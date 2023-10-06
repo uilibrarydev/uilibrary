@@ -264,7 +264,7 @@ const MultiSelect1 = (args: any): JSX.Element => {
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
 
   return (
-    <div style={{ width: 320 }}>
+    <div style={{ width: 320, position: 'absolute', left: 300 }}>
       <MultiSelectComp
         {...args}
         isGrouped={false}
@@ -320,7 +320,7 @@ const NestedSelect1 = (args: any): JSX.Element => {
   })
 
   return (
-    <div style={{ width: 320 }}>
+    <div style={{ width: 320, position: 'absolute', left: 300 }}>
       <NestedSelectComp
         {...args}
         selected={selected}
@@ -360,8 +360,16 @@ const FilterDropdown1 = (args: any): JSX.Element => {
   const containerRef = useRef(null)
   const closeHandler = () => setIsOpen(false)
   return (
-    <div style={{ width: 320, display: 'flex', flexDirection: 'column' }}>
-      <div style={{ position: 'relative' }} ref={containerRef}>
+    <div
+      style={{
+        width: 320,
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'absolute',
+        left: 300
+      }}
+    >
+      <div style={{ position: 'absolute', left: 300 }} ref={containerRef}>
         <Button
           type="secondary"
           iconProps={{ name: 'filter' }}
@@ -370,7 +378,6 @@ const FilterDropdown1 = (args: any): JSX.Element => {
         />
         <FilterDropdownComp
           {...args}
-          isGrouped
           parentRef={containerRef.current}
           closeHandler={closeHandler}
           isOpen={isOpen}
