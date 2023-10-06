@@ -22,6 +22,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     translations,
     selectedValues,
     onItemSelect,
+    containerStyles,
     onItemDeselect,
     setSelectedValues,
     isSearchAvailable,
@@ -131,7 +132,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
   return (
     <>
       {isOpen && (
-        <div className="select__options">
+        <div className="select__options" style={containerStyles}>
           {isLoading ? (
             <Loading />
           ) : (

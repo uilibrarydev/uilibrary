@@ -1,11 +1,11 @@
-import React, { useCallback, useId, useState } from 'react'
+import React, { useCallback, useId, useRef, useState } from 'react'
 
 import { Input } from '../../index'
 import { OptionItem } from '../../../helperComponents/OptionItem'
+import { useGetElemPositions, useGetElemSizes, useOnOutsideClick } from '../../../hooks'
 
 import { TNestedSelectProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
-import { useOnOutsideClick } from '../../../hooks/useOnOutsideClick'
 
 const LEVEL_LEFT_MARGIN = 10
 
@@ -26,7 +26,9 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
   const [isDropdownOpen, setIsOpen] = useState(false)
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>(initialSelectedFolderIds || [])
-
+  const inputRef = useRef<HTMLInputElement | null>(null)
+  const { bottom, left } = useGetElemPositions(inputRef.current)
+  const { width } = useGetElemSizes(containerRef)
   const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => setIsOpen(false)
 
@@ -93,6 +95,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
     <div className="select select--multi" ref={setContainerRef}>
       <div onClick={toggleDropdown}>
         <Input
+          ref={inputRef}
           className="select__input"
           label={label}
           required={isRequiredField}
@@ -104,7 +107,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
       </div>
 
       {isDropdownOpen && (
-        <div className="select__options">
+        <div className="select__options" style={{ left, width, top: bottom }}>
           <div className="select__options__scroll scrollbar scrollbar--vertical">
             {generateFolders(options, 0)}
           </div>

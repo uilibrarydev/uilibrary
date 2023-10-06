@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import { Divider, Empty } from '../../../index'
 
-import { useGetElemSizes } from '../../../../hooks/useGetElemSizes'
+import { useGetElemSizes } from '../../../../hooks'
 
 import { OptionItem } from '../../../../helperComponents/OptionItem'
 
@@ -25,6 +25,7 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
     isSearchAvailable,
     setSelectedValues,
     selectedValues,
+    containerStyles,
     labelLeftIconProps,
     labelRightIconComponent,
     optionRightIconComponent,
@@ -95,7 +96,7 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
   return (
     <>
       {isOpen && (
-        <div className="select__options">
+        <div className="select__options" style={containerStyles}>
           {isLoading ? (
             <Loading />
           ) : (
