@@ -1,7 +1,7 @@
 import { TButtonPropTypes } from '../Button/types'
 
 export interface TEmptyProps {
-  type?: string
+  size?: string
   className?: string
   mainMessage: string
   paragraphMessage?: string

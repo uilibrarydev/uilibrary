@@ -158,7 +158,7 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
               </div>
               {filteredData.length === 0 ? (
                 <Empty
-                  type="small"
+                  size="small"
                   mainMessage={emptyListMainMessage}
                   paragraphMessage={emptyListSecondaryMessage}
                 />
