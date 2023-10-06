@@ -5,7 +5,7 @@ export default {
   title: 'Empty',
   component: EmptyComp,
   argTypes: {
-    type: {
+    size: {
       options: ['large', 'small'],
       control: { type: 'radio' }
     }
@@ -18,7 +18,7 @@ const Template = (args) => {
 export const Empty = Template.bind({})
 
 Empty.args = {
-  type: 'Label',
+  size: 'large',
   mainMessage: 'Main Message',
   paragraphMessage: 'Paragraph Message',
   buttonProps: {
