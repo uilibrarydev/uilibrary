@@ -23,15 +23,12 @@ const Empty = (props: TEmptyProps): JSX.Element => {
         {mainMessage}
       </Text>
       {paragraphMessage ? (
-        <Text
-          size={type == 'large' ? 'small' : 'xsmall'}
-          className={type == 'large' ? 'mt-8' : 'mt-4'}
-        >
+        <Text size={type == 'large' ? 'small' : 'xsmall'}>
           {paragraphMessage}
         </Text>
       ) : null}
       {buttonProps ? (
-        <Button {...buttonProps} size="medium" className={type == 'large' ? 'mt-16' : 'mt-8'} />
+        <Button {...buttonProps} size="medium" className="mt-4" />
       ) : null}
     </div>
   )
