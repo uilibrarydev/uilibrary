@@ -165,7 +165,7 @@ const ICONS = [
   'youtube',
   'project-product',
   'only-employee',
-  'units-employee',
+  'units-employee'
 ]
 
 export default {
