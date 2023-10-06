@@ -5,6 +5,11 @@ import { TChipsProps } from './types'
 import classNames from 'classnames'
 import '../../assets/styles/components/_chips.scss'
 
+enum ChipsActionIconSize {
+  large = 'medium',
+  medium = 'small',
+  small = 'xsmall'
+}
 export const Chips = (props: TChipsProps): ReactElement => {
   const {
     type = 'filled',
@@ -28,26 +33,21 @@ export const Chips = (props: TChipsProps): ReactElement => {
       )}
     >
       {leftIconProps?.name && (
-        <Icon
-          size={size == 'small' ? 'xsmall' : 'small'}
-          type={customType}
-          {...leftIconProps}
-          className="mr-4"
-        />
+        <Icon size={size == 'small' ? 'xsmall' : 'small'} type={customType} {...leftIconProps} />
       )}
       <Text
         type={customType}
         size={size == 'small' ? 'small' : 'standard'}
-        className="status__label"
+        className="chips__label"
       >
         <>{text}</>
       </Text>
       {withAction && (
         <Icon
           name="dismiss-circle-hover"
-          size={size == 'small' ? 'xsmall' : 'small'}
+          // size={ChipsActionIconSize}
           type={customType}
-          className="chips__delete ml-4"
+          className="chips__delete"
           onClick={onClick}
         />
       )}
