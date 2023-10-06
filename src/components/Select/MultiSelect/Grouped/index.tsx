@@ -212,7 +212,6 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                 </div>
               </div>
               {filteredData.length === 0 ? (
-                // eslint-disable-next-line react/jsx-no-undef
                 <Empty
                   type="small"
                   mainMessage={emptyListMainMessage}

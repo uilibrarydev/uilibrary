@@ -45,7 +45,7 @@ export const Chips = (props: TChipsProps): ReactElement => {
       {withAction && (
         <Icon
           name="dismiss-circle-hover"
-          // size={ChipsActionIconSize}
+          size={ChipsActionIconSize[size]}
           type={customType}
           className="chips__delete"
           onClick={onClick}
