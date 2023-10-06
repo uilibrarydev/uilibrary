@@ -7,7 +7,7 @@ import './index.scss'
 import classNames from 'classnames'
 
 const Empty = (props: TEmptyProps): JSX.Element => {
-  const { type = 'large', mainMessage, paragraphMessage, buttonText, className } = props
+  const { type = 'large', mainMessage, paragraphMessage, buttonProps, className } = props
 
   return (
     <div
@@ -23,9 +23,13 @@ const Empty = (props: TEmptyProps): JSX.Element => {
         {mainMessage}
       </Text>
       {paragraphMessage ? (
-        <Text size={type == 'large' ? 'small' : 'xsmall'}>{paragraphMessage}</Text>
+        <Text size={type == 'large' ? 'small' : 'xsmall'}>
+          {paragraphMessage}
+        </Text>
       ) : null}
-      {buttonText ? <Button buttonText={buttonText} size="medium" className="mt-4" /> : null}
+      {buttonProps ? (
+        <Button {...buttonProps} size="medium" className="mt-4" />
+      ) : null}
     </div>
   )
 }
