@@ -1,4 +1,4 @@
-import {TButtonPropTypes} from "../Button/types";
+import { TButtonPropTypes } from '../Button/types'
 
 export interface TEmptyProps {
   type?: string

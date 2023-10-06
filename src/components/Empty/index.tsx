@@ -11,7 +11,8 @@ const Empty = (props: TEmptyProps): JSX.Element => {
 
   return (
     <div
-      className={classNames(`no-result ${type == 'large' ? 'no-result--large' : 'no-result--small'}`,
+      className={classNames(
+        `no-result ${type == 'large' ? 'no-result--large' : 'no-result--small'}`,
         className
       )}
     >
@@ -22,9 +23,16 @@ const Empty = (props: TEmptyProps): JSX.Element => {
         {mainMessage}
       </Text>
       {paragraphMessage ? (
-        <Text size={type == 'large' ? 'small' : 'xsmall'} className={type == 'large' ? 'mt-8' : 'mt-4'}>{paragraphMessage}</Text>
+        <Text
+          size={type == 'large' ? 'small' : 'xsmall'}
+          className={type == 'large' ? 'mt-8' : 'mt-4'}
+        >
+          {paragraphMessage}
+        </Text>
       ) : null}
-      {buttonProps ? <Button {...buttonProps} size="medium" className={type == 'large' ? 'mt-16' : 'mt-8'} /> : null}
+      {buttonProps ? (
+        <Button {...buttonProps} size="medium" className={type == 'large' ? 'mt-16' : 'mt-8'} />
+      ) : null}
     </div>
   )
 }
