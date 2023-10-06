@@ -10,7 +10,8 @@
   --ds-chips-border-radius: var(--ds-border-radius-lg);
   --ds-chips-padding: var(--ds-space-4);
 
-  --ds-chips-label-padding: 0 var(--ds-space-2);
+  --ds-chips-label-padding-lg: 0 var(--ds-space-6);
+  --ds-chips-label-padding-sm: 0 var(--ds-space-4);
 
   --ds-chips-filled-bg-primary: var(--grey-400);
   --ds-chips-filled-bg-primary-hover: var(--grey-500);
@@ -61,7 +62,7 @@
   padding: var(--ds-chips-padding);
 
   &__label {
-    padding: var(--ds-chips-label-padding);
+    padding: var(--ds-chips-label-padding-lg);
   }
 
   &:not(&#{$this}--disabled) {
@@ -85,6 +86,10 @@
   &--small {
     height: var(--ds-chips-height-sm);
     min-width: var(--ds-chips-height-sm);
+
+    #{$this}__label {
+      padding: var(--ds-chips-label-padding-sm);
+    }
   }
 
   &--filled {

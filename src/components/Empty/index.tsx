@@ -1,21 +1,21 @@
 import React from 'react'
-import Text from '../../../Text'
-import Image from '../../../Image'
-import Button from '../../../Button'
+import Text from '../Text'
+import Image from '../Image'
+import Button from '../Button'
+import { TEmptyProps } from './types'
 import './index.scss'
+import classNames from 'classnames'
 
-type TNoResultProps = {
-  type?: string
-  mainMessage: string
-  paragraphMessage?: string
-  buttonText?: string
-}
-
-export const NoResult = (props: TNoResultProps): JSX.Element => {
-  const { type = 'large', mainMessage, paragraphMessage, buttonText } = props
+const Empty = (props: TEmptyProps): JSX.Element => {
+  const { type = 'large', mainMessage, paragraphMessage, buttonText, className } = props
 
   return (
-    <div className={`no-result ${type == 'large' ? 'no-result--large' : 'no-result--small'}`}>
+    <div
+      className={classNames(
+        `no-result ${type == 'large' ? 'no-result--large' : 'no-result--small'}`,
+        className
+      )}
+    >
       <div className="no-result__icon mb-8">
         <Image imagePath="static/media/src/assets/images/no-result.svg" />
       </div>
@@ -29,3 +29,4 @@ export const NoResult = (props: TNoResultProps): JSX.Element => {
     </div>
   )
 }
+export default Empty

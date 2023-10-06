@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import { Text, Icon, Divider } from '../../../index'
+import { Text, Icon, Divider, Empty } from '../../../index'
 
 import { useGetElemSizes } from '../../../../hooks/useGetElemSizes'
 import { OptionItem } from '../../../../helperComponents/OptionItem'
 
-import { ContentTop, NoResult, Loading } from '../../SharedComponents'
+import { ContentTop, Loading } from '../../SharedComponents'
 import { DROPDOWN_MAX_HEIGHT } from '../consts'
 
 import { TMultiSelectGroupedProps } from '../../types'
@@ -212,7 +212,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                 </div>
               </div>
               {filteredData.length === 0 ? (
-                <NoResult
+                <Empty
                   type="small"
                   mainMessage={emptyListMainMessage}
                   paragraphMessage={emptyListSecondaryMessage}
