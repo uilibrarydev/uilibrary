@@ -71,7 +71,7 @@ const Modal = (props: TModalPropTypes): ReactElement => {
                   <Button
                     type="tertiary"
                     size="small"
-                    iconProps={{ name: 'close' }}
+                    iconProps={{ name: 'close-hover' }}
                     onClick={onClose}
                   />
                 ) : null}

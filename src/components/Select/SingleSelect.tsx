@@ -125,7 +125,8 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
           onChange={onSearch}
           required={isRequiredField}
           rightIconProps={{
-            name: isOpen ? 'caret-up' : 'caret-down'
+            name: isOpen ? 'caret-up-hover' : 'caret-down-hover',
+            size: 'xsmall'
           }}
           readonly={options.length <= SELECTED_VISIBLE_MIN_COUNT}
           placeholder={placeHolder}

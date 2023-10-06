@@ -160,7 +160,7 @@ SideSheet.args = {
   headerButtons: {
     close: {
       iconProps: {
-        name: 'close'
+        name: 'close-hover'
       }
     },
     back: {

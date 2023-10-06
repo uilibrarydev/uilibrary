@@ -99,7 +99,7 @@ export const Filter = (props: TFilterProps): JSX.Element | null => {
           currentValue={filterValue}
           rightIconProps={{
             size: filterValue === '' ? 'small' : 'xsmall',
-            name: filterValue === '' ? 'search' : 'close',
+            name: filterValue === '' ? 'search-hover' : 'close-hover',
             onClick: removeFilterValue
           }}
         />

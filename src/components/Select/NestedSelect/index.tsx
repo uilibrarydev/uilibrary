@@ -80,7 +80,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
             disabled={disabled}
             OptionRightIconComponent={optionRightIconComponent}
             LabelRightIconComponent={labelRightIconComponent}
-            labelLeftIconProps={children ? { name: 'caret-down', size: 'xsmall' } : undefined}
+            labelLeftIconProps={children ? { name: 'caret-down-hover', size: 'xxsmall' } : undefined}
           />
         </div>
       )
@@ -99,7 +99,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
           className="select__input"
           label={label}
           required={isRequiredField}
-          rightIconProps={{ name: isDropdownOpen ? 'caret-up' : 'caret-down' }}
+          rightIconProps={{ name: isDropdownOpen ? 'caret-up-hover' : 'caret-down-hover', size: 'xsmall' }}
           placeholder={placeHolder}
           currentValue={selected?.label.toString() || ''}
           readonly={true}
