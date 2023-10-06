@@ -21,5 +21,10 @@ Empty.args = {
   type: 'Label',
   mainMessage: 'Main Message',
   paragraphMessage: 'Paragraph Message',
-  buttonText: 'Button'
+  buttonProps: {
+    buttonText: 'Button',
+    iconProps: {
+      name: 'add'
+    }
+  }
 }
