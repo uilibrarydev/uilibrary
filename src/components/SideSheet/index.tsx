@@ -24,7 +24,7 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
     headerButtons = {
       close: {
         iconProps: {
-          name: 'close'
+          name: 'close-hover'
         }
       }
     },

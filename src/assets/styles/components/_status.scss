@@ -22,12 +22,14 @@
     display: block;
     border-radius: var(--ds-border-radius-full);
     width: var(--ds-status-circle-size-lg);
+    min-width: var(--ds-status-circle-size-lg);
     height: var(--ds-status-circle-size-lg);
   }
 
   &--small {
     #{$this}__circle {
       width: var(--ds-status-circle-size-sm);
+      min-width: var(--ds-status-circle-size-sm);
       height: var(--ds-status-circle-size-sm);
     }
   }

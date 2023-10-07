@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import { Text, Icon, Divider } from '../../../index'
+import { Text, Icon, Divider, Empty } from '../../../index'
 
 import { useGetElemSizes } from '../../../../hooks/useGetElemSizes'
 import { OptionItem } from '../../../../helperComponents/OptionItem'
 
-import { ContentTop, NoResult, Loading } from '../../SharedComponents'
+import { ContentTop, Loading } from '../../SharedComponents'
 import { DROPDOWN_MAX_HEIGHT } from '../consts'
 
 import { TMultiSelectGroupedProps } from '../../types'
@@ -22,6 +22,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     translations,
     selectedValues,
     onItemSelect,
+    containerStyles,
     onItemDeselect,
     setSelectedValues,
     isSearchAvailable,
@@ -131,7 +132,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
   return (
     <>
       {isOpen && (
-        <div className="select__options">
+        <div className="select__options" style={containerStyles}>
           {isLoading ? (
             <Loading />
           ) : (
@@ -183,8 +184,8 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                             {title}
                           </Text>
                           <Icon
-                            size="xsmall"
-                            name={isActive ? 'caret-up' : 'caret-down'}
+                            size="xxsmall"
+                            name={isActive ? 'caret-up-hover' : 'caret-down-hover'}
                             className="group-item__icon"
                           />
                         </div>
@@ -212,8 +213,8 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                 </div>
               </div>
               {filteredData.length === 0 ? (
-                <NoResult
-                  type="small"
+                <Empty
+                  size="small"
                   mainMessage={emptyListMainMessage}
                   paragraphMessage={emptyListSecondaryMessage}
                 />

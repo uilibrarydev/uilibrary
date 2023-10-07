@@ -41,6 +41,7 @@ import { FormContext } from './context'
 import { useFormProps } from './hooks/useFormProps'
 import { useFieldArray } from 'react-hook-form'
 import { Copy } from './components/Copy'
+import Empty from './components/Empty'
 
 export {
   Copy,
@@ -90,5 +91,6 @@ export {
   useFieldArray,
   FormContext,
   Status,
-  Chips
+  Chips,
+  Empty
 }

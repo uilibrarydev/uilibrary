@@ -106,7 +106,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
             onMouseLeave={onMouseEnterOrLeave}
             onClick={onUploadClick}
           >
-            <Icon name={isHovered ? 'edit-hover' : 'edit'} size="xsmall" type="secondary" />
+            <Icon name={isHovered ? 'edit-hover' : 'edit'} size="xxsmall" type="secondary" />
           </div>
         )}
         {mode === FileUploadMode.attach && (

@@ -55,7 +55,7 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
           value: 2,
           handler: clearAll,
           disabled: !isAnySelected,
-          iconProps: { name: 'close' }
+          iconProps: { name: 'close-hover' }
         }
       ]
     }
@@ -83,7 +83,7 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
           handleChange={onSearch}
           currentValue={searchValue}
           rightIconProps={{
-            name: searchValue ? 'close' : 'search',
+            name: searchValue ? 'close-hover' : 'search-hover',
             size: searchValue ? 'xsmall' : 'small',
             onClick: removeFilter
           }}

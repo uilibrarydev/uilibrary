@@ -1,11 +1,11 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import { Divider } from '../../../index'
+import { Divider, Empty } from '../../../index'
 
-import { useGetElemSizes } from '../../../../hooks/useGetElemSizes'
+import { useGetElemSizes } from '../../../../hooks'
 
 import { OptionItem } from '../../../../helperComponents/OptionItem'
 
-import { ContentTop, Loading, NoResult } from '../../SharedComponents'
+import { ContentTop, Loading } from '../../SharedComponents'
 
 import { DROPDOWN_MAX_HEIGHT } from '../consts'
 import { TMultySingleTabPropTypes } from '../../types'
@@ -25,6 +25,7 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
     isSearchAvailable,
     setSelectedValues,
     selectedValues,
+    containerStyles,
     labelLeftIconProps,
     labelRightIconComponent,
     optionRightIconComponent,
@@ -95,7 +96,7 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
   return (
     <>
       {isOpen && (
-        <div className="select__options">
+        <div className="select__options" style={containerStyles}>
           {isLoading ? (
             <Loading />
           ) : (
@@ -157,8 +158,8 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
                 })}
               </div>
               {filteredData.length === 0 ? (
-                <NoResult
-                  type="small"
+                <Empty
+                  size="small"
                   mainMessage={emptyListMainMessage}
                   paragraphMessage={emptyListSecondaryMessage}
                 />

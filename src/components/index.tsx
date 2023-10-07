@@ -35,6 +35,7 @@ import { CollapseItem, CollapseGroup } from './Collapse'
 import { Copy } from './Copy'
 import Status from './Status'
 import Chips from './Chips'
+import Empty from './Empty'
 
 export {
   Copy,
@@ -80,5 +81,6 @@ export {
   Menu,
   SideSheet,
   Status,
-  Chips
+  Chips,
+  Empty
 }
