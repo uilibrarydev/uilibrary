@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Icon, Switcher as SwitcherComp} from '../index'
+import { Icon, Switcher as SwitcherComp } from '../index'
 
 export default {
   title: 'Switcher',

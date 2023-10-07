@@ -92,7 +92,7 @@ export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps
   setSelectedItem?: (items: TItemValue | undefined) => void
   withSearch?: boolean
   outerHelperText?: string
-  innerHelperText?: string,
+  innerHelperText?: string
   labelAddons?: JSX.Element
 }
 

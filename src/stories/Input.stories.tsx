@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Input as InputComp } from '../components'
-import {Icon} from "../index";
+import { Icon } from '../index'
 
 export default {
   title: 'Input',
@@ -45,7 +45,7 @@ Input.args = {
   required: true,
   maxCount: 15,
   placeholder: 'Some text',
-  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'}/>
+  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
   // helperText: 'This is your helper text'
   // successMessage: 'Success message'
 }

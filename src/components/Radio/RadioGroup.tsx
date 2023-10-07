@@ -42,7 +42,13 @@ const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element => {
         className
       )}
     >
-      <Label className="radio-group__label" text={label} required={required} disabled={disabled} labelAddons={labelAddons} />
+      <Label
+        className="radio-group__label"
+        text={label}
+        required={required}
+        disabled={disabled}
+        labelAddons={labelAddons}
+      />
       <div className="radio-group__inner">
         {options.map((radioOption: TRadioOptionItem) => {
           return (

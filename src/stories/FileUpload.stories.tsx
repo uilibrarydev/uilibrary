@@ -2,7 +2,7 @@
 // @ts-nocheck
 import React from 'react'
 import { FileUpload as FileUploadComp } from '../components'
-import {Icon} from "../index";
+import { Icon } from '../index'
 
 export default {
   title: 'FileUpload',
