@@ -184,8 +184,8 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                             {title}
                           </Text>
                           <Icon
-                            size="xsmall"
-                            name={isActive ? 'caret-up' : 'caret-down'}
+                            size="xxsmall"
+                            name={isActive ? 'caret-up-hover' : 'caret-down-hover'}
                             className="group-item__icon"
                           />
                         </div>

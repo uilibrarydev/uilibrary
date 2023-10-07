@@ -26,7 +26,7 @@ const items = [
   {
     label: 'Save changes',
     iconProps: {
-      name: 'add'
+      name: 'add-hover'
     },
     handler: () => {
       console.log('add')
@@ -36,7 +36,7 @@ const items = [
   {
     label: 'Delete',
     iconProps: {
-      name: 'close'
+      name: 'close-hover'
     },
     handler: () => {
       console.log('delete')
