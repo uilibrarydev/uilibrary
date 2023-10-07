@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Switcher as SwitcherComp } from '../index'
+import {Icon, Switcher as SwitcherComp} from '../index'
 
 export default {
   title: 'Switcher',
@@ -23,5 +23,6 @@ export const Switcher = Template.bind({})
 Switcher.args = {
   size: 'small',
   disabled: false,
-  label: 'label'
+  label: 'label',
+  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
 }

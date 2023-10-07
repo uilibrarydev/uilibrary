@@ -24,6 +24,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     multiple = true,
     uploadedFiles,
     value,
+    labelAddons,
     mode = FileUploadMode.attach
   } = props
   const files = (value as File[]) || uploadedFiles || []
@@ -88,7 +89,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   )
   return (
     <div className="file-upload">
-      <Label text={label} required={required} disabled={disabled} />
+      <Label text={label} required={required} disabled={disabled} labelAddons={labelAddons}/>
       <div className="file-upload__inner">
         <input
           name={name}

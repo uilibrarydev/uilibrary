@@ -3,7 +3,7 @@
 .radio-group {
     $this: &;
 
-    --radio-group-item-space: var(--ds-space-20);
+    --radio-group-item-space: var(--ds-space-8);
 
     @include flexbox;
     @include flex-direction(column);

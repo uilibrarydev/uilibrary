@@ -20,7 +20,8 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
     setSelectedValue,
     initialSelectedFolderIds,
     optionRightIconComponent,
-    labelRightIconComponent
+    labelRightIconComponent,
+    labelAddons
   } = props
 
   const [isDropdownOpen, setIsOpen] = useState(false)
@@ -108,6 +109,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
           placeholder={placeHolder}
           currentValue={selected?.label.toString() || ''}
           readonly={true}
+          labelAddons={labelAddons}
         />
       </div>
 

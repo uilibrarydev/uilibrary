@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Textarea as TextareaComp } from '../components'
+import {Icon} from "../index";
 
 type TChangeEventType = React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
 
@@ -28,5 +29,6 @@ Textarea.args = {
   helperText: 'This is your helper text',
   successMessage: 'Success message',
   error: 'Error message',
-  maxCount: 240
+  maxCount: 240,
+  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'}/>
 }

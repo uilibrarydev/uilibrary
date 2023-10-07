@@ -38,6 +38,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       thousandSeparator = '',
       allowNegative = false,
       hideCounter = false,
+      labelAddons,
       ...rest
     },
     ref
@@ -129,7 +130,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
           'input--disabled': disabled
         })}
       >
-        <Label text={label} invalid={isErrorVisible} required={required} disabled={disabled} />
+        <Label text={label} invalid={isErrorVisible} required={required} disabled={disabled} labelAddons={labelAddons} />
         <div className="input__inner">
           {input}
           {leftIconProps && (

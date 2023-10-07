@@ -40,6 +40,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
     placeHolder,
     isRequiredField,
     translations,
+    labelAddons,
     ...rest
   } = props
 
@@ -164,6 +165,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
           required={isRequiredField}
           currentValue={selectedItemsLabels}
           rightIconProps={{ name: isOpen ? 'caret-up-hover' : 'caret-down-hover', size: 'xsmall' }}
+          labelAddons={labelAddons}
         />
       </div>
 
