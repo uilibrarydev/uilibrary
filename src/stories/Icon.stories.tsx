@@ -4,6 +4,8 @@ import { Icon as IconComp, Text } from '../components'
 
 const ICONS = [
   'pos',
+  'check-send',
+  'check-send-hover',
   'spinner',
   'spinner-hover',
   'notebook-add',
