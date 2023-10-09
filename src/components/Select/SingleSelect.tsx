@@ -34,7 +34,8 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     isRequiredField,
     labelLeftIconProps,
     labelRightIconComponent,
-    optionRightIconComponent
+    optionRightIconComponent,
+    labelAddons
   } = props
   const scrollRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -135,6 +136,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
           disabled={disabled}
           helperText={isOpen ? '' : outerHelperText}
           ref={inputRef}
+          labelAddons={labelAddons}
         />
       </div>
 

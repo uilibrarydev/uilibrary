@@ -31,6 +31,7 @@ export interface TNestedSelectProps {
   optionRightIconComponent?: (value: TItemValue) => ReactElement
   labelRightIconComponent?: (value: TItemValue) => ReactElement
   avatar?: string
+  labelAddons?: JSX.Element
 }
 
 export type TSelectTranslations = {
@@ -82,6 +83,7 @@ export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps 
     cancel: TButtonPropTypes
     confirm: TButtonPropTypes
   }
+  labelAddons?: JSX.Element
 }
 
 export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps {
@@ -91,6 +93,7 @@ export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps
   withSearch?: boolean
   outerHelperText?: string
   innerHelperText?: string
+  labelAddons?: JSX.Element
 }
 
 export type TSelectFooterPropTypes = {

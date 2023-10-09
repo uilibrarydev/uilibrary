@@ -22,4 +22,5 @@ export interface TRadioGroupProps extends IFormCompProps {
   handleChange?: (selected: number | string) => void
   required?: boolean
   disabled?: boolean
+  labelAddons?: JSX.Element
 }

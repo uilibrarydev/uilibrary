@@ -19,7 +19,8 @@ export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => 
     size = 'large',
     setFieldValue,
     selectedValue,
-    className = ''
+    className = '',
+    labelAddons
   } = props
   const isChecked = !!value || !!selectedValue
 
@@ -35,7 +36,7 @@ export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => 
 
   return (
     <div className="switcher">
-      {label && <Label text={label} />}
+      {label && <Label text={label} disabled={disabled} labelAddons={labelAddons} />}
       <label
         id={id}
         className={classnames(

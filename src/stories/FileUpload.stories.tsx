@@ -2,6 +2,7 @@
 // @ts-nocheck
 import React from 'react'
 import { FileUpload as FileUploadComp } from '../components'
+import { Icon } from '../index'
 
 export default {
   title: 'FileUpload',
@@ -25,5 +26,6 @@ FileUpload.args = {
   label: 'Label',
   buttonText: 'Attach file',
   isFileUploaded: false,
-  allowedTypes: ['PDF']
+  allowedTypes: ['PDF'],
+  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
 }

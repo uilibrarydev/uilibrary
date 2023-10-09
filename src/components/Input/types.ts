@@ -28,4 +28,5 @@ export interface InputCustomProps extends IFormCompProps {
   separatorSymbol?: string
   allowLeadingZeros?: boolean
   thousandSeparator?: string
+  labelAddons?: JSX.Element
 }

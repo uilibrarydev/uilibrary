@@ -13,6 +13,7 @@ export interface TFileUploadProps extends IFormCompProps {
   uploadedFiles?: File[]
   multiple?: boolean
   mode?: FileUploadMode
+  labelAddons?: JSX.Element
 }
 
 export enum FileUploadMode {

@@ -4,4 +4,5 @@ export interface TextPropTypes {
   invalid?: boolean
   text?: string | JSX.Element
   className?: string
+  labelAddons?: JSX.Element
 }

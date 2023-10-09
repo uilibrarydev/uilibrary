@@ -25,7 +25,7 @@ export const Status = (props: TStatusProps): ReactElement => {
   return (
     <div className={classNames(`status status--${type} status--${size}`, className)}>
       {leftIconProps?.name && (
-        <Icon size="xsmall" type={type} {...leftIconProps} className="mr-8" />
+        <Icon size="xsmall" type={type} {...leftIconProps} className="mr-6" />
       )}
       {withCircle && !leftIconProps?.name ? <span className="status__circle mr-8" /> : null}
       <Text
@@ -36,7 +36,7 @@ export const Status = (props: TStatusProps): ReactElement => {
         {text}
       </Text>
       {rightIconProps?.name && (
-        <Icon size="xsmall" type={type} {...rightIconProps} className="ml-8" />
+        <Icon size="xsmall" type={type} {...rightIconProps} className="ml-6" />
       )}
     </div>
   )

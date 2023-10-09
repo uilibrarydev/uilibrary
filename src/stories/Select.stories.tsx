@@ -256,7 +256,8 @@ Select.args = {
   placeHolder: 'Select country',
   labelLeftIconProps: { name: 'user' },
   optionRightIconComponent: null,
-  labelRightIconComponent: null
+  labelRightIconComponent: null,
+  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
 }
 
 // -----------MULTISELECT---------
@@ -306,7 +307,8 @@ MultiSelect.args = {
   placeHolder: 'Select country',
   innerLabel: 'Select',
   helperText: 'To be filled in only for USA, Canada and European countries.',
-  labelLeftIconProps: { name: 'user' }
+  labelLeftIconProps: { name: 'user' },
+  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
   // labelRightIconComponent: <Icon name="user" size="xsmall" className="mr-4" />,
   // optionRightIconComponent: <Icon name="more" size="xsmall" />
 }
@@ -350,7 +352,8 @@ NestedSelect.args = {
         e.stopPropagation()
       }}
     />
-  )
+  ),
+  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
 }
 // ----------FILTERDROPDOWN---------------
 

@@ -6,4 +6,5 @@ export interface TSwitcherProps extends IFormCompProps {
   size?: 'large' | 'small'
   id?: string
   label?: string
+  labelAddons?: JSX.Element
 }
