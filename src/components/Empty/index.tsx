@@ -16,16 +16,18 @@ const Empty = (props: TEmptyProps): JSX.Element => {
         className
       )}
     >
-      <div className="no-result__icon mb-8">
-        <Image imagePath="static/media/src/assets/images/no-result.svg" />
+      <div className="no-result__icon">
+        <Image imagePath={require('../../assets/images/no-result.svg')} />
       </div>
-      <Text size={size == 'large' ? 'large' : 'small'} weight="bold">
-        {mainMessage}
-      </Text>
-      {paragraphMessage ? (
-        <Text size={size == 'large' ? 'small' : 'xsmall'}>{paragraphMessage}</Text>
-      ) : null}
-      {buttonProps ? <Button {...buttonProps} size="medium" className="mt-4" /> : null}
+      <div className="no-result__content">
+        <Text size={size == 'large' ? 'large' : 'small'} weight="bold">
+          {mainMessage}
+        </Text>
+        {paragraphMessage ? (
+          <Text size={size == 'large' ? 'small' : 'xsmall'}>{paragraphMessage}</Text>
+        ) : null}
+        {buttonProps ? <Button {...buttonProps} size="medium" className="mt-4" /> : null}
+      </div>
     </div>
   )
 }
