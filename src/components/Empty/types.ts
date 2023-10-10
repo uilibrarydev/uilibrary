@@ -6,5 +6,4 @@ export interface TEmptyProps {
   mainMessage: string
   paragraphMessage?: string
   buttonProps?: TButtonPropTypes
-  imageFile?: string
 }
