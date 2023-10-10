@@ -19,8 +19,8 @@ export const Empty = Template.bind({})
 
 Empty.args = {
   size: 'large',
-  mainMessage: 'Main Message',
-  paragraphMessage: 'Paragraph Message',
+  mainMessage: "Sorry, we couldn't find any results",
+  paragraphMessage: 'Paragraph text comes here',
   buttonProps: {
     buttonText: 'Button',
     iconProps: {
