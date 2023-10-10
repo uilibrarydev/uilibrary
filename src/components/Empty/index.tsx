@@ -4,7 +4,8 @@ import Image from '../Image'
 import Button from '../Button'
 import { TEmptyProps } from './types'
 import './index.scss'
-import classNames from 'classnames'
+import classNames from 'classnames';
+import noResultImage from '../../assets/images/no-result.svg';
 
 const Empty = (props: TEmptyProps): JSX.Element => {
   const { size = 'large', mainMessage, paragraphMessage, buttonProps, className } = props
@@ -17,7 +18,7 @@ const Empty = (props: TEmptyProps): JSX.Element => {
       )}
     >
       <div className="no-result__icon">
-        <Image imagePath={require('../../assets/images/no-result.svg')} />
+        <Image imagePath={noResultImage} />
       </div>
       <div className="no-result__content">
         <Text size={size == 'large' ? 'large' : 'small'} weight="bold">

@@ -7,6 +7,7 @@ import json from '@rollup/plugin-json'
 import packageJson from './package.json'
 import external from 'rollup-plugin-peer-deps-external'
 import copy from 'rollup-plugin-copy'
+import image from '@rollup/plugin-image'
 
 export default {
   input: 'src/index.tsx',
@@ -39,7 +40,8 @@ export default {
     postcss({
       extensions: ['.css', 'scss']
     }),
-    external()
+    external(),
+    image()
   ],
   external: ['react', 'react-dom']
 }
