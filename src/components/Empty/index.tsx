@@ -4,8 +4,8 @@ import Image from '../Image'
 import Button from '../Button'
 import { TEmptyProps } from './types'
 import './index.scss'
-import classNames from 'classnames';
-import noResultImage from '../../assets/images/no-result.svg';
+import classNames from 'classnames'
+import noResultImage from '../../assets/images/no-result.svg'
 
 const Empty = (props: TEmptyProps): JSX.Element => {
   const { size = 'large', mainMessage, paragraphMessage, buttonProps, className } = props
