@@ -14,7 +14,7 @@
     "version": "echo $npm_package_version",
     "name": "echo $npm_package_name",
     "start": "react-scripts start",
-    "build": "rollup -c",
+    "build": "npm run clean && rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 public",
