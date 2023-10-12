@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import InputMask from 'react-input-mask'
-import {ErrorMessage} from '../../helperComponents/index'
+import { ErrorMessage } from '../../helperComponents/index'
 import { InputCustomProps } from './types'
 import Icon from '../Icon'
 import Label from '../../helperComponents/Label'

@@ -62,7 +62,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   const { width } = useGetElemSizes(containerRef.current)
 
   useEffect(() => {
-    setSelectedValues(value as TSelectedValue[] || [])
+    setSelectedValues((value as TSelectedValue[]) || [])
   }, [value])
 
   const cancelSelectedItems = useCallback(() => {

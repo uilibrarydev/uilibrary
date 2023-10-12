@@ -1,4 +1,5 @@
 export interface TButtonPropTypes {
+  id?: string
   disabled?: boolean
   buttonActionType?: 'submit' | 'button' | 'reset'
   buttonText?: string | JSX.Element

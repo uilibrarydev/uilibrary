@@ -26,7 +26,8 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     formId,
     dataId = '',
     onClick,
-    refHandler
+    refHandler,
+    ...rest
   } = props
 
   const justIcon = !buttonText && iconProps !== undefined
@@ -51,6 +52,7 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
       )}
       onClick={onClick}
       form={formId}
+      {...rest}
     >
       {isLoading ? (
         <Loader size={size} type={LITE_LOADER_TYPES.indexOf(type) === -1 ? 'dark' : 'lite'} />
