@@ -1,7 +1,8 @@
 import React from 'react'
 import { TErrorMessageProps } from './types'
+import Text from '../../components/Text/index'
+import Icon from '../../components/Icon/index'
 import './index.scss'
-import { Icon, Text } from '../../index'
 
 const ErrorMessage = (props: TErrorMessageProps): JSX.Element => {
   const { message, icon, dataId } = props

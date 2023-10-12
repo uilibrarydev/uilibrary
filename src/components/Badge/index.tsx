@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react'
-import { Text } from '../index'
-
+import Text from '../Text'
 import { TBadgeProps } from './types'
 import '../../assets/styles/components/_badge.scss'
 import classNames from 'classnames'
