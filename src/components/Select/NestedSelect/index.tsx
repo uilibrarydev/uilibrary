@@ -1,7 +1,7 @@
 import React, { useCallback, useId, useRef, useState } from 'react'
 
-import { Input } from '../../index'
-import { OptionItem } from '../../../helperComponents/OptionItem'
+import { Input } from '../../Input'
+import { OptionItem } from '../../../helperComponents'
 import { useGetElemPositions, useGetElemSizes, useOnOutsideClick } from '../../../hooks'
 
 import { TNestedSelectProps } from '../types'

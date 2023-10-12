@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react'
 
-import { Checkbox, Avatar, Icon } from '../../components'
+import { Checkbox } from '../../components/Checkbox'
+import { Avatar } from '../../components/Avatar'
+import Icon from '../../components/Icon'
 
 import { TSelectItemProps } from './types'
 

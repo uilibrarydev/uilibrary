@@ -1,9 +1,10 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import { Divider, Empty } from '../../../index'
+import  Divider from '../../../Divider'
+import  Empty from '../../../Empty'
 
 import { useGetElemSizes } from '../../../../hooks'
 
-import { OptionItem } from '../../../../helperComponents/OptionItem'
+import { OptionItem } from '../../../../helperComponents'
 
 import { ContentTop, Loading } from '../../SharedComponents'
 

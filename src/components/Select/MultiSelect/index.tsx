@@ -8,7 +8,7 @@ import React, {
   useRef,
   useState
 } from 'react'
-import { Input } from '../../index'
+import { Input } from '../../Input'
 import { useGetElemPositions, useOnOutsideClick, useGetElemSizes } from '../../../hooks'
 import { getStringWidth, setTranslationValue } from '../../../utils'
 import { Footer } from '../SharedComponents'
@@ -62,8 +62,8 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   const { width } = useGetElemSizes(containerRef.current)
 
   useEffect(() => {
-    setSelectedValues(initialSelected)
-  }, [initialSelected])
+    setSelectedValues((value as TSelectedValue[]) || [])
+  }, [value])
 
   const cancelSelectedItems = useCallback(() => {
     submitSelectedValue(initialSelected)

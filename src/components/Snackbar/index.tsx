@@ -2,13 +2,13 @@ import React from 'react'
 import { ToastContainer, toast, Slide } from 'react-toastify'
 import type { ToastItem } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
-import { Text, Icon, Button } from '../index'
-
+import Text from '../Text'
+import Button from '../Button'
+import Icon from '../Icon'
 import '../../assets/styles/components/_snackbar.scss'
 import { TSnackbarProps, TToastProps } from './types'
 import { ICONS_MAPPING, TYPE_MAPPING } from './consts'
-const DEFAULT_DURAION = 6000
+const DEFAULT_DURATION = 6000
 const CustomToast = ({ actionProps, toastId, type = 'information', text }: TToastProps) => {
   return (
     <div className="snackbar" key={toastId}>
@@ -41,7 +41,7 @@ const CustomToast = ({ actionProps, toastId, type = 'information', text }: TToas
 }
 
 const notify = (toastProps: TToastProps): void => {
-  const { toastId, closeSnackbar, actionProps, duration = DEFAULT_DURAION } = toastProps
+  const { toastId, closeSnackbar, actionProps, duration = DEFAULT_DURATION } = toastProps
   toast(() => CustomToast(toastProps), {
     bodyClassName: '__body',
     className: '_container',

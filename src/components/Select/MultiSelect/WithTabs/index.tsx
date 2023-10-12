@@ -1,8 +1,10 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import { Tab, Divider, Empty } from '../../../index'
+import Divider from '../../../Divider'
+import Empty from '../../../Empty'
+import Tab from '../../../Tab'
 
-import { useGetElemSizes } from '../../../../hooks/useGetElemSizes'
-import { OptionItem } from '../../../../helperComponents/OptionItem'
+import { useGetElemSizes } from '../../../../hooks'
+import { OptionItem } from '../../../../helperComponents'
 
 import { DROPDOWN_MAX_HEIGHT } from '../consts'
 import { ContentTop, Loading } from '../../SharedComponents'

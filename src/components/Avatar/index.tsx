@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react'
 import { TAvatarProps } from './types'
 import classNames from 'classnames'
-import { FileUpload } from '../index'
+import FileUpload from '../FileUpload'
 import { FileUploadMode } from '../FileUpload/types'
 import '../../assets/styles/components/_avatar.scss'
 
