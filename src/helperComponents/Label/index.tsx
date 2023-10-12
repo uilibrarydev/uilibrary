@@ -1,7 +1,7 @@
 import React from 'react'
 import { TextPropTypes } from './types'
 import './index.scss'
-import Text from '../../components/Text/index'
+import Text from '../../components/Text'
 
 const Label: React.FC<TextPropTypes> = (props: TextPropTypes) => {
   const {

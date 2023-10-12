@@ -1,8 +1,11 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import { Text, Icon, Divider, Empty } from '../../../index'
+import Text from '../../../Text'
+import Icon from '../../../Icon'
+import Divider from '../../../Divider'
+import Empty from '../../../Empty'
 
-import { useGetElemSizes } from '../../../../hooks/useGetElemSizes'
-import { OptionItem } from '../../../../helperComponents/OptionItem'
+import { useGetElemSizes } from '../../../../hooks'
+import { OptionItem } from '../../../../helperComponents'
 
 import { ContentTop, Loading } from '../../SharedComponents'
 import { DROPDOWN_MAX_HEIGHT } from '../consts'

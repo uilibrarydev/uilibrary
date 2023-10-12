@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-import { Button, Menu, Text } from '../../../index'
+import Button from '../../Button'
+import Menu from '../../Menu'
+import Text from '../../Text'
+
 import { TMenuItem } from '../../Menu/types'
 
 type TProps = {

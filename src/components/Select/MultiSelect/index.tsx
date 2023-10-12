@@ -8,7 +8,7 @@ import React, {
   useRef,
   useState
 } from 'react'
-import { Input } from '../../index'
+import { Input } from '../../Input'
 import { useGetElemPositions, useOnOutsideClick, useGetElemSizes } from '../../../hooks'
 import { getStringWidth, setTranslationValue } from '../../../utils'
 import { Footer } from '../SharedComponents'

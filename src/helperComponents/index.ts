@@ -1,2 +1,3 @@
 import ErrorMessage from './ErrorMessage'
-export { ErrorMessage }
+import {OptionItem} from './OptionItem'
+export { ErrorMessage, OptionItem }

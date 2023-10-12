@@ -7,7 +7,7 @@ import {
   useGetElemSizes,
   useGetTooltipPosition
 } from '../../hooks'
-import { OptionItem } from '../../helperComponents/OptionItem'
+import { OptionItem } from '../../helperComponents'
 
 import { TMenuProps, TMenuItem } from './types'
 import '../../assets/styles/components/_select.scss'

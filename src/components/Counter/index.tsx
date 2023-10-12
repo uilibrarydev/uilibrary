@@ -1,11 +1,9 @@
 import React, { forwardRef } from 'react'
-import { Input } from '../index'
+import { Input } from '../Input'
 import { ICounterProps } from './types'
-
-import './index.scss'
-
 import classNames from 'classnames'
 import { noop } from '../../utils'
+import './index.scss'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Counter = forwardRef((props: ICounterProps, ref): JSX.Element => {

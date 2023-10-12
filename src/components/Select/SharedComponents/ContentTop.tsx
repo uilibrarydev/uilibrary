@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
-import { Text, Input } from '../../../index'
+import Text from '../../Text'
+import Input from '../../Input'
 import { TMenuItem } from '../../Menu/types'
 import { TSelectTranslations } from '../types'
 import { Actions } from './Actions'

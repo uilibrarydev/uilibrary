@@ -1,9 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-import { Text, Icon, Divider } from '../../index'
+import Text from '../../Text'
+import Icon from '../../Icon'
+import  Divider from '../../Divider'
 import { AnimatedComponent } from '../../../helperComponents/AnimatePresenceWrapper'
-
 import { TCollapseProps } from '../types'
 import '../../../assets/styles/components/_collapse.scss'
 

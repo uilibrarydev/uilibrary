@@ -1,13 +1,11 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
 import classNames from 'classnames'
 import { useOnOutsideClick, useGetElemPositions, useGetElemSizes } from '../../hooks'
-
-import { Text, Input } from '../../index'
-import { OptionItem } from '../../helperComponents/OptionItem'
-
+import Input from '../Input'
+import Text from '../Text'
+import { OptionItem } from '../../helperComponents'
 import { Loading } from './SharedComponents'
 import { SELECTED_VISIBLE_MIN_COUNT } from './MultiSelect/consts'
-
 import { TSingleSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
 

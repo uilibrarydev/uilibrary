@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
-import { Icon, Text } from '../index'
+import Icon from '../Icon'
+import Text from '../Text'
 
 import { TChipsProps } from './types'
 import classNames from 'classnames'
