@@ -3,8 +3,8 @@ import Text from '../Text'
 import Image from '../Image'
 import Button from '../Button'
 import { TEmptyProps } from './types'
-import './index.scss'
 import classNames from 'classnames'
+import './index.scss'
 
 const Empty = (props: TEmptyProps): JSX.Element => {
   const { size = 'large', mainMessage, paragraphMessage, buttonProps, className } = props
