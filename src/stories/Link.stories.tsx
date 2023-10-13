@@ -19,6 +19,8 @@ export const Link = Template.bind({})
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 Link.args = {
-  children: 'Link text',
-  url: '/'
+  children: 'Bro',
+  url: '/',
+  beforeLink: 'Hello',
+  afterLink: 'By'
 }
