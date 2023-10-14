@@ -4,4 +4,6 @@ export interface LinkPropTypes {
   url?: string
   dataId?: string
   taget?: string
+  beforeLink?: string | JSX.Element
+  afterLink?: string | JSX.Element
 }
