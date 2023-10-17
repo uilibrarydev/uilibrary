@@ -36,8 +36,10 @@ import { Copy } from './Copy'
 import Status from './Status'
 import Chips from './Chips'
 import Empty from './Empty'
+import { ProgressStep } from './ProgressStep'
 
 export {
+  ProgressStep,
   Copy,
   Counter,
   CollapseGroup,

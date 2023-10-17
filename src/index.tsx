@@ -42,8 +42,10 @@ import { useFormProps } from './hooks/useFormProps'
 import { useFieldArray } from 'react-hook-form'
 import { Copy } from './components/Copy'
 import Empty from './components/Empty'
+import { ProgressStep } from './components/ProgressStep'
 
 export {
+  ProgressStep,
   Copy,
   CollapseItem,
   CollapseGroup,
