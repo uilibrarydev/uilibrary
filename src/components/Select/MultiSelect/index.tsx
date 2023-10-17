@@ -98,16 +98,6 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
     closeDropdown()
   }
 
-  const footer = useMemo(() => {
-    return (
-      <Footer
-        buttonProps={footerButtonProps}
-        onCancel={cancelSelectedItems}
-        onApply={applySelectedItems}
-      />
-    )
-  }, [cancelSelectedItems, applySelectedItems])
-
   const checkIsValueOverflowed = useCallback(
     (value: string) => {
       const elemWidth = getStringWidth(value, 14)
@@ -204,7 +194,6 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
                   // @ts-ignore
                   options={options}
                   isOpen={isOpen}
-                  footer={footer}
                   translations={localizations}
                   selectedValues={selectedValues}
                   onItemSelect={onItemSelect}
@@ -217,6 +206,11 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
                 />
               </>
             )}
+            <Footer
+              buttonProps={footerButtonProps}
+              onCancel={cancelSelectedItems}
+              onApply={applySelectedItems}
+            />
           </div>
         )}
       </>
