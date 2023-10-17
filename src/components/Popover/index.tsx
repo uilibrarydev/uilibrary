@@ -1,12 +1,10 @@
 import React, { useEffect, useId, useState } from 'react'
+import classNames from 'classnames'
+import { useHideOnScroll, useGetTooltipStyles, useOnOutsideClick } from '../../hooks'
 import Text from '../Text'
 
-import '../../assets/styles/components/_popover.scss'
 import { TPopoverProps } from './types'
-import { useOnOutsideClick } from '../../hooks/useOnOutsideClick'
-
-import classNames from 'classnames'
-import { useGetTooltipStyles } from '../../hooks/useGetTooltipStyles'
+import '../../assets/styles/components/_popover.scss'
 
 export const Popover = (props: TPopoverProps): JSX.Element | null => {
   const {
@@ -33,6 +31,9 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
 
   const hideMessage = () => setIsClicked(false)
 
+  useHideOnScroll(hideMessage)
+  useOnOutsideClick(popoverRef, hideMessage, isClicked, useId())
+
   useEffect(() => {
     if (id) {
       const element = document.getElementById(id.toString())
@@ -40,20 +41,11 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
     }
   }, [id])
 
-  useOnOutsideClick(popoverRef, hideMessage, isClicked, useId())
-
   useEffect(() => {
     if (parent) {
       parent.addEventListener('click', showMessage)
     }
   }, [parent])
-
-  useEffect(() => {
-    document.addEventListener('scroll', hideMessage)
-    return () => {
-      document.removeEventListener('scroll', hideMessage)
-    }
-  }, [])
 
   return (
     <>

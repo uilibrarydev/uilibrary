@@ -11,6 +11,7 @@ import { Footer } from '../SharedComponents'
 import '../../../assets/styles/components/_select.scss'
 import { TFilterProps } from '../types'
 import { Loading } from '../SharedComponents/Loading'
+import { useHideOnScroll } from '../../../hooks'
 
 export const Filter = (props: TFilterProps): JSX.Element | null => {
   const {
@@ -38,6 +39,7 @@ export const Filter = (props: TFilterProps): JSX.Element | null => {
   const [filterValue, setFilterValue] = useState('')
 
   useOnOutsideClick(containerRef, closeHandler, isOpen, useId())
+  useHideOnScroll(closeHandler)
 
   const onItemSelect = useCallback((item: TSelectedValue) => {
     setSelectedValues((selected) => [...selected, item])

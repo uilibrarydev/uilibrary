@@ -8,10 +8,17 @@ import React, {
   useRef,
   useState
 } from 'react'
+import classNames from 'classnames'
 import { Input } from '../../Input'
-import { useGetElemPositions, useOnOutsideClick, useGetElemSizes } from '../../../hooks'
+import {
+  useOnOutsideClick,
+  useGetElemSizes,
+  useGetElemPositions,
+  useGetHasBottomSpace,
+  useHideOnScroll
+} from '../../../hooks'
 import { getStringWidth, setTranslationValue } from '../../../utils'
-import { Footer } from '../SharedComponents'
+import { Footer, Loading } from '../SharedComponents'
 import { MultiSelect } from './Multi'
 import { MultiSelectGrouped } from './Grouped'
 import { MultiSelectWithTabs } from './WithTabs'
@@ -41,6 +48,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
     isRequiredField,
     translations,
     labelAddons,
+    isLoading,
     ...rest
   } = props
 
@@ -51,10 +59,12 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   const initialSelected = (value as TSelectedValue[]) || selectedItems
 
   const inputRef = useRef<HTMLInputElement | null>(null)
+  const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null)
 
   const [isOpen, setIsOpen] = useState(false)
   const [selectedValues, setSelectedValues] = useState<TSelectedValue[]>(initialSelected)
   const containerRef = useRef<HTMLDivElement | null>(null)
+  const { height: inputHeight } = useGetElemSizes(inputRef.current)
 
   const closeDropdown = () => setIsOpen(false)
   const openDropdown = () => setIsOpen(true)
@@ -70,6 +80,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   }, [])
 
   useOnOutsideClick(containerRef.current, cancelSelectedItems, isOpen, useId())
+  useHideOnScroll(closeDropdown)
 
   const submitSelectedValue = (selections: TSelectedValue[]) => {
     if (setSelectedItems) {
@@ -147,11 +158,15 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
     }
     return options.length
   }, [options])
-
   const { bottom, left } = useGetElemPositions(inputRef.current)
   const { width: containerWidth } = useGetElemSizes(containerRef.current)
 
   const SelectComp = withTabs ? MultiSelectWithTabs : isGrouped ? MultiSelectGrouped : MultiSelect
+
+  const hasBottomSpace = useGetHasBottomSpace({
+    element: dropdownRef,
+    input: inputRef.current
+  })
 
   return (
     <div className="select select--multi" ref={containerRef}>
@@ -169,23 +184,42 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
         />
       </div>
 
-      <SelectComp
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        options={options}
-        isOpen={isOpen}
-        footer={footer}
-        containerStyles={{ left, width: containerWidth, top: bottom }}
-        translations={localizations}
-        selectedValues={selectedValues}
-        onItemSelect={onItemSelect}
-        onItemDeselect={onItemDeselect}
-        toggleDropdown={toggleDropdown}
-        setSelectedValues={setSelectedValues}
-        checkIsValueOverflowed={checkIsValueOverflowed}
-        isSearchAvailable={optionsCount > SELECTED_VISIBLE_MIN_COUNT}
-        {...rest}
-      />
+      <>
+        {isOpen && (
+          <div
+            className={classNames('select__options', hasBottomSpace ? '' : 'select__open_top')}
+            ref={setDropdownRef}
+            style={{
+              left,
+              width: containerWidth,
+              top: hasBottomSpace ? bottom : bottom - inputHeight - 10
+            }}
+          >
+            {isLoading ? (
+              <Loading />
+            ) : (
+              <>
+                <SelectComp
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  options={options}
+                  isOpen={isOpen}
+                  footer={footer}
+                  translations={localizations}
+                  selectedValues={selectedValues}
+                  onItemSelect={onItemSelect}
+                  onItemDeselect={onItemDeselect}
+                  toggleDropdown={toggleDropdown}
+                  setSelectedValues={setSelectedValues}
+                  checkIsValueOverflowed={checkIsValueOverflowed}
+                  isSearchAvailable={optionsCount > SELECTED_VISIBLE_MIN_COUNT}
+                  {...rest}
+                />
+              </>
+            )}
+          </div>
+        )}
+      </>
     </div>
   )
 })

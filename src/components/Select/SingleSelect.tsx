@@ -1,6 +1,12 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
 import classNames from 'classnames'
-import { useOnOutsideClick, useGetElemPositions, useGetElemSizes } from '../../hooks'
+import {
+  useOnOutsideClick,
+  useGetElemPositions,
+  useGetElemSizes,
+  useGetHasBottomSpace,
+  useHideOnScroll
+} from '../../hooks'
 import Input from '../Input'
 import Text from '../Text'
 import { OptionItem } from '../../helperComponents'
@@ -41,6 +47,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const [searchValue, setSearchValue] = useState<string>('')
+  const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null)
   const currentSelection = (value as TItemValue) || selectedItem || null
 
   const [itemLabel, setItemLabel] = useState<string | null>('')
@@ -54,7 +61,10 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const closeDropdown = () => setIsOpen(false)
 
   useOnOutsideClick(containerRef.current, closeDropdown, isOpen, useId())
+  useHideOnScroll(closeDropdown)
+
   const { bottom, left } = useGetElemPositions(inputRef.current)
+  const { height: inputHeight } = useGetElemSizes(inputRef.current)
   const { width } = useGetElemSizes(containerRef.current)
 
   const filteredData = useMemo(() => {
@@ -111,6 +121,10 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     setItemLabel(null)
     setSearchValue(e.target.value)
   }
+  const hasBottomSpace = useGetHasBottomSpace({
+    element: dropdownRef,
+    input: inputRef.current
+  })
 
   return (
     <div className={classNames(`select select--${size}`, className)} ref={containerRef}>
@@ -139,7 +153,11 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
       </div>
 
       {isOpen && (
-        <div className="select__options" style={{ left, width, top: bottom }}>
+        <div
+          className={classNames('select__options', hasBottomSpace ? '' : 'select__open_top')}
+          style={{ left, width, top: hasBottomSpace ? bottom : bottom - inputHeight - 10 }}
+          ref={setDropdownRef}
+        >
           {isLoading ? (
             <Loading />
           ) : (

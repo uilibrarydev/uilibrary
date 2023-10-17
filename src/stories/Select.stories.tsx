@@ -196,9 +196,10 @@ const Template = (args: any): JSX.Element => {
   const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
 
   return (
-    <div style={{ width: 320, position: 'absolute', left: 300 }}>
+    <div style={{ width: 320, position: 'absolute', left: 300, top: 600 }}>
       <SelectComp
         {...args}
+        options={OPTIONS}
         outerHelperText="helper text"
         selectedItem={selectedValue}
         setSelectedItem={setSelectedValue}
@@ -265,11 +266,10 @@ const MultiSelect1 = (args: any): JSX.Element => {
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
 
   return (
-    <div style={{ width: 320, position: 'absolute', left: 300 }}>
+    <div style={{ width: 320, position: 'absolute', left: 300, top: 600 }}>
       <MultiSelectComp
         {...args}
-        isGrouped={false}
-        withTabs={false}
+        isGrouped={true}
         maxSelectCount={3}
         emptyListMessage="List is Empty"
         selectedItems={selectedValues}
@@ -285,11 +285,13 @@ const MultiSelect1 = (args: any): JSX.Element => {
             }}
           />
         }
-        translations={{
-          innerLabel: 'Group name',
-          clearAllLabel: 'Clear All',
-          selectAllLabel: 'Select All'
-        }}
+        translations={
+          {
+            // innerLabel: 'Group name',
+            // clearAllLabel: 'Clear All',
+            // selectAllLabel: 'Select All'
+          }
+        }
         optionRightIconComponent={<ButtonMenu />}
       />
     </div>
