@@ -1,12 +1,12 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import  Divider from '../../../Divider'
-import  Empty from '../../../Empty'
+import Divider from '../../../Divider'
+import Empty from '../../../Empty'
 
 import { useGetElemSizes } from '../../../../hooks'
 
 import { OptionItem } from '../../../../helperComponents'
 
-import { ContentTop, Loading } from '../../SharedComponents'
+import { ContentTop } from '../../SharedComponents'
 
 import { DROPDOWN_MAX_HEIGHT } from '../consts'
 import { TMultySingleTabPropTypes } from '../../types'
@@ -15,10 +15,7 @@ import '../../../../assets/styles/components/_select.scss'
 export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null => {
   const {
     avatar,
-    isOpen,
-    footer,
     options,
-    isLoading,
     helperText,
     translations,
     onItemSelect,
@@ -26,7 +23,6 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
     isSearchAvailable,
     setSelectedValues,
     selectedValues,
-    containerStyles,
     labelLeftIconProps,
     labelRightIconComponent,
     optionRightIconComponent,
@@ -96,80 +92,66 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
 
   return (
     <>
-      {isOpen && (
-        <div className="select__options" style={containerStyles}>
-          {isLoading ? (
-            <Loading />
-          ) : (
-            <>
-              <ContentTop
-                selectAll={selectAll}
-                clearAll={clearAll}
-                hasLimitation={!!maxSelectCount}
-                isAnySelected={selectedValues.length !== 0}
-                helperText={helperText}
-                isSearchAvailable={isSearchAvailable}
-                isSelectAllDisabled={isAllSelected || filteredData.length === 0}
-                setSearchValue={setSearchValue}
-                searchValue={searchValue}
-                translations={translations}
-              />
+      <ContentTop
+        selectAll={selectAll}
+        clearAll={clearAll}
+        hasLimitation={!!maxSelectCount}
+        isAnySelected={selectedValues.length !== 0}
+        helperText={helperText}
+        isSearchAvailable={isSearchAvailable}
+        isSelectAllDisabled={isAllSelected || filteredData.length === 0}
+        setSearchValue={setSearchValue}
+        searchValue={searchValue}
+        translations={translations}
+      />
 
-              <div
-                ref={setContentContainerRef}
-                className={`select__options__scroll scrollbar scrollbar--vertical ${
-                  scrollHeight > DROPDOWN_MAX_HEIGHT ? 'mr-6' : ''
-                }`}
-              >
-                {isSearchAvailable && (
-                  <div className="selected-items">
-                    {selectedOptions.map((item: TSelectOption) => {
-                      const isSelected =
-                        selectedValues.findIndex((s) => s.value === item.value) !== -1
+      <div
+        ref={setContentContainerRef}
+        className={`select__options__scroll scrollbar scrollbar--vertical ${
+          scrollHeight > DROPDOWN_MAX_HEIGHT ? 'mr-6' : ''
+        }`}
+      >
+        {isSearchAvailable && (
+          <div className="selected-items">
+            {selectedOptions.map((item: TSelectOption) => {
+              const isSelected = selectedValues.findIndex((s) => s.value === item.value) !== -1
 
-                      return (
-                        <OptionItem
-                          data={item}
-                          key={item.value}
-                          isSelected
-                          disabled={item.disabled}
-                          onClick={isSelected ? onDeselect : onItemSelect}
-                          {...optionProps}
-                        />
-                      )
-                    })}
-                  </div>
-                )}
-
-                <Divider type="primary" isHorizontal />
-                {filteredData.map((item: TSelectOption) => {
-                  const isSelected = checkIsSelected(item.value)
-                  return (
-                    <OptionItem
-                      data={item}
-                      key={item.value}
-                      onClick={isSelected ? onDeselect : onItemSelect}
-                      disabled={
-                        item.disabled || (!isSelected && selectedValues.length === maxSelectCount)
-                      }
-                      isSelected={isSelected}
-                      {...optionProps}
-                    />
-                  )
-                })}
-              </div>
-              {filteredData.length === 0 ? (
-                <Empty
-                  size="small"
-                  mainMessage={emptyListMainMessage}
-                  paragraphMessage={emptyListSecondaryMessage}
+              return (
+                <OptionItem
+                  data={item}
+                  key={item.value}
+                  isSelected
+                  disabled={item.disabled}
+                  onClick={isSelected ? onDeselect : onItemSelect}
+                  {...optionProps}
                 />
-              ) : null}
-              {footer}
-            </>
-          )}
-        </div>
-      )}
+              )
+            })}
+          </div>
+        )}
+
+        <Divider type="primary" isHorizontal />
+        {filteredData.map((item: TSelectOption) => {
+          const isSelected = checkIsSelected(item.value)
+          return (
+            <OptionItem
+              data={item}
+              key={item.value}
+              onClick={isSelected ? onDeselect : onItemSelect}
+              disabled={item.disabled || (!isSelected && selectedValues.length === maxSelectCount)}
+              isSelected={isSelected}
+              {...optionProps}
+            />
+          )
+        })}
+      </div>
+      {filteredData.length === 0 ? (
+        <Empty
+          size="small"
+          mainMessage={emptyListMainMessage}
+          paragraphMessage={emptyListSecondaryMessage}
+        />
+      ) : null}
     </>
   )
 }

@@ -5,6 +5,7 @@ import { useGetElemSizes } from './useGetElemSizes'
 import { useGetTooltipPosition } from './useGetTooltipPosition'
 import { useGetTooltipStyles } from './useGetTooltipStyles'
 import { useOnOutsideClick } from './useOnOutsideClick'
+import { useGetHasBottomSpace } from './useGetHasBottomSpace'
 
 export {
   useFormContext,
@@ -13,5 +14,6 @@ export {
   useGetTooltipPosition,
   useGetElemSizes,
   useGetElemPositions,
-  useFormProps
+  useFormProps,
+  useGetHasBottomSpace
 }

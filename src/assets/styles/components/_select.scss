@@ -72,6 +72,9 @@
       padding: var(--ds-select-scroll-padding);
     }
   }
+  &__open_top{
+    transform: translateY(-100%);
+  }
 
   &__option, &__option__inner, &__option__content {
     @include flexbox;

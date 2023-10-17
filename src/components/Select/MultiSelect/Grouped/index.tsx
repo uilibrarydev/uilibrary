@@ -7,7 +7,7 @@ import Empty from '../../../Empty'
 import { useGetElemSizes } from '../../../../hooks'
 import { OptionItem } from '../../../../helperComponents'
 
-import { ContentTop, Loading } from '../../SharedComponents'
+import { ContentTop } from '../../SharedComponents'
 import { DROPDOWN_MAX_HEIGHT } from '../consts'
 
 import { TMultiSelectGroupedProps } from '../../types'
@@ -16,16 +16,12 @@ import './index.scss'
 
 export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element | null => {
   const {
-    isOpen,
-    footer,
     avatar,
     options,
-    isLoading,
     helperText,
     translations,
     selectedValues,
     onItemSelect,
-    containerStyles,
     onItemDeselect,
     setSelectedValues,
     isSearchAvailable,
@@ -131,102 +127,89 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     }
   }, [avatar, labelLeftIconProps, optionRightIconComponent, labelRightIconComponent])
   const hasTopContent = isSearchAvailable || helperText
-
   return (
     <>
-      {isOpen && (
-        <div className="select__options" style={containerStyles}>
-          {isLoading ? (
-            <Loading />
-          ) : (
-            <>
-              {hasTopContent ? (
-                <ContentTop
-                  isSearchAvailable={isSearchAvailable}
-                  hasLimitation={!!maxSelectCount}
-                  selectAll={selectAll}
-                  clearAll={clearAll}
-                  isAnySelected={selectedValues.length !== 0}
-                  helperText={helperText}
-                  isSelectAllDisabled={isAllSelected || filteredData.length === 0}
-                  setSearchValue={setSearchValue}
-                  searchValue={searchValue}
-                  translations={translations}
-                />
-              ) : null}
-              <div
-                ref={setContentContainerRef}
-                className={`select__options__scroll scrollbar scrollbar--vertical ${
-                  scrollHeight > DROPDOWN_MAX_HEIGHT ? 'mr-6' : ''
-                }`}
-              >
-                <div>
-                  {isSearchAvailable && (
-                    <div className="selected-items">
-                      {selectedOptions.map((selectedItem: TSelectOption) => {
-                        return (
-                          <OptionItem
-                            isSelected
-                            data={selectedItem}
-                            key={selectedItem.value}
-                            onClick={onDeselect}
-                            disabled={selectedItem.disabled}
-                            {...optionProps}
-                          />
-                        )
-                      })}
-                    </div>
-                  )}
-                  {hasTopContent ? <Divider type="primary" isHorizontal /> : null}
-                  {filteredData.map(({ title, data }: TSelectGroupOption, index: number) => {
-                    const isActive = index === activeGroupId
+      {hasTopContent ? (
+        <ContentTop
+          isSearchAvailable={isSearchAvailable}
+          hasLimitation={!!maxSelectCount}
+          selectAll={selectAll}
+          clearAll={clearAll}
+          isAnySelected={selectedValues.length !== 0}
+          helperText={helperText}
+          isSelectAllDisabled={isAllSelected || filteredData.length === 0}
+          setSearchValue={setSearchValue}
+          searchValue={searchValue}
+          translations={translations}
+        />
+      ) : null}
+      <div
+        ref={setContentContainerRef}
+        className={`select__options__scroll scrollbar scrollbar--vertical ${
+          scrollHeight > DROPDOWN_MAX_HEIGHT ? 'mr-6' : ''
+        }`}
+      >
+        <div>
+          {isSearchAvailable && (
+            <div className="selected-items">
+              {selectedOptions.map((selectedItem: TSelectOption) => {
+                return (
+                  <OptionItem
+                    isSelected
+                    data={selectedItem}
+                    key={selectedItem.value}
+                    onClick={onDeselect}
+                    disabled={selectedItem.disabled}
+                    {...optionProps}
+                  />
+                )
+              })}
+            </div>
+          )}
+          {hasTopContent ? <Divider type="primary" isHorizontal /> : null}
+          {filteredData.map(({ title, data }: TSelectGroupOption, index: number) => {
+            const isActive = index === activeGroupId
+            return (
+              <div className="select__group group-item" key={title}>
+                <div onClick={() => onGroupClick(index)} className="group-item__top">
+                  <Text size="xxsmall" type="tertiary" className="group-item__title pr-4">
+                    {title}
+                  </Text>
+                  <Icon
+                    size="xxsmall"
+                    name={isActive ? 'caret-up-hover' : 'caret-down-hover'}
+                    className="group-item__icon"
+                  />
+                </div>
+                {isActive &&
+                  data.map((item: TSelectOption) => {
+                    const isSelected =
+                      selectedValues.findIndex((s) => s.value === item.value) !== -1
                     return (
-                      <div className="select__group group-item" key={title}>
-                        <div onClick={() => onGroupClick(index)} className="group-item__top">
-                          <Text size="xxsmall" type="tertiary" className="group-item__title pr-4">
-                            {title}
-                          </Text>
-                          <Icon
-                            size="xxsmall"
-                            name={isActive ? 'caret-up-hover' : 'caret-down-hover'}
-                            className="group-item__icon"
-                          />
-                        </div>
-                        {isActive &&
-                          data.map((item: TSelectOption) => {
-                            const isSelected =
-                              selectedValues.findIndex((s) => s.value === item.value) !== -1
-                            return (
-                              <OptionItem
-                                data={item}
-                                key={item.value}
-                                isSelected={isSelected}
-                                disabled={
-                                  item.disabled ||
-                                  (!isSelected && selectedValues.length === maxSelectCount)
-                                }
-                                onClick={isSelected ? onDeselect : onItemSelect}
-                                {...optionProps}
-                              />
-                            )
-                          })}
-                      </div>
+                      <OptionItem
+                        data={item}
+                        key={item.value}
+                        isSelected={isSelected}
+                        disabled={
+                          item.disabled || (!isSelected && selectedValues.length === maxSelectCount)
+                        }
+                        onClick={isSelected ? onDeselect : onItemSelect}
+                        {...optionProps}
+                      />
                     )
                   })}
-                </div>
               </div>
-              {filteredData.length === 0 ? (
-                <Empty
-                  size="small"
-                  mainMessage={emptyListMainMessage}
-                  paragraphMessage={emptyListSecondaryMessage}
-                />
-              ) : null}
-              {footer}
-            </>
-          )}
+            )
+          })}
         </div>
-      )}
+      </div>
+      {filteredData.length === 0 ? (
+        <Empty
+          size="small"
+          mainMessage={emptyListMainMessage}
+          paragraphMessage={emptyListSecondaryMessage}
+        />
+      ) : null}
     </>
   )
 }
