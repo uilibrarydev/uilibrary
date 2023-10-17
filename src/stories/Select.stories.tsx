@@ -196,7 +196,7 @@ const Template = (args: any): JSX.Element => {
   const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
 
   return (
-    <div style={{ width: 320, position: 'absolute', left: 300, top: 600 }}>
+    <div style={{ width: 320, position: 'absolute', left: 300, top: 100 }}>
       <SelectComp
         {...args}
         options={OPTIONS}
@@ -266,7 +266,7 @@ const MultiSelect1 = (args: any): JSX.Element => {
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
 
   return (
-    <div style={{ width: 320, position: 'absolute', left: 300, top: 600 }}>
+    <div style={{ width: 320, position: 'absolute', left: 300, top: 0 }} className="ddddd">
       <MultiSelectComp
         {...args}
         isGrouped={true}

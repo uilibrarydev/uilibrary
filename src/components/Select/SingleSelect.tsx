@@ -169,7 +169,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
                   'scrollbar',
                   'scrollbar--vertical',
                   {
-                    'mr-6': scrollHeight > 372
+                    'mr-6': scrollHeight > 300
                   }
                 )}
               >
