@@ -25,7 +25,6 @@
   
   @include fixed(0,0,0,0);
   z-index: 999;
-  padding: var(--ds-side-sheet-overlay-padding);
   background-color: var(--ds-side-sheet-overlay-bg);
 
   &__container {

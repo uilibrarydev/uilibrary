@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import classnames from 'classnames'
 
+import { useHideBodyScroll, useOnOutsideClick } from '../../hooks'
 import { AnimatedComponent } from '../../helperComponents/AnimatePresenceWrapper'
-import { useOnOutsideClick } from '../../hooks/useOnOutsideClick'
 
 import Button from '../Button'
 import Text from '../Text'
@@ -37,6 +37,7 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   const scrollbarContainerRef = useRef<HTMLDivElement>(null)
 
   useOnOutsideClick(containerRef, onClose, isOpen, useId())
+  useHideBodyScroll(isOpen)
 
   const handleSubmit = useCallback(() => {
     onSubmit?.()
