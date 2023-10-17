@@ -14,7 +14,8 @@ import {
   useOnOutsideClick,
   useGetElemSizes,
   useGetElemPositions,
-  useGetHasBottomSpace
+  useGetHasBottomSpace,
+  useHideOnScroll
 } from '../../../hooks'
 import { getStringWidth, setTranslationValue } from '../../../utils'
 import { Footer, Loading } from '../SharedComponents'
@@ -79,6 +80,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   }, [])
 
   useOnOutsideClick(containerRef.current, cancelSelectedItems, isOpen, useId())
+  useHideOnScroll(closeDropdown)
 
   const submitSelectedValue = (selections: TSelectedValue[]) => {
     if (setSelectedItems) {

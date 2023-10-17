@@ -4,7 +4,8 @@ import {
   useOnOutsideClick,
   useGetElemPositions,
   useGetElemSizes,
-  useGetHasBottomSpace
+  useGetHasBottomSpace,
+  useHideOnScroll
 } from '../../hooks'
 import Input from '../Input'
 import Text from '../Text'
@@ -60,6 +61,8 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const closeDropdown = () => setIsOpen(false)
 
   useOnOutsideClick(containerRef.current, closeDropdown, isOpen, useId())
+  useHideOnScroll(closeDropdown)
+
   const { bottom, left } = useGetElemPositions(inputRef.current)
   const { height: inputHeight } = useGetElemSizes(inputRef.current)
   const { width } = useGetElemSizes(containerRef.current)

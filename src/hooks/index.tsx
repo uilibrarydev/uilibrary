@@ -6,6 +6,7 @@ import { useGetTooltipPosition } from './useGetTooltipPosition'
 import { useGetTooltipStyles } from './useGetTooltipStyles'
 import { useOnOutsideClick } from './useOnOutsideClick'
 import { useGetHasBottomSpace } from './useGetHasBottomSpace'
+import { useHideOnScroll } from './useHideOnScroll'
 
 export {
   useFormContext,
@@ -15,5 +16,6 @@ export {
   useGetElemSizes,
   useGetElemPositions,
   useFormProps,
+  useHideOnScroll,
   useGetHasBottomSpace
 }

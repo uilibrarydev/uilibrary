@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
+import classNames from 'classnames'
 
-import { useGetTooltipStyles } from '../../hooks/useGetTooltipStyles'
 import Text from '../Text'
+import { useGetTooltipStyles, useHideOnScroll } from '../../hooks'
 
 import { TTooltipProps } from './types'
 import '../../assets/styles/components/_tooltip.scss'
-import classNames from 'classnames'
 
 export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const tooltipRef = useRef<HTMLDivElement | null>(null)
@@ -33,17 +33,13 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const onMouseEnter = () => setIsHoverved(true)
   const onMouseLeave = () => setIsHoverved(false)
 
+  useHideOnScroll(onMouseLeave)
+
   const { tooltipStyles, tooltipPosition } = useGetTooltipStyles({
     elemRef: parent,
     tooltipRef: tooltipRef.current,
     initialPosition: position
   })
-  useEffect(() => {
-    document.addEventListener('scroll', onMouseLeave)
-    return () => {
-      document.removeEventListener('scroll', onMouseLeave)
-    }
-  }, [])
 
   useEffect(() => {
     if (parent) {
