@@ -164,8 +164,8 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   const SelectComp = withTabs ? MultiSelectWithTabs : isGrouped ? MultiSelectGrouped : MultiSelect
 
   const hasBottomSpace = useGetHasBottomSpace({
-    dropdownContainer: dropdownRef,
-    inputRef: inputRef.current
+    element: dropdownRef,
+    input: inputRef.current
   })
 
   return (

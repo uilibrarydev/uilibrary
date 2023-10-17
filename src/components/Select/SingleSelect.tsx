@@ -122,8 +122,8 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     setSearchValue(e.target.value)
   }
   const hasBottomSpace = useGetHasBottomSpace({
-    dropdownContainer: dropdownRef,
-    inputRef: inputRef.current
+    element: dropdownRef,
+    input: inputRef.current
   })
 
   return (

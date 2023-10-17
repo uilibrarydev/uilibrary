@@ -2,15 +2,15 @@ import { useGetElemPositions } from './useGetElemPositions'
 import { useGetElemSizes } from './useGetElemSizes'
 
 export const useGetHasBottomSpace = ({
-  dropdownContainer,
-  inputRef
+  element,
+  input
 }: {
-  dropdownContainer: HTMLDivElement | null
-  inputRef: HTMLInputElement | null
+  element: HTMLDivElement | null
+  input: HTMLInputElement | null
 }): boolean => {
-  const { height } = useGetElemSizes(dropdownContainer)
+  const { height } = useGetElemSizes(element)
 
-  const { bottom: inputBottom } = useGetElemPositions(inputRef)
+  const { bottom: inputBottom } = useGetElemPositions(input)
 
   return height < window.innerHeight - inputBottom
 }
