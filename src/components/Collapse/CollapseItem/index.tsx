@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 import Text from '../../Text'
 import Icon from '../../Icon'
-import  Divider from '../../Divider'
+import Divider from '../../Divider'
 import { AnimatedComponent } from '../../../helperComponents/AnimatePresenceWrapper'
 import { TCollapseProps } from '../types'
 import '../../../assets/styles/components/_collapse.scss'

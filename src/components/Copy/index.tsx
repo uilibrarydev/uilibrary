@@ -1,5 +1,5 @@
 import React, { useState, useRef, ReactElement } from 'react'
-import Icon  from '../Icon'
+import Icon from '../Icon'
 import { Popover } from '../Popover'
 
 type Props = {
