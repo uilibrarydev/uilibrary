@@ -52,7 +52,7 @@
   --pink-800: #79012F;
   --pink-700: #A2023F;
   --pink-600: #AD0244;
-  --pink-500: #CA024F;
+  --pink-500: #c9014f;
   --pink-400: #F50260;
   --pink-300: #FD2779;
   --pink-200: #FE7DAF;
@@ -75,7 +75,7 @@
   --yellow-700: #EEA02F;
   --yellow-600: #F0B134;
   --yellow-500: #F1BE39;
-  --yellow-400: #F1BE39;
+  --yellow-400: #f2c74a;
   --yellow-300: #F4D264;
   --yellow-200: #F7DE8E;
   --yellow-100: #FAEBB9;
@@ -105,10 +105,12 @@
   * @presenter Color
   */
 
+  //text colors
+
   --ds-color-text-primary: var(--grey-900);
   --ds-color-text-secondary: var(--grey-700);
   --ds-color-text-tertiary: var(--grey-500);
-  --ds-color-text-disabled: var(--grey-500);
+  --ds-color-text-disabled: var(--grey-400);
   --ds-color-text-selected: var(--brand-500);
   --ds-color-text-inverse: var(--white);
   --ds-color-text-brand: var(--brand-500);
@@ -117,6 +119,62 @@
   --ds-color-text-success: var(--green-600);
   --ds-color-text-information: var(--blue-600);
   --ds-color-text-discovery: var(--purple-400);
+
+
+  //background colors
+
+  --ds-color-bg-white: var(--white);
+  --ds-color-bg-disabled: var(--grey-50);
+
+  --ds-color-bg-container: var(--grey-50);
+  --ds-color-bg-container-dark: var(--grey-100);
+  --ds-color-bg-container-darker: var(--grey-200);
+  --ds-color-bg-container-light: var(--grey-40);
+  --ds-color-bg-container-lighter: var(--grey-30);
+
+  --ds-color-bg-brand: var(--brand-500);
+  --ds-color-bg-brand-dark: var(--brand-600);
+  --ds-color-bg-brand-darker: var(--brand-700);
+  --ds-color-bg-brand-light: var(--brand-30);
+  --ds-color-bg-brand-lighter: var(--brand-20);
+
+  --ds-color-bg-danger: var(--red-700);
+  --ds-color-bg-danger-dark: var(--red-800);
+  --ds-color-bg-danger-darker: var(--red-900);
+  --ds-color-bg-danger-light: var(--red-100);
+  --ds-color-bg-danger-lighter: var(--red-50);
+
+  --ds-color-bg-warning: var(--yellow-600);
+  --ds-color-bg-warning-dark: var(--yellow-800);
+  --ds-color-bg-warning-darker: var(--yellow-900);
+  --ds-color-bg-warning-light: var(--yellow-100);
+  --ds-color-bg-warning-lighter: var(--yellow-50);
+
+  --ds-color-bg-discovery: var(--purple-300);
+  --ds-color-bg-discovery-dark: var(--purple-500);
+  --ds-color-bg-discovery-darker: var(--purple-700);
+  --ds-color-bg-discovery-light: var(--purple-100);
+  --ds-color-bg-discovery-lighter: var(--purple-50);
+
+  --ds-color-bg-info: var(--blue-400);
+  --ds-color-bg-info-dark: var(--blue-600);
+  --ds-color-bg-info-darker: var(--blue-800);
+  --ds-color-bg-info-light: var(--blue-100);
+  --ds-color-bg-info-lighter: var(--blue-50);
+
+  --ds-color-bg-success: var(--green-400);
+  --ds-color-bg-success-dark: var(--green-500);
+  --ds-color-bg-success-darker: var(--green-700);
+  --ds-color-bg-success-light: var(--green-100);
+  --ds-color-bg-success-lighter: var(--green-50);
+
+  --ds-color-bg-grey: var(--grey-300);
+  --ds-color-bg-grey-dark: var(--grey-400);
+  --ds-color-bg-grey-darker: var(--grey-500);
+  --ds-color-bg-grey-light: var(--grey-100);
+  --ds-color-bg-grey-lighter: var(--grey-50);
+
+
 
   --ds-color-bg-cta-primary-default: var(--brand-500);
   --ds-color-bg-cta-primary-hover: var(--brand-300);
@@ -147,18 +205,34 @@
   --ds-color-bg-information-hover: var(--blue-100);
   --ds-color-bg-information-pressed: var(--blue-200);
 
-  --ds-color-icon-primary: var(--grey-700);
+  //icon colors
+  --ds-color-icon-primary: var(--grey-900);
+  --ds-color-icon-secondary: var(--grey-700);
+  --ds-color-icon-tertiary: var(--grey-500);
   --ds-color-icon-inverse: var(--white);
-  --ds-color-icon-disabled: var(--grey-500);
+  --ds-color-icon-disabled: var(--grey-400);
   --ds-color-icon-brand: var(--brand-500);
   --ds-color-icon-danger: var(--red-800);
   --ds-color-icon-warning: var(--yellow-800);
   --ds-color-icon-success: var(--green-600);
+  --ds-color-icon-selected: var(--brand-500);
   --ds-color-icon-information: var(--blue-600);
   --ds-color-icon-discovery: var(--purple-400);
 
-  --ds-color-border-cta: var(--grey-400);
+
+  //border colors
+  --ds-color-border-primary: var(--grey-400);
+  --ds-color-border-secondary: var(--grey-300);
+  --ds-color-border-tertiary: var(--grey-100);
   --ds-color-border-disabled: var(--grey-200);
+  --ds-color-border-selected: var(--brand-500);
+  --ds-color-border-inverse: var(--white);
+  --ds-color-border-brand: var(--brand-500);
+  --ds-color-border-danger: var(--red-800);
+  --ds-color-border-warning: var(--yellow-800);
+  --ds-color-border-success: var(--green-600);
+  --ds-color-border-information: var(--blue-600);
+  --ds-color-border-discovery: var(--purple-400);
 
   --ds-color-divider: var(--grey-100);
 
