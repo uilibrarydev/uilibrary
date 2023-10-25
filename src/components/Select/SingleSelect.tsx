@@ -27,6 +27,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     hasError,
     isLoading,
     isValid,
+    withSearch,
     disabled,
     dataId = '',
     placeHolder,
@@ -141,7 +142,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
             name: isOpen ? 'caret-up-hover' : 'caret-down-hover',
             size: 'xsmall'
           }}
-          readonly={options.length <= SELECTED_VISIBLE_MIN_COUNT}
+          readonly={!withSearch || options.length <= SELECTED_VISIBLE_MIN_COUNT}
           placeholder={placeHolder}
           value={itemLabel}
           isValid={isValid}
