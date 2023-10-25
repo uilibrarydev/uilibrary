@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react'
 import classNames from 'classnames'
 import {
   useOnOutsideClick,
@@ -53,15 +53,26 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   const [itemLabel, setItemLabel] = useState<string | null>('')
 
-  useEffect(() => {
+  const setCurrentSelectedLabel = useCallback(() => {
     const label = options.find((item) => item.value === currentSelection)
     setItemLabel(label?.label.toString() || '')
   }, [currentSelection, options])
 
+  useEffect(() => {
+    setCurrentSelectedLabel()
+  }, [setCurrentSelectedLabel])
+
   const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => setIsOpen(false)
 
-  useOnOutsideClick(containerRef.current, closeDropdown, isOpen, useId())
+  const handleOutsideClick = () => {
+    if (!searchValue && isRequiredField) {
+      setCurrentSelectedLabel()
+    }
+    closeDropdown()
+  }
+
+  useOnOutsideClick(containerRef.current, handleOutsideClick, isOpen, useId())
   useHideOnScroll(closeDropdown)
 
   const { bottom, left } = useGetElemPositions(inputRef.current)
