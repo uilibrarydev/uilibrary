@@ -9,14 +9,14 @@
   --ds-textarea-padding: var(--ds-space-10) var(--ds-space-12);
   --ds-textarea-font: var(--ds-font-weight-default) var(--ds-paragraph-std)/var(--ds-line-height-heading) var(--ds-font-family);
 
-  --ds-textarea-bg-default: var(--ds-color-bg-cta-secondary-default);
-  --ds-textarea-bg-hover: var(--ds-color-bg-cta-secondary-hover);
-  --ds-textarea-bg-pressed: var(--ds-color-bg-cta-secondary-default);
-  --ds-textarea-bg-focused: var(--ds-color-bg-cta-secondary-default);
-  --ds-textarea-bg-activated: var(--ds-color-bg-cta-secondary-default);
-  --ds-textarea-bg-validated: var(--ds-color-bg-cta-secondary-default);
-  --ds-textarea-bg-invalid: var(--ds-color-bg-cta-secondary-default);
-  --ds-textarea-bg-disabled: var(--ds-color-bg-cta-secondary-default);
+  --ds-textarea-bg-default: var(--ds-color-bg-white);
+  --ds-textarea-bg-hover: var(--ds-color-bg-container-lighter);
+  --ds-textarea-bg-pressed: var(--ds-color-bg-white);
+  --ds-textarea-bg-focused: var(--ds-color-bg-white);
+  --ds-textarea-bg-activated: var(--ds-color-bg-white);
+  --ds-textarea-bg-validated: var(--ds-color-bg-white);
+  --ds-textarea-bg-invalid: var(--ds-color-bg-white);
+  --ds-textarea-bg-disabled: var(--ds-color-bg-white);
 
   --ds-textarea-body-text-default: var(--ds-color-text-tertiary);
   --ds-textarea-body-text-focused: var(--ds-color-text-primary);
@@ -25,12 +25,12 @@
   --ds-textarea-body-text-invalid: var(--ds-color-text-primary);
   --ds-textarea-body-text-disabled: var(--ds-color-text-disabled);
 
-  --ds-textarea-border-color-default: var(--ds-color-border-cta);
-  --ds-textarea-border-color-hover: var(--ds-color-border-cta);
-  --ds-textarea-border-color-focused: var(--ds-color-bg-cta-primary-focused);
-  --ds-textarea-border-color-activated: var(--ds-color-border-cta);
-  --ds-textarea-border-color-validated: var(--ds-color-border-cta);
-  --ds-textarea-border-color-invalid: var(--ds-color-text-danger);
+  --ds-textarea-border-color-default: var(--ds-color-border-primary);
+  --ds-textarea-border-color-hover: var(--ds-color-border-primary);
+  --ds-textarea-border-color-focused: var(--brand-700);
+  --ds-textarea-border-color-activated: var(--ds-color-border-primary);
+  --ds-textarea-border-color-validated: var(--ds-color-border-primary);
+  --ds-textarea-border-color-invalid: var(--ds-color-border-danger);
   --ds-textarea-border-color-disabled: var(--ds-color-border-disabled);
   --ds-textarea-border: var(--ds-border-thin) solid var(--ds-textarea-border-color-default);
   --ds-textarea-border-radius: var(--ds-border-radius-xs);
