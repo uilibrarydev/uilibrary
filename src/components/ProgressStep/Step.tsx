@@ -3,10 +3,12 @@ import React, { ReactElement, useMemo } from 'react'
 import Text from '../Text'
 import Icon from '../Icon'
 import { StepTypes, TStepProps, TStepValue } from './types'
+import classnames from "classnames";
 
 export const Step = (props: TStepProps): ReactElement => {
   const {
     step,
+    stepSize='large',
     index,
     activeStep,
     hasRightLine,
@@ -25,15 +27,16 @@ export const Step = (props: TStepProps): ReactElement => {
 
   const stepItemContent = useMemo(() => {
     if (stepType === StepTypes.number) {
-      return <span className="progress_steper__step_item__content">{`${index}`}</span>
+      return <Text size={stepSize == 'large' ? 'large' : 'small'}
+                   weight={stepSize == 'large' ? 'semibold' : 'regular'}>{`${index}`}</Text>
     }
     if (stepType === StepTypes.dot) {
       if (isActive) {
-        return <div className={classNames('progress_steper__step_item__content', 'content_dot')} />
+        return <span className={classNames('step__circle__dot')} />
       }
       if (isCompleted) {
         return (
-          <Icon type="success" name="checkmark" className="progress_steper__step_item__content" />
+          <Icon type="success" name="checkmark" size={stepSize == 'large' ? 'large' : 'small'}/>
         )
       }
     }
@@ -42,21 +45,21 @@ export const Step = (props: TStepProps): ReactElement => {
 
   return (
     <div
-      className={classNames('progress_steper__step', {
-        leftLine: hasLeftLine,
-        rightLine: hasRightLine
+      className={classNames('step', {
+        hasLeftLine: hasLeftLine,
+        rightLine: hasRightLine,
+        active: isActive,
+        completed: isCompleted && !isActive
       })}
       onClick={onClick}
     >
-      <div
-        className={classNames('progress_steper__step_item', {
-          progress_steper__step_item_active: isActive,
-          progress_steper__step_item_completed: isCompleted && !isActive
-        })}
-      >
+      <div className={classnames(
+          'step__circle',
+          `step__circle--${stepSize}`
+      )}>
         {stepItemContent}
       </div>
-      <Text>{label}</Text>
+      <Text className="step__label">{label}</Text>
     </div>
   )
 }

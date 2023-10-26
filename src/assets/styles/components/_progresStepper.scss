@@ -1,37 +1,92 @@
 @import "../shared";
 
-.progress_steper{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    &__step{
-        display: flex;
-        flex-direction: column;
-        &_item{
-            cursor: pointer;
-            width: 36px;   
-            height: 36px;   
-            border-radius: 50%;
-            border: 1px solid;
-            position: relative;
-            &_completed{
-                background-color: green;
-            }
-            &_active{
-                border: 1px solid green;
-                .content_dot{
-                    background: green;
-                    width: 12px;
-                    height: 12px;
-                    border-radius: 50%;
-                }  
-            }
-            &__content{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
+.progress_steper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.step {
+  $this: &;
+
+  --ds-step-circle-size-lg: 36px;
+  --ds-step-circle-size-sm: 24px;
+
+  --ds-step-dot-size-lg: var(--ds-size-12);
+  --ds-step-dot-size-sm: var(--ds-size-8);
+
+  --ds-step-circle-border-size-lg: var(--ds-border-strong);
+  --ds-step-circle-border-size-sm: var(--ds-border-thin);
+
+  --ds-step-circle-bg: var(--ds-color-bg-white);
+  --ds-step-circle-bg-active: var(--ds-color-bg-brand);
+  --ds-step-circle-bg-completed: var(--ds-color-bg-brand);
+  --ds-step-circle-bg-danger: var(--ds-color-bg-danger);
+
+  --ds-step-circle-border-color: var(--ds-color-bg-grey-lighter);
+  --ds-step-circle-border-color-active: var(--ds-color-border-brand);
+  --ds-step-circle-border-color-danger: var(--ds-color-border-danger);
+
+  @include flexbox;
+  @include flex-direction(column);
+  border-color: var(--ds-step-circle-border-color);
+
+  &.active {
+    border-color: var(--ds-step-circle-border-color-active);
+
+    #{$this}__circle__dot {
+      background: var(--ds-step-circle-bg-active);
     }
+  }
+
+  &.rejected {
+    border-color: var(--ds-step-circle-border-color-danger);
+
+    #{$this}__circle__dot {
+      background: var(--ds-step-circle-bg-danger);
+    }
+  }
+
+  &.completed {
+    background-color: var(--ds-step-circle-bg-completed);
+  }
+
+  &__circle {
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
+    cursor: pointer;
+    border-style: solid;
+    border-radius: var(--ds-border-radius-full);
+    background-color: var(--ds-step-circle-bg);
+
+    &--large {
+      width: var(--ds-step-circle-size-lg);
+      min-width: var(--ds-step-circle-size-lg);
+      height: var(--ds-step-circle-size-lg);
+      border-width: var(--ds-step-circle-border-size-lg);
+
+      #{$this}__circle__dot {
+        width: var(--ds-step-dot-size-lg);
+        height: var(--ds-step-dot-size-lg);
+      }
+    }
+
+    &--small {
+      width: var(--ds-step-circle-size-sm);
+      min-width: var(--ds-step-circle-size-sm);
+      height: var(--ds-step-circle-size-sm);
+      border-width: var(--ds-step-circle-border-size-sm);
+
+      #{$this}__circle__dot {
+        width: var(--ds-step-dot-size-sm);
+        height: var(--ds-step-dot-size-sm);
+      }
+    }
+
+    &__dot {
+      background-color: inherit;
+      border-radius: var(--ds-border-radius-full);
+    }
+  }
 }

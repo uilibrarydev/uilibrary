@@ -6,7 +6,7 @@ import { TProgressStepProps } from './types'
 import '../../assets/styles/components/_progresStepper.scss'
 
 export const ProgressStep = (props: TProgressStepProps): ReactElement | null => {
-  const { steps, stepType, activeStep, setActiveStep, completedValues } = props
+  const { steps, stepType, activeStep, setActiveStep, completedValues, stepSize = 'large' } = props
 
   return (
     <div className="progress_steper">
@@ -22,6 +22,7 @@ export const ProgressStep = (props: TProgressStepProps): ReactElement | null => 
             activeStep={activeStep}
             onStepClick={setActiveStep}
             stepType={stepType}
+            stepSize={stepSize}
             hasLeftLine={!isFirstStep}
             hasRightLine={!isLastStep}
             completedValues={completedValues}
