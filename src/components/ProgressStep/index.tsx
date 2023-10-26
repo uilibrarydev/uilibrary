@@ -4,12 +4,13 @@ import { Step } from './Step'
 
 import { TProgressStepProps } from './types'
 import '../../assets/styles/components/_progresStepper.scss'
+import classnames from "classnames";
 
 export const ProgressStep = (props: TProgressStepProps): ReactElement | null => {
-  const { steps, stepType, activeStep, setActiveStep, completedValues, stepSize = 'large' } = props
+  const { steps, stepType, activeStep, setActiveStep, completedValues, stepSize = 'large', stepDirection= 'horizontal' } = props
 
   return (
-    <div className="progress_steper">
+    <div className={classnames('progress-stepper', `progress-stepper--${stepDirection}`)}>
       {steps.map((step, index) => {
         const isFirstStep = index === 0
         const isLastStep = index === steps.length - 1

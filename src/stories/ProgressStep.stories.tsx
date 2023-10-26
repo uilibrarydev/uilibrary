@@ -43,15 +43,18 @@ ProgressStep.args = {
   steps: [
     {
       value: 1,
-      label: 'label1'
+      label: 'label1',
+      subText: 'Subtext1'
     },
     {
       value: 2,
-      label: 'label2'
+      label: 'label2',
+      subText: 'Subtext2'
     },
     {
       value: 3,
-      label: 'label3'
+      label: 'label3',
+      subText: 'Subtext3'
     }
   ]
 }

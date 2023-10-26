@@ -2,6 +2,7 @@ export type TStepValue = number | string
 export interface TStep {
   value: TStepValue
   label: string
+  subText?: string
 }
 export type TStepType = 'number' | 'dot'
 export type TSteps = TStep[]
@@ -9,6 +10,7 @@ export type TSteps = TStep[]
 export type TProgressStepProps = {
   steps: TSteps
   stepType: TStepType
+  stepDirection: 'horizontal' | 'vertical'
   stepSize: 'large' | 'small'
   activeStep: TStepValue
   setActiveStep: (v: TStepValue) => void

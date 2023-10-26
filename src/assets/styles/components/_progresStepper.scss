@@ -1,9 +1,57 @@
 @import "../shared";
 
-.progress_steper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.progress-stepper {
+  @include flexbox;
+
+  &--horizontal {
+    @include align-items(center);
+
+    .step {
+      &__circle {
+        margin: 0 20px;
+
+        &:before, &:after {
+          top: 50%;
+          width: 20px;
+          height: 2px;
+          transform: translateY(-50%);
+        }
+
+        &:before {
+          left: -20px;;
+        }
+
+        &:after {
+          right: -20px;;
+        }
+      }
+    }
+  }
+
+  &--vertical {
+    @include flex-direction(column);
+
+    .step {
+      &__circle {
+        margin: 20px 0;
+
+        &:before, &:after {
+          left: 50%;
+          width: 2px;
+          height: 20px;
+          transform: translateX(-50%);
+        }
+
+        &:before {
+          top: -20px;
+        }
+
+        &:after {
+          bottom: -20px;;
+        }
+      }
+    }
+  }
 }
 
 .step {
@@ -29,36 +77,51 @@
 
   @include flexbox;
   @include flex-direction(column);
-  border-color: var(--ds-step-circle-border-color);
 
   &.active {
-    border-color: var(--ds-step-circle-border-color-active);
+    #{$this}__circle {
+      border-color: var(--ds-step-circle-border-color-active);
 
-    #{$this}__circle__dot {
-      background: var(--ds-step-circle-bg-active);
+      &__dot {
+        background: var(--ds-step-circle-bg-active);
+      }
     }
   }
 
   &.rejected {
-    border-color: var(--ds-step-circle-border-color-danger);
+    #{$this}__circle {
+      border-color: var(--ds-step-circle-border-color-danger);
 
-    #{$this}__circle__dot {
-      background: var(--ds-step-circle-bg-danger);
+      &__dot {
+        background: var(--ds-step-circle-bg-danger);
+      }
     }
   }
 
   &.completed {
-    background-color: var(--ds-step-circle-bg-completed);
+    #{$this}__circle {
+      background-color: var(--ds-step-circle-bg-completed);
+      border-color: var(--ds-step-circle-border-color-active);
+    }
   }
 
   &__circle {
     @include flexbox;
     @include align-items(center);
     @include justify-content(center);
+    position: relative;
     cursor: pointer;
     border-style: solid;
     border-radius: var(--ds-border-radius-full);
     background-color: var(--ds-step-circle-bg);
+    border-color: var(--ds-step-circle-border-color);
+
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      background-color: green;
+      box-sizing: border-box;
+    }
 
     &--large {
       width: var(--ds-step-circle-size-lg);
@@ -86,6 +149,7 @@
 
     &__dot {
       background-color: inherit;
+      border-color: var(--ds-step-circle-border-color);
       border-radius: var(--ds-border-radius-full);
     }
   }

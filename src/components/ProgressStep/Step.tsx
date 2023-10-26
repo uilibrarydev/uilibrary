@@ -17,7 +17,7 @@ export const Step = (props: TStepProps): ReactElement => {
     onStepClick,
     completedValues
   } = props
-  const { label, value } = step
+  const { label, subText, value } = step
   const isActive = activeStep === value
   const isCompleted = completedValues.some((item: TStepValue) => item === value)
 
@@ -29,7 +29,8 @@ export const Step = (props: TStepProps): ReactElement => {
     if (stepType === StepTypes.number) {
       return (
         <Text
-          size={stepSize == 'large' ? 'large' : 'small'}
+          type={isActive ? 'brand' : isCompleted ? 'inverse' : 'tertiary'}
+          size={stepSize == 'large' ? 'medium' : 'small'}
           weight={stepSize == 'large' ? 'semibold' : 'regular'}
         >{`${index}`}</Text>
       )
@@ -40,7 +41,7 @@ export const Step = (props: TStepProps): ReactElement => {
       }
       if (isCompleted) {
         return (
-          <Icon type="success" name="checkmark" size={stepSize == 'large' ? 'large' : 'small'} />
+          <Icon type="inverse" name="checkmark" size={stepSize == 'large' ? 'small' : 'xsmall'} />
         )
       }
     }
@@ -60,7 +61,10 @@ export const Step = (props: TStepProps): ReactElement => {
       <div className={classnames('step__circle', `step__circle--${stepSize}`)}>
         {stepItemContent}
       </div>
-      <Text className="step__label">{label}</Text>
+      <div className="step__label">
+        <Text size={stepSize == 'large' ? 'medium' : 'small'}>{label}</Text>
+        <Text size={stepSize == 'large' ? 'small' : 'xsmall'}>{subText}</Text>
+      </div>
     </div>
   )
 }
