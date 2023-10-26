@@ -1,6 +1,11 @@
 @import "../shared";
 
 .file-upload {
+  --ds-upload-edit-icon-bg: var(--ds-color-bg-white);
+  --ds-upload-edit-icon-size: var(--ds-size-24);
+  --ds-upload-edit-icon-border-radius: var(--ds-border-radius-full);
+  --ds-upload-edit-icon-shadow: var(--ds-shadow-1);
+
   input[type='file'] {
     width: 0;
     height: 0;
@@ -14,11 +19,11 @@
     @include align-items(center);
     @include justify-content(center);
     @include absolute(unset, 0, 0, unset);
-    width: var(--ds-avatar-icon-size);
-    height: var(--ds-avatar-icon-size);
-    border-radius: var(--ds-avatar-icon-border-radius);
-    box-shadow: var(--ds-avatar-icon-shadow);
-    background-color: var(--ds-avatar-icon-bg);
+    width: var(--ds-upload-edit-icon-size);
+    height: var(--ds-upload-edit-icon-size);
+    border-radius: var(--ds-upload-edit-icon-border-radius);
+    box-shadow: var(--ds-upload-edit-icon-shadow);
+    background-color: var(--ds-upload-edit-icon-bg);
   }
 }
 
@@ -45,7 +50,7 @@
   border-radius: var(--ds-upload-item-border-radius);
 
   &--error {
-    border-color: var(--ds-color-bg-cta-danger-default);
+    border-color: var(--ds-color-bg-danger-dark);
   }
 
   &__image {
