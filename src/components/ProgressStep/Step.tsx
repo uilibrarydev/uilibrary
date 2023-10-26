@@ -3,12 +3,12 @@ import React, { ReactElement, useMemo } from 'react'
 import Text from '../Text'
 import Icon from '../Icon'
 import { StepTypes, TStepProps, TStepValue } from './types'
-import classnames from "classnames";
+import classnames from 'classnames'
 
 export const Step = (props: TStepProps): ReactElement => {
   const {
     step,
-    stepSize='large',
+    stepSize = 'large',
     index,
     activeStep,
     hasRightLine,
@@ -27,8 +27,12 @@ export const Step = (props: TStepProps): ReactElement => {
 
   const stepItemContent = useMemo(() => {
     if (stepType === StepTypes.number) {
-      return <Text size={stepSize == 'large' ? 'large' : 'small'}
-                   weight={stepSize == 'large' ? 'semibold' : 'regular'}>{`${index}`}</Text>
+      return (
+        <Text
+          size={stepSize == 'large' ? 'large' : 'small'}
+          weight={stepSize == 'large' ? 'semibold' : 'regular'}
+        >{`${index}`}</Text>
+      )
     }
     if (stepType === StepTypes.dot) {
       if (isActive) {
@@ -36,7 +40,7 @@ export const Step = (props: TStepProps): ReactElement => {
       }
       if (isCompleted) {
         return (
-          <Icon type="success" name="checkmark" size={stepSize == 'large' ? 'large' : 'small'}/>
+          <Icon type="success" name="checkmark" size={stepSize == 'large' ? 'large' : 'small'} />
         )
       }
     }
@@ -53,10 +57,7 @@ export const Step = (props: TStepProps): ReactElement => {
       })}
       onClick={onClick}
     >
-      <div className={classnames(
-          'step__circle',
-          `step__circle--${stepSize}`
-      )}>
+      <div className={classnames('step__circle', `step__circle--${stepSize}`)}>
         {stepItemContent}
       </div>
       <Text className="step__label">{label}</Text>
