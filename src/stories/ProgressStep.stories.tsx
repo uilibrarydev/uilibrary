@@ -39,7 +39,7 @@ const Template = (args) => {
       />
 
       <div className="mt-40">
-        <Button buttonText={'back'} type="secondary" className="mr-8"/>
+        <Button buttonText={'back'} type="secondary" className="mr-8" />
         <Button buttonText={'next'} type="primary" onClick={() => changeStep(2)} />
       </div>
     </div>
