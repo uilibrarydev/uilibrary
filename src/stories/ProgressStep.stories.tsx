@@ -9,6 +9,14 @@ export default {
     stepType: {
       options: ['number', 'dot'],
       control: { type: 'radio' }
+    },
+    stepDirection: {
+      options: ['horizontal', 'vertical'],
+      control: { type: 'radio' }
+    },
+    stepSize: {
+      options: ['large', 'small'],
+      control: { type: 'radio' }
     }
   }
 }
@@ -22,7 +30,7 @@ const Template = (args) => {
   }
 
   return (
-    <div style={{ width: 300 }}>
+    <div style={{ width: 300, height: 300 }}>
       <ProgressStepComp
         {...args}
         activeStep={activeStep}
@@ -30,8 +38,10 @@ const Template = (args) => {
         completedValues={completedValues}
       />
 
-      <Button buttonText={'back'} type="secondary" />
-      <Button buttonText={'next'} type="primary" onClick={() => changeStep(2)} />
+      <div className="mt-40">
+        <Button buttonText={'back'} type="secondary" className="mr-8"/>
+        <Button buttonText={'next'} type="primary" onClick={() => changeStep(2)} />
+      </div>
     </div>
   )
 }
@@ -40,6 +50,8 @@ export const ProgressStep = Template.bind({})
 
 ProgressStep.args = {
   stepType: 'number',
+  stepDirection: 'horizontal',
+  stepSize: 'large',
   steps: [
     {
       value: 1,
