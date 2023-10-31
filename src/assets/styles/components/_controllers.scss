@@ -54,7 +54,7 @@
 
   @include inline-flex;
   @include flex-wrap(wrap);
-  @include align-items(flex-start);
+  @include align-items(center);
   cursor: pointer;
 
   input[type="checkbox"],
