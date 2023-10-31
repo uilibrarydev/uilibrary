@@ -4,6 +4,7 @@ import { TCheckboxProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
 import Link from '../Link'
 import Text from '../Text'
+import classnames from 'classnames';
 
 export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   const {
@@ -36,10 +37,11 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
 
   return (
     <label
-      className={`controller controller--checkbox 
-                  ${disabled ? 'controller--disabled' : ''}
-                  ${className}
-                  `}
+      className={classnames('controller', {
+        'controller--checkbox': true,
+        'controller--disabled': disabled,
+        [className]: !!className,
+      })}
     >
       <input
         data-id={dataId}
