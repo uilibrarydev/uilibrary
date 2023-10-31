@@ -2,26 +2,35 @@ import classNames from 'classnames'
 import React, { ReactElement, useMemo } from 'react'
 import Text from '../Text'
 import Icon from '../Icon'
-import { StepTypes, TStepProps, TStepValue } from './types'
-import classnames from 'classnames'
+import { StepTypes, TStepProps } from './types'
+import { PROGRESS_STATUSES } from './consts'
 
 export const Step = (props: TStepProps): ReactElement => {
   const {
+    width,
     step,
     stepSize = 'large',
     index,
     activeStep,
-    hasRightLine,
-    hasLeftLine,
+
     stepType,
-    onStepClick,
-    completedValues
+    onStepClick
   } = props
-  const { label, subText, value } = step
+  const { label, subText, value, status } = step
   const isActive = activeStep === value
-  const isCompleted = completedValues.some((item: TStepValue) => item === value)
-  const isRejected = false //todo put right condition
-  const isReview = false //todo put right condition
+  const isCompleted = status === PROGRESS_STATUSES.completed
+  const isRejected = status === PROGRESS_STATUSES.rejected
+  const isReview = status === PROGRESS_STATUSES.reviewed
+
+  const textType = useMemo(() => {
+    if (isActive && !isRejected) {
+      return 'brand'
+    }
+    if (isCompleted || isRejected) {
+      return 'inverse'
+    }
+    return 'tertiary'
+  }, [isCompleted, isRejected, isActive])
 
   const onClick = () => {
     onStepClick(value)
@@ -31,9 +40,7 @@ export const Step = (props: TStepProps): ReactElement => {
     if (stepType === StepTypes.number) {
       return (
         <Text
-          type={
-            isActive && !isRejected ? 'brand' : isCompleted || isRejected ? 'inverse' : 'tertiary'
-          }
+          type={textType}
           size={stepSize == 'large' ? 'medium' : 'small'}
           weight={stepSize == 'large' ? 'semibold' : 'regular'}
         >{`${index}`}</Text>
@@ -54,18 +61,17 @@ export const Step = (props: TStepProps): ReactElement => {
       }
     }
     return null
-  }, [index, stepType, stepSize, isCompleted, isActive, isRejected, isReview])
+  }, [index, stepType, stepSize, isCompleted, isActive, isRejected, textType])
 
   return (
     <div
       className={classNames('step', `step--${stepSize}`, {
-        hasLeftLine: hasLeftLine,
-        rightLine: hasRightLine,
         active: isActive,
         completed: isCompleted && !isActive,
         rejected: isRejected,
         review: isReview
       })}
+      style={{ width }}
       onClick={onClick}
     >
       <div className="step__top">
