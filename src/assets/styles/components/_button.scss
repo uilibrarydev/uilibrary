@@ -119,7 +119,6 @@
     &:not(#{$this}--loading) {
       &:hover {
         background-color: var(--ds-button-primary-bg-hover);
-        color: var(--ds-button-primary-text-hover);
       }
 
       &:active {

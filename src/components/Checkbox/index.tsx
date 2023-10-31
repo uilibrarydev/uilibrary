@@ -4,7 +4,7 @@ import { TCheckboxProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
 import Link from '../Link'
 import Text from '../Text'
-import classnames from 'classnames';
+import classnames from 'classnames'
 
 export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
   const {
@@ -40,7 +40,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
       className={classnames('controller', {
         'controller--checkbox': true,
         'controller--disabled': disabled,
-        [className]: !!className,
+        [className]: !!className
       })}
     >
       <input
