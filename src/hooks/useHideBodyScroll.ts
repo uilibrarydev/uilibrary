@@ -20,6 +20,9 @@ export const useHideBodyScroll = (isOpen: boolean): null => {
     if (initial) {
       setInitialOverflow(initial)
     }
+    return () => {
+      document.body.style.overflow = initialOverflow
+    }
   }, [])
 
   return null
