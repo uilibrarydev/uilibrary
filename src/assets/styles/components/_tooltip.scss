@@ -3,7 +3,7 @@
 .tooltip {
   $this: &;
 
-  --ds-tooltip-bg: var(--ds-color-bg-cta-secondary-default);
+  --ds-tooltip-bg: var(--ds-color-bg-white);
   --ds-tooltip-color: var(--ds-color-text-inverse);
   --ds-tooltip-padding: var(--ds-space-4) var(--ds-space-8);
   --ds-tooltip-siz-lg: var(--ds-size-32);
@@ -13,7 +13,7 @@
 
   --ds-tooltip-arrow-size: var(--ds-size-4);
   --ds-tooltip-arrow-position: var(--ds-space-20);
-  --ds-tooltip-arrow-bg: var(--ds-color-bg-cta-secondary-default);
+  --ds-tooltip-arrow-bg: var(--ds-color-bg-white);
   --ds-tooltip-shadow: 0px 2px 4px rgba(34, 34, 34, 0.16);
 
   @include flexbox;

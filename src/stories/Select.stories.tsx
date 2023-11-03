@@ -199,6 +199,7 @@ const Template = (args: any): JSX.Element => {
     <div style={{ width: 320, position: 'absolute', left: 300, top: 100 }}>
       <SelectComp
         {...args}
+        isRequiredField
         options={OPTIONS}
         outerHelperText="helper text"
         selectedItem={selectedValue}

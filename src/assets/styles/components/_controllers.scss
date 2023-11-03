@@ -9,27 +9,27 @@
 
   --ds-controller-font: var(--ds-font-weight-default) var(--ds-paragraph-std)/var(--ds-line-height-caption) var(--ds-font-family);
 
-  --ds-controller-bg-default-light: var(--ds-color-bg-cta-secondary-default);
-  --ds-controller-bg-default-dark: var(--grey-400);
-  --ds-controller-bg-hover-light: var(--ds-color-bg-cta-secondary-hover);
-  --ds-controller-bg-hover-dark: var(--grey-300);
-  --ds-controller-bg-pressed-light: var(--ds-color-bg-cta-secondary-pressed);
-  --ds-controller-bg-pressed-dark: var(--grey-500);
-  --ds-controller-bg-focused: var(--ds-color-bg-cta-secondary-focused);
-  --ds-controller-bg-disabled: var(--ds-color-bg-cta-disabled);
+  --ds-controller-bg-default-light: var(--ds-color-bg-white);
+  --ds-controller-bg-default-dark: var(--ds-color-bg-grey-dark);
+  --ds-controller-bg-hover-light: var(--ds-color-bg-container-lighter);
+  --ds-controller-bg-hover-dark: var(--ds-color-bg-grey);
+  --ds-controller-bg-pressed-light: var(--ds-color-bg-container-light);
+  --ds-controller-bg-pressed-dark: var(--ds-color-bg-grey-darker);
+  --ds-controller-bg-focused: var(--ds-color-bg-container);
+  --ds-controller-bg-disabled: var(--ds-color-bg-disabled);
 
-  --ds-controller-selected-bg-default: var(--ds-color-bg-cta-primary-default);
-  --ds-controller-selected-bg-hover: var(--ds-color-bg-cta-primary-hover);
-  --ds-controller-selected-bg-pressed: var(--ds-color-bg-cta-primary-pressed);
-  --ds-controller-selected-bg-focused: var(--ds-color-bg-cta-primary-focused);
-  --ds-controller-selected-bg-disabled: var(--ds-color-bg-cta-disabled);
+  --ds-controller-selected-bg-default: var(--ds-color-bg-brand);
+  --ds-controller-selected-bg-hover: var(--brand-300);
+  --ds-controller-selected-bg-pressed: var(--ds-color-bg-brand-dark);
+  --ds-controller-selected-bg-focused: var(--ds-color-bg-brand-darker);
+  --ds-controller-selected-bg-disabled: var(--ds-color-bg-disabled);
 
   --ds-controller-mark-light: var(--ds-color-icon-inverse);
   --ds-controller-mark-dark: var(--ds-color-icon-disabled);
 
-  --ds-controller-border-color-default: var(--ds-color-border-cta);
+  --ds-controller-border-color-default: var(--ds-color-border-primary);
   --ds-controller-border-color-focused: var(--grey-500);
-  --ds-controller-border-color-disabled: var(--grey-200);
+  --ds-controller-border-color-disabled: var(--ds-color-border-disabled);
 
   --ds-controller-border: var(--ds-border-thin) solid;
   --ds-controller-border-radius-sm: var(--ds-border-radius-xs);
@@ -54,7 +54,7 @@
 
   @include inline-flex;
   @include flex-wrap(wrap);
-  @include align-items(flex-start);
+  @include align-items(center);
   cursor: pointer;
 
   input[type="checkbox"],

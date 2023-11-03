@@ -1,10 +1,11 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, ReactElement } from 'react'
 import { TRadioProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
 import Text from '../Text'
+import classnames from 'classnames'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const Radio = forwardRef((props: TRadioProps, ref): JSX.Element | null => {
+export const Radio = forwardRef((props: TRadioProps, ref): ReactElement | null => {
   const {
     name,
     label,
@@ -30,10 +31,9 @@ export const Radio = forwardRef((props: TRadioProps, ref): JSX.Element | null =>
 
   return (
     <label
-      className={`controller controller--radio 
-                ${className} 
-                ${disabled ? 'controller--disabled' : ''}
-                `}
+      className={classnames('controller', 'controller--radio', className, {
+        'controller--disabled': disabled
+      })}
     >
       <input
         data-id={dataId}

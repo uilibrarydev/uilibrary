@@ -21,49 +21,48 @@
   --ds-button-font-weight: var(--ds-font-weight-default);
   --ds-button-line-height: var(--ds-line-height-default);
 
-  --ds-button-primary-bg-default: var(--ds-color-bg-cta-primary-default);
-  --ds-button-primary-bg-hover: var(--ds-color-bg-cta-primary-hover);
-  --ds-button-primary-bg-pressed: var(--ds-color-bg-cta-primary-pressed);
-  --ds-button-primary-bg-focused: var(--ds-color-bg-cta-primary-focused);
-  --ds-button-primary-bg-disabled: var(--ds-color-bg-cta-disabled);
+  --ds-button-primary-bg: var(--ds-color-bg-brand);
+  --ds-button-primary-bg-hover: var(--brand-300);
+  --ds-button-primary-bg-pressed: var(--ds-color-bg-brand-dark);
+  --ds-button-primary-bg-focused: var(--ds-color-bg-brand-darker);
+  --ds-button-primary-bg-disabled: var(--ds-color-bg-disabled);
   --ds-button-primary-text-default: var(--ds-color-text-inverse);
-  --ds-button-primary-text-hover: var(--ds-color-text-inverse);
   --ds-button-primary-text-disabled: var(--ds-color-text-disabled);
 
-  --ds-button-secondary-bg-default: var(--ds-color-bg-cta-secondary-default);
-  --ds-button-secondary-bg-hover: var(--ds-color-bg-cta-secondary-hover);
-  --ds-button-secondary-bg-pressed: var(--ds-color-bg-cta-secondary-pressed);
-  --ds-button-secondary-bg-focused: var(--ds-color-bg-cta-secondary-focused);
-  --ds-button-secondary-bg-disabled: var(--ds-color-bg-cta-secondary-default);
+  --ds-button-secondary-bg: var(--ds-color-bg-white);
+  --ds-button-secondary-bg-hover: var(--ds-color-bg-container-lighter);
+  --ds-button-secondary-bg-pressed: var(--ds-color-bg-container-light);
+  --ds-button-secondary-bg-focused: var(--ds-color-bg-container);
+  --ds-button-secondary-bg-disabled: var(--ds-color-bg-white);
   --ds-button-secondary-text-default: var(--ds-color-text-primary);
   --ds-button-secondary-text-hover: var(--ds-color-text-primary);
   --ds-button-secondary-text-disabled: var(--ds-color-text-disabled);
   --ds-button-secondary-border: var(--ds-border-thin) solid var(--ds-button-secondary-border-color);
-  --ds-button-secondary-border-color: var(--ds-color-border-cta);
+  --ds-button-secondary-border-color: var(--ds-color-border-primary);
   --ds-button-secondary-disabled-border-color: var(--ds-color-border-disabled);
 
-  --ds-button-tertiary-bg-default: transparent;
-  --ds-button-tertiary-bg-hover: var(--ds-color-bg-cta-secondary-hover);
-  --ds-button-tertiary-bg-pressed: var(--ds-color-bg-cta-secondary-pressed);
-  --ds-button-tertiary-bg-focused: var(--ds-color-bg-cta-secondary-focused);
-  --ds-button-tertiary-bg-disabled: var(--ds-color-bg-cta-secondary-default);
+  --ds-button-tertiary-bg: transparent;
+  --ds-button-tertiary-bg-hover: var(--ds-color-bg-container-lighter);
+  --ds-button-tertiary-bg-pressed: var(--ds-color-bg-container-light);
+  --ds-button-tertiary-bg-focused: var(--ds-color-bg-container);
+  --ds-button-tertiary-bg-disabled: var(--ds-color-bg-white);
   --ds-button-tertiary-text-default: var(--ds-color-text-primary);
   --ds-button-tertiary-text-hover: var(--ds-color-text-primary);
   --ds-button-tertiary-text-disabled: var(--ds-color-text-disabled);
 
-  --ds-button-danger-bg-default: var(--ds-color-bg-cta-danger-default);
-  --ds-button-danger-bg-hover: var(--ds-color-bg-cta-danger-hover);
-  --ds-button-danger-bg-pressed: var(--ds-color-bg-cta-danger-pressed);
-  --ds-button-danger-bg-focused: var(--ds-color-bg-cta-danger-focused);
-  --ds-button-danger-bg-disabled: var(--ds-color-bg-cta-disabled);
+  --ds-button-danger-bg: var(--ds-color-bg-danger-dark);
+  --ds-button-danger-bg-hover: var(--ds-color-bg-danger);
+  --ds-button-danger-bg-pressed: var(--ds-color-bg-danger-dark);
+  --ds-button-danger-bg-focused: var(--ds-color-bg-danger-darker);
+  --ds-button-danger-bg-disabled: var(--ds-color-bg-disabled);
   --ds-button-danger-text-default: var(--ds-color-text-inverse);
   --ds-button-danger-text-hover: var(--ds-color-text-inverse);
   --ds-button-danger-text-disabled: var(--ds-color-text-disabled);
 
-  --ds-button-text-defult: var(--ds-color-bg-cta-primary-default);
-  --ds-button-text-hover: var(--ds-color-bg-cta-primary-hover);
-  --ds-button-text-pressed: var(--ds-color-bg-cta-primary-pressed);
-  --ds-button-text-focused: var(--ds-color-bg-cta-primary-focused);
+  --ds-button-text: var(--ds-color-bg-brand);
+  --ds-button-text-hover: var(--brand-300);
+  --ds-button-text-pressed: var(--ds-color-bg-brand-dark);
+  --ds-button-text-focused: var(--ds-color-bg-brand-darker);
   --ds-button-text-disabled: var(--ds-color-text-disabled);
 
   --ds-button-icon-margin-lg: var(--ds-space-8);
@@ -114,13 +113,12 @@
   }
 
   &--primary {
-    background-color: var(--ds-button-primary-bg-default);
+    background-color: var(--ds-button-primary-bg);
     color: var(--ds-button-primary-text-default);
 
     &:not(#{$this}--loading) {
       &:hover {
         background-color: var(--ds-button-primary-bg-hover);
-        color: var(--ds-button-primary-text-hover);
       }
 
       &:active {
@@ -147,7 +145,7 @@
   }
 
   &--secondary {
-    background-color: var(--ds-button-secondary-bg-default);
+    background-color: var(--ds-button-secondary-bg);
     color: var(--ds-button-secondary-text-default);
     border: var(--ds-button-secondary-border);
 
@@ -182,7 +180,7 @@
   }
 
   &--tertiary {
-    background-color: var(--ds-button-tertiary-bg-default);
+    background-color: var(--ds-button-tertiary-bg);
     color: var(--ds-button-tertiary-text-default);
 
     &:not(#{$this}--loading) {
@@ -215,7 +213,7 @@
   }
 
   &--danger {
-    background-color: var(--ds-button-danger-bg-default);
+    background-color: var(--ds-button-danger-bg);
     color: var(--ds-button-danger-text-default);
 
     &:not(#{$this}--loading) {
@@ -252,7 +250,7 @@
     height: auto;
     width: auto;
     background: none;
-    color: var(--ds-button-text-defult);
+    color: var(--ds-button-text);
 
     &:not(#{$this}--loading) {
       &:hover {
@@ -289,7 +287,7 @@
     }
 
     #{$this}__icon {
-      color: var(--ds-button-text-defult);
+      color: var(--ds-button-text);
     }
   }
 
