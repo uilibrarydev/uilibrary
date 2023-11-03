@@ -2,22 +2,35 @@ import classNames from 'classnames'
 import React, { ReactElement, useMemo } from 'react'
 import Text from '../Text'
 import Icon from '../Icon'
-import { StepTypes, TStepProps, TStepValue } from './types'
+import { StepTypes, TStepProps } from './types'
+import { PROGRESS_STATUSES } from './consts'
 
 export const Step = (props: TStepProps): ReactElement => {
   const {
+    width,
     step,
+    stepSize = 'large',
     index,
     activeStep,
-    hasRightLine,
-    hasLeftLine,
+
     stepType,
-    onStepClick,
-    completedValues
+    onStepClick
   } = props
-  const { label, value } = step
+  const { label, subText, value, status } = step
   const isActive = activeStep === value
-  const isCompleted = completedValues.some((item: TStepValue) => item === value)
+  const isCompleted = status === PROGRESS_STATUSES.completed
+  const isRejected = status === PROGRESS_STATUSES.rejected
+  const isReview = status === PROGRESS_STATUSES.reviewed
+
+  const textType = useMemo(() => {
+    if (isActive && !isRejected) {
+      return 'brand'
+    }
+    if (isCompleted || isRejected) {
+      return 'inverse'
+    }
+    return 'tertiary'
+  }, [isCompleted, isRejected, isActive])
 
   const onClick = () => {
     onStepClick(value)
@@ -25,38 +38,57 @@ export const Step = (props: TStepProps): ReactElement => {
 
   const stepItemContent = useMemo(() => {
     if (stepType === StepTypes.number) {
-      return <span className="progress_steper__step_item__content">{`${index}`}</span>
+      return (
+        <Text
+          type={textType}
+          size={stepSize == 'large' ? 'medium' : 'small'}
+          weight={stepSize == 'large' ? 'semibold' : 'regular'}
+        >{`${index}`}</Text>
+      )
     }
     if (stepType === StepTypes.dot) {
       if (isActive) {
-        return <div className={classNames('progress_steper__step_item__content', 'content_dot')} />
+        return <span className={classNames('step__circle__dot')} />
       }
       if (isCompleted) {
         return (
-          <Icon type="success" name="checkmark" className="progress_steper__step_item__content" />
+          <Icon
+            type="inverse"
+            name={isRejected ? 'dismiss-circle' : 'checkmark'}
+            size={stepSize == 'large' ? 'small' : 'xsmall'}
+          />
         )
       }
     }
     return null
-  }, [index, stepType, isCompleted, isActive])
+  }, [index, stepType, stepSize, isCompleted, isActive, isRejected, textType])
 
   return (
     <div
-      className={classNames('progress_steper__step', {
-        leftLine: hasLeftLine,
-        rightLine: hasRightLine
+      className={classNames('step', `step--${stepSize}`, {
+        active: isActive,
+        completed: isCompleted && !isActive,
+        rejected: isRejected,
+        review: isReview
       })}
+      style={{ width }}
       onClick={onClick}
     >
-      <div
-        className={classNames('progress_steper__step_item', {
-          progress_steper__step_item_active: isActive,
-          progress_steper__step_item_completed: isCompleted && !isActive
-        })}
-      >
-        {stepItemContent}
+      <div className="step__top">
+        <div className="step__circle">{stepItemContent}</div>
       </div>
-      <Text>{label}</Text>
+      <div className="step__label">
+        <Text
+          size={stepSize == 'large' ? 'medium' : 'small'}
+          weight="semibold"
+          className="text-truncate"
+        >
+          {label}
+        </Text>
+        <Text size={stepSize == 'large' ? 'small' : 'xsmall'} className="text-truncate">
+          {subText}
+        </Text>
+      </div>
     </div>
   )
 }
