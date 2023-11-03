@@ -1,4 +1,4 @@
-import { RefObject } from 'react'
+import { RefObject, KeyboardEvent } from 'react'
 import { IconPropTypes } from '../Icon/types'
 
 export interface InputCustomProps extends IFormCompProps {
@@ -30,4 +30,5 @@ export interface InputCustomProps extends IFormCompProps {
   thousandSeparator?: string
   labelAddons?: JSX.Element
   autoComplete?: boolean
+  onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void
 }

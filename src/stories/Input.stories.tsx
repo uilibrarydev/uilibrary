@@ -27,6 +27,11 @@ const Template = (args) => {
         error={!value && isErrorVisible ? 'requeired field' : ''}
         currentValue={value}
         onChange={changeHandler}
+        onKeyDown={(e) => {
+          // eslint-disable-next-line no-console
+          console.log(e, "e")
+
+        }}
       />
     </div>
   )
