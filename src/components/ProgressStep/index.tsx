@@ -16,20 +16,15 @@ export const ProgressStep = (props: TProgressStepProps): ReactElement | null => 
     stepSize = 'large',
     stepDirection = 'horizontal'
   } = props
-  const [stepContainerRef, setStepContainerRef] = useState<HTMLDivElement | null>(null)
 
-  const { width } = useGetElemSizes(stepContainerRef)
-  const singleStepWidth = width / steps.length
+  const singleStepWidth = `${100/steps.length}%`
 
   return (
-    <div
-      className={classnames('progress-stepper', `progress-stepper--${stepDirection}`)}
-      ref={setStepContainerRef}
-    >
+    <div className={classnames('progress-stepper', `progress-stepper--${stepDirection}`)}>
       {steps.map((step, index) => {
         return (
           <Step
-            width={singleStepWidth}
+            width={stepDirection == 'horizontal' ? singleStepWidth : '100%'}
             step={step}
             index={index}
             key={step.value}

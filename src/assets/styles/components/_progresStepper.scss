@@ -91,6 +91,10 @@
             width: var(--ds-step-between-border-size-lg);
           }
         }
+
+        .step__label {
+          width: calc(100% - var(--ds-step-circle-size-lg))
+        }
       }
 
       &--small {
@@ -99,10 +103,13 @@
             width: var(--ds-step-between-border-size-sm);
           }
         }
+        .step__label {
+          width: calc(100% - var(--ds-step-circle-size-sm))
+        }
       }
 
       &__label {
-        padding-left: var(--ds-space-16);
+        padding: 0 0 0 var(--ds-space-16);
       }
     }
   }

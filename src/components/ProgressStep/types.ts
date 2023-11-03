@@ -20,7 +20,7 @@ export type TProgressStepProps = {
 }
 
 export type TStepProps = {
-  width: number
+  width: string
   step: TStep
   stepSize: 'large' | 'small'
   index: number
