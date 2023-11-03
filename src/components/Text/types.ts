@@ -13,6 +13,7 @@ export type TTextTypes =
   | 'discovery'
 
 export interface TextPropTypes {
+  id?: string
   children?: string | JSX.Element
   type?:
     | 'primary'

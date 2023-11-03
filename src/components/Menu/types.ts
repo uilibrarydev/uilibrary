@@ -2,7 +2,7 @@ export type TMenuItem = {
   label: TItemLabel
   value: TItemValue
   iconProps?: TSelectIconProps
-  handler: TCallBackFn
+  handler?: TCallBackFn
   disabled?: boolean
 }
 
