@@ -22,4 +22,5 @@ export interface IRangeDatePickerProps extends IFormCompProps {
   currentDates?: TRangePickerValues
   label?: string | JSX.Element
   changeHandler: (date: TRangePickerValues) => void
+  maxDate?: Date | undefined
 }

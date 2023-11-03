@@ -67,7 +67,7 @@ const RangePicker = (): JSX.Element => {
 
   return (
     <div style={{ width: 300 }}>
-      <RangeDatePicker_ value={value} changeHandler={setValue} />
+      <RangeDatePicker_ value={value} changeHandler={setValue} maxDate={new Date()} />
     </div>
   )
 }

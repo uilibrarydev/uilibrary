@@ -590,3 +590,8 @@ $space-prefixes: (
 .text-justify {
   text-align: justify;
 }
+
+//
+.text-truncate {
+  @include truncate(100%);
+}
