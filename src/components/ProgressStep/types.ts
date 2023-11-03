@@ -22,9 +22,9 @@ export type TProgressStepProps = {
 export type TStepProps = {
   width: string
   step: TStep
-  stepSize: 'large' | 'small'
+  stepSize?: 'large' | 'small'
   index: number
-  stepType: TStepType
+  stepType?: TStepType
   onStepClick: (v: TStepValue) => void
   activeStep: TStepValue
 }
