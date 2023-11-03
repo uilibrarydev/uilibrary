@@ -17,7 +17,7 @@ export const ProgressStep = (props: TProgressStepProps): ReactElement | null => 
     stepDirection = 'horizontal'
   } = props
 
-  const singleStepWidth = `${100/steps.length}%`
+  const singleStepWidth = `${100 / steps.length}%`
 
   return (
     <div className={classnames('progress-stepper', `progress-stepper--${stepDirection}`)}>
