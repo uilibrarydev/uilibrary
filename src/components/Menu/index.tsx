@@ -63,7 +63,9 @@ const Menu = (props: TMenuProps): ReactElement | null => {
             labelLeftIconProps={iconProps}
             onClick={() => {
               onClose()
-              handler()
+              if (handler) {
+                handler()
+              }
             }}
           />
         )
