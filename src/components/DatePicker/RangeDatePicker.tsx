@@ -10,7 +10,7 @@ import './index.scss'
 registerLocale('hy', hy)
 
 const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
-  const { value, currentDates = [], setFieldValue, name, changeHandler, format } = props
+  const { value, currentDates = [], setFieldValue, name, changeHandler, format, maxDate } = props
 
   const dateInitialValue = value !== undefined && Array.isArray(value) ? value : currentDates
 
@@ -34,6 +34,7 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
     <DatePicker
       startDate={rangeArray[0] as Date}
       endDate={rangeArray[1] as Date}
+      maxDate={maxDate}
       selectsRange
       onChange={onChange}
       customInput={
