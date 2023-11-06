@@ -11,7 +11,7 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
   const {
     dataId,
     text,
-    link,
+    linkAddons,
     className = '',
     position = 'top-left',
     children,
@@ -60,13 +60,20 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
           style={popoverStyles}
         >
           <div className="popover__inner scrollbar scrollbar--vertical pr-8">
-            {!link && (
+            {!linkAddons ? (
               <Text type="primary" weight="regular" lineHeight="medium" size="small">
                 {text}
               </Text>
-            )}
-            {link ? (
-              <Link dataId={dataId} url={link}>
+            ) : null}
+
+            {linkAddons ? (
+              <Link
+                dataId={linkAddons.dataId}
+                url={linkAddons.url}
+                beforeLink={linkAddons.beforeLink}
+                afterLink={linkAddons.afterLink}
+                taget={linkAddons.taget}
+              >
                 {text}
               </Link>
             ) : null}

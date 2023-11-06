@@ -24,7 +24,7 @@ export default {
 const Template = (args: any) => {
   return (
     <>
-      <PopoverComp {...args} id="popover_test" />
+      <PopoverComp {...args} id="popover_test"/>
       <div
         style={{
           position: 'absolute',
