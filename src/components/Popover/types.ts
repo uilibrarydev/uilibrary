@@ -3,6 +3,7 @@ import { ReactElement } from 'react'
 export interface TPopoverProps extends IFormCompProps {
   clicked?: boolean
   text?: string | ReactElement
+  link?: string
   children?: string | ReactElement
   position?:
     | 'top-left'

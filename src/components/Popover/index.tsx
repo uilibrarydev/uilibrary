@@ -5,10 +5,13 @@ import Text from '../Text'
 
 import { TPopoverProps } from './types'
 import '../../assets/styles/components/_popover.scss'
+import Link from '../Link'
 
 export const Popover = (props: TPopoverProps): JSX.Element | null => {
   const {
+    dataId,
     text,
+    link,
     className = '',
     position = 'top-left',
     children,
@@ -51,14 +54,22 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
     <>
       {isClicked && (
         <div
+          data-id={dataId}
           className={classNames(`popover popover--${popoverPosition}`, className)}
           ref={setPopoverRef}
           style={popoverStyles}
         >
           <div className="popover__inner scrollbar scrollbar--vertical pr-8">
-            <Text type="primary" weight="regular" lineHeight="medium" size="small">
-              {text}
-            </Text>
+            {!link && (
+              <Text type="primary" weight="regular" lineHeight="medium" size="small">
+                {text}
+              </Text>
+            )}
+            {link ? (
+              <Link dataId={dataId} url={link}>
+                {text}
+              </Link>
+            ) : null}
           </div>
         </div>
       )}

@@ -22,5 +22,6 @@ Link.args = {
   children: 'Bro',
   url: '/',
   beforeLink: 'Hello',
-  afterLink: 'By'
+  afterLink: 'By',
+  dataId: 'dasdasa'
 }

@@ -3,6 +3,7 @@ import * as yup from 'yup'
 import FormField from '../components/FormField'
 import { FormContainer, Button, Select, MultiSelect } from '../components'
 import { useFormProps } from '../hooks/useFormProps'
+import { Checkbox } from '../index'
 
 export default {
   title: 'Form',
@@ -144,7 +145,7 @@ const OPTIONS_COUNTRIES: TSelectOptions = [
 ]
 
 const VALIDATION_SCHEME = yup.object({
-  // test: yup.string().required('validation').nullable(),
+  conditions: yup.string().required('validation').nullable()
   // firstname: yup.string().required('validation').nullable()
 })
 
@@ -185,20 +186,35 @@ export const Test = () => {
   return (
     <>
       <FormField
-        className="input-block"
-        name={'list'}
-        As={(props) => {
-          return (
-            <MultiSelect
-              {...props}
-              isGrouped
-              isRequiredField
-              label={'COUNTRIES'}
-              options={OPTIONS_GROUPED}
-            />
-          )
-        }}
+        dataId={'dasdsa'}
+        name={'conditions'}
+        className={'mb-20'}
+        isNeedChangeHandler
+        As={(props) => (
+          <Checkbox
+            {...props}
+            dataId={'dasdsa'}
+            beforeLink={'dasdas'}
+            label={'dasdsa'}
+            link={'dassad'}
+          />
+        )}
       />
+      {/*<FormField*/}
+      {/*  className="input-block"*/}
+      {/*  name={'list'}*/}
+      {/*  As={(props) => {*/}
+      {/*    return (*/}
+      {/*      <MultiSelect*/}
+      {/*        {...props}*/}
+      {/*        isGrouped*/}
+      {/*        isRequiredField*/}
+      {/*        label={'COUNTRIES'}*/}
+      {/*        options={OPTIONS_GROUPED}*/}
+      {/*      />*/}
+      {/*    )*/}
+      {/*  }}*/}
+      {/*/>*/}
       {/* <FormField
         className="input-block"
         name={'CITIES'}

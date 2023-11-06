@@ -136,6 +136,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
           required={required}
           disabled={disabled}
           labelAddons={labelAddons}
+          dataId={dataId}
         />
         <div className="input__inner">
           {input}
