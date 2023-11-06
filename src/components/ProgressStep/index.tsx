@@ -1,7 +1,6 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement } from 'react'
 import classnames from 'classnames'
 
-import { useGetElemSizes } from '../../hooks'
 import { Step } from './Step'
 
 import { TProgressStepProps } from './types'
