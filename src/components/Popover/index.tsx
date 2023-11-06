@@ -60,12 +60,6 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
           style={popoverStyles}
         >
           <div className="popover__inner scrollbar scrollbar--vertical pr-8">
-            {!linkAddons ? (
-              <Text type="primary" weight="regular" lineHeight="medium" size="small">
-                {text}
-              </Text>
-            ) : null}
-
             {linkAddons ? (
               <Link
                 dataId={linkAddons.dataId}
@@ -76,7 +70,11 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
               >
                 {text}
               </Link>
-            ) : null}
+            ) : (
+              <Text type="primary" weight="regular" lineHeight="medium" size="small">
+                {text}
+              </Text>
+            )}
           </div>
         </div>
       )}
