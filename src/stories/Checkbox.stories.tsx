@@ -16,10 +16,11 @@ const Template = (args) => {
 export const Checkbox = Template.bind({})
 
 Checkbox.args = {
+  dataId: 'dadas',
   disabled: false,
   required: false,
   label: 'Label for checkbox',
-  beforeLink: '',
-  afterLink: '',
+  beforeLink: 'das',
+  afterLink: 'dasdsa',
   link: 'https://ameriabank.am/Portals/0/files/Business/General/SME_Ecosystem_Text_of_agreements.pdf'
 }
