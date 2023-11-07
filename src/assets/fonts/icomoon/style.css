@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?262lup');
-  src:  url('fonts/icomoon.eot?262lup#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?262lup') format('truetype'),
-    url('fonts/icomoon.woff?262lup') format('woff'),
-    url('fonts/icomoon.svg?262lup#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?41mo26');
+  src:  url('fonts/icomoon.eot?41mo26#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?41mo26') format('truetype'),
+    url('fonts/icomoon.woff?41mo26') format('woff'),
+    url('fonts/icomoon.svg?41mo26#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,30 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-document:before {
+  content: "\e9ab";
+}
+.icon-document-hover:before {
+  content: "\e9ac";
+}
+.icon-person-star:before {
+  content: "\e9ad";
+}
+.icon-person-star-hover:before {
+  content: "\e9ae";
+}
+.icon-database:before {
+  content: "\e9af";
+}
+.icon-database-hover:before {
+  content: "\e9b0";
+}
+.icon-mail-add:before {
+  content: "\e9a9";
+}
+.icon-mail-add-hover:before {
+  content: "\e9aa";
+}
 .icon-mail-arrow-forward:before {
   content: "\e9a5";
 }
@@ -46,11 +70,11 @@
 .icon-pos:before {
   content: "\e91b";
 }
-.icon-menu-hover:before {
-  content: "\e900";
-}
 .icon-menu:before {
   content: "\e901";
+}
+.icon-menu-hover:before {
+  content: "\e900";
 }
 .icon-phone-hover:before {
   content: "\e902";

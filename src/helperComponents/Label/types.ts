@@ -5,4 +5,5 @@ export interface TextPropTypes {
   text?: string | JSX.Element
   className?: string
   labelAddons?: JSX.Element
+  dataId?: string
 }

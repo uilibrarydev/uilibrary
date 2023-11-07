@@ -15,7 +15,7 @@ export const Status = (props: TStatusProps): ReactElement => {
   const {
     type = 'primary',
     size = 'large',
-    text,
+    text = '',
     className = '',
     leftIconProps,
     rightIconProps,
