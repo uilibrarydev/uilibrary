@@ -1,7 +1,12 @@
-import { RefObject, KeyboardEvent } from 'react'
+import { InputHTMLAttributes, RefObject } from 'react'
 import { IconPropTypes } from '../Icon/types'
 
-export interface InputCustomProps extends IFormCompProps {
+export interface InputCustomProps
+  extends IFormCompProps,
+    Omit<
+      InputHTMLAttributes<HTMLInputElement>,
+      'size' | 'onFocus' | 'value' | 'onChange' | 'autoComplete'
+    > {
   mask?: string
   className?: string
   size?: 'large' | 'small'
@@ -30,5 +35,4 @@ export interface InputCustomProps extends IFormCompProps {
   thousandSeparator?: string
   labelAddons?: JSX.Element
   autoComplete?: boolean
-  onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void
 }
