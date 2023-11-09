@@ -24,7 +24,7 @@ export default {
 const Template = (args: any) => {
   return (
     <>
-      <PopoverComp {...args} id="popover_test"/>
+      <PopoverComp {...args} id="popover_test" />
       <div
         style={{
           position: 'absolute',
@@ -46,8 +46,8 @@ export const Popover = Template.bind({})
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 Popover.args = {
-    linkAddons:{
-        url:'dasdsa',
-    },
+  linkAddons: {
+    url: 'dasdsa'
+  },
   text: 'Lorem ipsum dolor sit amet. Ea accusamus laboriosam sit sintEa accusamus laboriosam sit sint expedita et numquam sunt. A sunt assumenda id quos sequi qui eius nulla. Est saepe dolorem qui nemo enim id velit voluptas.Est saepe dolorem qui nemo enim id velit voluptas.Est saepe dolorem qui nemo enim id velit voluptas.Est saepe dolorem.'
 }

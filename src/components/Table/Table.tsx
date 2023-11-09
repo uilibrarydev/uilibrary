@@ -1,3 +1,4 @@
+import React from 'react'
 import { useSortBy, useTable } from 'react-table'
 
 function Table({ columns, data }: any) {
@@ -16,12 +17,12 @@ function Table({ columns, data }: any) {
   return (
     <table {...getTableProps()}>
       <thead>
-        {headerGroups.map((headerGroup: any) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column: any) => (
+        {headerGroups.map((headerGroup: any, i: number) => (
+          <tr key={i} {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map((column: any, i: number) => (
               // Add the sorting props to control sorting. For this example
               // we can add them into the header props
-              <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+              <th key={i} {...column.getHeaderProps(column.getSortByToggleProps())}>
                 {column.render('Header')}
                 {/* Add a sort direction indicator */}
                 <span>{column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : ''}</span>
@@ -31,22 +32,26 @@ function Table({ columns, data }: any) {
         ))}
       </thead>
       <tbody {...getTableBodyProps()}>
-        {firstPageRows.map((row: any) => {
+        {firstPageRows.map((row: any, i: number) => {
           prepareRow(row)
           console.log(row)
           return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map((cell: any) => {
+            <tr {...row.getRowProps()} key={i}>
+              {row.cells.map((cell: any, i: number) => {
                 console.log(cell.render('Cell'), cell)
                 if (cell.column.type === 'status') {
                   return (
-                    <td>
+                    <td key={i}>
                       {cell.value[0]}/{cell.value[1]}
                     </td>
                   )
                 }
 
-                return <td {...cell.getCellProps()}>{cell.value}</td>
+                return (
+                  <td key={i} {...cell.getCellProps()}>
+                    {cell.value}
+                  </td>
+                )
               })}
             </tr>
           )
