@@ -50,8 +50,8 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
-    "@rollup/plugin-image": "^3.0.3",
     "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-image": "^3.0.3",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@storybook/addon-actions": "^6.5.9",
@@ -101,6 +101,7 @@
     "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^2.9.10",
     "@types/react-input-mask": "^3.0.2",
+    "@types/react-table": "^7.7.18",
     "classnames": "^2.3.2",
     "framer-motion": "4.1.17",
     "moment": "^2.29.4",
@@ -108,6 +109,7 @@
     "react-hook-form": "^7.39.7",
     "react-input-mask": "^2.0.4",
     "react-number-format": "^5.3.1",
+    "react-table": "^7.8.0",
     "react-toastify": "9.0.3",
     "sass": "^1.56.1",
     "storybook-design-token": "^2.8.2"
