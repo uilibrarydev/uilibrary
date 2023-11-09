@@ -270,11 +270,11 @@ const MultiSelect1 = (args: any): JSX.Element => {
     <div style={{ width: 320, position: 'absolute', left: 300, top: 0 }} className="ddddd">
       <MultiSelectComp
         {...args}
-        isGrouped={true}
-        maxSelectCount={3}
+        // isGrouped={true}
+        // maxSelectCount={3}
         emptyListMessage="List is Empty"
         selectedItems={selectedValues}
-        setSelectedItems={setSelectedValues}
+        // setSelectedItems={setSelectedValues}
         labelRightIconComponent={
           <Icon
             name="user"
@@ -303,15 +303,15 @@ export const MultiSelect = MultiSelect1.bind({})
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 MultiSelect.args = {
-  isLoading: false,
-  label: 'Select',
-  options: OPTIONS_GROUPED,
-  avatar: image.src,
-  placeHolder: 'Select country',
-  innerLabel: 'Select',
-  helperText: 'To be filled in only for USA, Canada and European countries.',
-  labelLeftIconProps: { name: 'user' },
-  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
+  // isLoading: false,
+  // label: 'Select',
+  options: OPTIONS
+  // avatar: image.src,
+  // placeHolder: 'Select country',
+  // innerLabel: 'Select',
+  // helperText: 'To be filled in only for USA, Canada and European countries.',
+  // labelLeftIconProps: { name: 'user' },
+  // labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
   // labelRightIconComponent: <Icon name="user" size="xsmall" className="mr-4" />,
   // optionRightIconComponent: <Icon name="more" size="xsmall" />
 }

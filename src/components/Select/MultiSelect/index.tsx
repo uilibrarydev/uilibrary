@@ -76,7 +76,9 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   }, [value])
 
   useEffect(() => {
-    setSelectedValues(selectedItems || [])
+    if (selectedItems.length) {
+      setSelectedValues(selectedItems || [])
+    }
   }, [selectedItems])
 
   const cancelSelectedItems = useCallback(() => {

@@ -112,25 +112,27 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
         }`}
       >
         {isSearchAvailable && (
-          <div className="selected-items">
-            {selectedOptions.map((item: TSelectOption) => {
-              const isSelected = selectedValues.findIndex((s) => s.value === item.value) !== -1
+          <>
+            <div className="selected-items">
+              {selectedOptions.map((item: TSelectOption) => {
+                const isSelected = selectedValues.findIndex((s) => s.value === item.value) !== -1
 
-              return (
-                <OptionItem
-                  data={item}
-                  key={item.value}
-                  isSelected
-                  disabled={item.disabled}
-                  onClick={isSelected ? onDeselect : onItemSelect}
-                  {...optionProps}
-                />
-              )
-            })}
-          </div>
+                return (
+                  <OptionItem
+                    data={item}
+                    key={item.value}
+                    isSelected
+                    disabled={item.disabled}
+                    onClick={isSelected ? onDeselect : onItemSelect}
+                    {...optionProps}
+                  />
+                )
+              })}
+            </div>
+            <Divider type="primary" isHorizontal />
+          </>
         )}
 
-        <Divider type="primary" isHorizontal />
         {filteredData.map((item: TSelectOption) => {
           const isSelected = checkIsSelected(item.value)
           return (
