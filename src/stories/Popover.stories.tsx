@@ -23,16 +23,18 @@ export default {
 
 const Template = (args: any) => {
   return (
-    <div  style={{
+    <div
+      style={{
         position: 'absolute',
         left: 300,
         top: 300,
         width: 100,
         height: 50,
         background: 'red'
-    }}>
+      }}
+    >
       <PopoverComp {...args} id="popover_test" />
-        <div id="popover_test"> Click on me</div>
+      <div id="popover_test"> Click on me</div>
     </div>
   )
 }

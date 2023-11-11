@@ -28,21 +28,23 @@ export default {
 const Template = (args) => {
   // const [elemRef, setelemRef] = useState<HTMLElement | null>(null)
   return (
-    <div style={{
+    <div
+      style={{
         backgroundColor: 'grey',
         width: 100,
         height: 100,
         position: 'absolute',
         top: 200,
         left: 400
-    }}>
+      }}
+    >
       <TooltipComp
         {...args}
         id="ooooo"
         text="My tooltip text"
         // position="bottom-left"
       />
-        <div id="ooooo">Hover on me</div>
+      <div id="ooooo">Hover on me</div>
     </div>
   )
 }
