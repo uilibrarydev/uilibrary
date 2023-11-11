@@ -1,6 +1,7 @@
 import React, { useState, useRef, ReactElement } from 'react'
-import Icon from '../Icon'
+import Button from '../Button'
 import { Popover } from '../Popover'
+import './index.scss'
 
 type Props = {
   className?: string
@@ -16,11 +17,11 @@ export const Copy = ({ className = '', text }: Props): ReactElement => {
   }
 
   return (
-    <div ref={copyIconRef}>
-      <Icon name="mail" size="xsmall" className={className} onClick={copy} />
-      {isTooltipVisibile ? (
-        <Popover clicked elemRef={copyIconRef.current as HTMLElement} text="copied" />
-      ) : null}
-    </div>
+      <div ref={copyIconRef} className="copy-icon">
+        <Button type={'tertiary'} iconProps={{name: 'copy'}} size={'small'}  className={className} onClick={copy} />
+        {isTooltipVisibile ? (
+            <Popover clicked elemRef={copyIconRef.current as HTMLElement} text="Copied" position={'top-center'} />
+        ) : null}
+      </div>
   )
 }

@@ -8,9 +8,7 @@ export default {
 }
 
 const Template = (args) => (
-  <div style={{ width: 20 }}>
     <CopyComp {...args} />
-  </div>
 )
 
 export const Copy = Template.bind({})
