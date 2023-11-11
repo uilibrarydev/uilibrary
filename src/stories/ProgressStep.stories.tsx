@@ -63,7 +63,7 @@ const Template = (args) => {
   }
 
   return (
-    <div style={{ width: 500, height: 300 }}>
+    <div style={{ width: 500}}>
       <ProgressStepComp
         {...args}
         steps={steps}

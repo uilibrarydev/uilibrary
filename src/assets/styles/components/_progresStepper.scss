@@ -9,6 +9,8 @@
   --ds-step-between-border-size-lg: var(--ds-space-2);
   --ds-step-between-border-size-sm: calc(var(--ds-space-2) / 2);
 
+  --ds-step-vertical-item-space: var(--ds-space-16) 0;
+
   @include flexbox;
 
   &--horizontal {
@@ -68,6 +70,7 @@
 
       &__top {
         height: 100%;
+        padding: var(--ds-step-vertical-item-space);
         @include align-items(center);
 
         &:before, &:after {
