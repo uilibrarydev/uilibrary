@@ -22,7 +22,7 @@
   color: var(--ds-tooltip-color);
   background-color: var(--ds-tooltip-bg);
   border-radius: var(--ds-tooltip-border-radius);
-  filter: drop-shadow(var(--ds-tooltip-shadow));
+  filter: drop-shadow(#{var(--ds-tooltip-shadow)});
   max-width: var(--ds-tooltip-max-width);
   padding: var(--ds-tooltip-padding);
   z-index: 9999;
