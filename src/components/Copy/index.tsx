@@ -17,11 +17,22 @@ export const Copy = ({ className = '', text }: Props): ReactElement => {
   }
 
   return (
-      <div ref={copyIconRef} className="copy-icon">
-        <Button type={'tertiary'} iconProps={{name: 'copy'}} size={'small'}  className={className} onClick={copy} />
-        {isTooltipVisibile ? (
-            <Popover clicked elemRef={copyIconRef.current as HTMLElement} text="Copied" position={'top-center'} />
-        ) : null}
-      </div>
+    <div ref={copyIconRef} className="copy-icon">
+      <Button
+        type={'tertiary'}
+        iconProps={{ name: 'copy' }}
+        size={'small'}
+        className={className}
+        onClick={copy}
+      />
+      {isTooltipVisibile ? (
+        <Popover
+          clicked
+          elemRef={copyIconRef.current as HTMLElement}
+          text="Copied"
+          position={'top-center'}
+        />
+      ) : null}
+    </div>
   )
 }
