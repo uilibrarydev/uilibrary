@@ -77,6 +77,7 @@ export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps 
     confirm: TButtonPropTypes
   }
   labelAddons?: JSX.Element
+  className?: string
 }
 
 export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps {
