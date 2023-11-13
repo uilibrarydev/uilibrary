@@ -89,4 +89,3 @@ declare type TImageMimeTypes =
   | 'application/pdf'
 
 declare module '*.svg'
-

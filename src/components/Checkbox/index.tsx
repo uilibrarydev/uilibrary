@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import Icon from '../Icon'
 import { TCheckboxProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
@@ -35,6 +35,37 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
     }
   }
 
+  const checkboxLabel = useMemo(() => {
+    if (!label) {
+      return null
+    }
+    if (typeof label !== 'string') {
+      return label
+    }
+    if (!link) {
+      return (
+        <Text type={disabled ? 'disabled' : 'primary'} className="controller__label">
+          <>
+            {label}
+            {required && <sup>*</sup>}
+          </>
+        </Text>
+      )
+    }
+    return (
+      <Text type={disabled ? 'disabled' : 'primary'} className="controller__label">
+        <>
+          {beforeLink && <span className="mr-4">{beforeLink}</span>}
+          <Link dataId={dataId} url={link} taget="_blank">
+            {label}
+          </Link>
+          {afterLink && <span className="ml-4">{afterLink}</span>}
+          {required && <sup>*</sup>}
+        </>
+      </Text>
+    )
+  }, [label, link])
+
   return (
     <label
       className={classnames('controller', {
@@ -59,24 +90,7 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
           className="controller__mark"
         />
       </span>
-      {label ? (
-        <Text type={disabled ? 'disabled' : 'primary'} className="controller__label">
-          <>
-            {link ? (
-              <>
-                {beforeLink && <span className="mr-4">{beforeLink}</span>}
-                <Link dataId={dataId} url={link} taget="_blank">
-                  {label}
-                </Link>
-                {afterLink && <span className="ml-4">{afterLink}</span>}
-              </>
-            ) : (
-              <>{label}</>
-            )}
-            {required && <sup>*</sup>}
-          </>
-        </Text>
-      ) : null}
+      {checkboxLabel}
     </label>
   )
 }
