@@ -49,6 +49,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
     translations,
     labelAddons,
     isLoading,
+    className = '',
     ...rest
   } = props
 
@@ -81,7 +82,8 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
 
   const cancelSelectedItems = useCallback(() => {
     submitSelectedValue(initialSelected)
-  }, [])
+    setSelectedValues(initialSelected)
+  }, [initialSelected])
 
   useOnOutsideClick(containerRef.current, cancelSelectedItems, isOpen, useId())
   useHideOnScroll(closeDropdown)
@@ -163,7 +165,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   })
 
   return (
-    <div className="select select--multi" ref={containerRef}>
+    <div className={classNames('select select--multi', className)} ref={containerRef}>
       <div onClick={toggleDropdown}>
         <Input
           readonly
