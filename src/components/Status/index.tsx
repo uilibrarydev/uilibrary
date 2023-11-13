@@ -35,9 +35,7 @@ export const Status = (props: TStatusProps): ReactElement => {
       >
         {text}
       </Text>
-      {rightIconProps?.name && (
-        <Icon size="xsmall" type={type} {...rightIconProps} className="ml-6" />
-      )}
+      {rightIconProps}
     </div>
   )
 }

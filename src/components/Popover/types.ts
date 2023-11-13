@@ -5,6 +5,7 @@ export interface TPopoverProps extends IFormCompProps {
   clicked?: boolean
   text?: string | ReactElement
   linkAddons?: LinkPropTypes
+  linkText?: string
   children?: string | ReactElement
   position?:
     | 'top-left'
