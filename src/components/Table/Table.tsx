@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from 'react'
+import React, { ReactElement, useEffect, useRef, useState } from 'react'
 import {
   useSortBy,
   useTable,
@@ -14,9 +14,12 @@ import { RenderCell } from './Columns'
 import { TTableProps } from './types'
 import '../../assets/styles/components/_table.scss'
 import { Icon, Text } from '../'
-import { setSelectedRows } from './utils'
+import { calcColumnWidth, calcTableWidth, setSelectedRows } from './utils'
 
 function Table({ columns, data, withSelect = false, onChange }: TTableProps): ReactElement {
+  const tableRef = useRef<HTMLTableElement | null>(null)
+  const [tableWidth, setTableWidth] = useState(calcTableWidth(window, withSelect))
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -45,32 +48,53 @@ function Table({ columns, data, withSelect = false, onChange }: TTableProps): Re
     onChange(state)
   }, [JSON.stringify(state)])
 
+  const handleResize = (e: UIEvent) => {
+    const target = e.target as Window
+    const width = calcTableWidth(target, withSelect)
+    setTableWidth(width)
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   return (
-    <table {...getTableProps()}>
+    <table {...getTableProps()} ref={tableRef}>
       <thead>
         {headerGroups.map((headerGroup: HeaderGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column: CellValue) => (
-              <th
-                {...column.getHeaderProps(
-                  column?.columnProps?.sortable ? column.getSortByToggleProps() : undefined
-                )}
-              >
-                <Text className="table_header_cell" weight="bold">
-                  <>
-                    {column.render('Header')}
-                    {column.isSorted ? (
-                      <Icon
-                        size="xsmall"
-                        name={column.isSortedDesc ? 'arrow2-down' : 'arrow2-up'}
-                      />
-                    ) : (
-                      ''
-                    )}
-                  </>
-                </Text>
-              </th>
-            ))}
+            {headerGroup.headers.map((column: CellValue) => {
+              console.log(column, column.width, 'ffff')
+              const isSelection = column.id === 'selection'
+              return (
+                <th
+                  {...column.getHeaderProps(
+                    column?.columnProps?.sortable ? column.getSortByToggleProps() : undefined
+                  )}
+                  style={{
+                    width: isSelection ? 17 : calcColumnWidth(column.width, tableWidth)
+                  }}
+                >
+                  <Text className="table_header_cell" weight="bold">
+                    <>
+                      {column.render('Header')}
+                      {column.isSorted ? (
+                        <Icon
+                          size="xsmall"
+                          name={column.isSortedDesc ? 'arrow2-down' : 'arrow2-up'}
+                        />
+                      ) : (
+                        ''
+                      )}
+                    </>
+                  </Text>
+                </th>
+              )
+            })}
           </tr>
         ))}
       </thead>

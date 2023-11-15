@@ -61,7 +61,8 @@ const Template = (args) => {
       columnProps: {
         type: EColumns.USER
       },
-      fixed: true
+      fixed: true,
+      width: 30
     },
     {
       Header: 'Visits',
@@ -71,11 +72,13 @@ const Template = (args) => {
         showText: true,
         textRight: true,
         sortable: true
-      }
+      },
+      width: 30
     },
     {
       Header: 'Status',
       accessor: 'status',
+      width: 20,
       columnProps: {
         type: EColumns.LINK
       }
@@ -83,6 +86,7 @@ const Template = (args) => {
     {
       Header: 'Profile Progress',
       accessor: 'progress',
+      width: 20,
       columnProps: {
         type: EColumns.PROGRESS
       }

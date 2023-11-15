@@ -17,3 +17,11 @@ export function setSelectedRows(hooks: Hooks, withSelect: boolean) {
     ])
   }
 }
+
+export function calcColumnWidth(percent: number, tableWidth: number) {
+  return (percent * tableWidth) / 100
+}
+
+export function calcTableWidth(target: Window, withSelect: boolean) {
+  return withSelect ? target.innerWidth - 114 : target.innerWidth - 84
+}
