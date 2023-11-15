@@ -86,7 +86,7 @@ export const Step = (props: TStepProps): ReactElement => {
         >
           {label}
         </Text>
-        <Text size={stepSize == 'large' ? 'small' : 'xsmall'} className="step__label__sub text-truncate">
+        <Text size={stepSize == 'large' ? 'small' : 'xsmall'} className="text-truncate">
           {subText}
         </Text>
       </div>
