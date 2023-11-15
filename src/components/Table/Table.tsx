@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { ReactElement, useEffect } from 'react'
 import {
   useSortBy,
   useTable,
@@ -7,22 +7,20 @@ import {
   HeaderGroup,
   Row,
   CellValue,
-  usePagination,
   TableInstance,
-  Hooks,
-  useResizeColumns
+  Hooks
 } from 'react-table'
 import { RenderCell } from './Columns'
 import { TTableProps } from './types'
 import '../../assets/styles/components/_table.scss'
 import { Icon, Text } from '../'
-import { useSelectRows } from './hooks'
+import { setSelectedRows } from './utils'
 
-function Table({ columns, data, withSelect = false, onChange }: TTableProps) {
+function Table({ columns, data, withSelect = false, onChange }: TTableProps): ReactElement {
   const {
     getTableProps,
     getTableBodyProps,
-    selectedFlatRows,
+    // selectedFlatRows,
     headerGroups,
     rows,
     prepareRow,
@@ -38,10 +36,9 @@ function Table({ columns, data, withSelect = false, onChange }: TTableProps) {
       // }
     },
     useSortBy,
-    useResizeColumns,
-    usePagination,
+    // useResizeColumns,
     useRowSelect,
-    (hooks: Hooks) => useSelectRows(hooks, withSelect)
+    (hooks: Hooks) => setSelectedRows(hooks, withSelect)
   ) as TableInstance & { selectedFlatRows: Row[] }
 
   useEffect(() => {
@@ -53,29 +50,27 @@ function Table({ columns, data, withSelect = false, onChange }: TTableProps) {
       <thead>
         {headerGroups.map((headerGroup: HeaderGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column: CellValue) => {
-              return (
-                <th
-                  {...column.getHeaderProps(
-                    column?.columnProps?.sortable ? column.getSortByToggleProps() : undefined
-                  )}
-                >
-                  <Text className="table_header_cell" weight="bold">
-                    <>
-                      {column.render('Header')}
-                      {column.isSorted ? (
-                        <Icon
-                          size="xsmall"
-                          name={column.isSortedDesc ? 'arrow2-down' : 'arrow2-up'}
-                        />
-                      ) : (
-                        ''
-                      )}
-                    </>
-                  </Text>
-                </th>
-              )
-            })}
+            {headerGroup.headers.map((column: CellValue) => (
+              <th
+                {...column.getHeaderProps(
+                  column?.columnProps?.sortable ? column.getSortByToggleProps() : undefined
+                )}
+              >
+                <Text className="table_header_cell" weight="bold">
+                  <>
+                    {column.render('Header')}
+                    {column.isSorted ? (
+                      <Icon
+                        size="xsmall"
+                        name={column.isSortedDesc ? 'arrow2-down' : 'arrow2-up'}
+                      />
+                    ) : (
+                      ''
+                    )}
+                  </>
+                </Text>
+              </th>
+            ))}
           </tr>
         ))}
       </thead>
