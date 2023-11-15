@@ -1,55 +1,101 @@
-import React from 'react'
-import { useSortBy, useTable } from 'react-table'
+import React, { useEffect } from 'react'
+import {
+  useSortBy,
+  useTable,
+  useRowSelect,
+  Column,
+  HeaderGroup,
+  Row,
+  CellValue,
+  usePagination,
+  TableInstance,
+  Hooks,
+  useResizeColumns
+} from 'react-table'
+import { RenderCell } from './Columns'
+import { TTableProps } from './types'
+import '../../assets/styles/components/_table.scss'
+import { Icon, Text } from '../'
+import { useSelectRows } from './hooks'
 
-function Table({ columns, data }: any) {
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
+function Table({ columns, data, withSelect = false, onChange }: TTableProps) {
+  const {
+    getTableProps,
+    getTableBodyProps,
+    selectedFlatRows,
+    headerGroups,
+    rows,
+    prepareRow,
+    state
+  } = useTable(
     {
-      columns,
+      columns: columns as Column[],
       data
+      // defaultColumn: {
+      //   minWidth: 30,
+      //   width: 150,
+      //   maxWidth: 400
+      // }
     },
-    useSortBy
-  )
+    useSortBy,
+    useResizeColumns,
+    usePagination,
+    useRowSelect,
+    (hooks: Hooks) => useSelectRows(hooks, withSelect)
+  ) as TableInstance & { selectedFlatRows: Row[] }
 
-  // We don't want to render all 2000 rows for this example, so cap
-  // it at 20 for this use case
-  const firstPageRows = rows.slice(0, 20)
+  useEffect(() => {
+    onChange(state)
+  }, [JSON.stringify(state)])
 
   return (
     <table {...getTableProps()}>
       <thead>
-        {headerGroups.map((headerGroup: any, i: number) => (
-          <tr key={i} {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column: any, i: number) => (
-              // Add the sorting props to control sorting. For this example
-              // we can add them into the header props
-              <th key={i} {...column.getHeaderProps(column.getSortByToggleProps())}>
-                {column.render('Header')}
-                {/* Add a sort direction indicator */}
-                <span>{column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : ''}</span>
-              </th>
-            ))}
+        {headerGroups.map((headerGroup: HeaderGroup) => (
+          <tr {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map((column: CellValue) => {
+              return (
+                <th
+                  {...column.getHeaderProps(
+                    column?.columnProps?.sortable ? column.getSortByToggleProps() : undefined
+                  )}
+                >
+                  <Text className="table_header_cell" weight="bold">
+                    <>
+                      {column.render('Header')}
+                      {column.isSorted ? (
+                        <Icon
+                          size="xsmall"
+                          name={column.isSortedDesc ? 'arrow2-down' : 'arrow2-up'}
+                        />
+                      ) : (
+                        ''
+                      )}
+                    </>
+                  </Text>
+                </th>
+              )
+            })}
           </tr>
         ))}
       </thead>
       <tbody {...getTableBodyProps()}>
-        {firstPageRows.map((row: any, i: number) => {
+        {rows.map((row: Row) => {
           prepareRow(row)
-          console.log(row)
           return (
-            <tr {...row.getRowProps()} key={i}>
-              {row.cells.map((cell: any, i: number) => {
-                console.log(cell.render('Cell'), cell)
-                if (cell.column.type === 'status') {
+            <tr {...row.getRowProps()}>
+              {row.cells.map((cell: CellValue) => {
+                if (cell?.column.columnProps?.type) {
                   return (
-                    <td key={i}>
-                      {cell.value[0]}/{cell.value[1]}
+                    <td {...cell.getCellProps()}>
+                      <RenderCell cell={cell} />
                     </td>
                   )
                 }
 
                 return (
-                  <td key={i} {...cell.getCellProps()}>
-                    {cell.value}
+                  <td {...cell.getCellProps()}>
+                    <Text>{cell.render('Cell')}</Text>
                   </td>
                 )
               })}

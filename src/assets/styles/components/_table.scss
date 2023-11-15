@@ -1,0 +1,75 @@
+table {
+  border-spacing: 0;
+  width: 100%;
+
+  thead {
+    tr {
+      background-color: var(--background-ds-color-bg-white, #FEFEFE);
+      border-bottom: 1px solid var(--border-ds-color-border-secondary, #CCC);
+    }
+  }
+
+  tbody {
+    tr:nth-child(1n) {
+      background-color: var(--background-ds-color-bg-white, #FEFEFE);
+
+    }
+    tr:nth-child(2n) {
+      background-color: var(--background-ds-color-bg-container-lighter, #F7F8F7);
+    }
+  }
+
+  .table_header_cell {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .badge_cell {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .revers_cell {
+    flex-direction: row-reverse;
+  }
+
+  .user_cell {
+    display: flex;
+    gap: 12px;
+  }
+
+  .progress_cell {
+    p {
+      margin-bottom: 6px;
+    }
+  }
+
+  tr {
+    :last-child {
+      td {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  th,
+  td {
+    margin: 0;
+    padding: 0.5rem;
+    display: table-cell;
+    vertical-align: middle;
+
+    > p {
+      width: inherit;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow: ellipsis;
+    }
+
+    :last-child {
+      border-right: 0;
+    }
+  }
+}
+

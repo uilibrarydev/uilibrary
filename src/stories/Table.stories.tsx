@@ -1,118 +1,106 @@
 import React from 'react'
 import { Table as TableComponent } from '../components'
+import { EColumns, TColumn, TTableState } from '../components/Table/types'
 
 const data = [
   {
-    firstName: 'snhsdkfhsdkfhsdf',
+    user: ['John Doe', 'john_doe@gmail.com'],
     lastName: 'dsfkbdwkhsdkhsdkjfh',
     age: 29,
-    visits: 23,
-    progress: 39,
-    status: ['red', 'text']
+    id: 'fffffff',
+    visits: ['some cell', 'Badge text one'],
+    progress: ['This is my progress', 30],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
   },
   {
-    firstName: 'snhsdkfhsdkfhsdf',
+    user: ['John Doess', 'johnss_doe@gmail.com'],
     lastName: 'dsfkbdwkhsdkhsdkjfh',
     age: 29,
-    visits: 82,
-    progress: 76,
-    status: ['red', 'text']
+    id: 'fffffff',
+    visits: ['some cell', 'Badge text second'],
+    progress: ['This is my progress', 50],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
   },
   {
-    firstName: 'snhsdkfhsdkfhsdf',
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
     lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 19,
-    visits: 80,
-    progress: 81,
-    status: ['red', 'text']
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
   },
   {
-    firstName: 'snhsdkfhsdkfhsdf',
+    user: ['Bruce Wayne', 'bruce_wayn@gmail.com'],
     lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 26,
-    visits: 71,
-    progress: 13,
-    status: ['red', 'text']
-  },
-  {
-    firstName: 'snhsdkfhsdkfhsdf',
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 17,
-    visits: 78,
-    progress: 9,
-    status: ['red', 'text']
-  },
-  {
-    firstName: 'snhsdkfhsdkfhsdf',
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 10,
-    visits: 21,
-    progress: 37,
-    status: ['red', 'text']
-  },
-  {
-    firstName: 'snhsdkfhsdkfhsdf',
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 4,
-    visits: 26,
-    progress: 72,
-    status: ['red', 'text']
-  },
-  {
-    firstName: 'snhsdkfhsdkfhsdf',
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 2,
-    visits: 59,
-    progress: 66,
-    status: ['red', 'text']
-  },
-  {
-    firstName: 'snhsdkfhsdkfhsdf',
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 4,
-    visits: 74,
-    progress: 52,
-    status: ['red', 'text']
-  },
-  {
-    firstName: 'snhsdkfhsdkfhsdf',
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 28,
-    visits: 76,
-    progress: 27,
-    status: ['red', 'text']
+    id: 'fffffffeeeee',
+    age: 29,
+    visits: ['new cell', 'Badge text'],
+    progress: ['Some progress', 76],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
   }
 ]
-export default {
-  title: 'Table',
-  component: TableComponent
-}
 
 const Template = (args) => {
-  const columns = [
+  const columns: TColumn[] = [
     {
-      Header: 'Age',
-      accessor: 'age',
-      type: 'tadam'
+      Header: 'User',
+      accessor: 'user',
+      columnProps: {
+        type: EColumns.USER
+      },
+      fixed: true
     },
     {
       Header: 'Visits',
       accessor: 'visits',
-      type: 'tadam1'
+      columnProps: {
+        type: EColumns.BADGE,
+        showText: true,
+        textRight: true,
+        sortable: true
+      }
     },
     {
       Header: 'Status',
       accessor: 'status',
-      type: 'status'
+      columnProps: {
+        type: EColumns.LINK
+      }
     },
     {
       Header: 'Profile Progress',
       accessor: 'progress',
-      type: 'tadam2'
+      columnProps: {
+        type: EColumns.PROGRESS
+      }
     }
   ]
 
-  return <TableComponent {...args} data={data} columns={columns} />
+  const handleChange = (state: TTableState) => {
+    console.log(state)
+  }
+
+  return (
+    <TableComponent {...args} data={data} onChange={handleChange} columns={columns} withSelect />
+  )
+}
+
+export default {
+  title: 'Table',
+  component: TableComponent
 }
 
 export const Table = Template.bind({})
