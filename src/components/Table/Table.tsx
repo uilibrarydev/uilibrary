@@ -14,32 +14,25 @@ import { RenderCell } from './Columns'
 import { TTableProps } from './types'
 import '../../assets/styles/components/_table.scss'
 import { Icon, Text } from '../'
-import { calcColumnWidth, calcTableWidth, setSelectedRows } from './utils'
+import { calcColumnWidth, calcTableWidth, CHECKBOX_HEADER_ID, setSelectedRows } from './utils'
+import classNames from 'classnames'
 
-function Table({ columns, data, withSelect = false, onChange }: TTableProps): ReactElement {
+function Table({
+  columns,
+  data,
+  onChange,
+  fixedHeader = false,
+  withSelect = false
+}: TTableProps): ReactElement {
   const tableRef = useRef<HTMLTableElement | null>(null)
-  const [tableWidth, setTableWidth] = useState(calcTableWidth(window, withSelect))
-
-  const {
-    getTableProps,
-    getTableBodyProps,
-    // selectedFlatRows,
-    headerGroups,
-    rows,
-    prepareRow,
-    state
-  } = useTable(
+  const [tableWidth, setTableWidth] = useState(calcTableWidth(withSelect, tableRef.current))
+  const sortedColumns = columns.sort((a, b) => Number(Boolean(b.fixed)) - Number(Boolean(a.fixed)))
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = useTable(
     {
-      columns: columns as Column[],
+      columns: sortedColumns as Column[],
       data
-      // defaultColumn: {
-      //   minWidth: 30,
-      //   width: 150,
-      //   maxWidth: 400
-      // }
     },
     useSortBy,
-    // useResizeColumns,
     useRowSelect,
     (hooks: Hooks) => setSelectedRows(hooks, withSelect)
   ) as TableInstance & { selectedFlatRows: Row[] }
@@ -48,81 +41,111 @@ function Table({ columns, data, withSelect = false, onChange }: TTableProps): Re
     onChange(state)
   }, [JSON.stringify(state)])
 
-  const handleResize = (e: UIEvent) => {
-    const target = e.target as Window
-    const width = calcTableWidth(target, withSelect)
-    setTableWidth(width)
+  const handleResize = () => {
+    if (tableRef.current) {
+      const width = calcTableWidth(withSelect, tableRef.current)
+      setTableWidth(width)
+    }
   }
 
   useEffect(() => {
     window.addEventListener('resize', handleResize)
+    setTableWidth(calcTableWidth(withSelect, tableRef.current))
 
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [])
+  }, [tableRef.current])
 
   return (
-    <table {...getTableProps()} ref={tableRef}>
-      <thead>
-        {headerGroups.map((headerGroup: HeaderGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column: CellValue) => {
-              console.log(column, column.width, 'ffff')
-              const isSelection = column.id === 'selection'
-              return (
-                <th
-                  {...column.getHeaderProps(
-                    column?.columnProps?.sortable ? column.getSortByToggleProps() : undefined
-                  )}
-                  style={{
-                    width: isSelection ? 17 : calcColumnWidth(column.width, tableWidth)
-                  }}
-                >
-                  <Text className="table_header_cell" weight="bold">
-                    <>
-                      {column.render('Header')}
-                      {column.isSorted ? (
-                        <Icon
-                          size="xsmall"
-                          name={column.isSortedDesc ? 'arrow2-down' : 'arrow2-up'}
-                        />
-                      ) : (
-                        ''
-                      )}
-                    </>
-                  </Text>
-                </th>
-              )
-            })}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row: Row) => {
-          prepareRow(row)
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map((cell: CellValue) => {
-                if (cell?.column.columnProps?.type) {
-                  return (
-                    <td {...cell.getCellProps()}>
-                      <RenderCell cell={cell} />
-                    </td>
-                  )
-                }
-
+    <div className="table_wrapper">
+      <table {...getTableProps()} ref={tableRef}>
+        <thead>
+          {headerGroups.map((headerGroup: HeaderGroup) => (
+            <tr
+              {...headerGroup.getHeaderGroupProps()}
+              className={classNames({ fix_header: fixedHeader })}
+            >
+              {headerGroup.headers.map((column: CellValue, i: number, arr: CellValue[]) => {
+                const isSelection = column.id === CHECKBOX_HEADER_ID
                 return (
-                  <td {...cell.getCellProps()}>
-                    <Text>{cell.render('Cell')}</Text>
-                  </td>
+                  <th
+                    {...column.getHeaderProps(
+                      column?.columnProps?.sortable ? column.getSortByToggleProps() : undefined
+                    )}
+                    className={classNames({
+                      fixed_column_left: column?.fixed === 'left',
+                      fixed_column_right: column?.fixed === 'right',
+                      fixed_checkbox_header:
+                        column?.id === CHECKBOX_HEADER_ID && arr[i + 1]?.fixed === 'left'
+                    })}
+                    style={{
+                      width: isSelection ? 17 : calcColumnWidth(column.widthInPercent, tableWidth),
+                      ...(!isSelection && column.minWidth ? { minWidth: column.minWidth } : {}),
+                      ...(!isSelection && column.maxWidth ? { maxWidth: column.maxWidth } : {}),
+                      ...(!isSelection && column.width ? { width: column.width } : {})
+                    }}
+                  >
+                    <Text className="table_header_cell" weight="bold">
+                      <>
+                        {column.render('Header')}
+                        {column.isSorted ? (
+                          <Icon
+                            size="xsmall"
+                            name={column.isSortedDesc ? 'arrow2-down' : 'arrow2-up'}
+                          />
+                        ) : (
+                          ''
+                        )}
+                      </>
+                    </Text>
+                  </th>
                 )
               })}
             </tr>
-          )
-        })}
-      </tbody>
-    </table>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row: Row) => {
+            prepareRow(row)
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell: CellValue, i, arr: CellValue[]) => {
+                  console.log(i, 'araaaa', arr)
+                  if (cell?.column.columnProps?.type) {
+                    return (
+                      <td
+                        {...cell.getCellProps()}
+                        className={classNames({
+                          fixed_column_left: cell?.column?.fixed === 'left',
+                          fixed_column_right: cell?.column?.fixed === 'right'
+                        })}
+                      >
+                        <RenderCell cell={cell} />
+                      </td>
+                    )
+                  }
+
+                  return (
+                    <td
+                      {...cell.getCellProps()}
+                      className={classNames({
+                        fixed_column_right: cell?.column?.fixed === 'right',
+                        fixed_checkbox:
+                          cell?.column.id === CHECKBOX_HEADER_ID &&
+                          arr[i + 1].column?.fixed === 'left'
+                      })}
+                    >
+                      <Text>{cell.render('Cell')}</Text>
+                    </td>
+                  )
+                })}
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    </div>
   )
 }
 

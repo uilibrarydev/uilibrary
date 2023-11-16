@@ -1,6 +1,53 @@
+
+.table_wrapper {
+  overflow-x: auto;
+  padding-bottom: 1px;
+  overflow-y: scroll;
+  height: 400px;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 100px;
+    background: white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background: var(--actions-outline-border-light, #F0F2F5);
+  }
+}
+
+.fix_header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
 table {
   border-spacing: 0;
   width: 100%;
+
+  .fixed_checkbox, .fixed_checkbox_header {
+    position: sticky;
+    left: 0;
+  }
+  //.fixed_column_right {
+  //  position: sticky;
+  //  right: 0;
+  //}
+  .fixed_checkbox_header {
+    top: 0;
+    left: 0;
+    z-index: 1 !important;
+  }
+  .fixed_column_left {
+    position: sticky;
+    left: 33px;
+    z-index: 1;
+  }
 
   thead {
     tr {
@@ -59,6 +106,7 @@ table {
     padding: 0.5rem;
     display: table-cell;
     vertical-align: middle;
+    background-color: inherit;
 
     > p {
       width: inherit;

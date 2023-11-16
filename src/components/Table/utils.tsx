@@ -2,11 +2,13 @@ import React from 'react'
 import { Column, Hooks } from 'react-table'
 import { IndeterminateCheckbox } from './Columns'
 
+export const CHECKBOX_HEADER_ID = 'selection'
+
 export function setSelectedRows(hooks: Hooks, withSelect: boolean) {
   if (withSelect) {
     hooks.visibleColumns.push((columns: Column[]) => [
       {
-        id: 'selection',
+        id: CHECKBOX_HEADER_ID,
 
         Header: ({ getToggleAllRowsSelectedProps }: any) => (
           <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
@@ -22,6 +24,6 @@ export function calcColumnWidth(percent: number, tableWidth: number) {
   return (percent * tableWidth) / 100
 }
 
-export function calcTableWidth(target: Window, withSelect: boolean) {
-  return withSelect ? target.innerWidth - 114 : target.innerWidth - 84
+export function calcTableWidth(withSelect: boolean, target: HTMLTableElement | null) {
+  return target ? (withSelect ? target.offsetWidth - 104 : target.offsetWidth - 84) : 200
 }

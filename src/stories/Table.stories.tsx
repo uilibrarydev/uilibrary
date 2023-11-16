@@ -40,6 +40,174 @@ const data = [
     ]
   },
   {
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
+    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
+  },
+  {
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
+    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
+  },
+  {
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
+    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
+  },
+  {
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
+    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
+  },
+  {
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
+    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
+  },
+  {
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
+    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
+  },
+  {
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
+    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
+  },
+  {
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
+    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
+  },
+  {
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
+    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
+  },
+  {
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
+    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
+  },
+  {
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
+    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
+  },
+  {
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
+    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
+  },
+  {
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
+    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
+  },
+  {
+    user: ['John Doerr', 'johnrr_doe@gmail.com'],
+    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    age: 29,
+    id: 'fffffff',
+    visits: ['some cell', 'Whats up?'],
+    progress: ['This is my progress', 40],
+    status: [
+      'Figma',
+      'https://www.figma.com/file/iHlCU0TgXgtXWHTpUDscLJ/ADS-Components?node-id=4333%3A14425&mode=dev'
+    ]
+  },
+  {
     user: ['Bruce Wayne', 'bruce_wayn@gmail.com'],
     lastName: 'dsfkbdwkhsdkhsdkjfh',
     id: 'fffffffeeeee',
@@ -61,8 +229,9 @@ const Template = (args) => {
       columnProps: {
         type: EColumns.USER
       },
-      fixed: true,
-      width: 30
+      fixed: 'left',
+      widthInPercent: 30,
+      width: 100
     },
     {
       Header: 'Visits',
@@ -73,20 +242,34 @@ const Template = (args) => {
         textRight: true,
         sortable: true
       },
-      width: 30
+      widthInPercent: 30,
+      minWidth: 220
     },
     {
       Header: 'Status',
       accessor: 'status',
-      width: 20,
+      widthInPercent: 20,
       columnProps: {
         type: EColumns.LINK
       }
     },
     {
+      Header: 'Age',
+      accessor: 'age',
+      widthInPercent: 20,
+      columnProps: {
+        sortable: true
+      }
+    },
+    {
+      Header: 'Last name',
+      accessor: 'lastName',
+      widthInPercent: 20
+    },
+    {
       Header: 'Profile Progress',
       accessor: 'progress',
-      width: 20,
+      widthInPercent: 20,
       columnProps: {
         type: EColumns.PROGRESS
       }
@@ -98,7 +281,14 @@ const Template = (args) => {
   }
 
   return (
-    <TableComponent {...args} data={data} onChange={handleChange} columns={columns} withSelect />
+    <TableComponent
+      {...args}
+      data={data}
+      onChange={handleChange}
+      columns={columns}
+      withSelect
+      fixedHeader
+    />
   )
 }
 
