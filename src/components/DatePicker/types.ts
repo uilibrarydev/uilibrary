@@ -28,3 +28,8 @@ export interface IRangeDatePickerProps extends DatePickerDefaultProps {
   changeHandler: (date: TRangePickerValues) => void
   maxDate?: Date | undefined
 }
+
+export enum DateFormat {
+  LongDate = 'MMMM D, YYYY',
+  ShortDate = 'MMM D, YYYY',
+}
