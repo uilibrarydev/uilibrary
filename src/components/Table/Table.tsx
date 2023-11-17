@@ -1,32 +1,51 @@
-import React, { ReactElement, useEffect, useRef, useState } from 'react'
+import React, { ReactElement, useEffect, useMemo, useRef, useState } from 'react'
 import {
   useSortBy,
   useTable,
   useRowSelect,
   Column,
   HeaderGroup,
-  Row,
-  CellValue,
+  Row as RowType,
   TableInstance,
   Hooks
 } from 'react-table'
-import { RenderCell } from './Columns'
-import { TTableProps } from './types'
+import { TColumn, TTableProps } from './types'
+import { calcTableWidth, setSelectedRows } from './utils'
+import Row from './Row'
+import Header from './Header'
 import '../../assets/styles/components/_table.scss'
-import { Icon, Text } from '../'
-import { calcColumnWidth, calcTableWidth, CHECKBOX_HEADER_ID, setSelectedRows } from './utils'
-import classNames from 'classnames'
 
 function Table({
   columns,
   data,
   onChange,
-  fixedHeader = false,
+  fixedHeader,
   withSelect = false
 }: TTableProps): ReactElement {
   const tableRef = useRef<HTMLTableElement | null>(null)
   const [tableWidth, setTableWidth] = useState(calcTableWidth(withSelect, tableRef.current))
-  const sortedColumns = columns.sort((a, b) => Number(Boolean(b.fixed)) - Number(Boolean(a.fixed)))
+
+  const sortedColumns = useMemo(() => {
+    let condition1 = (item: TColumn) => item.fixed === 'left' // Move even numbers to the start
+    let condition2 = (item: TColumn) => item.fixed === 'right' // Move numbers greater than 5 to the end
+
+    // Custom sorting function
+    columns.sort((a, b) => {
+      if (condition1(a) && !condition1(b)) {
+        return -1 // Move 'a' to the start
+      } else if (!condition1(a) && condition1(b)) {
+        return 1 // Move 'b' to the start
+      } else if (condition2(a) && !condition2(b)) {
+        return 1 // Move 'a' to the end
+      } else if (!condition2(a) && condition2(b)) {
+        return -1 // Move 'b' to the end
+      } else {
+        return 0 // Their order doesn't matter
+      }
+    })
+    return [...columns]
+  }, [columns])
+
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = useTable(
     {
       columns: sortedColumns as Column[],
@@ -35,7 +54,7 @@ function Table({
     useSortBy,
     useRowSelect,
     (hooks: Hooks) => setSelectedRows(hooks, withSelect)
-  ) as TableInstance & { selectedFlatRows: Row[] }
+  ) as TableInstance & { selectedFlatRows: RowType[] }
 
   useEffect(() => {
     onChange(state)
@@ -58,90 +77,22 @@ function Table({
   }, [tableRef.current])
 
   return (
-    <div className="table_wrapper">
+    <div className="table_wrapper" style={{ height: fixedHeader?.y }}>
       <table {...getTableProps()} ref={tableRef}>
         <thead>
-          {headerGroups.map((headerGroup: HeaderGroup) => (
-            <tr
-              {...headerGroup.getHeaderGroupProps()}
-              className={classNames({ fix_header: fixedHeader })}
-            >
-              {headerGroup.headers.map((column: CellValue, i: number, arr: CellValue[]) => {
-                const isSelection = column.id === CHECKBOX_HEADER_ID
-                return (
-                  <th
-                    {...column.getHeaderProps(
-                      column?.columnProps?.sortable ? column.getSortByToggleProps() : undefined
-                    )}
-                    className={classNames({
-                      fixed_column_left: column?.fixed === 'left',
-                      fixed_column_right: column?.fixed === 'right',
-                      fixed_checkbox_header:
-                        column?.id === CHECKBOX_HEADER_ID && arr[i + 1]?.fixed === 'left'
-                    })}
-                    style={{
-                      width: isSelection ? 17 : calcColumnWidth(column.widthInPercent, tableWidth),
-                      ...(!isSelection && column.minWidth ? { minWidth: column.minWidth } : {}),
-                      ...(!isSelection && column.maxWidth ? { maxWidth: column.maxWidth } : {}),
-                      ...(!isSelection && column.width ? { width: column.width } : {})
-                    }}
-                  >
-                    <Text className="table_header_cell" weight="bold">
-                      <>
-                        {column.render('Header')}
-                        {column.isSorted ? (
-                          <Icon
-                            size="xsmall"
-                            name={column.isSortedDesc ? 'arrow2-down' : 'arrow2-up'}
-                          />
-                        ) : (
-                          ''
-                        )}
-                      </>
-                    </Text>
-                  </th>
-                )
-              })}
-            </tr>
+          {headerGroups.map((headerGroup: HeaderGroup, i) => (
+            <Header
+              key={i}
+              fixedHeader={Boolean(fixedHeader)}
+              headerGroup={headerGroup}
+              tableWidth={tableWidth}
+            />
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {rows.map((row: Row) => {
+          {rows.map((row: RowType) => {
             prepareRow(row)
-            return (
-              <tr {...row.getRowProps()}>
-                {row.cells.map((cell: CellValue, i, arr: CellValue[]) => {
-                  console.log(i, 'araaaa', arr)
-                  if (cell?.column.columnProps?.type) {
-                    return (
-                      <td
-                        {...cell.getCellProps()}
-                        className={classNames({
-                          fixed_column_left: cell?.column?.fixed === 'left',
-                          fixed_column_right: cell?.column?.fixed === 'right'
-                        })}
-                      >
-                        <RenderCell cell={cell} />
-                      </td>
-                    )
-                  }
-
-                  return (
-                    <td
-                      {...cell.getCellProps()}
-                      className={classNames({
-                        fixed_column_right: cell?.column?.fixed === 'right',
-                        fixed_checkbox:
-                          cell?.column.id === CHECKBOX_HEADER_ID &&
-                          arr[i + 1].column?.fixed === 'left'
-                      })}
-                    >
-                      <Text>{cell.render('Cell')}</Text>
-                    </td>
-                  )
-                })}
-              </tr>
-            )
+            return <Row row={row} key={row.id} />
           })}
         </tbody>
       </table>

@@ -19,6 +19,13 @@ export type TColumnProps = {
   showInfo?: boolean
   sortable?: boolean
   textRight?: boolean
+  action?: (id?: string) => void
+  iconProps?: {
+    leftIcon?: string
+    rightIcon?: string
+    leftIconAction?: (row: any) => void
+    rightIconAction?: (row: any) => void
+  }
 }
 
 export type TFixedSide = 'left' | 'right'
@@ -33,9 +40,9 @@ export type TColumn = Omit<Column & TColumnFields, 'Cell'>
 
 export type TTableProps = {
   columns: TColumn[]
-  data: any
+  data: any[]
   withSelect?: boolean
-  fixedHeader?: boolean
+  fixedHeader?: { y: number }
   onChange: (state: TableState) => void
 }
 
