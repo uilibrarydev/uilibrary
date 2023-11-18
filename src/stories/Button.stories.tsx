@@ -36,5 +36,6 @@ Button.args = {
   disabled: false,
   isLoading: false,
   buttonText: 'Label',
+  autoFocus:true,
   onClick: () => console.log('iconbutton  buttonClicked')
 }

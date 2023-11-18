@@ -3,6 +3,7 @@ export interface TButtonPropTypes {
   disabled?: boolean
   buttonActionType?: 'submit' | 'button' | 'reset'
   buttonText?: string | JSX.Element
+  autoFocus?: boolean
   className?: string
   type?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'text'
   size?: 'small' | 'medium' | 'large'
