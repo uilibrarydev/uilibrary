@@ -14,7 +14,7 @@ export enum EColumns {
 }
 
 export type TColumnProps = {
-  type?: EColumns
+  type: EColumns
   showText?: boolean
   showInfo?: boolean
   sortable?: boolean
@@ -31,7 +31,7 @@ export type TColumnProps = {
 export type TFixedSide = 'left' | 'right'
 
 export type TColumnFields = {
-  columnProps?: TColumnProps
+  columnProps: TColumnProps
   fixed?: TFixedSide
   widthInPercent?: IntRange<0, 100>
 }
@@ -56,4 +56,15 @@ export interface TTableState extends TableState {
   pageSize?: number
   pageIndex?: number
   sortBy?: SortBy[]
+}
+
+export type TUser = {
+  firstName: string
+  lastName: string
+  email: string
+}
+
+export type TCellWithInfo = {
+  label: string
+  value: string | number
 }

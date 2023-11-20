@@ -1,185 +1,60 @@
 import React from 'react'
 import { Table as TableComponent } from '../components'
 import { EColumns, TColumn, TTableState } from '../components/Table/types'
-import { RenderCell } from '../components/Table/Columns'
 
 const data: any[] = [
   {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
+    user: { firstName: 'Johny', lastName: 'Does', email: 'johny_does@gmail.com' },
     age: 29,
     id: 'fffffff',
     visits: 'some cell',
-    progress: 'This is my progress',
+    progress: {
+      label: 'This is my progress',
+      value: 20
+    },
     status: 'Figma'
   },
   {
     user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
     age: 29,
     id: 'fffffff',
     visits: 'some cell',
-    progress: 'This is my progress',
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: 'This is my progress',
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: 'This is my progress',
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: 'This is my progress',
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: 'This is my progress',
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: 'This is my progress',
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: 'This is my progress',
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: 'This is my progress',
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: 'This is my progress',
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: 'This is my progress',
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: 'This is my progress',
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: 'This is my progress',
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: 'This is my progress',
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: 'This is my progress',
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: 'This is my progress',
+    progress: {
+      label: 'This is my progress',
+      value: 60
+    },
     status: 'Figma'
   },
   {
     user: { firstName: 'Bruce', lastName: 'Wayne', email: 'john_doe@gmail.com' },
-    lastName: 'dsfkbdwkhsdkhsdkjfh',
     id: 'fffffffeeeee',
     age: 29,
     visits: 'new cell',
-    progress: 'Some progress',
+    progress: {
+      label: 'Diff progress',
+      value: 240
+    },
     status: 'Figma'
   }
 ]
 
 const Template = (args) => {
   const columns: TColumn[] = [
-    {
-      Header: 'Visits',
-      accessor: function (row: any) {
-        return <RenderCell data={row.visits} column={this} />
-      },
-      columnProps: {
-        type: EColumns.BADGE,
-        showText: true,
-        textRight: true,
-        sortable: true
-      },
-      widthInPercent: 30,
-      minWidth: 220
-    },
+    // {
+    //   Header: 'Visits',
+    //   accessor: 'visits',
+    //   columnProps: {
+    //     type: EColumns.BADGE,
+    //     showText: true,
+    //     textRight: true,
+    //     sortable: true
+    //   },
+    //   widthInPercent: 30,
+    //   minWidth: 220
+    // },
     {
       Header: 'User',
-      accessor: function (row: any) {
-        return <RenderCell data={row.user} column={this} />
-      },
+      accessor: 'user',
       columnProps: {
         type: EColumns.USER,
         iconProps: {
@@ -195,9 +70,7 @@ const Template = (args) => {
     },
     {
       Header: 'Status',
-      accessor: function (row: any) {
-        return <RenderCell data={row.status} column={this} />
-      },
+      accessor: 'status',
       widthInPercent: 20,
       columnProps: {
         type: EColumns.LINK,
@@ -210,15 +83,13 @@ const Template = (args) => {
       }
     },
     {
-      accessor: function (row: any) {
-        return <RenderCell data={row.age} column={this} />
-      },
+      accessor: 'age',
       Header: 'Age',
       widthInPercent: 20,
       columnProps: {
         sortable: true,
         type: EColumns.LINK,
-
+        textRight: true,
         iconProps: {
           rightIcon: 'attach',
           rightIconAction: (row) => console.log(row)
@@ -226,24 +97,12 @@ const Template = (args) => {
       }
     },
     {
-      Header: 'Last name',
-      accessor: function (row: any) {
-        return <RenderCell data={row.lastName} column={this} />
-      },
-      widthInPercent: 20,
-      fixed: 'right',
-      columnProps: {
-        type: EColumns.LINK
-      }
-    },
-    {
       Header: 'Profile Progress',
-      accessor: function (row: any) {
-        return <RenderCell data={row.progress} column={this} />
-      },
+      accessor: 'progress',
       widthInPercent: 20,
       columnProps: {
-        type: EColumns.PROGRESS
+        type: EColumns.PROGRESS,
+        showText: true
       }
     }
   ]
@@ -259,7 +118,7 @@ const Template = (args) => {
       onChange={handleChange}
       columns={columns}
       withSelect
-      fixedHeader={{ y: 500 }}
+      // fixedHeader={{ y: 500 }}
     />
   )
 }

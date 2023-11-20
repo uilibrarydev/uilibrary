@@ -13,6 +13,7 @@ import { TColumn, TTableProps } from './types'
 import { calcTableWidth, setSelectedRows } from './utils'
 import Row from './Row'
 import Header from './Header'
+import { RenderCell } from './Columns'
 import '../../assets/styles/components/_table.scss'
 
 function Table({
@@ -26,8 +27,8 @@ function Table({
   const [tableWidth, setTableWidth] = useState(calcTableWidth(withSelect, tableRef.current))
 
   const sortedColumns = useMemo(() => {
-    let condition1 = (item: TColumn) => item.fixed === 'left' // Move even numbers to the start
-    let condition2 = (item: TColumn) => item.fixed === 'right' // Move numbers greater than 5 to the end
+    const condition1 = (item: TColumn) => item.fixed === 'left' // Move even numbers to the start
+    const condition2 = (item: TColumn) => item.fixed === 'right' // Move numbers greater than 5 to the end
 
     // Custom sorting function
     columns.sort((a, b) => {
@@ -43,7 +44,17 @@ function Table({
         return 0 // Their order doesn't matter
       }
     })
-    return [...columns]
+
+    const addAccessor = columns.map((col) => {
+      return {
+        ...col,
+        accessor: function (row: any) {
+          return <RenderCell data={row[col.accessor as string]} row={row} column={this} />
+        }
+      }
+    })
+
+    return [...addAccessor]
   }, [columns])
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = useTable(

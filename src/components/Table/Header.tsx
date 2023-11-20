@@ -3,7 +3,6 @@ import { HeaderGroup, CellValue } from 'react-table'
 import classNames from 'classnames'
 import { Icon, Text } from '../'
 import { calcColumnWidth, CHECKBOX_HEADER_ID } from './utils'
-import '../../assets/styles/components/_table.scss'
 
 type Props = {
   fixedHeader: boolean
@@ -21,6 +20,7 @@ function Table({ headerGroup, tableWidth, fixedHeader = false }: Props): ReactEl
         const isSelection = column.id === CHECKBOX_HEADER_ID
         return (
           <th
+            key={i}
             {...column.getHeaderProps(
               column?.columnProps?.sortable ? column.getSortByToggleProps() : undefined
             )}

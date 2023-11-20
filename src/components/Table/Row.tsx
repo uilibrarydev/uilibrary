@@ -1,8 +1,6 @@
 import React, { ReactElement } from 'react'
 import classNames from 'classnames'
 import { Row as RowType, CellValue } from 'react-table'
-import { RenderCell } from './Columns'
-import { Text } from '../'
 import { CHECKBOX_HEADER_ID } from './utils'
 
 type Props = {
@@ -15,6 +13,7 @@ function Row({ row }: Props): ReactElement {
       {row.cells.map((cell: CellValue, i, arr: CellValue[]) => {
         return (
           <td
+            key={i}
             {...cell.getCellProps()}
             className={classNames({
               fixed_column_left: cell?.column?.fixed === 'left',

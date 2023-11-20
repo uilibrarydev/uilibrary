@@ -1,6 +1,5 @@
 import React, { ForwardedRef, forwardRef, useEffect, useRef } from 'react'
 import classNames from 'classnames'
-import { CellValue } from 'react-table'
 import {
   Text,
   Chips,
@@ -10,7 +9,7 @@ import {
   Progress as ProgressComponent,
   Button
 } from '../'
-import { EColumns, TColumn } from './types'
+import { TCellWithInfo, TUser, EColumns, TColumn } from './types'
 
 const CheckboxWithRef = forwardRef(Checkbox)
 
@@ -21,8 +20,9 @@ type IndeterminateCheckboxProps = {
 }
 
 type RenderCellProps = {
-  data: any
+  data: string | TUser | TCellWithInfo
   column: TColumn
+  row: any
 }
 
 const IndeterminateCheckbox = forwardRef(
@@ -45,45 +45,43 @@ const IndeterminateCheckbox = forwardRef(
   }
 )
 
-// const Badge = ({ cell }: RenderCellProps) => {
-//   return (
-//     <>
-//       {cell.column.columnProps.showText && <Text>{cell.value[0]}</Text>}
-//       <Chips size="small" text={cell.value[1]} color="brand" type="outlined" />
-//     </>
-//   )
-// }
-// const User = ({
-//   firstName,
-//   lastName,
-//   email
-// }: {
-//   firstName: string
-//   lastName: string
-//   email: string
-// }) => {
-//   const initials = firstName[0] + lastName[0]
-//
-//   return (
-//     <>
-//       <Avatar size="small" initials={initials} />
-//       <span>
-//         <Text>{firstName + ' ' + lastName}</Text>
-//         <Text>{email}</Text>
-//       </span>
-//     </>
-//   )
-// }
-// const Progress = ({ cell }: RenderCellProps) => {
-//   return (
-//     <>
-//       <Text>{cell.value[0]}</Text>
-//       <ProgressComponent size="small" noText type="linear" percent={cell.value[1]} />
-//     </>
-//   )
-// }
-//
-// const Link = ({ cell }: RenderCellProps) => {
+IndeterminateCheckbox.displayName = 'IndeterminateCheckbox'
+
+const Badge = ({ data, column }: RenderCellProps) => {
+  const cellData = data as TCellWithInfo
+  return (
+    <>
+      {column.columnProps.showText && <Text>{cellData.label}</Text>}
+      <Chips size="small" text={cellData.value} color="brand" type="outlined" />
+    </>
+  )
+}
+const User = ({ data }: RenderCellProps) => {
+  const { firstName, lastName, email } = data as TUser
+
+  const initials = firstName[0] + lastName[0]
+
+  return (
+    <>
+      <Avatar size="small" initials={initials} />
+      <span>
+        <Text>{firstName + ' ' + lastName}</Text>
+        <Text>{email}</Text>
+      </span>
+    </>
+  )
+}
+const Progress = ({ data, column }: RenderCellProps) => {
+  const cellData = data as TCellWithInfo
+  return (
+    <span style={{ display: 'block' }}>
+      {column.columnProps.showText && <Text>{cellData.label}</Text>}
+      <ProgressComponent size="small" noText type="linear" percent={20} />
+    </span>
+  )
+}
+
+// const Status = ({ cell }: RenderCellProps) => {
 //   return (
 //     <>
 //       <LinkComponent taget="_blank" url={cell.value[1]}>
@@ -93,56 +91,58 @@ const IndeterminateCheckbox = forwardRef(
 //   )
 // }
 
-const RenderCell = ({ column, data }: RenderCellProps) => {
+const RenderCell = (props: RenderCellProps) => {
+  const { column, data, row } = props
   let Component = null
   console.log(data, ' ghgggggggggggggg', column)
 
-  return <Text>{typeof data === 'object' ? data.lastName : data}</Text>
-  // switch (cell?.column.columnProps?.type) {
-  //   // case EColumns.BADGE:
-  //   //   Component = <Badge cell={cell} />
-  //   //   break
-  //   // case EColumns.USER:
-  //   //   // Component = <User cell={cell} />
-  //   //   break
-  //   // case EColumns.LINK:
-  //   //   Component = <Link cell={cell} />
-  //   //   break
-  //   // case EColumns.PROGRESS:
-  //   //   Component = <Progress cell={cell} />
-  //   //   break
-  //   default:
-  //     Component = <Text>{cell.value}</Text>
-  // }
-  //
-  // const icon = cell.column?.columnProps?.iconProps
-  //
-  // return (
-  //   <span
-  //     className={classNames(`${cell.column.columnProps?.type}_cell`, {
-  //       revers_cell: cell.column.columnProps.textRight
-  //     })}
-  //   >
-  //     <>
-  //       {icon?.leftIcon && (
-  //         <Button
-  //           iconProps={{ name: icon?.leftIcon }}
-  //           size="small"
-  //           type="tertiary"
-  //           onClick={() => icon?.leftIconAction && icon.leftIconAction(cell.row.original)}
-  //         />
-  //       )}
-  //       {Component}
-  //       {icon?.rightIcon && (
-  //         <Button
-  //           iconProps={{ name: icon?.rightIcon }}
-  //           size="small"
-  //           type="tertiary"
-  //           onClick={() => icon?.rightIconAction && icon.rightIconAction(cell.row.original)}
-  //         />
-  //       )}
-  //     </>
-  //   </span>
+  switch (column.columnProps?.type) {
+    case EColumns.BADGE:
+      Component = <Badge {...props} />
+      break
+    case EColumns.USER:
+      Component = <User {...props} />
+      break
+    // case EColumns.LINK:
+    //   Component = <Link cell={cell} />
+    //   break
+    case EColumns.PROGRESS:
+      console.log(66666666)
+      Component = <Progress {...props} />
+      break
+    default:
+      Component = <Text>{data as string}</Text>
+  }
+
+  const icon = column?.columnProps?.iconProps
+
+  return (
+    <span
+      className={classNames(`${column.columnProps?.type}_cell`, {
+        revers_cell: column.columnProps.textRight
+      })}
+    >
+      <>
+        {icon?.leftIcon && (
+          <Button
+            iconProps={{ name: icon?.leftIcon }}
+            size="small"
+            type="tertiary"
+            onClick={() => icon?.leftIconAction && icon.leftIconAction(row.original)}
+          />
+        )}
+        {Component}
+        {icon?.rightIcon && (
+          <Button
+            iconProps={{ name: icon?.rightIcon }}
+            size="small"
+            type="tertiary"
+            onClick={() => icon?.rightIconAction && icon.rightIconAction(row.original)}
+          />
+        )}
+      </>
+    </span>
+  )
 }
 
 export { IndeterminateCheckbox, RenderCell }
