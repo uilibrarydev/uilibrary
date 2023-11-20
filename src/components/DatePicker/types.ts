@@ -31,5 +31,5 @@ export interface IRangeDatePickerProps extends DatePickerDefaultProps {
 
 export enum DateFormat {
   LongDate = 'MMMM D, YYYY',
-  ShortDate = 'MMM D, YYYY',
+  ShortDate = 'MMM D, YYYY'
 }
