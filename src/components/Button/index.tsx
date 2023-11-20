@@ -25,7 +25,6 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     isLoading,
     formId,
     dataId = '',
-    autoFocus = false,
     onClick,
     refHandler,
     ...rest
@@ -53,7 +52,6 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
       )}
       onClick={onClick}
       form={formId}
-      autoFocus={autoFocus}
       {...rest}
     >
       {isLoading ? (

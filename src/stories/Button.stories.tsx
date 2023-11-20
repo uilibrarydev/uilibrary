@@ -31,11 +31,11 @@ Button.args = {
   iconProps: {
     name: 'home'
   },
+  autoFocus:true,
   type: 'primary',
   size: 'large',
   disabled: false,
   isLoading: false,
   buttonText: 'Label',
-  autoFocus:true,
   onClick: () => console.log('iconbutton  buttonClicked')
 }
