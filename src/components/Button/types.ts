@@ -1,6 +1,6 @@
-import {ButtonHTMLAttributes} from 'react';
+import { ButtonHTMLAttributes } from 'react'
 
-export interface TButtonPropTypes extends  Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'>  {
+export interface TButtonPropTypes extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   id?: string
   disabled?: boolean
   buttonActionType?: 'submit' | 'button' | 'reset'

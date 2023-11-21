@@ -31,7 +31,7 @@ Button.args = {
   iconProps: {
     name: 'home'
   },
-  autoFocus:true,
+  autoFocus: true,
   type: 'primary',
   size: 'large',
   disabled: false,
