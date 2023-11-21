@@ -18,15 +18,17 @@
   }
 }
 
-.fixed_header {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
+
 
 table {
   border-spacing: 0;
   width: 100%;
+
+  .fixed_header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
 
   .fixed_checkbox, .fixed_checkbox_header {
     position: sticky;
@@ -42,7 +44,7 @@ table {
   .fixed_checkbox_header {
     top: 0;
     left: 0;
-    z-index: 1 !important;
+    z-index: 1;
   }
 
   .fixed_column_left {
@@ -69,30 +71,13 @@ table {
     }
   }
 
+  .selected_row {
+    border-bottom: 1px solid var(--border-ds-color-border-selected, #72BF44);
+  }
+
   .table_header_cell {
     display: flex;
     justify-content: space-between;
-  }
-
-  .badge_cell {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-  }
-
-  .revers_cell {
-    flex-direction: row-reverse;
-  }
-
-  .user_cell {
-    display: flex;
-    gap: 12px;
-  }
-
-  .progress_cell {
-    p {
-      margin-bottom: 6px;
-    }
   }
 
   tr {

@@ -1,69 +1,47 @@
 import React from 'react'
 import { Table as TableComponent } from '../components'
-import { EColumns, TColumn, TTableState } from '../components/Table/types'
+import { TColumn, TTableState } from '../components/Table/types'
 
 const data: any[] = [
   {
-    user: { firstName: 'Johny', lastName: 'Does', email: 'johny_does@gmail.com' },
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: {
-      label: 'This is my progress',
-      value: 20
-    },
-    status: 'Figma'
+    user: 'Luke Skywalker',
+    age: 21,
+    id: 'fffffffsdf',
+    visits: [7, 8, 9],
+    progress: 'fdfsdfsdfsd',
+    status: 'Active'
+  },
+  ...Array(13).fill({
+    user: 'John Doe',
+    age: 30,
+    id: 'dsfsdf',
+    visits: [4, 5, 6],
+    progress: 'divv',
+    status: 'Active'
+  }),
+  {
+    user: 'John Doe',
+    age: 30,
+    id: 'dsfsdf',
+    visits: [4, 5, 6],
+    progress: 'divv',
+    status: 'Active'
   },
   {
-    user: { firstName: 'John', lastName: 'Doe', email: 'john_doe@gmail.com' },
-    age: 29,
-    id: 'fffffff',
-    visits: 'some cell',
-    progress: {
-      label: 'This is my progress',
-      value: 60
-    },
-    status: 'Figma'
-  },
-  {
-    user: { firstName: 'Bruce', lastName: 'Wayne', email: 'john_doe@gmail.com' },
+    user: 'Bruce wayne',
     id: 'fffffffeeeee',
     age: 29,
-    visits: 'new cell',
-    progress: {
-      label: 'Diff progress',
-      value: 240
-    },
-    status: 'Figma'
+    visits: [1, 2, 3],
+    progress: 'diff',
+    status: 'Active'
   }
 ]
 
 const Template = (args) => {
   const columns: TColumn[] = [
-    // {
-    //   Header: 'Visits',
-    //   accessor: 'visits',
-    //   columnProps: {
-    //     type: EColumns.BADGE,
-    //     showText: true,
-    //     textRight: true,
-    //     sortable: true
-    //   },
-    //   widthInPercent: 30,
-    //   minWidth: 220
-    // },
     {
       Header: 'User',
       accessor: 'user',
-      columnProps: {
-        type: EColumns.USER,
-        iconProps: {
-          leftIcon: 'copy',
-          rightIcon: 'arrow-download',
-          leftIconAction: (row) => console.log(row),
-          rightIconAction: (row) => console.log(row)
-        }
-      },
       fixed: 'left',
       widthInPercent: 30,
       width: 100
@@ -71,39 +49,27 @@ const Template = (args) => {
     {
       Header: 'Status',
       accessor: 'status',
-      widthInPercent: 20,
-      columnProps: {
-        type: EColumns.LINK,
-        iconProps: {
-          leftIcon: 'copy',
-          rightIcon: 'edit',
-          leftIconAction: (row) => console.log(row),
-          rightIconAction: (row) => console.log(row)
-        }
-      }
+      widthInPercent: 20
     },
     {
       accessor: 'age',
       Header: 'Age',
       widthInPercent: 20,
+      minWidth: 100,
       columnProps: {
-        sortable: true,
-        type: EColumns.LINK,
-        textRight: true,
-        iconProps: {
-          rightIcon: 'attach',
-          rightIconAction: (row) => console.log(row)
-        }
+        sortable: true
       }
     },
     {
       Header: 'Profile Progress',
       accessor: 'progress',
-      widthInPercent: 20,
-      columnProps: {
-        type: EColumns.PROGRESS,
-        showText: true
-      }
+      widthInPercent: 20
+    },
+    {
+      Header: 'Visits',
+      widthInPercent: 10,
+      accessor: 'visits',
+      fixed: 'right'
     }
   ]
 
@@ -118,7 +84,7 @@ const Template = (args) => {
       onChange={handleChange}
       columns={columns}
       withSelect
-      // fixedHeader={{ y: 500 }}
+      fixedHeader={{ y: 500 }}
     />
   )
 }

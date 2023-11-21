@@ -13,7 +13,6 @@ import { TColumn, TTableProps } from './types'
 import { calcTableWidth, setSelectedRows } from './utils'
 import Row from './Row'
 import Header from './Header'
-import { RenderCell } from './Columns'
 import '../../assets/styles/components/_table.scss'
 
 function Table({
@@ -45,19 +44,18 @@ function Table({
       }
     })
 
-    const addAccessor = columns.map((col) => {
-      return {
-        ...col,
-        accessor: function (row: any) {
-          return <RenderCell data={row[col.accessor as string]} row={row} column={this} />
-        }
-      }
-    })
-
-    return [...addAccessor]
+    return [...columns]
   }, [columns])
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = useTable(
+  const {
+    getTableProps,
+    getTableBodyProps,
+    selectedFlatRows,
+    headerGroups,
+    rows,
+    prepareRow,
+    state
+  } = useTable(
     {
       columns: sortedColumns as Column[],
       data
@@ -103,7 +101,7 @@ function Table({
         <tbody {...getTableBodyProps()}>
           {rows.map((row: RowType) => {
             prepareRow(row)
-            return <Row row={row} key={row.id} />
+            return <Row selectedFlatRows={selectedFlatRows} row={row} key={row.id} />
           })}
         </tbody>
       </table>
