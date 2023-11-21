@@ -47,9 +47,9 @@ export const Popover = Template.bind({})
 // @ts-ignore
 Popover.args = {
   linkAddons: {
-    text: 'Lorem ipsum dolor sit amet. Ea accusamus laboriosam sit sintEa accusamus laboriosam sit sint expedita et numquam sunt. A sunt assumenda id quos sequi qui eius nulla. Est saepe dolorem qui nemo enim id velit voluptas.Est saepe dolorem qui nemo enim id velit voluptas.Est saepe dolorem qui nemo enim id velit voluptas.Est saepe dolorem.',
     url: 'dasdsa',
-    beforeLink: 'Lorem ipsum dolor sit amet.A sunt assumenda id quos sequi qui eius nulla. Est saepe dolorem qui nemo enim id velit voluptas.EstLorem ipsum dolor sit amet'
+    beforeLink:
+      'Lorem ipsum dolor sit amet.A sunt assumenda id quos sequi qui eius nulla. Est saepe dolorem qui nemo enim id velit voluptas.EstLorem ipsum dolor sit amet'
   },
   text: 'saepe dolorem qui nemo enim id velit voluptas.Est saepe dolorem qui nemo enim id velit voluptas.Est saepe dolorem.'
 }
