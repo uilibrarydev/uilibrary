@@ -1,5 +1,6 @@
 import React from 'react'
 import { Status as StatusComp } from '../components'
+import { Icon, Popover } from '../index'
 
 export default {
   title: 'Status',
@@ -37,7 +38,16 @@ Status.args = {
   leftIconProps: {
     name: 'user'
   },
-  rightIconProps: {
-    name: 'info'
-  }
+  rightIconProps: (
+    <Popover
+      linkAddons={{ url: 'link', beforeLink: 'text before link' }}
+      id="beneficiary-tooltip"
+      text={'data'}
+      position="top-center"
+    >
+      <div id="beneficiary-tooltip" className="info-tooltip__icon">
+        <Icon name="info" type="information" size="xsmall" className={'ml-4'} />
+      </div>
+    </Popover>
+  )
 }

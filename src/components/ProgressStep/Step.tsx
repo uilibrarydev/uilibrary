@@ -79,8 +79,9 @@ export const Step = (props: TStepProps): ReactElement => {
       </div>
       <div className="step__label">
         <Text
-          size={stepSize == 'large' ? 'medium' : 'small'}
+          size={stepSize == 'large' ? 'standard' : 'small'}
           weight="semibold"
+          lineHeight={'large'}
           className="text-truncate"
         >
           {label}

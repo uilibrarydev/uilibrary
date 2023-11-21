@@ -6,7 +6,7 @@ export default {
   component: ButtonComp,
   argTypes: {
     type: {
-      options: ['primary', 'secondary', 'tertiary', 'danger', 'text'],
+      options: ['primary', 'secondary', 'tertiary', 'danger', 'text', 'link'],
       control: { type: 'radio' }
     },
     size: {
@@ -31,6 +31,7 @@ Button.args = {
   iconProps: {
     name: 'home'
   },
+  autoFocus: true,
   type: 'primary',
   size: 'large',
   disabled: false,

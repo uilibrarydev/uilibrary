@@ -3,7 +3,7 @@ import moment from 'moment'
 import DatePicker, { registerLocale } from 'react-datepicker'
 import hy from 'date-fns/locale/hy'
 import Input from '../Input'
-import { IRangeDatePickerProps } from './types'
+import { DateFormat, IRangeDatePickerProps } from './types'
 
 import './index.scss'
 
@@ -30,6 +30,20 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
   if (!Array.isArray(rangeArray)) {
     return null
   }
+
+  const formatDate = (date: Date | undefined, format: string): string => {
+    return date ? moment(date).format(format) : ''
+  }
+
+  const renderCurrentSelectedDate = (rangeArray: (Date | undefined)[]) => {
+    return rangeArray[1]
+      ? `${formatDate(rangeArray[0], DateFormat.LongDate)} - ${formatDate(
+          rangeArray[1],
+          DateFormat.LongDate
+        )}`
+      : `${formatDate(rangeArray[0], DateFormat.LongDate)}`
+  }
+
   return (
     <DatePicker
       startDate={rangeArray[0] as Date}
@@ -42,11 +56,7 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
           <Input
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            currentValue={`${moment(rangeArray[0]).format('MMMM d, YYYY')}  - ${moment(
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-              rangeArray[1]
-            ).format(format)}`}
+            currentValue={renderCurrentSelectedDate(rangeArray)}
           />
         </div>
       }

@@ -12,7 +12,7 @@ export type TStatusTypes =
 export interface TStatusProps extends IFormCompProps {
   text?: string
   leftIconProps?: IconPropTypes
-  rightIconProps?: IconPropTypes
+  rightIconProps?: JSX.Element
   type?: TStatusTypes
   size?: 'large' | 'medium' | 'small'
   className?: string

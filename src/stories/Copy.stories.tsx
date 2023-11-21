@@ -7,11 +7,7 @@ export default {
   argTypes: {}
 }
 
-const Template = (args) => (
-  <div style={{ width: 20 }}>
-    <CopyComp {...args} />
-  </div>
-)
+const Template = (args) => <CopyComp {...args} />
 
 export const Copy = Template.bind({})
 

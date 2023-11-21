@@ -1,4 +1,4 @@
-import React, { ForwardedRef, useRef } from 'react'
+import React, { ForwardedRef, useRef, useMemo } from 'react'
 import classnames from 'classnames'
 import { Icon, Link, Text } from '../'
 import { TCheckboxProps } from './types'
@@ -39,6 +39,37 @@ export const Checkbox = (
     }
   }
 
+  const checkboxLabel = useMemo(() => {
+    if (!label) {
+      return null
+    }
+    if (typeof label !== 'string') {
+      return label
+    }
+    if (!link) {
+      return (
+        <Text type={disabled ? 'disabled' : 'primary'} className="controller__label">
+          <>
+            {label}
+            {required && <sup>*</sup>}
+          </>
+        </Text>
+      )
+    }
+    return (
+      <Text type={disabled ? 'disabled' : 'primary'} className="controller__label">
+        <>
+          {beforeLink && <span className="mr-4">{beforeLink}</span>}
+          <Link dataId={dataId} url={link} taget="_blank">
+            {label}
+          </Link>
+          {afterLink && <span className="ml-4">{afterLink}</span>}
+          {required && <sup>*</sup>}
+        </>
+      </Text>
+    )
+  }, [label, link])
+
   return (
     <label
       className={classnames('controller', {
@@ -64,24 +95,7 @@ export const Checkbox = (
           className="controller__mark"
         />
       </span>
-      {label ? (
-        <Text type={disabled ? 'disabled' : 'primary'} className="controller__label">
-          <>
-            {link ? (
-              <>
-                {beforeLink && <span className="mr-4">{beforeLink}</span>}
-                <Link dataId={dataId} url={link} taget="_blank">
-                  {label}
-                </Link>
-                {afterLink && <span className="ml-4">{afterLink}</span>}
-              </>
-            ) : (
-              <>{label}</>
-            )}
-            {required && <sup>*</sup>}
-          </>
-        </Text>
-      ) : null}
+      {checkboxLabel}
     </label>
   )
 }
