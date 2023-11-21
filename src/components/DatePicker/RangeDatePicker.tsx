@@ -32,13 +32,16 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
   }
 
   const formatDate = (date: Date | undefined, format: string): string => {
-    return date ? moment(date).format(format) : '';
-  };
+    return date ? moment(date).format(format) : ''
+  }
 
   const renderCurrentSelectedDate = (rangeArray: (Date | undefined)[]) => {
     return rangeArray[1]
-      ? `${formatDate(rangeArray[0], DateFormat.LongDate)} - ${formatDate(rangeArray[1], DateFormat.LongDate)}`
-      : `${formatDate(rangeArray[0], DateFormat.LongDate)}`;
+      ? `${formatDate(rangeArray[0], DateFormat.LongDate)} - ${formatDate(
+          rangeArray[1],
+          DateFormat.LongDate
+        )}`
+      : `${formatDate(rangeArray[0], DateFormat.LongDate)}`
   }
 
   return (
