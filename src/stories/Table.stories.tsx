@@ -77,16 +77,7 @@ const Template = (args) => {
     console.log(state)
   }
 
-  return (
-    <TableComponent
-      {...args}
-      data={data}
-      onChange={handleChange}
-      columns={columns}
-      withSelect
-      fixedHeader={{ y: 500 }}
-    />
-  )
+  return <TableComponent {...args} data={data} onChange={handleChange} columns={columns} />
 }
 
 export default {
@@ -96,4 +87,9 @@ export default {
 
 export const Table = Template.bind({})
 
-Table.args = {}
+Table.args = {
+  fixedHeader: { y: 500 },
+  withSelect: true,
+  data: [],
+  columns: []
+}
