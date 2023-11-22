@@ -2,15 +2,16 @@ import React, { ReactElement } from 'react'
 import { HeaderGroup, CellValue } from 'react-table'
 import classNames from 'classnames'
 import { Icon, Text } from '../'
-import { calcColumnWidth, CHECKBOX_HEADER_ID } from './utils'
+import { calcColumnWidth, CHECKBOX_DEFAULT_WIDTH, CHECKBOX_HEADER_ID } from './utils'
 
 type Props = {
   fixedHeader?: boolean
+  withSelect: boolean
   tableWidth: number
   headerGroup: HeaderGroup
 }
 
-function Header({ headerGroup, tableWidth, fixedHeader = false }: Props): ReactElement {
+function Header({ headerGroup, tableWidth, withSelect, fixedHeader = false }: Props): ReactElement {
   return (
     <tr
       {...headerGroup.getHeaderGroupProps()}
@@ -38,6 +39,7 @@ function Header({ headerGroup, tableWidth, fixedHeader = false }: Props): ReactE
 
           const style = {
             width: isSelection ? 17 : calcColumnWidth(widthInPercent, tableWidth),
+            left: !isSelection && withSelect && fixed === 'left' ? CHECKBOX_DEFAULT_WIDTH : 0,
             ...(!isSelection && minWidth ? { minWidth } : {}),
             ...(!isSelection && maxWidth ? { maxWidth } : {}),
             ...(!isSelection && width ? { width } : {})

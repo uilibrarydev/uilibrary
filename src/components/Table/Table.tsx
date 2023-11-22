@@ -10,7 +10,7 @@ import {
   Hooks
 } from 'react-table'
 import { TColumn, TTableProps } from './types'
-import { calcTableWidth, setSelectedRows } from './utils'
+import { setSelectedRows } from './utils'
 import Row from './Row'
 import Header from './Header'
 import '../../assets/styles/components/_table.scss'
@@ -23,7 +23,7 @@ function Table({
   withSelect = false
 }: TTableProps): ReactElement {
   const tableRef = useRef<HTMLTableElement | null>(null)
-  const [tableWidth, setTableWidth] = useState(calcTableWidth(withSelect, tableRef.current))
+  const [tableWidth, setTableWidth] = useState(400)
 
   const sortedColumns = useMemo(() => {
     const condition1 = (item: TColumn) => item.fixed === 'left' // Move even numbers to the start
@@ -71,14 +71,15 @@ function Table({
 
   const handleResize = () => {
     if (tableRef.current) {
-      const width = calcTableWidth(withSelect, tableRef.current)
-      setTableWidth(width)
+      setTableWidth(tableRef.current?.offsetWidth)
     }
   }
 
   useEffect(() => {
     window.addEventListener('resize', handleResize)
-    setTableWidth(calcTableWidth(withSelect, tableRef.current))
+    if (tableRef.current) {
+      setTableWidth(tableRef.current?.offsetWidth)
+    }
 
     return () => {
       window.removeEventListener('resize', handleResize)
@@ -92,6 +93,7 @@ function Table({
           {headerGroups.map((headerGroup: HeaderGroup, i) => (
             <Header
               key={i}
+              withSelect={withSelect}
               fixedHeader={Boolean(fixedHeader)}
               headerGroup={headerGroup}
               tableWidth={tableWidth}
@@ -101,7 +103,14 @@ function Table({
         <tbody {...getTableBodyProps()}>
           {rows.map((row: RowType) => {
             prepareRow(row)
-            return <Row selectedFlatRows={selectedFlatRows} row={row} key={row.id} />
+            return (
+              <Row
+                withSelect={withSelect}
+                selectedFlatRows={selectedFlatRows}
+                row={row}
+                key={row.id}
+              />
+            )
           })}
         </tbody>
       </table>
