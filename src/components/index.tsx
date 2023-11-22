@@ -37,6 +37,7 @@ import Status from './Status'
 import Chips from './Chips'
 import Empty from './Empty'
 import { ProgressStep } from './ProgressStep'
+export { Table } from './Table'
 
 export {
   ProgressStep,

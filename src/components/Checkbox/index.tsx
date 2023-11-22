@@ -1,12 +1,13 @@
-import React, { useMemo } from 'react'
-import Icon from '../Icon'
+import React, { ForwardedRef, useRef, useMemo } from 'react'
+import classnames from 'classnames'
+import { Icon, Link, Text } from '../'
 import { TCheckboxProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
-import Link from '../Link'
-import Text from '../Text'
-import classnames from 'classnames'
 
-export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
+export const Checkbox = (
+  props: TCheckboxProps,
+  ref: ForwardedRef<HTMLInputElement>
+): JSX.Element | null => {
   const {
     label,
     disabled,
@@ -23,6 +24,9 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
     beforeLink,
     afterLink
   } = props
+
+  const localRef = useRef(null)
+  const inputRef = ref && Object.keys(ref).length ? ref : localRef
 
   const isChecked = !!value || selectedValue
 
@@ -77,9 +81,10 @@ export const Checkbox = (props: TCheckboxProps): JSX.Element | null => {
       <input
         data-id={dataId}
         type="checkbox"
+        ref={inputRef}
         tabIndex={0}
         onChange={changeHandler}
-        checked={isChecked}
+        checked={Boolean(isChecked)}
         disabled={disabled}
       />
       <span className="controller__icon">

@@ -43,6 +43,7 @@ import { useFieldArray } from 'react-hook-form'
 import { Copy } from './components/Copy'
 import Empty from './components/Empty'
 import { ProgressStep } from './components/ProgressStep'
+export { Table } from './components/Table'
 
 export {
   ProgressStep,
