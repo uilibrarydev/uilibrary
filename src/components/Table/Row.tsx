@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useMemo } from 'react'
 import classNames from 'classnames'
 import { Row as RowType, CellValue } from 'react-table'
 import { CHECKBOX_HEADER_ID } from './utils'
@@ -9,7 +9,10 @@ type Props = {
 }
 
 function Row({ row, selectedFlatRows }: Props): ReactElement {
-  const isRowSelected = selectedFlatRows.find((r) => r.id === row.id)
+  const isRowSelected = useMemo(
+    () => selectedFlatRows.find((r) => r.id === row.id),
+    [selectedFlatRows]
+  )
 
   return (
     <tr {...row.getRowProps()} className={classNames({ selected_row: Boolean(isRowSelected) })}>

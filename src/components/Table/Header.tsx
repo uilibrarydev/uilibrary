@@ -10,7 +10,7 @@ type Props = {
   headerGroup: HeaderGroup
 }
 
-function Table({ headerGroup, tableWidth, fixedHeader = false }: Props): ReactElement {
+function Header({ headerGroup, tableWidth, fixedHeader = false }: Props): ReactElement {
   return (
     <tr
       {...headerGroup.getHeaderGroupProps()}
@@ -18,6 +18,14 @@ function Table({ headerGroup, tableWidth, fixedHeader = false }: Props): ReactEl
     >
       {headerGroup.headers.map((column: CellValue, i: number, arr: CellValue[]) => {
         const isSelection = column.id === CHECKBOX_HEADER_ID
+
+        const style = {
+          width: isSelection ? 17 : calcColumnWidth(column.widthInPercent, tableWidth),
+          ...(!isSelection && column.minWidth ? { minWidth: column.minWidth } : {}),
+          ...(!isSelection && column.maxWidth ? { maxWidth: column.maxWidth } : {}),
+          ...(!isSelection && column.width ? { width: column.width } : {})
+        }
+
         return (
           <th
             key={i}
@@ -30,12 +38,7 @@ function Table({ headerGroup, tableWidth, fixedHeader = false }: Props): ReactEl
               fixed_checkbox_header:
                 column?.id === CHECKBOX_HEADER_ID && arr[i + 1]?.fixed === 'left'
             })}
-            style={{
-              width: isSelection ? 17 : calcColumnWidth(column.widthInPercent, tableWidth),
-              ...(!isSelection && column.minWidth ? { minWidth: column.minWidth } : {}),
-              ...(!isSelection && column.maxWidth ? { maxWidth: column.maxWidth } : {}),
-              ...(!isSelection && column.width ? { width: column.width } : {})
-            }}
+            style={style}
           >
             <Text className="table_header_cell" weight="bold">
               <>
@@ -54,4 +57,4 @@ function Table({ headerGroup, tableWidth, fixedHeader = false }: Props): ReactEl
   )
 }
 
-export default Table
+export default Header
