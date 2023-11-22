@@ -5,7 +5,7 @@ import { Icon, Text } from '../'
 import { calcColumnWidth, CHECKBOX_HEADER_ID } from './utils'
 
 type Props = {
-  fixedHeader: boolean
+  fixedHeader?: boolean
   tableWidth: number
   headerGroup: HeaderGroup
 }
@@ -16,43 +16,58 @@ function Header({ headerGroup, tableWidth, fixedHeader = false }: Props): ReactE
       {...headerGroup.getHeaderGroupProps()}
       className={classNames({ fixed_header: fixedHeader })}
     >
-      {headerGroup.headers.map((column: CellValue, i: number, arr: CellValue[]) => {
-        const isSelection = column.id === CHECKBOX_HEADER_ID
+      {headerGroup.headers.map(
+        (
+          {
+            id,
+            minWidth,
+            maxWidth,
+            width,
+            widthInPercent,
+            getHeaderProps,
+            fixed,
+            columnProps,
+            render,
+            isSorted,
+            isSortedDesc
+          }: CellValue,
+          i: number,
+          arr: CellValue[]
+        ) => {
+          const isSelection = id === CHECKBOX_HEADER_ID
 
-        const style = {
-          width: isSelection ? 17 : calcColumnWidth(column.widthInPercent, tableWidth),
-          ...(!isSelection && column.minWidth ? { minWidth: column.minWidth } : {}),
-          ...(!isSelection && column.maxWidth ? { maxWidth: column.maxWidth } : {}),
-          ...(!isSelection && column.width ? { width: column.width } : {})
+          const style = {
+            width: isSelection ? 17 : calcColumnWidth(widthInPercent, tableWidth),
+            ...(!isSelection && minWidth ? { minWidth } : {}),
+            ...(!isSelection && maxWidth ? { maxWidth } : {}),
+            ...(!isSelection && width ? { width } : {})
+          }
+
+          return (
+            <th
+              key={i}
+              {...getHeaderProps(columnProps?.sortable ? getHeaderProps() : undefined)}
+              className={classNames({
+                fixed_column_left: fixed === 'left',
+                fixed_column_right: fixed === 'right',
+                fixed_checkbox_header: isSelection && arr[i + 1]?.fixed === 'left'
+              })}
+              style={style}
+            >
+              <Text className="table_header_cell" weight="bold">
+                <>
+                  {render('Header')}
+                  {isSorted ? (
+                    <Icon size="xsmall" name={isSortedDesc ? 'arrow2-down' : 'arrow2-up'} />
+                  ) : (
+                    ''
+                  )}
+                </>
+              </Text>
+            </th>
+          )
         }
-
-        return (
-          <th
-            key={i}
-            {...column.getHeaderProps(
-              column?.columnProps?.sortable ? column.getSortByToggleProps() : undefined
-            )}
-            className={classNames({
-              fixed_column_left: column?.fixed === 'left',
-              fixed_column_right: column?.fixed === 'right',
-              fixed_checkbox_header:
-                column?.id === CHECKBOX_HEADER_ID && arr[i + 1]?.fixed === 'left'
-            })}
-            style={style}
-          >
-            <Text className="table_header_cell" weight="bold">
-              <>
-                {column.render('Header')}
-                {column.isSorted ? (
-                  <Icon size="xsmall" name={column.isSortedDesc ? 'arrow2-down' : 'arrow2-up'} />
-                ) : (
-                  ''
-                )}
-              </>
-            </Text>
-          </th>
-        )
-      })}
+      )}
     </tr>
   )
 }

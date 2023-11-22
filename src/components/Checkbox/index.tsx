@@ -26,7 +26,7 @@ export const Checkbox = (
   } = props
 
   const localRef = useRef(null)
-  const inputRef = ref && Object.keys(ref).length ? ref : localRef
+  const inputRef = ref || localRef
 
   const isChecked = !!value || selectedValue
 
