@@ -30,7 +30,8 @@ function Header({ headerGroup, tableWidth, withSelect, fixedHeader = false }: Pr
             columnProps,
             render,
             isSorted,
-            isSortedDesc
+            isSortedDesc,
+            getSortByToggleProps
           }: CellValue,
           i: number,
           arr: CellValue[]
@@ -48,7 +49,7 @@ function Header({ headerGroup, tableWidth, withSelect, fixedHeader = false }: Pr
           return (
             <th
               key={i}
-              {...getHeaderProps(columnProps?.sortable ? getHeaderProps() : undefined)}
+              {...getHeaderProps(columnProps?.sortable ? getSortByToggleProps() : undefined)}
               className={classNames({
                 fixed_column_left: fixed === 'left',
                 fixed_column_right: fixed === 'right',
@@ -61,6 +62,8 @@ function Header({ headerGroup, tableWidth, withSelect, fixedHeader = false }: Pr
                   {render('Header')}
                   {isSorted ? (
                     <Icon size="xsmall" name={isSortedDesc ? 'arrow2-down' : 'arrow2-up'} />
+                  ) : columnProps?.sortable ? (
+                    <Icon size="small" name="chevron-up-down" />
                   ) : (
                     ''
                   )}
