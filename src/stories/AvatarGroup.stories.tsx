@@ -11,7 +11,16 @@ const image = {
 export default {
     title: 'AvatarGroup',
     component: AvatarGroupComp,
-    argTypes: {}
+    argTypes: {
+        showInvisibleAvatarsAmount:{
+            options:[false,true],
+            control: { type: 'radio' }
+        },
+        onAddUser:{
+            options:[false,true],
+            control: { type: 'radio' }
+        },
+    }
 }
 
 
