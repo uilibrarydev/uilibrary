@@ -25,7 +25,7 @@ import Chips from './components/Chips'
 
 import More from './components/More'
 import { WithFormFeedback } from './context/FormContextProvider'
-import Avatar from './components/Avatar'
+import { Avatar } from './components'
 import Tooltip from './components/Tooltip'
 import Tab from './components/Tab'
 import { Snackbar, notify } from './components/Snackbar'

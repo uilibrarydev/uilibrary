@@ -10,3 +10,5 @@ export const IMAGE_MIME_TYPES_FOR_PREVIEW: TImageMimeTypes[] = [
 ]
 
 export const IMAGE_MIME_TYPE: string[] = ['.jpeg', '.jpg', '.png', '.heic', '.heif', '.pdf']
+
+export const VISIBLE_AVATARS_AMOUNT = 4

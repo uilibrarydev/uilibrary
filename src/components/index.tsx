@@ -19,7 +19,6 @@ import More from './More'
 import Switcher from './Switcher'
 import Radio from './Radio'
 import Badge from './Badge'
-import Avatar from './Avatar'
 import Tooltip from './Tooltip'
 import RadioGroup from './Radio/RadioGroup'
 import Tab from './Tab'
@@ -37,6 +36,7 @@ import Status from './Status'
 import Chips from './Chips'
 import Empty from './Empty'
 import { ProgressStep } from './ProgressStep'
+import { AvatarGroup, Avatar } from './Avatar'
 export { Table } from './Table'
 
 export {
@@ -85,5 +85,6 @@ export {
   SideSheet,
   Status,
   Chips,
-  Empty
+  Empty,
+  AvatarGroup
 }
