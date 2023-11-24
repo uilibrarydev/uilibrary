@@ -25,6 +25,9 @@
   --ds-avatar-purple-bg-hover: var(--purple-50);
   --ds-avatar-purple-color: var(--purple-500);
 
+  --ds-avatar-white-bg: var(--white);
+
+
   --ds-avatar-green-bg: var(--green-100);
   --ds-avatar-green-bg-hover: var(--green-50);
   --ds-avatar-green-color: var(--green-700);
@@ -110,9 +113,21 @@
       background-color: var(--ds-avatar-default-bg-hover);
     }
   }
+
   &--purple {
     background-color: var(--ds-avatar-purple-bg);
     color: var(--ds-avatar-purple-color);
+
+    &:hover {
+      background-color: var(--ds-avatar-purple-bg-hover);
+    }
+  }
+
+  //TODO If there is a need please refactor this styles
+
+  &--white {
+    background-color: var(--ds-avatar-white-bg);
+    color: var(--ds-color-border-tertiary);
 
     &:hover {
       background-color: var(--ds-avatar-purple-bg-hover);
@@ -156,6 +171,22 @@
     &:hover {
       &:after {
         opacity: 1;
+      }
+    }
+  }
+  //TODO If there is a need please refactor this styles
+  &--group {
+    @include flexbox;
+    &--item {
+      margin-right: calc(-1 * var(--size-20));
+    }
+    &--add-user {
+      border: var(--border-size-1) dashed var(--ds-color-border-tertiary);
+      margin-left: var(--ds-size-40);
+      width: var(--ds-size-56);
+      height: var(--ds-size-56);
+      &:hover {
+        background-color: var(--ds-avatar-purple-bg-hover);
       }
     }
   }

@@ -8,6 +8,7 @@ import { useOnOutsideClick } from './useOnOutsideClick'
 import { useGetHasBottomSpace } from './useGetHasBottomSpace'
 import { useHideOnScroll } from './useHideOnScroll'
 import { useHideBodyScroll } from './useHideBodyScroll'
+import {useScreenSize} from './useScreenSize'
 
 export {
   useFormContext,
@@ -19,5 +20,6 @@ export {
   useFormProps,
   useHideOnScroll,
   useGetHasBottomSpace,
-  useHideBodyScroll
+  useHideBodyScroll,
+  useScreenSize
 }
