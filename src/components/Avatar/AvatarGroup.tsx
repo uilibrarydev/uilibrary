@@ -11,11 +11,7 @@ const VISIBLE_AVATARS_AMOUNT = {
   large: 6
 }
 
-export const AvatarGroup = ({
-  avatarGroup = [],
-  onAddUser,
-  showInvisibleAvatarsAmount = true
-}: TAvatarGroupProps): ReactElement => {
+export const AvatarGroup = ({ avatarGroup = [], onAddUser }: TAvatarGroupProps): ReactElement => {
   const screenSize = useScreenSize()
   const visibleAvatarsAmount = VISIBLE_AVATARS_AMOUNT[screenSize]
 
@@ -40,7 +36,7 @@ export const AvatarGroup = ({
         )
       })}
 
-      {invisibleAvatarsAmount && showInvisibleAvatarsAmount ? (
+      {invisibleAvatarsAmount ? (
         <Avatar color={'green'} size={'large'} initials={`+${invisibleAvatarsAmount}`} />
       ) : null}
 
