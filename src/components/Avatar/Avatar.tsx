@@ -23,8 +23,8 @@ export const Avatar = ({
     }
   }
   const style = {
-    ...(image ? { backgroundImage: image ? `url(${image})` : 'none' } : null)
-  }
+    backgroundImage: image ? `url(${image})` : 'none'
+  };
 
   return (
     <div

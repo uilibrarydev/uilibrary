@@ -182,7 +182,12 @@
     }
     &--add-user {
       border: var(--border-size-1) dashed var(--ds-color-border-tertiary);
-      margin-left: var(--ds-size-16);
+      margin-left: var(--ds-size-40);
+      width: var(--ds-size-56);
+      height: var(--ds-size-56);
+      &:hover {
+        background-color: var(--ds-avatar-purple-bg-hover);
+      }
     }
   }
 }

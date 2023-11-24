@@ -15,6 +15,5 @@ export interface TAvatarProps extends IFormCompProps {
 export interface TAvatarGroupProps {
   avatarGroup: TAvatarProps[]
   onAddUser?: () => void
-  visibleAvatarsAmount?: number
   showInvisibleAvatarsAmount?: true
 }
