@@ -87,7 +87,7 @@ function Table({
   }, [tableRef.current])
 
   return (
-    <div className="table_wrapper" style={{ height: fixedHeader?.y }}>
+    <div className="table-wrapper scrollbar scrollbar--horizontal scrollbar--vertical" style={{ height: fixedHeader?.y }}>
       <table {...getTableProps()} ref={tableRef}>
         <thead>
           {headerGroups.map((headerGroup: HeaderGroup, i) => (

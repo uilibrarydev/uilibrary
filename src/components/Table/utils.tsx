@@ -3,7 +3,7 @@ import { Column, Hooks } from 'react-table'
 import IndeterminateCheckbox from './IndeterminateCheckbox'
 
 export const CHECKBOX_HEADER_ID = 'selection'
-export const CHECKBOX_DEFAULT_WIDTH = 33
+export const CHECKBOX_DEFAULT_WIDTH = 48
 
 export function setSelectedRows(hooks: Hooks, withSelect: boolean) {
   if (withSelect) {
