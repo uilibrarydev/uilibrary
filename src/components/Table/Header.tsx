@@ -15,7 +15,7 @@ function Header({ headerGroup, tableWidth, withSelect, fixedHeader = false }: Pr
   return (
     <tr
       {...headerGroup.getHeaderGroupProps()}
-      className={classNames( { fixed_header: fixedHeader })}
+      className={classNames({ fixed_header: fixedHeader })}
     >
       {headerGroup.headers.map(
         (
@@ -50,23 +50,27 @@ function Header({ headerGroup, tableWidth, withSelect, fixedHeader = false }: Pr
             <th
               key={i}
               {...getHeaderProps(columnProps?.sortable ? getSortByToggleProps() : undefined)}
-              className={classNames( {
+              className={classNames({
                 fixed_column_left: fixed === 'left',
                 fixed_column_right: fixed === 'right',
                 fixed_checkbox: isSelection && arr[i + 1]?.fixed === 'left'
               })}
               style={style}
             >
-              <div className="flexbox align-items--center" >
+              <div className="flexbox align-items--center">
                 <Text weight="bold" className="text-truncate">
                   {render('Header')}
                 </Text>
                 {isSorted ? (
-                    <Icon size="xsmall" name={isSortedDesc ? 'arrow2-down' : 'arrow2-up'} className={'ml-4'} />
+                  <Icon
+                    size="xsmall"
+                    name={isSortedDesc ? 'arrow2-down' : 'arrow2-up'}
+                    className={'ml-4'}
+                  />
                 ) : columnProps?.sortable ? (
-                    <Icon size="small" name="chevron-up-down" className={'ml-4'}/>
+                  <Icon size="small" name="chevron-up-down" className={'ml-4'} />
                 ) : (
-                    ''
+                  ''
                 )}
               </div>
             </th>
