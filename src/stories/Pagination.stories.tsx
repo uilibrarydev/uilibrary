@@ -3,7 +3,12 @@ import { Icon, Pagination as PaginationComp } from '../components'
 export default {
     title: 'Pagination',
     component: PaginationComp,
-    argTypes: {}
+    argTypes: {
+        size: {
+            options: ['large', 'medium', 'small'],
+            control: { type: 'radio' }
+        }
+    }
 }
 const Template = (args) => (
     <PaginationComp
@@ -11,11 +16,14 @@ const Template = (args) => (
         handleChangePage={(item) => {
             console.log(item)
         }}
-        nextLabel={<Icon name="arrow-right" />}
-        prevLabel={<Icon name="arrow-left" />}
-        totalCount={100}
-        breakLabel={<Icon name="more" />}
-        containerClassName=""
     />
 )
 export const Pagination = Template.bind({})
+
+Pagination.args = {
+    size: 'large',
+    totalCount: 100,
+    nextLabel: <Icon name="arrow-right" />,
+    prevLabel: <Icon name="arrow-left" />,
+    breakLabel: <Icon name="more" />
+}
