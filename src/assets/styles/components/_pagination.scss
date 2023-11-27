@@ -16,8 +16,7 @@
   --ds-pagination-item-color-disabled: var(--ds-color-text-disabled);
   --ds-pagination-item-bg: var(--ds-color-bg-white);
   --ds-pagination-item-bg-selected: var(--ds-color-bg-brand);
-  --ds-pagination-item-bg-disabled: var(--ds-color-bg-container-lighter);
-  --ds-pagination-item-border: 1px solid var(--ds-color-border-tertiary);
+  --ds-pagination-item-bg-disabled: var(--ds-color-bg-container-lighter);tem-border: 1px solid var(--ds-color-border-tertiary);
   --ds-pagination-item-border-selected: var(--ds-color-border-brand);
   --ds-pagination-item-border-disabled: var(--ds-color-bg-disabled);
 
@@ -39,10 +38,6 @@
         min-width: var(--ds-pagination-item-size-lg);
         height: var(--ds-pagination-item-size-lg);
         font: var(--ds-font-weight-default) var(--ds-pagination-item-font-size-lg) var(--ds-font-family);
-
-        &:active, &:hover, &:focus {
-          outline: none !important;
-        }
       }
 
       .icon {
@@ -92,6 +87,10 @@
       @include flexbox;
       @include align-items(center);
       @include justify-content(center);
+
+      &:active, &:hover, &:focus {
+        outline: none !important;
+      }
     }
 
 
