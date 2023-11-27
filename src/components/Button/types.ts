@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from 'react'
+import { ButtonHTMLAttributes, LegacyRef } from 'react'
 
 export interface TButtonPropTypes extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   id?: string
@@ -16,5 +16,5 @@ export interface TButtonPropTypes extends Omit<ButtonHTMLAttributes<HTMLButtonEl
   onClick?: (event: TClickEventType) => void
   formId?: string
   dataId?: string
-  refHandler?: (ref: HTMLElement | null) => void
+  refHandler?: LegacyRef<HTMLButtonElement> | undefined
 }

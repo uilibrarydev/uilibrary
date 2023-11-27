@@ -26,7 +26,7 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     formId,
     dataId = '',
     onClick,
-    refHandler,
+    refHandler = null,
     ...rest
   } = props
 

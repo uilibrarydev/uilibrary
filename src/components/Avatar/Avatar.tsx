@@ -24,7 +24,7 @@ export const Avatar = ({
   }
   const style = {
     backgroundImage: image ? `url(${image})` : 'none'
-  };
+  }
 
   return (
     <div

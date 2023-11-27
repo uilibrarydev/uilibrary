@@ -1,7 +1,7 @@
 import { ReactElement } from 'react'
 
 export interface TAvatarProps extends IFormCompProps {
-  id?:string
+  id?: string
   imagePath?: string
   initials?: string | JSX.Element
   color?: 'default' | 'purple' | 'blue' | 'green' | 'red' | 'white'
