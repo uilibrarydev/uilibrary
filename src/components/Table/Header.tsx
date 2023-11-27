@@ -39,7 +39,9 @@ function Header({ headerGroup, tableWidth, withSelect, fixedHeader = false }: Pr
           const isSelection = id === CHECKBOX_HEADER_ID
 
           const style = {
-            width: isSelection ? 17 : calcColumnWidth(widthInPercent, tableWidth),
+            width: isSelection
+              ? CHECKBOX_DEFAULT_WIDTH
+              : calcColumnWidth(widthInPercent, tableWidth),
             left: !isSelection && withSelect && fixed === 'left' ? CHECKBOX_DEFAULT_WIDTH : 0,
             ...(!isSelection && minWidth ? { minWidth } : {}),
             ...(!isSelection && maxWidth ? { maxWidth } : {}),
@@ -53,22 +55,26 @@ function Header({ headerGroup, tableWidth, withSelect, fixedHeader = false }: Pr
               className={classNames({
                 fixed_column_left: fixed === 'left',
                 fixed_column_right: fixed === 'right',
-                fixed_checkbox_header: isSelection && arr[i + 1]?.fixed === 'left'
+                fixed_checkbox: isSelection && arr[i + 1]?.fixed === 'left'
               })}
               style={style}
             >
-              <Text className="table_header_cell" weight="bold">
-                <>
+              <div className="flexbox align-items--center">
+                <Text weight="bold" className="text-truncate">
                   {render('Header')}
-                  {isSorted ? (
-                    <Icon size="xsmall" name={isSortedDesc ? 'arrow2-down' : 'arrow2-up'} />
-                  ) : columnProps?.sortable ? (
-                    <Icon size="small" name="chevron-up-down" />
-                  ) : (
-                    ''
-                  )}
-                </>
-              </Text>
+                </Text>
+                {isSorted ? (
+                  <Icon
+                    size="xsmall"
+                    name={isSortedDesc ? 'arrow2-down' : 'arrow2-up'}
+                    className={'ml-4'}
+                  />
+                ) : columnProps?.sortable ? (
+                  <Icon size="small" name="chevron-up-down" className={'ml-4'} />
+                ) : (
+                  ''
+                )}
+              </div>
             </th>
           )
         }
