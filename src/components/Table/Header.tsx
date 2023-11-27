@@ -39,7 +39,9 @@ function Header({ headerGroup, tableWidth, withSelect, fixedHeader = false }: Pr
           const isSelection = id === CHECKBOX_HEADER_ID
 
           const style = {
-            width: isSelection ? 48 : calcColumnWidth(widthInPercent, tableWidth),
+            width: isSelection
+              ? CHECKBOX_DEFAULT_WIDTH
+              : calcColumnWidth(widthInPercent, tableWidth),
             left: !isSelection && withSelect && fixed === 'left' ? CHECKBOX_DEFAULT_WIDTH : 0,
             ...(!isSelection && minWidth ? { minWidth } : {}),
             ...(!isSelection && maxWidth ? { maxWidth } : {}),
