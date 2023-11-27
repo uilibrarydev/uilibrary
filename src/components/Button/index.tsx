@@ -31,6 +31,7 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
   } = props
 
   const justIcon = !buttonText && iconProps !== undefined
+  console.log('Button log')
 
   return (
     <button
