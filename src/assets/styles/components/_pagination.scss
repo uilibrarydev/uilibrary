@@ -16,7 +16,8 @@
   --ds-pagination-item-color-disabled: var(--ds-color-text-disabled);
   --ds-pagination-item-bg: var(--ds-color-bg-white);
   --ds-pagination-item-bg-selected: var(--ds-color-bg-brand);
-  --ds-pagination-item-bg-disabled: var(--ds-color-bg-container-lighter);tem-border: 1px solid var(--ds-color-border-tertiary);
+  --ds-pagination-item-bg-disabled: var(--ds-color-bg-container-lighter);
+  --ds-pagination-item-border: 1px solid var(--ds-color-border-tertiary);
   --ds-pagination-item-border-selected: var(--ds-color-border-brand);
   --ds-pagination-item-border-disabled: var(--ds-color-bg-disabled);
 
@@ -88,7 +89,7 @@
       @include align-items(center);
       @include justify-content(center);
 
-      &:active, &:hover, &:focus {
+      &:focus {
         outline: none !important;
       }
     }
