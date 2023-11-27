@@ -16,7 +16,7 @@ function Row({ row, selectedFlatRows, withSelect }: Props): ReactElement {
   )
 
   return (
-    <tr {...row.getRowProps()} className={classNames({ selected_row: Boolean(isRowSelected) })}>
+    <tr {...row.getRowProps()} className={classNames({ selected: Boolean(isRowSelected) })}>
       {row.cells.map(({ getCellProps, column, render }: CellValue, i, arr: CellValue[]) => {
         const isSelection = column.id === CHECKBOX_HEADER_ID
         return (

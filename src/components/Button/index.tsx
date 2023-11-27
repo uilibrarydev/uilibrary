@@ -26,11 +26,12 @@ const Button = (props: TButtonPropTypes): JSX.Element => {
     formId,
     dataId = '',
     onClick,
-    refHandler,
+    refHandler = null,
     ...rest
   } = props
 
   const justIcon = !buttonText && iconProps !== undefined
+  console.log('Button log')
 
   return (
     <button
