@@ -4,14 +4,15 @@ import Icon from '../Icon'
 import { Avatar } from '../index'
 import { TAvatarGroupProps } from './types'
 import { useScreenSize } from '../../hooks'
+import classNames from 'classnames';
 
 const VISIBLE_AVATARS_AMOUNT = {
   small: 2,
   medium: 4,
-  large: 6
+  large: 7
 }
 
-export const AvatarGroup = ({ avatarGroup = [], onAddUser }: TAvatarGroupProps): ReactElement => {
+export const AvatarGroup = ({ avatarGroup = [], onAddUser, size = 'medium' }: TAvatarGroupProps): ReactElement => {
   const screenSize = useScreenSize()
   const visibleAvatarsAmount = VISIBLE_AVATARS_AMOUNT[screenSize]
 
@@ -19,16 +20,16 @@ export const AvatarGroup = ({ avatarGroup = [], onAddUser }: TAvatarGroupProps):
   const invisibleAvatarsAmount = avatarGroup.length - visibleAvatarsAmount
 
   return (
-    <div className={'avatar--group'}>
+    <div className={classNames(`avatar-group avatar-group--${size}`)}>
       {visibleAvatars.map((avatar, index) => {
         return (
-          <div className={'avatar--group--item'} key={index}>
+          <div className={'avatar-group__item'} key={index}>
             {avatar.tooltipContent ? (
               <Tooltip text={avatar.tooltipContent} id={`${index}`} position={'top-left'} />
             ) : null}
             <Avatar
               id={`${index}`}
-              size={avatar.size}
+              size={size}
               initials={avatar.initials}
               imagePath={avatar.imagePath}
             />
@@ -37,12 +38,12 @@ export const AvatarGroup = ({ avatarGroup = [], onAddUser }: TAvatarGroupProps):
       })}
 
       {invisibleAvatarsAmount ? (
-        <Avatar color={'green'} size={'large'} initials={`+${invisibleAvatarsAmount}`} />
+        <Avatar type={'count'} size={size} initials={`+${invisibleAvatarsAmount}`} />
       ) : null}
 
       {onAddUser ? (
-        <div className={'avatar avatar--group--add-user'} onClick={onAddUser}>
-          <Icon name={'add'} type={'disabled'} />
+        <div className={classNames(`avatar avatar-group__add avatar--${size}`)} onClick={onAddUser}>
+          <Icon name={'add'} type={'disabled'} size={size}/>
         </div>
       ) : null}
     </div>

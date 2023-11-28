@@ -12,8 +12,8 @@ export default {
   title: 'AvatarGroup',
   component: AvatarGroupComp,
   argTypes: {
-    showInvisibleAvatarsAmount: {
-      options: [false, true],
+    size: {
+      options: ['xlarge', 'large', 'medium', 'small', 'xsmall', 'xxsmall'],
       control: { type: 'radio' }
     },
     onAddUser: {
@@ -26,30 +26,24 @@ export default {
 const Avatars = [
   {
     initials: 'G M',
-    size: 'large',
     tooltipContent: 'G M'
   },
   {
     imagePath: image.src,
-    size: 'large',
     tooltipContent: 'AVATAR'
   },
   {
     initials: 'T M',
-    size: 'large',
     tooltipContent: 'T M'
   },
   {
     imagePath: image.src,
-    size: 'large'
   },
   {
     initials: 'T M',
-    size: 'large'
   },
   {
     imagePath: image.src,
-    size: 'large'
   }
 ] as TAvatarProps
 
@@ -61,6 +55,7 @@ export const AvatarGroup = Template.bind({})
 
 AvatarGroup.args = {
   avatarGroup: Avatars,
+  size: 'medium',
   onAddUser: () => {
     console.log('add user')
   }

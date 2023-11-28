@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?8cix00');
-  src:  url('fonts/icomoon.eot?8cix00#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?8cix00') format('truetype'),
-    url('fonts/icomoon.woff?8cix00') format('woff'),
-    url('fonts/icomoon.svg?8cix00#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?c0kqlh');
+  src:  url('fonts/icomoon.eot?c0kqlh#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?c0kqlh') format('truetype'),
+    url('fonts/icomoon.woff?c0kqlh') format('woff'),
+    url('fonts/icomoon.svg?c0kqlh#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-beach:before {
+  content: "\e9b7";
+}
+.icon-beach-hover:before {
+  content: "\e9b8";
+}
+.icon-cube-tree:before {
+  content: "\e9b9";
+}
+.icon-cube-tree-hover:before {
+  content: "\e9ba";
+}
+.icon-list:before {
+  content: "\e9bb";
+}
+.icon-list-hover:before {
+  content: "\e9bc";
+}
 .icon-send:before {
   content: "\e9b5";
 }
