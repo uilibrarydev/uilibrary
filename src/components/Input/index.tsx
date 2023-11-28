@@ -39,6 +39,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       allowNegative = false,
       hideCounter = false,
       labelAddons,
+      witUpperCase,
       ...rest
     },
     ref
@@ -58,6 +59,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       }
       if (handleChange) {
         handleChange(event, valueWithoutSeparator)
+      }
+      if (witUpperCase) {
+        handleChange?.(event, valueWithoutSeparator.toUpperCase())
       }
     }
 
@@ -144,18 +148,16 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
             <Icon
               size="small"
               {...leftIconProps}
-              className={`input__icon input__icon--left ${
-                leftIconProps.className ? leftIconProps.className : ''
-              }`}
+              className={`input__icon input__icon--left ${leftIconProps.className ? leftIconProps.className : ''
+                }`}
             />
           )}
           {rightIconProps && (
             <Icon
               size="small"
               {...rightIconProps}
-              className={`input__icon input__icon--right ${
-                rightIconProps.className ? rightIconProps.className : ''
-              }`}
+              className={`input__icon input__icon--right ${rightIconProps.className ? rightIconProps.className : ''
+                }`}
             />
           )}
         </div>
