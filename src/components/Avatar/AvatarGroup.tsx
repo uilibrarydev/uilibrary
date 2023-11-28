@@ -4,7 +4,7 @@ import Icon from '../Icon'
 import { Avatar } from '../index'
 import { TAvatarGroupProps } from './types'
 import { useScreenSize } from '../../hooks'
-import classNames from 'classnames';
+import classNames from 'classnames'
 
 const VISIBLE_AVATARS_AMOUNT = {
   small: 2,
@@ -12,7 +12,11 @@ const VISIBLE_AVATARS_AMOUNT = {
   large: 7
 }
 
-export const AvatarGroup = ({ avatarGroup = [], onAddUser, size = 'medium' }: TAvatarGroupProps): ReactElement => {
+export const AvatarGroup = ({
+  avatarGroup = [],
+  onAddUser,
+  size = 'medium'
+}: TAvatarGroupProps): ReactElement => {
   const screenSize = useScreenSize()
   const visibleAvatarsAmount = VISIBLE_AVATARS_AMOUNT[screenSize]
 
@@ -43,7 +47,7 @@ export const AvatarGroup = ({ avatarGroup = [], onAddUser, size = 'medium' }: TA
 
       {onAddUser ? (
         <div className={classNames(`avatar avatar-group__add avatar--${size}`)} onClick={onAddUser}>
-          <Icon name={'add'} type={'disabled'} size={size}/>
+          <Icon name={'add'} type={'disabled'} size={size} />
         </div>
       ) : null}
     </div>

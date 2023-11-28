@@ -37,13 +37,13 @@ const Avatars = [
     tooltipContent: 'T M'
   },
   {
-    imagePath: image.src,
+    imagePath: image.src
   },
   {
-    initials: 'T M',
+    initials: 'T M'
   },
   {
-    imagePath: image.src,
+    imagePath: image.src
   }
 ] as TAvatarProps
 
