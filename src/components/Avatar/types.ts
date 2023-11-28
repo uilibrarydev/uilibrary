@@ -4,7 +4,8 @@ export interface TAvatarProps extends IFormCompProps {
   id?: string
   imagePath?: string
   initials?: string | JSX.Element
-  color?: 'default' | 'purple' | 'blue' | 'green' | 'red' | 'white'
+  color?: 'default' | 'purple' | 'blue' | 'green' | 'red'
+  type?: 'count'
   size?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall' | 'xxsmall'
   className?: string
   isEditable?: boolean
@@ -15,4 +16,5 @@ export interface TAvatarProps extends IFormCompProps {
 export interface TAvatarGroupProps {
   avatarGroup: TAvatarProps[]
   onAddUser?: () => void
+  size?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall' | 'xxsmall'
 }

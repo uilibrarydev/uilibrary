@@ -15,6 +15,10 @@ export default {
       options: ['default', 'purple', 'blue', 'green', 'red'],
       control: { type: 'radio' }
     },
+    type: {
+      options: ['', 'count'],
+      control: { type: 'radio' }
+    },
     size: {
       options: ['xlarge', 'large', 'medium', 'small', 'xsmall', 'xxsmall'],
       control: { type: 'radio' }

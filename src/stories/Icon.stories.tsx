@@ -3,6 +3,12 @@ import { Meta } from '@storybook/react'
 import { Icon as IconComp, Text } from '../components'
 
 const ICONS = [
+  'beach',
+  'beach-hover',
+  'cube-tree',
+  'cube-tree-hover',
+  'list',
+  'list-hover',
   'send',
   'send-hover',
   'arrow-reset',
