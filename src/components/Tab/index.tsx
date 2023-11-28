@@ -4,7 +4,7 @@ import { TTabProps } from './types'
 import '../../assets/styles/components/_tab.scss'
 import TabItem from './TabItem'
 
-export const Tab = (props: TTabProps): JSX.Element | null => {
+const Tab = (props: TTabProps) => {
   const { selectedValue, tabItems, onSelect, ...rest } = props
 
   return (
@@ -24,4 +24,6 @@ export const Tab = (props: TTabProps): JSX.Element | null => {
   )
 }
 
+Tab.displayName = 'Tab'
 export default Tab
+export {}
