@@ -96,5 +96,5 @@ export {
   Status,
   Chips,
   Empty,
-    Table
+  Table
 }

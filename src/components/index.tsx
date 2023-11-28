@@ -87,5 +87,5 @@ export {
   Chips,
   Empty,
   AvatarGroup,
-    Table
+  Table
 }
