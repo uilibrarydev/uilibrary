@@ -14,13 +14,15 @@ import SingleSelect from '../Select/SingleSelect'
 
 export const Pagination = (props: TPaginationProps): JSX.Element | null => {
     const {
-        nextLabel = NEXT_LABEL_DEFAULT_TEXT,
-        prevLabel = PREVIOUS_LABEL_DEFAULT_TEXT,
+        labels = {
+            next: NEXT_LABEL_DEFAULT_TEXT,
+            previous: PREVIOUS_LABEL_DEFAULT_TEXT
+        },
         totalCount,
         page = 2,
         handleChangePage,
         breakLabel = <Icon name="more" />,
-        containerClassName = '',
+        classname = '',
         activeClassName = '',
         size = 'large'
     } = props
@@ -49,10 +51,10 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
                 pageRangeDisplayed={PAGE_RANGE_DISPLAYED}
                 marginPagesDisplayed={1}
                 onPageChange={handlePageChange}
-                containerClassName={classNames(`pagination pagination--${size}`, containerClassName)}
-                activeClassName={activeClassName || 'active'}
-                previousLabel={prevLabel}
-                nextLabel={nextLabel}
+                containerClassName={classNames(`pagination pagination--${size}`, classname)}
+                activeClassName={classname || 'active'}
+                previousLabel={labels?.previous}
+                nextLabel={labels?.next}
                 breakClassName="page-item"
                 breakLinkClassName="page-link"
                 breakLabel={breakLabel}

@@ -37,8 +37,9 @@ import Chips from './Chips'
 import Empty from './Empty'
 import { ProgressStep } from './ProgressStep'
 import { AvatarGroup, Avatar } from './Avatar'
-export { Table } from './Table'
 export { Pagination } from './Pagination'
+import { Table } from './Table'
+
 
 export {
   ProgressStep,
@@ -87,5 +88,6 @@ export {
   Status,
   Chips,
   Empty,
-  AvatarGroup
+  AvatarGroup,
+  Table
 }

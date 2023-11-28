@@ -16,11 +16,13 @@ const Template = (args) => (
         handleChangePage={(item) => {
             console.log(item)
         }}
-        nextLabel={<Icon name="arrow-right" />}
-        prevLabel={<Icon name="arrow-left" />}
+        labels={{
+            next: <Icon name="arrow-right" />,
+            previous: <Icon name="arrow-left" />
+        }}
         totalCount={100}
         breakLabel={<Icon name="more" />}
-        containerClassName=""
+        classname=""
     />
 )
 
