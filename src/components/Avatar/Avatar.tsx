@@ -9,6 +9,7 @@ export const Avatar = ({
   id,
   color = 'default',
   size = 'medium',
+  type,
   imagePath = '',
   initials = '',
   className = '',
@@ -29,7 +30,7 @@ export const Avatar = ({
   return (
     <div
       id={id}
-      className={classNames('avatar', `avatar--${color}`, `avatar--${size}`, className, {
+      className={classNames(`avatar avatar--${color} avatar--${type} avatar--${size}`, className, {
         'avatar--image': image,
         'avatar--edit': isEditable
       })}

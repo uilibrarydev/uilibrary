@@ -40,7 +40,6 @@ import { AvatarGroup, Avatar } from './Avatar'
 export { Pagination } from './Pagination'
 import { Table } from './Table'
 
-
 export {
   ProgressStep,
   Copy,
