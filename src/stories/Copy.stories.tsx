@@ -11,4 +11,6 @@ const Template = (args) => <CopyComp {...args} />
 
 export const Copy = Template.bind({})
 
-Copy.args = {}
+Copy.args = {
+  textAfterCopy: 'Copied'
+}
