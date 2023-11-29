@@ -3,10 +3,10 @@ import { IconPropTypes } from '../Icon/types'
 
 export interface InputCustomProps
   extends IFormCompProps,
-  Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'size' | 'onFocus' | 'value' | 'onChange' | 'autoComplete'
-  > {
+    Omit<
+      InputHTMLAttributes<HTMLInputElement>,
+      'size' | 'onFocus' | 'value' | 'onChange' | 'autoComplete'
+    > {
   mask?: string
   className?: string
   size?: 'large' | 'small'
