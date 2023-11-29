@@ -5,9 +5,10 @@ import './index.scss'
 
 type Props = {
   className?: string
+  textAfterCopy?: string
   text: string
 }
-export const Copy = ({ className = '', text }: Props): ReactElement => {
+export const Copy = ({ textAfterCopy, className = '', text }: Props): ReactElement => {
   const [isTooltipVisibile, setTooltipVisibility] = useState(false)
   const copyIconRef = useRef<HTMLDivElement | null>(null)
   const copy = () => {
@@ -29,7 +30,7 @@ export const Copy = ({ className = '', text }: Props): ReactElement => {
         <Popover
           clicked
           elemRef={copyIconRef.current as HTMLElement}
-          text="Copied"
+          text={textAfterCopy || 'Copied'}
           position={'top-center'}
         />
       ) : null}
