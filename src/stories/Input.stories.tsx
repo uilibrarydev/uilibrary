@@ -15,8 +15,8 @@ export default {
 const Template = (args) => {
   const [value, setValue] = useState('')
   const [isErrorVisible, setIsErrorVisible] = useState(false)
-  const changeHandler = (e: TChangeEventType) => {
-    setValue(e.target.value)
+  const changeHandler = (e: TChangeEventType, value) => {
+    setValue(value)
     setIsErrorVisible(true)
   }
 
@@ -24,9 +24,10 @@ const Template = (args) => {
     <div style={{ maxWidth: 300 }}>
       <InputComp
         {...args}
+        witUpperCase={true}
         error={!value && isErrorVisible ? 'requeired field' : ''}
         currentValue={value}
-        onChange={changeHandler}
+        handleChange={changeHandler}
       />
     </div>
   )
