@@ -17,7 +17,7 @@ export default {
       control: { type: 'radio' }
     },
     maxCount: {
-      options: [0,2,4,6],
+      options: [0, 2, 4, 6],
       control: { type: 'radio' }
     },
     onAddUser: {

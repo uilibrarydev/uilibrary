@@ -1,5 +1,5 @@
-import React, {ReactElement, useRef} from 'react'
-import {Popover, Tooltip} from '../../index'
+import React, { ReactElement, useRef } from 'react'
+import { Popover, Tooltip } from '../../index'
 import Icon from '../Icon'
 import { Avatar } from '../index'
 import { TAvatarGroupProps } from './types'
@@ -43,11 +43,16 @@ export const AvatarGroup = ({
       })}
 
       {invisibleAvatarsAmount ? (
-      <div className="avatar-group__item">
-        {/*Todo please fix tooltip*/}
-        <Tooltip text={'Name Surname'} id={'amountTooltip'} position={'top-center'} />
-        <Avatar type={'count'} size={size}  id={'amountTooltip'} initials={`+${invisibleAvatarsAmount}`}/>
-      </div>
+        <div className="avatar-group__item">
+          {/*Todo please fix tooltip*/}
+          <Tooltip text={'Name Surname'} id={'amountTooltip'} position={'top-center'} />
+          <Avatar
+            type={'count'}
+            size={size}
+            id={'amountTooltip'}
+            initials={`+${invisibleAvatarsAmount}`}
+          />
+        </div>
       ) : null}
 
       {onAddUser ? (
