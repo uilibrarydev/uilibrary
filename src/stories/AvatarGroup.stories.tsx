@@ -16,6 +16,10 @@ export default {
       options: ['xlarge', 'large', 'medium', 'small', 'xsmall', 'xxsmall'],
       control: { type: 'radio' }
     },
+    maxCount: {
+      options: [0,2,4,6],
+      control: { type: 'radio' }
+    },
     onAddUser: {
       options: [false, true],
       control: { type: 'radio' }
@@ -44,6 +48,20 @@ const Avatars = [
   },
   {
     imagePath: image.src
+  },
+  {
+    initials: 'T M'
+  },
+  {
+    imagePath: image.src
+  },
+  {
+    imagePath: image.src,
+    tooltipContent: 'AVATAR'
+  },
+  {
+    initials: 'T M',
+    tooltipContent: 'T M'
   }
 ] as TAvatarProps
 
@@ -54,9 +72,10 @@ const Template = (args) => {
 export const AvatarGroup = Template.bind({})
 
 AvatarGroup.args = {
-  avatarGroup: Avatars,
+  maxCount: 0,
   size: 'medium',
   onAddUser: () => {
     console.log('add user')
-  }
+  },
+  avatarGroup: Avatars
 }
