@@ -35,4 +35,5 @@ export interface InputCustomProps
   thousandSeparator?: string
   labelAddons?: JSX.Element
   autoComplete?: boolean
+  witUpperCase?: boolean
 }
