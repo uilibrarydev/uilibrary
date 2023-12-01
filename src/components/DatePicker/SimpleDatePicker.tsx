@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
 import moment from 'moment'
 import DatePicker, { registerLocale } from 'react-datepicker'
+
 import hy from 'date-fns/locale/hy'
+import en from 'date-fns/locale/en-GB'
+import ru from 'date-fns/locale/ru'
 import Input from '../Input'
 import { ISimpleDatePickerProps } from './types'
 import Label from '../../helperComponents/Label'
 
 registerLocale('hy', hy)
+registerLocale('en', en)
+registerLocale('ru', ru)
 
 const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
   const {
@@ -15,6 +20,7 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
     setFieldValue,
     name,
     label,
+    locale = 'hy',
     changeHandler,
     format = 'M/D/YYYY',
     required = false,
@@ -46,7 +52,7 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
 
       <DatePicker
         selected={moment.isDate(selectedDate) ? selectedDate : undefined}
-        locale="hy"
+        locale={locale}
         customInput={
           <Input
             rightIconProps={{ name: 'calendar' }}

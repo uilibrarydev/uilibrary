@@ -2,13 +2,17 @@ import React, { useState } from 'react'
 import moment from 'moment' // TODO check if we can not to use this  package
 import DatePicker, { registerLocale } from 'react-datepicker'
 import hy from 'date-fns/locale/hy'
+import en from 'date-fns/locale/en-GB'
+import ru from 'date-fns/locale/ru'
+
 import Input from '../Input'
 import { ITimePickerProps } from './types'
 
 import './index.scss'
 import Label from '../../helperComponents/Label'
-
 registerLocale('hy', hy)
+registerLocale('en', en)
+registerLocale('ru', ru)
 
 const TimePicker = (props: ITimePickerProps): JSX.Element => {
   const {
@@ -19,6 +23,7 @@ const TimePicker = (props: ITimePickerProps): JSX.Element => {
     label,
     changeHandler,
     required,
+    locale = 'hy',
     format = 'h:mm a',
     ...rest
   } = props
@@ -45,7 +50,7 @@ const TimePicker = (props: ITimePickerProps): JSX.Element => {
 
       <DatePicker
         selected={moment.isDate(selectedTime) ? selectedTime : new Date()}
-        locale="hy"
+        locale={locale}
         showTimeSelect
         showTimeSelectOnly
         timeIntervals={15}

@@ -27,6 +27,7 @@ export interface IRangeDatePickerProps extends DatePickerDefaultProps {
   label?: string | JSX.Element
   changeHandler: (date: TRangePickerValues) => void
   maxDate?: Date | undefined
+  // localizations: any
 }
 
 export enum DateFormat {
