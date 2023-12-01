@@ -2,15 +2,27 @@ import React, { useState } from 'react'
 import moment from 'moment'
 import DatePicker, { registerLocale } from 'react-datepicker'
 import hy from 'date-fns/locale/hy'
+import en from 'date-fns/locale/en-GB'
+import ru from 'date-fns/locale/ru'
 import Input from '../Input'
 import { DateFormat, IRangeDatePickerProps } from './types'
 
 import './index.scss'
-
 registerLocale('hy', hy)
+registerLocale('en', en)
+registerLocale('ru', ru)
 
 const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
-  const { value, currentDates = [], setFieldValue, name, changeHandler, format, maxDate } = props
+  const {
+    value,
+    currentDates = [],
+    setFieldValue,
+    name,
+    changeHandler,
+    format = DateFormat.LongDate,
+    maxDate,
+    locale = 'ru'
+  } = props
 
   const dateInitialValue = value !== undefined && Array.isArray(value) ? value : currentDates
 
@@ -31,21 +43,19 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
     return null
   }
 
-  const formatDate = (date: Date | undefined, format: string): string => {
+  const formatDate = (date: Date | undefined): string => {
     return date ? moment(date).format(format) : ''
   }
 
   const renderCurrentSelectedDate = (rangeArray: (Date | undefined)[]) => {
     return rangeArray[1]
-      ? `${formatDate(rangeArray[0], DateFormat.LongDate)} - ${formatDate(
-          rangeArray[1],
-          DateFormat.LongDate
-        )}`
-      : `${formatDate(rangeArray[0], DateFormat.LongDate)}`
+      ? `${formatDate(rangeArray[0])} - ${formatDate(rangeArray[1])}`
+      : `${formatDate(rangeArray[0])}`
   }
 
   return (
     <DatePicker
+      locale={locale}
       startDate={rangeArray[0] as Date}
       endDate={rangeArray[1] as Date}
       maxDate={maxDate}

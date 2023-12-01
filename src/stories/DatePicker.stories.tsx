@@ -4,7 +4,7 @@ import {
   TimePicker as TimePicker_,
   RangeDatePicker as RangeDatePicker_
 } from '../components'
-
+import hy from 'date-fns/locale/hy'
 export default {
   title: 'DatePicker',
   component: SimpleDatePicker_
@@ -63,11 +63,16 @@ const TimeDatePicker = (): JSX.Element => {
 export const TimePicker = TimeDatePicker.bind({})
 
 const RangePicker = (): JSX.Element => {
-  const [value, setValue] = useState<TRangePickerValues>([new Date(), new Date()])
+  const [value, setValue] = useState<any>([new Date(), new Date()])
 
   return (
     <div style={{ width: 300 }}>
-      <RangeDatePicker_ value={value} changeHandler={setValue} maxDate={new Date()} />
+      <RangeDatePicker_
+        value={value}
+        changeHandler={setValue}
+        maxDate={new Date()}
+        localization={'hy'}
+      />
     </div>
   )
 }
