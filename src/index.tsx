@@ -44,9 +44,11 @@ import { Copy } from './components/Copy'
 import Empty from './components/Empty'
 import { ProgressStep } from './components/ProgressStep'
 import { Table } from './components'
+import { Pagination } from './components'
 
 export {
   ProgressStep,
+  Pagination,
   Copy,
   CollapseItem,
   CollapseGroup,
