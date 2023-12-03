@@ -16,5 +16,6 @@ export interface TAvatarProps extends IFormCompProps {
 export interface TAvatarGroupProps {
   avatarGroup: TAvatarProps[]
   onAddUser?: () => void
+  maxCount?: 0 | 2 | 4 | 6
   size?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall' | 'xxsmall'
 }

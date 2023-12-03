@@ -198,7 +198,7 @@
 
   &--xlarge {
     #{$this}__item {
-      margin-right: calc(var(--ds-avatar-group-item-space-xl)*-1);
+      margin-left: calc(var(--ds-avatar-group-item-space-xl)*-1);
     }
 
     #{$this}__add {
@@ -207,7 +207,7 @@
   }
   &--large {
     #{$this}__item {
-      margin-right: calc(var(--ds-avatar-group-item-space-lg)*-1);
+      margin-left: calc(var(--ds-avatar-group-item-space-lg)*-1);
     }
 
     #{$this}__add {
@@ -216,7 +216,7 @@
   }
   &--medium {
     #{$this}__item {
-      margin-right: calc(var(--ds-avatar-group-item-space-md)*-1);
+      margin-left: calc(var(--ds-avatar-group-item-space-md)*-1);
     }
 
     #{$this}__add {
@@ -225,7 +225,7 @@
   }
   &--small {
     #{$this}__item {
-      margin-right: calc(var(--ds-avatar-group-item-space-sm)*-1);
+      margin-left: calc(var(--ds-avatar-group-item-space-sm)*-1);
     }
 
     #{$this}__add {
@@ -234,7 +234,7 @@
   }
   &--xsmall {
     #{$this}__item {
-      margin-right: calc(var(--ds-avatar-group-item-space-xs)*-1);
+      margin-left: calc(var(--ds-avatar-group-item-space-xs)*-1);
     }
 
     #{$this}__add {
@@ -243,7 +243,7 @@
   }
   &--xxsmall {
     #{$this}__item {
-      margin-right: calc(var(--ds-avatar-group-item-space-xxs)*-1);
+      margin-left: calc(var(--ds-avatar-group-item-space-xxs)*-1);
     }
 
     #{$this}__add {
@@ -251,6 +251,11 @@
     }
   }
 
+  &__item {
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 
   &__add {
     border: var(--ds-avatar-group-add-border);
