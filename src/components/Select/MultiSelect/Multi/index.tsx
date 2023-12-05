@@ -49,7 +49,10 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
     }
 
     return options.filter((dataItem) => {
-      return typeof dataItem.label === 'string' && dataItem.label.includes(searchValue)
+      return (
+        typeof dataItem.label === 'string' &&
+        dataItem.label.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
+      )
     })
   }, [searchValue, options])
 

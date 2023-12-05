@@ -49,7 +49,10 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
       (acc: TSelectGroupOptions, group: TSelectGroupOption): TSelectGroupOptions => {
         const { data, title } = group
         const groupData = data.filter((dataItem) => {
-          return typeof dataItem.label === 'string' && dataItem.label.includes(searchValue)
+          return (
+            typeof dataItem.label === 'string' &&
+            dataItem.label.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
+          )
         })
 
         if (groupData.length) {
