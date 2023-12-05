@@ -46,7 +46,10 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
     }
 
     return currentTabData.filter((dataItem) => {
-      return typeof dataItem.label === 'string' && dataItem.label.includes(searchValue)
+      return (
+        typeof dataItem.label === 'string' &&
+        dataItem.label.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
+      )
     })
   }, [searchValue, currentTabData])
 
