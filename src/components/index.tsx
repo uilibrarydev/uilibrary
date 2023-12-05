@@ -39,7 +39,8 @@ import { ProgressStep } from './ProgressStep'
 import { AvatarGroup, Avatar } from './Avatar'
 import { Pagination } from './Pagination'
 import { Table } from './Table'
-
+import NavigationItem from './NavigationItem'
+import SideNavigation from './SideNavigation'
 export {
   ProgressStep,
   Copy,
@@ -89,5 +90,7 @@ export {
   Chips,
   Empty,
   AvatarGroup,
-  Table
+  Table,
+  NavigationItem,
+  SideNavigation
 }

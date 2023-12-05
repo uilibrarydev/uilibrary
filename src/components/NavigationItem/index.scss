@@ -1,0 +1,111 @@
+.navigation--item {
+    text-decoration: none;
+    color: #222;
+    display: flex;
+    align-items: center;
+
+    &--expandable--icon {
+        transition: 300ms;
+
+        &.open {
+            transform: rotate(180deg);
+        }
+    }
+
+    &--wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    &--block-header {
+        padding: 24px 12px;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .navigation--item--wrapper {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+        }
+
+        button {
+            margin-top: 24px;
+        }
+    }
+
+    &--main {
+        align-items: center;
+        padding: var(--ds-space-12);
+        position: relative;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+
+        &.expandable {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: #222;
+        }
+
+        span {
+            padding-right: var(--ds-space-8);
+
+        }
+
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 4px;
+            height: 20px;
+            background: var(--icon-ds-color-icon-selected, #72BF44);
+            transform: translateY(-50%);
+            border-radius: 4px 0px 0px 4px;
+            display: none;
+        }
+
+        &.active {
+            &::after {
+                display: block;
+            }
+
+            background: var(--background-ds-color-bg-container-light, #F4F5F4);
+        }
+
+        .navigation-item-label {
+            padding-left: var(--ds-space-8);
+        }
+    }
+
+    &--user {
+        padding: var(--ds-space-12);
+        align-items: center;
+
+        .avatar {
+            margin-right: var(--ds-space-8);
+        }
+
+        &:hover {
+            .avatar {
+                border: 1px solid #ddd;
+            }
+        }
+    }
+
+}
+
+.navigation--items--childs {
+    margin-left: 20px;
+    height: 0;
+    overflow: hidden;
+    transition: 300ms;
+
+    &.active {
+        height: auto;
+        overflow: visible;
+    }
+}
