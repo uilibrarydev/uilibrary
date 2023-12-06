@@ -151,7 +151,12 @@ const VALIDATION_SCHEME = yup.object({
 
 const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
-    // list: [{ value: 'armenia', label: 'Armenia' }]
+    multiselect: [
+      {
+        value: 'yerevan',
+        label: 'Yerevan'
+      }
+    ]
   }
 
   return (
@@ -174,7 +179,9 @@ const Template = (): JSX.Element => {
                   overflowText: '%s selected',
                   emptyListMainMessage: "Sorry, we couldn't find any results"
                 }}
+                helperText="helperText"
                 options={OPTIONS_GROUPED}
+                isSearchAvailable
               />
             )}
           />
