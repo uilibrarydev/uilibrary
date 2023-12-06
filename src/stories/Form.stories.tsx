@@ -145,7 +145,7 @@ const OPTIONS_COUNTRIES: TSelectOptions = [
 ]
 
 const VALIDATION_SCHEME = yup.object({
-  conditions: yup.string().required('validation').nullable()
+  // conditions: yup.string().required('validation').nullable()
   // firstname: yup.string().required('validation').nullable()
 })
 
@@ -162,7 +162,22 @@ const Template = (): JSX.Element => {
         initialValues={INITIAL_VALUES}
       >
         <>
-          <Test />
+          <FormField
+            name="multiselect"
+            As={(props) => (
+              <MultiSelect
+                {...props}
+                isGrouped
+                translations={{
+                  innerLabel: 'Selected employees',
+                  clearAllLabel: 'Clear All',
+                  overflowText: '%s selected',
+                  emptyListMainMessage: "Sorry, we couldn't find any results"
+                }}
+                options={OPTIONS_GROUPED}
+              />
+            )}
+          />
           <Button buttonActionType="submit" buttonText={'Ok'} />
         </>
       </FormContainer>
@@ -170,59 +185,4 @@ const Template = (): JSX.Element => {
   )
 }
 
-export const Test = () => {
-  const { setValue, getValues, reset } = useFormProps()
-
-  useEffect(() => {
-    setTimeout(() => {
-      console.log('reset')
-
-      reset?.({
-        list: [{ value: 'armenia', label: 'Armenia' }]
-      })
-    }, 2000)
-  }, [])
-
-  return (
-    <>
-      <FormField
-        dataId={'dasdsa'}
-        name={'conditions'}
-        className={'mb-20'}
-        isNeedChangeHandler
-        As={(props) => (
-          <Checkbox
-            {...props}
-            dataId={'dasdsa'}
-            beforeLink={'dasdas'}
-            label={'dasdsa'}
-            link={'dassad'}
-          />
-        )}
-      />
-      {/*<FormField*/}
-      {/*  className="input-block"*/}
-      {/*  name={'list'}*/}
-      {/*  As={(props) => {*/}
-      {/*    return (*/}
-      {/*      <MultiSelect*/}
-      {/*        {...props}*/}
-      {/*        isGrouped*/}
-      {/*        isRequiredField*/}
-      {/*        label={'COUNTRIES'}*/}
-      {/*        options={OPTIONS_GROUPED}*/}
-      {/*      />*/}
-      {/*    )*/}
-      {/*  }}*/}
-      {/*/>*/}
-      {/* <FormField
-        className="input-block"
-        name={'CITIES'}
-        As={(props) => {
-          return <Select {...props} isRequiredField label={'CITIES'} options={OPTIONS_COUNTRIES} />
-        }}
-      /> */}
-    </>
-  )
-}
 export const Form = Template.bind({})

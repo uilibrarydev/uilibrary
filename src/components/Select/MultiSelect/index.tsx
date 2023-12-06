@@ -38,7 +38,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
       },
       cancel: { buttonText: 'Cancel' }
     },
-    selectedItems = [],
+    selectedItems,
     setSelectedItems,
     name,
     setFieldValue,
