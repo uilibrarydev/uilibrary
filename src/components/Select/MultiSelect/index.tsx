@@ -38,7 +38,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
       },
       cancel: { buttonText: 'Cancel' }
     },
-    selectedItems = [],
+    selectedItems,
     setSelectedItems,
     name,
     setFieldValue,
@@ -77,7 +77,9 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   }, [value])
 
   useEffect(() => {
-    setSelectedValues(selectedItems || [])
+    if (selectedItems) {
+      setSelectedValues(selectedItems || [])
+    }
   }, [selectedItems])
 
   const cancelSelectedItems = useCallback(() => {
