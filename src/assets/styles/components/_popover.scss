@@ -12,6 +12,7 @@
   --ds-popover-arrow-size: var(--ds-size-6);
   --ds-popover-arrow-position: var(--ds-space-20);
   --ds-popover-arrow-bg: var(--ds-color-bg-white);
+  --ds-popover-font-size: var(--ds-size-12);
 
   @include flexbox;
   position: fixed;
@@ -34,6 +35,12 @@
 
   &__inner {
     max-height: 100%;
+    word-break: break-word;
+  }
+
+  &__link {
+    font-size: var(--ds-popover-font-size);
+    line-height: var(--ds-line-height-caption);
   }
 
   &--top {
@@ -73,7 +80,6 @@
 
   &--top, &--bottom {
     &-center {
-
       &:after {
         left: 50%;
         transform: translateX(-50%);
@@ -83,7 +89,6 @@
 
   &--middle {
     &-left, &-right {
-
       &:after {
         top: 50%;
         transform: translateY(-50%);
@@ -91,7 +96,6 @@
     }
 
     &-left {
-
       &:after {
         left: 100%;
         border-color: transparent transparent transparent var(--ds-popover-arrow-bg);
@@ -99,7 +103,6 @@
     }
 
     &-right {
-
       &:after {
         right: 100%;
         border-color: transparent var(--ds-popover-arrow-bg) transparent transparent ;

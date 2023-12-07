@@ -60,7 +60,7 @@ export const Checkbox = (
       <Text type={disabled ? 'disabled' : 'primary'} className="controller__label">
         <>
           {beforeLink && <span className="mr-4">{beforeLink}</span>}
-          <Link dataId={dataId} url={link} taget="_blank">
+          <Link dataId={dataId} url={link} target="_blank">
             {label}
           </Link>
           {afterLink && <span className="ml-4">{afterLink}</span>}

@@ -51,7 +51,7 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
 
   return (
     <>
-      {isHovered && (
+      {!isHovered && (
         <div
           style={tooltipStyles}
           data-id={dataId}
