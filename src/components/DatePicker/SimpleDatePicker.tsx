@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import moment from 'moment'
 import DatePicker, { registerLocale } from 'react-datepicker'
 
@@ -27,6 +27,7 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
     hasError,
     ...rest
   } = props
+  const calendarRef = useRef<{ setOpen: (isOpen: boolean) => void | null }>(null)
 
   const dateInitialValue =
     value !== undefined && Object.prototype.toString.call(value) === '[object Date]'
@@ -34,6 +35,12 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
       : currentDate
 
   const [selectedDate, setSelectedDate] = useState(dateInitialValue)
+
+  const openDatepicker = () => {
+    if (calendarRef.current) {
+      calendarRef.current?.setOpen(true)
+    }
+  }
 
   const onChange = (date: Date) => {
     setSelectedDate(date)
@@ -53,9 +60,12 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
       <DatePicker
         selected={moment.isDate(selectedDate) ? selectedDate : undefined}
         locale={locale}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        ref={calendarRef}
         customInput={
           <Input
-            rightIconProps={{ name: 'calendar' }}
+            rightIconProps={{ name: 'calendar', onClick: openDatepicker }}
             currentValue={selectedDate ? moment(selectedDate.toString()).format(format) : ''}
           />
         }
