@@ -12,7 +12,7 @@
   --ds-popover-arrow-size: var(--ds-size-6);
   --ds-popover-arrow-position: var(--ds-space-20);
   --ds-popover-arrow-bg: var(--ds-color-bg-white);
-  --ds-popover-font-size: var(--ds-size-12);
+  --ds-popover-font: 400 var(--ds-size-12)/var(--ds-line-height-caption) var(--ds-font-family);
 
   @include flexbox;
   position: fixed;
@@ -39,8 +39,7 @@
   }
 
   &__link {
-    font-size: var(--ds-popover-font-size);
-    line-height: var(--ds-line-height-caption);
+    font: var(--ds-popover-font);
   }
 
   &--top {
