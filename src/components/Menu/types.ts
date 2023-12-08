@@ -4,6 +4,7 @@ export type TMenuItem = {
   iconProps?: TSelectIconProps
   handler?: TCallBackFn
   disabled?: boolean
+  meta?: string
 }
 
 export type TMenuProps = {

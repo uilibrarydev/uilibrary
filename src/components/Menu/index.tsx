@@ -51,14 +51,15 @@ const Menu = (props: TMenuProps): ReactElement | null => {
 
   return ReactDOM.createPortal(
     <div className="select select--menu" style={menuStyles} ref={setMenuRef}>
-      {menuItems.map(({ label, value, handler, iconProps, disabled }: TMenuItem) => {
+      {menuItems.map(({ label, meta, value, handler, iconProps, disabled }: TMenuItem) => {
         return (
           <OptionItem
             disabled={disabled}
             key={value}
             data={{
               label,
-              value
+              value,
+              meta
             }}
             labelLeftIconProps={iconProps}
             onClick={() => {
