@@ -50,6 +50,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
     labelAddons,
     isLoading,
     className = '',
+    disabled,
     ...rest
   } = props
 
@@ -179,6 +180,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
           currentValue={selectedItemsLabels}
           rightIconProps={{ name: isOpen ? 'caret-up-hover' : 'caret-down-hover', size: 'xsmall' }}
           labelAddons={labelAddons}
+          disabled={disabled}
         />
       </div>
 
