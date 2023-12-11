@@ -1,9 +1,9 @@
+import React, { useState } from 'react'
 import classNames from 'classnames'
 import { TNavigationLinkPropTypes } from './types'
 import './index.scss'
 import Icon from '../Icon'
 import Badge from '../Badge'
-import { useState } from 'react'
 
 const NavigationItem = (props: TNavigationLinkPropTypes) => {
   const {
