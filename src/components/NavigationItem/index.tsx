@@ -39,7 +39,7 @@ const NavigationItem = (props: TNavigationLinkPropTypes) => {
                 >
                     <div className="navigation--item--wrapper">
                         {!open && type === 'block-header' && As()}
-                        {!open && type === 'block-header' && showAction && actionElm && actionElm}
+                        {open && type === 'block-header' && showAction && actionElm && actionElm}
                         {iconName && type !== 'user' ? <Icon name={iconName} size="small"/> : userImage}
                         {open && As()}
                         {type === 'user' && iconName && open && <Icon name={iconName} size="small"/>}
