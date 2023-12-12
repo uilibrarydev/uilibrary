@@ -31,7 +31,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     disabled,
     dataId = '',
     placeHolder,
-    selectedItem,
+    selectedItem = null,
     setFieldValue,
     setSelectedItem,
     outerHelperText,
@@ -49,7 +49,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [searchValue, setSearchValue] = useState<string>('')
   const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null)
-  const currentSelection = (value as TItemValue) || selectedItem || null
+  const currentSelection = (value as TItemValue) || selectedItem
 
   const [itemLabel, setItemLabel] = useState<string | null>('')
 
