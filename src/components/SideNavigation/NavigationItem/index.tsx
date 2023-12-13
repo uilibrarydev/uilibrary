@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import classNames from 'classnames'
-import {TNavigationLinkPropTypes} from './types'
+import {NavigationItemTypes, TNavigationLinkPropTypes} from './types'
 import './index.scss'
 import Icon from '../../Icon'
 import Badge from '../../Badge'
@@ -38,11 +38,12 @@ const NavigationItem = (props: TNavigationLinkPropTypes) => {
                     )}
                 >
                     <div className="navigation--item--wrapper">
-                        {!open && type === 'block-header' && As()}
-                        {open && type === 'block-header' && showAction && actionElm && actionElm}
-                        {iconName && type !== 'user' ? <Icon name={iconName} size="small"/> : userImage}
+                        {!open && type === NavigationItemTypes.BLOCK_HEADER && As()}
+                        {open && type === NavigationItemTypes.BLOCK_HEADER && showAction && actionElm && actionElm}
+                        {iconName && type !== NavigationItemTypes.USER ?
+                            <Icon name={iconName} size="small"/> : userImage}
                         {open && As()}
-                        {type === 'user' && iconName && open && <Icon name={iconName} size="small"/>}
+                        {type === NavigationItemTypes.USER && iconName && open && <Icon name={iconName} size="small"/>}
                     </div>
                     {showBadge && badgeContent && open && (
                         <Badge type="primary" text={badgeContent} size="small"/>
