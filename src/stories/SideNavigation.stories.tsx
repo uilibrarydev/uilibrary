@@ -25,7 +25,7 @@ const Template = (args): JSX.Element => {
                 <NavigationItem
                     As={() => (
                         <a href="/https://ameriabank.am">
-                            <img src={open ? logo : logoClosed} alt=""/>
+                            <img src={open ? logo : logoClosed} alt="Product Logo"/>
                         </a>
                     )}
                     type={NavigationItemTypes.BLOCK_HEADER}
