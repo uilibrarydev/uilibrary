@@ -4,7 +4,7 @@ import Block from '../components/SideNavigation/Block'
 import logo from '../assets/images/logo.svg'
 import logoClosed from '../assets/images/logo-closed.svg'
 import avatar from '../assets/images/avatar.jpg'
-import {NavigationItemTypes} from '../components/SideNavigation/NavigationItem/types';
+import {NavigationItemTypes} from '../components/SideNavigation/NavigationItem/types'
 
 export default {
     title: 'Side Navigation',
@@ -42,14 +42,14 @@ const Template = (args): JSX.Element => {
                             open={open}
                             showAction={args.showAction}
                             actionElm={args.actionElm}
-                            active={true}
+                            active
                         />
                         <NavigationItem
                             As={() => <div>Cards</div>}
                             type={NavigationItemTypes.MAIN}
                             iconName="home"
                             open={open}
-                            expandable={true}
+                            expandable
                             Child={() => (
                                 <>
                                     <NavigationItem
@@ -72,7 +72,7 @@ const Template = (args): JSX.Element => {
                             type={NavigationItemTypes.MAIN}
                             iconName="savings"
                             open={open}
-                            showBadge={true}
+                            showBadge
                             badgeContent={'888+'}
                         />
                     </>
@@ -96,7 +96,7 @@ const Template = (args): JSX.Element => {
                             type={NavigationItemTypes.MAIN}
                             iconName="savings"
                             open={open}
-                            expandable={true}
+                            expandable
                             Child={() => (
                                 <>
                                     <NavigationItem
