@@ -9,7 +9,7 @@ const NavigationItem = (props: TNavigationLinkPropTypes) => {
     const {
         As,
         type,
-        open,
+        isOpen,
         iconName,
         showBadge,
         expandable = false,
@@ -18,7 +18,7 @@ const NavigationItem = (props: TNavigationLinkPropTypes) => {
         userImage,
         active = false,
         badgeContent,
-        children,
+        children
     } = props
 
     const [childOpen, setChildOpen] = useState(false)
@@ -38,8 +38,8 @@ const NavigationItem = (props: TNavigationLinkPropTypes) => {
                     )}
                 >
                     <div className="navigation--item--wrapper">
-                        {!open && type === NavigationItemTypes.BLOCK_HEADER && As()}
-                        {open &&
+                        {!isOpen && type === NavigationItemTypes.BLOCK_HEADER && As()}
+                        {isOpen &&
                             type === NavigationItemTypes.BLOCK_HEADER &&
                             showAction &&
                             actionElm &&
@@ -49,15 +49,15 @@ const NavigationItem = (props: TNavigationLinkPropTypes) => {
                         ) : (
                             userImage
                         )}
-                        {open && As()}
-                        {type === NavigationItemTypes.USER && iconName && open && (
+                        {isOpen && As()}
+                        {type === NavigationItemTypes.USER && iconName && isOpen && (
                             <Icon name={iconName} size="small"/>
                         )}
                     </div>
-                    {showBadge && badgeContent && open && (
+                    {showBadge && badgeContent && isOpen && (
                         <Badge type="primary" text={badgeContent} size="small"/>
                     )}
-                    {expandable && open && (
+                    {expandable && isOpen && (
                         <div className={classNames('navigation--item--expandable--icon', childOpen && 'open')}>
                             <Icon name="arrow-down"/>
                         </div>

@@ -16,7 +16,7 @@ export interface TNavigationLinkPropTypes {
         | NavigationItemTypes.USER
         | NavigationItemTypes.PRODUCT
         | NavigationItemTypes.ACTION
-    open: boolean
+    isOpen: boolean
     iconName?: string
     showBadge?: boolean
     expandable?: boolean
