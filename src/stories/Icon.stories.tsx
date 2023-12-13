@@ -3,6 +3,16 @@ import { Meta } from '@storybook/react'
 import { Icon as IconComp, Text } from '../components'
 
 const ICONS = [
+  'book',
+  'book-hover',
+  'calendar-clock',
+  'calendar-clock-hover',
+  'people-add',
+  'people-add-hover',
+  'people',
+  'people-hover',
+  'flag',
+  'flag-hover',
   'arrow-export-left',
   'arrow-export-left-hover',
   'arrow-export-right',
