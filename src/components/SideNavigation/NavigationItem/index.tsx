@@ -21,7 +21,7 @@ const NavigationItem = (props: TNavigationLinkPropTypes) => {
         Child
     } = props
 
-    const [childOpen, setChildOpen] = useState<boolean>(false)
+    const [childOpen, setChildOpen] = useState(false)
 
     return (
         <>
