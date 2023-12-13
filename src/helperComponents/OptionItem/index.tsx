@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react'
 
 import { Checkbox } from '../../components/Checkbox'
+import Text from '../../components/Text'
 import { Avatar } from '../../components/Avatar'
 import Icon from '../../components/Icon'
 
@@ -68,9 +69,12 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
           {LabelRightIconComponent && LabelRightIconComponent(value)}
 
           {meta ? (
-            <span className={`select__option__meta ${disabled ? 'color-disabled' : ''}`}>
+            <Text
+              type="tertiary"
+              className={`select__option__meta ${disabled ? 'color-disabled' : ''}`}
+            >
               {meta}
-            </span>
+            </Text>
           ) : null}
         </div>
       </div>

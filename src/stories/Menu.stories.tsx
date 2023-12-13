@@ -21,7 +21,8 @@ const items = [
     handler: () => {
       console.log('edit')
     },
-    value: 1
+    value: 1,
+    meta: 'meta'
   },
   {
     label: 'Save changes',

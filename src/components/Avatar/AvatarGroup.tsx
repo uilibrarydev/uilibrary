@@ -22,7 +22,8 @@ export const AvatarGroup = ({
   const visibleAvatarsAmount = maxCount || VISIBLE_AVATARS_AMOUNT[screenSize]
 
   const visibleAvatars = avatarGroup.slice(0, visibleAvatarsAmount)
-  const invisibleAvatarsAmount = avatarGroup.length - visibleAvatarsAmount
+  const invisibleAvatarsAmount =
+    avatarGroup.length - visibleAvatarsAmount > 0 ? avatarGroup.length - visibleAvatarsAmount : 0
 
   return (
     <div className={classNames(`avatar-group avatar-group--${size}`)}>

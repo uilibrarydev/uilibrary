@@ -311,7 +311,8 @@ MultiSelect.args = {
   innerLabel: 'Select',
   helperText: 'To be filled in only for USA, Canada and European countries.',
   labelLeftIconProps: { name: 'user' },
-  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
+  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />,
+  disabled: true
   // labelRightIconComponent: <Icon name="user" size="xsmall" className="mr-4" />,
   // optionRightIconComponent: <Icon name="more" size="xsmall" />
 }
