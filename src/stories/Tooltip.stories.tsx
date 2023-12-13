@@ -41,7 +41,6 @@ const Template = (args) => {
       <TooltipComp
         {...args}
         id="ooooo"
-        text="My tooltip text"
         // position="bottom-left"
       />
       <div id="ooooo">Hover on me</div>
