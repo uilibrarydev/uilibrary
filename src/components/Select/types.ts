@@ -88,6 +88,7 @@ export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps
   outerHelperText?: string
   innerHelperText?: string
   labelAddons?: JSX.Element
+  showTooltip?:boolean
 }
 
 export type TSelectFooterPropTypes = {
