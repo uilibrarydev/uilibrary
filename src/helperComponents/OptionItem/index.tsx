@@ -18,7 +18,7 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
         OptionRightIconComponent,
         isCheckbox,
         className = '',
-        showTooltip = false, // Add withTooltip property with a default value
+        tooltipAddons
     } = props;
 
     const { label, meta, value } = data;
@@ -71,8 +71,8 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
         </div>
     );
 
-    return showTooltip ? (
-        <Tooltip position={'middle-right'} text={`${label}`} id={`${value}`}>
+    return tooltipAddons ? (
+        <Tooltip {...tooltipAddons} text={`${label}`} id={`${value}`} >
             {optionContent}
         </Tooltip>
     ) : (
