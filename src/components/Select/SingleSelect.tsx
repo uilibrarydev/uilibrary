@@ -14,7 +14,7 @@ import { Loading } from './SharedComponents'
 import { SELECTED_VISIBLE_MIN_COUNT } from './MultiSelect/consts'
 import { TSingleSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
-import { Tooltip } from '../index'
+
 
 const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
@@ -42,7 +42,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     labelRightIconComponent,
     optionRightIconComponent,
     labelAddons,
-    showTooltip
+    tooltipAddons
   } = props
   const scrollRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -200,7 +200,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
                   const isSelected = item.value === currentSelection
                   return (
                     <OptionItem
-                      showTooltip={showTooltip}
+                      tooltipAddons={tooltipAddons}
                       data={item}
                       key={item.value}
                       onClick={clickHandler(isSelected)}

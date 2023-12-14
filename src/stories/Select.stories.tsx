@@ -200,7 +200,7 @@ const Template = (args: any): JSX.Element => {
     <div style={{ display: 'flex', height: '100vh', justifyContent: 'center' }}>
       <SelectComp
         {...args}
-        showTooltip={true}
+        tooltipAddons={{ position: 'bottom-left' }}
         isRequiredField
         options={OPTIONS}
         outerHelperText="helper text"
