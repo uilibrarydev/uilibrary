@@ -1,5 +1,6 @@
 import { ReactElement } from 'react'
 import { TButtonPropTypes } from '../Button/types'
+import { TTooltipProps } from '../Tooltip/types';
 
 interface TSelectBaseProps {
   error?: string
@@ -87,8 +88,8 @@ export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps
   withSearch?: boolean
   outerHelperText?: string
   innerHelperText?: string
-  labelAddons?: JSX.Element
-  showTooltip?: boolean
+  labelAddons?: JSX.Element,
+  tooltipAddons?: TTooltipProps
 }
 
 export type TSelectFooterPropTypes = {
