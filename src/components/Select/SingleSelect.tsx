@@ -15,7 +15,6 @@ import { SELECTED_VISIBLE_MIN_COUNT } from './MultiSelect/consts'
 import { TSingleSelectPropTypes } from './types'
 import '../../assets/styles/components/_select.scss'
 
-
 const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
     className,
