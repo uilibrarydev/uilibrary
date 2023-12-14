@@ -3,6 +3,10 @@ import { Meta } from '@storybook/react'
 import { Icon as IconComp, Text } from '../components'
 
 const ICONS = [
+  'redo',
+  'redo-hover',
+  'undo',
+  'undo-hover',
   'book',
   'book-hover',
   'calendar-clock',
