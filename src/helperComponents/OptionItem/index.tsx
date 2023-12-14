@@ -1,84 +1,81 @@
-import React, { useCallback } from 'react'
+import React, { useCallback } from 'react';
 
-import { Checkbox } from '../../components/Checkbox'
-import Text from '../../components/Text'
-import { Avatar } from '../../components/Avatar'
-import Icon from '../../components/Icon'
-
-import { TSelectItemProps } from './types'
+import { Checkbox } from '../../components/Checkbox';
+import { Avatar } from '../../components';
+import Icon from '../../components/Icon';
+import { TSelectItemProps } from './types';
+import { Tooltip } from '../../index';
 
 export const OptionItem = (props: TSelectItemProps): JSX.Element => {
-  const {
-    data,
-    onClick,
-    disabled,
-    avatar,
-    isSelected,
-    labelLeftIconProps,
-    LabelRightIconComponent,
-    OptionRightIconComponent,
-    isCheckbox,
-    className = ''
-  } = props
+    const {
+        data,
+        onClick,
+        disabled,
+        avatar,
+        isSelected,
+        labelLeftIconProps,
+        LabelRightIconComponent,
+        OptionRightIconComponent,
+        isCheckbox,
+        className = '',
+        showTooltip = false, // Add withTooltip property with a default value
+    } = props;
 
-  const { label, meta, value } = data
+    const { label, meta, value } = data;
 
-  const handleClick = useCallback(
-    (e: TClickEventType) => {
-      e.preventDefault()
-      e.stopPropagation()
+    const handleClick = useCallback(
+        (e: TClickEventType) => {
+            e.preventDefault();
+            e.stopPropagation();
 
-      if (disabled) {
-        return
-      }
-      onClick({ value, label })
-    },
-    [disabled, value, label, onClick]
-  )
+            if (disabled) {
+                return;
+            }
+            onClick({ value, label });
+        },
+        [disabled, value, label, onClick]
+    );
 
-  return (
-    <div
-      className={`select__option   ${disabled ? 'select__option--disabled' : ''} ${className}`}
-      onClick={handleClick}
-    >
-      {isCheckbox ? (
-        <Checkbox className="mr-8" selectedValue={isSelected} disabled={disabled} />
-      ) : null}
-      {!isCheckbox && isSelected ? (
-        <Icon
-          name="mark"
-          size="xsmall"
-          type={`${disabled ? 'disabled' : 'brand'}`}
-          className="mr-4"
-        />
-      ) : null}
-      <div className="select__option__inner">
-        {avatar ? <Avatar size="xxsmall" imagePath={avatar} className="mr-4" /> : null}
-        {labelLeftIconProps ? (
-          <Icon
-            size="xsmall"
-            type={`${disabled ? 'disabled' : 'primary'}`}
-            className="mr-4 select__left-icon"
-            {...labelLeftIconProps}
-          />
-        ) : null}
-        <div className="select__option__content">
-          <span className={`select__option__text pr-4 ${disabled ? 'color-disabled' : ''}`}>
-            {label}
-          </span>
-          {LabelRightIconComponent && LabelRightIconComponent(value)}
+    const optionContent = (
+        <div
+            id={`${value}`}
+            className={`select__option   ${disabled ? 'select__option--disabled' : ''} ${className}`}
+            onClick={handleClick}
+        >
+            {isCheckbox ? (
+                <Checkbox className="mr-8" selectedValue={isSelected} disabled={disabled} />
+            ) : null}
+            {!isCheckbox && isSelected ? (
+                <Icon name="mark" size="xsmall" type={`${disabled ? 'disabled' : 'brand'}`} className="mr-4" />
+            ) : null}
+            <div className="select__option__inner">
+                {avatar ? <Avatar size="xxsmall" imagePath={avatar} className="mr-4" /> : null}
+                {labelLeftIconProps ? (
+                    <Icon
+                        size="xsmall"
+                        type={`${disabled ? 'disabled' : 'primary'}`}
+                        className="mr-4 select__left-icon"
+                        {...labelLeftIconProps}
+                    />
+                ) : null}
+                <div className="select__option__content">
+                    <span className={`select__option__text pr-4 ${disabled ? 'color-disabled' : ''}`}>{label}</span>
+                    {LabelRightIconComponent && LabelRightIconComponent(value)}
 
-          {meta ? (
-            <Text
-              type="tertiary"
-              className={`select__option__meta ${disabled ? 'color-disabled' : ''}`}
-            >
-              {meta}
-            </Text>
-          ) : null}
+                    {meta ? (
+                        <span className={`select__option__meta ${disabled ? 'color-disabled' : ''}`}>{meta}</span>
+                    ) : null}
+                </div>
+            </div>
+            {OptionRightIconComponent && OptionRightIconComponent(value)}
         </div>
-      </div>
-      {OptionRightIconComponent && OptionRightIconComponent(value)}
-    </div>
-  )
-}
+    );
+
+    return showTooltip ? (
+        <Tooltip position={'middle-right'} text={`${label}`} id={`${value}`}>
+            {optionContent}
+        </Tooltip>
+    ) : (
+        optionContent
+    );
+};
