@@ -11,5 +11,5 @@ export type TSelectItemProps = {
   avatar?: string
   disabled?: boolean
   isCheckbox?: boolean
-  showTooltip?:boolean
+  showTooltip?: boolean
 }
