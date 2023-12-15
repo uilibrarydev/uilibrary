@@ -29,6 +29,9 @@ const NavigationItem = (props: TNavigationLinkPropTypes) => {
         return As();
     }
 
+    const displayHeader = () => isOpen && type === NavigationItemTypes.BLOCK_HEADER && showAction && actionElm && actionElm;
+
+
     return (
         <>
             <div
@@ -45,11 +48,7 @@ const NavigationItem = (props: TNavigationLinkPropTypes) => {
                 >
                     <div className="navigation--item--wrapper">
                         {!isOpen && type === NavigationItemTypes.BLOCK_HEADER && As()}
-                        {isOpen &&
-                            type === NavigationItemTypes.BLOCK_HEADER &&
-                            showAction &&
-                            actionElm &&
-                            actionElm}
+                        {displayHeader()}
                         {
                             <div
                                 className={classNames('navigation--item--as--wrapper', isOpen ? 'open' : 'close')}
