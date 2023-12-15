@@ -42,6 +42,10 @@
     min-height: var(--ds-tooltip-size-sm);
   }
 
+  &__inner {
+    word-break: break-word;
+  }
+
   &--top {
     &-left, &-center, &-right {
       &:after {

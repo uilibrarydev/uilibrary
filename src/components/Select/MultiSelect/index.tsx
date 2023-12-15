@@ -38,7 +38,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
       },
       cancel: { buttonText: 'Cancel' }
     },
-    selectedItems = [],
+    selectedItems,
     setSelectedItems,
     name,
     setFieldValue,
@@ -50,6 +50,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
     labelAddons,
     isLoading,
     className = '',
+    disabled,
     ...rest
   } = props
 
@@ -77,7 +78,9 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   }, [value])
 
   useEffect(() => {
-    setSelectedValues(selectedItems || [])
+    if (selectedItems) {
+      setSelectedValues(selectedItems || [])
+    }
   }, [selectedItems])
 
   const cancelSelectedItems = useCallback(() => {
@@ -177,6 +180,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
           currentValue={selectedItemsLabels}
           rightIconProps={{ name: isOpen ? 'caret-up-hover' : 'caret-down-hover', size: 'xsmall' }}
           labelAddons={labelAddons}
+          disabled={disabled}
         />
       </div>
 

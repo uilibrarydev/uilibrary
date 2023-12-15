@@ -50,7 +50,8 @@ export default {
 const OPTIONS: TSelectOptions = [
   {
     value: 1,
-    label: 'Armenia',
+    label:
+      'Armeniaaasdasdasdasdlkashdkjlashdkjasdkjashkdjhaskjdhdaskjdhaskjhdkajsdkjasdkjashdjkashdkjhaskdhaskjdhaskjdhaskjdhaskjhdkjas',
     meta: 'AM'
   },
   {
@@ -196,9 +197,10 @@ const Template = (args: any): JSX.Element => {
   const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
 
   return (
-    <div style={{ width: 320, position: 'absolute', left: 300, top: 100 }}>
+    <div style={{ display: 'flex', height: '100vh', justifyContent: 'center' }}>
       <SelectComp
         {...args}
+        tooltipAddons={{ position: 'bottom-left' }}
         isRequiredField
         options={OPTIONS}
         outerHelperText="helper text"
@@ -311,7 +313,8 @@ MultiSelect.args = {
   innerLabel: 'Select',
   helperText: 'To be filled in only for USA, Canada and European countries.',
   labelLeftIconProps: { name: 'user' },
-  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
+  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />,
+  disabled: true
   // labelRightIconComponent: <Icon name="user" size="xsmall" className="mr-4" />,
   // optionRightIconComponent: <Icon name="more" size="xsmall" />
 }
