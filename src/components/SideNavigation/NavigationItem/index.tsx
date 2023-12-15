@@ -22,6 +22,13 @@ const NavigationItem = (props: TNavigationLinkPropTypes) => {
 
     const [childOpen, setChildOpen] = useState(false)
 
+    const displayNavigationItem = () => {
+        if (type === NavigationItemTypes.BLOCK_HEADER) {
+            return isOpen ? As() : null;
+        }
+        return As();
+    }
+
     return (
         <>
             <div
@@ -38,31 +45,22 @@ const NavigationItem = (props: TNavigationLinkPropTypes) => {
                 >
                     <div className="navigation--item--wrapper">
                         {!isOpen && type === NavigationItemTypes.BLOCK_HEADER && As()}
-                        {
-                            isOpen &&
+                        {isOpen &&
                             type === NavigationItemTypes.BLOCK_HEADER &&
                             showAction &&
                             actionElm &&
-                            actionElm
-                        }
+                            actionElm}
                         {
                             <div
-                                className={classNames('navigation--item--as--wrapper', isOpen ? 'open' : 'close')}>
-                                {
-                                    type === NavigationItemTypes.BLOCK_HEADER && isOpen ? As() :
-                                        type === NavigationItemTypes.BLOCK_HEADER && !isOpen ? null :
-                                            type !== NavigationItemTypes.BLOCK_HEADER ? As() : null
-                                }
+                                className={classNames('navigation--item--as--wrapper', isOpen ? 'open' : 'close')}
+                            >
+                                {displayNavigationItem()}
                             </div>
                         }
                         {!isOpen && type === NavigationItemTypes.SUB && As()}
-                        {
-                            type === NavigationItemTypes.USER
-                            && iconName
-                            && isOpen && (
-                                <Icon name={iconName} size="small"/>
-                            )
-                        }
+                        {type === NavigationItemTypes.USER && iconName && isOpen && (
+                            <Icon name={iconName} size="small"/>
+                        )}
                     </div>
                     {showBadge && badgeContent && isOpen && (
                         <Badge type="primary" text={badgeContent} size="small"/>
@@ -75,10 +73,12 @@ const NavigationItem = (props: TNavigationLinkPropTypes) => {
                 </div>
                 {children && (
                     <div
-                        className={classNames('navigation--items--child', childOpen && 'active', !isOpen && 'isOpen')}>
-                        {/*<div className={classNames('navigation--items--child--title', !isOpen && 'active')}>*/}
-                        {/*    <Text size='standard' type={'primary'}>{As()}</Text>*/}
-                        {/*</div>*/}
+                        className={classNames(
+                            'navigation--items--child',
+                            childOpen && 'active',
+                            !isOpen && 'isOpen'
+                        )}
+                    >
                         {children}
                     </div>
                 )}
