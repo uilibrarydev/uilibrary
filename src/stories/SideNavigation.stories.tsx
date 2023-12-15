@@ -5,6 +5,7 @@ import logo from '../assets/images/logo.svg'
 import logoClosed from '../assets/images/logo-closed.svg'
 import avatar from '../assets/images/avatar.jpg'
 import {NavigationItemTypes} from '../components/SideNavigation/NavigationItem/types'
+import {Icon} from '../index';
 
 export default {
     title: 'Side Navigation',
@@ -36,40 +37,73 @@ const Template = (args): JSX.Element => {
                 <Block open={isOpen} label="Finance">
                     <>
                         <NavigationItem
-                            As={() => <a href="/https://ameriabank.am">Accounts</a>}
+                            As={() =>
+                                <a href="/https://ameriabank.am">
+                                    <Icon name="document"/>
+                                    <div>Accounts</div>
+                                </a>
+                            }
                             type={NavigationItemTypes.MAIN}
-                            iconName="document"
                             isOpen={isOpen}
                             showAction={args.showAction}
                             actionElm={args.actionElm}
                             active
                         />
                         <NavigationItem
-                            As={() => <div>Cards</div>}
+                            As={() =>
+                                <a href="/https://ameriabank.am">
+                                    <Icon name="lock"/>
+                                    <div>Test</div>
+                                </a>}
                             type={NavigationItemTypes.MAIN}
-                            iconName="home"
+                            isOpen={isOpen}
+                            showAction={args.showAction}
+                            actionElm={args.actionElm}
+                        />
+                        <NavigationItem
+                            As={() => <div>
+                                <Icon name="home"/>
+                                <div>Cards</div>
+                            </div>}
+                            type={NavigationItemTypes.MAIN}
                             isOpen={isOpen}
                             expandable
                         >
                             <>
                                 <NavigationItem
-                                    As={() => <a href="/https://ameriabank.am">Accounts</a>}
-                                    type={NavigationItemTypes.MAIN}
-                                    iconName="document"
+                                    As={() =>
+                                        <a href="/https://ameriabank.am">
+                                            <Icon name={'document'}/>
+                                            <div>Accounts</div>
+                                        </a>
+                                    }
+                                    type={NavigationItemTypes.SUB}
                                     isOpen={isOpen}
                                 />
                                 <NavigationItem
-                                    As={() => <a href="/https://ameriabank.am">Savings</a>}
-                                    type={NavigationItemTypes.MAIN}
-                                    iconName="savings"
+                                    As={() => <a href="/https://ameriabank.am">
+                                        <Icon name={'savings'}/>
+                                        <div>Savings</div>
+                                    </a>}
+                                    type={NavigationItemTypes.SUB}
+                                    isOpen={isOpen}
+                                />
+                                <NavigationItem
+                                    As={() => <a href="/https://ameriabank.am">
+                                        <Icon name={'wallet'}/>
+                                        <div>Overdraft</div>
+                                    </a>}
+                                    type={NavigationItemTypes.SUB}
                                     isOpen={isOpen}
                                 />
                             </>
                         </NavigationItem>
                         <NavigationItem
-                            As={() => <a href="/https://ameriabank.am">Savings</a>}
+                            As={() => <a href="/https://ameriabank.am">
+                                <Icon name={'savings'}/>
+                                <div>Savings</div>
+                            </a>}
                             type={NavigationItemTypes.MAIN}
-                            iconName="savings"
                             isOpen={isOpen}
                             showBadge
                             badgeContent={'888+'}
@@ -79,35 +113,45 @@ const Template = (args): JSX.Element => {
                 <Block open={isOpen} label="Finance">
                     <>
                         <NavigationItem
-                            As={() => <a href="/https://ameriabank.am">Overdraft</a>}
+                            As={() => <a href="/https://ameriabank.am">
+                                <Icon name={'wallet'}/>
+                                <div>Overdraft</div>
+                            </a>}
                             type={NavigationItemTypes.MAIN}
-                            iconName="wallet"
                             isOpen={isOpen}
                         />
                         <NavigationItem
-                            As={() => <a href="/https://ameriabank.am">Mortgage</a>}
+                            As={() => <a href="/https://ameriabank.am">
+                                <Icon name={'home'}/>
+                                <div>Mortgage</div>
+                            </a>}
                             type={NavigationItemTypes.MAIN}
-                            iconName="home"
                             isOpen={isOpen}
                         />
                         <NavigationItem
-                            As={() => <div>Car Leon</div>}
+                            As={() => <div>
+                                <Icon name={'savings'}/>
+                                <div>Car Leon</div>
+                            </div>}
                             type={NavigationItemTypes.MAIN}
-                            iconName="savings"
                             isOpen={isOpen}
                             expandable
                         >
                             <>
                                 <NavigationItem
-                                    As={() => <a href="/https://ameriabank.am">Savings</a>}
-                                    type={NavigationItemTypes.MAIN}
-                                    iconName="savings"
+                                    As={() => <a href="/https://ameriabank.am">
+                                        <Icon name={'savings'}/>
+                                        <div>Savings</div>
+                                    </a>}
+                                    type={NavigationItemTypes.SUB}
                                     isOpen={isOpen}
                                 />
                                 <NavigationItem
-                                    As={() => <a href="/https://ameriabank.am">Accounts</a>}
-                                    type={NavigationItemTypes.MAIN}
-                                    iconName="document"
+                                    As={() => <a href="/https://ameriabank.am">
+                                        <Icon name={'document'}/>
+                                        <div>Accounts</div>
+                                    </a>}
+                                    type={NavigationItemTypes.SUB}
                                     isOpen={isOpen}
                                 />
                             </>
@@ -121,27 +165,35 @@ const Template = (args): JSX.Element => {
                         <NavigationItem
                             type={NavigationItemTypes.MAIN}
                             isOpen={isOpen}
-                            iconName={'mail'}
-                            As={() => <a href="/https://ameriabank.am">Messages</a>}
+                            As={() => <a href="/https://ameriabank.am">
+                                <Icon name={'mail'}/>
+                                <div>Messages</div>
+                            </a>}
                         />
                         <NavigationItem
                             type={NavigationItemTypes.MAIN}
                             isOpen={isOpen}
-                            iconName={'notification2'}
-                            As={() => <a href="https://ameriabank.am">Notifications</a>}
+                            As={() => <a href="https://ameriabank.am">
+                                <Icon name={'notification2'}/>
+                                <div>Notifications</div>
+                            </a>}
                         />
                         <NavigationItem
                             type={NavigationItemTypes.MAIN}
                             isOpen={isOpen}
-                            iconName={'settings'}
-                            As={() => <a href="https://ameriabank.am">Settings</a>}
+                            As={() => <a href="https://ameriabank.am">
+                                <Icon name={'settings'}/>
+                                <div>Settings</div>
+                            </a>}
                         />
                         <NavigationItem
                             type={NavigationItemTypes.USER}
                             isOpen={isOpen}
-                            iconName={'logout'}
-                            userImage={<Avatar imagePath={avatar} size={isOpen ? 'small' : 'xsmall'}/>}
-                            As={() => <Text size="medium">Zhorzhik Grigoryan</Text>}
+                            As={() => <div onClick={() => alert()}>
+                                <Avatar imagePath={avatar} size={isOpen ? 'small' : 'xsmall'}/>
+                                <Text size="medium">Zhorzhik Grigoryan</Text>
+                                <Icon name={'logout'}/>
+                            </div>}
                         />
                     </>
                 </Block>

@@ -22,7 +22,6 @@ export interface TNavigationLinkPropTypes {
     expandable?: boolean
     showAction?: boolean
     actionElm?: JSX.Element
-    userImage?: JSX.Element
     active?: boolean
     badgeContent?: string
     children?: JSX.Element
