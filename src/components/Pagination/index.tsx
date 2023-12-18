@@ -21,7 +21,7 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
     breakLabel = <Icon name="more" />,
     classname = '',
     size = 'large',
-    disableInitialCallback=false
+    disableInitialCallback = false
   } = props
 
   const handlePageChange = ({ selected }: { selected: number }) => {
