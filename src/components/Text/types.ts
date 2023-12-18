@@ -14,6 +14,7 @@ export type TTextTypes =
 
 export interface TextPropTypes {
   id?: string
+  title?: string
   children?: string | JSX.Element
   type?:
     | 'primary'

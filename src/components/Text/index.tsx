@@ -13,11 +13,13 @@ const Text: React.FC<TextPropTypes> = (props: TextPropTypes) => {
     lineHeight = 'medium',
     dataId = '',
     onClick = noop,
-    id = ''
+    id = '',
+    title
   } = props
   return (
     <p
       id={id}
+      title={title}
       data-id={dataId}
       onClick={onClick}
       className={classNames(
