@@ -3,7 +3,7 @@ import Heading from './Heading'
 import Icon from './Icon'
 import FormContainer from './FormContainer'
 import Input from './Input'
-import { MultiSelect, Select, Filter, NestedSelect } from './Select'
+import { Filter, MultiSelect, NestedSelect, Select } from './Select'
 import Modal from './Modal'
 import Button from './Button'
 import FormField from './FormField'
@@ -13,7 +13,7 @@ import Divider from './Divider'
 import Progress from './Progress'
 import Checkbox from './Checkbox'
 import Stepper from './Stepper'
-import { TimePicker, SimpleDatePicker, RangeDatePicker } from './DatePicker'
+import { RangeDatePicker, SimpleDatePicker, TimePicker } from './DatePicker'
 import Textarea from './Textarea'
 import More from './More'
 import Switcher from './Switcher'
@@ -22,7 +22,7 @@ import Badge from './Badge'
 import Tooltip from './Tooltip'
 import RadioGroup from './Radio/RadioGroup'
 import Tab from './Tab'
-import { Snackbar, notify } from './Snackbar'
+import { notify, Snackbar } from './Snackbar'
 import Popover from './Popover'
 import Breadcrumb from './Breadcrumb'
 import Image from './Image'
@@ -30,15 +30,17 @@ import Link from './Link'
 import Menu from './Menu'
 import SideSheet from './SideSheet'
 import Counter from './Counter'
-import { CollapseItem, CollapseGroup } from './Collapse'
+import { CollapseGroup, CollapseItem } from './Collapse'
 import { Copy } from './Copy'
 import Status from './Status'
 import Chips from './Chips'
 import Empty from './Empty'
 import { ProgressStep } from './ProgressStep'
-import { AvatarGroup, Avatar } from './Avatar'
+import { Avatar, AvatarGroup } from './Avatar'
 import { Pagination } from './Pagination'
 import { Table } from './Table'
+import NavigationItem from './SideNavigation/NavigationItem'
+import SideNavigation from './SideNavigation'
 
 export {
   ProgressStep,
@@ -89,5 +91,7 @@ export {
   Chips,
   Empty,
   AvatarGroup,
-  Table
+  Table,
+  NavigationItem,
+  SideNavigation
 }
