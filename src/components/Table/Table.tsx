@@ -66,7 +66,7 @@ function Table({
   ) as TableInstance & { selectedFlatRows: RowType[] }
 
   useEffect(() => {
-    onChange && onChange(state)
+    onChange?.(state)
   }, [JSON.stringify(state)])
 
   const handleResize = () => {
