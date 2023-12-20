@@ -7,3 +7,4 @@ package-lock.json
 ./idea
 build-storybook.log
 /storybook-static
+.DS_Store

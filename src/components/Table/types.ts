@@ -25,7 +25,7 @@ export type TTableProps = {
   data: any[]
   withSelect?: boolean
   fixedHeader?: { y: number }
-  onChange: (state: TableState) => void
+  onChange?: (state: TableState) => void
 }
 
 export type SortBy = {

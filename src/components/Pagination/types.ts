@@ -8,4 +8,5 @@ export type TPaginationProps = {
   classname?: string
   activeClassName?: string
   size?: 'large' | 'medium' | 'small'
+  disableInitialCallback?: boolean
 }

@@ -1,11 +1,10 @@
 import React, { useCallback } from 'react'
 
 import { Checkbox } from '../../components/Checkbox'
-import Text from '../../components/Text'
-import { Avatar } from '../../components/Avatar'
+import { Avatar } from '../../components'
 import Icon from '../../components/Icon'
-
 import { TSelectItemProps } from './types'
+import { Tooltip } from '../../index'
 
 export const OptionItem = (props: TSelectItemProps): JSX.Element => {
   const {
@@ -18,7 +17,8 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
     LabelRightIconComponent,
     OptionRightIconComponent,
     isCheckbox,
-    className = ''
+    className = '',
+    tooltipAddons
   } = props
 
   const { label, meta, value } = data
@@ -36,8 +36,9 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
     [disabled, value, label, onClick]
   )
 
-  return (
+  const optionContent = (
     <div
+      id={`${value}`}
       className={`select__option   ${disabled ? 'select__option--disabled' : ''} ${className}`}
       onClick={handleClick}
     >
@@ -69,16 +70,21 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
           {LabelRightIconComponent && LabelRightIconComponent(value)}
 
           {meta ? (
-            <Text
-              type="tertiary"
-              className={`select__option__meta ${disabled ? 'color-disabled' : ''}`}
-            >
+            <span className={`select__option__meta ${disabled ? 'color-disabled' : ''}`}>
               {meta}
-            </Text>
+            </span>
           ) : null}
         </div>
       </div>
       {OptionRightIconComponent && OptionRightIconComponent(value)}
     </div>
+  )
+
+  return tooltipAddons ? (
+    <Tooltip {...tooltipAddons} text={`${label}`} id={`${value}`}>
+      {optionContent}
+    </Tooltip>
+  ) : (
+    optionContent
   )
 }

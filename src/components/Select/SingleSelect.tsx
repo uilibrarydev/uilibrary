@@ -40,7 +40,8 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     labelLeftIconProps,
     labelRightIconComponent,
     optionRightIconComponent,
-    labelAddons
+    labelAddons,
+    tooltipAddons
   } = props
   const scrollRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -198,6 +199,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
                   const isSelected = item.value === currentSelection
                   return (
                     <OptionItem
+                      tooltipAddons={tooltipAddons}
                       data={item}
                       key={item.value}
                       onClick={clickHandler(isSelected)}

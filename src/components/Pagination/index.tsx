@@ -22,6 +22,7 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
     classname = '',
     size = 'large',
     pageSize
+    disableInitialCallback = false
   } = props
 
   const handlePageChange = ({ selected }: { selected: number }) => {
@@ -32,6 +33,8 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
     <div className="pagination-wrapper flexbox git status">
       <ReactPaginate
         pageCount={totalCount / pageSize}
+        disableInitialCallback={disableInitialCallback}
+        pageCount={totalCount}
         pageRangeDisplayed={PAGE_RANGE_DISPLAYED}
         marginPagesDisplayed={1}
         onPageChange={handlePageChange}

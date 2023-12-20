@@ -3,7 +3,7 @@ export interface LinkPropTypes {
   className?: string
   url?: string
   dataId?: string
-  taget?: string
+  target?: string
   beforeLink?: string | JSX.Element
   afterLink?: string | JSX.Element
 }

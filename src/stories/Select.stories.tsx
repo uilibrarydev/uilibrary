@@ -50,7 +50,8 @@ export default {
 const OPTIONS: TSelectOptions = [
   {
     value: 1,
-    label: 'Armenia',
+    label:
+      'Armeniaaasdasdasdasdlkashdkjlashdkjasdkjashkdjhaskjdhdaskjdhaskjhdkajsdkjasdkjashdjkashdkjhaskdhaskjdhaskjdhaskjdhaskjhdkjas',
     meta: 'AM'
   },
   {
@@ -196,9 +197,10 @@ const Template = (args: any): JSX.Element => {
   const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
 
   return (
-    <div style={{ width: 320, position: 'absolute', left: 300, top: 100 }}>
+    <div style={{ display: 'flex', height: '100vh', justifyContent: 'center' }}>
       <SelectComp
         {...args}
+        tooltipAddons={{ position: 'bottom-left' }}
         isRequiredField
         options={OPTIONS}
         outerHelperText="helper text"
