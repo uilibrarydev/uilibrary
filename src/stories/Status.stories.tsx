@@ -1,7 +1,7 @@
 import React from 'react'
 import { Status as StatusComp } from '../components'
 import { Icon, Popover } from '../index'
-import Text from "../components/Text";
+import Text from '../components/Text'
 
 export default {
   title: 'Status',
@@ -33,7 +33,11 @@ export const Status = Template.bind({})
 
 Status.args = {
   text: 'Status text',
-  children: <Text type={'secondary'} size={'small'}>Status subtext</Text>,
+  children: (
+    <Text type={'secondary'} size={'small'}>
+      Status subtext
+    </Text>
+  ),
   type: 'primary',
   size: 'large',
   withCircle: true,
