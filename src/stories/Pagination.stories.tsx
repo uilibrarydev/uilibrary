@@ -12,6 +12,7 @@ export default {
 }
 const Template = (args) => (
   <PaginationComp
+    pageSize={10}
     {...args}
     handleChangePage={(item) => {
       console.log(item)
@@ -20,7 +21,7 @@ const Template = (args) => (
       next: <Icon name="arrow-right" />,
       previous: <Icon name="arrow-left" />
     }}
-    totalCount={100}
+    totalCount={286}
     breakLabel={<Icon name="more" />}
     classname=""
   />
