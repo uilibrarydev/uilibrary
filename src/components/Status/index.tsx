@@ -16,6 +16,7 @@ export const Status = (props: TStatusProps): ReactElement => {
     type = 'primary',
     size = 'large',
     text = '',
+    children,
     className = '',
     leftIconProps,
     rightIconProps,
@@ -28,13 +29,15 @@ export const Status = (props: TStatusProps): ReactElement => {
         <Icon size="xsmall" type={type} {...leftIconProps} className="mr-6" />
       )}
       {withCircle && !leftIconProps?.name ? <span className="status__circle mr-8" /> : null}
-      <Text
-        type={!withCircle ? type : 'primary'}
-        size={StatusTextSize[size]}
-        className="status__label"
-      >
-        {text}
-      </Text>
+      <div className="status__label">
+        <Text
+            type={!withCircle ? type : 'primary'}
+            size={StatusTextSize[size]}
+        >
+          {text}
+        </Text>
+        {children}
+      </div>
       {rightIconProps}
     </div>
   )
