@@ -21,7 +21,7 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
     breakLabel = <Icon name="more" />,
     classname = '',
     size = 'large',
-    pageSize
+    pageSize,
     disableInitialCallback = false
   } = props
 
@@ -34,7 +34,6 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
       <ReactPaginate
         pageCount={totalCount / pageSize}
         disableInitialCallback={disableInitialCallback}
-        pageCount={totalCount}
         pageRangeDisplayed={PAGE_RANGE_DISPLAYED}
         marginPagesDisplayed={1}
         onPageChange={handlePageChange}
