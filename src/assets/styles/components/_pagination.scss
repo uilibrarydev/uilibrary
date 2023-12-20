@@ -35,7 +35,6 @@
   &--large {
     li {
       a {
-        width: var(--ds-pagination-item-size-lg);
         min-width: var(--ds-pagination-item-size-lg);
         height: var(--ds-pagination-item-size-lg);
         font: var(--ds-font-weight-default) var(--ds-pagination-item-font-size-lg) var(--ds-font-family);
@@ -50,7 +49,6 @@
   &--medium {
     li {
       a {
-        width: var(--ds-pagination-item-size-md);
         min-width: var(--ds-pagination-item-size-md);
         height: var(--ds-pagination-item-size-md);
         font: var(--ds-font-weight-default) var(--ds-pagination-item-font-size-md) var(--ds-font-family);
@@ -65,7 +63,6 @@
   &--small {
     li {
       a {
-        width: var(--ds-pagination-item-size-sm);
         min-width: var(--ds-pagination-item-size-sm);
         height: var(--ds-pagination-item-size-sm);
         font: var(--ds-font-weight-default) var(--ds-pagination-item-font-size-sm) var(--ds-font-family);
@@ -101,7 +98,6 @@
         background-color: var(--ds-pagination-item-bg-selected);
         border-color: var(--ds-pagination-item-border-selected);
         color: var(--ds-pagination-item-color-selected);
-        min-width: 32px;
       }
     }
 
