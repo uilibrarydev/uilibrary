@@ -16,7 +16,12 @@ const getFiles = (files: FileList) => {
 const Template = (args): JSX.Element => {
   return (
     <div style={{ width: 400 }}>
-      <FileUploadComp {...args} getFiles={getFiles} />
+      <FileUploadComp
+        {...args}
+        getFiles={getFiles}
+        fileAllowedSize={900}
+        onError={(type) => console.log('type', type)}
+      />
     </div>
   )
 }

@@ -17,3 +17,7 @@ export const SCREEN_SIZES = {
   MEDIUM: 992,
   LARGE: 1200
 }
+
+export enum FILE_UPLOAD_ERRORS {
+  'size'
+}
