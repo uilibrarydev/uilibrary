@@ -7,16 +7,16 @@ export const Footer = (props: TSelectFooterPropTypes): JSX.Element => {
   return (
     <div className="select__footer">
       <Button
-        {...(buttonProps.cancel || {})}
         disabled={!hasChange}
+        {...(buttonProps.cancel || {})}
         type="tertiary"
         size="medium"
         className="mr-12"
         onClick={onCancel}
       />
       <Button
-        {...buttonProps.confirm}
         disabled={!hasChange}
+        {...buttonProps.confirm}
         type="primary"
         size="medium"
         onClick={onApply}
