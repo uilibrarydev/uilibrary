@@ -1,3 +1,5 @@
+import { FILE_UPLOAD_ERRORS } from '../../consts'
+
 export interface TFileUploadProps extends IFormCompProps {
   allowedTypes?: string
   label?: string | JSX.Element
@@ -14,6 +16,8 @@ export interface TFileUploadProps extends IFormCompProps {
   multiple?: boolean
   mode?: FileUploadMode
   labelAddons?: JSX.Element
+  onError?: (errorType: FILE_UPLOAD_ERRORS) => void
+  fileAllowedSize?: number
 }
 
 export enum FileUploadMode {

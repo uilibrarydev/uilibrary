@@ -2,10 +2,11 @@ import React, { useCallback, useRef, useState } from 'react'
 import { FileUploadMode, TFileUploadProps } from './types'
 import Button from '../Button'
 import Label from '../../helperComponents/Label'
-import { getFormattedValues, uniqueFiles } from '../../utils'
+import { checkIsAllowedFileSize, getFormattedValues, uniqueFiles } from '../../utils'
 import UploadItems from './uploadItems'
 import '../../assets/styles/components/_upload.scss'
 import Icon from '../Icon'
+import { FILE_UPLOAD_ERRORS } from '../../consts'
 
 const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const {
@@ -25,6 +26,8 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     uploadedFiles,
     value,
     labelAddons,
+    onError,
+    fileAllowedSize,
     mode = FileUploadMode.attach
   } = props
   const files = (value as File[]) || uploadedFiles || []
@@ -49,6 +52,14 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   )
 
   const setFiles = (selectedFiles: File[]) => {
+    const allowedFiles = selectedFiles.filter((file) => {
+      return !(fileAllowedSize && !checkIsAllowedFileSize(fileAllowedSize, file.size))
+    })
+
+    if (allowedFiles.length !== selectedFiles.length) {
+      onError && onError(FILE_UPLOAD_ERRORS.size)
+      return
+    }
     updateInForm(selectedFiles)
     if (getFiles) {
       if (toBase64) {

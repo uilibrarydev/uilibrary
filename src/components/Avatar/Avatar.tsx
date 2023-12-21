@@ -14,6 +14,8 @@ export const Avatar = ({
   initials = '',
   className = '',
   isEditable = false,
+  onError,
+  fileAllowedSize,
   onAvatarChange
 }: TAvatarProps): ReactElement => {
   const [image, setImage] = useState<string>(imagePath)
@@ -39,6 +41,8 @@ export const Avatar = ({
       {!image ? initials : null}
       {isEditable && (
         <FileUpload
+          onError={onError}
+          fileAllowedSize={fileAllowedSize}
           multiple={false}
           withFilePreview={false}
           getFiles={getFiles}

@@ -1,6 +1,8 @@
 import { ReactElement } from 'react'
+import { FILE_UPLOAD_ERRORS } from '../../consts'
 
 export interface TAvatarProps extends IFormCompProps {
+  allowedSize?: number
   id?: string
   imagePath?: string
   initials?: string | JSX.Element
@@ -11,6 +13,8 @@ export interface TAvatarProps extends IFormCompProps {
   isEditable?: boolean
   onAvatarChange?: (file: File) => void
   tooltipContent?: string | ReactElement
+  onError?: (type: FILE_UPLOAD_ERRORS) => void
+  fileAllowedSize?: number
 }
 
 export interface TAvatarGroupProps {

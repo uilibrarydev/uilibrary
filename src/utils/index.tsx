@@ -66,3 +66,7 @@ export const uniqueFiles = (files: File[]) =>
   files.filter((file, index, self) => {
     return index === self.findIndex((f) => f.name === file.name)
   })
+
+export const checkIsAllowedFileSize = (allowedSize: number, fileSize: number): boolean => {
+  return fileSize <= allowedSize
+}
