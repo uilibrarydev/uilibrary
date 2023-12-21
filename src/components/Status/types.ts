@@ -11,6 +11,7 @@ export type TStatusTypes =
   | 'discovery'
 export interface TStatusProps extends IFormCompProps {
   text?: string
+  children?: string | JSX.Element
   leftIconProps?: IconPropTypes
   rightIconProps?: JSX.Element
   type?: TStatusTypes
