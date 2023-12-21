@@ -25,6 +25,7 @@ export type TTableProps = {
   data: any[]
   withSelect?: boolean
   fixedHeader?: { y: number }
+  handleRowClick?: (row: any) => void
   onChange?: (state: TableState) => void
 }
 

@@ -5,18 +5,23 @@ import { CHECKBOX_DEFAULT_WIDTH, CHECKBOX_HEADER_ID } from './utils'
 
 type Props = {
   row: RowType
+  handleRowClick?: (row: any) => void
   withSelect: boolean
   selectedFlatRows: RowType[]
 }
 
-function Row({ row, selectedFlatRows, withSelect }: Props): ReactElement {
+function Row({ row, selectedFlatRows, withSelect, handleRowClick }: Props): ReactElement {
   const isRowSelected = useMemo(
     () => selectedFlatRows.find((r) => r.id === row.id),
     [selectedFlatRows]
   )
 
   return (
-    <tr {...row.getRowProps()} className={classNames({ selected: Boolean(isRowSelected) })}>
+    <tr
+      {...row.getRowProps()}
+      className={classNames({ selected: Boolean(isRowSelected) })}
+      onClick={() => handleRowClick?.(row.original)}
+    >
       {row.cells.map(({ getCellProps, column, render }: CellValue, i, arr: CellValue[]) => {
         const isSelection = column.id === CHECKBOX_HEADER_ID
         return (

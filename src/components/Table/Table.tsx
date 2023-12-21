@@ -20,7 +20,8 @@ function Table({
   data,
   onChange,
   fixedHeader,
-  withSelect = false
+  withSelect = false,
+  handleRowClick
 }: TTableProps): ReactElement {
   const tableRef = useRef<HTMLTableElement | null>(null)
   const [tableWidth, setTableWidth] = useState(400)
@@ -108,6 +109,7 @@ function Table({
             prepareRow(row)
             return (
               <Row
+                handleRowClick={handleRowClick}
                 withSelect={withSelect}
                 selectedFlatRows={selectedFlatRows}
                 row={row}
