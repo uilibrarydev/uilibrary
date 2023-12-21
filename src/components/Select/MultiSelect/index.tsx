@@ -73,6 +73,18 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
 
   const { width } = useGetElemSizes(containerRef.current)
 
+  const hasChange = useMemo(() => {
+    if (selectedValues.length !== initialSelected.length) {
+      return true
+    }
+
+    return (
+      selectedValues.findIndex(
+        (value) => initialSelected.findIndex((i: TSelectOption) => i.value === value.value) === -1
+      ) !== -1
+    )
+  }, [selectedValues, initialSelected])
+
   useEffect(() => {
     setSelectedValues((value as TSelectedValue[]) || [])
   }, [value])
@@ -104,7 +116,6 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
 
   const applySelectedItems = () => {
     submitSelectedValue(selectedValues)
-    closeDropdown()
   }
 
   const checkIsValueOverflowed = useCallback(
@@ -216,11 +227,14 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
                 />
               </>
             )}
-            <Footer
-              buttonProps={footerButtonProps}
-              onCancel={cancelSelectedItems}
-              onApply={applySelectedItems}
-            />
+            {options.length ? (
+              <Footer
+                hasChange={hasChange}
+                buttonProps={footerButtonProps}
+                onCancel={cancelSelectedItems}
+                onApply={applySelectedItems}
+              />
+            ) : null}
           </div>
         )}
       </>

@@ -93,6 +93,7 @@ export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps
 }
 
 export type TSelectFooterPropTypes = {
+  hasChange?: boolean
   buttonProps: {
     cancel: TButtonPropTypes
     confirm: TButtonPropTypes
