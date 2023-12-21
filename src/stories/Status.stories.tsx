@@ -28,12 +28,14 @@ export default {
 }
 
 const Template = (args) => {
-  return (<StatusComp {...args}>
-  <Text type={'secondary'} size={'small'}>
-    Status subtext
-  </Text>
-</StatusComp>
-  )}
+  return (
+    <StatusComp {...args}>
+      <Text type={'secondary'} size={'small'}>
+        Status subtext
+      </Text>
+    </StatusComp>
+  )
+}
 
 export const Status = Template.bind({})
 

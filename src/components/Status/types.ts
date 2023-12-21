@@ -1,5 +1,5 @@
 import { IconPropTypes } from '../Icon/types'
-import {ReactElement} from 'react';
+import { ReactElement } from 'react'
 
 export type TStatusTypes =
   | 'primary'
