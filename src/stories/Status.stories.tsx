@@ -27,17 +27,20 @@ export default {
   }
 }
 
-const Template = (args) => <StatusComp {...args} />
+const Template = (args) => {
+  return (
+    <StatusComp {...args}>
+      <Text type={'secondary'} size={'small'}>
+        Status subtext
+      </Text>
+    </StatusComp>
+  )
+}
 
 export const Status = Template.bind({})
 
 Status.args = {
   text: 'Status text',
-  children: (
-    <Text type={'secondary'} size={'small'}>
-      Status subtext
-    </Text>
-  ),
   type: 'primary',
   size: 'large',
   withCircle: true,
