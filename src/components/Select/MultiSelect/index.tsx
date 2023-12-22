@@ -74,7 +74,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   const { width } = useGetElemSizes(containerRef.current)
 
   const hasChange = useMemo(() => {
-    if (selectedValues.length !== initialSelected.length) {
+    if (selectedValues?.length !== initialSelected?.length) {
       return true
     }
 
