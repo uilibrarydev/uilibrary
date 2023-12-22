@@ -2,7 +2,7 @@ import { ReactElement } from 'react'
 import { FILE_UPLOAD_ERRORS } from '../../consts'
 
 export interface TAvatarProps extends IFormCompProps {
-  allowedSize?: number
+  allowedTypes?: string
   id?: string
   imagePath?: string
   initials?: string | JSX.Element
