@@ -79,8 +79,8 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
     }
 
     return (
-      selectedValues.findIndex(
-        (value) => initialSelected.findIndex((i: TSelectOption) => i.value === value.value) === -1
+      selectedValues?.findIndex(
+        (value) => initialSelected?.findIndex((i: TSelectOption) => i.value === value.value) === -1
       ) !== -1
     )
   }, [selectedValues, initialSelected])
