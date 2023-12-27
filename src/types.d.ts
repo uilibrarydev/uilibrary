@@ -1,4 +1,4 @@
-declare type TIconSize = 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge'
+declare type TIconSize = 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
 declare type TColor =
   | 'borderGray'
   | 'labelGray'
