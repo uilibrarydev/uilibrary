@@ -162,7 +162,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
           helperText={isOpen ? '' : outerHelperText}
           ref={inputRef}
           labelAddons={labelAddons}
-          autoComplete={false}
+          autoComplete="false"
         />
       </div>
 
