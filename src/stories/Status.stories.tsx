@@ -29,11 +29,18 @@ export default {
 
 const Template = (args) => {
   return (
-    <StatusComp {...args}>
-      <Text type={'secondary'} size={'small'}>
-        Status subtext
-      </Text>
-    </StatusComp>
+    <>
+      <StatusComp {...args} type={'danger'}>
+        <Text type={'secondary'} size={'small'}>
+          Status subtext
+        </Text>
+      </StatusComp>
+      <StatusComp {...args} type={'information'}>
+        <Text type={'information'} size={'small'}>
+          Status subtext
+        </Text>
+      </StatusComp>
+    </>
   )
 }
 
