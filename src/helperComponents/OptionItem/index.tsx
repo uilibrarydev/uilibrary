@@ -5,7 +5,7 @@ import { Avatar } from '../../components'
 import Icon from '../../components/Icon'
 import { TSelectItemProps } from './types'
 import { Tooltip } from '../../index'
-import classNames from "classnames";
+import classNames from 'classnames'
 
 export const OptionItem = (props: TSelectItemProps): JSX.Element => {
   const {
@@ -40,9 +40,13 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
   const optionContent = (
     <div
       id={`${value}`}
-      className={classNames('select__option', {
-        'select__option--disabled': disabled,
-      }, className)}
+      className={classNames(
+        'select__option',
+        {
+          'select__option--disabled': disabled
+        },
+        className
+      )}
       onClick={handleClick}
     >
       {isCheckbox ? (
