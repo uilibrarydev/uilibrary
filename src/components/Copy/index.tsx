@@ -11,7 +11,8 @@ type Props = {
 export const Copy = ({ textAfterCopy, className = '', text }: Props): ReactElement => {
   const [isTooltipVisibile, setTooltipVisibility] = useState(false)
   const copyIconRef = useRef<HTMLDivElement | null>(null)
-  const copy = () => {
+  const copy = (e: TClickEventType) => {
+    e.stopPropagation()
     navigator.clipboard.writeText(text)
     setTooltipVisibility(true)
     setTimeout(() => setTooltipVisibility(false), 3000)
