@@ -19,6 +19,7 @@ export interface ITimePickerProps extends DatePickerDefaultProps {
   required?: boolean
   format?: string
   filterTime?: (date: Date) => boolean
+  momentLocale?: string
 }
 
 export interface IRangeDatePickerProps extends DatePickerDefaultProps {
@@ -27,7 +28,7 @@ export interface IRangeDatePickerProps extends DatePickerDefaultProps {
   label?: string | JSX.Element
   changeHandler: (date: TRangePickerValues) => void
   maxDate?: Date | undefined
-  // localizations: any
+  momentLocale?: string
 }
 
 export enum DateFormat {
