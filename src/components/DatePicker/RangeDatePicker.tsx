@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import DatePicker, { registerLocale } from 'react-datepicker'
 import hy from 'date-fns/locale/hy'
@@ -41,6 +41,10 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
       }
     }
   }
+
+  useEffect(() => {
+    setRangeDate(dateInitialValue)
+  }, [dateInitialValue])
 
   if (!Array.isArray(rangeArray)) {
     return null
