@@ -22,7 +22,8 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
     format = DateFormat.LongDate,
     maxDate,
     locale = 'hy',
-    momentLocale = 'hy-am'
+    momentLocale = 'hy-am',
+    disabled
   } = props
 
   moment.locale(momentLocale)
@@ -69,10 +70,12 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
       endDate={rangeArray[1] as Date}
       maxDate={maxDate}
       selectsRange
+      disabled={disabled}
       onChange={onChange}
       customInput={
         <div className="date-picker_input-container">
           <Input
+            disabled={disabled}
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             currentValue={renderCurrentSelectedDate(rangeArray)}
