@@ -21,8 +21,11 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
     changeHandler,
     format = DateFormat.LongDate,
     maxDate,
-    locale = 'ru'
+    locale = 'hy',
+    momentLocale = 'hy-am'
   } = props
+
+  moment.locale(momentLocale)
 
   const dateInitialValue = value !== undefined && Array.isArray(value) ? value : currentDates
 
@@ -42,6 +45,8 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
   if (!Array.isArray(rangeArray)) {
     return null
   }
+
+  moment.locale('am')
 
   const formatDate = (date: Date | undefined): string => {
     return date ? moment(date).format(format) : ''

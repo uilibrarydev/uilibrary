@@ -25,6 +25,7 @@ const TimePicker = (props: ITimePickerProps): JSX.Element => {
     required,
     locale = 'hy',
     format = 'h:mm a',
+    momentLocale = 'hy-am',
     ...rest
   } = props
   const dateInitialValue =
@@ -32,6 +33,8 @@ const TimePicker = (props: ITimePickerProps): JSX.Element => {
       ? value
       : currentTime
   const [selectedTime, setCurrentTime] = useState(dateInitialValue)
+
+  moment.locale(momentLocale)
 
   const onChange = (date: Date) => {
     setCurrentTime(date)
