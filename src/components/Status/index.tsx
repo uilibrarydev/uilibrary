@@ -24,7 +24,7 @@ export const Status = (props: TStatusProps): ReactElement => {
   } = props
 
   return (
-    <div className={classNames(`status status--${type} status--${size}`, className)}>
+    <div className={classNames(`status status--${size}`, className)}>
       {leftIconProps?.name && (
         <Icon size="xsmall" type={type} {...leftIconProps} className="mr-6" />
       )}
