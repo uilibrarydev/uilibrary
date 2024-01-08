@@ -1,9 +1,9 @@
 import React, { ForwardedRef, useRef, useMemo } from 'react'
 import classnames from 'classnames'
+import { Popover } from '../../components'
 import { Icon, Link, Text } from '../'
 import { TCheckboxProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
-
 export const Checkbox = (
   props: TCheckboxProps,
   ref: ForwardedRef<HTMLInputElement>
@@ -22,12 +22,13 @@ export const Checkbox = (
     dataId = '',
     onClick,
     beforeLink,
-    afterLink
+    afterLink,
+    helperText = '',
+    popoverAddons
   } = props
 
   const localRef = useRef(null)
   const inputRef = ref && Object.keys(ref).length ? ref : localRef
-
   const isChecked = !!value || selectedValue
 
   const changeHandler = () => {
@@ -71,32 +72,58 @@ export const Checkbox = (
   }, [label, link])
 
   return (
-    <label
-      className={classnames('controller', {
-        'controller--checkbox': true,
-        'controller--disabled': disabled,
-        [className]: !!className
-      })}
-    >
-      <input
-        data-id={dataId}
-        type="checkbox"
-        ref={inputRef}
-        tabIndex={0}
-        onChange={changeHandler}
-        checked={Boolean(isChecked)}
-        disabled={disabled}
-      />
-      <span className="controller__icon">
-        <Icon
-          name={IconProps.name}
-          size="xxsmall"
-          type={`${disabled ? 'disabled' : 'inverse'}`}
-          className="controller__mark"
+    <>
+      <label
+        className={classnames('controller', {
+          'controller--checkbox': true,
+          'controller--disabled': disabled,
+          [className]: !!className
+        })}
+      >
+        <input
+          data-id={dataId}
+          type="checkbox"
+          ref={inputRef}
+          tabIndex={0}
+          onChange={changeHandler}
+          checked={Boolean(isChecked)}
+          disabled={disabled}
         />
-      </span>
-      {checkboxLabel}
-    </label>
+        <span className="controller__icon">
+          <Icon
+            name={IconProps.name}
+            size="xxsmall"
+            type={`${disabled ? 'disabled' : 'inverse'}`}
+            className="controller__mark"
+          />
+        </span>
+        {checkboxLabel}
+        {popoverAddons ? (
+          <div
+            onClick={(e) => {
+              e.stopPropagation()
+              changeHandler()
+            }}
+          >
+            <Popover id={`${popoverAddons.id}`} {...popoverAddons}>
+              <div id={`${popoverAddons.id}`} className="info-tooltip__icon">
+                <Icon name="info" type="information" size="small" />
+              </div>
+            </Popover>
+          </div>
+        ) : null}
+
+        {helperText ? (
+          <Text
+            size="small"
+            type={disabled ? 'disabled' : 'secondary'}
+            className="controller__helper"
+          >
+            {helperText}
+          </Text>
+        ) : null}
+      </label>
+    </>
   )
 }
 

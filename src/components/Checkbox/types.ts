@@ -1,3 +1,5 @@
+import { TPopoverProps } from '../Popover/types'
+
 export interface TCheckboxProps extends IFormCompProps {
   label?: string | JSX.Element
   beforeLink?: string | JSX.Element
@@ -10,5 +12,7 @@ export interface TCheckboxProps extends IFormCompProps {
   IconProps?: {
     name: string
   }
+  helperText?: string
   onClick?: (isChecked: boolean) => void
+  popoverAddons?: TPopoverProps
 }
