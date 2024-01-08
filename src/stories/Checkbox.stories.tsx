@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Checkbox as CheckboxComp } from '../components'
+import { Icon } from '../index'
 
 export default {
   title: 'Checkbox',
@@ -9,7 +10,6 @@ export default {
 
 const Template = (args) => {
   const [isChecked, setIsChecked] = useState(false)
-
   return <CheckboxComp {...args} selectedValue={isChecked} onClick={setIsChecked} />
 }
 
@@ -22,5 +22,6 @@ Checkbox.args = {
   label: 'Label for checkbox',
   beforeLink: 'das',
   afterLink: 'dasdsa',
-  link: ''
+  link: 'dasdsa',
+  helperText: 'dasdasdasdas'
 }
