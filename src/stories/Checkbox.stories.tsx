@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Checkbox as CheckboxComp } from '../components'
-import { Icon } from '../index'
 
 export default {
   title: 'Checkbox',
@@ -10,18 +9,19 @@ export default {
 
 const Template = (args) => {
   const [isChecked, setIsChecked] = useState(false)
-  return <CheckboxComp {...args} selectedValue={isChecked} onClick={setIsChecked} />
+  return <CheckboxComp {...args} selectedValue={isChecked} onClick={setIsChecked} popoverAddons={{
+    id:'some-id',
+    text:'hello-popover'
+  }}/>
 }
 
 export const Checkbox = Template.bind({})
 
 Checkbox.args = {
-  dataId: 'dadas',
+  dataId: 'id',
   disabled: false,
   required: false,
   label: 'Label for checkbox',
   beforeLink: 'das',
-  afterLink: 'dasdsa',
-  link: 'dasdsa',
-  helperText: 'dasdasdasdas'
+  helperText: 'helpertext'
 }

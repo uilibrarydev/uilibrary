@@ -1,9 +1,9 @@
 import React, { ForwardedRef, useRef, useMemo } from 'react'
 import classnames from 'classnames'
+import { Popover } from '../../components'
 import { Icon, Link, Text } from '../'
 import { TCheckboxProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
-import { Popover } from '../../components'
 export const Checkbox = (
   props: TCheckboxProps,
   ref: ForwardedRef<HTMLInputElement>
