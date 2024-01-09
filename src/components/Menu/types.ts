@@ -8,6 +8,7 @@ export type TMenuItem = {
 }
 
 export type TMenuProps = {
+  className?: string
   menuItems: TMenuItem[]
   parentRef: HTMLElement
   onClose: TCallBackFn

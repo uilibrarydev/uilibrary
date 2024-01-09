@@ -15,6 +15,7 @@ import '../../../../assets/styles/components/_select.scss'
 export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null => {
   const {
     avatar,
+    hasBottomSpace,
     options,
     helperText,
     translations,
@@ -96,6 +97,7 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
   return (
     <>
       <ContentTop
+        hasBottomSpace={hasBottomSpace}
         selectAll={selectAll}
         clearAll={clearAll}
         hasLimitation={!!maxSelectCount}

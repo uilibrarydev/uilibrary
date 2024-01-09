@@ -13,7 +13,14 @@ import { TMenuProps, TMenuItem } from './types'
 import '../../assets/styles/components/_select.scss'
 
 const Menu = (props: TMenuProps): ReactElement | null => {
-  const { menuItems = [], parentRef, onClose, isOpen, position = 'bottom-right' } = props
+  const {
+    menuItems = [],
+    parentRef,
+    onClose,
+    isOpen,
+    position = 'bottom-right',
+    className = ''
+  } = props
   const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null)
   useOnOutsideClick(menuRef, onClose, isOpen, useId())
 
@@ -50,7 +57,7 @@ const Menu = (props: TMenuProps): ReactElement | null => {
   }
 
   return ReactDOM.createPortal(
-    <div className="select select--menu" style={menuStyles} ref={setMenuRef}>
+    <div className={`select select--menu ${className}`} style={menuStyles} ref={setMenuRef}>
       {menuItems.map(({ label, meta, value, handler, iconProps, disabled }: TMenuItem) => {
         return (
           <OptionItem
