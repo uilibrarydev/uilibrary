@@ -41,15 +41,21 @@ export const Checkbox = (
   }
 
   const checkboxLabelPopover = popoverAddons ? (
-      <Popover id={`${popoverAddons.id}`} {...popoverAddons}>
-        <div id={`${popoverAddons.id}`}>
-          <Icon name="info" type="information" size="small" className={'ml-4 pointer'}  onClick={(e) => {
+    <Popover id={`${popoverAddons.id}`} {...popoverAddons}>
+      <div id={`${popoverAddons.id}`}>
+        <Icon
+          name="info"
+          type="information"
+          size="small"
+          className={'ml-4 pointer'}
+          onClick={(e) => {
             e.stopPropagation()
             changeHandler()
-          }}/>
-        </div>
-      </Popover>
-    ) : null;
+          }}
+        />
+      </div>
+    </Popover>
+  ) : null
 
   const checkboxLabel = useMemo(() => {
     if (!label) {
@@ -114,10 +120,7 @@ export const Checkbox = (
             {checkboxLabelPopover}
           </div>
           {helperText ? (
-            <Text
-              size="small"
-              type={disabled ? 'disabled' : 'secondary'}
-            >
+            <Text size="small" type={disabled ? 'disabled' : 'secondary'}>
               {helperText}
             </Text>
           ) : null}
