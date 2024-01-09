@@ -24,31 +24,30 @@
     width: var(--ds-status-circle-size-lg);
     min-width: var(--ds-status-circle-size-lg);
     height: var(--ds-status-circle-size-lg);
-
-    &--primary {
-      background-color: var(--ds-status-circle-bg-primary);
-    }
-    &--information {
-      background-color: var(--ds-status-circle-bg-information);
-    }
-    &--brand {
-        background-color: var(--ds-status-circle-bg-brand);
-    }
-    &--danger {
-        background-color: var(--ds-status-circle-bg-danger);
-    }
-    &--success {
-        background-color: var(--ds-status-circle-bg-success);
-    }
-    &--warning {
-        background-color: var(--ds-status-circle-bg-warning);
-    }
-    &--discovery {
-        background-color: var(--ds-status-circle-bg-discovery);
-    }
-    &--disabled {
-        background-color: var(--ds-status-circle-bg-disabled);
-    }
+  }
+  &__circle--primary {
+    background-color: var(--ds-status-circle-bg-primary);
+  }
+  &__circle--information {
+    background-color: var(--ds-status-circle-bg-information);
+  }
+  &__circle--brand {
+    background-color: var(--ds-status-circle-bg-brand);
+  }
+  &__circle--danger {
+    background-color: var(--ds-status-circle-bg-danger);
+  }
+  &__circle--success {
+    background-color: var(--ds-status-circle-bg-success);
+  }
+  &__circle--warning {
+    background-color: var(--ds-status-circle-bg-warning);
+  }
+  &__circle--discovery {
+    background-color: var(--ds-status-circle-bg-discovery);
+  }
+  &__circle--disabled {
+    background-color: var(--ds-status-circle-bg-disabled);
   }
 
   &--small {
