@@ -26,6 +26,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     setSelectedValues,
     isSearchAvailable,
     labelLeftIconProps,
+    hasBottomSpace,
     optionRightIconComponent,
     labelRightIconComponent,
     maxSelectCount
@@ -134,6 +135,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     <>
       {hasTopContent ? (
         <ContentTop
+          hasBottomSpace={hasBottomSpace}
           isSearchAvailable={isSearchAvailable}
           hasLimitation={!!maxSelectCount}
           selectAll={selectAll}

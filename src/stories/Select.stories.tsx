@@ -288,13 +288,11 @@ const MultiSelect1 = (args: any): JSX.Element => {
             }}
           />
         }
-        translations={
-          {
-            // innerLabel: 'Group name',
-            // clearAllLabel: 'Clear All',
-            // selectAllLabel: 'Select All'
-          }
-        }
+        translations={{
+          innerLabel: 'Group name',
+          clearAllLabel: 'Clear All',
+          selectAllLabel: 'Select All'
+        }}
         optionRightIconComponent={<ButtonMenu />}
       />
     </div>

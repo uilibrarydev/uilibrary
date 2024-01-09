@@ -49,6 +49,7 @@ interface TMultiSelectCompProps extends IFormCompProps, TSelectBaseProps {
   maxSelectCount: number
   isSearchAvailable: boolean
   helperText?: string
+  hasBottomSpace: boolean
   translations: TSelectTranslations
   selectedValues: TSelectedValue[]
   setSelectedValues: (values: TSelectedValue[]) => void

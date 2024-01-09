@@ -16,6 +16,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
   const {
     avatar,
     options,
+    hasBottomSpace,
     selectedValues,
     onItemSelect,
     onItemDeselect,
@@ -113,6 +114,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
         {<Tab selectedValue={activeTab} tabItems={tabs} onSelect={onTabSelect} size="small" />}
       </div>
       <ContentTop
+        hasBottomSpace={hasBottomSpace}
         isSearchAvailable={isSearchAvailable}
         clearAll={clearAll}
         selectAll={selectAll}

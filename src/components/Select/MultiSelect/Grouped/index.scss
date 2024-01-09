@@ -23,5 +23,8 @@
 
     &__right {
         position: relative;
+        .actions_menu{
+            transform: translate(-215%, 110%);
+        }
     }
 }

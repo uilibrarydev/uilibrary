@@ -215,6 +215,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
                   // @ts-ignore
                   options={options}
                   isOpen={isOpen}
+                  hasBottomSpace={hasBottomSpace}
                   translations={localizations}
                   selectedValues={selectedValues}
                   onItemSelect={onItemSelect}

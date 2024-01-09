@@ -9,10 +9,17 @@ export default {
 
 const Template = (args) => {
   const [isChecked, setIsChecked] = useState(false)
-  return <CheckboxComp {...args} selectedValue={isChecked} onClick={setIsChecked} popoverAddons={{
-    id:'some-id',
-    text:'hello-popover'
-  }}/>
+  return (
+    <CheckboxComp
+      {...args}
+      selectedValue={isChecked}
+      onClick={setIsChecked}
+      popoverAddons={{
+        id: 'some-id',
+        text: 'hello-popover'
+      }}
+    />
+  )
 }
 
 export const Checkbox = Template.bind({})
