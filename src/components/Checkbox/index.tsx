@@ -40,6 +40,17 @@ export const Checkbox = (
     }
   }
 
+  const checkboxLabelPopover = popoverAddons ? (
+      <Popover id={`${popoverAddons.id}`} {...popoverAddons}>
+        <div id={`${popoverAddons.id}`}>
+          <Icon name="info" type="information" size="small" className={'ml-4 pointer'}  onClick={(e) => {
+            e.stopPropagation()
+            changeHandler()
+          }}/>
+        </div>
+      </Popover>
+    ) : null;
+
   const checkboxLabel = useMemo(() => {
     if (!label) {
       return null
@@ -97,31 +108,20 @@ export const Checkbox = (
             className="controller__mark"
           />
         </span>
-        {checkboxLabel}
-        {popoverAddons ? (
-          <div
-            onClick={(e) => {
-              e.stopPropagation()
-              changeHandler()
-            }}
-          >
-            <Popover id={`${popoverAddons.id}`} {...popoverAddons}>
-              <div id={`${popoverAddons.id}`} className="info-tooltip__icon">
-                <Icon name="info" type="information" size="small" />
-              </div>
-            </Popover>
+        <div className="controller__right">
+          <div className="flexbox">
+            {checkboxLabel}
+            {checkboxLabelPopover}
           </div>
-        ) : null}
-
-        {helperText ? (
-          <Text
-            size="small"
-            type={disabled ? 'disabled' : 'secondary'}
-            className="controller__helper"
-          >
-            {helperText}
-          </Text>
-        ) : null}
+          {helperText ? (
+            <Text
+              size="small"
+              type={disabled ? 'disabled' : 'secondary'}
+            >
+              {helperText}
+            </Text>
+          ) : null}
+        </div>
       </label>
     </>
   )

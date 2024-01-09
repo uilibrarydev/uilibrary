@@ -53,8 +53,8 @@ Input.args = {
       text={'data'}
       position="top-center"
     >
-      <div id="beneficiary-tooltip" className="info-tooltip__icon">
-        <Icon name="info" type="information" size="xsmall" className={'ml-4'} />
+      <div id="beneficiary-tooltip">
+        <Icon name="info" type="information" size="xsmall" className={'ml-4 pointer'} />
       </div>
     </Popover>
   )

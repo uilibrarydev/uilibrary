@@ -595,3 +595,8 @@ $space-prefixes: (
 .text-truncate {
   @include truncate(100%);
 }
+
+//
+.pointer {
+  cursor: pointer;
+}
