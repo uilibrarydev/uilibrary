@@ -52,6 +52,9 @@ const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
       }
       scrollbarContainerRef.current?.addEventListener('scroll', handleOnScroll)
     }
+    if (!isOpen) {
+      setIsShownScrollIcon(false)
+    }
   }, [isOpen, scrollToTopOptions])
 
   const handleScrollToTop = useCallback(() => {
