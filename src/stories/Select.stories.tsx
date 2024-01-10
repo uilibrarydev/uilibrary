@@ -268,15 +268,18 @@ Select.args = {
 const MultiSelect1 = (args: any): JSX.Element => {
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
 
+  const set = (value) => {
+    setSelectedValues(value)
+  }
   return (
     <div style={{ width: 320, position: 'absolute', left: 300, top: 0 }} className="ddddd">
       <MultiSelectComp
         {...args}
-        // isGrouped={true}
+        isGrouped={true}
         maxSelectCount={3}
         emptyListMessage="List is Empty"
         selectedItems={selectedValues}
-        setSelectedItems={setSelectedValues}
+        setSelectedItems={set}
         labelRightIconComponent={
           <Icon
             name="user"
@@ -305,7 +308,7 @@ export const MultiSelect = MultiSelect1.bind({})
 MultiSelect.args = {
   isLoading: false,
   label: 'Select',
-  options: OPTIONS,
+  options: OPTIONS_GROUPED,
   avatar: image.src,
   placeHolder: 'Select country',
   innerLabel: 'Select',
