@@ -19,7 +19,7 @@ const Label: React.FC<TextPropTypes> = (props: TextPropTypes) => {
     <Text
       size="small"
       type={invalid ? 'danger' : disabled ? 'disabled' : 'primary'}
-      className={`label flexbox align-items--center ${className}`}
+      className={`label flexbox align-items--start ${className}`}
     >
       <>
         {text}
