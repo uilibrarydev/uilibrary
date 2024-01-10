@@ -97,11 +97,9 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
 
   const cancelSelectedItems = useCallback(() => {
     if (hasChange) {
-      submitSelectedValue(initialSelected)
       setSelectedValues(initialSelected)
-    } else {
-      closeDropdown()
     }
+    closeDropdown()
   }, [hasChange, initialSelected])
 
   useOnOutsideClick(containerRef.current, cancelSelectedItems, isOpen, useId())
