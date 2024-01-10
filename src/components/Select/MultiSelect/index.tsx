@@ -96,7 +96,9 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   }, [selectedItems])
 
   const cancelSelectedItems = useCallback(() => {
-    setSelectedValues(initialSelected)
+    if (hasChange) {
+      setSelectedValues(initialSelected)
+    }
     closeDropdown()
   }, [hasChange, initialSelected])
 
