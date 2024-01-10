@@ -29,6 +29,8 @@ Checkbox.args = {
   disabled: false,
   required: false,
   label: 'Label for checkbox',
+  link: '/about',
   beforeLink: 'das',
+  afterLink: 'after-link',
   helperText: 'helpertext'
 }
