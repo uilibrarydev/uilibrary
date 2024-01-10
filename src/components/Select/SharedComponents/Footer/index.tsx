@@ -7,7 +7,6 @@ export const Footer = (props: TSelectFooterPropTypes): JSX.Element => {
   return (
     <div className="select__footer">
       <Button
-        disabled={!hasChange}
         {...(buttonProps.cancel || {})}
         type="tertiary"
         size="medium"
