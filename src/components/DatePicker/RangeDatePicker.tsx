@@ -6,6 +6,7 @@ import en from 'date-fns/locale/en-GB'
 import ru from 'date-fns/locale/ru'
 import Input from '../Input'
 import { DateFormat, IRangeDatePickerProps } from './types'
+import 'moment/locale/hy-am'
 
 import './index.scss'
 registerLocale('hy', hy)
@@ -51,8 +52,6 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
   if (!Array.isArray(rangeArray)) {
     return null
   }
-
-  moment.locale('am')
 
   const formatDate = (date: Date | undefined): string => {
     return date ? moment(date).format(format) : ''
