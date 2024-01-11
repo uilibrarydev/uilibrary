@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 type TProps = {
   ref: HTMLElement
-  callback: () => void
+  callback: (event: MouseEvent) => void
   uid: string
 }
 
@@ -16,13 +16,13 @@ function handleMouseDownEvent(event: MouseEvent) {
   const { ref, callback } = callbackObject
   if (ref && !ref.contains(event.target)) {
     callbackStack.splice(callbackStack.length - 1, 1)
-    callback()
+    callback(event)
   }
 }
 
 export const useOnOutsideClick = (
   ref: HTMLElement | null,
-  callback: () => void,
+  callback: (event: MouseEvent) => void,
   state: boolean,
   uid: string
 ): void => {
