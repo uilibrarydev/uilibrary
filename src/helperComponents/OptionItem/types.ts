@@ -13,4 +13,5 @@ export type TSelectItemProps = {
   disabled?: boolean
   isCheckbox?: boolean
   tooltipAddons?: TTooltipProps
+  dataId?: string
 }

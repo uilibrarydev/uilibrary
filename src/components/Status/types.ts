@@ -19,4 +19,5 @@ export interface TStatusProps extends IFormCompProps {
   size?: 'large' | 'medium' | 'small'
   className?: string
   withCircle?: boolean
+  dataId?: string
 }

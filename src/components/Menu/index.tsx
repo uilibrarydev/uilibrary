@@ -19,7 +19,8 @@ const Menu = (props: TMenuProps): ReactElement | null => {
     onClose,
     isOpen,
     position = 'bottom-right',
-    className = ''
+    className = '',
+    dataId = ''
   } = props
   const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null)
   useOnOutsideClick(menuRef, onClose, isOpen, useId())
@@ -58,9 +59,10 @@ const Menu = (props: TMenuProps): ReactElement | null => {
 
   return ReactDOM.createPortal(
     <div className={`select select--menu ${className}`} style={menuStyles} ref={setMenuRef}>
-      {menuItems.map(({ label, meta, value, handler, iconProps, disabled }: TMenuItem) => {
+      {menuItems.map(({ label, meta, value, handler, iconProps, disabled, dataId }: TMenuItem) => {
         return (
           <OptionItem
+            dataId={dataId}
             disabled={disabled}
             key={value}
             data={{

@@ -19,7 +19,8 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
     OptionRightIconComponent,
     isCheckbox,
     className = '',
-    tooltipAddons
+    tooltipAddons,
+    dataId = ''
   } = props
 
   const { label, meta, value } = data
@@ -39,6 +40,7 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
 
   const optionContent = (
     <div
+      data-id={dataId}
       id={`${value}`}
       className={classNames(
         'select__option',
