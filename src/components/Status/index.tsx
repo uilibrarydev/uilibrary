@@ -20,7 +20,8 @@ export const Status = (props: TStatusProps): ReactElement => {
     className = '',
     leftIconProps,
     rightIconProps,
-    withCircle = true
+    withCircle = true,
+    dataId
   } = props
 
   return (
@@ -36,7 +37,11 @@ export const Status = (props: TStatusProps): ReactElement => {
         />
       ) : null}
       <div className="status__label">
-        <Text type={!withCircle ? type : 'primary'} size={StatusTextSize[size]}>
+        <Text
+          dataId={`${dataId}-text`}
+          type={!withCircle ? type : 'primary'}
+          size={StatusTextSize[size]}
+        >
           {text}
         </Text>
         {children}

@@ -4,6 +4,7 @@ export type TMenuItem = {
   iconProps?: TSelectIconProps
   handler?: TCallBackFn
   disabled?: boolean
+  dataId?: string
   meta?: string
 }
 
@@ -14,4 +15,5 @@ export type TMenuProps = {
   onClose: TCallBackFn
   position?: TTooltipPosition // 'right' | 'left' | 'top' | 'bottom'
   isOpen: boolean
+  dataId?: string
 }
