@@ -55,7 +55,8 @@ function Header({ headerGroup, tableWidth, withSelect, fixedHeader = false }: Pr
               className={classNames({
                 fixed_column_left: fixed === 'left',
                 fixed_column_right: fixed === 'right',
-                fixed_checkbox: isSelection && arr[i + 1]?.fixed === 'left'
+                fixed_checkbox: isSelection && arr[i + 1]?.fixed === 'left',
+                pointer: columnProps?.sortable
               })}
               style={style}
             >
@@ -67,10 +68,10 @@ function Header({ headerGroup, tableWidth, withSelect, fixedHeader = false }: Pr
                   <Icon
                     size="xsmall"
                     name={isSortedDesc ? 'arrow2-down' : 'arrow2-up'}
-                    className={'ml-4'}
+                    className="ml-4"
                   />
                 ) : columnProps?.sortable ? (
-                  <Icon size="small" name="chevron-up-down" className={'ml-4'} />
+                  <Icon size="xsmall" name="arrow2-down" className="ml-4 unsorted__icon" />
                 ) : (
                   ''
                 )}

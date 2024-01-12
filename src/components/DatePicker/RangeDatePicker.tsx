@@ -6,7 +6,6 @@ import en from 'date-fns/locale/en-GB'
 import ru from 'date-fns/locale/ru'
 import Input from '../Input'
 import { DateFormat, IRangeDatePickerProps } from './types'
-import 'moment/locale/hy-am'
 
 import './index.scss'
 registerLocale('hy', hy)

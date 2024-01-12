@@ -11,6 +11,7 @@ export interface ISimpleDatePickerProps extends DatePickerDefaultProps {
   maxDate?: Date | null
   format?: string
   required?: boolean
+  momentLocale?: string
 }
 export interface ITimePickerProps extends DatePickerDefaultProps {
   label?: string | JSX.Element

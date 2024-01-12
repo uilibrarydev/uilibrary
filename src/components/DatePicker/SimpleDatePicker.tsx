@@ -23,8 +23,10 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
     locale = 'hy',
     changeHandler,
     format = 'M/D/YYYY',
+    momentLocale = 'hy-am',
     required = false,
     hasError,
+    placeholderText,
     ...rest
   } = props
   const calendarRef = useRef<{ setOpen: (isOpen: boolean) => void | null }>(null)
@@ -33,6 +35,8 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
     value !== undefined && Object.prototype.toString.call(value) === '[object Date]'
       ? value
       : currentDate
+
+  moment.locale(momentLocale)
 
   const [selectedDate, setSelectedDate] = useState(dateInitialValue)
 
@@ -65,6 +69,7 @@ const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
         ref={calendarRef}
         customInput={
           <Input
+            placeholder={placeholderText}
             rightIconProps={{ name: 'calendar', onClick: openDatepicker }}
             currentValue={selectedDate ? moment(selectedDate.toString()).format(format) : ''}
           />
