@@ -8,7 +8,14 @@ import classNames from 'classnames'
 import noResultImage from '../../assets/images/no-result.svg'
 
 const Empty = (props: TEmptyProps): JSX.Element => {
-  const { size = 'large', mainMessage, paragraphMessage, buttonProps, className } = props
+  const {
+    size = 'large',
+    mainMessage,
+    paragraphMessage,
+    buttonProps,
+    className,
+    illustration = noResultImage
+  } = props
 
   return (
     <div
@@ -18,7 +25,7 @@ const Empty = (props: TEmptyProps): JSX.Element => {
       )}
     >
       <div className="no-result__icon">
-        <Image imagePath={noResultImage} />
+        <Image imagePath={illustration} />
       </div>
       <div className="no-result__content">
         <Text size={size == 'large' ? 'large' : 'small'} weight="bold">
