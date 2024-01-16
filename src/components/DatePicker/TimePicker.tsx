@@ -26,6 +26,7 @@ const TimePicker = (props: ITimePickerProps): JSX.Element => {
     locale = 'hy',
     format = 'h:mm a',
     momentLocale = 'hy-am',
+    placeholderText,
     ...rest
   } = props
   const dateInitialValue =
@@ -58,12 +59,13 @@ const TimePicker = (props: ITimePickerProps): JSX.Element => {
         showTimeSelectOnly
         timeIntervals={15}
         timeCaption="Time"
-        dateFormat="h:mm aa"
+        dateFormat={format}
         {...rest}
         onChange={onChange}
         customInput={
           <div className="date-picker_input-container">
             <Input
+              placeholder={placeholderText}
               currentValue={selectedTime ? moment(selectedTime.toString()).format(format) : ''}
             />
           </div>
