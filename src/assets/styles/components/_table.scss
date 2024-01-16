@@ -29,6 +29,16 @@
           height: var(--ds-table-th-height);
           padding: var(--ds-table-th-padding);
           vertical-align: middle;
+
+         .unsorted__icon {
+           display: none;
+         }
+
+          &:hover {
+            .unsorted__icon {
+              display: block;
+            }
+          }
         }
       }
     }
