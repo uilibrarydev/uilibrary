@@ -142,7 +142,7 @@
 
   &--menu {
     z-index: 9999;
-    position: fixed;
+    position: absolute;
     background-color: var(--ds-select-menu-bg);
     box-shadow: var(--ds-select-menu-shadow);
     border-radius: var(--ds-select-menu-border-radius);
