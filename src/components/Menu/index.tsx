@@ -1,18 +1,13 @@
 import React, { ReactElement, useId, useMemo, useState } from 'react'
 import ReactDOM from 'react-dom'
 
-import {
-  useOnOutsideClick,
-  useGetElemPositions,
-  useGetElemSizes,
-  useGetTooltipPosition,
-  useHideOnScroll
-} from '../../hooks'
+import { useOnOutsideClick, useGetElemSizes, useGetTooltipPosition } from '../../hooks'
 import { OptionItem } from '../../helperComponents'
 
 import { TMenuProps, TMenuItem } from './types'
 import '../../assets/styles/components/_select.scss'
 
+const GAP = 4
 const Menu = (props: TMenuProps): ReactElement | null => {
   const {
     menuItems = [],
@@ -25,9 +20,7 @@ const Menu = (props: TMenuProps): ReactElement | null => {
   } = props
   const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null)
   useOnOutsideClick(menuRef, onClose, isOpen, useId())
-  useHideOnScroll(onClose)
 
-  const { left, top } = useGetElemPositions(parentRef)
   const { width, height } = useGetElemSizes(parentRef)
   const { width: menuWidth, height: menuHeight } = useGetElemSizes(menuRef)
 
@@ -40,20 +33,20 @@ const Menu = (props: TMenuProps): ReactElement | null => {
 
   const menuStyles = useMemo(() => {
     if (tooltipPosition === 'bottom-right') {
-      return { left: left + 4, top: top + 4 + height }
+      return { left: GAP, top: GAP + height }
     }
     if (tooltipPosition === 'bottom-left') {
-      return { left: left - menuWidth + width, top: top + 4 + height }
+      return { left: -1 * menuWidth + width - GAP, top: GAP + height }
     }
     if (tooltipPosition === 'top-right') {
-      return { left: left + 4, top: top - menuHeight - 4 }
+      return { left: GAP, top: -1 * menuHeight - GAP }
     }
     if (tooltipPosition === 'top-left') {
-      return { left: left - menuWidth + width, top: top - menuHeight - 4 }
+      return { left: -1 * menuWidth + width - GAP, top: -1 * menuHeight - GAP }
     }
 
-    return { left: left, top: top + 4 + height }
-  }, [left, top, width, tooltipPosition, menuWidth, height, menuHeight])
+    return { left: GAP, top: GAP + height }
+  }, [width, tooltipPosition, menuWidth, height, menuHeight])
 
   if (!parentRef || !isOpen) {
     return null
