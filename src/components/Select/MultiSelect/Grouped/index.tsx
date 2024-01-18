@@ -175,7 +175,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
           {filteredData.map(({ title, data }: TSelectGroupOption, index: number) => {
             const isActive = index === activeGroupId
             return (
-              <div className="select__group group-item" key={title}>
+              <div className="select__group group-item" key={`${data[0]?.value}_${index}`}>
                 <div onClick={() => onGroupClick(index)} className="group-item__top">
                   <Text size="xxsmall" type="tertiary" className="group-item__title pr-4">
                     {title}
