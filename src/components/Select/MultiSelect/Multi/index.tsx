@@ -136,12 +136,12 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
         )}
 
         <Divider type="primary" isHorizontal />
-        {filteredData.map((item: TSelectOption) => {
+        {filteredData.map((item: TSelectOption, index) => {
           const isSelected = checkIsSelected(item.value)
           return (
             <OptionItem
               data={item}
-              key={item.value}
+              key={`${item.value}_${index}`}
               onClick={isSelected ? onDeselect : onItemSelect}
               disabled={item.disabled || (!isSelected && selectedValues.length === maxSelectCount)}
               isSelected={isSelected}
