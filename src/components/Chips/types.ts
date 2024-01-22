@@ -1,4 +1,5 @@
 import { IconPropTypes } from '../Icon/types'
+import { ReactNode } from 'react'
 
 export type TChipsColors =
   | 'primary'
@@ -10,7 +11,7 @@ export type TChipsColors =
   | 'information'
   | 'discovery'
 export interface TChipsProps extends IFormCompProps {
-  text: string | number
+  text: string | ReactNode
   leftIconProps?: IconPropTypes
   color?: TChipsColors
   type?: 'filled' | 'accent' | 'outlined'
