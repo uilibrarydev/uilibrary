@@ -54,7 +54,7 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
     <>
       {isClicked && (
         <div
-          data-id={dataId}
+          data-id={`${dataId}-content`}
           className={classNames(`popover popover--${popoverPosition}`, className)}
           ref={setPopoverRef}
           style={popoverStyles}
@@ -72,7 +72,7 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
                 {text}
               </Link>
             ) : (
-              <Text type="primary" weight="regular" lineHeight="medium" size="small">
+              <Text dataId={`${dataId}-text`} type="primary" weight="regular" lineHeight="medium" size="small">
                 {text}
               </Text>
             )}
