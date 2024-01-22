@@ -21,7 +21,8 @@ export const Chips = (props: TChipsProps): ReactElement => {
     className = '',
     leftIconProps,
     withAction,
-    onClick
+    onClick,
+    dataId = ''
   } = props
 
   const customType = disabled ? 'disabled' : type == 'filled' ? 'inverse' : color
@@ -34,9 +35,15 @@ export const Chips = (props: TChipsProps): ReactElement => {
       )}
     >
       {leftIconProps?.name && (
-        <Icon size={size == 'small' ? 'xsmall' : 'small'} type={customType} {...leftIconProps} />
+        <Icon
+          dataId={`${dataId}-icon`}
+          size={size == 'small' ? 'xsmall' : 'small'}
+          type={customType}
+          {...leftIconProps}
+        />
       )}
       <Text
+        dataId={`${dataId}-text`}
         type={customType}
         size={size == 'small' ? 'small' : 'standard'}
         className="chips__label"
@@ -45,6 +52,7 @@ export const Chips = (props: TChipsProps): ReactElement => {
       </Text>
       {withAction && (
         <Icon
+          dataId={`${dataId}-icon`}
           name="dismiss-circle-hover"
           size={ChipsActionIconSize[size]}
           type={customType}
