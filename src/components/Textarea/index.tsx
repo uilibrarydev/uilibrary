@@ -28,6 +28,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
     },
     ref
   ): JSX.Element => {
+    const isErrorVisible = hasError !== undefined ? hasError : !!error
+
     const handleChange = (event: TChangeEventType) => {
       if (changeHandler) {
         changeHandler(event)
@@ -48,7 +50,13 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
 
     return (
       <div className={`textarea  ${className} ${hasError ? 'textarea--invalid' : ''}`}>
-        <Label text={label} required={required} disabled={disabled} labelAddons={labelAddons} />
+        <Label
+          text={label}
+          invalid={isErrorVisible}
+          required={required}
+          disabled={disabled}
+          labelAddons={labelAddons}
+        />
         <div className="textarea__inner">
           {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore */}
