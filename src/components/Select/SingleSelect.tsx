@@ -140,7 +140,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   })
 
   return (
-    <div className={classNames(`select select--${size}`, className)} ref={containerRef}>
+    <div data-id={`${dataId}-content`} className={classNames(`select select--${size}`, className)} ref={containerRef}>
       <div onClick={onOpenOptions}>
         <Input
           size={size}

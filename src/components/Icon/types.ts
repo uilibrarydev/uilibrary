@@ -21,4 +21,5 @@ export interface IconPropTypes {
   className?: string
   refHandler?: LegacyRef<HTMLElement> | undefined
   id?: number | string
+  dataId?: string
 }

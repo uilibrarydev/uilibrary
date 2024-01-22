@@ -9,10 +9,12 @@ const Icon = ({
   onClick,
   className = '',
   refHandler,
-  id = ''
+  id = '',
+  dataId = ''
 }: IconPropTypes): ReactElement => {
   return (
     <span
+      data-id={`${dataId}-icon`}
       className={classNames('icon', `icon--${size}`, {
         [`color-${type}`]: type,
         [className]: className
