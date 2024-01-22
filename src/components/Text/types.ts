@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export type TTextTypes =
   | 'primary'
   | 'secondary'
@@ -15,7 +17,7 @@ export type TTextTypes =
 export interface TextPropTypes {
   id?: string
   title?: string
-  children?: string | JSX.Element
+  children?: string | ReactNode
   type?:
     | 'primary'
     | 'secondary'
