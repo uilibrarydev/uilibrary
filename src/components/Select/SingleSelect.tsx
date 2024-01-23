@@ -139,8 +139,19 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
     input: inputRef.current
   })
 
+  useEffect(() => {
+    if (inputRef && inputRef.current) {
+      //@ts-ignore
+      inputRef.current.focus()
+    }
+  }, [inputRef])
+
   return (
-    <div data-id={`${dataId}-content`} className={classNames(`select select--${size}`, className)} ref={containerRef}>
+    <div
+      data-id={`${dataId}-content`}
+      className={classNames(`select select--${size}`, className)}
+      ref={containerRef}
+    >
       <div onClick={onOpenOptions}>
         <Input
           size={size}
