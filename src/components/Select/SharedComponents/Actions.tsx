@@ -30,7 +30,6 @@ export const Actions = (props: TProps): JSX.Element | null => {
         <Button type="tertiary" onClick={open} iconProps={{ name: 'more' }} size="small" />
         {buttonRef ? (
           <Menu
-            className={hasBottomSpace ? '' : 'actions_menu'}
             menuItems={selectActions}
             parentRef={buttonRef}
             onClose={close}

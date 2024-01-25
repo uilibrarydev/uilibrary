@@ -73,7 +73,7 @@
     }
   }
   &__open_top{
-    transform: translateY(-100%);
+    top: -10px !important;
   }
 
   &__option, &__option__inner, &__option__content {
