@@ -33,7 +33,7 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
     hasLimitation = false,
     isSelectAllDisabled = false
   } = props
-  const inputRef = useRef(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const { searchInputPlaceHolder, innerLabel, clearAllLabel, selectAllLabel } = translations || {}
 
@@ -72,7 +72,6 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
   const removeFilter = () => setSearchValue && setSearchValue('')
   useEffect(() => {
     if (inputRef && inputRef.current) {
-      //@ts-ignore
       inputRef.current.focus()
     }
   }, [inputRef])

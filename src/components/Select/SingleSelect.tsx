@@ -141,7 +141,6 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   useEffect(() => {
     if (inputRef && inputRef.current) {
-      //@ts-ignore
       inputRef.current.focus()
     }
   }, [inputRef])
