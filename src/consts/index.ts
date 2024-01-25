@@ -19,5 +19,6 @@ export const SCREEN_SIZES = {
 }
 
 export enum FILE_UPLOAD_ERRORS {
-  'size'
+  'size',
+  'type'
 }

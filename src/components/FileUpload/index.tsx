@@ -2,7 +2,12 @@ import React, { useCallback, useRef, useState } from 'react'
 import { FileUploadMode, TFileUploadProps } from './types'
 import Button from '../Button'
 import Label from '../../helperComponents/Label'
-import { checkIsAllowedFileSize, getFormattedValues, uniqueFiles } from '../../utils'
+import {
+  checkIsAllowedFileSize,
+  checkIsAllowedTypes,
+  getFormattedValues,
+  uniqueFiles
+} from '../../utils'
 import UploadItems from './uploadItems'
 import '../../assets/styles/components/_upload.scss'
 import Icon from '../Icon'
@@ -55,6 +60,14 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
     const allowedFiles = selectedFiles.filter((file) => {
       return !(fileAllowedSize && !checkIsAllowedFileSize(fileAllowedSize, file.size))
     })
+    const allowedFilesByExtension = selectedFiles.filter((file) => {
+      return !(allowedTypes && !checkIsAllowedTypes(allowedTypes, file.type))
+    })
+
+    if (allowedFilesByExtension.length !== selectedFiles.length) {
+      onError && onError(FILE_UPLOAD_ERRORS.type)
+      return
+    }
 
     if (allowedFiles.length !== selectedFiles.length) {
       onError && onError(FILE_UPLOAD_ERRORS.size)

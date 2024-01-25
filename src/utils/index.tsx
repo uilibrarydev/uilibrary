@@ -70,3 +70,6 @@ export const uniqueFiles = (files: File[]) =>
 export const checkIsAllowedFileSize = (allowedSize: number, fileSize: number): boolean => {
   return fileSize <= allowedSize
 }
+export const checkIsAllowedTypes = (allowedTypes: string, mimeType: string): boolean => {
+  return allowedTypes.includes(mimeType)
+}
