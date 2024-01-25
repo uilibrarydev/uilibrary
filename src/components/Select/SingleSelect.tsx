@@ -141,6 +141,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   useEffect(() => {
     if (inputRef && inputRef.current) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
       inputRef.current.focus()
     }

@@ -72,6 +72,7 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
   const removeFilter = () => setSearchValue && setSearchValue('')
   useEffect(() => {
     if (inputRef && inputRef.current) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
       inputRef.current.focus()
     }
