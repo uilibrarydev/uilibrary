@@ -54,9 +54,6 @@ interface MouseEvent extends EventTarget {
   target: TextEventTarget | StringEventTarget
 }
 
-type FieldError = {
-  message: string
-}
 declare type FieldErrors = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined

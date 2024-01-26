@@ -1,9 +1,9 @@
 import React from 'react'
-import { Badge as BadgeComp } from '../components'
+import { Badge } from '../components/Badge'
 
 export default {
   title: 'Badge',
-  component: BadgeComp,
+  component: Badge,
   argTypes: {
     type: {
       options: ['primary', 'secondary'],
@@ -16,11 +16,10 @@ export default {
   }
 }
 
-const Template = (args) => <BadgeComp {...args} />
+const Template = (args) => <Badge {...args} />
 
-export const Badge = Template.bind({})
-
-Badge.args = {
+export const BadgePlayground = Template.bind({})
+BadgePlayground.args = {
   text: '999+',
   type: 'primary',
   size: 'large'

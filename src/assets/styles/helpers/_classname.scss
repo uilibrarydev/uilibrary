@@ -1,8 +1,6 @@
 @use "sass:map";
 @use "sass:meta";
 
-@import "./mixin";
-
 body {
   font-family: var(--ds-font-family);
 }
