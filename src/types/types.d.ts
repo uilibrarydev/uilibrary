@@ -4,7 +4,10 @@ export {}
 
 declare global {
   type TItemValue = string | number | null
-  type TSelectedValue = { value: TItemValue; label: TItemLabel }
+  type TSelectedValue = {
+    value: TItemValue
+    label: TItemLabel
+  }
   declare type TItemLabel = string | number
 
   type TClickHandler = (e: TClickEventType) => void

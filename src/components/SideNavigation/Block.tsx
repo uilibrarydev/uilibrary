@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import Text from '../Text'
 import { TBlock } from './types'
 
-const Block = (props: TBlock) => {
+const Block = (props: TBlock): ReactElement => {
   const { children, label, open } = props
   return (
     <div className="side--navigation--block">

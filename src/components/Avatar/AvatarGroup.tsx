@@ -1,5 +1,5 @@
-import React, { ReactElement, useRef } from 'react'
-import { Popover, Tooltip } from '../../index'
+import React, { ReactElement } from 'react'
+import { Tooltip } from '../../index'
 import Icon from '../Icon'
 import { Avatar } from '../index'
 import { TAvatarGroupProps } from './types'
