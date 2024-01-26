@@ -1,5 +1,8 @@
 export type TPaginationProps = {
-  labels?: { next: string | JSX.Element; previous: string | JSX.Element }
+  labels?: {
+    next: string | JSX.Element
+    previous: string | JSX.Element
+  }
   totalCount: number
   page: number
   pageSize: number

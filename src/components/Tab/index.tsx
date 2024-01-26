@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
 import { TTabProps } from './types'
 import '../../assets/styles/components/_tab.scss'
 import TabItem from './TabItem'
 
-const Tab = (props: TTabProps) => {
+const Tab = (props: TTabProps): ReactElement => {
   const { selectedValue, tabItems, onSelect, ...rest } = props
 
   return (

@@ -1,7 +1,12 @@
 export const noop = (): void => {
   return undefined
 }
-export const getFont = (element: Element): { fontFamily: string; fontSize: string } => {
+export const getFont = (
+  element: Element
+): {
+  fontFamily: string
+  fontSize: string
+} => {
   const style = window.getComputedStyle(element)
   const fontFamily = style.getPropertyValue('font-family')
   const fontSize = style.getPropertyValue('font-size')
@@ -62,7 +67,7 @@ export const getFormattedValues = (files: File[]) => {
   return readers
 }
 
-export const uniqueFiles = (files: File[]) =>
+export const uniqueFiles = (files: File[]): File[] =>
   files.filter((file, index, self) => {
     return index === self.findIndex((f) => f.name === file.name)
   })

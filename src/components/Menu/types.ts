@@ -15,5 +15,4 @@ export type TMenuProps = {
   onClose: TCallBackFn
   position?: TTooltipPosition // 'right' | 'left' | 'top' | 'bottom'
   isOpen: boolean
-  dataId?: string
 }

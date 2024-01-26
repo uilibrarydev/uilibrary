@@ -21,6 +21,6 @@ export function setSelectedRows(hooks: Hooks, withSelect: boolean) {
   }
 }
 
-export function calcColumnWidth(percent: number, tableWidth: number) {
+export function calcColumnWidth(percent: number, tableWidth: number): number {
   return (percent * tableWidth) / 100
 }

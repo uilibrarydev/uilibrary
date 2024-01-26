@@ -5,7 +5,8 @@ import {
   useOnOutsideClick,
   useGetElemSizes,
   useGetTooltipPosition,
-  useGetElemPositions
+  useGetElemPositions,
+  useHideOnScroll
 } from '../../hooks'
 import { OptionItem } from '../../helperComponents'
 
@@ -19,12 +20,11 @@ const Menu = (props: TMenuProps): ReactElement | null => {
     onClose,
     isOpen,
     position = 'bottom-right',
-    className = '',
-    dataId = ''
+    className = ''
   } = props
   const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null)
   useOnOutsideClick(menuRef, onClose, isOpen, useId())
-
+  useHideOnScroll(onClose)
   const { left, top } = useGetElemPositions(parentRef)
   const { width, height } = useGetElemSizes(parentRef)
   const { width: menuWidth, height: menuHeight } = useGetElemSizes(menuRef)
