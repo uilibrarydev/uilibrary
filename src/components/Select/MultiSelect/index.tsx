@@ -66,7 +66,6 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   const [isOpen, setIsOpen] = useState(false)
   const [selectedValues, setSelectedValues] = useState<TSelectedValue[]>(initialSelected)
   const containerRef = useRef<HTMLDivElement | null>(null)
-  const { height: inputHeight } = useGetElemSizes(inputRef.current)
 
   const closeDropdown = () => setIsOpen(false)
   const openDropdown = () => setIsOpen(true)
@@ -170,7 +169,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
     }
     return options.length
   }, [options])
-  const { bottom, left } = useGetElemPositions(inputRef.current)
+  const { bottom, left, top } = useGetElemPositions(inputRef.current)
   const { width: containerWidth } = useGetElemSizes(containerRef.current)
 
   const SelectComp = withTabs ? MultiSelectWithTabs : isGrouped ? MultiSelectGrouped : MultiSelect
@@ -200,12 +199,13 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
       <>
         {isOpen && (
           <div
-            className={classNames('select__options', hasBottomSpace ? '' : 'select__open_top')}
+            className="select__options"
             ref={setDropdownRef}
             style={{
               left,
               width: containerWidth,
-              top: hasBottomSpace ? bottom : bottom - inputHeight - 10
+              top: hasBottomSpace ? bottom : 'initial',
+              bottom: hasBottomSpace ? 'initial' : window.innerHeight - top + 10
             }}
           >
             {isLoading ? (
