@@ -1,18 +1,18 @@
-import {LegacyRef, MouseEvent} from 'react'
+import { LegacyRef, MouseEvent } from 'react'
 
 export type TIconTypes =
-    | 'primary'
-    | 'secondary'
-    | 'tertiary'
-    | 'disabled'
-    | 'inverse'
-    | 'selected'
-    | 'brand'
-    | 'danger'
-    | 'warning'
-    | 'success'
-    | 'information'
-    | 'discovery'
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'disabled'
+  | 'inverse'
+  | 'selected'
+  | 'brand'
+  | 'danger'
+  | 'warning'
+  | 'success'
+  | 'information'
+  | 'discovery'
 
 export interface IconPropTypes {
   name?: string

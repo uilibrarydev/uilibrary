@@ -1,4 +1,4 @@
-import {IFormCompProps} from '../../types/types';
+import { IFormCompProps } from '../../types/types'
 
 export interface TBadgeProps extends IFormCompProps {
   text?: number | string

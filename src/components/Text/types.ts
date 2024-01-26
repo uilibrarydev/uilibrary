@@ -1,4 +1,4 @@
-import {MouseEvent, ReactElement} from 'react';
+import { MouseEvent, ReactElement } from 'react'
 
 type TTextTypes =
   | 'primary'
