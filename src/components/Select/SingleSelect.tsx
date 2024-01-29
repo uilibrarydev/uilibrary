@@ -76,8 +76,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
   useOnOutsideClick(containerRef.current, handleOutsideClick, isOpen, useId())
   useHideOnScroll(closeDropdown)
 
-  const { bottom, left } = useGetElemPositions(inputRef.current)
-  const { height: inputHeight } = useGetElemSizes(inputRef.current)
+  const { bottom, left, top } = useGetElemPositions(inputRef.current)
   const { width } = useGetElemSizes(containerRef.current)
 
   const filteredData = useMemo(() => {
@@ -178,8 +177,13 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
       {isOpen && (
         <div
-          className={classNames('select__options', hasBottomSpace ? '' : 'select__open_top')}
-          style={{ left, width, top: hasBottomSpace ? bottom : bottom - inputHeight - 10 }}
+          className="select__options"
+          style={{
+            left,
+            width,
+            top: hasBottomSpace ? bottom : 'initial',
+            bottom: hasBottomSpace ? 'initial' : window.innerHeight - top + 10
+          }}
           ref={setDropdownRef}
         >
           {isLoading ? (
