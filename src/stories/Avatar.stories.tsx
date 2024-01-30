@@ -34,7 +34,7 @@ Avatar.args = {
   initials: 'AG',
   color: 'default',
   size: 'large',
-  isEditable: false,
+  isEditable: true,
   imagePath: image.src,
   onAvatarChange: (file: File) => {
     console.log(file)

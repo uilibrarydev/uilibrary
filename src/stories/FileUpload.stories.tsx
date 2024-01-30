@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import React from 'react'
+import React, { useState } from 'react'
 import { FileUpload as FileUploadComp } from '../components'
 import { Icon } from '../index'
 
@@ -14,12 +14,20 @@ const getFiles = (files: FileList) => {
 }
 
 const Template = (args): JSX.Element => {
+  const [files, setFiles] = useState([])
+  const getFiles = (_files) => {
+    console.log('_files', _files)
+    if (_files && _files.length) {
+      setFiles(_files)
+    }
+  }
   return (
     <div style={{ width: 400 }}>
       <FileUploadComp
         {...args}
         getFiles={getFiles}
-        fileAllowedSize={900}
+        fileAllowedSize={9000000}
+        uploadedFiles={files}
         onError={(type) => console.log('type', type)}
       />
     </div>
@@ -31,6 +39,5 @@ FileUpload.args = {
   label: 'Label',
   buttonText: 'Attach file',
   isFileUploaded: false,
-  allowedTypes: ['PDF'],
   labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
 }
