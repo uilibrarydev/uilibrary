@@ -15,7 +15,7 @@ import { FILE_UPLOAD_ERRORS } from '../../consts'
 
 const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const {
-    allowedTypes = 'text/plain, image/*, .pdf, .doc, .docx',
+    allowedTypes = 'application/pdf, .png, .jpg, .jpeg, image/jpeg, image/png, image/jpg, text/plain, image/*, .pdf, .doc, .docx, application/vnd',
     label,
     getFiles,
     removeFiles,
@@ -57,7 +57,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   )
 
   const setFiles = (selectedFiles: File[]) => {
-    const allowedFiles = selectedFiles.filter((file) => {
+    const allowedFilesBySize = selectedFiles.filter((file) => {
       return !(fileAllowedSize && !checkIsAllowedFileSize(fileAllowedSize, file.size))
     })
     const allowedFilesByExtension = selectedFiles.filter((file) => {
@@ -68,8 +68,7 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
       onError && onError(FILE_UPLOAD_ERRORS.type)
       return
     }
-
-    if (allowedFiles.length !== selectedFiles.length) {
+    if (allowedFilesBySize.length !== selectedFiles.length) {
       onError && onError(FILE_UPLOAD_ERRORS.size)
       return
     }

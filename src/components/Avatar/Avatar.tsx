@@ -14,7 +14,7 @@ export const Avatar = ({
   initials = '',
   className = '',
   isEditable = false,
-  allowedTypes = '.png, .jpg, .jpeg',
+  allowedTypes = '.png, .jpg, .jpeg, image/jpeg, image/png, image/jpg',
   onError,
   fileAllowedSize,
   onAvatarChange
