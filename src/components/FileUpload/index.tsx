@@ -61,11 +61,9 @@ const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
       return !(fileAllowedSize && !checkIsAllowedFileSize(fileAllowedSize, file.size))
     })
     const allowedFilesByExtension = selectedFiles.filter((file) => {
-      console.log('file.type', file.type)
       return !(allowedTypes && !checkIsAllowedTypes(allowedTypes, file.type))
     })
 
-    console.log('allowedTypes', allowedTypes)
     if (allowedFilesByExtension.length !== selectedFiles.length) {
       onError && onError(FILE_UPLOAD_ERRORS.type)
       return
