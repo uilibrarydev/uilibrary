@@ -13,6 +13,6 @@ export interface TAlertProps extends IFormCompProps {
   buttonProps?: {
     confirm: TButtonPropTypes
     cancel?: TButtonPropTypes
-  },
+  }
   className?: string
 }

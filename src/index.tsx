@@ -101,5 +101,5 @@ export {
   Chips,
   Empty,
   Table,
-  Alert,
+  Alert
 }

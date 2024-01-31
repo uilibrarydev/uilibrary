@@ -95,5 +95,5 @@ export {
   Table,
   NavigationItem,
   SideNavigation,
-  Alert,
+  Alert
 }
