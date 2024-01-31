@@ -45,6 +45,7 @@ import Empty from './components/Empty'
 import { ProgressStep } from './components/ProgressStep'
 import { Table } from './components'
 import { Pagination } from './components'
+import { Alert } from './components'
 
 export {
   ProgressStep,
@@ -99,5 +100,6 @@ export {
   Status,
   Chips,
   Empty,
-  Table
+  Table,
+  Alert,
 }
