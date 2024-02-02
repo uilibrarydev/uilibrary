@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import {Button} from '../components/Button';
-import {Menu} from '../components/Menu';
+import { Button } from '../components/Button'
+import { Menu } from '../components/Menu'
 
 export default {
   title: 'Menu',
@@ -53,18 +53,18 @@ const Template = (args: any) => {
   const [open, setOpen] = useState(false)
 
   return (
-      <div>
-        <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
-          <Button onClick={() => setOpen(!open)} iconProps={{ name: 'more' }} />
-          <Menu
-              {...args}
-              onClose={() => setOpen(false)}
-              parentRef={ref}
-              menuItems={items}
-              isOpen={open}
-          />
-        </div>
+    <div>
+      <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
+        <Button onClick={() => setOpen(!open)} iconProps={{ name: 'more' }} />
+        <Menu
+          {...args}
+          onClose={() => setOpen(false)}
+          parentRef={ref}
+          menuItems={items}
+          isOpen={open}
+        />
       </div>
+    </div>
   )
 }
 

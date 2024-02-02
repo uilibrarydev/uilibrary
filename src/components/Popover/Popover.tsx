@@ -1,8 +1,8 @@
 import React, { useEffect, useId, useState } from 'react'
 import classNames from 'classnames'
 import { useHideOnScroll, useGetTooltipStyles, useOnOutsideClick } from '../../hooks'
-import {Text} from '../Text'
-import {Link} from '../Link'
+import { Text } from '../Text'
+import { Link } from '../Link'
 import { TPopoverProps } from './types'
 import '../../assets/styles/components/_popover.scss'
 

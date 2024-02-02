@@ -2,7 +2,7 @@ import React from 'react'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import imageFile from '../assets/images/avatar.jpg'
-import {Avatar} from '../components/Avatar';
+import { Avatar } from '../components/Avatar'
 
 const image = {
   src: imageFile,

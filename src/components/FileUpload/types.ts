@@ -1,5 +1,5 @@
 import { FILE_UPLOAD_ERRORS } from '../../consts'
-import {IFormCompProps} from '../../types/types';
+import { IFormCompProps } from '../../types/types'
 
 export interface TFileUploadProps extends IFormCompProps {
   allowedTypes?: string

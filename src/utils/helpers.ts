@@ -1,4 +1,4 @@
-import {TCreateErrorFieldParams} from '../types/types';
+import { TCreateErrorFieldParams } from '../types/types'
 
 export const noop = (): void => {
   return undefined
@@ -37,13 +37,10 @@ export const getFormattedValues = (files: File[]) => {
 }
 
 export const uniqueFiles = (files: File[]) =>
-    files.filter((file, index, self) => {
-      return index === self.findIndex((f) => f.name === file.name)
-    })
+  files.filter((file, index, self) => {
+    return index === self.findIndex((f) => f.name === file.name)
+  })
 
 export const checkIsAllowedTypes = (allowedTypes: string, mimeType: string): boolean => {
   return allowedTypes.includes(mimeType)
 }
-
-
-

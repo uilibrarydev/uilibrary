@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import React, { useState } from 'react'
-import {FileUpload} from '../components/FileUpload';
-import {Icon} from '../components/Icon';
+import { FileUpload } from '../components/FileUpload'
+import { Icon } from '../components/Icon'
 
 export default {
   title: 'FileUpload',
@@ -22,15 +22,15 @@ const Template = (args): JSX.Element => {
     }
   }
   return (
-      <div style={{ width: 400 }}>
-        <FileUpload
-            {...args}
-            getFiles={getFiles}
-            fileAllowedSize={9000000}
-            uploadedFiles={files}
-            onError={(type) => console.log('type', type)}
-        />
-      </div>
+    <div style={{ width: 400 }}>
+      <FileUpload
+        {...args}
+        getFiles={getFiles}
+        fileAllowedSize={9000000}
+        uploadedFiles={files}
+        onError={(type) => console.log('type', type)}
+      />
+    </div>
   )
 }
 export const FileUploadPlayground = Template.bind({})

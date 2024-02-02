@@ -1,6 +1,6 @@
 import React from 'react'
 import { LabelPropTypes } from './types'
-import {Text} from '../../components/Text'
+import { Text } from '../../components/Text'
 import './styles.scss'
 
 export const Label: React.FC<LabelPropTypes> = (props: LabelPropTypes) => {

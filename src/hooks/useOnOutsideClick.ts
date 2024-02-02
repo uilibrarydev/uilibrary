@@ -23,10 +23,10 @@ function handleMouseDownEvent(event: MouseEvent) {
 }
 
 export const useOnOutsideClick = (
-    ref: HTMLElement | null,
-    callback: (event: MouseEvent) => void,
-    state: boolean,
-    uid: string
+  ref: HTMLElement | null,
+  callback: (event: MouseEvent) => void,
+  state: boolean,
+  uid: string
 ): void => {
   useEffect(() => {
     if (ref && state && uid) {

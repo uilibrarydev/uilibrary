@@ -1,4 +1,4 @@
-import {MouseEvent} from 'react'
+import { MouseEvent } from 'react'
 export type TColor =
   | 'borderGray'
   | 'labelGray'
@@ -49,7 +49,7 @@ interface StringEventTarget extends EventTarget {
 }
 
 interface InputEvent extends EventTarget {
-  target: { value: string, className?: string }
+  target: { value: string; className?: string }
 }
 
 interface MouseEvent extends EventTarget {
@@ -67,7 +67,5 @@ interface FileEventTarget extends EventTarget {
 }
 
 export type TTextAreaEventType = ChangeEventHandler<HTMLTextAreaElement>
-
-
 
 declare module '*.svg'

@@ -4,7 +4,7 @@ export type TIconSize = 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large' | 'x
 
 export type TItemValue = string | number | null
 
-export type TSelectedValue = { value: TItemValue, label: TItemLabel }
+export type TSelectedValue = { value: TItemValue; label: TItemLabel }
 
 export type TItemLabel = string | number
 
@@ -110,16 +110,15 @@ export type TCallBackFn = () => void
 export type TDirtyFields = Partial<Readonly<{ [x: string]: unknown }>>
 
 export type TImageMimeTypes =
-    | 'image/jpeg'
-    | 'image/jpg'
-    | 'image/png'
-    | 'image/heic'
-    | 'image/heif'
-    | 'application/pdf'
+  | 'image/jpeg'
+  | 'image/jpg'
+  | 'image/png'
+  | 'image/heic'
+  | 'image/heif'
+  | 'application/pdf'
 
 export type TCreateErrorFieldParams = {
   e: MouseEvent<HTMLElement>
   file: File
   handleFileClick?: (file: File) => void
 }
-

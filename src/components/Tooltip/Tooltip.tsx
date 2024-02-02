@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
-import {Text} from '../Text'
+import { Text } from '../Text'
 import { useGetTooltipStyles, useHideOnScroll } from '../../hooks'
-import {TTooltipProps} from './types';
+import { TTooltipProps } from './types'
 import '../../assets/styles/components/_tooltip.scss'
 
 export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
@@ -48,27 +48,27 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   }, [parent])
 
   return (
-      <>
-        {isHovered && (
-            <div
-                style={tooltipStyles}
-                data-id={dataId}
-                className={classNames(`tooltip tooltip--${size} tooltip--${tooltipPosition}`, className)}
-                ref={tooltipRef}
-            >
-              <Text
-                  dataId={`${dataId}-text`}
-                  className="tooltip__inner"
-                  type="primary"
-                  weight="regular"
-                  lineHeight="small"
-                  size={`${size == 'small' ? 'xsmall' : 'small'}`}
-              >
-                {text}
-              </Text>
-            </div>
-        )}
-        {children}
-      </>
+    <>
+      {isHovered && (
+        <div
+          style={tooltipStyles}
+          data-id={dataId}
+          className={classNames(`tooltip tooltip--${size} tooltip--${tooltipPosition}`, className)}
+          ref={tooltipRef}
+        >
+          <Text
+            dataId={`${dataId}-text`}
+            className="tooltip__inner"
+            type="primary"
+            weight="regular"
+            lineHeight="small"
+            size={`${size == 'small' ? 'xsmall' : 'small'}`}
+          >
+            {text}
+          </Text>
+        </div>
+      )}
+      {children}
+    </>
   )
-};
+}
