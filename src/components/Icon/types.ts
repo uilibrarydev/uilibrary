@@ -1,4 +1,5 @@
 import { LegacyRef, MouseEvent } from 'react'
+import {TIconSize} from '../../types/types';
 
 export type TIconTypes =
   | 'primary'

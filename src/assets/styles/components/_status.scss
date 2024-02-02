@@ -1,4 +1,4 @@
-@import "../shared";
+@import "../helpers/mixin";
 
 .status {
   $this: &;
@@ -25,53 +25,36 @@
     min-width: var(--ds-status-circle-size-lg);
     height: var(--ds-status-circle-size-lg);
   }
+  &__circle--primary {
+    background-color: var(--ds-status-circle-bg-primary);
+  }
+  &__circle--information {
+    background-color: var(--ds-status-circle-bg-information);
+  }
+  &__circle--brand {
+    background-color: var(--ds-status-circle-bg-brand);
+  }
+  &__circle--danger {
+    background-color: var(--ds-status-circle-bg-danger);
+  }
+  &__circle--success {
+    background-color: var(--ds-status-circle-bg-success);
+  }
+  &__circle--warning {
+    background-color: var(--ds-status-circle-bg-warning);
+  }
+  &__circle--discovery {
+    background-color: var(--ds-status-circle-bg-discovery);
+  }
+  &__circle--disabled {
+    background-color: var(--ds-status-circle-bg-disabled);
+  }
 
   &--small {
     #{$this}__circle {
       width: var(--ds-status-circle-size-sm);
       min-width: var(--ds-status-circle-size-sm);
       height: var(--ds-status-circle-size-sm);
-    }
-  }
-
-  &--primary {
-    #{$this}__circle {
-      background-color: var(--ds-status-circle-bg-primary);
-    }
-  }
-  &--information {
-    #{$this}__circle {
-      background-color: var(--ds-status-circle-bg-information);
-    }
-  }
-  &--brand {
-    #{$this}__circle {
-      background-color: var(--ds-status-circle-bg-brand);
-    }
-  }
-  &--danger {
-    #{$this}__circle {
-      background-color: var(--ds-status-circle-bg-danger);
-    }
-  }
-  &--success {
-    #{$this}__circle {
-      background-color: var(--ds-status-circle-bg-success);
-    }
-  }
-  &--warning {
-    #{$this}__circle {
-      background-color: var(--ds-status-circle-bg-warning);
-    }
-  }
-  &--discovery {
-    #{$this}__circle {
-      background-color: var(--ds-status-circle-bg-discovery);
-    }
-  }
-  &--disabled {
-    #{$this}__circle {
-      background-color: var(--ds-status-circle-bg-disabled);
     }
   }
 }

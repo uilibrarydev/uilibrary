@@ -1,4 +1,4 @@
-@import "../shared";
+@import "../helpers/mixin";
 
 .controller {
   $this: &;
@@ -142,20 +142,20 @@
     cursor: default;
   }
 
-  &__label {
-    font: var(--ds-controller-font);
+  &__right {
+    @include flexbox;
+    @include flex-direction(column);
     padding: var(--ds-controller-label-padding);
     max-width: calc(100% - var(--ds-size-16));
+  }
+
+  &__label {
+    font: var(--ds-controller-font);
     word-break: break-word;
 
     sup {
       margin-left: 2px;
     }
-  }
-
-  &__helper {
-    flex: 100%;
-    padding: var(--ds-controller-helper-padding);
   }
 
   &--radio {

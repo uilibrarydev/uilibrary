@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from '../components/Link'
-import '../assets/styles/index.scss'
 
 export default {
   title: 'Link',

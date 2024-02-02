@@ -1,4 +1,4 @@
-@import "../shared";
+@import "../helpers/mixin";
 
 .table-wrapper {
   --ds-table-th-height: var(--ds-size-56);
@@ -29,6 +29,16 @@
           height: var(--ds-table-th-height);
           padding: var(--ds-table-th-padding);
           vertical-align: middle;
+
+         .unsorted__icon {
+           display: none;
+         }
+
+          &:hover {
+            .unsorted__icon {
+              display: block;
+            }
+          }
         }
       }
     }

@@ -90,9 +90,7 @@ const plugins = [
     ],
     flatten: false,
   }),
-  sass({
-      insert: true,
-  }),
+  sass(),
 ];
 
 export default [

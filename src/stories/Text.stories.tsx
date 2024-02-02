@@ -1,6 +1,5 @@
 import React from 'react'
 import { Text } from '../components/Text'
-import '../assets/styles/index.scss'
 
 export default {
   title: 'Text',

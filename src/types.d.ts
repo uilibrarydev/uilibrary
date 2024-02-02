@@ -1,5 +1,5 @@
-declare type TIconSize = 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge'
-declare type TColor =
+import {MouseEvent} from 'react'
+export type TColor =
   | 'borderGray'
   | 'labelGray'
   | 'justWhite'
@@ -16,9 +16,9 @@ declare type TColor =
   | 'footerUnderlineGray'
   | 'darkGray'
 
-declare type CallbackFnType = () => void
+export type CallbackFnType = () => void
 
-declare type TIconSizes = {
+export type TIconSizes = {
   [size in TIconSize]: string
 }
 
@@ -26,7 +26,7 @@ interface TCustomIcons {
   [iconName: string]: () => string
 }
 
-declare type TCustomColors = {
+export type TCustomColors = {
   [color: string]: string
 }
 
@@ -39,7 +39,7 @@ interface FieldError {
   message?: string
 }
 
-declare type TFormData = {
+export type TFormData = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }
@@ -47,42 +47,27 @@ declare type TFormData = {
 interface StringEventTarget extends EventTarget {
   text: string
 }
+
 interface InputEvent extends EventTarget {
-  target: { value: string; className?: string }
+  target: { value: string, className?: string }
 }
+
 interface MouseEvent extends EventTarget {
   target: TextEventTarget | StringEventTarget
 }
 
-declare type FieldErrors = {
+export type FieldErrors = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined
 }
-
-interface RefObject<T> {
-  readonly current: T | null
-}
-
-declare type TSetValue = (name: string, value: unknown, config?: { [key: string]: unknown }) => void
+export type TSetValue = (name: string, value: unknown, config?: { [key: string]: unknown }) => void
 
 interface FileEventTarget extends EventTarget {
   files: FileList
 }
 
-declare type TTextAreaEventType = ChangeEventHandler<HTMLTextAreaElement>
+export type TTextAreaEventType = ChangeEventHandler<HTMLTextAreaElement>
 
-declare type TCreateErrorFieldParams = {
-  errorMessage: string | undefined
-  name: string
-  errors: FieldErrors | undefined
-}
 
-declare type TImageMimeTypes =
-  | 'image/jpeg'
-  | 'image/jpg'
-  | 'image/png'
-  | 'image/heic'
-  | 'image/heif'
-  | 'application/pdf'
 
 declare module '*.svg'

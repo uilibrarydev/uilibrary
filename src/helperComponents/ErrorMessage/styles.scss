@@ -1,0 +1,6 @@
+@use '../../assets/styles/helpers/mixin';
+
+.error-message {
+    @include mixin.inline-flex;
+    @include mixin.align-items(center);
+}

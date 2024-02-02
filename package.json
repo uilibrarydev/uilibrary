@@ -1,7 +1,7 @@
 {
   "homepage": "https://dinofrontend.github.io/dino_ui_library",
   "name": "dino_ui_tools",
-  "version": "2.0.0-alpha.19",
+  "version": "2.0.0-alpha.37",
   "description": "",
   "private": false,
   "main": "index.js",
@@ -18,7 +18,8 @@
     "clean": "rm -rf dist",
     "prettier": "prettier --write \"./{src,stories}/**/**.{js,jsx,ts,tsx}\"",
     "check": "npm run prettier && npm run lint",
-    "install-latest": "npm install --legacy-peer-deps"
+    "install-latest": "npm install --legacy-peer-deps",
+    "publish-version": "cd ./dist && npm publish --tag alpha"
   },
   "eslintConfig": {
     "extends": [
@@ -67,6 +68,7 @@
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
     "css-loader": "^6.9.0",
+    "file-loader": "^6.2.0",
     "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-react": "^7.20.6",

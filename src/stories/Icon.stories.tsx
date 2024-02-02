@@ -1,7 +1,6 @@
 import React from 'react'
 import { Text } from '../components/Text'
 import { Icon } from '../components/Icon'
-import '../assets/styles/index.scss'
 
 const ICONS = [
   'redo',

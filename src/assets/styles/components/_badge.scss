@@ -1,4 +1,4 @@
-@use "../helpers/mixin";
+@import "../helpers/mixin";
 
 .badge {
   $this: &;
@@ -13,8 +13,8 @@
   --ds-badge-inner-padding-sm: 0 var(--ds-space-4);
   --ds-badge-font: var(--ds-font-weight-default) var(--ds-paragraph-xs)/0.8 var(--ds-font-family);
 
-  @include mixin.inline-flex;
-  @include mixin.align-items(center);
+  @include inline-flex;
+  @include align-items(center);
   border-radius: var(--ds-badge-border-radius);
 
   &__inner {

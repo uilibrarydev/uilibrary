@@ -17,7 +17,7 @@
   "typedocOptions": {
     "out": "docs",
     "exclude": "**/*+(e2e|spec|index).*",
-    "include": ["./jest-dom-setup.ts"],
+    "include": ["./src/index.d.ts"],
     "jsx": 1,
     "excludeNotExported": true,
     "excludePrivate": true,

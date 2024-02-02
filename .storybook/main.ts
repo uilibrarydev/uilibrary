@@ -19,6 +19,9 @@ const config: StorybookConfig = {
             test: /\.scss$/,
             use: ['style-loader', 'css-loader', 'sass-loader'],
             include: path.resolve(__dirname, '../')
+        }, {
+            test: /\.css$/i,
+            use: ["style-loader", "css-loader"],
         })
         return config
     }
