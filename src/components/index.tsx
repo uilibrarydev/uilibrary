@@ -41,6 +41,7 @@ import { Pagination } from './Pagination'
 import { Table } from './Table'
 import NavigationItem from './SideNavigation/NavigationItem'
 import SideNavigation from './SideNavigation'
+import { Alert } from './Alert'
 
 export {
   ProgressStep,
@@ -93,5 +94,6 @@ export {
   AvatarGroup,
   Table,
   NavigationItem,
-  SideNavigation
+  SideNavigation,
+  Alert
 }
