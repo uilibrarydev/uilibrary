@@ -1,9 +1,9 @@
 import React from 'react'
-import { Tooltip } from '../components/Tooltip'
+import { Tooltip as _Tooltip } from '../index'
 
 export default {
   title: 'Tooltip',
-  component: Tooltip,
+  component: _Tooltip,
   argTypes: {
     position: {
       options: [
@@ -38,7 +38,7 @@ const Template = (args) => {
         left: 400
       }}
     >
-      <Tooltip
+      <_Tooltip
         {...args}
         id="ooooo"
         // position="bottom-left"
@@ -48,9 +48,9 @@ const Template = (args) => {
   )
 }
 
-export const TooltipPlayground = Template.bind({})
+export const Tooltip = Template.bind({})
 
-TooltipPlayground.args = {
+Tooltip.args = {
   text: 'Prompt text Prompt text Prompt text Prompt text Prompt text Prompt text Prompt text Prompt text Prompt text Prompt text Prompt text Prompt text',
   // position: 'top-right',
   size: 'large'

@@ -1,4 +1,3 @@
-import { TCreateErrorFieldParams } from '../types/types'
 
 export const noop = (): void => {
   return undefined
@@ -8,7 +7,9 @@ export const checkIsAllowedFileSize = (allowedSize: number, fileSize: number): b
   return fileSize <= allowedSize
 }
 
-export const openFileInNewWindow = ({ e, file, handleFileClick }: TCreateErrorFieldParams) => {
+export const openFileInNewWindow = ({ e, file, handleFileClick }: {  e: TClickEventType
+  file: File
+  handleFileClick?: (file: File) => void }) => {
   e.preventDefault()
 
   if (handleFileClick) {
@@ -43,4 +44,19 @@ export const uniqueFiles = (files: File[]) =>
 
 export const checkIsAllowedTypes = (allowedTypes: string, mimeType: string): boolean => {
   return allowedTypes.includes(mimeType)
+}
+
+export const getStringWidth = (text: string, fontSize: number): number => {
+  const canvas = document.createElement('canvas')
+  const context = canvas.getContext('2d')
+  if (!context) {
+    return 0
+  }
+  context.font = fontSize + 'px Arial'
+
+  return context.measureText(text).width
+}
+
+export const setTranslationValue = (translation: string, value: string | number): string => {
+  return translation.replace('%s', value.toString())
 }

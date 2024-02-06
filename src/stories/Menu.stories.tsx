@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { Button } from '../components/Button'
-import { Menu } from '../components/Menu'
+import { Menu as _Menu, Button} from '../index'
 
 export default {
   title: 'Menu',
-  component: Menu,
+  component: _Menu,
   argTypes: {
     position: {
       type: ['left', 'right', 'bottom'],
@@ -56,7 +55,7 @@ const Template = (args: any) => {
     <div>
       <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
         <Button onClick={() => setOpen(!open)} iconProps={{ name: 'more' }} />
-        <Menu
+        <_Menu
           {...args}
           onClose={() => setOpen(false)}
           parentRef={ref}
@@ -68,8 +67,8 @@ const Template = (args: any) => {
   )
 }
 
-export const MenuPlayground = Template.bind({})
+export const Menu = Template.bind({})
 
-MenuPlayground.args = {
+Menu.args = {
   menuItems: []
 }

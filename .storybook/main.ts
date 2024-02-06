@@ -15,13 +15,15 @@ const config: StorybookConfig = {
         '@storybook/addon-links'
     ],
     webpackFinal: async (config, { configType }) => {
+        // @ts-ignore
         config.module.rules.push({
             test: /\.scss$/,
             use: ['style-loader', 'css-loader', 'sass-loader'],
             include: path.resolve(__dirname, '../')
         }, {
-            test: /\.css$/i,
+            test: /\.css$/,
             use: ["style-loader", "css-loader"],
+            include: path.resolve(__dirname, '../')
         })
         return config
     }

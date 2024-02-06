@@ -1,9 +1,9 @@
 import React from 'react'
-import { Button } from '../components/Button'
+import { Button as _Button } from '../index'
 
 export default {
   title: 'Button',
-  component: Button,
+  component: _Button,
   argTypes: {
     type: {
       options: ['primary', 'secondary', 'tertiary', 'danger', 'text', 'link'],
@@ -24,10 +24,10 @@ export default {
   }
 }
 
-const Template = (args) => <Button {...args} />
+const Template = (args) => <_Button {...args} />
 
-export const ButtonPlayground = Template.bind({})
-ButtonPlayground.args = {
+export const Button = Template.bind({})
+Button.args = {
   iconProps: {
     name: 'home'
   },

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Popover } from '../components/Popover'
+import {Popover as _Popover} from '../index'
 
 export default {
   title: 'Popover',
-  component: Popover,
+  component: _Popover,
   argTypes: {
     position: {
       options: [
@@ -24,7 +24,7 @@ export default {
 const Template = (args: any) => {
   return (
     <>
-      <Popover {...args} id="popover_test" />
+      <_Popover {...args} id="popover_test" />
       <div
         style={{
           position: 'absolute',
@@ -41,9 +41,9 @@ const Template = (args: any) => {
   )
 }
 
-export const PopoverPlayground = Template.bind({})
+export const Popover = Template.bind({})
 
-PopoverPlayground.args = {
+Popover.args = {
   linkAddons: {
     url: 'dasdsa',
     beforeLink:

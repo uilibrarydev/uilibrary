@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { FormContext, TFormContextProps } from './index'
+import { FormContext, TFormContextProps } from './types'
 
 export const WithFormFeedback = ({
   children

@@ -1,5 +1,4 @@
 import { TPopoverProps } from '../Popover/types'
-import { IFormCompProps } from '../../types/types'
 
 export interface TCheckboxProps extends IFormCompProps {
   label?: string | JSX.Element

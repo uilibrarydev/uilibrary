@@ -3,7 +3,6 @@ import { Icon } from '../Icon'
 import { TButtonPropTypes } from './types'
 import { Loader } from '../../helperComponents'
 import classnames from 'classnames'
-import { TIconSize } from '../../types/types'
 import '../../assets/styles/components/_button.scss'
 
 const LITE_LOADER_TYPES = ['primary', 'danger']

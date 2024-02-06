@@ -2,15 +2,17 @@ import React from 'react'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import imageFile from '../assets/images/avatar.jpg'
-import { Avatar } from '../components/Avatar'
+import {Avatar as _Avatar, AvatarGroup as _AvatarGroup} from '../index'
+import {TAvatarProps} from '../components/Avatar/types';
 
 const image = {
   src: imageFile,
   alt: 'my image'
 }
+
 export default {
   title: 'Avatar',
-  component: Avatar,
+  component: _Avatar,
   argTypes: {
     color: {
       options: ['default', 'purple', 'blue', 'green', 'red'],
@@ -27,11 +29,11 @@ export default {
   }
 }
 
-const Template = (args) => <Avatar {...args} />
+const Template = (args) => <_Avatar {...args} />
 
-export const AvatarPlayground = Template.bind({})
+export const Avatar = Template.bind({})
 
-AvatarPlayground.args = {
+Avatar.args = {
   initials: 'AG',
   color: 'default',
   size: 'large',
@@ -40,4 +42,58 @@ AvatarPlayground.args = {
   onAvatarChange: (file: File) => {
     console.log(file)
   }
+}
+
+// AvatarGroup
+const Avatars = [
+  {
+    initials: 'G M',
+    tooltipContent: 'G M'
+  },
+  {
+    imagePath: image.src,
+    tooltipContent: 'AVATAR'
+  },
+  {
+    initials: 'T M',
+    tooltipContent: 'T M'
+  },
+  {
+    imagePath: image.src
+  },
+  {
+    initials: 'T M'
+  },
+  {
+    imagePath: image.src
+  },
+  {
+    initials: 'T M'
+  },
+  {
+    imagePath: image.src
+  },
+  {
+    imagePath: image.src,
+    tooltipContent: 'AVATAR'
+  },
+  {
+    initials: 'T M',
+    tooltipContent: 'T M'
+  }
+] as TAvatarProps
+
+const AvatarGroupTemplate = (args) => {
+  return <_AvatarGroup {...args} />
+}
+
+export const AvatarGroup = AvatarGroupTemplate.bind({})
+
+AvatarGroup.args = {
+  maxCount: 0,
+  size: 'medium',
+  onAddUser: () => {
+    console.log('add user')
+  },
+  avatarGroup: Avatars
 }

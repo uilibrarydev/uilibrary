@@ -4,7 +4,6 @@ import { Icon } from '../Icon'
 import { Button } from '../Button'
 import { Label } from '../../helperComponents'
 import { UploadItems } from './UploadItems'
-import { TFormValue } from '../../types/types'
 import { FILE_UPLOAD_ERRORS } from '../../consts'
 import {
   checkIsAllowedFileSize,

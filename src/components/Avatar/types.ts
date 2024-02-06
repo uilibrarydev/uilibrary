@@ -1,6 +1,5 @@
 import { ReactElement } from 'react'
 import { FILE_UPLOAD_ERRORS } from '../../consts'
-import { IFormCompProps } from '../../types/types'
 
 export interface TAvatarProps extends IFormCompProps {
   allowedTypes?: string

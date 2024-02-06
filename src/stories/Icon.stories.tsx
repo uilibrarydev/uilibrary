@@ -1,6 +1,5 @@
 import React from 'react'
-import { Text } from '../components/Text'
-import { Icon } from '../components/Icon'
+import { Icon as _Icon, Text } from '../index'
 
 const ICONS = [
   'redo',
@@ -216,7 +215,7 @@ const ICONS = [
 
 export default {
   title: 'Icon',
-  component: Icon,
+  component: _Icon,
   argTypes: {
     type: {
       options: [
@@ -271,7 +270,7 @@ const Template = (args) => {
               backgroundColor: `${args.type == 'inverse' ? '#919191' : ''}`
             }}
           >
-            <Icon {...args} name={iconName} size={`${args.size}`} type={`${args.type}`} />
+            <_Icon {...args} name={iconName} size={`${args.size}`} type={`${args.type}`} />
           </div>
           <Text size="small">{iconName}</Text>
         </div>
@@ -280,8 +279,8 @@ const Template = (args) => {
   )
 }
 
-export const IconPlayground = Template.bind({})
-IconPlayground.args = {
+export const Icon = Template.bind({})
+Icon.args = {
   type: '',
   size: 'medium'
 }

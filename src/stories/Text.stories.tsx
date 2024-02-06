@@ -1,9 +1,9 @@
 import React from 'react'
-import { Text } from '../components/Text'
+import { Text as _Text } from '../index'
 
 export default {
   title: 'Text',
-  component: Text,
+  component: _Text,
   argTypes: {
     type: {
       options: [
@@ -40,13 +40,13 @@ export default {
 const Template = (args) => {
   return (
     <div style={{ padding: '20px', backgroundColor: `${args.type == 'inverse' ? '#919191' : ''}` }}>
-      <Text {...args}>{args.text}</Text>
+      <_Text {...args}>{args.text}</_Text>
     </div>
   )
 }
 
-export const TextPlayground = Template.bind({})
-TextPlayground.args = {
+export const Text = Template.bind({})
+Text.args = {
   type: 'primary',
   size: 'standard',
   lineHeight: 'large',

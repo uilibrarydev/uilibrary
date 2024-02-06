@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import { Checkbox } from '../components/Checkbox'
+import { Checkbox as _Checkbox } from '../index'
 
 export default {
   title: 'Checkbox',
-  component: Checkbox,
+  component: _Checkbox,
   argTypes: {}
 }
 
 const Template = (args) => {
   const [isChecked, setIsChecked] = useState(false)
   return (
-    <Checkbox
+    <_Checkbox
       {...args}
       selectedValue={isChecked}
       onClick={setIsChecked}
@@ -22,9 +22,9 @@ const Template = (args) => {
   )
 }
 
-export const CheckboxPlayground = Template.bind({})
+export const Checkbox = Template.bind({})
 
-CheckboxPlayground.args = {
+Checkbox.args = {
   dataId: 'id',
   disabled: false,
   required: false,

@@ -1,5 +1,4 @@
 import { ReactElement } from 'react'
-import { IFormCompProps } from '../../types/types'
 
 export interface TTooltipProps extends IFormCompProps {
   text: string | ReactElement

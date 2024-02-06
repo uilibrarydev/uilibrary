@@ -1,11 +1,3 @@
-import {
-  TCallBackFn,
-  TItemLabel,
-  TItemValue,
-  TSelectIconProps,
-  TTooltipPosition
-} from '../../types/types'
-
 export type TMenuItem = {
   label: TItemLabel
   value: TItemValue

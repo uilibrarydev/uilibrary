@@ -1,6 +1,5 @@
 import { ReactElement } from 'react'
 import { LinkPropTypes } from '../Link/types'
-import { IFormCompProps } from '../../types/types'
 
 export interface TPopoverProps extends IFormCompProps {
   clicked?: boolean

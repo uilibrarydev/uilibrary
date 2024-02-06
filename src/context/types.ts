@@ -11,8 +11,6 @@ import {
   UseFormTrigger
 } from 'react-hook-form'
 import { noop } from '../utils/helpers'
-import { FieldErrors, TFormData, TSetValue } from '../types'
-import { TDirtyFields } from '../types/types'
 
 export type TFormContextProps = {
   register?: UseFormRegister<TFormData>
@@ -30,6 +28,7 @@ export type TFormContextProps = {
   dirtyFields: TDirtyFields
   trigger?: UseFormTrigger<TFormData>
 }
+
 export const FormContext = createContext<TFormContextProps>({
   setValue: noop,
   isSubmitted: false,

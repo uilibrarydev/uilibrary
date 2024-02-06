@@ -2,13 +2,12 @@ import { useMemo } from 'react'
 import { useGetElemSizes } from './useGetElemSizes'
 import { useGetElemPositions } from './useGetElemPositions'
 import { useGetTooltipPosition } from './useGetTooltipPosition'
-import { TTooltipPosition } from '../types/types'
 
 const TOOLTIP_GAP = 8
 
 type TReturn = {
   tooltipPosition: TTooltipPosition
-  tooltipStyles: { top: number; left: number }
+  tooltipStyles: { top: number, left: number }
 }
 export const useGetTooltipStyles = ({
   initialPosition,

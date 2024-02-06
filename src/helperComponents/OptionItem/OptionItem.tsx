@@ -5,7 +5,6 @@ import { Icon } from '../../components/Icon'
 import { Tooltip } from '../../components/Tooltip'
 import { TSelectItemProps } from './types'
 import classNames from 'classnames'
-import { TClickEventType } from '../../types/types'
 
 export const OptionItem = (props: TSelectItemProps): JSX.Element => {
   const {

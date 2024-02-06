@@ -1,4 +1,3 @@
-import { TImageMimeTypes } from '../types/types'
 
 export const IMAGE_MIME_TYPES = ['image/jpeg', 'image/png', 'application/pdf']
 

@@ -1,17 +1,17 @@
 import React from 'react'
-import { Link } from '../components/Link'
+import { Link as _Link } from '../index'
 
 export default {
   title: 'Link',
-  component: Link
+  component: _Link
 }
 
 const Template = (args) => {
-  return <Link {...args} />
+  return <_Link {...args} />
 }
 
-export const LinkPlayground = Template.bind({})
-LinkPlayground.args = {
+export const Link = Template.bind({})
+Link.args = {
   children: 'Bro',
   url: '/',
   beforeLink: 'Hello',

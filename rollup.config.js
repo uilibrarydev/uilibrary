@@ -9,6 +9,7 @@ import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
 import generatePackageJson from 'rollup-plugin-generate-package-json';
 import sass from 'rollup-plugin-sass';
+import image from '@rollup/plugin-image';
 
 const extensions = ['.ts', '.tsx', '.js', '.jsx'];
 const ignoreExtensions = ['.stories.tsx', '.stories.d.ts'];
@@ -91,6 +92,7 @@ const plugins = [
     flatten: false,
   }),
   sass(),
+  image(),
 ];
 
 export default [
@@ -101,7 +103,6 @@ export default [
       assetFileNames: '[name][extname]',
     },
     external,
-    exclude: ['src/stories/**'],
     plugins: [...plugins, dtsGenerator(), generatePackageJson({
       inputFolder: '.',
       baseContents: (pkg) => ({
@@ -126,7 +127,6 @@ export default [
       { dir: 'dist/cjs', format: 'cjs' },
     ],
     external,
-    exclude: ['src/stories/**'],
     plugins: [...plugins],
   },
 ]

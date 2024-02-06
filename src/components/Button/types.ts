@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes, LegacyRef, ReactElement } from 'react'
-import { TClickEventType } from '../../types/types'
 
 export interface TButtonPropTypes extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   id?: string

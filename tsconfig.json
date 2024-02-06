@@ -1,29 +1,34 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "noImplicitAny": false,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "sourceMap": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "outDir": "dist",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true,
     "esModuleInterop": true,
-    "downlevelIteration": true
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "dist"
   },
-  "typedocOptions": {
-    "out": "docs",
-    "exclude": "**/*+(e2e|spec|index).*",
-    "include": ["./src/index.d.ts"],
-    "jsx": 1,
-    "excludeNotExported": true,
-    "excludePrivate": true,
-    "hideGenerator": true,
-    "includeVersion": true,
-    "allowSyntheticDefaultImports": true
-  },
-  "exclude": ["node_modules", "./src/assets", "./src/stories"]
+  "include": [
+    "src",
+    "types.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/stories/**"
+  ]
 }
