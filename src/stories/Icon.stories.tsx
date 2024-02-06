@@ -3,6 +3,8 @@ import { Meta } from '@storybook/react'
 import { Icon as IconComp, Text } from '../components'
 
 const ICONS = [
+  'calculator',
+  'calculator-hover',
   'redo',
   'redo-hover',
   'undo',
