@@ -64,12 +64,7 @@ const Template = (args) => {
 
   return (
     <div style={{ width: 500 }}>
-      <_ProgressStep
-        {...args}
-        steps={steps}
-        activeStep={activeStep}
-        setActiveStep={changeStep}
-      />
+      <_ProgressStep {...args} steps={steps} activeStep={activeStep} setActiveStep={changeStep} />
 
       <div className="mt-40">
         <Button buttonText={'back'} type="secondary" className="mr-8" />

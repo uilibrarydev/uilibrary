@@ -4,7 +4,7 @@ import DatePicker, { registerLocale } from 'react-datepicker'
 import hy from 'date-fns/locale/hy'
 import en from 'date-fns/locale/en-GB'
 import ru from 'date-fns/locale/ru'
-import {Input} from '../Input'
+import { Input } from '../Input'
 import { DateFormat, IRangeDatePickerProps } from './types'
 import '../../assets/styles/components/_date-picker.scss'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { HeadingPropTypes } from './types'
-import {noop} from '../../utils/helpers';
-import classNames from 'classnames';
+import { noop } from '../../utils/helpers'
+import classNames from 'classnames'
 
 export const Heading: React.FC<HeadingPropTypes> = (props: HeadingPropTypes) => {
   const {
@@ -20,12 +20,13 @@ export const Heading: React.FC<HeadingPropTypes> = (props: HeadingPropTypes) => 
       dataid={dataId}
       onClick={onClick}
       className={classNames(
-              'heading',
-              size && `heading-${size}`,
-              weight,
-              lineHeight && `lh-${lineHeight}`,
-              className
-          )}>
+        'heading',
+        size && `heading-${size}`,
+        weight,
+        lineHeight && `lh-${lineHeight}`,
+        className
+      )}
+    >
       {children}
     </As>
   )

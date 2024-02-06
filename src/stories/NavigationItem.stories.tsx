@@ -14,7 +14,7 @@ export default {
   }
 }
 
-const Template = (args: any) => <_NavigationItem {...args} As={props => <div>Hello</div>}/>
+const Template = (args: any) => <_NavigationItem {...args} As={(props) => <div>Hello</div>} />
 
 export const NavigationItem = Template.bind({})
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
-import {Icon} from '../Icon'
+import { Icon } from '../Icon'
 import {
   NEXT_LABEL_DEFAULT_TEXT,
   PREVIOUS_LABEL_DEFAULT_TEXT,

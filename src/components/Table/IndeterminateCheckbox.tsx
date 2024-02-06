@@ -1,5 +1,5 @@
 import React, { ForwardedRef, forwardRef, useEffect, useRef } from 'react'
-import {Checkbox} from '../Checkbox';
+import { Checkbox } from '../Checkbox'
 
 const CheckboxWithRef = forwardRef(Checkbox)
 

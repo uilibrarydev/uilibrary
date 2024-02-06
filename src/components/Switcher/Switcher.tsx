@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import classnames from 'classnames'
-import {Icon} from '../Icon'
-import {Label} from '../../helperComponents'
+import { Icon } from '../Icon'
+import { Label } from '../../helperComponents'
 import { TSwitcherProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
 

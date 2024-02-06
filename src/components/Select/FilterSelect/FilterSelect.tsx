@@ -1,10 +1,10 @@
 import React, { useCallback, useId, useState } from 'react'
-import {createPortal} from 'react-dom'
+import { createPortal } from 'react-dom'
 import { useOnOutsideClick, useHideOnScroll } from '../../../hooks'
 import { FilterDropdownContent } from './FilterDropdown'
 import { FilterGroupDropdownContent } from './FilterGroupDropdown'
 import { Footer, Loading } from '../SharedComponents'
-import {Input} from '../../Input'
+import { Input } from '../../Input'
 import { TFilterProps } from '../types'
 import '../../../assets/styles/components/_select.scss'
 

@@ -1,6 +1,6 @@
 import React, { forwardRef, ReactElement } from 'react'
 import { TRadioProps } from './types'
-import {Text} from '../Text'
+import { Text } from '../Text'
 import classnames from 'classnames'
 import '../../assets/styles/components/_controllers.scss'
 

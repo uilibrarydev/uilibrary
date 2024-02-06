@@ -2,8 +2,8 @@ import React, { ReactElement } from 'react'
 import { HeaderGroup, CellValue } from 'react-table'
 import classNames from 'classnames'
 import { calcColumnWidth, CHECKBOX_DEFAULT_WIDTH, CHECKBOX_HEADER_ID } from './utils'
-import {Icon} from '../Icon';
-import {Text} from '../Text';
+import { Icon } from '../Icon'
+import { Text } from '../Text'
 
 type Props = {
   fixedHeader?: boolean
@@ -12,7 +12,12 @@ type Props = {
   headerGroup: HeaderGroup
 }
 
-export function Header({ headerGroup, tableWidth, withSelect, fixedHeader = false }: Props): ReactElement {
+export function Header({
+  headerGroup,
+  tableWidth,
+  withSelect,
+  fixedHeader = false
+}: Props): ReactElement {
   return (
     <tr
       {...headerGroup.getHeaderGroupProps()}

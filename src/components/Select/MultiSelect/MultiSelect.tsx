@@ -23,7 +23,7 @@ import { MultiBase } from './MultiBase/MultiBase'
 import { MultiSelectGrouped } from './MultiSelectGrouped/MultiSelectGrouped'
 import { MultiSelectWithTabs } from './MultiSelectWithTabs/MultiSelectWithTabs'
 import { TMultiSelectPropTypes } from '../types'
-import {SELECTED_VISIBLE_MIN_COUNT, TRANSLATIONS_DEFAULT_VALUES} from '../constants';
+import { SELECTED_VISIBLE_MIN_COUNT, TRANSLATIONS_DEFAULT_VALUES } from '../constants'
 import '../../../assets/styles/components/_select.scss'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

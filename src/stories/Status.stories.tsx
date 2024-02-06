@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, Popover,  Status as _Status, Text } from '../index'
+import { Icon, Popover, Status as _Status, Text } from '../index'
 
 export default {
   title: 'Status',

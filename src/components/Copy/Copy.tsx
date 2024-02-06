@@ -1,7 +1,7 @@
 import React, { useState, useRef, ReactElement } from 'react'
-import {Button} from '../Button'
+import { Button } from '../Button'
 import { Popover } from '../Popover'
-import {TCopyProps} from './types';
+import { TCopyProps } from './types'
 import '../../assets/styles/components/_copy.scss'
 
 export const Copy = ({ textAfterCopy, className = '', text }: TCopyProps): ReactElement => {

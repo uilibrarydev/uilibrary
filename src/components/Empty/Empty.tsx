@@ -1,7 +1,7 @@
 import React from 'react'
-import {Text} from '../Text'
-import {Image} from '../Image'
-import {Button} from '../Button'
+import { Text } from '../Text'
+import { Image } from '../Image'
+import { Button } from '../Button'
 import { TEmptyProps } from './types'
 import classNames from 'classnames'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

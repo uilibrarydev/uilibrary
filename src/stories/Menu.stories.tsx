@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Menu as _Menu, Button} from '../index'
+import { Menu as _Menu, Button } from '../index'
 
 export default {
   title: 'Menu',

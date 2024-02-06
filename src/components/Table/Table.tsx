@@ -12,7 +12,7 @@ import {
 import { TColumn, TTableProps } from './types'
 import { setSelectedRows } from './utils'
 import Row from './Row'
-import {Header} from './Header'
+import { Header } from './Header'
 import '../../assets/styles/components/_table.scss'
 
 export function Table({

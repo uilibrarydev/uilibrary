@@ -1,6 +1,6 @@
 import React from 'react'
 import * as yup from 'yup'
-import {FormField, FormContainer as _FormContainer, Button, MultiSelect} from '../index'
+import { FormField, FormContainer as _FormContainer, Button, MultiSelect } from '../index'
 
 export default {
   title: 'Form Container',

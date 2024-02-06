@@ -4,9 +4,9 @@ import DatePicker, { registerLocale } from 'react-datepicker'
 import hy from 'date-fns/locale/hy'
 import en from 'date-fns/locale/en-GB'
 import ru from 'date-fns/locale/ru'
-import {Input} from '../Input'
+import { Input } from '../Input'
 import { ISimpleDatePickerProps } from './types'
-import {Label} from '../../helperComponents'
+import { Label } from '../../helperComponents'
 import '../../assets/styles/components/_date-picker.scss'
 
 registerLocale('hy', hy)

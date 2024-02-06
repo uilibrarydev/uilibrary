@@ -1,12 +1,12 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import {Divider} from '../../../Divider'
-import {Empty} from '../../../Empty'
-import {Tab} from '../../../Tab'
+import { Divider } from '../../../Divider'
+import { Empty } from '../../../Empty'
+import { Tab } from '../../../Tab'
 import { useGetElemSizes } from '../../../../hooks'
 import { OptionItem } from '../../../../helperComponents'
 import { ContentTop } from '../../SharedComponents'
 import { TMultiSelectGroupedProps } from '../../types'
-import {DROPDOWN_MAX_HEIGHT} from '../../constants';
+import { DROPDOWN_MAX_HEIGHT } from '../../constants'
 
 export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Element => {
   const {

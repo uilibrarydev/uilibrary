@@ -7,12 +7,12 @@ import {
   useGetHasBottomSpace,
   useHideOnScroll
 } from '../../../hooks'
-import {Input} from '../../Input'
-import {Text} from '../../Text'
+import { Input } from '../../Input'
+import { Text } from '../../Text'
 import { OptionItem } from '../../../helperComponents'
 import { Loading } from '../SharedComponents'
 import { TSingleSelectPropTypes } from '../types'
-import {SELECTED_VISIBLE_MIN_COUNT} from '../constants';
+import { SELECTED_VISIBLE_MIN_COUNT } from '../constants'
 import '../../../assets/styles/components/_select.scss'
 
 export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {

@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useState } from 'react'
 import {
-    Avatar,
-    Button,
-    NavigationItem,
-    SideNavigation as _SideNavigation,
-    Text,
-    Icon
+  Avatar,
+  Button,
+  NavigationItem,
+  SideNavigation as _SideNavigation,
+  Text,
+  Icon
 } from '../index'
-import {Block} from '../components/SideNavigation/Block'
+import { Block } from '../components/SideNavigation/Block'
 import { NavigationItemTypes } from '../components/SideNavigation/NavigationItem/types'
 // @ts-ignore
 import logo from '../assets/images/logo.svg'

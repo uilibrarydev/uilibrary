@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import React, { useState } from 'react'
-import { FileUpload as _FileUpload} from '../components/FileUpload'
+import { FileUpload as _FileUpload } from '../components/FileUpload'
 import { Icon } from '../components/Icon'
 
 export default {

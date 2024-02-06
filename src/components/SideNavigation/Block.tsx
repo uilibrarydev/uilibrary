@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import {Text} from '../Text'
+import { Text } from '../Text'
 import { TBlock } from './types'
 
 export const Block = (props: TBlock): ReactElement => {

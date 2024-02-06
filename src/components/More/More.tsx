@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Text} from '../Text'
+import { Text } from '../Text'
 import { TMorePropTypes } from './types'
 import '../../assets/styles/components/_more.scss'
 
@@ -26,4 +26,4 @@ export const More = (props: TMorePropTypes): JSX.Element => {
       </>
     </Text>
   )
-};
+}

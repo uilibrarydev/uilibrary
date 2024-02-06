@@ -1,5 +1,5 @@
 import React from 'react'
-import { Chips as _Chips} from '../components/Chips'
+import { Chips as _Chips } from '../components/Chips'
 
 export default {
   title: 'Chips',

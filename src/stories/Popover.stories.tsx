@@ -1,5 +1,5 @@
 import React from 'react'
-import {Popover as _Popover} from '../index'
+import { Popover as _Popover } from '../index'
 
 export default {
   title: 'Popover',

@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { Tooltip } from '../Tooltip'
-import {Icon} from '../Icon'
+import { Icon } from '../Icon'
 import { Avatar } from './Avatar'
 import { TAvatarGroupProps } from './types'
 import { useScreenSize } from '../../hooks'

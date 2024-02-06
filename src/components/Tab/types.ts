@@ -1,4 +1,3 @@
-
 export type TTabItem = {
   value: number | string
   label: string | JSX.Element

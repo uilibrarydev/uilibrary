@@ -1,4 +1,3 @@
-
 export interface TRadioProps extends IFormCompProps {
   label?: string | JSX.Element
   helperText?: string | JSX.Element

@@ -1,4 +1,3 @@
-
 export const noop = (): void => {
   return undefined
 }
@@ -7,9 +6,15 @@ export const checkIsAllowedFileSize = (allowedSize: number, fileSize: number): b
   return fileSize <= allowedSize
 }
 
-export const openFileInNewWindow = ({ e, file, handleFileClick }: {  e: TClickEventType
+export const openFileInNewWindow = ({
+  e,
+  file,
+  handleFileClick
+}: {
+  e: TClickEventType
   file: File
-  handleFileClick?: (file: File) => void }) => {
+  handleFileClick?: (file: File) => void
+}) => {
   e.preventDefault()
 
   if (handleFileClick) {

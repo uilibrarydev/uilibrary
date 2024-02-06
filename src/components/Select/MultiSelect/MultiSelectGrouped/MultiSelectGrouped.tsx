@@ -1,13 +1,13 @@
-import React, {useCallback, useMemo, useState} from 'react'
-import {Text} from '../../../Text'
-import {Icon} from '../../../Icon'
-import {Divider} from '../../../Divider'
-import {Empty} from '../../../Empty'
-import {useGetElemSizes} from '../../../../hooks'
-import {OptionItem} from '../../../../helperComponents'
-import {ContentTop} from '../../SharedComponents'
-import {TMultiSelectGroupedProps} from '../../types'
-import {DROPDOWN_MAX_HEIGHT} from '../../constants';
+import React, { useCallback, useMemo, useState } from 'react'
+import { Text } from '../../../Text'
+import { Icon } from '../../../Icon'
+import { Divider } from '../../../Divider'
+import { Empty } from '../../../Empty'
+import { useGetElemSizes } from '../../../../hooks'
+import { OptionItem } from '../../../../helperComponents'
+import { ContentTop } from '../../SharedComponents'
+import { TMultiSelectGroupedProps } from '../../types'
+import { DROPDOWN_MAX_HEIGHT } from '../../constants'
 
 export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element | null => {
   const {
@@ -42,27 +42,27 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     }
 
     return options.reduce(
-        (acc: TSelectGroupOptions, group: TSelectGroupOption): TSelectGroupOptions => {
-          const {data, title} = group
-          const groupData = data.filter((dataItem) => {
-            return (
-                typeof dataItem.label === 'string' &&
-                dataItem.label.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
-            )
-          })
+      (acc: TSelectGroupOptions, group: TSelectGroupOption): TSelectGroupOptions => {
+        const { data, title } = group
+        const groupData = data.filter((dataItem) => {
+          return (
+            typeof dataItem.label === 'string' &&
+            dataItem.label.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
+          )
+        })
 
-          if (groupData.length) {
-            return [
-              ...acc,
-              {
-                title,
-                data: groupData
-              }
-            ]
-          }
-          return acc
-        },
-        []
+        if (groupData.length) {
+          return [
+            ...acc,
+            {
+              title,
+              data: groupData
+            }
+          ]
+        }
+        return acc
+      },
+      []
     )
   }, [searchValue, options])
 

@@ -42,4 +42,4 @@ export const Stepper = (props: TStepperProps): JSX.Element => {
       stepCount={list.length}
     />
   )
-};
+}

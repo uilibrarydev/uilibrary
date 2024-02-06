@@ -67,12 +67,7 @@ const RangePicker = (): JSX.Element => {
 
   return (
     <div style={{ width: 300 }}>
-      <_RangeDatePicker
-        value={value}
-        changeHandler={setValue}
-        maxDate={new Date()}
-        locale={'hy'}
-      />
+      <_RangeDatePicker value={value} changeHandler={setValue} maxDate={new Date()} locale={'hy'} />
     </div>
   )
 }

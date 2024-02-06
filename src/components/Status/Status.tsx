@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
-import {Icon} from '../Icon'
-import {Text} from '../Text'
+import { Icon } from '../Icon'
+import { Text } from '../Text'
 import { TStatusProps } from './types'
 import classNames from 'classnames'
 import '../../assets/styles/components/_status.scss'

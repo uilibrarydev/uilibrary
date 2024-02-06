@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
-import {Radio} from './Radio'
+import { Radio } from './Radio'
 import { TRadioGroupProps, TRadioOptionItem } from './types'
-import {Label} from '../../helperComponents'
+import { Label } from '../../helperComponents'
 import classnames from 'classnames'
 import '../../assets/styles/components/_radion-group.scss'
 

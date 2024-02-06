@@ -3,10 +3,10 @@ import classnames from 'classnames'
 import { motion } from 'framer-motion'
 import { AnimatePresenceWrapper } from '../../helperComponents/AnimatePresenceWrapper'
 import { useHideBodyScroll, useOnOutsideClick } from '../../hooks'
-import {Button} from '../Button'
-import {Text} from '../Text'
+import { Button } from '../Button'
+import { Text } from '../Text'
 import { TModalPropTypes } from './types'
-import {Icon} from '../Icon'
+import { Icon } from '../Icon'
 import '../../assets/styles/components/_modal.scss'
 
 const DESKTOP_ANIMATION = {

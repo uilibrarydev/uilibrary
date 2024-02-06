@@ -1,4 +1,3 @@
-
 export interface ICounterProps extends IFormCompProps {
   min?: number
   max?: number

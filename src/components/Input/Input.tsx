@@ -3,9 +3,9 @@ import InputMask from 'react-input-mask'
 import classNames from 'classnames'
 import { NumericFormat } from 'react-number-format'
 import { InputCustomProps } from './types'
-import {Icon} from '../Icon'
-import {Label, ErrorMessage} from '../../helperComponents'
-import {Text} from '../Text'
+import { Icon } from '../Icon'
+import { Label, ErrorMessage } from '../../helperComponents'
+import { Text } from '../Text'
 import '../../assets/styles/components/_input.scss'
 
 export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(

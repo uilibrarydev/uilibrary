@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Breadcrumb as _Breadcrumb} from '../index'
+import { Breadcrumb as _Breadcrumb } from '../index'
 
 export default {
   title: 'Breadcrumb',

@@ -40,7 +40,7 @@ export * from './components/Text'
 export * from './components/Textarea'
 export * from './components/Tooltip'
 
-export {FormContext} from './context'
-export {useFormProps} from './hooks'
+export { FormContext } from './context'
+export { useFormProps } from './hooks'
 
-export {useFieldArray} from 'react-hook-form'
+export { useFieldArray } from 'react-hook-form'

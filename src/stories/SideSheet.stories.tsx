@@ -5,7 +5,8 @@ import {
   Modal,
   MultiSelect,
   SideSheet as _SideSheet,
-  FormContainer, FormField
+  FormContainer,
+  FormField
 } from '../index'
 import * as yup from 'yup'
 
@@ -111,38 +112,38 @@ const Template = (args: any) => {
                     )
                   }}
                 />
-              <div>
-                <span>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
-                  sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
-                  facere officiis possimus quidem fugiat animi? Possimus, cum non?
-                </span>
-                <span>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
-                  sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
-                  facere officiis possimus quidem fugiat animi? Possimus, cum non?
-                </span>
-                <span>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
-                  sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
-                  facere officiis possimus quidem fugiat animi? Possimus, cum non?
-                </span>
-                <span>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
-                  sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
-                  facere officiis possimus quidem fugiat animi? Possimus, cum non?
-                </span>
-                <span>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
-                  sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
-                  facere officiis possimus quidem fugiat animi? Possimus, cum non?
-                </span>
-                <span>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
-                  sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
-                  facere officiis possimus quidem fugiat animi? Possimus, cum non?
-                </span>
-              </div>
+                <div>
+                  <span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
+                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
+                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
+                  </span>
+                  <span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
+                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
+                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
+                  </span>
+                  <span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
+                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
+                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
+                  </span>
+                  <span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
+                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
+                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
+                  </span>
+                  <span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
+                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
+                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
+                  </span>
+                  <span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
+                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
+                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
+                  </span>
+                </div>
               </>
             </FormContainer>
           </div>
