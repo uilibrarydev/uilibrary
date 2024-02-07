@@ -191,6 +191,7 @@ const SingleSelect = (props: TSingleSelectPropTypes): JSX.Element | null => {
           ) : (
             <>
               <div
+                data-id={`${dataId}-options-content`}
                 ref={scrollRef}
                 className={classNames(
                   'select__options__scroll',
