@@ -49,7 +49,7 @@ interface TMultiSelectCompProps extends IFormCompProps, TSelectBaseProps {
   maxSelectCount: number
   isSearchAvailable: boolean
   helperText?: string
-  hasBottomSpace: boolean
+  scrollableContentStyle: { maxHeight?: number }
   translations: TSelectTranslations
   selectedValues: TSelectedValue[]
   setSelectedValues: (values: TSelectedValue[]) => void

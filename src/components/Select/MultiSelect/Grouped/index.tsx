@@ -26,7 +26,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     setSelectedValues,
     isSearchAvailable,
     labelLeftIconProps,
-    hasBottomSpace,
+    scrollableContentStyle,
     optionRightIconComponent,
     labelRightIconComponent,
     maxSelectCount
@@ -135,7 +135,6 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     <>
       {hasTopContent ? (
         <ContentTop
-          hasBottomSpace={hasBottomSpace}
           isSearchAvailable={isSearchAvailable}
           hasLimitation={!!maxSelectCount}
           selectAll={selectAll}
@@ -153,6 +152,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
         className={`select__options__scroll scrollbar scrollbar--vertical ${
           scrollHeight > DROPDOWN_MAX_HEIGHT ? 'mr-6' : ''
         }`}
+        style={scrollableContentStyle}
       >
         <div>
           {isSearchAvailable && (

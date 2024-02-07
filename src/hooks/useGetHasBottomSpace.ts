@@ -20,13 +20,13 @@ export const useGetHasBottomSpace = ({
 }: {
   element: HTMLDivElement | null
   input: HTMLInputElement | null
-}): boolean => {
+}): { hasBottomSpace: boolean; bottomSpace: number } => {
   const { height } = useGetElemSizes(element)
-  const hasTopSpace = useGetHasTopSpace({ element, input })
 
   const { bottom: inputBottom } = useGetElemPositions(input)
-  if (!hasTopSpace) {
-    return true
+
+  return {
+    hasBottomSpace: height < window.innerHeight - inputBottom,
+    bottomSpace: window.innerHeight - inputBottom
   }
-  return height < window.innerHeight - inputBottom
 }
