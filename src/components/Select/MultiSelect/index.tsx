@@ -25,6 +25,7 @@ import { MultiSelectWithTabs } from './WithTabs'
 import { SELECTED_VISIBLE_MIN_COUNT, TRANSLATIONS_DEFAULT_VALUES } from './consts'
 import { TMultiSelectPropTypes } from '../types'
 import '../../../assets/styles/components/_select.scss'
+import { useGetHasTopSpace } from '../../../hooks/useGetHasBottomSpace'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | null => {
@@ -174,7 +175,11 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
 
   const SelectComp = withTabs ? MultiSelectWithTabs : isGrouped ? MultiSelectGrouped : MultiSelect
 
-  const hasBottomSpace = useGetHasBottomSpace({
+  const { hasBottomSpace, bottomSpace } = useGetHasBottomSpace({
+    element: dropdownRef,
+    input: inputRef.current
+  })
+  const hasTopSpace = useGetHasTopSpace({
     element: dropdownRef,
     input: inputRef.current
   })
@@ -204,8 +209,8 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
             style={{
               left,
               width: containerWidth,
-              top: hasBottomSpace ? bottom : 'initial',
-              bottom: hasBottomSpace ? 'initial' : window.innerHeight - top + 10
+              top: hasBottomSpace || !hasTopSpace ? bottom : 'initial',
+              bottom: hasBottomSpace || !hasTopSpace ? 'initial' : window.innerHeight - top + 10
             }}
           >
             {isLoading ? (
@@ -217,7 +222,6 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
                   // @ts-ignore
                   options={options}
                   isOpen={isOpen}
-                  hasBottomSpace={hasBottomSpace}
                   translations={localizations}
                   selectedValues={selectedValues}
                   onItemSelect={onItemSelect}
@@ -226,6 +230,9 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
                   setSelectedValues={setSelectedValues}
                   checkIsValueOverflowed={checkIsValueOverflowed}
                   isSearchAvailable={optionsCount > SELECTED_VISIBLE_MIN_COUNT}
+                  scrollableContentStyle={{
+                    ...(!hasBottomSpace && !hasTopSpace ? { maxHeight: bottomSpace - 65 - 56 } : {})
+                  }} // 65 - height of the top content, 56 - height of the footer
                   {...rest}
                 />
               </>

@@ -15,7 +15,7 @@ import '../../../../assets/styles/components/_select.scss'
 export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null => {
   const {
     avatar,
-    hasBottomSpace,
+    scrollableContentStyle,
     options,
     helperText,
     translations,
@@ -97,7 +97,6 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
   return (
     <>
       <ContentTop
-        hasBottomSpace={hasBottomSpace}
         selectAll={selectAll}
         clearAll={clearAll}
         hasLimitation={!!maxSelectCount}
@@ -115,6 +114,7 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
         className={`select__options__scroll scrollbar scrollbar--vertical ${
           scrollHeight > DROPDOWN_MAX_HEIGHT ? 'mr-6' : ''
         }`}
+        style={scrollableContentStyle}
       >
         {isSearchAvailable && (
           <div className="selected-items">

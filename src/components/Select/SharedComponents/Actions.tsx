@@ -8,10 +8,9 @@ import { TMenuItem } from '../../Menu/types'
 type TProps = {
   selectActions: TMenuItem[]
   innerLabel?: string
-  hasBottomSpace?: boolean
 }
 export const Actions = (props: TProps): JSX.Element | null => {
-  const { selectActions, innerLabel, hasBottomSpace = true } = props
+  const { selectActions, innerLabel } = props
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [buttonRef, setButtonRef] = useState<HTMLDivElement | null>(null)

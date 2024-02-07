@@ -21,6 +21,7 @@
   --ds-select-option-font: var(--ds-font-weight-default) var(--ds-paragraph-sm)/var(--ds-line-height-tight) var(--ds-font-family);
 
   --ds-select-scroll-max-height: 300px;
+  --ds-select-scroll-min-height: 40px;
   --ds-select-scroll-padding: var(--ds-space-8) 0 var(--ds-space-4);
 
   --ds-select-top-padding: var(--ds-size-16) 0;
@@ -69,6 +70,7 @@
 
     &__scroll {
       max-height: var(--ds-select-scroll-max-height);
+      min-height: var(--ds-select-scroll-min-height);
       padding: var(--ds-select-scroll-padding);
     }
   }
