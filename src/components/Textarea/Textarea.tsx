@@ -3,7 +3,7 @@ import { ErrorMessage, Label } from '../../helperComponents'
 import { TTextAreaTypeProps } from './types'
 import { Text } from '../Text'
 import { Icon } from '../Icon'
-import '../../assets/styles/components/_textarea.scss'
+
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps>(
   (

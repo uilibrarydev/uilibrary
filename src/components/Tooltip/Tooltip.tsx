@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { Text } from '../Text'
 import { useGetTooltipStyles, useHideOnScroll } from '../../hooks'
 import { TTooltipProps } from './types'
-import '../../assets/styles/components/_tooltip.scss'
+
 
 export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const tooltipRef = useRef<HTMLDivElement | null>(null)

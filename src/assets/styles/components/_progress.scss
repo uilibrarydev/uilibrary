@@ -1,4 +1,4 @@
-@import "../helpers/mixin";
+@use "../helpers/mixin";
 
 .progress-bar {
     $this: &;
@@ -21,8 +21,8 @@
     font-family: var(--ds-font-family);
 
     &--linear {
-        @include flexbox;
-        @include align-items(center);
+        @include mixin.flexbox;
+        @include mixin.align-items(center);
 
         &#{$this}--large {
             height: var(--ds-progress-linear-size-lg);

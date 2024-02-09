@@ -1,9 +1,8 @@
-import React from 'react'
+import React, {ReactElement} from 'react'
 import { Icon } from '../Icon'
 import { TButtonPropTypes } from './types'
 import { Loader } from '../../helperComponents'
 import classnames from 'classnames'
-import '../../assets/styles/components/_button.scss'
 
 const LITE_LOADER_TYPES = ['primary', 'danger']
 
@@ -13,7 +12,7 @@ const ICON_SIZE_MAPPING: { [key: string]: TIconSize } = {
   small: 'xsmall'
 }
 
-export const Button = (props: TButtonPropTypes) => {
+export const Button = (props: TButtonPropTypes): ReactElement => {
   const {
     buttonText,
     type = 'primary',

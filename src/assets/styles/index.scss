@@ -1,13 +1,55 @@
 //helpers
-@import "helpers/reset";
-@import "helpers/mixin";
-@import "helpers/classname";
+@use "helpers/reset";
+@use "helpers/mixin";
+@use "helpers/classname";
 
 //tokens
-@import 'tokens/colors';
-@import 'tokens/fonts';
-@import 'tokens/spaces';
-@import 'tokens/sizes';
-@import 'tokens/borders';
-@import 'tokens/shadows';
-@import 'tokens/overlays';
+@use 'tokens/colors';
+@use 'tokens/fonts';
+@use 'tokens/spaces';
+@use 'tokens/sizes';
+@use 'tokens/borders';
+@use 'tokens/shadows';
+@use 'tokens/overlays';
+
+@use 'icomoon';
+
+//components
+@use 'components/avatar';
+@use 'components/badge';
+@use 'components/breadcrumb';
+@use 'components/button';
+@use 'components/chips';
+@use 'components/collapse';
+@use 'components/controllers';
+@use 'components/copy';
+@use 'components/counter';
+@use 'components/date-picker';
+@use 'components/divider';
+@use 'components/empty';
+@use 'components/error-message';
+@use 'components/file-upload';
+@use 'components/form-container';
+@use 'components/image';
+@use 'components/input';
+@use 'components/label';
+@use 'components/link';
+@use 'components/loader';
+@use 'components/modal';
+@use 'components/more';
+@use 'components/pagination';
+@use 'components/popover';
+@use 'components/progres-stepper';
+@use 'components/progress';
+@use 'components/radio-group';
+@use 'components/select';
+@use 'components/side-navigation';
+@use 'components/side-sheet';
+@use 'components/snackbar';
+@use 'components/status';
+@use 'components/tab';
+@use 'components/table';
+@use 'components/textarea';
+@use 'components/tooltip';
+
+@import "react-toastify/dist/ReactToastify.min.css";

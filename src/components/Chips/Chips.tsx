@@ -3,7 +3,7 @@ import { Icon } from '../Icon'
 import { Text } from '../Text'
 import { TChipsProps } from './types'
 import classNames from 'classnames'
-import '../../assets/styles/components/_chips.scss'
+
 
 enum ChipsActionIconSize {
   large = 'medium',

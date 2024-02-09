@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { Icon } from '../Icon'
 import { Label } from '../../helperComponents'
 import { TSwitcherProps } from './types'
-import '../../assets/styles/components/_controllers.scss'
+
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => {

@@ -1,5 +1,4 @@
-@import 'react-toastify/dist/ReactToastify.css';
-@import "../helpers/mixin";
+@use "../helpers/mixin";
 
 :root {
   --toastify-toast-width: 80%;
@@ -10,12 +9,12 @@
 .snackbar {
   $this: &;
 
-  @include flexbox;
-  @include align-items(center);
+  @include mixin.flexbox;
+  @include mixin.align-items(center);
 
   &__content {
-    @include flexbox;
-    @include align-items(flex-start);
+    @include mixin.flexbox;
+    @include mixin.align-items(flex-start);
     flex: 1;
   }
 

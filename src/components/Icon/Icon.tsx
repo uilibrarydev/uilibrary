@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import { IconPropTypes } from './types'
-import classNames from 'classnames'
+import classNames from 'classnames';
+
 
 export const Icon = ({
   name,

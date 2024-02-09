@@ -11,7 +11,6 @@ import {
   checkIsAllowedTypes,
   uniqueFiles
 } from '../../utils/helpers'
-import '../../assets/styles/components/_upload.scss'
 
 export const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const {

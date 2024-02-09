@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import classnames from 'classnames'
 import { Step } from './Step'
 import { TProgressStepProps } from './types'
-import '../../assets/styles/components/_progresStepper.scss'
+
 
 export const ProgressStep = (props: TProgressStepProps): ReactElement | null => {
   const {

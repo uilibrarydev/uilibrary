@@ -1,4 +1,4 @@
-@import "../helpers/mixin";
+@use "../helpers/mixin";
 
 .file-upload {
   --ds-upload-edit-icon-bg: var(--ds-color-bg-white);
@@ -15,10 +15,10 @@
 
   .edit__icon {
     z-index: 1;
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(center);
-    @include absolute(unset, 0, 0, unset);
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.justify-content(center);
+    @include mixin.absolute(unset, 0, 0, unset);
     width: var(--ds-upload-edit-icon-size);
     height: var(--ds-upload-edit-icon-size);
     border-radius: var(--ds-upload-edit-icon-border-radius);
@@ -41,8 +41,8 @@
 
   $this: &;
 
-  @include flexbox;
-  @include align-items(center);
+  @include mixin.flexbox;
+  @include mixin.align-items(center);
   width: 100%;
   height: var(--ds-upload-item-height);
   padding: var(--ds-upload-item-padding);
@@ -68,14 +68,14 @@
   &__inner {
     width: 100%;
 
-    @include flexbox;
-    @include flex-direction(column);
+    @include mixin.flexbox;
+    @include mixin.flex-direction(column);
   }
 
   &__content {
-    @include flexbox;
-    @include justify-content(space-between);
-    @include align-items(center);
+    @include mixin.flexbox;
+    @include mixin.justify-content(space-between);
+    @include mixin.align-items(center);
 
     &__inner {
       width: calc(100% - var(--ds-upload-item-button-size));
@@ -83,7 +83,7 @@
   }
 
   &__text {
-    @include truncate(100%);
+    @include mixin.truncate(100%);
     cursor: pointer;
   }
 }

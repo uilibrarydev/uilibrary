@@ -1,6 +1,5 @@
 import React from 'react'
 import { TBreadCrumbItem, TBreadCrumbProps } from './types'
-import '../../assets/styles/components/_breadcrumb.scss'
 
 export const Breadcrumb = (props: TBreadCrumbProps): JSX.Element | null => {
   const { selectedValue, breadCrumbItems, className = '', onSelect } = props

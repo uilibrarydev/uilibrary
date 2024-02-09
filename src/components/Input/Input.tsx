@@ -6,7 +6,7 @@ import { InputCustomProps } from './types'
 import { Icon } from '../Icon'
 import { Label, ErrorMessage } from '../../helperComponents'
 import { Text } from '../Text'
-import '../../assets/styles/components/_input.scss'
+
 
 export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
   (

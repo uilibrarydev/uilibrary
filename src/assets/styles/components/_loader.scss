@@ -1,0 +1,108 @@
+@use "../helpers/mixin";
+
+.loader {
+  $this: &;
+
+  --ds-loader-large-size: var(--ds-size-24);
+  --ds-loader-large-size-part: calc(var(--ds-loader-large-size)/2);
+
+  --ds-loader-medium-size: var(--ds-size-16);
+  --ds-loader-medium-size-part: calc(var(--ds-loader-medium-size)/2);
+
+  --ds-loader-small-size: var(--ds-size-12);
+  --ds-loader-small-size-part: calc(var(--ds-loader-small-size)/2);
+
+  --ds-loader-inner-border-radius: var(--ds-border-radius-full);
+  --ds-loader-inner-border: var(--ds-border-thin) solid;
+
+  @include mixin.animation('loader1 4.8s linear infinite');
+
+  &__inner {
+    display: block;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    @include mixin.absolute(0,0,0,0);
+    @include mixin.animation(' loader2 1.2s linear infinite');
+
+    &:after {
+      content: "";
+      margin: auto;
+      height: 100%;
+      width: 100%;
+      border-radius: var(--ds-loader-inner-border-radius);
+      border: var(--ds-loader-inner-border);
+      @include mixin.absolute(0,0,0,0);
+      @include mixin.animation('loader3 1.2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite');
+    }
+  }
+
+  &--large {
+    height: var(--ds-loader-large-size);
+    width: var(--ds-loader-large-size);
+
+    #{$this}__inner {
+      clip: rect(0, var(--ds-loader-large-size), var(--ds-loader-large-size), var(--ds-loader-large-size-part));
+
+      &:after {
+        clip: rect(0, var(--ds-loader-large-size), var(--ds-loader-large-size), var(--ds-loader-large-size-part));
+      }
+    }
+  }
+  &--medium {
+    height: var(--ds-loader-medium-size);
+    width: var(--ds-loader-medium-size);
+
+    #{$this}__inner {
+      clip: rect(0, var(--ds-loader-medium-size), var(--ds-loader-medium-size), var(--ds-loader-medium-size-part));
+
+      &:after {
+        clip: rect(0, var(--ds-loader-medium-size), var(--ds-loader-medium-size), var(--ds-loader-medium-size-part));
+      }
+    }
+  }
+  &--small {
+    height: var(--ds-loader-small-size);
+    width: var(--ds-loader-small-size);
+
+    #{$this}__inner {
+      clip: rect(0, var(--ds-loader-small-size), var(--ds-loader-small-size), var(--ds-loader-small-size-part));
+
+      &:after {
+        clip: rect(0, var(--ds-loader-small-size), var(--ds-loader-small-size), var(--ds-loader-small-size-part));
+      }
+    }
+  }
+
+  &--lite {
+    #{$this}__inner {
+      &:after {
+        border-color: var(--white);
+      }
+    }
+  }
+
+  &--dark {
+    #{$this}__inner {
+      &:after {
+        border-color: var(--grey-900);
+      }
+    }
+  }
+}
+
+@include mixin.keyframes(loader1) {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@include mixin.keyframes(loader2) {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(220deg); }
+}
+
+@include mixin.keyframes(loader3) {
+  0%   { transform: rotate(-140deg); }
+  50%  { transform: rotate(-160deg); }
+  100% { transform: rotate(140deg); }
+}

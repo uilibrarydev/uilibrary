@@ -1,4 +1,4 @@
-@import "../helpers/mixin";
+@use "../helpers/mixin";
 
 .collapse{
     border-radius: var(--border-radius-4);
@@ -9,7 +9,7 @@
     &_header{
         padding: var(--ds-space-16) var(--ds-space-24);
         cursor: pointer;
-        @include flexbox;
+        @include mixin.flexbox;
         width: 100%;
         justify-content: space-between;
         transition: background-color .15s ease-in-out;

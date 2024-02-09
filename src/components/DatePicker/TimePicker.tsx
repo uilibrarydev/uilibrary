@@ -10,7 +10,7 @@ import { Label } from '../../helperComponents'
 registerLocale('hy', hy)
 registerLocale('en', en)
 registerLocale('ru', ru)
-import '../../assets/styles/components/_date-picker.scss'
+
 
 export const TimePicker = (props: ITimePickerProps): JSX.Element => {
   const {

@@ -5,7 +5,7 @@ import { Icon } from '../Icon'
 import { Link } from '../Link'
 import { Text } from '../Text'
 import { TCheckboxProps } from './types'
-import '../../assets/styles/components/_controllers.scss'
+
 
 export const Checkbox = (
   props: TCheckboxProps,

@@ -6,7 +6,7 @@ import { AnimatePresenceWrapper } from '../../helperComponents/AnimatePresenceWr
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { TSideSheetPropTypes } from './types'
-import '../../assets/styles/components/_side-sheet.scss'
+
 
 export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   const {

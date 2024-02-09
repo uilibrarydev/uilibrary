@@ -7,7 +7,7 @@ import { Button } from '../Button'
 import { Text } from '../Text'
 import { TModalPropTypes } from './types'
 import { Icon } from '../Icon'
-import '../../assets/styles/components/_modal.scss'
+
 
 const DESKTOP_ANIMATION = {
   initial: { opacity: 0.5, scale: 0.65 },

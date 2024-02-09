@@ -7,7 +7,7 @@ import classNames from 'classnames'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import noResultImage from '../../assets/images/no-result.svg'
-import '../../assets/styles/components/_empty.scss'
+
 
 export const Empty = (props: TEmptyProps): JSX.Element => {
   const {

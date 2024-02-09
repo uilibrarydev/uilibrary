@@ -1,23 +1,23 @@
-@import "../helpers/mixin";
+@use "../helpers/mixin";
 
 .radio-group {
   $this: &;
 
   --radio-group-item-space: var(--ds-space-8);
 
-  @include flexbox;
-  @include flex-direction(column);
+  @include mixin.flexbox;
+  @include mixin.flex-direction(column);
 
   &__inner {
-    @include inline-flex;
-    @include flex-wrap(wrap);
-    @include align-items(flex-start);
+    @include mixin.inline-flex;
+    @include mixin.flex-wrap(wrap);
+    @include mixin.align-items(flex-start);
   }
 
   &--horizontal {
     #{$this}__inner {
-      @include flex-wrap(wrap);
-      @include align-items(flex-start);
+      @include mixin.flex-wrap(wrap);
+      @include mixin.align-items(flex-start);
       margin-top: calc(var(--radio-group-item-space) * -1);
     }
 
@@ -33,7 +33,7 @@
 
   &--vertical {
     #{$this}__inner {
-      @include flex-direction(column);
+      @include mixin.flex-direction(column);
     }
 
     #{$this}__item {

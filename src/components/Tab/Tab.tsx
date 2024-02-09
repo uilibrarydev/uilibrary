@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { TTabProps } from './types'
 import { TabItem } from './TabItem'
-import '../../assets/styles/components/_tab.scss'
+
 
 export const Tab = (props: TTabProps): ReactElement => {
   const { selectedValue, tabItems, onSelect, ...rest } = props

@@ -10,7 +10,7 @@ type Props = {
   selectedFlatRows: RowType[]
 }
 
-function Row({ row, selectedFlatRows, withSelect, handleRowClick }: Props): ReactElement {
+export function Row({ row, selectedFlatRows, withSelect, handleRowClick }: Props): ReactElement {
   const isRowSelected = useMemo(
     () => selectedFlatRows.find((r) => r.id === row.id),
     [selectedFlatRows]
@@ -44,6 +44,4 @@ function Row({ row, selectedFlatRows, withSelect, handleRowClick }: Props): Reac
       })}
     </tr>
   )
-}
-
-export default Row
+};

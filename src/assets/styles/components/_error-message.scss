@@ -1,4 +1,4 @@
-@use '../../assets/styles/helpers/mixin';
+@use '../helpers/mixin';
 
 .error-message {
     @include mixin.inline-flex;

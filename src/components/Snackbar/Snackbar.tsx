@@ -6,7 +6,6 @@ import { Button } from '../Button'
 import { Icon } from '../Icon'
 import { TSnackbarProps, TToastProps } from './types'
 import { DEFAULT_DURATION, ICONS_MAPPING, TYPE_MAPPING } from './consts'
-import '../../assets/styles/components/_snackbar.scss'
 
 const CustomToast = ({ actionProps, toastId, type = 'information', text }: TToastProps) => {
   return (

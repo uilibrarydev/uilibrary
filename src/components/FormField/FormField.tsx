@@ -5,7 +5,6 @@ import { FormContext } from '../../context'
 import { Controller } from 'react-hook-form'
 import { TFormFieldPropTypes } from './types'
 import classnames from 'classnames'
-import '../../assets/styles/components/_form.scss'
 
 export const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
   const { As, name, className = '', dataId = '' } = props

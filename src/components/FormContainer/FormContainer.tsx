@@ -5,7 +5,6 @@ import classnames from 'classnames'
 import { FormContext } from '../../context'
 import { FormPropTypes } from './types'
 import { Button } from '../Button'
-import '../../assets/styles/components/_form.scss'
 
 export const FormContainer = (props: FormPropTypes): JSX.Element => {
   const {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { ImagePropTypes } from './types'
-import '../../assets/styles/components/_image.scss'
+
 
 export const Image = (props: ImagePropTypes): JSX.Element => {
   const {

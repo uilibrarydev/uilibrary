@@ -8,7 +8,7 @@ import {
 } from './consts'
 import { TPaginationProps } from './types'
 import classNames from 'classnames'
-import '../../assets/styles/components/_pagination.scss'
+
 
 export const Pagination = (props: TPaginationProps): JSX.Element | null => {
   const {

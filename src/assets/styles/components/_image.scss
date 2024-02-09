@@ -1,12 +1,12 @@
-@import "../helpers/mixin";
+@use "../helpers/mixin";
 
 .image {
   max-width: 100%;
 
   &--bg {
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(center);
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.justify-content(center);
     background: var(--grey-30) no-repeat center;
     background-size: contain;
     width: 100%;

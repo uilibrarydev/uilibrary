@@ -1,4 +1,4 @@
-@import "../helpers/mixin";
+@use "../helpers/mixin";
 
 .btn {
   $this: &;
@@ -420,12 +420,12 @@
     pointer-events: none;
 
     #{$this}__icon {
-      @include animation(var(--ds-button-loader-animation));
+      @include mixin.animation(var(--ds-button-loader-animation));
     }
   }
 }
 
-@include keyframes(btn-spin) {
+@include mixin.keyframes(btn-spin) {
   100% {
     transform: rotate(360deg);
   }

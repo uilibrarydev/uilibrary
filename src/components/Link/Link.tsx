@@ -1,7 +1,7 @@
 import React from 'react'
 import { LinkPropTypes } from './types'
 import classNames from 'classnames'
-import '../../assets/styles/components/_link.scss'
+
 
 export const Link: React.FC<LinkPropTypes> = (props) => {
   const { children, afterLink, beforeLink, className = '', url, dataId = '', target } = props

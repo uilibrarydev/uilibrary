@@ -1,7 +1,7 @@
 {
   "homepage": "https://dinofrontend.github.io/dino_ui_library",
   "name": "dino_ui_tools",
-  "version": "2.0.0-alpha.40",
+  "version": "2.0.0-alpha.54",
   "description": "",
   "private": false,
   "main": "index.js",
@@ -96,7 +96,7 @@
     "rollup-plugin-sass": "^1.12.21",
     "rollup-plugin-typescript2": "^0.32.1",
     "sass-loader": "^10.4.1",
-    "storybook": "^7.6.9",
+    "storybook": "^7.6.12",
     "style-loader": "^3.3.4",
     "ts-loader": "^8.0.4",
     "typescript": "^4.9.5",

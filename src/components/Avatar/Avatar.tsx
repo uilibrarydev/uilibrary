@@ -2,7 +2,6 @@ import React, { ReactElement, useState } from 'react'
 import { TAvatarProps } from './types'
 import classNames from 'classnames'
 import { FileUpload, FileUploadMode } from '../FileUpload'
-import '../../assets/styles/components/_avatar.scss'
 
 export const Avatar = ({
   id,

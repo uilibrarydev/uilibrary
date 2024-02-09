@@ -3,7 +3,7 @@ import { Input } from '../Input'
 import { ICounterProps } from './types'
 import classNames from 'classnames'
 import { noop } from '../../utils/helpers'
-import '../../assets/styles/components/_counter.scss'
+
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Counter = forwardRef((props: ICounterProps, ref): JSX.Element => {

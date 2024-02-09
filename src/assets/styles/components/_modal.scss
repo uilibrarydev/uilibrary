@@ -1,4 +1,4 @@
-@import "../helpers/mixin";
+@use "../helpers/mixin";
 
 .modal {
   $this: &;
@@ -21,10 +21,10 @@
 
   --ds-modal-footer-padding: var(--ds-space-16) var(--ds-space-24);
 
-  @include fixed(0,0,0,0);
-  @include flexbox;
-  @include justify-content(center);
-  @include align-items(center);
+  @include mixin.fixed(0,0,0,0);
+  @include mixin.flexbox;
+  @include mixin.justify-content(center);
+  @include mixin.align-items(center);
   height: 100%;
   width: 100%;
   z-index: 99999;
@@ -32,8 +32,8 @@
   background-color: var(--ds-modal-overlay-bg);
 
   &__container {
-    @include flexbox;
-    @include flex-direction(column);
+    @include mixin.flexbox;
+    @include mixin.flex-direction(column);
     width: 100%;
     max-height: calc(100vh - calc(var(--ds-modal-overlay-padding) * 2));
     border-radius: var(--ds-modal-border-radius);
@@ -42,15 +42,15 @@
   }
 
   &__header {
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(space-between);
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.justify-content(space-between);
     padding: var(--ds-modal-header-padding);
     border-bottom: var(--ds-modal-content-border-width) solid var(--ds-modal-content-border-color);
   }
 
   &__title {
-    @include truncate(100%);
+    @include mixin.truncate(100%);
     flex: 1;
   }
 
@@ -59,9 +59,9 @@
   }
 
   &__footer {
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(flex-end);
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.justify-content(flex-end);
     padding: var(--ds-modal-footer-padding);
     border-top: var(--ds-modal-content-border-width) solid var(--ds-modal-content-border-color);
   }

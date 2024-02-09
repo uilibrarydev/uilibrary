@@ -3,7 +3,6 @@ import { Radio } from './Radio'
 import { TRadioGroupProps, TRadioOptionItem } from './types'
 import { Label } from '../../helperComponents'
 import classnames from 'classnames'
-import '../../assets/styles/components/_radion-group.scss'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element => {

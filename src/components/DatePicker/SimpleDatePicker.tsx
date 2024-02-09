@@ -7,7 +7,7 @@ import ru from 'date-fns/locale/ru'
 import { Input } from '../Input'
 import { ISimpleDatePickerProps } from './types'
 import { Label } from '../../helperComponents'
-import '../../assets/styles/components/_date-picker.scss'
+
 
 registerLocale('hy', hy)
 registerLocale('en', en)

@@ -1,4 +1,4 @@
-@import "../helpers/mixin";
+@use "../helpers/mixin";
 
 .controller {
   $this: &;
@@ -52,9 +52,9 @@
 
   //----------//
 
-  @include inline-flex;
-  @include flex-wrap(wrap);
-  @include align-items(center);
+  @include mixin.inline-flex;
+  @include mixin.flex-wrap(wrap);
+  @include mixin.align-items(center);
   cursor: pointer;
 
   input[type="checkbox"],
@@ -65,9 +65,9 @@
     position: absolute;
 
     & + #{$this}__icon {
-      @include flexbox;
-      @include align-items(center);
-      @include justify-content(center);
+      @include mixin.flexbox;
+      @include mixin.align-items(center);
+      @include mixin.justify-content(center);
       position: relative;
       width: var(--ds-controller-size);
       min-width: var(--ds-controller-size);
@@ -143,8 +143,8 @@
   }
 
   &__right {
-    @include flexbox;
-    @include flex-direction(column);
+    @include mixin.flexbox;
+    @include mixin.flex-direction(column);
     padding: var(--ds-controller-label-padding);
     max-width: calc(100% - var(--ds-size-16));
   }
@@ -200,9 +200,9 @@
         }
 
         #{$this}__icon__inner {
-          @include flexbox;
-          @include align-items(center);
-          @include justify-content(center);
+          @include mixin.flexbox;
+          @include mixin.align-items(center);
+          @include mixin.justify-content(center);
           border-radius: var(--ds-controller-border-radius-lg);
           background-color: var(--ds-controller-bg-default-light);
           position: absolute;

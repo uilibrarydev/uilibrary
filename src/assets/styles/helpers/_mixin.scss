@@ -272,21 +272,6 @@ $tokens: (
         font-weight: getFontWeight($size);
 }
 
-
-//font size rem
-//@function calculateRem($size) {
-//        $remSize: $size / 16px;
-//        @return $remSize * 1rem;
-//}
-//
-//@mixin font-size($size) {
-//        font-size: $size;
-//        font-size: calculateRem($size);
-//}
-//p {
-//        @include font-size(14px)
-//}
-
 //animation
 
 @mixin keyframes($animation-name) {

@@ -8,8 +8,8 @@ import {exec} from 'child_process';
 import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
 import generatePackageJson from 'rollup-plugin-generate-package-json';
-import sass from 'rollup-plugin-sass';
 import image from '@rollup/plugin-image';
+import postcss from 'rollup-plugin-postcss';
 
 const extensions = ['.ts', '.tsx', '.js', '.jsx'];
 const ignoreExtensions = ['.stories.tsx', '.stories.d.ts'];
@@ -81,17 +81,25 @@ const plugins = [
     babelrc: true,
     extensions,
     runtimeHelpers: true,
+    exclude: 'node_modules/**',
   }),
   commonjs({ include: 'node_modules/**' }),
+  postcss({
+    plugins: [],
+    inject: false,
+    extract: 'assets/styles/styles.scss',
+    sourceMap: false,
+    minimize: true,
+    extensions: ['.scss', '.css'],
+  }),
   copy({
     targets: [
-        { src: 'src/**/*.scss', dest: 'dist' },
-        { src: 'src/**/*.css', dest: 'dist' },
-        { src: 'src/assets/fonts/icomoon/fonts', dest: 'dist' }
+      { src: 'src/assets/fonts/icomoon/fonts', dest: 'dist' },
+      { src: 'src/assets/images/', dest: 'dist' },
+      { src: 'src/assets/styles/helpers/_mixin.scss', dest: 'dist'}
     ],
     flatten: false,
   }),
-  sass(),
   image(),
 ];
 
@@ -101,6 +109,7 @@ export default [
     output: {
       dir: 'dist',
       assetFileNames: '[name][extname]',
+      sourcemap: false
     },
     external,
     plugins: [...plugins, dtsGenerator(), generatePackageJson({
@@ -119,14 +128,5 @@ export default [
         sideEffects: false,
       }),
     }),],
-  },
-  {
-    input: 'src/index.ts',
-    output: [
-      { dir: 'dist/esm', format: 'esm' },
-      { dir: 'dist/cjs', format: 'cjs' },
-    ],
-    external,
-    plugins: [...plugins],
   },
 ]

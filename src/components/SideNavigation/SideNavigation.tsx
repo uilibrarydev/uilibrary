@@ -2,7 +2,7 @@ import { TSideNavigationPropTypes } from './types'
 import { Icon } from '../Icon'
 import React from 'react'
 import classNames from 'classnames'
-import '../../assets/styles/components/_side-navigation.scss'
+
 
 export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => {
   const { children, open, setOpen } = props
