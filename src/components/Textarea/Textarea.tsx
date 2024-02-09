@@ -4,7 +4,6 @@ import { TTextAreaTypeProps } from './types'
 import { Text } from '../Text'
 import { Icon } from '../Icon'
 
-
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps>(
   (
     {

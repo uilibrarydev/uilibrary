@@ -4,7 +4,7 @@ import { useHideOnScroll, useGetTooltipStyles, useOnOutsideClick } from '../../h
 import { Text } from '../Text'
 import { Link } from '../Link'
 import { TPopoverProps } from './types'
-// 
+//
 
 export const Popover = (props: TPopoverProps): JSX.Element | null => {
   const {

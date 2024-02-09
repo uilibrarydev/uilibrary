@@ -4,7 +4,6 @@ import { Text } from '../Text'
 import { useGetTooltipStyles, useHideOnScroll } from '../../hooks'
 import { TTooltipProps } from './types'
 
-
 export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const tooltipRef = useRef<HTMLDivElement | null>(null)
   const {

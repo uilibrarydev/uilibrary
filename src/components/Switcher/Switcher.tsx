@@ -4,7 +4,6 @@ import { Icon } from '../Icon'
 import { Label } from '../../helperComponents'
 import { TSwitcherProps } from './types'
 
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => {
   const {

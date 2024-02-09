@@ -11,7 +11,6 @@ registerLocale('hy', hy)
 registerLocale('en', en)
 registerLocale('ru', ru)
 
-
 export const TimePicker = (props: ITimePickerProps): JSX.Element => {
   const {
     value,

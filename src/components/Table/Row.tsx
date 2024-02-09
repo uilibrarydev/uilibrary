@@ -44,4 +44,4 @@ export function Row({ row, selectedFlatRows, withSelect, handleRowClick }: Props
       })}
     </tr>
   )
-};
+}

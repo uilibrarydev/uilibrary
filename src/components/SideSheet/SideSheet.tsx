@@ -7,7 +7,6 @@ import { Button } from '../Button'
 import { Text } from '../Text'
 import { TSideSheetPropTypes } from './types'
 
-
 export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   const {
     size = 'small',

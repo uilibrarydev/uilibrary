@@ -8,7 +8,6 @@ import { Input } from '../Input'
 import { ISimpleDatePickerProps } from './types'
 import { Label } from '../../helperComponents'
 
-
 registerLocale('hy', hy)
 registerLocale('en', en)
 registerLocale('ru', ru)

@@ -9,7 +9,7 @@ import {
 } from '../../hooks'
 import { OptionItem } from '../../helperComponents'
 import { TMenuProps, TMenuItem } from './types'
-import classNames from 'classnames';
+import classNames from 'classnames'
 
 export const Menu = (props: TMenuProps): ReactElement | null => {
   const {
@@ -55,7 +55,11 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
   }
 
   return ReactDOM.createPortal(
-    <div className={classNames('select', 'select--menu', className)} style={menuStyles} ref={setMenuRef}>
+    <div
+      className={classNames('select', 'select--menu', className)}
+      style={menuStyles}
+      ref={setMenuRef}
+    >
       {menuItems.map(({ label, meta, value, handler, iconProps, disabled, dataId }: TMenuItem) => {
         return (
           <OptionItem

@@ -3,7 +3,6 @@ import { Icon } from '../Icon'
 import React from 'react'
 import classNames from 'classnames'
 
-
 export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => {
   const { children, open, setOpen } = props
 

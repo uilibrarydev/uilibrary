@@ -4,7 +4,6 @@ import { Text } from '../Text'
 import { TStatusProps } from './types'
 import classNames from 'classnames'
 
-
 enum StatusTextSize {
   large = 'standard',
   medium = 'small',

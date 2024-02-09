@@ -11,9 +11,8 @@ import {
 } from 'react-table'
 import { TColumn, TTableProps } from './types'
 import { setSelectedRows } from './utils'
-import {Row} from './Row'
+import { Row } from './Row'
 import { Header } from './Header'
-
 
 export function Table({
   columns,

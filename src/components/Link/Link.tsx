@@ -2,7 +2,6 @@ import React from 'react'
 import { LinkPropTypes } from './types'
 import classNames from 'classnames'
 
-
 export const Link: React.FC<LinkPropTypes> = (props) => {
   const { children, afterLink, beforeLink, className = '', url, dataId = '', target } = props
   return beforeLink || afterLink ? (

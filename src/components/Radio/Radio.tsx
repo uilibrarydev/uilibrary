@@ -3,7 +3,6 @@ import { TRadioProps } from './types'
 import { Text } from '../Text'
 import classnames from 'classnames'
 
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Radio = forwardRef((props: TRadioProps, ref): ReactElement | null => {
   const {

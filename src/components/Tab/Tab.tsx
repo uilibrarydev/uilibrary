@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react'
 import { TTabProps } from './types'
 import { TabItem } from './TabItem'
 
-
 export const Tab = (props: TTabProps): ReactElement => {
   const { selectedValue, tabItems, onSelect, ...rest } = props
 

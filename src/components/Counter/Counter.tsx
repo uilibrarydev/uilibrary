@@ -4,7 +4,6 @@ import { ICounterProps } from './types'
 import classNames from 'classnames'
 import { noop } from '../../utils/helpers'
 
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Counter = forwardRef((props: ICounterProps, ref): JSX.Element => {
   const {

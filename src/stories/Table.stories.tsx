@@ -1,5 +1,5 @@
 import React from 'react'
-import {Table as _Table} from '../index'
+import { Table as _Table } from '../index'
 import { TColumn, TTableState } from '../components/Table/types'
 
 const data: any[] = [

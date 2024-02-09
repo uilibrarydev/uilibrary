@@ -7,7 +7,6 @@ import ru from 'date-fns/locale/ru'
 import { Input } from '../Input'
 import { DateFormat, IRangeDatePickerProps } from './types'
 
-
 registerLocale('hy', hy)
 registerLocale('en', en)
 registerLocale('ru', ru)

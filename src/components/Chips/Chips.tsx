@@ -4,7 +4,6 @@ import { Text } from '../Text'
 import { TChipsProps } from './types'
 import classNames from 'classnames'
 
-
 enum ChipsActionIconSize {
   large = 'medium',
   medium = 'small',

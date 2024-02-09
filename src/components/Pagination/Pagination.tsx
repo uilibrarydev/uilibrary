@@ -9,7 +9,6 @@ import {
 import { TPaginationProps } from './types'
 import classNames from 'classnames'
 
-
 export const Pagination = (props: TPaginationProps): JSX.Element | null => {
   const {
     labels = {

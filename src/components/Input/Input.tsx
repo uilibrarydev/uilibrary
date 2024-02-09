@@ -7,7 +7,6 @@ import { Icon } from '../Icon'
 import { Label, ErrorMessage } from '../../helperComponents'
 import { Text } from '../Text'
 
-
 export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
   (
     {

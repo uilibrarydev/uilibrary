@@ -3,7 +3,6 @@ import classnames from 'classnames'
 import { Step } from './Step'
 import { TProgressStepProps } from './types'
 
-
 export const ProgressStep = (props: TProgressStepProps): ReactElement | null => {
   const {
     steps,

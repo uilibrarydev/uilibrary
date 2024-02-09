@@ -3,7 +3,6 @@ import { Button } from '../Button'
 import { Popover } from '../Popover'
 import { TCopyProps } from './types'
 
-
 export const Copy = ({ textAfterCopy, className = '', text }: TCopyProps): ReactElement => {
   const [isTooltipVisible, setTooltipVisibility] = useState(false)
   const copyIconRef = useRef<HTMLDivElement | null>(null)

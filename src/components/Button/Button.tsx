@@ -1,4 +1,4 @@
-import React, {ReactElement} from 'react'
+import React, { ReactElement } from 'react'
 import { Icon } from '../Icon'
 import { TButtonPropTypes } from './types'
 import { Loader } from '../../helperComponents'

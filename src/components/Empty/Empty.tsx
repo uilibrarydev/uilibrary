@@ -8,7 +8,6 @@ import classNames from 'classnames'
 // @ts-ignore
 import noResultImage from '../../assets/images/no-result.svg'
 
-
 export const Empty = (props: TEmptyProps): JSX.Element => {
   const {
     size = 'large',

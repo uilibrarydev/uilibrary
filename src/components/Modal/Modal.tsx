@@ -8,7 +8,6 @@ import { Text } from '../Text'
 import { TModalPropTypes } from './types'
 import { Icon } from '../Icon'
 
-
 const DESKTOP_ANIMATION = {
   initial: { opacity: 0.5, scale: 0.65 },
   animate: { opacity: 1, scale: [0.95, 1] },

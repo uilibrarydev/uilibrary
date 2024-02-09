@@ -6,7 +6,6 @@ import { Link } from '../Link'
 import { Text } from '../Text'
 import { TCheckboxProps } from './types'
 
-
 export const Checkbox = (
   props: TCheckboxProps,
   ref: ForwardedRef<HTMLInputElement>
