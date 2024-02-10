@@ -96,6 +96,10 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
   }, [selectedItems])
 
   const cancelSelectedItems = useCallback(() => {
+    if (selectedValues?.length) {
+      setSelectedValues(selectedValues as TSelectedValue[])
+    }
+
     if (hasChange) {
       setSelectedValues(initialSelected)
     }
