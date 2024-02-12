@@ -37,8 +37,16 @@ export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => 
   }
 
   return (
-    <div className={classnames('switcher', {'switcher--inline' : inlineType})}>
-      {label && <Label text={label} disabled={disabled} labelAddons={labelAddons} size={inlineType ? 'standard' : size} className="switcher__label" />}
+    <div className={classnames('switcher', { 'switcher--inline': inlineType })}>
+      {label && (
+        <Label
+          text={label}
+          disabled={disabled}
+          labelAddons={labelAddons}
+          size={inlineType ? 'standard' : size}
+          className="switcher__label"
+        />
+      )}
       <label
         id={id}
         className={classnames(

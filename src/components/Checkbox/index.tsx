@@ -121,14 +121,12 @@ export const Checkbox = (
               {checkboxLabelPopover}
             </div>
             {helperText ? (
-                <Text size="small" type={disabled ? 'disabled' : 'secondary'}>
-                  {helperText}
-                </Text>
+              <Text size="small" type={disabled ? 'disabled' : 'secondary'}>
+                {helperText}
+              </Text>
             ) : null}
           </div>
-          ) : null
-        }
-
+        ) : null}
       </label>
     </>
   )
