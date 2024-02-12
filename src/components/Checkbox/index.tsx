@@ -114,17 +114,21 @@ export const Checkbox = (
             className="controller__mark"
           />
         </span>
-        <div className="controller__right">
-          <div className="flexbox">
-            {checkboxLabel}
-            {checkboxLabelPopover}
+        {checkboxLabel ? (
+          <div className="controller__right">
+            <div className="flexbox">
+              {checkboxLabel}
+              {checkboxLabelPopover}
+            </div>
+            {helperText ? (
+                <Text size="small" type={disabled ? 'disabled' : 'secondary'}>
+                  {helperText}
+                </Text>
+            ) : null}
           </div>
-          {helperText ? (
-            <Text size="small" type={disabled ? 'disabled' : 'secondary'}>
-              {helperText}
-            </Text>
-          ) : null}
-        </div>
+          ) : null
+        }
+
       </label>
     </>
   )
