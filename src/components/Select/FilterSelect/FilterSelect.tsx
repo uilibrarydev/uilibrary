@@ -6,7 +6,6 @@ import { FilterGroupDropdownContent } from './FilterGroupDropdown'
 import { Footer, Loading } from '../SharedComponents'
 import { Input } from '../../Input'
 import { TFilterProps } from '../types'
-import '../../../assets/styles/components/_select.scss'
 
 export const FilterSelect = (props: TFilterProps): JSX.Element | null => {
   const {

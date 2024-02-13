@@ -24,7 +24,6 @@ export const Text: React.FC<TextPropTypes> = (props: TextPropTypes) => {
       onClick={onClick}
       className={classNames(
         'body',
-        'white-space-pre-wrap',
         size && `body-${size}`,
         type && `color-${type}`,
         weight,

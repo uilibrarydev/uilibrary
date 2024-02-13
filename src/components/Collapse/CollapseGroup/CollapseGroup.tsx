@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { CollapseItem } from '../CollapseItem/CollapseItem'
-import '../../../assets/styles/components/_collapse.scss'
 
 import { TCollapseGroupProps, TCollapseItem, TCollapseValue } from '../types'
 

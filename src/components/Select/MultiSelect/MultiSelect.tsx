@@ -15,7 +15,8 @@ import {
   useGetElemSizes,
   useGetElemPositions,
   useGetHasBottomSpace,
-  useHideOnScroll
+  useHideOnScroll,
+  useGetHasTopSpace
 } from '../../../hooks'
 import { getStringWidth, setTranslationValue } from '../../../utils/helpers'
 import { Footer, Loading } from '../SharedComponents'
@@ -24,7 +25,6 @@ import { MultiSelectGrouped } from './MultiSelectGrouped/MultiSelectGrouped'
 import { MultiSelectWithTabs } from './MultiSelectWithTabs/MultiSelectWithTabs'
 import { TMultiSelectPropTypes } from '../types'
 import { SELECTED_VISIBLE_MIN_COUNT, TRANSLATIONS_DEFAULT_VALUES } from '../constants'
-import '../../../assets/styles/components/_select.scss'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | null => {
@@ -95,6 +95,10 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
   }, [selectedItems])
 
   const cancelSelectedItems = useCallback(() => {
+    if (selectedValues?.length) {
+      setSelectedValues(selectedValues as TSelectedValue[])
+    }
+
     if (hasChange) {
       setSelectedValues(initialSelected)
     }
@@ -174,7 +178,12 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
 
   const SelectComp = withTabs ? MultiSelectWithTabs : isGrouped ? MultiSelectGrouped : MultiBase
 
-  const hasBottomSpace = useGetHasBottomSpace({
+  const { hasBottomSpace, bottomSpace } = useGetHasBottomSpace({
+    element: dropdownRef,
+    input: inputRef.current
+  })
+
+  const hasTopSpace = useGetHasTopSpace({
     element: dropdownRef,
     input: inputRef.current
   })
@@ -204,8 +213,8 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
             style={{
               left,
               width: containerWidth,
-              top: hasBottomSpace ? bottom : 'initial',
-              bottom: hasBottomSpace ? 'initial' : window.innerHeight - top + 10
+              top: hasBottomSpace || !hasTopSpace ? bottom : 'initial',
+              bottom: hasBottomSpace || !hasTopSpace ? 'initial' : window.innerHeight - top + 10
             }}
           >
             {isLoading ? (
@@ -226,6 +235,9 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
                   setSelectedValues={setSelectedValues}
                   checkIsValueOverflowed={checkIsValueOverflowed}
                   isSearchAvailable={optionsCount > SELECTED_VISIBLE_MIN_COUNT}
+                  scrollableContentStyle={{
+                    ...(!hasBottomSpace && !hasTopSpace ? { maxHeight: bottomSpace - 65 - 56 } : {})
+                  }} // 65 - height of the top content, 56 - height of the footer
                   {...rest}
                 />
               </>

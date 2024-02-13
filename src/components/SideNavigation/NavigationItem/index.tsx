@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import { NavigationItemTypes, TNavigationLinkPropTypes } from './types'
 import { Icon } from '../../Icon'
 import { Badge } from '../../Badge'
-import '../../../assets/styles/components/_side-navigation.scss'
 
 export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement => {
   const {

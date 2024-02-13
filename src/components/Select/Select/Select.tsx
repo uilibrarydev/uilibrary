@@ -13,7 +13,6 @@ import { OptionItem } from '../../../helperComponents'
 import { Loading } from '../SharedComponents'
 import { TSingleSelectPropTypes } from '../types'
 import { SELECTED_VISIBLE_MIN_COUNT } from '../constants'
-import '../../../assets/styles/components/_select.scss'
 
 export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
@@ -191,6 +190,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
           ) : (
             <>
               <div
+                data-id={`${dataId}-options-content`}
                 ref={scrollRef}
                 className={classNames(
                   'select__options__scroll',

@@ -3,7 +3,6 @@ import { Input } from '../../Input'
 import { OptionItem } from '../../../helperComponents'
 import { useGetElemPositions, useGetElemSizes, useOnOutsideClick } from '../../../hooks'
 import { TNestedSelectProps } from '../types'
-import '../../../assets/styles/components/_select.scss'
 
 const LEVEL_LEFT_MARGIN = 10
 

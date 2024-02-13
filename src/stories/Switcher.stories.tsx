@@ -22,6 +22,7 @@ export const Switcher = Template.bind({})
 
 Switcher.args = {
   size: 'small',
+  inlineType: false,
   disabled: false,
   label: 'label',
   labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />

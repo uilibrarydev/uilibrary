@@ -16,7 +16,6 @@ type TProps = {
   translations?: TSelectTranslations
   isSearchAvailable?: boolean
   hasLimitation?: boolean
-  hasBottomSpace: boolean
 }
 
 export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
@@ -28,7 +27,6 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
     translations,
     isAnySelected,
     setSearchValue,
-    hasBottomSpace = true,
     isSearchAvailable = false,
     hasLimitation = false,
     isSelectAllDisabled = false
@@ -99,11 +97,7 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
         />
       )}
 
-      <Actions
-        selectActions={selectActions}
-        innerLabel={innerLabel}
-        hasBottomSpace={hasBottomSpace}
-      />
+      <Actions selectActions={selectActions} innerLabel={innerLabel} />
     </div>
   )
 })

@@ -12,7 +12,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
   const {
     avatar,
     options,
-    hasBottomSpace,
+    scrollableContentStyle,
     selectedValues,
     onItemSelect,
     onItemDeselect,
@@ -110,7 +110,6 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
         {<Tab selectedValue={activeTab} tabItems={tabs} onSelect={onTabSelect} size="small" />}
       </div>
       <ContentTop
-        hasBottomSpace={hasBottomSpace}
         isSearchAvailable={isSearchAvailable}
         clearAll={clearAll}
         selectAll={selectAll}
@@ -127,6 +126,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
         className={`select__options__scroll scrollbar scrollbar--vertical ${
           scrollHeight > DROPDOWN_MAX_HEIGHT ? 'mr-6' : ''
         }`}
+        style={scrollableContentStyle}
       >
         {isSearchAvailable && (
           <div className="selected_container">

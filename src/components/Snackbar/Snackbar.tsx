@@ -9,7 +9,7 @@ import { DEFAULT_DURATION, ICONS_MAPPING, TYPE_MAPPING } from './consts'
 
 const CustomToast = ({ actionProps, toastId, type = 'information', text }: TToastProps) => {
   return (
-    <div className="snackbar" key={toastId}>
+    <div data-id={`${type}-toast-message`} className="snackbar" key={toastId}>
       <div className="snackbar__content">
         <Icon name={ICONS_MAPPING[type]} type={TYPE_MAPPING[type]} size="medium" />
         <Text

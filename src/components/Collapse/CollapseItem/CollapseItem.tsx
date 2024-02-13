@@ -5,7 +5,6 @@ import { Icon } from '../../Icon'
 import { Divider } from '../../Divider'
 import { AnimatePresenceWrapper } from '../../../helperComponents/AnimatePresenceWrapper'
 import { TCollapseProps } from '../types'
-import '../../../assets/styles/components/_collapse.scss'
 
 export const CollapseItem = (props: TCollapseProps): JSX.Element => {
   const {

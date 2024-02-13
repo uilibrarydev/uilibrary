@@ -15,6 +15,7 @@
 @use 'icomoon';
 
 //components
+@use 'components/alert';
 @use 'components/avatar';
 @use 'components/badge';
 @use 'components/breadcrumb';
@@ -47,6 +48,7 @@
 @use 'components/side-sheet';
 @use 'components/snackbar';
 @use 'components/status';
+@use 'components/switcher';
 @use 'components/tab';
 @use 'components/table';
 @use 'components/textarea';

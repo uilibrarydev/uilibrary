@@ -2,6 +2,12 @@ import React from 'react'
 import { Icon as _Icon, Text } from '../index'
 
 const ICONS = [
+  'mobile',
+  'mobile-hover',
+  'save',
+  'save-hover',
+  'calculator',
+  'calculator-hover',
   'redo',
   'redo-hover',
   'undo',

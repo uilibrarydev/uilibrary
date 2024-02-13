@@ -4,6 +4,7 @@ export interface TSwitcherProps extends IFormCompProps {
   disabled?: boolean
   selectedValue?: boolean
   size?: 'large' | 'small'
+  inlineType?: boolean
   id?: string
   label?: string
   labelAddons?: JSX.Element
