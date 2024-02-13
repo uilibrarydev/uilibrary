@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 import { TButtonPropTypes } from '../Button/types'
 import { TTooltipProps } from '../Tooltip/types'
+import { TMenuItem } from '../Menu/types'
 
 interface TSelectBaseProps {
   error?: string
@@ -55,6 +56,7 @@ interface TMultiSelectCompProps extends IFormCompProps, TSelectBaseProps {
   setSelectedValues: (values: TSelectedValue[]) => void
   onItemSelect: (item: TSelectedValue) => void
   onItemDeselect: (item: TSelectedValue) => void
+  initialOptions?: TMenuItem[]
 }
 
 export interface TMultySingleTabPropTypes extends TMultiSelectCompProps {
@@ -66,6 +68,7 @@ export interface TMultiSelectGroupedProps extends TMultiSelectCompProps {
 }
 
 export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps {
+  dropdownWidth?: number
   helperText?: string
   maxSelectCount?: number
   withTabs?: boolean

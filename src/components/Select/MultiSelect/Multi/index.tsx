@@ -27,7 +27,8 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
     labelLeftIconProps,
     labelRightIconComponent,
     optionRightIconComponent,
-    maxSelectCount
+    maxSelectCount,
+    initialOptions
   } = props
 
   const { emptyListMainMessage, emptyListSecondaryMessage } = translations
@@ -97,6 +98,7 @@ export const MultiSelect = (props: TMultySingleTabPropTypes): JSX.Element | null
   return (
     <>
       <ContentTop
+        initialOptions={initialOptions}
         selectAll={selectAll}
         clearAll={clearAll}
         hasLimitation={!!maxSelectCount}

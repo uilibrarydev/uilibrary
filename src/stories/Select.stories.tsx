@@ -273,10 +273,18 @@ const MultiSelect1 = (args: any): JSX.Element => {
     setSelectedValues(value)
   }
   return (
-    <div style={{ width: 320, position: 'absolute', left: 300, top: 0 }} className="ddddd">
+    <div style={{ width: 250, position: 'absolute', left: 300, top: 0 }} className="ddddd">
       <MultiSelectComp
         {...args}
         isGrouped={true}
+        initialOptions={[
+          {
+            label: 'save template',
+            value: '1',
+            iconProps: { name: 'select-all' }
+          }
+        ]}
+        dropdownWidth={400}
         maxSelectCount={3}
         emptyListMessage="List is Empty"
         selectedItems={selectedValues}

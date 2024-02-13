@@ -52,6 +52,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
     isLoading,
     className = '',
     disabled,
+    dropdownWidth,
     ...rest
   } = props
 
@@ -212,7 +213,7 @@ const Select = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | nu
             ref={setDropdownRef}
             style={{
               left,
-              width: containerWidth,
+              width: dropdownWidth ? dropdownWidth : containerWidth,
               top: hasBottomSpace || !hasTopSpace ? bottom : 'initial',
               bottom: hasBottomSpace || !hasTopSpace ? 'initial' : window.innerHeight - top + 10
             }}
