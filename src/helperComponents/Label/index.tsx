@@ -6,6 +6,7 @@ import Text from '../../components/Text'
 const Label: React.FC<TextPropTypes> = (props: TextPropTypes) => {
   const {
     text,
+    size = 'small',
     required = false,
     disabled = false,
     invalid = false,
@@ -17,7 +18,7 @@ const Label: React.FC<TextPropTypes> = (props: TextPropTypes) => {
   }
   return (
     <Text
-      size="small"
+      size={size}
       type={invalid ? 'danger' : disabled ? 'disabled' : 'primary'}
       className={`label flexbox align-items--start ${className}`}
     >

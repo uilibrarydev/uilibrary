@@ -6,6 +6,7 @@ import Label from '../../helperComponents/Label'
 
 import { TSwitcherProps } from './types'
 import '../../assets/styles/components/_controllers.scss'
+import './index.scss'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => {
@@ -16,6 +17,7 @@ export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => 
     value,
     disabled,
     label,
+    inlineType = false,
     size = 'large',
     setFieldValue,
     selectedValue,
@@ -35,8 +37,16 @@ export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => 
   }
 
   return (
-    <div className="switcher">
-      {label && <Label text={label} disabled={disabled} labelAddons={labelAddons} />}
+    <div className={classnames('switcher', { 'switcher--inline': inlineType })}>
+      {label && (
+        <Label
+          text={label}
+          disabled={disabled}
+          labelAddons={labelAddons}
+          size={inlineType ? 'standard' : size}
+          className="switcher__label"
+        />
+      )}
       <label
         id={id}
         className={classnames(
