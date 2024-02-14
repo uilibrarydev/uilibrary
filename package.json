@@ -9,7 +9,7 @@
     "version": "echo $npm_package_version",
     "name": "echo $npm_package_name",
     "start": "react-scripts start",
-    "build": "rollup -c",
+    "build": "npm run clean && rollup -c",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006 public",
@@ -18,8 +18,7 @@
     "clean": "rm -rf dist",
     "prettier": "prettier --write \"./{src,stories}/**/**.{js,jsx,ts,tsx}\"",
     "check": "npm run prettier && npm run lint",
-    "install-latest": "npm install --legacy-peer-deps",
-    "publish-version": "cd ./dist && npm publish --tag alpha"
+    "install-latest": "npm install --legacy-peer-deps"
   },
   "eslintConfig": {
     "extends": [
