@@ -1,1 +1,1 @@
-export { useFieldArray } from 'react-hook-form';
+export { useFieldArray } from 'react-hook-form'
