@@ -23,7 +23,7 @@ const Label: React.FC<TextPropTypes> = (props: TextPropTypes) => {
     >
       <>
         {text}
-        {required ? <span className="label__important"> *</span> : null}
+        {required ? <sup>*</sup> : null}
         {labelAddons}
       </>
     </Text>
