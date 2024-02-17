@@ -118,6 +118,8 @@ const ICONS = [
   'mail-add-hover',
   'mail-arrow-forward',
   'mail-arrow-forward-hover',
+  'mail-link',
+  'mail-link-hover',
   'image',
   'image-hover',
   'link',
