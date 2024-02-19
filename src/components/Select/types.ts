@@ -69,6 +69,7 @@ export interface TMultiSelectGroupedProps extends TMultiSelectCompProps {
 
 export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps {
   dropdownWidth?: number
+  align?: 'left' | 'right'
   helperText?: string
   maxSelectCount?: number
   withTabs?: boolean

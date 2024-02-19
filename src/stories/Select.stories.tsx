@@ -273,7 +273,7 @@ const MultiSelect1 = (args: any): JSX.Element => {
     setSelectedValues(value)
   }
   return (
-    <div style={{ width: 250, position: 'absolute', left: 300, top: 0 }} className="ddddd">
+    <div style={{ width: 250, position: 'absolute', left: 500, top: 0 }} className="ddddd">
       <MultiSelectComp
         {...args}
         isGrouped={true}
@@ -285,6 +285,7 @@ const MultiSelect1 = (args: any): JSX.Element => {
           }
         ]}
         dropdownWidth={400}
+        align="right"
         maxSelectCount={3}
         emptyListMessage="List is Empty"
         selectedItems={selectedValues}
