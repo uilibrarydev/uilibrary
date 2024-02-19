@@ -82,6 +82,7 @@ const plugins = [
     extensions,
     runtimeHelpers: true,
     exclude: 'node_modules/**',
+      presets: ['@babel/preset-env'],
   }),
   commonjs({ include: 'node_modules/**' }),
   postcss({
@@ -127,6 +128,18 @@ export default [
         dependencies: pkg.dependencies,
         sideEffects: false,
       }),
-    }),],
+    })
+    ,
+    {
+      name: 'write-css',
+      async writeBundle(_, bundle) {
+        // stugma ete bundle um scss file a gtnum ...
+        if (bundle['assets/styles/styles.scss']) {
+          const cssContent = bundle['assets/styles/styles.scss'].source.toString();
+          fs.writeFileSync('dist/assets/styles/styles.css', cssContent); 
+        }
+      }
+    }
+  ],
   },
 ]
