@@ -275,10 +275,19 @@ const MultiSelectTemplate = (args: any): JSX.Element => {
     setSelectedValues(value)
   }
   return (
-    <div style={{ width: 320, position: 'absolute', left: 300, top: 'unset' }} className="ddddd">
+    <div style={{ width: 250, position: 'absolute', left: 500, top: 0 }} className="ddddd">
       <_MultiSelect
         {...args}
         isGrouped={true}
+        menuOptions={[
+          {
+            label: 'save template',
+            value: '1',
+            iconProps: { name: 'select-all' }
+          }
+        ]}
+        dropdownWidth={400}
+        align="right"
         maxSelectCount={3}
         emptyListMessage="List is Empty"
         selectedItems={selectedValues}

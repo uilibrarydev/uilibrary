@@ -16,6 +16,7 @@ type TProps = {
   translations?: TSelectTranslations
   isSearchAvailable?: boolean
   hasLimitation?: boolean
+  menuOptions?: TMenuItem[]
 }
 
 export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
@@ -29,14 +30,15 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
     setSearchValue,
     isSearchAvailable = false,
     hasLimitation = false,
-    isSelectAllDisabled = false
+    isSelectAllDisabled = false,
+    menuOptions = []
   } = props
   const inputRef = useRef<HTMLInputElement>(null)
 
   const { searchInputPlaceHolder, innerLabel, clearAllLabel, selectAllLabel } = translations || {}
 
   const selectActions = useMemo(() => {
-    let options: TMenuItem[] = []
+    let options: TMenuItem[] = menuOptions
 
     if (selectAll && selectAllLabel && !hasLimitation) {
       options = [
@@ -62,7 +64,15 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
       ]
     }
     return options
-  }, [selectAllLabel, selectAll, clearAll, clearAllLabel, isSelectAllDisabled, isAnySelected])
+  }, [
+    menuOptions,
+    selectAllLabel,
+    selectAll,
+    clearAll,
+    clearAllLabel,
+    isSelectAllDisabled,
+    isAnySelected
+  ])
   const onSearch = (e: TChangeEventType) => {
     setSearchValue && setSearchValue(e.target.value)
   }

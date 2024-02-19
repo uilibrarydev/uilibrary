@@ -51,6 +51,8 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
     isLoading,
     className = '',
     disabled,
+    dropdownWidth,
+    align = 'left',
     ...rest
   } = props
 
@@ -173,7 +175,7 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
     }
     return options.length
   }, [options])
-  const { bottom, left, top } = useGetElemPositions(inputRef.current)
+  const { bottom, left, top, right } = useGetElemPositions(inputRef.current)
   const { width: containerWidth } = useGetElemSizes(containerRef.current)
 
   const SelectComp = withTabs ? MultiSelectWithTabs : isGrouped ? MultiSelectGrouped : MultiBase
@@ -211,8 +213,8 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
             className="select__options"
             ref={setDropdownRef}
             style={{
-              left,
-              width: containerWidth,
+              left: align === 'left' ? left : right - (dropdownWidth || containerWidth),
+              width: dropdownWidth || containerWidth,
               top: hasBottomSpace || !hasTopSpace ? bottom : 'initial',
               bottom: hasBottomSpace || !hasTopSpace ? 'initial' : window.innerHeight - top + 10
             }}
