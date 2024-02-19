@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:  url('../fonts/icomoon/fonts/icomoon.eot?chdlvu');
-    src:  url('../fonts/icomoon/fonts/icomoon.eot?chdlvu#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon/fonts/icomoon.ttf?chdlvu') format('truetype'),
-    url('../fonts/icomoon/fonts/icomoon.woff?chdlvu') format('woff'),
-    url('../fonts/icomoon/fonts/icomoon.svg?chdlvu#icomoon') format('svg');
+    src:  url('../fonts/icomoon/fonts/icomoon.eot?gsyq2f');
+    src:  url('../fonts/icomoon/fonts/icomoon.eot?gsyq2f#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon/fonts/icomoon.ttf?gsyq2f') format('truetype'),
+    url('../fonts/icomoon/fonts/icomoon.woff?gsyq2f') format('woff'),
+    url('../fonts/icomoon/fonts/icomoon.svg?gsyq2f#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -25,11 +25,17 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-mobile-hover:before {
-    content: "\e9d5";
+.icon-mail-link:before {
+    content: "\e9d8";
+}
+.icon-mail-link-hover:before {
+    content: "\e9d7";
 }
 .icon-mobile:before {
     content: "\e9d6";
+}
+.icon-mobile-hover:before {
+    content: "\e9d5";
 }
 .icon-save:before {
     content: "\e9d3";

@@ -19,11 +19,11 @@ export const Label: React.FC<LabelPropTypes> = (props: LabelPropTypes) => {
     <Text
       size={size}
       type={invalid ? 'danger' : disabled ? 'disabled' : 'primary'}
-      className={`label flexbox align-items--start ${className}`}
+      className={`label flexbox align-items--start mb-4 ${className}`}
     >
       <>
         {text}
-        {required ? <span className="label_important"> *</span> : null}
+        {required ? <sup>*</sup> : null}
         {labelAddons}
       </>
     </Text>
