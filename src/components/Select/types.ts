@@ -56,7 +56,7 @@ interface TMultiSelectCompProps extends IFormCompProps, TSelectBaseProps {
   setSelectedValues: (values: TSelectedValue[]) => void
   onItemSelect: (item: TSelectedValue) => void
   onItemDeselect: (item: TSelectedValue) => void
-  initialOptions?: TMenuItem[]
+  menuOptions?: TMenuItem[]
 }
 
 export interface TMultySingleTabPropTypes extends TMultiSelectCompProps {

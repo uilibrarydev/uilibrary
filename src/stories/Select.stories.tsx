@@ -277,7 +277,7 @@ const MultiSelect1 = (args: any): JSX.Element => {
       <MultiSelectComp
         {...args}
         isGrouped={true}
-        initialOptions={[
+        menuOptions={[
           {
             label: 'save template',
             value: '1',
