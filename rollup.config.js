@@ -10,6 +10,8 @@ import pkg from './package.json';
 import generatePackageJson from 'rollup-plugin-generate-package-json';
 import image from '@rollup/plugin-image';
 import postcss from 'rollup-plugin-postcss';
+import { renderSync } from 'sass';
+
 
 const extensions = ['.ts', '.tsx', '.js', '.jsx'];
 const ignoreExtensions = ['.stories.tsx', '.stories.d.ts'];
@@ -74,6 +76,28 @@ const dtsGenerator = function (options) {
   };
 };
 
+function writeCSS() {
+  return {
+    name: 'write-css',
+    async generateBundle(_, bundle) {
+      const scssFile = bundle['assets/styles/styles.scss'];
+
+      if (scssFile) {
+        const scssContent = scssFile.source.toString();
+        const cssContent = renderSync({ data: scssContent }).css.toString();
+        
+        if (!fs.existsSync('dist/assets/styles')) {
+          fs.mkdirSync('dist/assets/styles', { recursive: true });
+        }
+
+        const cssFilePath = path.resolve('dist/assets/styles/styles.css');
+        fs.writeFileSync(cssFilePath, cssContent);
+      }
+    }
+  };
+}
+
+
 const plugins = [
   json(),
   resolve({ extensions }),
@@ -82,6 +106,7 @@ const plugins = [
     extensions,
     runtimeHelpers: true,
     exclude: 'node_modules/**',
+      presets: ['@babel/preset-env'],
   }),
   commonjs({ include: 'node_modules/**' }),
   postcss({
@@ -101,6 +126,7 @@ const plugins = [
     flatten: false,
   }),
   image(),
+  writeCSS(),
 ];
 
 export default [
@@ -127,6 +153,7 @@ export default [
         dependencies: pkg.dependencies,
         sideEffects: false,
       }),
-    }),],
+    })
+  ],
   },
 ]
