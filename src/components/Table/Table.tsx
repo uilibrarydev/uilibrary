@@ -13,6 +13,7 @@ import { TColumn, TTableProps } from './types'
 import { setSelectedRows } from './utils'
 import { Row } from './Row'
 import { Header } from './Header'
+import classNames from 'classnames'
 
 export function Table({
   columns,
@@ -20,7 +21,8 @@ export function Table({
   onChange,
   fixedHeader,
   withSelect = false,
-  handleRowClick
+  handleRowClick,
+  className
 }: TTableProps): ReactElement {
   const tableRef = useRef<HTMLTableElement | null>(null)
   const [tableWidth, setTableWidth] = useState(400)
@@ -88,7 +90,10 @@ export function Table({
 
   return (
     <div
-      className="table-wrapper scrollbar scrollbar--horizontal scrollbar--vertical"
+      className={classNames(
+        'table-wrapper scrollbar scrollbar--horizontal scrollbar--vertical',
+        className
+      )}
       style={{ height: fixedHeader?.y }}
     >
       <table {...getTableProps()} ref={tableRef}>
