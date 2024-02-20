@@ -1,13 +1,13 @@
 import React from 'react'
-import { Copy as CopyComp } from '../components'
+import { Copy as _Copy } from '../index'
 
 export default {
   title: 'Copy',
-  component: CopyComp,
+  component: _Copy,
   argTypes: {}
 }
 
-const Template = (args) => <CopyComp {...args} />
+const Template = (args) => <_Copy {...args} />
 
 export const Copy = Template.bind({})
 

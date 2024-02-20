@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React, { ReactElement, useMemo } from 'react'
-import Text from '../Text'
-import Icon from '../Icon'
+import { Text } from '../Text'
+import { Icon } from '../Icon'
 import { StepTypes, TStepProps } from './types'
 import { PROGRESS_STATUSES } from './consts'
 

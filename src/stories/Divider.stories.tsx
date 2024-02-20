@@ -1,10 +1,10 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import { Divider as DividerComp } from '../components'
+import { Divider as _Divider } from '../index'
 
 export default {
   title: 'Divider',
-  component: DividerComp,
+  component: _Divider,
   argTypes: {
     type: {
       options: ['primary', 'secondary'],
@@ -16,7 +16,7 @@ export default {
 const Template = (args) => {
   return (
     <div style={{ height: '300px', width: '300px' }}>
-      <DividerComp {...args} />
+      <_Divider {...args} />
     </div>
   )
 }

@@ -1,4 +1,5 @@
 declare type TIconSize = 'xxsmall' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge'
+
 declare type TColor =
   | 'borderGray'
   | 'labelGray'
@@ -34,11 +35,6 @@ interface HTMLInputEvent extends Event {
   target: HTMLInputElement & EventTarget
 }
 
-interface FieldError {
-  ref?: RefObject<HTMLInputElement>
-  message?: string
-}
-
 declare type TFormData = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
@@ -57,6 +53,7 @@ interface MouseEvent extends EventTarget {
 type FieldError = {
   message: string
 }
+
 declare type FieldErrors = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined
@@ -87,5 +84,98 @@ declare type TImageMimeTypes =
   | 'image/heic'
   | 'image/heif'
   | 'application/pdf'
+
+declare type TItemValue = string | number | null
+declare type TSelectedValue = {
+  value: TItemValue
+  label: TItemLabel
+}
+declare type TItemLabel = string | number
+
+declare type TClickHandler = (e: TClickEventType) => void
+declare type TSelectIconProps = {
+  type?: TIconTypes
+  name: string
+  size?: TIconSize
+  className?: string
+  onClick?: TClickHandler
+}
+declare type TSelectOption = {
+  value: TItemValue
+  label: TItemLabel
+  meta?: string
+  disabled?: boolean
+  children?: TSelectOption[]
+}
+
+declare type TSelectOptions = TSelectOption[]
+
+declare type TSelectGroupOption = {
+  title: string
+  data: TSelectOptions
+}
+
+declare type TSelectGroupOptions = TSelectGroupOption[]
+
+declare type TRangePickerValues = [Date | null, Date | null]
+
+declare type TClickEventType = React.MouseEvent<HTMLElement>
+declare type TChangeEventType =
+  | React.ChangeEvent<HTMLInputElement>
+  | React.ChangeEvent<HTMLTextAreaElement>
+
+declare type TFormValue =
+  | string
+  | number
+  | boolean
+  | TSelectOption
+  | TItemValue
+  | File[]
+  | Date
+  | TRangePickerValues
+  | null
+  | TItemValue[]
+  | TSelectedValue[]
+declare type TOnChange = (event: TChangeEventType) => void
+
+// Props which will pass FormField to component
+declare interface IFormCompProps {
+  hasError?: boolean
+  isValid?: boolean
+  value?: TFormValue
+  onChange?: TOnChange
+  dataId?: string
+  name?: string
+  setFieldValue?: (
+    name: string,
+    value: TFormValue,
+    shouldValidate?: { shouldValidate: boolean }
+  ) => void
+}
+
+declare type TRegister = (name: string) => {
+  onChange: TOnChange
+}
+
+declare type TTooltipPosition =
+  | 'top-left'
+  | 'top-center'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-center'
+  | 'bottom-right'
+  | 'middle-left'
+  | 'middle-right'
+
+declare type TTooltipInfo = {
+  hasTriangle?: boolean
+  initialPosition: TTooltipPosition
+  elemRef: HTMLElement | null
+  tooltipRef: HTMLElement | null
+}
+
+declare type TCallBackFn = () => void
+
+declare type TDirtyFields = Partial<Readonly<{ [x: string]: unknown }>>
 
 declare module '*.svg'

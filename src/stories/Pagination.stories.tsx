@@ -1,8 +1,9 @@
 import React from 'react'
-import { Icon, Pagination as PaginationComp } from '../components'
+import { Icon, Pagination as _Pagination } from '../index'
+
 export default {
   title: 'Pagination',
-  component: PaginationComp,
+  component: _Pagination,
   argTypes: {
     size: {
       options: ['large', 'medium', 'small'],
@@ -11,7 +12,7 @@ export default {
   }
 }
 const Template = (args) => (
-  <PaginationComp
+  <_Pagination
     pageSize={10}
     {...args}
     handleChangePage={(item) => {

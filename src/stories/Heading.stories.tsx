@@ -1,9 +1,9 @@
 import React from 'react'
-import { Heading as HeadingComp } from '../components'
+import { Heading as _Heading } from '../index'
 
 export default {
   title: 'Heading',
-  component: HeadingComp,
+  component: _Heading,
   argTypes: {
     type: {
       options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
@@ -25,9 +25,9 @@ export default {
 }
 
 const Template = (args) => (
-  <HeadingComp {...args}>
+  <_Heading {...args}>
     {args.text} {args.size} {args.weight}
-  </HeadingComp>
+  </_Heading>
 )
 
 export const Heading = Template.bind({})

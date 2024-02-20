@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Icon, Switcher as SwitcherComp } from '../index'
+import { Icon, Switcher as _Switcher } from '../index'
 
 export default {
   title: 'Switcher',
-  component: SwitcherComp,
+  component: _Switcher,
   argTypes: {
     size: {
       options: ['large', 'small'],
@@ -15,7 +15,7 @@ const ID = 'am_custom_switcher'
 
 const Template = (args) => {
   const [isChecked, setIsChecked] = useState(false)
-  return <SwitcherComp {...args} selectedValue={isChecked} onClick={setIsChecked} id={ID} />
+  return <_Switcher {...args} selectedValue={isChecked} onClick={setIsChecked} id={ID} />
 }
 
 export const Switcher = Template.bind({})

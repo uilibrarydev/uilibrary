@@ -1,4 +1,4 @@
-@import "../shared";
+@use "../helpers/mixin";
 
 .table-wrapper {
   --ds-table-th-height: var(--ds-size-56);
@@ -74,12 +74,12 @@
   }
 
   .fixed_header {
-    @include sticky(0, unset, unset, unset);
+    @include mixin.sticky(0, unset, unset, unset);
     z-index: 2;
   }
 
   .fixed_checkbox {
-    @include sticky(unset, unset, unset, 0);
+    @include mixin.sticky(unset, unset, unset, 0);
 
     & + th, & + td {
       padding-left: 0;
@@ -87,13 +87,13 @@
   }
 
   .fixed_column_left {
-    @include sticky(0, unset, unset, unset);
+    @include mixin.sticky(0, unset, unset, unset);
     z-index: 1;
     border-right: 1px solid var(--ds-table-td-border-color)
   }
 
   .fixed_column_right {
-    @include sticky(unset, 0, unset, unset);
+    @include mixin.sticky(unset, 0, unset, unset);
     border-left: 1px solid var(--ds-table-td-border-color)
   }
 }

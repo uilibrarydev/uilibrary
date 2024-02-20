@@ -13,3 +13,5 @@ export const ICONS_MAPPING: { [key: string]: string } = {
   error: 'error-hover',
   information: 'info-hover'
 }
+
+export const DEFAULT_DURATION = 6000

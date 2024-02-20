@@ -1,7 +1,6 @@
 @use "sass:map";
 @use "sass:meta";
-
-@import "./mixin";
+@use "mixin";
 
 body {
   font-family: var(--ds-font-family);
@@ -9,24 +8,24 @@ body {
 
 //***** font sizes *****//
 
-.fs-10 { @include font('--font-size-10'); }
-.fs-12 { @include font('--font-size-12'); }
-.fs-14 { @include font('--font-size-14'); }
-.fs-16 { @include font('--font-size-16'); }
-.fs-20 { @include font('--font-size-20'); }
-.fs-24 { @include font('--font-size-24'); }
-.fs-32 { @include font('--font-size-32'); }
-.fs-36 { @include font('--font-size-36'); }
-.fs-40 { @include font('--font-size-40'); }
-.fs-48 { @include font('--font-size-48'); }
-.fs-64 { @include font('--font-size-64'); }
+.fs-10 { @include mixin.font('--font-size-10'); }
+.fs-12 { @include mixin.font('--font-size-12'); }
+.fs-14 { @include mixin.font('--font-size-14'); }
+.fs-16 { @include mixin.font('--font-size-16'); }
+.fs-20 { @include mixin.font('--font-size-20'); }
+.fs-24 { @include mixin.font('--font-size-24'); }
+.fs-32 { @include mixin.font('--font-size-32'); }
+.fs-36 { @include mixin.font('--font-size-36'); }
+.fs-40 { @include mixin.font('--font-size-40'); }
+.fs-48 { @include mixin.font('--font-size-48'); }
+.fs-64 { @include mixin.font('--font-size-64'); }
 
 //***** font weight *******//
 
-.fw-400 { @include font-weight('--font-weight-400'); }
-.fw-500 { @include font-weight('--font-weight-500'); }
-.fw-600 { @include font-weight('--font-weight-600'); }
-.fw-700 { @include font-weight('--font-weight-700'); }
+.fw-400 { @include mixin.font-weight('--font-weight-400'); }
+.fw-500 { @include mixin.font-weight('--font-weight-500'); }
+.fw-600 { @include mixin.font-weight('--font-weight-600'); }
+.fw-700 { @include mixin.font-weight('--font-weight-700'); }
 
 
 //***** margin and padding *****//
@@ -88,117 +87,117 @@ $space-prefixes: (
 
 .text-color {
   &.brand {
-    @include color(brand, 'base');
-    &.clr-900 { @include color( brand, '--color-900' ) }
-    &.clr-800 { @include color( brand, '--color-800' ) }
-    &.clr-700 { @include color( brand, '--color-700' ) }
-    &.clr-600 { @include color( brand, '--color-600' ) }
-    &.clr-500 { @include color( brand, '--color-500' ) }
-    &.clr-400 { @include color( brand, '--color-400' ) }
-    &.clr-300 { @include color( brand, '--color-300' ) }
-    &.clr-200 { @include color( brand, '--color-200' ) }
-    &.clr-100 { @include color( brand, '--color-100' ) }
-    &.clr-50  { @include color( brand, '--color-50' ) }
-    &.clr-40  { @include color( brand, '--color-40' ) }
-    &.clr-30  { @include color( brand, '--color-30' ) }
-    &.clr-20  { @include color( brand, '--color-20' ) }
+    @include mixin.color(brand, 'base');
+    &.clr-900 { @include mixin.color( brand, '--color-900' ) }
+    &.clr-800 { @include mixin.color( brand, '--color-800' ) }
+    &.clr-700 { @include mixin.color( brand, '--color-700' ) }
+    &.clr-600 { @include mixin.color( brand, '--color-600' ) }
+    &.clr-500 { @include mixin.color( brand, '--color-500' ) }
+    &.clr-400 { @include mixin.color( brand, '--color-400' ) }
+    &.clr-300 { @include mixin.color( brand, '--color-300' ) }
+    &.clr-200 { @include mixin.color( brand, '--color-200' ) }
+    &.clr-100 { @include mixin.color( brand, '--color-100' ) }
+    &.clr-50  { @include mixin.color( brand, '--color-50' ) }
+    &.clr-40  { @include mixin.color( brand, '--color-40' ) }
+    &.clr-30  { @include mixin.color( brand, '--color-30' ) }
+    &.clr-20  { @include mixin.color( brand, '--color-20' ) }
   }
   &.green {
-    @include color(green, 'base');
-    &.clr-900 { @include color( green, '--color-900' ) }
-    &.clr-800 { @include color( green, '--color-800' ) }
-    &.clr-700 { @include color( green, '--color-700' ) }
-    &.clr-600 { @include color( green, '--color-600' ) }
-    &.clr-500 { @include color( green, '--color-500' ) }
-    &.clr-400 { @include color( green, '--color-400' ) }
-    &.clr-300 { @include color( green, '--color-300' ) }
-    &.clr-200 { @include color( green, '--color-200' ) }
-    &.clr-100 { @include color( green, '--color-100' ) }
-    &.clr-50  { @include color( green, '--color-50' ) }
+    @include mixin.color(green, 'base');
+    &.clr-900 { @include mixin.color( green, '--color-900' ) }
+    &.clr-800 { @include mixin.color( green, '--color-800' ) }
+    &.clr-700 { @include mixin.color( green, '--color-700' ) }
+    &.clr-600 { @include mixin.color( green, '--color-600' ) }
+    &.clr-500 { @include mixin.color( green, '--color-500' ) }
+    &.clr-400 { @include mixin.color( green, '--color-400' ) }
+    &.clr-300 { @include mixin.color( green, '--color-300' ) }
+    &.clr-200 { @include mixin.color( green, '--color-200' ) }
+    &.clr-100 { @include mixin.color( green, '--color-100' ) }
+    &.clr-50  { @include mixin.color( green, '--color-50' ) }
   }
   &.blue {
-    @include color(blue, 'base');
-    &.clr-900 { @include color( blue, '--color-900' ) }
-    &.clr-800 { @include color( blue, '--color-800' ) }
-    &.clr-700 { @include color( blue, '--color-700' ) }
-    &.clr-600 { @include color( blue, '--color-600' ) }
-    &.clr-500 { @include color( blue, '--color-500' ) }
-    &.clr-400 { @include color( blue, '--color-400' ) }
-    &.clr-300 { @include color( blue, '--color-300' ) }
-    &.clr-200 { @include color( blue, '--color-200' ) }
-    &.clr-100 { @include color( blue, '--color-100' ) }
-    &.clr-50  { @include color( blue, '--color-50' ) }
+    @include mixin.color(blue, 'base');
+    &.clr-900 { @include mixin.color( blue, '--color-900' ) }
+    &.clr-800 { @include mixin.color( blue, '--color-800' ) }
+    &.clr-700 { @include mixin.color( blue, '--color-700' ) }
+    &.clr-600 { @include mixin.color( blue, '--color-600' ) }
+    &.clr-500 { @include mixin.color( blue, '--color-500' ) }
+    &.clr-400 { @include mixin.color( blue, '--color-400' ) }
+    &.clr-300 { @include mixin.color( blue, '--color-300' ) }
+    &.clr-200 { @include mixin.color( blue, '--color-200' ) }
+    &.clr-100 { @include mixin.color( blue, '--color-100' ) }
+    &.clr-50  { @include mixin.color( blue, '--color-50' ) }
   }
   &.purple {
-    @include color(purple, 'base');
-    &.clr-900 { @include color( purple, '--color-900' ) }
-    &.clr-800 { @include color( purple, '--color-800' ) }
-    &.clr-700 { @include color( purple, '--color-700' ) }
-    &.clr-600 { @include color( purple, '--color-600' ) }
-    &.clr-500 { @include color( purple, '--color-500' ) }
-    &.clr-400 { @include color( purple, '--color-400' ) }
-    &.clr-300 { @include color( purple, '--color-300' ) }
-    &.clr-200 { @include color( purple, '--color-200' ) }
-    &.clr-100 { @include color( purple, '--color-100' ) }
-    &.clr-50  { @include color( purple, '--color-50' ) }
+    @include mixin.color(purple, 'base');
+    &.clr-900 { @include mixin.color( purple, '--color-900' ) }
+    &.clr-800 { @include mixin.color( purple, '--color-800' ) }
+    &.clr-700 { @include mixin.color( purple, '--color-700' ) }
+    &.clr-600 { @include mixin.color( purple, '--color-600' ) }
+    &.clr-500 { @include mixin.color( purple, '--color-500' ) }
+    &.clr-400 { @include mixin.color( purple, '--color-400' ) }
+    &.clr-300 { @include mixin.color( purple, '--color-300' ) }
+    &.clr-200 { @include mixin.color( purple, '--color-200' ) }
+    &.clr-100 { @include mixin.color( purple, '--color-100' ) }
+    &.clr-50  { @include mixin.color( purple, '--color-50' ) }
   }
   &.pink {
-    @include color(pink, 'base');
-    &.clr-900 { @include color( pink, '--color-900' ) }
-    &.clr-800 { @include color( pink, '--color-800' ) }
-    &.clr-700 { @include color( pink, '--color-700' ) }
-    &.clr-600 { @include color( pink, '--color-600' ) }
-    &.clr-500 { @include color( pink, '--color-500' ) }
-    &.clr-400 { @include color( pink, '--color-400' ) }
-    &.clr-300 { @include color( pink, '--color-300' ) }
-    &.clr-200 { @include color( pink, '--color-200' ) }
-    &.clr-100 { @include color( pink, '--color-100' ) }
-    &.clr-50  { @include color( pink, '--color-50' ) }
+    @include mixin.color(pink, 'base');
+    &.clr-900 { @include mixin.color( pink, '--color-900' ) }
+    &.clr-800 { @include mixin.color( pink, '--color-800' ) }
+    &.clr-700 { @include mixin.color( pink, '--color-700' ) }
+    &.clr-600 { @include mixin.color( pink, '--color-600' ) }
+    &.clr-500 { @include mixin.color( pink, '--color-500' ) }
+    &.clr-400 { @include mixin.color( pink, '--color-400' ) }
+    &.clr-300 { @include mixin.color( pink, '--color-300' ) }
+    &.clr-200 { @include mixin.color( pink, '--color-200' ) }
+    &.clr-100 { @include mixin.color( pink, '--color-100' ) }
+    &.clr-50  { @include mixin.color( pink, '--color-50' ) }
   }
   &.red {
-    @include color(red, 'base');
-    &.clr-900 { @include color( red, '--color-900' ) }
-    &.clr-800 { @include color( red, '--color-800' ) }
-    &.clr-700 { @include color( red, '--color-700' ) }
-    &.clr-600 { @include color( red, '--color-600' ) }
-    &.clr-500 { @include color( red, '--color-500' ) }
-    &.clr-400 { @include color( red, '--color-400' ) }
-    &.clr-300 { @include color( red, '--color-300' ) }
-    &.clr-200 { @include color( red, '--color-200' ) }
-    &.clr-100 { @include color( red, '--color-100' ) }
-    &.clr-50  { @include color( red, '--color-50' ) }
+    @include mixin.color(red, 'base');
+    &.clr-900 { @include mixin.color( red, '--color-900' ) }
+    &.clr-800 { @include mixin.color( red, '--color-800' ) }
+    &.clr-700 { @include mixin.color( red, '--color-700' ) }
+    &.clr-600 { @include mixin.color( red, '--color-600' ) }
+    &.clr-500 { @include mixin.color( red, '--color-500' ) }
+    &.clr-400 { @include mixin.color( red, '--color-400' ) }
+    &.clr-300 { @include mixin.color( red, '--color-300' ) }
+    &.clr-200 { @include mixin.color( red, '--color-200' ) }
+    &.clr-100 { @include mixin.color( red, '--color-100' ) }
+    &.clr-50  { @include mixin.color( red, '--color-50' ) }
   }
   &.yellow {
-    @include color(yellow, 'base');
-    &.clr-900 { @include color( yellow, '--color-900' ) }
-    &.clr-800 { @include color( yellow, '--color-800' ) }
-    &.clr-700 { @include color( yellow, '--color-700' ) }
-    &.clr-600 { @include color( yellow, '--color-600' ) }
-    &.clr-500 { @include color( yellow, '--color-500' ) }
-    &.clr-400 { @include color( yellow, '--color-400' ) }
-    &.clr-300 { @include color( yellow, '--color-300' ) }
-    &.clr-200 { @include color( yellow, '--color-200' ) }
-    &.clr-100 { @include color( yellow, '--color-100' ) }
-    &.clr-50  { @include color( yellow, '--color-50' ) }
+    @include mixin.color(yellow, 'base');
+    &.clr-900 { @include mixin.color( yellow, '--color-900' ) }
+    &.clr-800 { @include mixin.color( yellow, '--color-800' ) }
+    &.clr-700 { @include mixin.color( yellow, '--color-700' ) }
+    &.clr-600 { @include mixin.color( yellow, '--color-600' ) }
+    &.clr-500 { @include mixin.color( yellow, '--color-500' ) }
+    &.clr-400 { @include mixin.color( yellow, '--color-400' ) }
+    &.clr-300 { @include mixin.color( yellow, '--color-300' ) }
+    &.clr-200 { @include mixin.color( yellow, '--color-200' ) }
+    &.clr-100 { @include mixin.color( yellow, '--color-100' ) }
+    &.clr-50  { @include mixin.color( yellow, '--color-50' ) }
   }
   &.grey {
-    @include color(grey, 'base');
-    &.clr-900 { @include color( grey, '--color-900' ) }
-    &.clr-800 { @include color( grey, '--color-800' ) }
-    &.clr-700 { @include color( grey, '--color-700' ) }
-    &.clr-600 { @include color( grey, '--color-600' ) }
-    &.clr-500 { @include color( grey, '--color-500' ) }
-    &.clr-400 { @include color( grey, '--color-400' ) }
-    &.clr-300 { @include color( grey, '--color-300' ) }
-    &.clr-200 { @include color( grey, '--color-200' ) }
-    &.clr-100 { @include color( grey, '--color-100' ) }
-    &.clr-50  { @include color( grey, '--color-50' ) }
-    &.clr-40  { @include color( grey, '--color-40' ) }
-    &.clr-30  { @include color( grey, '--color-30' ) }
-    &.clr-20  { @include color( grey, '--color-20' ) }
+    @include mixin.color(grey, 'base');
+    &.clr-900 { @include mixin.color( grey, '--color-900' ) }
+    &.clr-800 { @include mixin.color( grey, '--color-800' ) }
+    &.clr-700 { @include mixin.color( grey, '--color-700' ) }
+    &.clr-600 { @include mixin.color( grey, '--color-600' ) }
+    &.clr-500 { @include mixin.color( grey, '--color-500' ) }
+    &.clr-400 { @include mixin.color( grey, '--color-400' ) }
+    &.clr-300 { @include mixin.color( grey, '--color-300' ) }
+    &.clr-200 { @include mixin.color( grey, '--color-200' ) }
+    &.clr-100 { @include mixin.color( grey, '--color-100' ) }
+    &.clr-50  { @include mixin.color( grey, '--color-50' ) }
+    &.clr-40  { @include mixin.color( grey, '--color-40' ) }
+    &.clr-30  { @include mixin.color( grey, '--color-30' ) }
+    &.clr-20  { @include mixin.color( grey, '--color-20' ) }
   }
   &.white {
-    @include color(white, 'base');
+    @include mixin.color(white, 'base');
   }
 }
 
@@ -207,117 +206,117 @@ $space-prefixes: (
 
 .bg-color {
   &.brand {
-    @include background-color(brand, 'base');
-    &.clr-900 { @include background-color( brand, '--color-900' ) }
-    &.clr-800 { @include background-color( brand, '--color-800' ) }
-    &.clr-700 { @include background-color( brand, '--color-700' ) }
-    &.clr-600 { @include background-color( brand, '--color-600' ) }
-    &.clr-500 { @include background-color( brand, '--color-500' ) }
-    &.clr-400 { @include background-color( brand, '--color-400' ) }
-    &.clr-300 { @include background-color( brand, '--color-300' ) }
-    &.clr-200 { @include background-color( brand, '--color-200' ) }
-    &.clr-100 { @include background-color( brand, '--color-100' ) }
-    &.clr-50  { @include background-color( brand, '--color-50' ) }
-    &.clr-40  { @include background-color( brand, '--color-40' ) }
-    &.clr-30  { @include background-color( brand, '--color-30' ) }
-    &.clr-20  { @include background-color( brand, '--color-20' ) }
+    @include mixin.background-color(brand, 'base');
+    &.clr-900 { @include mixin.background-color( brand, '--color-900' ) }
+    &.clr-800 { @include mixin.background-color( brand, '--color-800' ) }
+    &.clr-700 { @include mixin.background-color( brand, '--color-700' ) }
+    &.clr-600 { @include mixin.background-color( brand, '--color-600' ) }
+    &.clr-500 { @include mixin.background-color( brand, '--color-500' ) }
+    &.clr-400 { @include mixin.background-color( brand, '--color-400' ) }
+    &.clr-300 { @include mixin.background-color( brand, '--color-300' ) }
+    &.clr-200 { @include mixin.background-color( brand, '--color-200' ) }
+    &.clr-100 { @include mixin.background-color( brand, '--color-100' ) }
+    &.clr-50  { @include mixin.background-color( brand, '--color-50' ) }
+    &.clr-40  { @include mixin.background-color( brand, '--color-40' ) }
+    &.clr-30  { @include mixin.background-color( brand, '--color-30' ) }
+    &.clr-20  { @include mixin.background-color( brand, '--color-20' ) }
   }
   &.green {
-    @include background-color(green, 'base');
-    &.clr-900 { @include background-color( green, '--color-900' ) }
-    &.clr-800 { @include background-color( green, '--color-800' ) }
-    &.clr-700 { @include background-color( green, '--color-700' ) }
-    &.clr-600 { @include background-color( green, '--color-600' ) }
-    &.clr-500 { @include background-color( green, '--color-500' ) }
-    &.clr-400 { @include background-color( green, '--color-400' ) }
-    &.clr-300 { @include background-color( green, '--color-300' ) }
-    &.clr-200 { @include background-color( green, '--color-200' ) }
-    &.clr-100 { @include background-color( green, '--color-100' ) }
-    &.clr-50  { @include background-color( green, '--color-50' ) }
+    @include mixin.background-color(green, 'base');
+    &.clr-900 { @include mixin.background-color( green, '--color-900' ) }
+    &.clr-800 { @include mixin.background-color( green, '--color-800' ) }
+    &.clr-700 { @include mixin.background-color( green, '--color-700' ) }
+    &.clr-600 { @include mixin.background-color( green, '--color-600' ) }
+    &.clr-500 { @include mixin.background-color( green, '--color-500' ) }
+    &.clr-400 { @include mixin.background-color( green, '--color-400' ) }
+    &.clr-300 { @include mixin.background-color( green, '--color-300' ) }
+    &.clr-200 { @include mixin.background-color( green, '--color-200' ) }
+    &.clr-100 { @include mixin.background-color( green, '--color-100' ) }
+    &.clr-50  { @include mixin.background-color( green, '--color-50' ) }
   }
   &.blue {
-    @include background-color(blue, 'base');
-    &.clr-900 { @include background-color( blue, '--color-900' ) }
-    &.clr-800 { @include background-color( blue, '--color-800' ) }
-    &.clr-700 { @include background-color( blue, '--color-700' ) }
-    &.clr-600 { @include background-color( blue, '--color-600' ) }
-    &.clr-500 { @include background-color( blue, '--color-500' ) }
-    &.clr-400 { @include background-color( blue, '--color-400' ) }
-    &.clr-300 { @include background-color( blue, '--color-300' ) }
-    &.clr-200 { @include background-color( blue, '--color-200' ) }
-    &.clr-100 { @include background-color( blue, '--color-100' ) }
-    &.clr-50  { @include background-color( blue, '--color-50' ) }
+    @include mixin.background-color(blue, 'base');
+    &.clr-900 { @include mixin.background-color( blue, '--color-900' ) }
+    &.clr-800 { @include mixin.background-color( blue, '--color-800' ) }
+    &.clr-700 { @include mixin.background-color( blue, '--color-700' ) }
+    &.clr-600 { @include mixin.background-color( blue, '--color-600' ) }
+    &.clr-500 { @include mixin.background-color( blue, '--color-500' ) }
+    &.clr-400 { @include mixin.background-color( blue, '--color-400' ) }
+    &.clr-300 { @include mixin.background-color( blue, '--color-300' ) }
+    &.clr-200 { @include mixin.background-color( blue, '--color-200' ) }
+    &.clr-100 { @include mixin.background-color( blue, '--color-100' ) }
+    &.clr-50  { @include mixin.background-color( blue, '--color-50' ) }
   }
   &.purple {
-    @include background-color(purple, 'base');
-    &.clr-900 { @include background-color( purple, '--color-900' ) }
-    &.clr-800 { @include background-color( purple, '--color-800' ) }
-    &.clr-700 { @include background-color( purple, '--color-700' ) }
-    &.clr-600 { @include background-color( purple, '--color-600' ) }
-    &.clr-500 { @include background-color( purple, '--color-500' ) }
-    &.clr-400 { @include background-color( purple, '--color-400' ) }
-    &.clr-300 { @include background-color( purple, '--color-300' ) }
-    &.clr-200 { @include background-color( purple, '--color-200' ) }
-    &.clr-100 { @include background-color( purple, '--color-100' ) }
-    &.clr-50  { @include background-color( purple, '--color-50' ) }
+    @include mixin.background-color(purple, 'base');
+    &.clr-900 { @include mixin.background-color( purple, '--color-900' ) }
+    &.clr-800 { @include mixin.background-color( purple, '--color-800' ) }
+    &.clr-700 { @include mixin.background-color( purple, '--color-700' ) }
+    &.clr-600 { @include mixin.background-color( purple, '--color-600' ) }
+    &.clr-500 { @include mixin.background-color( purple, '--color-500' ) }
+    &.clr-400 { @include mixin.background-color( purple, '--color-400' ) }
+    &.clr-300 { @include mixin.background-color( purple, '--color-300' ) }
+    &.clr-200 { @include mixin.background-color( purple, '--color-200' ) }
+    &.clr-100 { @include mixin.background-color( purple, '--color-100' ) }
+    &.clr-50  { @include mixin.background-color( purple, '--color-50' ) }
   }
   &.pink {
-    @include background-color(pink, 'base');
-    &.clr-900 { @include background-color( pink, '--color-900' ) }
-    &.clr-800 { @include background-color( pink, '--color-800' ) }
-    &.clr-700 { @include background-color( pink, '--color-700' ) }
-    &.clr-600 { @include background-color( pink, '--color-600' ) }
-    &.clr-500 { @include background-color( pink, '--color-500' ) }
-    &.clr-400 { @include background-color( pink, '--color-400' ) }
-    &.clr-300 { @include background-color( pink, '--color-300' ) }
-    &.clr-200 { @include background-color( pink, '--color-200' ) }
-    &.clr-100 { @include background-color( pink, '--color-100' ) }
-    &.clr-50  { @include background-color( pink, '--color-50' ) }
+    @include mixin.background-color(pink, 'base');
+    &.clr-900 { @include mixin.background-color( pink, '--color-900' ) }
+    &.clr-800 { @include mixin.background-color( pink, '--color-800' ) }
+    &.clr-700 { @include mixin.background-color( pink, '--color-700' ) }
+    &.clr-600 { @include mixin.background-color( pink, '--color-600' ) }
+    &.clr-500 { @include mixin.background-color( pink, '--color-500' ) }
+    &.clr-400 { @include mixin.background-color( pink, '--color-400' ) }
+    &.clr-300 { @include mixin.background-color( pink, '--color-300' ) }
+    &.clr-200 { @include mixin.background-color( pink, '--color-200' ) }
+    &.clr-100 { @include mixin.background-color( pink, '--color-100' ) }
+    &.clr-50  { @include mixin.background-color( pink, '--color-50' ) }
   }
   &.red {
-    @include background-color(red, 'base');
-    &.clr-900 { @include background-color( red, '--color-900' ) }
-    &.clr-800 { @include background-color( red, '--color-800' ) }
-    &.clr-700 { @include background-color( red, '--color-700' ) }
-    &.clr-600 { @include background-color( red, '--color-600' ) }
-    &.clr-500 { @include background-color( red, '--color-500' ) }
-    &.clr-400 { @include background-color( red, '--color-400' ) }
-    &.clr-300 { @include background-color( red, '--color-300' ) }
-    &.clr-200 { @include background-color( red, '--color-200' ) }
-    &.clr-100 { @include background-color( red, '--color-100' ) }
-    &.clr-50  { @include background-color( red, '--color-50' ) }
+    @include mixin.background-color(red, 'base');
+    &.clr-900 { @include mixin.background-color( red, '--color-900' ) }
+    &.clr-800 { @include mixin.background-color( red, '--color-800' ) }
+    &.clr-700 { @include mixin.background-color( red, '--color-700' ) }
+    &.clr-600 { @include mixin.background-color( red, '--color-600' ) }
+    &.clr-500 { @include mixin.background-color( red, '--color-500' ) }
+    &.clr-400 { @include mixin.background-color( red, '--color-400' ) }
+    &.clr-300 { @include mixin.background-color( red, '--color-300' ) }
+    &.clr-200 { @include mixin.background-color( red, '--color-200' ) }
+    &.clr-100 { @include mixin.background-color( red, '--color-100' ) }
+    &.clr-50  { @include mixin.background-color( red, '--color-50' ) }
   }
   &.yellow {
-    @include background-color(yellow, 'base');
-    &.clr-900 { @include background-color( yellow, '--color-900' ) }
-    &.clr-800 { @include background-color( yellow, '--color-800' ) }
-    &.clr-700 { @include background-color( yellow, '--color-700' ) }
-    &.clr-600 { @include background-color( yellow, '--color-600' ) }
-    &.clr-500 { @include background-color( yellow, '--color-500' ) }
-    &.clr-400 { @include background-color( yellow, '--color-400' ) }
-    &.clr-300 { @include background-color( yellow, '--color-300' ) }
-    &.clr-200 { @include background-color( yellow, '--color-200' ) }
-    &.clr-100 { @include background-color( yellow, '--color-100' ) }
-    &.clr-50  { @include background-color( yellow, '--color-50' ) }
+    @include mixin.background-color(yellow, 'base');
+    &.clr-900 { @include mixin.background-color( yellow, '--color-900' ) }
+    &.clr-800 { @include mixin.background-color( yellow, '--color-800' ) }
+    &.clr-700 { @include mixin.background-color( yellow, '--color-700' ) }
+    &.clr-600 { @include mixin.background-color( yellow, '--color-600' ) }
+    &.clr-500 { @include mixin.background-color( yellow, '--color-500' ) }
+    &.clr-400 { @include mixin.background-color( yellow, '--color-400' ) }
+    &.clr-300 { @include mixin.background-color( yellow, '--color-300' ) }
+    &.clr-200 { @include mixin.background-color( yellow, '--color-200' ) }
+    &.clr-100 { @include mixin.background-color( yellow, '--color-100' ) }
+    &.clr-50  { @include mixin.background-color( yellow, '--color-50' ) }
   }
   &.grey {
-    @include background-color(grey, 'base');
-    &.clr-900 { @include background-color( grey, '--color-900' ) }
-    &.clr-800 { @include background-color( grey, '--color-800' ) }
-    &.clr-700 { @include background-color( grey, '--color-700' ) }
-    &.clr-600 { @include background-color( grey, '--color-600' ) }
-    &.clr-500 { @include background-color( grey, '--color-500' ) }
-    &.clr-400 { @include background-color( grey, '--color-400' ) }
-    &.clr-300 { @include background-color( grey, '--color-300' ) }
-    &.clr-200 { @include background-color( grey, '--color-200' ) }
-    &.clr-100 { @include background-color( grey, '--color-100' ) }
-    &.clr-50  { @include background-color( grey, '--color-50' ) }
-    &.clr-40  { @include background-color( grey, '--color-40' ) }
-    &.clr-30  { @include background-color( grey, '--color-30' ) }
-    &.clr-20  { @include background-color( grey, '--color-20' ) }
+    @include mixin.background-color(grey, 'base');
+    &.clr-900 { @include mixin.background-color( grey, '--color-900' ) }
+    &.clr-800 { @include mixin.background-color( grey, '--color-800' ) }
+    &.clr-700 { @include mixin.background-color( grey, '--color-700' ) }
+    &.clr-600 { @include mixin.background-color( grey, '--color-600' ) }
+    &.clr-500 { @include mixin.background-color( grey, '--color-500' ) }
+    &.clr-400 { @include mixin.background-color( grey, '--color-400' ) }
+    &.clr-300 { @include mixin.background-color( grey, '--color-300' ) }
+    &.clr-200 { @include mixin.background-color( grey, '--color-200' ) }
+    &.clr-100 { @include mixin.background-color( grey, '--color-100' ) }
+    &.clr-50  { @include mixin.background-color( grey, '--color-50' ) }
+    &.clr-40  { @include mixin.background-color( grey, '--color-40' ) }
+    &.clr-30  { @include mixin.background-color( grey, '--color-30' ) }
+    &.clr-20  { @include mixin.background-color( grey, '--color-20' ) }
   }
   &.white {
-    @include color(white, 'base');
+    @include mixin.color(white, 'base');
   }
 }
 
@@ -424,9 +423,9 @@ $space-prefixes: (
   --icon-xs: var(--ds-size-16);
   --icon-xxs: var(--ds-size-12);
 
-  @include flexbox;
-  @include align-items(center);
-  @include justify-content(center);
+  @include mixin.flexbox;
+  @include mixin.align-items(center);
+  @include mixin.justify-content(center);
 
   &--xxsmall {
     font-size: var(--icon-xxs);
@@ -495,78 +494,78 @@ $space-prefixes: (
 //flex
 
 .flexbox {
-  @include flexbox;
+  @include mixin.flexbox;
 }
 
 .flex-direction {
   &--column {
-    @include flex-direction(column);
+    @include mixin.flex-direction(column);
   }
   &--column-reverse {
-    @include flex-direction(column-reverse);
+    @include mixin.flex-direction(column-reverse);
   }
   &--row {
-    @include flex-direction(row);
+    @include mixin.flex-direction(row);
   }
   &--row-reverse {
-    @include flex-direction(row-reverse);
+    @include mixin.flex-direction(row-reverse);
   }
 }
 
 .flex-wrap {
   &--wrap {
-    @include flex-wrap(wrap);
+    @include mixin.flex-wrap(wrap);
   }
   &--nowrap {
-    @include flex-wrap(nowrap);
+    @include mixin.flex-wrap(nowrap);
   }
 }
 
 .align-items {
   &--stretch {
-    @include align-items(stretch);
+    @include mixin.align-items(stretch);
   }
   &--start {
-    @include align-items(flex-start);
+    @include mixin.align-items(flex-start);
   }
   &--center {
-    @include align-items(center);
+    @include mixin.align-items(center);
   }
   &--end {
-    @include align-items(flex-end);
+    @include mixin.align-items(flex-end);
   }
 }
 
 .align-self {
   &--auto {
-    @include align-items(auto);
+    @include mixin.align-items(auto);
   }
   &--start {
-    @include align-items(flex-start);
+    @include mixin.align-items(flex-start);
   }
   &--center {
-    @include align-items(center);
+    @include mixin.align-items(center);
   }
   &--end {
-    @include align-items(flex-end);
+    @include mixin.align-items(flex-end);
   }
 }
 
 .justify-content {
   &--start {
-    @include justify-content(flex-start);
+    @include mixin.justify-content(flex-start);
   }
   &--between {
-    @include justify-content(space-between);
+    @include mixin.justify-content(space-between);
   }
   &--around {
-    @include justify-content(space-around);
+    @include mixin.justify-content(space-around);
   }
   &--end {
-    @include justify-content(flex-end);
+    @include mixin.justify-content(flex-end);
   }
   &--center {
-    @include justify-content(center);
+    @include mixin.justify-content(center);
   }
 }
 
@@ -593,14 +592,5 @@ $space-prefixes: (
 
 //
 .text-truncate {
-  @include truncate(100%);
-}
-
-//
-.pointer {
-  cursor: pointer;
-}
-
-.white-space-pre-wrap {
-  white-space: pre-wrap;
+  @include mixin.truncate(100%);
 }

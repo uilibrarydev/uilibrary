@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Button, ProgressStep as ProgressStepComp } from '../components'
+import { Button, ProgressStep as _ProgressStep } from '../index'
 import { TSteps, TStepValue } from '../components/ProgressStep/types'
 import { PROGRESS_STATUSES } from '../components/ProgressStep/consts'
 
-const STPES = [
+const STEPS = [
   {
     value: 1,
     label: 'label1 label1 label1 label1',
@@ -26,7 +26,7 @@ const STPES = [
 ]
 export default {
   title: 'ProgressStep',
-  component: ProgressStepComp,
+  component: _ProgressStep,
   argTypes: {
     stepType: {
       options: ['number', 'dot'],
@@ -45,7 +45,7 @@ export default {
 
 const Template = (args) => {
   const [activeStep, setActiveStep] = useState<TStepValue>(1)
-  const [steps, setSteps] = useState<TSteps>(STPES)
+  const [steps, setSteps] = useState<TSteps>(STEPS)
 
   const changeStep = (stepValue) => {
     setActiveStep(stepValue)
@@ -64,12 +64,7 @@ const Template = (args) => {
 
   return (
     <div style={{ width: 500 }}>
-      <ProgressStepComp
-        {...args}
-        steps={steps}
-        activeStep={activeStep}
-        setActiveStep={changeStep}
-      />
+      <_ProgressStep {...args} steps={steps} activeStep={activeStep} setActiveStep={changeStep} />
 
       <div className="mt-40">
         <Button buttonText={'back'} type="secondary" className="mr-8" />

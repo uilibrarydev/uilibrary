@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert as AlertComp } from '../components'
+import { Alert as AlertComp } from '../index'
 
 export default {
   title: 'Alert',

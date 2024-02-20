@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react'
-import Text from '../Text'
+import { Text } from '../Text'
 import { TBlock } from './types'
 
-const Block = (props: TBlock): ReactElement => {
+export const Block = (props: TBlock): ReactElement => {
   const { children, label, open } = props
   return (
     <div className="side--navigation--block">
@@ -17,5 +17,3 @@ const Block = (props: TBlock): ReactElement => {
     </div>
   )
 }
-
-export default Block

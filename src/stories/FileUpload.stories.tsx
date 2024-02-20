@@ -1,12 +1,12 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import React, { useState } from 'react'
-import { FileUpload as FileUploadComp } from '../components'
-import { Icon } from '../index'
+import { FileUpload as _FileUpload } from '../components/FileUpload'
+import { Icon } from '../components/Icon'
 
 export default {
   title: 'FileUpload',
-  component: FileUploadComp
+  component: _FileUpload
 }
 
 const getFiles = (files: FileList) => {
@@ -23,7 +23,7 @@ const Template = (args): JSX.Element => {
   }
   return (
     <div style={{ width: 400 }}>
-      <FileUploadComp
+      <_FileUpload
         {...args}
         getFiles={getFiles}
         fileAllowedSize={9000000}

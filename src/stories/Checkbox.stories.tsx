@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import { Checkbox as CheckboxComp } from '../components'
+import { Checkbox as _Checkbox } from '../index'
 
 export default {
   title: 'Checkbox',
-  component: CheckboxComp,
+  component: _Checkbox,
   argTypes: {}
 }
 
 const Template = (args) => {
   const [isChecked, setIsChecked] = useState(false)
   return (
-    <CheckboxComp
+    <_Checkbox
       {...args}
       selectedValue={isChecked}
       onClick={setIsChecked}
@@ -32,5 +32,5 @@ Checkbox.args = {
   link: '/about',
   beforeLink: 'das',
   afterLink: 'after-link',
-  helperText: 'helpertext'
+  helperText: 'helper text'
 }

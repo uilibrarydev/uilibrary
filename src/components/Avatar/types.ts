@@ -5,7 +5,7 @@ export interface TAvatarProps extends IFormCompProps {
   allowedTypes?: string
   id?: string
   imagePath?: string
-  initials?: string | JSX.Element
+  initials?: string | ReactElement
   color?: 'default' | 'purple' | 'blue' | 'green' | 'red'
   type?: 'count'
   size?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall' | 'xxsmall'

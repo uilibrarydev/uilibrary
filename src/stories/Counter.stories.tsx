@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Counter as CounterComp } from '../index'
+import { Counter as _Counter } from '../index'
 
 export default {
   title: 'Counter',
-  component: CounterComp
+  component: _Counter
 }
 
 const Template = (args) => {
@@ -13,7 +13,7 @@ const Template = (args) => {
     setCount(count)
   }
 
-  return <CounterComp {...args} handleChange={onChange} counter={count} />
+  return <_Counter {...args} handleChange={onChange} counter={count} />
 }
 
 export const Counter = Template.bind({})

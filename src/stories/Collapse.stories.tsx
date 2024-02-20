@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { CollapseItem as CollapseComp, CollapseGroup as CollapseGroupComp } from '../components'
+import { CollapseItem as _CollapseItem, CollapseGroup as _CollapseGroup } from '../index'
 
 export default {
   title: 'Collapse',
-  component: CollapseComp,
+  component: _CollapseItem,
   argTypes: {}
 }
 
@@ -14,9 +14,9 @@ const Template = (args) => {
   const close = () => setIsOpen(false)
 
   return (
-    <CollapseComp {...args} isOpen={isOpen} toggle={isOpen ? close : open}>
+    <_CollapseItem {...args} isOpen={isOpen} toggle={isOpen ? close : open}>
       <div>My Accordion content</div>
-    </CollapseComp>
+    </_CollapseItem>
   )
 }
 
@@ -48,7 +48,7 @@ const CollapseItems = [
 ]
 
 const Template1 = (args) => {
-  return <CollapseGroupComp {...args} items={CollapseItems} titleColor="selected" />
+  return <_CollapseGroup {...args} items={CollapseItems} titleColor="selected" />
 }
 
 export const CollapseGroup = Template1.bind({})

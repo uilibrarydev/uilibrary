@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { Textarea as TextareaComp } from '../components'
-import { Icon } from '../index'
+import { Textarea as _Textarea, Icon } from '../index'
 
 type TChangeEventType = React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
 
 export default {
   title: 'Textarea',
-  component: TextareaComp
+  component: _Textarea
 }
+
 const Template = (args) => {
   const [value, setValue] = useState('')
   const changeHandler = (e: TChangeEventType) => {
@@ -15,7 +15,7 @@ const Template = (args) => {
   }
   return (
     <div style={{ maxWidth: 300 }}>
-      <TextareaComp {...args} currentValue={value} onChange={changeHandler} />
+      <_Textarea {...args} currentValue={value} onChange={changeHandler} />
     </div>
   )
 }

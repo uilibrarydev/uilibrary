@@ -1,4 +1,4 @@
-@import "../shared";
+@use "../helpers/mixin";
 
 .textarea {
   $this: &;
@@ -110,9 +110,9 @@
   }
 
   &__message {
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(space-between);
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.justify-content(space-between);
   }
 
   &__counter {

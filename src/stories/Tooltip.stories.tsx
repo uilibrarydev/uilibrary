@@ -1,9 +1,9 @@
 import React from 'react'
-import { Tooltip as TooltipComp } from '../components'
+import { Tooltip as _Tooltip } from '../index'
 
 export default {
   title: 'Tooltip',
-  component: TooltipComp,
+  component: _Tooltip,
   argTypes: {
     position: {
       options: [
@@ -38,7 +38,7 @@ const Template = (args) => {
         left: 400
       }}
     >
-      <TooltipComp
+      <_Tooltip
         {...args}
         id="ooooo"
         // position="bottom-left"

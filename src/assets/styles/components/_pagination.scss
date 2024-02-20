@@ -1,4 +1,4 @@
-@import "../shared";
+@use "../helpers/mixin";
 
 .pagination {
   --ds-pagination-item-size-lg: var(--ds-size-40);
@@ -27,8 +27,8 @@
   --ds-pagination-item-icon-size-md: var(--ds-size-16);
   --ds-pagination-item-icon-size-sm: var(--ds-size-12);
 
-  @include flexbox;
-  @include align-items(center);
+  @include mixin.flexbox;
+  @include mixin.align-items(center);
   list-style-type: none;
   margin: 0 calc(var(--ds-pagination-item-space) * -1);
 
@@ -82,9 +82,9 @@
       border: var(--ds-pagination-item-border);
       border-radius: var(--ds-pagination-item-border-radius);
       cursor: pointer;
-      @include flexbox;
-      @include align-items(center);
-      @include justify-content(center);
+      @include mixin.flexbox;
+      @include mixin.align-items(center);
+      @include mixin.justify-content(center);
 
       &:focus {
         outline: none !important;

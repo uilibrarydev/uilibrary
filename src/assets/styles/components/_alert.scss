@@ -1,4 +1,4 @@
-@import "../shared";
+@use "../helpers/mixin";
 
 .alert {
   $this: &;
@@ -28,7 +28,7 @@
     border-radius: var(--ds-alert-border-radius);
 
     #{$this}__content {
-      @include align-items(flex-start);
+      @include mixin.align-items(flex-start);
     }
     #{$this}__actions {
       margin-top: var(--ds-space-12);
@@ -37,12 +37,12 @@
 
   &--sticky {
     #{$this}__content {
-      @include align-items(center);
+      @include mixin.align-items(center);
     }
     #{$this}__text {
-      @include flexbox;
-      @include justify-content(space-between);
-      @include align-items(center);
+      @include mixin.flexbox;
+      @include mixin.justify-content(space-between);
+      @include mixin.align-items(center);
     }
     #{$this}__actions {
       margin-left: var(--ds-space-8);
@@ -76,7 +76,7 @@
   }
 
   &__content {
-    @include flexbox;
+    @include mixin.flexbox;
   }
 
   &__text {

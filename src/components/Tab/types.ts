@@ -1,9 +1,9 @@
-export type TTablItem = {
+export type TTabItem = {
   value: number | string
   label: string | JSX.Element
 }
 export interface TTabProps extends IFormCompProps {
-  tabItems: TTablItem[]
+  tabItems: TTabItem[]
   size?: 'large' | 'medium' | 'small'
   className?: string
   iconProps?: {

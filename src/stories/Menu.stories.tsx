@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Button, Menu as MenuComp } from '../components'
+import { Menu as _Menu, Button } from '../index'
 
 export default {
   title: 'Menu',
-  component: MenuComp,
+  component: _Menu,
   argTypes: {
     position: {
       type: ['left', 'right', 'bottom'],
@@ -55,7 +55,7 @@ const Template = (args: any) => {
     <div>
       <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
         <Button onClick={() => setOpen(!open)} iconProps={{ name: 'more' }} />
-        <MenuComp
+        <_Menu
           {...args}
           onClose={() => setOpen(false)}
           parentRef={ref}
@@ -69,8 +69,6 @@ const Template = (args: any) => {
 
 export const Menu = Template.bind({})
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 Menu.args = {
   menuItems: []
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table as TableComponent } from '../components'
+import { Table as _Table } from '../index'
 import { TColumn, TTableState } from '../components/Table/types'
 
 const data: any[] = [
@@ -77,12 +77,12 @@ const Template = (args) => {
     console.log(state)
   }
 
-  return <TableComponent {...args} data={data} onChange={handleChange} columns={columns} />
+  return <_Table {...args} data={data} onChange={handleChange} columns={columns} />
 }
 
 export default {
   title: 'Table',
-  component: TableComponent
+  component: _Table
 }
 
 export const Table = Template.bind({})

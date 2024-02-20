@@ -1,0 +1,52 @@
+@use "../helpers/mixin";
+
+.radio-group {
+  $this: &;
+
+  --radio-group-item-space: var(--ds-space-8);
+
+  @include mixin.flexbox;
+  @include mixin.flex-direction(column);
+
+  &__inner {
+    @include mixin.inline-flex;
+    @include mixin.flex-wrap(wrap);
+    @include mixin.align-items(flex-start);
+  }
+
+  &--horizontal {
+    #{$this}__inner {
+      @include mixin.flex-wrap(wrap);
+      @include mixin.align-items(flex-start);
+      margin-top: calc(var(--radio-group-item-space) * -1);
+    }
+
+    #{$this}__item {
+      margin-right: var(--radio-group-item-space);
+      margin-top: var(--radio-group-item-space);
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &--vertical {
+    #{$this}__inner {
+      @include mixin.flex-direction(column);
+    }
+
+    #{$this}__item {
+      margin-bottom: var(--radio-group-item-space);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__label {
+    flex: 100%;
+    margin-bottom: var(--ds-space-12);
+  }
+}

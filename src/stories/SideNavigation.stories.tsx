@@ -1,21 +1,25 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useState } from 'react'
 import {
   Avatar,
   Button,
   NavigationItem,
-  SideNavigation as SideNavigationItemComp,
-  Text
-} from '../components'
-import Block from '../components/SideNavigation/Block'
-import logo from '../assets/images/logo.svg'
-import logoClosed from '../assets/images/logo-closed.svg'
-import avatar from '../assets/images/avatar.jpg'
+  SideNavigation as _SideNavigation,
+  Text,
+  Icon
+} from '../index'
+import { Block } from '../components/SideNavigation/Block'
 import { NavigationItemTypes } from '../components/SideNavigation/NavigationItem/types'
-import { Icon } from '../index'
+// @ts-ignore
+import logo from '../assets/images/logo.svg'
+// @ts-ignore
+import logoClosed from '../assets/images/logo-closed.svg'
+// @ts-ignore
+import avatar from '../assets/images/avatar.jpg'
 
 export default {
   title: 'Side Navigation',
-  component: SideNavigationItemComp,
+  component: _SideNavigation,
   argTypes: {
     showAction: {
       options: [true, false]
@@ -27,7 +31,7 @@ const Template = (args): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(true)
 
   return (
-    <SideNavigationItemComp setOpen={setIsOpen} open={isOpen} {...args}>
+    <_SideNavigation setOpen={setIsOpen} open={isOpen} {...args}>
       <main>
         <NavigationItem
           As={() => (
@@ -231,7 +235,7 @@ const Template = (args): JSX.Element => {
           </>
         </Block>
       </footer>
-    </SideNavigationItemComp>
+    </_SideNavigation>
   )
 }
 

@@ -10,6 +10,7 @@ export type TStatusTypes =
   | 'success'
   | 'information'
   | 'discovery'
+
 export interface TStatusProps extends IFormCompProps {
   text?: string
   children?: string | ReactElement

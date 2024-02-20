@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import {
   Button,
-  Menu as MenuComp,
-  Modal as ModalComp,
+  Menu,
+  Modal,
   MultiSelect,
-  SideSheet as SideSheetComp
-} from '../components'
+  SideSheet as _SideSheet,
+  FormContainer,
+  FormField
+} from '../index'
 import * as yup from 'yup'
-import { FormContainer, FormField } from '../index'
 
 export default {
-  title: 'SideSheet',
-  component: SideSheetComp,
+  title: 'Side Sheet',
+  component: _SideSheet,
   argTypes: {
     position: {
       options: ['left', 'right'],
@@ -20,13 +21,11 @@ export default {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const VALIDATION_SCHEME = yup.object({
   test: yup.string().required('validation').nullable(),
   firstname: yup.string().required('validation').nullable()
 })
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const INITIAL_VALUES = {
   firstname: 5
 }
@@ -62,7 +61,7 @@ const Template = (args: any) => {
   return (
     <div>
       <button onClick={handleOpenSheet}>Open Side Sheet</button>
-      <SideSheetComp
+      <_SideSheet
         {...args}
         size="small"
         onClose={handleCloseSheet}
@@ -113,6 +112,38 @@ const Template = (args: any) => {
                     )
                   }}
                 />
+                <div>
+                  <span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
+                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
+                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
+                  </span>
+                  <span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
+                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
+                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
+                  </span>
+                  <span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
+                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
+                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
+                  </span>
+                  <span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
+                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
+                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
+                  </span>
+                  <span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
+                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
+                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
+                  </span>
+                  <span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
+                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
+                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
+                  </span>
+                </div>
               </>
               <div>
                 <span>
@@ -151,7 +182,7 @@ const Template = (args: any) => {
           <div style={{ height: 2000 }}>
             <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
               <Button onClick={() => setOpen(!open)} iconProps={{ name: 'more' }} />
-              <MenuComp
+              <Menu
                 {...args}
                 onClose={() => setOpen(false)}
                 parentRef={ref}
@@ -161,7 +192,7 @@ const Template = (args: any) => {
             </div>
           </div>
           {isModalOpen && (
-            <ModalComp
+            <Modal
               {...args}
               onClose={closeModal}
               isOpen={isModalOpen}
@@ -175,18 +206,16 @@ const Template = (args: any) => {
               }}
             >
               <div>Modal content</div>
-            </ModalComp>
+            </Modal>
           )}
         </>
-      </SideSheetComp>
+      </_SideSheet>
     </div>
   )
 }
 
 export const SideSheet = Template.bind({})
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 SideSheet.args = {
   title: 'Side sheet title',
   headerButtons: {

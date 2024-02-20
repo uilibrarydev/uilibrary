@@ -1,7 +1,7 @@
 import { FormState } from 'react-hook-form'
 import { AnyObjectSchema } from 'yup'
-import { TButtonPropTypes } from '../Button/types'
 import { ValidationMode } from 'react-hook-form/dist/types/form'
+import { TButtonPropTypes } from '../Button/types'
 
 export type TDirtyFields = Partial<Readonly<{ [x: string]: unknown }>>
 

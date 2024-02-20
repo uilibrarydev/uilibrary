@@ -1,4 +1,4 @@
-@import "../shared";
+@use "../helpers/mixin";
 
 .avatar {
   $this: &;
@@ -55,9 +55,9 @@
   --ds-avatar-icon-bg: var(--ds-color-bg-white);
   --ds-avatar-icon-position:  5px 5px;
 
-  @include flexbox;
-  @include align-items(center);
-  @include justify-content(center);
+  @include mixin.flexbox;
+  @include mixin.align-items(center);
+  @include mixin.justify-content(center);
   position: relative;
   text-transform: capitalize;
   font: var(--ds-avatar-font);
@@ -193,7 +193,7 @@
   --ds-avatar-group-add-bg: var(--ds-color-bg-white);
   --ds-avatar-group-add-bg-hover: var(--ds-color-bg-container-lighter);
 
-  @include flexbox;
+  @include mixin.flexbox;
   width: fit-content;
 
   &--xlarge {

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Stepper as StepperComp } from '../components'
+import { Stepper as _Stepper } from '../index'
 
 export default {
   title: 'Stepper',
-  component: StepperComp
+  component: _Stepper
 }
 
 const COMP1 = () => {
@@ -23,6 +23,6 @@ const COMP4 = () => {
 const LIST = [COMP1, COMP2, COMP3, COMP4]
 
 const Template = (): JSX.Element => {
-  return <StepperComp list={LIST} />
+  return <_Stepper list={LIST} />
 }
 export const Stepper = Template.bind({})

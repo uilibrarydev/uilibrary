@@ -4,15 +4,14 @@ import DatePicker, { registerLocale } from 'react-datepicker'
 import hy from 'date-fns/locale/hy'
 import en from 'date-fns/locale/en-GB'
 import ru from 'date-fns/locale/ru'
-import Input from '../Input'
+import { Input } from '../Input'
 import { DateFormat, IRangeDatePickerProps } from './types'
 
-import './index.scss'
 registerLocale('hy', hy)
 registerLocale('en', en)
 registerLocale('ru', ru)
 
-const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
+export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
   const {
     value,
     currentDates = [],
@@ -85,5 +84,3 @@ const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
     />
   )
 }
-
-export default RangeDatePicker

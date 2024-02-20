@@ -1,6 +1,6 @@
-import { ReactNode } from 'react'
+import { MouseEvent, ReactElement } from 'react'
 
-export type TTextTypes =
+type TTextTypes =
   | 'primary'
   | 'secondary'
   | 'tertiary'
@@ -14,27 +14,19 @@ export type TTextTypes =
   | 'information'
   | 'discovery'
 
+type TTextSize = 'xxsmall' | 'xsmall' | 'small' | 'standard' | 'medium' | 'large'
+type TTextWeight = 'regular' | 'semibold' | 'bold' | 'bolder'
+type TTextLineHeight = 'xsmall' | 'small' | 'medium' | 'large'
+
 export interface TextPropTypes {
   id?: string
   title?: string
-  children?: string | ReactNode
-  type?:
-    | 'primary'
-    | 'secondary'
-    | 'tertiary'
-    | 'disabled'
-    | 'inverse'
-    | 'selected'
-    | 'brand'
-    | 'danger'
-    | 'warning'
-    | 'success'
-    | 'information'
-    | 'discovery'
-  size?: 'xxsmall' | 'xsmall' | 'small' | 'standard' | 'medium' | 'large'
-  weight?: 'regular' | 'semibold' | 'bold' | 'bolder'
-  lineHeight?: 'xsmall' | 'small' | 'medium' | 'large'
+  children?: string | ReactElement
+  type?: TTextTypes
+  size?: TTextSize
+  weight?: TTextWeight
+  lineHeight?: TTextLineHeight
   className?: string
   dataId?: string
-  onClick?: (event: TClickEventType) => void
+  onClick?: (event: MouseEvent<HTMLElement>) => void
 }

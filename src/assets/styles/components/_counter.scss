@@ -1,0 +1,15 @@
+.counter {
+  max-width: 120px;
+
+  input {
+    text-align: center;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none
+    }
+  }
+  .action_active {
+    cursor: pointer;
+  }
+}

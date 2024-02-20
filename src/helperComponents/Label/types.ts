@@ -1,4 +1,4 @@
-export interface TextPropTypes {
+export interface LabelPropTypes {
   required?: boolean
   disabled?: boolean
   invalid?: boolean

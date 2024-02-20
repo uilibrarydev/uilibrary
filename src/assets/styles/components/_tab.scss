@@ -1,4 +1,4 @@
-@import "../shared";
+@use "../helpers/mixin";
 
 .tab {
   $this: &;
@@ -27,8 +27,8 @@
 
   --ds-tab-margin: 0 var(--ds-space-24) 0 0;
 
-  @include inline-flex;
-  @include align-items(center);
+  @include mixin.inline-flex;
+  @include mixin.align-items(center);
   position: relative;
   color: var(--ds-tab-color-default);
   border-radius: var(--ds-badge-border-radius);
@@ -141,8 +141,8 @@
   --ds-tabs-border-size: 0 0 1px 0;
   --ds-tabs-border-default: var(--ds-color-divider);
 
-  @include inline-flex;
-  @include align-items(flex-end);
+  @include mixin.inline-flex;
+  @include mixin.align-items(flex-end);
   border-width: var(--ds-tabs-border-size);
   border-style: solid;
   border-color: var(--ds-tabs-border-default);

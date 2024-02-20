@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import {
-  SimpleDatePicker as SimpleDatePicker_,
-  TimePicker as TimePicker_,
-  RangeDatePicker as RangeDatePicker_
-} from '../components'
-import hy from 'date-fns/locale/hy'
+  SimpleDatePicker as _SimpleDatePicker,
+  TimePicker as _TimePicker,
+  RangeDatePicker as _RangeDatePicker
+} from '../index'
+
 export default {
   title: 'DatePicker',
-  component: SimpleDatePicker_
+  component: _SimpleDatePicker
 }
 
 const CURRENT_YEAR = new Date().getFullYear()
 
-const getAllLastdays = () => {
+const getAllLastDays = () => {
   const arr: Date[] = []
 
   for (let month = 0; month <= 12; month++) {
@@ -31,12 +31,12 @@ const SimplePicker = (): JSX.Element => {
 
   return (
     <div style={{ width: 300 }}>
-      <SimpleDatePicker_
+      <_SimpleDatePicker
         value={value}
         changeHandler={setValue}
         format="DD"
         label="ddd"
-        excludeDates={getAllLastdays()}
+        excludeDates={getAllLastDays()}
         minDate={new Date(new Date().setDate(new Date().getDate() + 15))}
         maxDate={new Date(new Date().setDate(new Date().getDate() + 60))}
       />
@@ -55,8 +55,8 @@ const TimeDatePicker = (): JSX.Element => {
   }
   return (
     <div style={{ width: 300 }}>
-      <TimePicker_ value={value1} changeHandler={setValue1} />
-      <TimePicker_ value={value2} changeHandler={setValue2} filterTime={filterPassedTime} />
+      <_TimePicker value={value1} changeHandler={setValue1} />
+      <_TimePicker value={value2} changeHandler={setValue2} filterTime={filterPassedTime} />
     </div>
   )
 }
@@ -67,12 +67,7 @@ const RangePicker = (): JSX.Element => {
 
   return (
     <div style={{ width: 300 }}>
-      <RangeDatePicker_
-        value={value}
-        changeHandler={setValue}
-        maxDate={new Date()}
-        localization={'hy'}
-      />
+      <_RangeDatePicker value={value} changeHandler={setValue} maxDate={new Date()} locale={'hy'} />
     </div>
   )
 }

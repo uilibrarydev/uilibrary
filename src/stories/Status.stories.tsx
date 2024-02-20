@@ -1,11 +1,9 @@
 import React from 'react'
-import { Status as StatusComp } from '../components'
-import { Icon, Popover } from '../index'
-import Text from '../components/Text'
+import { Icon, Popover, Status as _Status, Text } from '../index'
 
 export default {
   title: 'Status',
-  component: StatusComp,
+  component: _Status,
   argTypes: {
     type: {
       options: [
@@ -30,16 +28,16 @@ export default {
 const Template = (args) => {
   return (
     <>
-      <StatusComp {...args} type={'danger'}>
+      <_Status {...args} type={'danger'}>
         <Text type={'secondary'} size={'small'}>
           Status subtext
         </Text>
-      </StatusComp>
-      <StatusComp {...args} type={'information'}>
+      </_Status>
+      <_Status {...args} type={'information'}>
         <Text type={'information'} size={'small'}>
           Status subtext
         </Text>
-      </StatusComp>
+      </_Status>
     </>
   )
 }

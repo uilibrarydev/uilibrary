@@ -1,9 +1,9 @@
 import React from 'react'
-import { Progress as ProgressComp } from '../components'
+import { Progress as _Progress } from '../index'
 
 export default {
   title: 'Progress',
-  component: ProgressComp,
+  component: _Progress,
   argTypes: {
     type: {
       options: ['linear', 'circle'],
@@ -17,7 +17,7 @@ export default {
 }
 
 const Template = (args) => {
-  return <ProgressComp {...args} />
+  return <_Progress {...args} />
 }
 
 export const Progress = Template.bind({})

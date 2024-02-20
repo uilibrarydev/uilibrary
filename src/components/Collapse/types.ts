@@ -1,4 +1,5 @@
 export type TCollapseTitleColor = 'selected' | 'primary'
+
 export interface ICollapseTitleProps {
   size?: 'small' | 'medium'
   color?: TCollapseTitleColor
@@ -16,7 +17,7 @@ export type TCollapseProps = {
 
 export type TCollapseValue = string | number
 
-export type TColapseItem = {
+export type TCollapseItem = {
   title: string
   value: TCollapseValue
   content: JSX.Element
@@ -24,7 +25,7 @@ export type TColapseItem = {
 }
 
 export type TCollapseGroupProps = {
-  items: TColapseItem[]
+  items: TCollapseItem[]
   singleSelection?: boolean
   titleProps?: ICollapseTitleProps
 }

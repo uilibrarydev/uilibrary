@@ -1,4 +1,4 @@
-@import "../shared";
+@use "../helpers/mixin";
 
 .side-sheet {
   $this: &;
@@ -23,13 +23,13 @@
   --ds-side-sheet-footer-height: var(--ds-space-64);
   --ds-side-sheet-footer-padding: var(--ds-space-8) var(--ds-space-24);
   
-  @include fixed(0,0,0,0);
+  @include mixin.fixed(0,0,0,0);
   z-index: 999;
   background-color: var(--ds-side-sheet-overlay-bg);
 
   &__container {
-    @include flexbox;
-    @include flex-direction(column);
+    @include mixin.flexbox;
+    @include mixin.flex-direction(column);
     position: absolute;
     top: 0;
     bottom: 0;
@@ -45,18 +45,18 @@
   }
 
   &__header {
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(space-between);
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.justify-content(space-between);
     height: var(--ds-side-sheet-header-height);
     padding: var(--ds-side-sheet-header-padding);
     border-bottom: var(--ds-side-sheet-content-border-width) solid var(--ds-side-sheet-content-border-color);
     position: relative;
 
     &__left, &__right {
-      @include flexbox;
-      @include align-items(center);
-      @include justify-content(flex-start);
+      @include mixin.flexbox;
+      @include mixin.align-items(center);
+      @include mixin.justify-content(flex-start);
     }
 
     &__left {
@@ -81,7 +81,7 @@
 
 
   &__title {
-    @include truncate(90%);
+    @include mixin.truncate(90%);
   }
 
   &__content {
@@ -91,9 +91,9 @@
   }
 
   &__footer {
-    @include flexbox;
-    @include align-items(center);
-    @include justify-content(flex-end);
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.justify-content(flex-end);
     height: var(--ds-side-sheet-footer-height);
     padding: var(--ds-side-sheet-footer-padding);
     border-top: var(--ds-side-sheet-content-border-width) solid var(--ds-side-sheet-content-border-color);

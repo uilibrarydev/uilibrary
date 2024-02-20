@@ -1,0 +1,17 @@
+@use "../helpers/mixin";
+
+.switcher {
+  $this: &;
+
+  --ds-swither-inline-label-padding: var(--ds-space-16);
+
+  &--inline {
+    @include mixin.flexbox;
+    @include mixin.justify-content(space-between);
+    @include mixin.align-items(flex-start);
+
+    #{$this}__label {
+      padding-right: var(--ds-swither-inline-label-padding);
+    }
+  }
+}

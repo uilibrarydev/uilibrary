@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import * as yup from 'yup'
-import FormField from '../components/FormField'
-import { FormContainer, Button, Select, MultiSelect } from '../components'
-import { useFormProps } from '../hooks/useFormProps'
-import { Checkbox } from '../index'
+import { FormField, FormContainer as _FormContainer, Button, MultiSelect } from '../index'
 
 export default {
-  title: 'Form',
-  component: FormContainer
+  title: 'Form Container',
+  component: _FormContainer
 }
 
 const OPTIONS: TSelectOptions = [
@@ -161,7 +158,7 @@ const Template = (): JSX.Element => {
 
   return (
     <div style={{ maxWidth: 300 }}>
-      <FormContainer
+      <_FormContainer
         onSubmit={(data) => console.log('data', data)}
         validationScheme={VALIDATION_SCHEME}
         initialValues={INITIAL_VALUES}
@@ -187,9 +184,9 @@ const Template = (): JSX.Element => {
           />
           <Button buttonActionType="submit" buttonText={'Ok'} />
         </>
-      </FormContainer>
+      </_FormContainer>
     </div>
   )
 }
 
-export const Form = Template.bind({})
+export const FormContainer = Template.bind({})

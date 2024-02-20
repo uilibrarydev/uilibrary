@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import { Breadcrumb as BreadcrumbComp } from '../components'
+import { Breadcrumb as _Breadcrumb } from '../index'
 
 export default {
   title: 'Breadcrumb',
-  component: BreadcrumbComp
+  component: _Breadcrumb
 }
 
 const Template = (args): JSX.Element | null => {
   const [selectedTab, onTabSelect] = useState(args.selectedValue)
-  return <BreadcrumbComp {...args} selectedValue={selectedTab} onSelect={onTabSelect} />
+  return <_Breadcrumb {...args} selectedValue={selectedTab} onSelect={onTabSelect} />
 }
 
 export const Breadcrumb = Template.bind({})

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Popover as PopoverComp } from '../components'
+import { Popover as _Popover } from '../index'
 
 export default {
   title: 'Popover',
-  component: PopoverComp,
+  component: _Popover,
   argTypes: {
     position: {
       options: [
@@ -24,7 +24,7 @@ export default {
 const Template = (args: any) => {
   return (
     <>
-      <PopoverComp {...args} id="popover_test" />
+      <_Popover {...args} id="popover_test" />
       <div
         style={{
           position: 'absolute',
@@ -43,8 +43,6 @@ const Template = (args: any) => {
 
 export const Popover = Template.bind({})
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 Popover.args = {
   linkAddons: {
     url: 'dasdsa',

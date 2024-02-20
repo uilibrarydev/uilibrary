@@ -1,9 +1,9 @@
 import React from 'react'
-import { Empty as EmptyComp } from '../components'
+import { Empty as _Empty } from '../index'
 
 export default {
   title: 'Empty',
-  component: EmptyComp,
+  component: _Empty,
   argTypes: {
     size: {
       options: ['large', 'small'],
@@ -12,7 +12,7 @@ export default {
   }
 }
 const Template = (args) => {
-  return <EmptyComp {...args} />
+  return <_Empty {...args} />
 }
 
 export const Empty = Template.bind({})

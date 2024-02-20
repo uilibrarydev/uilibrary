@@ -1,10 +1,10 @@
-import { ButtonHTMLAttributes, LegacyRef } from 'react'
+import { ButtonHTMLAttributes, LegacyRef, ReactElement } from 'react'
 
 export interface TButtonPropTypes extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   id?: string
   disabled?: boolean
   buttonActionType?: 'submit' | 'button' | 'reset'
-  buttonText?: string | JSX.Element
+  buttonText?: string | ReactElement
   className?: string
   type?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'text' | 'link'
   size?: 'small' | 'medium' | 'large'

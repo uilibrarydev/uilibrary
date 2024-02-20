@@ -1,11 +1,10 @@
 import React, { ReactElement, useState } from 'react'
 import classNames from 'classnames'
 import { NavigationItemTypes, TNavigationLinkPropTypes } from './types'
-import './index.scss'
-import Icon from '../../Icon'
-import Badge from '../../Badge'
+import { Icon } from '../../Icon'
+import { Badge } from '../../Badge'
 
-const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement => {
+export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement => {
   const {
     As,
     type,
@@ -85,5 +84,3 @@ const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement => {
     </>
   )
 }
-
-export default NavigationItem

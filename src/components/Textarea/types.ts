@@ -10,7 +10,7 @@ export interface TTextAreaTypeProps extends IFormCompProps {
   required?: boolean
   disabled?: boolean
   maxCount?: number
-  changeHandler?: (event: TTextAreaEventType) => void
+  changeHandler?: (event: TChangeEventType) => void
   helperText?: string
   successMessage?: string
   labelAddons?: JSX.Element

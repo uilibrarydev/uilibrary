@@ -1,9 +1,9 @@
 import React from 'react'
-import { Chips as ChipsComp } from '../components'
+import { Chips as _Chips } from '../components/Chips'
 
 export default {
   title: 'Chips',
-  component: ChipsComp,
+  component: _Chips,
   argTypes: {
     type: {
       options: ['filled', 'accent', 'outlined'],
@@ -20,7 +20,7 @@ export default {
   }
 }
 
-const Template = (args) => <ChipsComp {...args} />
+const Template = (args) => <_Chips {...args} />
 
 export const Chips = Template.bind({})
 

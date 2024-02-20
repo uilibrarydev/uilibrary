@@ -1,4 +1,4 @@
-@import "../shared";
+@use "../helpers/mixin";
 
 .status {
   $this: &;
@@ -15,8 +15,8 @@
   --ds-status-circle-bg-discovery: var(--ds-color-icon-discovery);
   --ds-status-circle-bg-disabled: var(--ds-color-icon-disabled);
 
-  @include inline-flex;
-  @include align-items(center);
+  @include mixin.inline-flex;
+  @include mixin.align-items(center);
 
   &__circle {
     display: block;

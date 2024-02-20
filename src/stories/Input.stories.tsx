@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { Input as InputComp } from '../components'
-import { Icon, Popover } from '../index'
+import { Input as _Input, Icon, Popover } from '../index'
 
 export default {
   title: 'Input',
-  component: InputComp,
+  component: _Input,
   argTypes: {
     size: {
       options: ['large', 'small'],
@@ -22,7 +21,7 @@ const Template = (args) => {
 
   return (
     <div style={{ maxWidth: 300 }}>
-      <InputComp
+      <_Input
         {...args}
         witUpperCase={true}
         error={!value && isErrorVisible ? 'requeired field' : ''}
@@ -34,6 +33,7 @@ const Template = (args) => {
 }
 
 export const Input = Template.bind({})
+
 Input.args = {
   type: 'text',
   label: 'Some text',

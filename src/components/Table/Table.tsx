@@ -11,11 +11,10 @@ import {
 } from 'react-table'
 import { TColumn, TTableProps } from './types'
 import { setSelectedRows } from './utils'
-import Row from './Row'
-import Header from './Header'
-import '../../assets/styles/components/_table.scss'
+import { Row } from './Row'
+import { Header } from './Header'
 
-function Table({
+export function Table({
   columns,
   data,
   onChange,
@@ -122,5 +121,3 @@ function Table({
     </div>
   )
 }
-
-export default Table

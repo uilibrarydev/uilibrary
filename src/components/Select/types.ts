@@ -72,13 +72,14 @@ export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps 
   align?: 'left' | 'right'
   helperText?: string
   maxSelectCount?: number
+  isSearchAvailable?: boolean
   withTabs?: boolean
   isGrouped?: boolean
   selectedItems?: TSelectedValue[]
   translations: TSelectTranslations
   options: TSelectOptions | TSelectGroupOptions
   setSelectedItems?: (items: TSelectedValue[]) => void
-  footerButtonProps: {
+  footerButtonProps?: {
     cancel: TButtonPropTypes
     confirm: TButtonPropTypes
   }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { Radio as RadioComp, RadioGroup as RadioGroupComp } from '../components'
-import { Icon } from '../index'
+import { Radio as _Radio, RadioGroup as _RadioGroup, Icon } from '../index'
 
 const RADIO_OPTIONS = [
   {
@@ -21,13 +20,13 @@ const RADIO_OPTIONS = [
 
 export default {
   title: 'Radio',
-  component: RadioComp,
+  component: _Radio,
   argTypes: {}
 }
 
 const Template = (args) => {
   const [isChecked, setIsChecked] = useState(false)
-  return <RadioComp {...args} isSelected={isChecked} onClick={setIsChecked} />
+  return <_Radio {...args} isSelected={isChecked} onClick={setIsChecked} />
 }
 
 export const Radio = Template.bind({})
@@ -40,7 +39,7 @@ Radio.args = {
 
 const RadioGroupTemplate = (args) => {
   const [selected, setSelected] = useState(null)
-  return <RadioGroupComp {...args} value={selected} handleChange={setSelected} />
+  return <_RadioGroup {...args} value={selected} handleChange={setSelected} />
 }
 export const RadioGroup = RadioGroupTemplate.bind({})
 

@@ -1,7 +1,9 @@
 import React from 'react'
 import { Meta } from '@storybook/react'
-import { Image as ImageComp } from '../components'
+import { Image as _Image } from '../index'
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import imageFile from '../assets/images/avatar.jpg'
 
 const image = {
@@ -11,7 +13,7 @@ const image = {
 
 export default {
   title: 'Image',
-  component: ImageComp,
+  component: _Image,
   argTypes: {
     backgroundSize: {
       options: ['cover', 'contain'],
@@ -26,7 +28,7 @@ export default {
 
 const Template = (args) => (
   <div style={{ width: 300 }}>
-    <ImageComp {...args} />
+    <_Image {...args} />
   </div>
 )
 

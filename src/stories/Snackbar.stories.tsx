@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Snackbar as Snackbar_, notify } from '../components'
+import { Button, Snackbar as _Snackbar, notify } from '../index'
 
 export default {
   title: 'Snackbar',
-  component: Snackbar_,
+  component: _Snackbar,
   argTypes: {
     type: {
       options: ['information', 'success', 'error', 'warning'],
@@ -13,16 +13,16 @@ export default {
 }
 
 const Template = () => {
-  const [infoMessages, setinfoMessages] = useState([])
+  const [infoMessages, setInfoMessages] = useState([])
 
   const removeMessage = (id) => {
-    setinfoMessages((_infoMessages) => _infoMessages.filter((elem) => elem.toastId !== id))
+    setInfoMessages((_infoMessages) => _infoMessages.filter((elem) => elem.toastId !== id))
   }
 
   const addMessage = () => {
     const __id = Math.random()
 
-    setinfoMessages((_infoMessages) => [
+    setInfoMessages((_infoMessages) => [
       ..._infoMessages,
       {
         toastId: __id,
@@ -56,11 +56,9 @@ const Template = () => {
     <div>
       <>
         <Button buttonText={'notify'} onClick={addMessage} />
-        <Snackbar_ duration={2000} position="bottom-center" />
+        <_Snackbar duration={2000} position="bottom-center" />
       </>
     </div>
   )
 }
 export const Snackbar = Template.bind({})
-
-Snackbar.args = {}

@@ -1,10 +1,12 @@
 import React from 'react'
-import { NavigationItem as NavigationItemComp } from '../components'
+import { NavigationItem as _NavigationItem } from '../index'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import logo from '../assets/images/logo.svg'
 
 export default {
   title: 'Navigation Item',
-  component: NavigationItemComp,
+  component: _NavigationItem,
   argTypes: {
     showAction: {
       options: ['True', 'False']
@@ -12,7 +14,7 @@ export default {
   }
 }
 
-const Template = (args: any) => <NavigationItemComp {...args} />
+const Template = (args: any) => <_NavigationItem {...args} As={(props) => <div>Hello</div>} />
 
 export const NavigationItem = Template.bind({})
 

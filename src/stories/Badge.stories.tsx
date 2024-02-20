@@ -1,9 +1,9 @@
 import React from 'react'
-import { Badge as BadgeComp } from '../components'
+import { Badge as _Badge } from '../index'
 
 export default {
   title: 'Badge',
-  component: BadgeComp,
+  component: _Badge,
   argTypes: {
     type: {
       options: ['primary', 'secondary'],
@@ -16,7 +16,7 @@ export default {
   }
 }
 
-const Template = (args) => <BadgeComp {...args} />
+const Template = (args) => <_Badge {...args} />
 
 export const Badge = Template.bind({})
 

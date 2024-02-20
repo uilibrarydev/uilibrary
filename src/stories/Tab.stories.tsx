@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Tab as TabComp } from '../components'
+import { Tab as _Tab } from '../index'
 
 export default {
   title: 'Tab',
-  component: TabComp,
+  component: _Tab,
   argTypes: {
     size: {
       options: ['large', 'medium', 'small'],
@@ -14,7 +14,7 @@ export default {
 
 const Template = (args): JSX.Element | null => {
   const [selectedTab, onTabSelect] = useState(args.selectedValue)
-  return <TabComp {...args} selectedValue={selectedTab} onSelect={onTabSelect} />
+  return <_Tab {...args} selectedValue={selectedTab} onSelect={onTabSelect} />
 }
 
 export const Tab = Template.bind({})

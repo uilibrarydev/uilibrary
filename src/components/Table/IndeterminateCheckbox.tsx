@@ -1,5 +1,5 @@
 import React, { ForwardedRef, forwardRef, useEffect, useRef } from 'react'
-import { Checkbox } from '../'
+import { Checkbox } from '../Checkbox'
 
 const CheckboxWithRef = forwardRef(Checkbox)
 
@@ -9,7 +9,7 @@ type IndeterminateCheckboxProps = {
   onChange: (e: { target: { checked: boolean } }) => void
 }
 
-const IndeterminateCheckbox = forwardRef(
+export const IndeterminateCheckbox = forwardRef(
   (
     { indeterminate, checked, onChange }: IndeterminateCheckboxProps,
     ref: ForwardedRef<HTMLInputElement>
@@ -30,5 +30,3 @@ const IndeterminateCheckbox = forwardRef(
 )
 
 IndeterminateCheckbox.displayName = 'IndeterminateCheckbox'
-
-export default IndeterminateCheckbox

@@ -1,3 +1,4 @@
-import ErrorMessage from './ErrorMessage'
-import { OptionItem } from './OptionItem'
-export { ErrorMessage, OptionItem }
+export * from './Label'
+export * from './ErrorMessage'
+export * from './Loader'
+export * from './OptionItem'

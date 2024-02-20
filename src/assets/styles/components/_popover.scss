@@ -1,4 +1,4 @@
-@import "../shared";
+@use "../helpers/mixin";
 
 .popover {
   $this: &;
@@ -14,7 +14,7 @@
   --ds-popover-arrow-bg: var(--ds-color-bg-white);
   --ds-popover-font: 400 var(--ds-size-12)/var(--ds-line-height-caption) var(--ds-font-family);
 
-  @include flexbox;
+  @include mixin.flexbox;
   position: fixed;
   color: var(--ds-popover-color);
   background-color: var(--ds-popover-bg);

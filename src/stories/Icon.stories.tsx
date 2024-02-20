@@ -1,6 +1,5 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
-import { Icon as IconComp, Text } from '../components'
+import { Icon as _Icon, Text } from '../index'
 
 const ICONS = [
   'mobile',
@@ -224,7 +223,7 @@ const ICONS = [
 
 export default {
   title: 'Icon',
-  component: IconComp,
+  component: _Icon,
   argTypes: {
     type: {
       options: [
@@ -248,43 +247,45 @@ export default {
       control: { type: 'radio' }
     }
   }
-} as Meta
+}
 
-const Template = (args) => (
-  <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
-    {/*{ICONS.length}*/}
+const Template = (args) => {
+  return (
+    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
+      {/*{ICONS.length}*/}
 
-    {ICONS.map((iconName) => (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          padding: 10,
-          flex: '70px',
-          maxWidth: '70px'
-        }}
-        key={iconName}
-      >
+      {ICONS.map((iconName) => (
         <div
           style={{
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'center',
-            width: '40px',
-            height: '40px',
-            marginBottom: '5px',
-            border: '1px solid #919191',
-            backgroundColor: `${args.type == 'inverse' ? '#919191' : ''}`
+            padding: 10,
+            flex: '70px',
+            maxWidth: '70px'
           }}
+          key={iconName}
         >
-          <IconComp {...args} name={iconName} size={`${args.size}`} type={`${args.type}`} />
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '40px',
+              height: '40px',
+              marginBottom: '5px',
+              border: '1px solid #919191',
+              backgroundColor: `${args.type == 'inverse' ? '#919191' : ''}`
+            }}
+          >
+            <_Icon {...args} name={iconName} size={`${args.size}`} type={`${args.type}`} />
+          </div>
+          <Text size="small">{iconName}</Text>
         </div>
-        <Text size="small">{iconName}</Text>
-      </div>
-    ))}
-  </div>
-)
+      ))}
+    </div>
+  )
+}
 
 export const Icon = Template.bind({})
 Icon.args = {

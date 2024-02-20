@@ -1,6 +1,6 @@
 import React from 'react'
 import { Column, Hooks } from 'react-table'
-import IndeterminateCheckbox from './IndeterminateCheckbox'
+import { IndeterminateCheckbox } from './IndeterminateCheckbox'
 
 export const CHECKBOX_HEADER_ID = 'selection'
 export const CHECKBOX_DEFAULT_WIDTH = 48

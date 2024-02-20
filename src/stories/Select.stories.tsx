@@ -1,15 +1,17 @@
 import React, { useRef, useState } from 'react'
 import {
   Button,
-  Select as SelectComp,
-  MultiSelect as MultiSelectComp,
-  Filter as FilterDropdownComp,
-  NestedSelect as NestedSelectComp,
-  Menu
-} from '../components'
+  Select as _Select,
+  MultiSelect as _MultiSelect,
+  FilterSelect as _FilterDropdown,
+  NestedSelect as _NestedSelect,
+  Menu,
+  Icon
+} from '../index'
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import imageFile from '../assets/images/avatar.jpg'
-import Icon from '../components/Icon'
 
 type TItemValue = string | number | null
 declare type TItemLabel = string
@@ -38,7 +40,7 @@ const image = {
 
 export default {
   title: 'Select',
-  component: SelectComp,
+  component: _Select,
   argTypes: {
     size: {
       options: ['large', 'small'],
@@ -198,7 +200,7 @@ const Template = (args: any): JSX.Element => {
 
   return (
     <div style={{ display: 'flex', height: '100vh', justifyContent: 'center' }}>
-      <SelectComp
+      <_Select
         {...args}
         dataId={'test'}
         tooltipAddons={{ position: 'bottom-left' }}
@@ -266,7 +268,7 @@ Select.args = {
 }
 
 // -----------MULTISELECT---------
-const MultiSelect1 = (args: any): JSX.Element => {
+const MultiSelectTemplate = (args: any): JSX.Element => {
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
 
   const set = (value) => {
@@ -274,7 +276,7 @@ const MultiSelect1 = (args: any): JSX.Element => {
   }
   return (
     <div style={{ width: 250, position: 'absolute', left: 500, top: 0 }} className="ddddd">
-      <MultiSelectComp
+      <_MultiSelect
         {...args}
         isGrouped={true}
         menuOptions={[
@@ -311,10 +313,8 @@ const MultiSelect1 = (args: any): JSX.Element => {
     </div>
   )
 }
-export const MultiSelect = MultiSelect1.bind({})
+export const MultiSelect = MultiSelectTemplate.bind({})
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 MultiSelect.args = {
   isLoading: false,
   label: 'Select',
@@ -332,15 +332,15 @@ MultiSelect.args = {
 
 // ----------NESTED_SELECT---------------
 
-const NestedSelect1 = (args: any): JSX.Element => {
+const NestedSelectTemplate = (args: any): JSX.Element => {
   const [selected, setSelected] = useState<TSelectOption>({
     value: 3,
-    label: 'Managment board'
+    label: 'Management board'
   })
 
   return (
     <div style={{ width: 320, position: 'absolute', left: 300 }}>
-      <NestedSelectComp
+      <_NestedSelect
         {...args}
         selected={selected}
         setSelectedValue={setSelected}
@@ -349,10 +349,8 @@ const NestedSelect1 = (args: any): JSX.Element => {
     </div>
   )
 }
-export const NestedSelect = NestedSelect1.bind({})
+export const NestedSelect = NestedSelectTemplate.bind({})
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 NestedSelect.args = {
   isLoading: false,
   label: 'Select',
@@ -374,7 +372,7 @@ NestedSelect.args = {
 }
 // ----------FILTERDROPDOWN---------------
 
-const FilterDropdown1 = (args: any): JSX.Element => {
+const FilterDropdownTemplate = (args: any): JSX.Element => {
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
   const [isOpen, setIsOpen] = useState(false)
   const containerRef = useRef(null)
@@ -396,7 +394,7 @@ const FilterDropdown1 = (args: any): JSX.Element => {
           buttonText={'filter'}
           onClick={() => setIsOpen(!isOpen)}
         />
-        <FilterDropdownComp
+        <_FilterDropdown
           {...args}
           parentRef={containerRef.current}
           closeHandler={closeHandler}
@@ -408,10 +406,8 @@ const FilterDropdown1 = (args: any): JSX.Element => {
     </div>
   )
 }
-export const FilterDropdown = FilterDropdown1.bind({})
+export const FilterDropdown = FilterDropdownTemplate.bind({})
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 FilterDropdown.args = {
   isLoading: true,
   options: OPTIONS_NESTED,

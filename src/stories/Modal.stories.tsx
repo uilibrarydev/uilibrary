@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Modal as ModalComp } from '../components'
+import { Modal as _Modal } from '../index'
 
 export default {
   title: 'Modal',
-  component: ModalComp,
+  component: _Modal,
   argTypes: {
     size: {
       options: ['large', 'medium', 'small'],
@@ -19,7 +19,7 @@ const Template = (args: any): JSX.Element => {
   return (
     <div>
       <p onClick={openModal}>click here </p>
-      <ModalComp
+      <_Modal
         {...args}
         onClose={closeModal}
         isOpen={isOpen}
@@ -36,14 +36,12 @@ const Template = (args: any): JSX.Element => {
         }}
       >
         <div>Modal content</div>
-      </ModalComp>
+      </_Modal>
     </div>
   )
 }
 export const Modal = Template.bind({})
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 Modal.args = {
   size: 'small',
   title: 'Title',

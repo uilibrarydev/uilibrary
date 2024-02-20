@@ -1,11 +1,10 @@
 import React from 'react'
-import { Container as ContainerComp, Text } from '../components'
-import { Button } from '../components'
-import { noop } from '../utils/index'
+import { Text, Container as _Container, Button } from '../index'
+import { noop } from '../utils/helpers'
 
 export default {
   title: 'Container',
-  component: ContainerComp
+  component: _Container
 }
 const Template = (): JSX.Element => {
   const helperStyles = {
@@ -14,14 +13,14 @@ const Template = (): JSX.Element => {
 
   return (
     <div>
-      <ContainerComp>
+      <_Container>
         <div>
           <Text size="small" />
           <div style={helperStyles}>
             <Button buttonText="Next" onClick={noop} type="primary" />
           </div>
         </div>
-      </ContainerComp>
+      </_Container>
     </div>
   )
 }

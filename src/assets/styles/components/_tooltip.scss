@@ -1,4 +1,4 @@
-@import "../shared";
+@use "../helpers/mixin";
 
 .tooltip {
   $this: &;
@@ -16,8 +16,8 @@
   --ds-tooltip-arrow-bg: var(--ds-color-bg-white);
   --ds-tooltip-shadow: 0px 2px 4px rgba(34, 34, 34, 0.16);
 
-  @include flexbox;
-  @include align-items(center);
+  @include mixin.flexbox;
+  @include mixin.align-items(center);
   position: fixed;
   color: var(--ds-tooltip-color);
   background-color: var(--ds-tooltip-bg);
