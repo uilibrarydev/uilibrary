@@ -22,7 +22,8 @@ export function Table({
   fixedHeader,
   withSelect = false,
   handleRowClick,
-  className
+  className,
+  containerRefHandler
 }: TTableProps): ReactElement {
   const tableRef = useRef<HTMLTableElement | null>(null)
   const [tableWidth, setTableWidth] = useState(400)
@@ -90,6 +91,7 @@ export function Table({
 
   return (
     <div
+      ref={containerRefHandler}
       className={classNames(
         'table-wrapper scrollbar scrollbar--horizontal scrollbar--vertical',
         className

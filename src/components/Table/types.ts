@@ -28,6 +28,7 @@ export type TTableProps = {
   fixedHeader?: { y: number }
   handleRowClick?: (row: any) => void
   onChange?: (state: TableState) => void
+  containerRefHandler?: (ref: HTMLDivElement) => void
 }
 
 export type SortBy = {
