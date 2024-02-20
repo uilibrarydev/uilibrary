@@ -1,10 +1,13 @@
 {
   "homepage": "https://dinofrontend.github.io/dino_ui_library",
   "name": "dino_ui_tools",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "",
   "private": false,
   "main": "index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "version": "echo $npm_package_version",
     "name": "echo $npm_package_name",
