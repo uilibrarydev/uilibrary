@@ -30,7 +30,7 @@ jobs:
       - run: echo "PACKAGE_NAME=$(npm run name --silent)" >> $GITHUB_ENV
 
       - name: Publish to npm
-        run: npm publish
+        run: cd ./dist/ && npm publish
 
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
