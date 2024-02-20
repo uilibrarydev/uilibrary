@@ -21,6 +21,7 @@ export type TColumnFields = {
 export type TColumn = Column & TColumnFields
 
 export type TTableProps = {
+  className?: string
   columns: TColumn[]
   data: any[]
   withSelect?: boolean

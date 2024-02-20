@@ -5,7 +5,8 @@ import {
   useGetElemPositions,
   useGetElemSizes,
   useGetHasBottomSpace,
-  useHideOnScroll
+  useHideOnScroll,
+  useGetHasTopSpace
 } from '../../../hooks'
 import { Input } from '../../Input'
 import { Text } from '../../Text'
@@ -132,7 +133,12 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     setItemLabel(null)
     setSearchValue(e.target.value)
   }
-  const hasBottomSpace = useGetHasBottomSpace({
+  const { hasBottomSpace } = useGetHasBottomSpace({
+    element: dropdownRef,
+    input: inputRef.current
+  })
+
+  const hasTopSpace = useGetHasTopSpace({
     element: dropdownRef,
     input: inputRef.current
   })
@@ -180,8 +186,8 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
           style={{
             left,
             width,
-            top: hasBottomSpace ? bottom : 'initial',
-            bottom: hasBottomSpace ? 'initial' : window.innerHeight - top + 10
+            top: hasBottomSpace || !hasTopSpace ? bottom : 'initial',
+            bottom: hasBottomSpace || !hasTopSpace ? 'initial' : window.innerHeight - top + 10
           }}
           ref={setDropdownRef}
         >
