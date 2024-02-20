@@ -22,3 +22,5 @@ export enum FILE_UPLOAD_ERRORS {
   'size',
   'type'
 }
+
+export const HIDE_ON_SCROLL_MESSAGE = 'HIDE'
