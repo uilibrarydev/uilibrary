@@ -1,7 +1,7 @@
 {
   "homepage": "https://dinofrontend.github.io/dino_ui_library",
   "name": "dino_ui_tools",
-  "version": "2.0.0-alpha.58",
+  "version": "2.0.0-alpha.66",
   "description": "",
   "private": false,
   "main": "index.js",
@@ -45,8 +45,6 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.9",
-    "@babel/preset-env": "^7.23.9",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-image": "^3.0.3",
