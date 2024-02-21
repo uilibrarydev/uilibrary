@@ -1,25 +1,39 @@
+# Dino UI Tools
 
+See [UI library](https://dinofrontend.github.io/dino_ui_library) for live demos and comprehensive docs.
 
-Use `npm pack` to create a new bundle without publishing new versoin 
-Bundle will be added in the main directory with name dino_ui_library-{version}.tgz
+# Installation and usage
+```
+npm install dino_ui_tools
+```
 
+Then use it in your app:
+```jsx
+import React from 'react';
+import { Button } from 'dino_ui_tools/components/Button';
+import 'dino_ui_tools/assets/styles/styles.scss'; 
+// Or you can import the styles.css file
+// import 'dino_ui_tools/assets/styles/styles.css';
 
-And in the module where you are using run
-`npm install ../dino_ui_library/dino_ui_tools-${version}.tgz`
-and you can see changes.
+const App = () => {
+  return <Button>Click me</Button>;
+};
+```
 
-Please run `npm install` after every change you make.
+How to use mixins:
+```scss
+@use "dino_ui_tools/assets/styles/helpers/mixin";
 
-
+.divider {
+    @include mixin.flexbox();
+}
+```
 # How to create new component
-
-    1. Add a folder with the component name in 'src/components/ folder.
-    2. Develop component based on the design.(use design tokens for styling)
-    3. Add `coomponentName.stories.tsx` file in src/stories folder to testcreated components.
-    4. Make sure you don't have type error and the component is matching with the design.
-    5. If everything is ok you can test your created component with the method descibed above.
-    6. After testing make a new bundle with the new changes by running the command 
-        `npm run build`
-    7. After updating the bundle publish a new version by the command
-        `npm publish`
-
+    1. Add a folder with the component name in `src/components/` folder.
+    2. Add a style file in the `assets/styles/components` fodler with the name `_componentName.scss`.
+    3. Import the created style file in `assets/styles/styles.scss` file using @use syntax.
+    4. Develop component based on the design.
+    5. Add `coomponentName.stories.tsx` file in src/stories folder to test created component.
+    6. Make sure you don't have type error and the component is matching with the design.
+    7. If everything is ok you can create a pull request into the master branch with the updated package version.
+    8. The new version will be published automatically after the pull request is reviewed and merged.
