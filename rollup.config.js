@@ -122,7 +122,7 @@ const plugins = [
       { src: 'src/assets/fonts/icomoon/fonts', dest: 'dist' },
       { src: 'src/assets/images/', dest: 'dist' },
       { src: 'src/assets/styles/helpers/_mixin.scss', dest: 'dist'},
-      { src: './Readme.md', dest: 'dist'}
+      { src: './README.md', dest: 'dist'}
     ],
     flatten: false,
   }),
