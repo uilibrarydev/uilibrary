@@ -121,7 +121,8 @@ const plugins = [
     targets: [
       { src: 'src/assets/fonts/icomoon/fonts', dest: 'dist' },
       { src: 'src/assets/images/', dest: 'dist' },
-      { src: 'src/assets/styles/helpers/_mixin.scss', dest: 'dist'}
+      { src: 'src/assets/styles/helpers/_mixin.scss', dest: 'dist'},
+      { src: './Readme.md', dest: 'dist'}
     ],
     flatten: false,
   }),
@@ -152,6 +153,7 @@ export default [
         peerDependencies: pkg.peerDependencies,
         dependencies: pkg.dependencies,
         sideEffects: false,
+        homepage: pkg.homepage,
       }),
     })
   ],
