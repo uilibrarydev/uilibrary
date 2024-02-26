@@ -20,8 +20,6 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
     placeholderText
   } = props
 
-  console.log(dayjsLocale, 'dddddddd')
-
   useImportFilesDynamically(dayjsLocale)
 
   const dateInitialValue = value !== undefined && Array.isArray(value) ? value : currentDates
