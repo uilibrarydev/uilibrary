@@ -4,7 +4,6 @@ import DatePicker from 'react-datepicker'
 import { Input } from '../Input'
 import { ISimpleDatePickerProps } from './types'
 import { Label } from '../../helperComponents'
-import { useImportFilesDynamically } from './hooks'
 
 export const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
   const {
@@ -24,7 +23,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => 
   } = props
   const calendarRef = useRef<{ setOpen: (isOpen: boolean) => void | null }>(null)
 
-  useImportFilesDynamically(dayjsLocale, locale)
+  dayjs.locale(dayjsLocale)
 
   const dateInitialValue =
     value !== undefined && Object.prototype.toString.call(value) === '[object Date]'

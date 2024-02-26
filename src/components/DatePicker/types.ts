@@ -3,12 +3,6 @@ import { ReactDatePickerProps } from 'react-datepicker'
 type DatePickerDefaultProps = Omit<IFormCompProps, 'value'> &
   Omit<ReactDatePickerProps, 'onChange' | 'value'> & { value?: Date }
 
-export enum Locales {
-  HY = 'hy',
-  EN = 'en',
-  RU = 'ru'
-}
-
 export interface ISimpleDatePickerProps extends DatePickerDefaultProps {
   label?: string | JSX.Element
   currentDate?: Date | undefined

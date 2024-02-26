@@ -4,7 +4,6 @@ import DatePicker from 'react-datepicker'
 import { Input } from '../Input'
 import { ITimePickerProps } from './types'
 import { Label } from '../../helperComponents'
-import { useImportFilesDynamically } from './hooks'
 
 export const TimePicker = (props: ITimePickerProps): JSX.Element => {
   const {
@@ -27,7 +26,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
       : currentTime
   const [selectedTime, setCurrentTime] = useState(dateInitialValue)
 
-  useImportFilesDynamically(dayjsLocale, locale)
+  dayjs.locale(dayjsLocale)
 
   const onChange = (date: Date) => {
     setCurrentTime(date)
