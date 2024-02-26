@@ -1,4 +1,4 @@
-import { MouseEvent, ReactElement } from 'react'
+import { MouseEvent, ReactNode } from 'react'
 
 type TTextTypes =
   | 'primary'
@@ -21,7 +21,7 @@ type TTextLineHeight = 'xsmall' | 'small' | 'medium' | 'large'
 export interface TextPropTypes {
   id?: string
   title?: string
-  children?: string | ReactElement
+  children?: ReactNode
   type?: TTextTypes
   size?: TTextSize
   weight?: TTextWeight

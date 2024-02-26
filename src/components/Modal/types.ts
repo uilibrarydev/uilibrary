@@ -18,6 +18,6 @@ export interface TModalPropTypes {
     confirm: TButtonPropTypes
   }
   closeIcon?: boolean
-  children?: string | JSX.Element | JSX.Element[] | ReactNode
+  children?: ReactNode
   className?: string
 }
