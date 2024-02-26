@@ -4,11 +4,12 @@ import { Locales } from './types'
 import { registerLocale } from 'react-datepicker'
 
 export function useImportFilesDynamically(dayjsLocale: string, locale: string | Locale) {
-  const [isFilesLoaded, setIsFilesLoaded] = useState(false)
+  const [_, setIsFilesLoaded] = useState(false)
 
   useEffect(() => {
-    if (dayjsLocale && !isFilesLoaded) {
+    if (dayjsLocale) {
       ;(async () => {
+        setIsFilesLoaded(false)
         await import(`dayjs/locale/${dayjsLocale}.js`)
 
         let localeData = locale
@@ -34,5 +35,5 @@ export function useImportFilesDynamically(dayjsLocale: string, locale: string | 
         setIsFilesLoaded(true)
       })()
     }
-  }, [dayjsLocale, isFilesLoaded])
+  }, [dayjsLocale, locale])
 }
