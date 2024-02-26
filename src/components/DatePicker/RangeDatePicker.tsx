@@ -3,6 +3,7 @@ import dayjs from 'dayjs'
 import DatePicker from 'react-datepicker'
 import { Input } from '../Input'
 import { DateFormat, IRangeDatePickerProps, TRangePickerValues } from './types'
+import { useImportFilesDynamically } from './hooks'
 
 export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
   const {
@@ -19,7 +20,9 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
     placeholderText
   } = props
 
-  dayjs.locale(dayjsLocale)
+  console.log(dayjsLocale, 'dddddddd')
+
+  useImportFilesDynamically(dayjsLocale)
 
   const dateInitialValue = value !== undefined && Array.isArray(value) ? value : currentDates
 

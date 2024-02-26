@@ -8,7 +8,6 @@ import { exec } from 'child_process'
 import babel from 'rollup-plugin-babel'
 import pkg from './package.json'
 import generatePackageJson from 'rollup-plugin-generate-package-json'
-import dynamicImportVars from '@rollup/plugin-dynamic-import-vars'
 import image from '@rollup/plugin-image'
 import postcss from 'rollup-plugin-postcss'
 import { renderSync } from 'sass'
@@ -128,9 +127,6 @@ export default [
     external,
     plugins: [
       ...plugins,
-      dynamicImportVars({
-        errorWhenNoFilesFound: true
-      }),
       dtsGenerator(),
       generatePackageJson({
         inputFolder: '.',
