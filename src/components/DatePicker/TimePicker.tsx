@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
-import moment from 'moment' // TODO check if we can not to use this  package
-import DatePicker, { registerLocale } from 'react-datepicker'
-import hy from 'date-fns/locale/hy'
-import en from 'date-fns/locale/en-GB'
-import ru from 'date-fns/locale/ru'
+import dayjs from 'dayjs'
+import DatePicker from 'react-datepicker'
 import { Input } from '../Input'
 import { ITimePickerProps } from './types'
 import { Label } from '../../helperComponents'
-registerLocale('hy', hy)
-registerLocale('en', en)
-registerLocale('ru', ru)
+import { useImportFilesDynamically } from './hooks'
 
 export const TimePicker = (props: ITimePickerProps): JSX.Element => {
   const {
@@ -22,7 +17,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
     required,
     locale = 'hy',
     format = 'h:mm a',
-    momentLocale = 'hy-am',
+    dayjsLocale = 'hy-am',
     placeholderText,
     ...rest
   } = props
@@ -32,7 +27,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
       : currentTime
   const [selectedTime, setCurrentTime] = useState(dateInitialValue)
 
-  moment.locale(momentLocale)
+  useImportFilesDynamically(dayjsLocale, locale)
 
   const onChange = (date: Date) => {
     setCurrentTime(date)
@@ -50,7 +45,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
       <Label text={label} required={required} />
 
       <DatePicker
-        selected={moment.isDate(selectedTime) ? selectedTime : new Date()}
+        selected={dayjs(selectedTime).isValid() ? selectedTime : new Date()}
         locale={locale}
         showTimeSelect
         showTimeSelectOnly
@@ -63,7 +58,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
           <div className="date-picker_input-container">
             <Input
               placeholder={placeholderText}
-              currentValue={selectedTime ? moment(selectedTime.toString()).format(format) : ''}
+              currentValue={selectedTime ? dayjs(selectedTime.toString()).format(format) : ''}
             />
           </div>
         }

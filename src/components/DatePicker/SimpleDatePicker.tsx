@@ -1,16 +1,10 @@
-import React, { useRef, useState } from 'react'
-import moment from 'moment'
-import DatePicker, { registerLocale } from 'react-datepicker'
-import hy from 'date-fns/locale/hy'
-import en from 'date-fns/locale/en-GB'
-import ru from 'date-fns/locale/ru'
+import React, { useEffect, useRef, useState } from 'react'
+import dayjs from 'dayjs'
+import DatePicker from 'react-datepicker'
 import { Input } from '../Input'
 import { ISimpleDatePickerProps } from './types'
 import { Label } from '../../helperComponents'
-
-registerLocale('hy', hy)
-registerLocale('en', en)
-registerLocale('ru', ru)
+import { useImportFilesDynamically } from './hooks'
 
 export const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
   const {
@@ -22,7 +16,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => 
     locale = 'hy',
     changeHandler,
     format = 'M/D/YYYY',
-    momentLocale = 'hy-am',
+    dayjsLocale = 'hy-am',
     required = false,
     hasError,
     placeholderText,
@@ -30,12 +24,12 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => 
   } = props
   const calendarRef = useRef<{ setOpen: (isOpen: boolean) => void | null }>(null)
 
+  useImportFilesDynamically(dayjsLocale, locale)
+
   const dateInitialValue =
     value !== undefined && Object.prototype.toString.call(value) === '[object Date]'
       ? value
       : currentDate
-
-  moment.locale(momentLocale)
 
   const [selectedDate, setSelectedDate] = useState(dateInitialValue)
 
@@ -61,7 +55,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => 
       <Label text={label} required={required} invalid={hasError} />
 
       <DatePicker
-        selected={moment.isDate(selectedDate) ? selectedDate : undefined}
+        selected={dayjs(selectedDate).isValid() ? selectedDate : null}
         locale={locale}
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
@@ -70,7 +64,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => 
           <Input
             placeholder={placeholderText}
             rightIconProps={{ name: 'calendar', onClick: openDatepicker }}
-            currentValue={selectedDate ? moment(selectedDate.toString()).format(format) : ''}
+            currentValue={selectedDate ? dayjs(selectedDate.toString()).format(format) : ''}
           />
         }
         {...rest}
