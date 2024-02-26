@@ -1,6 +1,7 @@
 import { ReactDatePickerProps } from 'react-datepicker'
 
-type DatePickerDefaultProps = IFormCompProps & Omit<ReactDatePickerProps, 'onChange' | 'value'>
+type DatePickerDefaultProps = Omit<IFormCompProps, 'value'> &
+  Omit<ReactDatePickerProps, 'onChange' | 'value'> & { value?: Date }
 
 export interface ISimpleDatePickerProps extends DatePickerDefaultProps {
   label?: string | JSX.Element
@@ -11,7 +12,7 @@ export interface ISimpleDatePickerProps extends DatePickerDefaultProps {
   maxDate?: Date | null
   format?: string
   required?: boolean
-  momentLocale?: string
+  dayjsLocale?: string
 }
 export interface ITimePickerProps extends DatePickerDefaultProps {
   label?: string | JSX.Element
@@ -20,7 +21,7 @@ export interface ITimePickerProps extends DatePickerDefaultProps {
   required?: boolean
   format?: string
   filterTime?: (date: Date) => boolean
-  momentLocale?: string
+  dayjsLocale?: string
 }
 
 export interface IRangeDatePickerProps extends DatePickerDefaultProps {
@@ -29,8 +30,10 @@ export interface IRangeDatePickerProps extends DatePickerDefaultProps {
   label?: string | JSX.Element
   changeHandler: (date: TRangePickerValues) => void
   maxDate?: Date | undefined
-  momentLocale?: string
+  dayjsLocale?: string
 }
+
+export type TRangePickerValues = [Date | null, Date | null]
 
 export enum DateFormat {
   LongDate = 'MMMM D, YYYY',

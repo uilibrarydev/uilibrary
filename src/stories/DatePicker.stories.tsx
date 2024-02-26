@@ -7,7 +7,10 @@ import {
 
 export default {
   title: 'DatePicker',
-  component: _SimpleDatePicker
+  component: _RangeDatePicker,
+  argTypes: {
+    dayjsLocale: { control: 'radio', options: ['en', 'ru', 'hy-am'] }
+  }
 }
 
 const CURRENT_YEAR = new Date().getFullYear()
@@ -26,12 +29,13 @@ const getAllLastDays = () => {
   return arr
 }
 
-const SimplePicker = (): JSX.Element => {
+const SimplePicker = (args): JSX.Element => {
   const [value, setValue] = useState<Date | undefined>(undefined)
 
   return (
     <div style={{ width: 300 }}>
       <_SimpleDatePicker
+        {...args}
         value={value}
         changeHandler={setValue}
         format="DD"
@@ -62,13 +66,21 @@ const TimeDatePicker = (): JSX.Element => {
 }
 export const TimePicker = TimeDatePicker.bind({})
 
-const RangePicker = (): JSX.Element => {
+const RangePicker = (args): JSX.Element => {
   const [value, setValue] = useState<any>([new Date(), new Date()])
 
   return (
     <div style={{ width: 300 }}>
-      <_RangeDatePicker value={value} changeHandler={setValue} maxDate={new Date()} locale={'hy'} />
+      <_RangeDatePicker
+        {...args}
+        value={value}
+        changeHandler={setValue}
+        maxDate={new Date()}
+        locale={'en'}
+      />
     </div>
   )
 }
 export const RangeDatePicker = RangePicker.bind({})
+
+RangeDatePicker.args = {}

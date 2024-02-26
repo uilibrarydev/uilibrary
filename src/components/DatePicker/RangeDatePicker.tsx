@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import moment from 'moment'
-import DatePicker, { registerLocale } from 'react-datepicker'
-import hy from 'date-fns/locale/hy'
-import en from 'date-fns/locale/en-GB'
-import ru from 'date-fns/locale/ru'
+import dayjs from 'dayjs'
+import DatePicker from 'react-datepicker'
 import { Input } from '../Input'
-import { DateFormat, IRangeDatePickerProps } from './types'
-
-registerLocale('hy', hy)
-registerLocale('en', en)
-registerLocale('ru', ru)
+import { DateFormat, IRangeDatePickerProps, TRangePickerValues } from './types'
+import { useImportFilesDynamically } from './hooks'
 
 export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
   const {
@@ -21,12 +15,12 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
     format = DateFormat.LongDate,
     maxDate,
     locale = 'hy',
-    momentLocale = 'hy-am',
+    dayjsLocale = 'hy-am',
     disabled,
     placeholderText
   } = props
 
-  moment.locale(momentLocale)
+  useImportFilesDynamically(dayjsLocale)
 
   const dateInitialValue = value !== undefined && Array.isArray(value) ? value : currentDates
 
@@ -52,7 +46,7 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
   }
 
   const formatDate = (date: Date | undefined): string => {
-    return date ? moment(date).format(format) : ''
+    return date ? dayjs(date).format(format) : ''
   }
 
   const renderCurrentSelectedDate = (rangeArray: (Date | undefined)[]) => {

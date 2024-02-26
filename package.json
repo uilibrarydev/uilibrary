@@ -1,7 +1,7 @@
 {
   "homepage": "https://dinofrontend.github.io/dino_ui_library",
   "name": "dino_ui_tools",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "UI library for Dino",
   "private": false,
   "main": "index.js",
@@ -46,6 +46,7 @@
   "devDependencies": {
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-dynamic-import-vars": "^2.1.2",
     "@rollup/plugin-image": "^3.0.3",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
@@ -105,8 +106,8 @@
     "@hookform/resolvers": "^2.9.11",
     "@types/react-input-mask": "^3.0.2",
     "classnames": "^2.3.2",
+    "dayjs": "^1.11.10",
     "framer-motion": "4.1.17",
-    "moment": "^2.29.4",
     "react-datepicker": "^4.25.0",
     "react-hook-form": "^7.50.0",
     "react-input-mask": "^2.0.4",
