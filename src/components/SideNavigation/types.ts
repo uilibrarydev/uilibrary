@@ -1,14 +1,16 @@
+import { ReactNode } from 'react'
+
 export interface TSideNavigationPropTypes {
   actionElm: JSX.Element
   showAction: boolean
-  children: JSX.Element
+  children: ReactNode
   showToggleIcon?: boolean
   open: boolean
   setOpen: (arg: boolean) => void
 }
 
 export interface TBlock {
-  children: JSX.Element
+  children: ReactNode
   label?: string
   open?: boolean
 }

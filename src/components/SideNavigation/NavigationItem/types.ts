@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export enum NavigationItemTypes {
   MAIN = 'main',
   SUB = 'sub',
@@ -18,5 +20,5 @@ export interface TNavigationLinkPropTypes {
   actionElm?: JSX.Element
   active?: boolean
   badgeContent?: string
-  children?: JSX.Element
+  children?: ReactNode
 }

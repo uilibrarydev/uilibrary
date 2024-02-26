@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export type TCollapseTitleColor = 'selected' | 'primary'
 
 export interface ICollapseTitleProps {
@@ -11,7 +13,7 @@ interface TCollapseItemTitle extends ICollapseTitleProps {
 export type TCollapseProps = {
   isOpen: boolean
   toggle: () => void
-  children: JSX.Element
+  children: ReactNode
   title: TCollapseItemTitle
 }
 

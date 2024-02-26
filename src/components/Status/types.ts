@@ -1,5 +1,5 @@
 import { IconPropTypes } from '../Icon/types'
-import { ReactElement } from 'react'
+import { ReactNode } from 'react'
 
 export type TStatusTypes =
   | 'primary'
@@ -13,7 +13,7 @@ export type TStatusTypes =
 
 export interface TStatusProps extends IFormCompProps {
   text?: string
-  children?: string | ReactElement
+  children?: ReactNode
   leftIconProps?: IconPropTypes
   rightIconProps?: JSX.Element
   type?: TStatusTypes

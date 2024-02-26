@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import { FormState } from 'react-hook-form'
 import { AnyObjectSchema } from 'yup'
 import { ValidationMode } from 'react-hook-form/dist/types/form'
@@ -8,7 +9,7 @@ export type TDirtyFields = Partial<Readonly<{ [x: string]: unknown }>>
 export interface FormPropTypes {
   className?: string
   onSubmit?: (data: TFormData, formState: FormState<TFormData>, dirtyFields?: TDirtyFields) => void
-  children?: JSX.Element
+  children?: ReactNode
   validationScheme: AnyObjectSchema
   initialValues: TFormData
   buttonConfigs?: TButtonPropTypes[]

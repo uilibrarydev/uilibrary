@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export interface TContainerProps {
-  children?: JSX.Element
+  children?: ReactNode
 }
