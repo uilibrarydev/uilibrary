@@ -1,5 +1,7 @@
+import { ReactNode } from 'react'
+
 export interface LinkPropTypes {
-  children?: string | JSX.Element
+  children?: ReactNode
   className?: string
   url?: string
   dataId?: string

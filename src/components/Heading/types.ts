@@ -1,7 +1,7 @@
-import { ElementType } from 'react'
+import { ElementType, ReactNode } from 'react'
 
 export interface HeadingPropTypes {
-  children?: string | JSX.Element
+  children?: ReactNode
   type?: ElementType
   size?: 'xsmall' | 'small' | 'standard' | 'medium' | 'large' | 'xlarge'
   weight?: 'regular' | 'semibold' | 'bold'

@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import { ReactElement, ReactNode } from 'react'
 
 export interface TTooltipProps extends IFormCompProps {
   text: string | ReactElement
@@ -16,5 +16,5 @@ export interface TTooltipProps extends IFormCompProps {
   elemRef?: HTMLElement | null
   id?: string | number
   hovered?: boolean
-  children?: string | ReactElement
+  children?: ReactNode
 }

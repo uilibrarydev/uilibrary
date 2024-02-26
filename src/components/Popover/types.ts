@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import { ReactElement, ReactNode } from 'react'
 import { LinkPropTypes } from '../Link/types'
 
 export interface TPopoverProps extends IFormCompProps {
@@ -6,7 +6,7 @@ export interface TPopoverProps extends IFormCompProps {
   text?: string | ReactElement
   linkAddons?: LinkPropTypes
   linkText?: string
-  children?: string | ReactElement
+  children?: ReactNode
   position?:
     | 'top-left'
     | 'top-center'

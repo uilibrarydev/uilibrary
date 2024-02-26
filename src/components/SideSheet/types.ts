@@ -16,7 +16,7 @@ export interface TSideSheetPropTypes {
     confirm: TButtonPropTypes
     extraButton?: TButtonPropTypes
   }
-  children?: string | JSX.Element | JSX.Element[] | ReactNode
+  children?: ReactNode
   className?: string
   headerButtons?: {
     close: TButtonPropTypes
