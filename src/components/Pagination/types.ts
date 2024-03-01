@@ -4,7 +4,7 @@ export type TPaginationProps = {
     previous: string | JSX.Element
   }
   totalCount: number
-  page: number
+  page?: number
   pageSize: number
   handleChangePage: (pageNumber: number) => void
   breakLabel?: JSX.Element

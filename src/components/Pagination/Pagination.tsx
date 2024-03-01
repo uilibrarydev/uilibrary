@@ -21,7 +21,8 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
     classname = '',
     size = 'large',
     pageSize,
-    disableInitialCallback = false
+    disableInitialCallback = false,
+    page
   } = props
 
   const handlePageChange = ({ selected }: { selected: number }) => {
@@ -44,6 +45,7 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
         breakLinkClassName="page-link"
         breakLabel={breakLabel}
         initialPage={0}
+        {...(page ? { forcePage: page - 1 } : {})}
       />
     </div>
   )
