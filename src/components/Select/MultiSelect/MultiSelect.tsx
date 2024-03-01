@@ -53,6 +53,7 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
     disabled,
     dropdownWidth,
     align = 'left',
+    checkboxInfo,
     ...rest
   } = props
 
@@ -110,9 +111,9 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
   useOnOutsideClick(containerRef.current, cancelSelectedItems, isOpen, useId())
   useHideOnScroll(closeDropdown)
 
-  const submitSelectedValue = (selections: TSelectedValue[]) => {
+  const submitSelectedValue = (selections: TSelectedValue[], isChecked: boolean) => {
     if (setSelectedItems) {
-      setSelectedItems(selections)
+      setSelectedItems(selections, isChecked)
     }
     if (name && setFieldValue) {
       setFieldValue(name, selections)
@@ -121,8 +122,8 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
     closeDropdown()
   }
 
-  const applySelectedItems = () => {
-    submitSelectedValue(selectedValues)
+  const applySelectedItems = (isChecked: boolean) => {
+    submitSelectedValue(selectedValues, isChecked)
   }
 
   const checkIsValueOverflowed = useCallback(
@@ -246,6 +247,7 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
             )}
             {options.length ? (
               <Footer
+                checkboxInfo={checkboxInfo}
                 hasChange={hasChange}
                 buttonProps={footerButtonProps}
                 onCancel={cancelSelectedItems}
