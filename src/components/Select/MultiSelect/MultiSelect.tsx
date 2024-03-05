@@ -54,6 +54,7 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
     dropdownWidth,
     align = 'left',
     checkboxInfo,
+    size,
     ...rest
   } = props
 
@@ -205,6 +206,7 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
           rightIconProps={{ name: isOpen ? 'caret-up-hover' : 'caret-down-hover', size: 'xsmall' }}
           labelAddons={labelAddons}
           disabled={disabled}
+          size={size}
         />
       </div>
 
