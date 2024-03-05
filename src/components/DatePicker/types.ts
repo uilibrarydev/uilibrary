@@ -14,7 +14,7 @@ export interface ISimpleDatePickerProps extends DatePickerDefaultProps {
   required?: boolean
   dayjsLocale?: string
   value?: Date
-  size: 'large' | 'small'
+  size?: 'large' | 'small'
 }
 export interface ITimePickerProps extends DatePickerDefaultProps {
   label?: string | JSX.Element
