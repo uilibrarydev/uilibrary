@@ -13,6 +13,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => 
     setFieldValue,
     name,
     label,
+    size,
     locale = 'hy',
     changeHandler,
     format = 'M/D/YYYY',
@@ -62,6 +63,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => 
         ref={calendarRef}
         customInput={
           <Input
+            size={size}
             placeholder={placeholderText}
             rightIconProps={{ name: 'calendar', onClick: openDatepicker }}
             currentValue={selectedDate ? dayjs(selectedDate.toString()).format(format) : ''}
