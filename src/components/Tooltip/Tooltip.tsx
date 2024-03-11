@@ -15,7 +15,8 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
     id,
     elemRef,
     children,
-    hovered = false
+    hovered = false,
+    timer
   } = props
 
   const [isHovered, setIsHovered] = useState(hovered)
@@ -28,7 +29,13 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
     }
   }, [id])
 
-  const onMouseEnter = () => setIsHovered(true)
+  const onMouseEnter = () => {
+    if (timer) {
+      setTimeout(() => setIsHovered(true), timer)
+    } else {
+      setIsHovered(true)
+    }
+  }
   const onMouseLeave = () => setIsHovered(false)
 
   useHideOnScroll(onMouseLeave)
