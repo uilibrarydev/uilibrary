@@ -17,4 +17,5 @@ export interface TTooltipProps extends IFormCompProps {
   id?: string | number
   hovered?: boolean
   children?: ReactNode
+  timer?: number
 }
