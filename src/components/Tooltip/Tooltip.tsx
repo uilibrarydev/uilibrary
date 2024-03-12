@@ -3,7 +3,9 @@ import classNames from 'classnames'
 import { Text } from '../Text'
 import { useGetTooltipStyles, useHideOnScroll } from '../../hooks'
 import { TTooltipProps } from './types'
+import { Timeout } from 'react-number-format/types/types'
 
+let timeoutId: Timeout | null = null
 export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
   const tooltipRef = useRef<HTMLDivElement | null>(null)
   const {
@@ -31,12 +33,17 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
 
   const onMouseEnter = () => {
     if (timer) {
-      setTimeout(() => setIsHovered(true), timer)
+      timeoutId = setTimeout(() => setIsHovered(true), timer)
     } else {
       setIsHovered(true)
     }
   }
-  const onMouseLeave = () => setIsHovered(false)
+  const onMouseLeave = () => {
+    if (timeoutId) {
+      clearTimeout(timeoutId)
+    }
+    setIsHovered(false)
+  }
 
   useHideOnScroll(onMouseLeave)
 

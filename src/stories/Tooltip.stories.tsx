@@ -41,6 +41,7 @@ const Template = (args) => {
       <_Tooltip
         {...args}
         id="ooooo"
+        timer={1000}
         // position="bottom-left"
       />
       <div id="ooooo">Hover on me</div>
