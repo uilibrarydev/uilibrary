@@ -14,20 +14,20 @@ export const openFileInNewWindow = ({
   e: TClickEventType
   file: File
   handleFileClick?: (file: File) => void
-}) => {
+}): void => {
   e.preventDefault()
 
   if (handleFileClick) {
-    return handleFileClick(file)
+    handleFileClick(file)
   }
 
   if (file) {
     const fileURL = URL.createObjectURL(file)
-    return window.open(fileURL)
+    window.open(fileURL)
   }
 }
 
-export const getFormattedValues = (files: File[]) => {
+export const getFormattedValues = (files: File[]): FileReader[] => {
   const readers: FileReader[] = []
 
   for (let i = 0; i < files.length; i++) {
@@ -42,7 +42,7 @@ export const getFormattedValues = (files: File[]) => {
   return readers
 }
 
-export const uniqueFiles = (files: File[]) =>
+export const uniqueFiles = (files: File[]): File[] =>
   files.filter((file, index, self) => {
     return index === self.findIndex((f) => f.name === file.name)
   })
@@ -64,4 +64,11 @@ export const getStringWidth = (text: string, fontSize: number): number => {
 
 export const setTranslationValue = (translation: string, value: string | number): string => {
   return translation.replace('%s', value.toString())
+}
+
+export const getYearOptions = (length: number): TSelectOptions => {
+  return Array.from({ length }, (_, i) => {
+    const year = new Date().getFullYear()
+    return { value: year + i, label: year + i }
+  })
 }
