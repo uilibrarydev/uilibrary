@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { HIDE_ON_SCROLL_MESSAGE } from '../consts'
+import { CUSTOM_SCROLL_NAME, CUSTOM_SCROLL_MESSAGE } from '../consts'
 
 export const useHideOnScroll = (hide: () => void): null => {
   useEffect(() => {
@@ -10,10 +10,10 @@ export const useHideOnScroll = (hide: () => void): null => {
   }, [])
 
   useEffect(() => {
-    document.addEventListener('hideOnScroll', (event: Event) => {
+    document.addEventListener(CUSTOM_SCROLL_NAME, (event: Event) => {
       const customEvent = event as CustomEvent<string>
       // Check the event type
-      if (customEvent.detail === HIDE_ON_SCROLL_MESSAGE) {
+      if (customEvent.detail === CUSTOM_SCROLL_MESSAGE) {
         // Close the menu
         hide()
       }
