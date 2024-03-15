@@ -103,9 +103,7 @@ export const ButtonSelect = (props: TButtonSelectPropTypes): ReactElement => {
           className="select__options"
           style={{
             left:
-              align === 'left'
-                ? left
-                : right - (dropdownWidth || containerWidth) - (offsets?.left || 0),
+              align === 'left' ? offsets?.left || left : right - (dropdownWidth || containerWidth),
             width: dropdownWidth || containerWidth,
             top: hasBottomSpace || !hasTopSpace ? offsets?.top || bottom : 'initial',
             bottom: hasBottomSpace || !hasTopSpace ? 'initial' : window.innerHeight - top + 10
