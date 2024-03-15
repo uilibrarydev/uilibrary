@@ -93,6 +93,19 @@ export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps 
   className?: string
 }
 
+export interface TButtonSelectPropTypes extends IFormCompProps, TSelectBaseProps {
+  options: TSelectOptions
+  selectedItem?: TItemValue
+  setSelectedItem?: (items: TItemValue | undefined) => void
+  buttonProps: TButtonPropTypes
+  tooltipAddons?: TTooltipProps
+  dropdownWidth?: number
+  align?: 'left' | 'right'
+  offsets?: {
+    top?: number
+    left?: number
+  }
+}
 export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps {
   options: TSelectOptions
   selectedItem?: TItemValue

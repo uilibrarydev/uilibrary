@@ -1,12 +1,17 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { ReactElement, useRef, useState } from 'react'
 import dayjs from 'dayjs'
 import DatePicker from 'react-datepicker'
+
 import { Input } from '../Input'
-import { ISimpleDatePickerProps } from './types'
 import { Label } from '../../helperComponents'
+import { CustomHeader } from './CustomHeader/CustomHeader'
+
+import { MONTHS } from '../../consts'
 import { useImportFilesDynamically } from './hooks'
 
-export const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => {
+import { ISimpleDatePickerProps } from './types'
+
+export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement => {
   const {
     value,
     currentDate,
@@ -21,6 +26,8 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => 
     required = false,
     hasError,
     placeholderText,
+    months = MONTHS,
+    yearItemNumber = 5,
     ...rest
   } = props
   const calendarRef = useRef<{ setOpen: (isOpen: boolean) => void | null }>(null)
@@ -71,6 +78,9 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): JSX.Element => 
         }
         {...rest}
         onChange={onChange}
+        renderCustomHeader={(props) => (
+          <CustomHeader {...props} months={months} yearItemNumber={yearItemNumber} />
+        )}
       />
     </div>
   )

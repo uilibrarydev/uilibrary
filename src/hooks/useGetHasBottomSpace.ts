@@ -6,7 +6,7 @@ export const useGetHasTopSpace = ({
   input
 }: {
   element: HTMLDivElement | null
-  input: HTMLInputElement | null
+  input: HTMLElement | null
 }): boolean => {
   const { height } = useGetElemSizes(element)
 
@@ -19,7 +19,7 @@ export const useGetHasBottomSpace = ({
   input
 }: {
   element: HTMLDivElement | null
-  input: HTMLInputElement | null
+  input: HTMLElement | null
 }): { hasBottomSpace: boolean; bottomSpace: number } => {
   const { height } = useGetElemSizes(element)
 
