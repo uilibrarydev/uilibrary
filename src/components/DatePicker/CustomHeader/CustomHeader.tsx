@@ -44,7 +44,7 @@ export const CustomHeader = (props: TProps): ReactElement => {
       />
       <div className="selects_container">
         <ButtonSelect
-          offsets={{ top: 42 }} // 24+8+10
+          offsets={{ top: 42, left: 48 }}
           buttonProps={{
             buttonText: year.toString(),
             iconProps: { name: 'caret-down-hover', alignment: 'right' },
@@ -57,7 +57,7 @@ export const CustomHeader = (props: TProps): ReactElement => {
           dropdownWidth={100}
         />
         <ButtonSelect
-          offsets={{ top: 42 }} //  24+8+10
+          offsets={{ top: 42, left: 138 }}
           buttonProps={{
             buttonText: getMonthLabel(month),
             iconProps: { name: 'caret-down-hover', alignment: 'right' },

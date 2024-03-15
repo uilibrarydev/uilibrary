@@ -364,7 +364,10 @@ const MultiSelectTemplate = (args: any): JSX.Element => {
     setSelectedValues(value)
   }
   return (
-    <div style={{ width: 250, position: 'absolute', left: 500, top: 0 }} className="ddddd">
+    <div
+      style={{ width: 250, height: '100vh', position: 'absolute', left: 500, top: 10 }}
+      className="ddddd"
+    >
       <_MultiSelect
         {...args}
         isGrouped={true}

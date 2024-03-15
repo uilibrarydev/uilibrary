@@ -25,6 +25,7 @@ import { MultiSelectGrouped } from './MultiSelectGrouped/MultiSelectGrouped'
 import { MultiSelectWithTabs } from './MultiSelectWithTabs/MultiSelectWithTabs'
 import { TMultiSelectPropTypes } from '../types'
 import { SELECTED_VISIBLE_MIN_COUNT, TRANSLATIONS_DEFAULT_VALUES } from '../constants'
+import { useChangePositionsOnScroll } from '../../../hooks/useChangePositionsOnScroll'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | null => {
@@ -110,7 +111,7 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
   }, [hasChange, initialSelected])
 
   useOnOutsideClick(containerRef.current, cancelSelectedItems, isOpen, useId())
-  useHideOnScroll(closeDropdown)
+  useChangePositionsOnScroll(inputRef?.current, dropdownRef)
 
   const submitSelectedValue = (selections: TSelectedValue[], isChecked: boolean) => {
     if (setSelectedItems) {
