@@ -96,7 +96,7 @@ export function Table({
         'table-wrapper scrollbar scrollbar--horizontal scrollbar--vertical',
         className
       )}
-      style={{ height: fixedHeader?.y }}
+      style={{ maxHeight: fixedHeader?.y }}
     >
       <table {...getTableProps()} ref={tableRef}>
         <thead>
