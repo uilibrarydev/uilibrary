@@ -6,6 +6,7 @@ import { AnimatePresenceWrapper } from '../../helperComponents/AnimatePresenceWr
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { TSideSheetPropTypes } from './types'
+import { useDispatchEventOnScroll } from '../../hooks/useDispatchEventOnScroll'
 
 export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   const {
@@ -34,6 +35,7 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
 
   useOnOutsideClick(containerRef, onClose, isOpen, useId())
   useHideBodyScroll(isOpen)
+  const dispatchScrollEvent = useDispatchEventOnScroll()
 
   const handleSubmit = useCallback(() => {
     onSubmit?.()
@@ -42,6 +44,7 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   useEffect(() => {
     if (isOpen && scrollToTopOptions) {
       const handleOnScroll = (e: Event) => {
+        dispatchScrollEvent()
         if (isOpen) {
           setIsShownScrollIcon(
             (e.currentTarget as HTMLDivElement).scrollTop > scrollToTopOptions.onPixel

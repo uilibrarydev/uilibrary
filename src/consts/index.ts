@@ -23,7 +23,8 @@ export enum FILE_UPLOAD_ERRORS {
   'type'
 }
 
-export const HIDE_ON_SCROLL_MESSAGE = 'HIDE'
+export const CUSTOM_SCROLL_MESSAGE = 'Custom scroll event has fired'
+export const CUSTOM_SCROLL_NAME = 'CUSTOM_SCROLL_EVENT'
 
 export const MONTHS = [
   {
