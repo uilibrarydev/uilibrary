@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { InputCustomProps } from '../Input/types'
 
 export interface TCardSelectProps {
-  type: string |'simple'
+  type: string | 'simple'
   title: string | ReactNode
   description: string | ReactNode
   badgeText: string | ReactNode

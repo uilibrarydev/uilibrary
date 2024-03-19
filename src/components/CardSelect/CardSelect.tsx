@@ -50,35 +50,32 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
                 </Text>
             ) : null}
 
-            {type !== 'simple' ? (
+            {type !== 'simple' ? (<Input {...inputProps} className={'mt-16'} disabled={disabled}/>) : null}
+
+            {additionalInfo?.length ? (
                 <>
-                    <Input {...inputProps} className={'mt-16'} disabled={disabled}/>
-                    {additionalInfo?.length ? (
-                        <>
-                            <Divider type={'primary'} isHorizontal={true} className={'mt-16 mb-16'}/>
-                            <div className="card-select__list">
-                                {additionalInfo.map((item) => {
-                                    return (
-                                        <div
-                                            key={item.key}
-                                            className="card-select__list__item flexbox justify-content--between mt-12"
-                                        >
-                                            <Text
-                                                type={disabled ? 'disabled' : 'secondary'}
-                                                size={'small'}
-                                                className={'pr-16'}
-                                            >
-                                                <>{item.key}</>
-                                            </Text>
-                                            <Text type={disabled ? 'disabled' : 'primary'} weight={'semibold'}>
-                                                <>{item.value}</>
-                                            </Text>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        </>
-                    ) : null}
+                    <Divider type={'primary'} isHorizontal={true} className={'mt-16 mb-16'}/>
+                    <div className="card-select__list">
+                        {additionalInfo.map((item) => {
+                            return (
+                                <div
+                                    key={item.key}
+                                    className="card-select__list__item flexbox justify-content--between mt-12"
+                                >
+                                    <Text
+                                        type={disabled ? 'disabled' : 'secondary'}
+                                        size={'small'}
+                                        className={'pr-16'}
+                                    >
+                                        <>{item.key}</>
+                                    </Text>
+                                    <Text type={disabled ? 'disabled' : 'primary'} weight={'semibold'}>
+                                        <>{item.value}</>
+                                    </Text>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </>
             ) : null}
         </div>

@@ -8,6 +8,7 @@
   --ds-card-select-padding: var(--ds-space-16);
   --ds-card-select-border-radius: var(--ds-border-radius-sm);
   --ds-card-select-border-color: var(--ds-color-border-tertiary);
+  --ds-card-select-border-color-hover: var(--ds-color-border-brand);
   --ds-card-select-border-color-selected: var(--ds-color-border-brand);
   --ds-card-select-border-color-disabled: var(--ds-color-border-disabled);
 
@@ -22,7 +23,16 @@
   &:not(&#{$this}--disabled) {
     &:hover {
       cursor: pointer;
+      border-color: var(--ds-card-select-border-color-hover);
       box-shadow: var(--ds-card-select-shadow-focused);
     }
+
+    &#{$this}--selected {
+      border-color: var(--ds-card-select-border-color-selected);
+    }
+  }
+
+  &--disabled {
+    border-color: var(--ds-card-select-border-color-disabled);
   }
 }

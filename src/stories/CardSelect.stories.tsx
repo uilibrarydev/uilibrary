@@ -8,9 +8,9 @@ export default {
   component: _CardSelect,
   argTypes: {
     type: {
-      options: ['' , 'simple' ],
+      options: ['', 'simple'],
       control: { type: 'radio' }
-    },
+    }
   }
 }
 
