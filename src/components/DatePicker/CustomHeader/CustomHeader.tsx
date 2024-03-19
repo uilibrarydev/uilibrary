@@ -9,8 +9,8 @@ import './styles.scss'
 
 interface TProps extends ReactDatePickerCustomHeaderProps {
   months: TSelectOptions
-  startYear?: number
-  endYear?: number
+  startYear: number
+  endYear: number
 }
 
 export const CustomHeader = (props: TProps): ReactElement => {
