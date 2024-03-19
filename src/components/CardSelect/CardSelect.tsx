@@ -9,6 +9,7 @@ import {Divider} from '../Divider'
 
 export const CardSelect = (props: TCardSelectProps): ReactElement => {
     const {
+        type,
         title,
         badgeText,
         description,
@@ -26,11 +27,7 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
             onClick={onClick}
         >
             <div className="flexbox justify-content--between align-items--start">
-                <Text
-                    type={disabled ? 'disabled' : 'primary'}
-                    size={'medium'}
-                    weight={'bold'}
-                >
+                <Text type={disabled ? 'disabled' : 'primary'} size={'medium'} weight={'bold'}>
                     <>{title}</>
                 </Text>
 
@@ -48,41 +45,42 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
             ) : null}
 
             {description ? (
-                <Text
-                    type={disabled ? 'disabled' : 'secondary'}
-                    size={'small'}
-                    className={'mt-8'}
-                >
+                <Text type={disabled ? 'disabled' : 'secondary'} size={'small'} className={'mt-8'}>
                     <>{description}</>
                 </Text>
             ) : null}
 
-            <Input {...inputProps} className={'mt-16'} disabled={disabled}/>
-
-            {
-                additionalInfo?.length ? (
-                    <>
-                        <Divider type={'primary'} isHorizontal={true} className={'mt-16 mb-16'}/>
-                        <div className="card-select__list">
-                            {additionalInfo.map(item => {
-                                return (
-                                    <div key={item.key}
-                                         className="card-select__list__item flexbox justify-content--between mt-12">
-                                        <Text type={disabled ? 'disabled' : 'secondary'} size={'small'}
-                                              className={'pr-16'}>
-                                            <>{item.key}</>
-                                        </Text>
-                                        <Text type={disabled ? 'disabled' : 'primary'} weight={'semibold'}>
-                                            <>{item.value}</>
-                                        </Text>
-                                    </div>
-                                )
-                            })
-                            }
-                        </div>
-                    </>
-                ) : null
-            }
+            {type !== 'simple' ? (
+                <>
+                    <Input {...inputProps} className={'mt-16'} disabled={disabled}/>
+                    {additionalInfo?.length ? (
+                        <>
+                            <Divider type={'primary'} isHorizontal={true} className={'mt-16 mb-16'}/>
+                            <div className="card-select__list">
+                                {additionalInfo.map((item) => {
+                                    return (
+                                        <div
+                                            key={item.key}
+                                            className="card-select__list__item flexbox justify-content--between mt-12"
+                                        >
+                                            <Text
+                                                type={disabled ? 'disabled' : 'secondary'}
+                                                size={'small'}
+                                                className={'pr-16'}
+                                            >
+                                                <>{item.key}</>
+                                            </Text>
+                                            <Text type={disabled ? 'disabled' : 'primary'} weight={'semibold'}>
+                                                <>{item.value}</>
+                                            </Text>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </>
+                    ) : null}
+                </>
+            ) : null}
         </div>
     )
 }
