@@ -27,9 +27,13 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
     hasError,
     placeholderText,
     months = MONTHS,
-    yearItemNumber = 5,
+    minDate,
+    maxDate,
     ...rest
   } = props
+
+  const startYear = minDate ? minDate.getFullYear() : 1900
+  const endYear = maxDate ? maxDate.getFullYear() : new Date().getFullYear() + 5
   const calendarRef = useRef<{ setOpen: (isOpen: boolean) => void | null }>(null)
 
   useImportFilesDynamically(dayjsLocale)
@@ -63,6 +67,8 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
       <Label text={label} required={required} invalid={hasError} />
 
       <DatePicker
+        minDate={minDate}
+        maxDate={maxDate}
         selected={dayjs(selectedDate).isValid() ? selectedDate : null}
         locale={locale}
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -79,7 +85,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
         {...rest}
         onChange={onChange}
         renderCustomHeader={(props) => (
-          <CustomHeader {...props} months={months} yearItemNumber={yearItemNumber} />
+          <CustomHeader {...props} months={months} startYear={startYear} endYear={endYear} />
         )}
       />
     </div>
