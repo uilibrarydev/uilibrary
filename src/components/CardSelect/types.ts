@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import {InputCustomProps} from '../Input/types';
+import { InputCustomProps } from '../Input/types'
 
 export interface TCardSelectProps {
   title: string | ReactNode
