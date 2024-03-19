@@ -32,8 +32,8 @@ export const CustomHeader = (props: TProps): ReactElement => {
     return selectMonth?.label.toString()
   }
 
-  const month = date.getMonth()
-  const year = date.getFullYear()
+  const month = date?.getMonth()
+  const year = date?.getFullYear()
 
   return (
     <div className="flexbox custom_header_container">
