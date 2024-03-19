@@ -9,7 +9,8 @@ import './styles.scss'
 
 interface TProps extends ReactDatePickerCustomHeaderProps {
   months: TSelectOptions
-  yearItemNumber: number
+  startYear: number
+  endYear: number
 }
 
 export const CustomHeader = (props: TProps): ReactElement => {
@@ -20,7 +21,8 @@ export const CustomHeader = (props: TProps): ReactElement => {
     changeMonth,
     decreaseMonth,
     increaseMonth,
-    yearItemNumber,
+    startYear,
+    endYear,
     prevMonthButtonDisabled,
     nextMonthButtonDisabled
   } = props
@@ -30,8 +32,8 @@ export const CustomHeader = (props: TProps): ReactElement => {
     return selectMonth?.label.toString()
   }
 
-  const month = date.getMonth()
-  const year = date.getFullYear()
+  const month = date?.getMonth()
+  const year = date?.getFullYear()
 
   return (
     <div className="flexbox custom_header_container">
@@ -46,19 +48,6 @@ export const CustomHeader = (props: TProps): ReactElement => {
         <ButtonSelect
           offsets={{ top: 42, left: 48 }}
           buttonProps={{
-            buttonText: year.toString(),
-            iconProps: { name: 'caret-down-hover', alignment: 'right' },
-            type: 'tertiary'
-          }}
-          size="small"
-          options={getYearOptions(yearItemNumber)}
-          selectedItem={year}
-          setSelectedItem={(y) => changeYear(y as number)}
-          dropdownWidth={100}
-        />
-        <ButtonSelect
-          offsets={{ top: 42, left: 138 }}
-          buttonProps={{
             buttonText: getMonthLabel(month),
             iconProps: { name: 'caret-down-hover', alignment: 'right' },
             type: 'tertiary'
@@ -68,6 +57,19 @@ export const CustomHeader = (props: TProps): ReactElement => {
           selectedItem={month}
           setSelectedItem={(m) => changeMonth(m as number)}
           dropdownWidth={150}
+        />
+        <ButtonSelect
+          offsets={{ top: 42, left: 138 }}
+          buttonProps={{
+            buttonText: year.toString(),
+            iconProps: { name: 'caret-down-hover', alignment: 'right' },
+            type: 'tertiary'
+          }}
+          size="small"
+          options={getYearOptions(startYear, endYear)}
+          selectedItem={year}
+          setSelectedItem={(y) => changeYear(y as number)}
+          dropdownWidth={100}
         />
       </div>
       <Icon

@@ -66,9 +66,12 @@ export const setTranslationValue = (translation: string, value: string | number)
   return translation.replace('%s', value.toString())
 }
 
-export const getYearOptions = (length: number): TSelectOptions => {
-  return Array.from({ length }, (_, i) => {
-    const year = new Date().getFullYear()
-    return { value: year + i, label: year + i }
-  })
+export const getYearOptions = (startYear: number, lastYear: number): TSelectOptions => {
+  const years = []
+
+  while (startYear <= lastYear) {
+    years.push({ value: lastYear, label: lastYear })
+    lastYear--
+  }
+  return years
 }
