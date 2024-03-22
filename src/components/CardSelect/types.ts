@@ -1,18 +1,32 @@
-import { ReactNode } from 'react'
 import { InputCustomProps } from '../Input/types'
-
-export interface TCardSelectProps {
-  type: string | 'simple'
-  title: string | ReactNode
-  description: string | ReactNode
-  badgeText: string | ReactNode
-  inputProps: InputCustomProps
+import { TChipsProps } from '../Chips/types'
+import { CARD_SELECT_TYPES } from '../../consts'
+export interface TCardSelectProps extends IFormCompProps {
+  id?: number | string
+  type?: CARD_SELECT_TYPES.card | CARD_SELECT_TYPES.cardRadio
+  title: string
+  description: string
+  chips: TChipsProps[]
+  inputProps?: InputCustomProps
   className?: string
   disabled?: boolean
-  withAction?: boolean
-  onClick?: (e: TClickEventType) => void
+  handleCardSelectValue?: (isChecked: boolean) => void
   dataId?: string
   additionalInfo?: TInfoList
+  selectedCard?: number
+  value: number | string
+  handleChange?: (selected: number | string) => void
+  isSelected?: boolean
+  cardValue: number | string
+  illustration?: string
+}
+export interface TCardSelectGroupProps extends IFormCompProps {
+  cards: TCardSelectProps[]
+  handleChange?: (selected: number | string) => void
+  value: number | string
+  cardsGroupDisable?:boolean
+  cardsGroupType?: CARD_SELECT_TYPES.card | CARD_SELECT_TYPES.cardRadio
+
 }
 
 export type TInfoList = TInfoListItem[]

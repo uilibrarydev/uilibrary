@@ -26,6 +26,12 @@ export const Chips = (props: TChipsProps): ReactElement => {
 
   const customType = disabled ? 'disabled' : type == 'filled' ? 'inverse' : color
 
+  const handleClick = (event: TClickEventType) => {
+    event.stopPropagation()
+    if (onClick) {
+      onClick(event)
+    }
+  }
   return (
     <div
       className={classNames(
@@ -56,7 +62,7 @@ export const Chips = (props: TChipsProps): ReactElement => {
           size={ChipsActionIconSize[size]}
           type={customType}
           className="chips__delete"
-          onClick={onClick}
+          onClick={handleClick}
         />
       )}
     </div>
