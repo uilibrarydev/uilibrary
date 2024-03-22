@@ -21,4 +21,10 @@ export interface TChipsProps extends IFormCompProps {
   withAction?: boolean
   onClick?: (e: TClickEventType) => void
   dataId?: string
+  id?: string | number
+}
+
+export enum ChipCustomType {
+  filled = 'filled',
+  inverse = 'inverse',
 }

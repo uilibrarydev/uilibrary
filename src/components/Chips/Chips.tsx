@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { Icon } from '../Icon'
 import { Text } from '../Text'
-import { TChipsProps } from './types'
+import { ChipCustomType, TChipsProps } from './types'
 import classNames from 'classnames'
 
 enum ChipsActionIconSize {
@@ -24,13 +24,15 @@ export const Chips = (props: TChipsProps): ReactElement => {
     dataId = ''
   } = props
 
-  const customType = disabled ? 'disabled' : type == 'filled' ? 'inverse' : color
+  const customType = disabled
+    ? 'disabled'
+    : type == ChipCustomType.filled
+      ? ChipCustomType.inverse
+      : color
 
   const handleClick = (event: TClickEventType) => {
     event.stopPropagation()
-    if (onClick) {
-      onClick(event)
-    }
+    onClick?.(event)
   }
   return (
     <div

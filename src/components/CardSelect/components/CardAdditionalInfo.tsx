@@ -13,17 +13,17 @@ export const CardAdditionalInfo = (props: TCardAdditionalInfo): ReactElement | n
     <>
       <Divider type={'primary'} isHorizontal={true} className={'mt-16 mb-16'} />
       <div className="card-select__list">
-        {additionalInfo.map((item) => {
+        {additionalInfo.map(({ key, value, id }) => {
           return (
             <div
-              key={item.key}
+              key={id}
               className="card-select__list__item flexbox justify-content--between mt-12"
             >
               <Text type={disabled ? 'disabled' : 'secondary'} size={'small'} className={'pr-16'}>
-                <>{item.key}</>
+                {key}
               </Text>
               <Text type={disabled ? 'disabled' : 'primary'} weight={'semibold'}>
-                <>{item.value}</>
+                {value}
               </Text>
             </div>
           )

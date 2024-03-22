@@ -145,7 +145,7 @@ CardSelect.args = {
     {
       text: 'Chip 1',
       color: 'success',
-      type: 'filled',
+      type: 'filled'
     },
     {
       text: 'Chip 2',

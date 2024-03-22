@@ -25,7 +25,7 @@ export enum FILE_UPLOAD_ERRORS {
 
 export enum CARD_SELECT_TYPES {
   cardRadio = 'cardRadio',
-  card = 'card',
+  card = 'card'
 }
 
 export const CUSTOM_SCROLL_MESSAGE = 'Custom scroll event has fired'

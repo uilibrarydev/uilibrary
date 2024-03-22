@@ -10,10 +10,10 @@ export const CardChips = (props: TCardChips): ReactElement => {
   const { chips, disabled } = props
   return (
     <>
-      {chips.map((chip, index) => (
+      {chips.map((chip) => (
         <Chips
           {...chip}
-          key={index}
+          key={chip.id}
           disabled={disabled}
           className={'mt-8 mr-8'}
           onClick={chip.onClick}
