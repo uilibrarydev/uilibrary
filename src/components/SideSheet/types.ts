@@ -4,6 +4,7 @@ import { TButtonPropTypes } from '../Button/types'
 export type TSideSheet = 'small' | 'large'
 
 export interface TSideSheetPropTypes {
+  hideOnOutsideClick?: boolean
   size?: TSideSheet
   isLoading?: boolean
   isOpen: boolean
