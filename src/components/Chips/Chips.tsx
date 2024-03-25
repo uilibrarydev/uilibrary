@@ -27,8 +27,8 @@ export const Chips = (props: TChipsProps): ReactElement => {
   const customType = disabled
     ? 'disabled'
     : type == ChipCustomType.filled
-      ? ChipCustomType.inverse
-      : color
+    ? ChipCustomType.inverse
+    : color
 
   const handleClick = (event: TClickEventType) => {
     event.stopPropagation()

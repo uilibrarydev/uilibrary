@@ -26,5 +26,5 @@ export interface TChipsProps extends IFormCompProps {
 
 export enum ChipCustomType {
   filled = 'filled',
-  inverse = 'inverse',
+  inverse = 'inverse'
 }
