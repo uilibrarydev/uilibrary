@@ -27,13 +27,14 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
     },
     footerButtons,
     scrollToTopOptions,
-    children
+    children,
+    hideOnOutsideClick = true
   } = props
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
   const [isShownScrollIcon, setIsShownScrollIcon] = useState<boolean>(false)
   const scrollbarContainerRef = useRef<HTMLDivElement>(null)
+  useOnOutsideClick(containerRef, onClose, isOpen && hideOnOutsideClick, useId())
 
-  useOnOutsideClick(containerRef, onClose, isOpen, useId())
   useHideBodyScroll(isOpen)
   const dispatchScrollEvent = useDispatchEventOnScroll()
 
