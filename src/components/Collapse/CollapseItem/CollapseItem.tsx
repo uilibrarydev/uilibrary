@@ -12,7 +12,7 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
     isOpen,
     toggle,
     children,
-    reverse= false,
+    reverse = false,
     additionalInfo
   } = props
 
