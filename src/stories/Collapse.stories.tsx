@@ -19,7 +19,7 @@ const Template = (args) => {
       title={{ text: args.title }}
       isOpen={isOpen}
       toggle={isOpen ? close : open}
-      component={<div>COMPONENT</div>}
+      additionalInfo={<div>COMPONENT</div>}
     >
       <div>My Accordion content</div>
     </_CollapseItem>

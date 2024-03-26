@@ -13,7 +13,7 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
     toggle,
     children,
     reverse,
-    component
+    additionalInfo
   } = props
 
   const title =
@@ -36,7 +36,7 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
           <>
             <div className="header_components">
               {icon}
-              {component}
+              {additionalInfo}
             </div>
             {title}
           </>
@@ -44,7 +44,7 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
           <>
             {title}
             <div className="header_components">
-              {component}
+              {additionalInfo}
               {icon}
             </div>
           </>
