@@ -14,7 +14,13 @@ const Template = (args) => {
   const close = () => setIsOpen(false)
 
   return (
-    <_CollapseItem  {...args} title={{text: args.title}} isOpen={isOpen} toggle={isOpen ? close : open} component={<div>COMPONENT</div>}>
+    <_CollapseItem
+      {...args}
+      title={{ text: args.title }}
+      isOpen={isOpen}
+      toggle={isOpen ? close : open}
+      component={<div>COMPONENT</div>}
+    >
       <div>My Accordion content</div>
     </_CollapseItem>
   )
