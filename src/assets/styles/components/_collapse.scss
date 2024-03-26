@@ -13,6 +13,10 @@
         width: 100%;
         justify-content: space-between;
         transition: background-color .15s ease-in-out;
+        .header_components{
+            display: flex;
+            align-items: center;
+        }
     }
     &_container{
         padding: 0 var(--ds-space-24) var(--ds-space-16);
@@ -28,6 +32,4 @@
         transition: transform 300ms ease 0s, color 300ms ease-in-out 0s;
         transform: rotate(90deg);
     }
-    
-   
 }

@@ -8,13 +8,15 @@ export interface ICollapseTitleProps {
 }
 
 interface TCollapseItemTitle extends ICollapseTitleProps {
-  text: string
+  text: string | ReactNode
 }
 export type TCollapseProps = {
   isOpen: boolean
   toggle: () => void
   children: ReactNode
   title: TCollapseItemTitle
+  reverse?: boolean
+  component?: string | ReactNode
 }
 
 export type TCollapseValue = string | number
