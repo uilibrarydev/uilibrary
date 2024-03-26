@@ -16,7 +16,7 @@ export type TCollapseProps = {
   children: ReactNode
   title: TCollapseItemTitle
   reverse?: boolean
-  additionalInfo?: string | ReactNode
+  additionalInfo?: ReactNode
 }
 
 export type TCollapseValue = string | number
