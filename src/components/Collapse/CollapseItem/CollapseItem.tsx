@@ -11,19 +11,44 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
     title: { text, size = 'medium', color },
     isOpen,
     toggle,
-    children
+    children,
+    reverse = false,
+    additionalInfo
   } = props
+
+  const title =
+    typeof text === 'string' ? (
+      <Text size={size} type={color} weight="bolder">
+        {text}
+      </Text>
+    ) : (
+      text
+    )
+
+  const icon = (
+    <Icon name="arrow-right" className={isOpen ? 'collapse_icon_opened' : 'collapse_icon_closed'} />
+  )
 
   return (
     <div className="collapse">
       <div className="collapse_header" onClick={toggle}>
-        <Text size={size} type={color} weight="bolder">
-          {text}
-        </Text>
-        <Icon
-          name="arrow-right"
-          className={isOpen ? 'collapse_icon_opened' : 'collapse_icon_closed'}
-        />
+        {reverse ? (
+          <>
+            <div className="header_components">
+              {icon}
+              {additionalInfo}
+            </div>
+            {title}
+          </>
+        ) : (
+          <>
+            {title}
+            <div className="header_components">
+              {additionalInfo}
+              {icon}
+            </div>
+          </>
+        )}
       </div>
       <AnimatePresenceWrapper initial={false}>
         {isOpen && (
