@@ -26,6 +26,7 @@ export interface ITimePickerProps extends DatePickerDefaultProps {
   filterTime?: (date: Date) => boolean
   dayjsLocale?: string
   value?: Date
+  size?: 'large' | 'small'
 }
 
 export interface IRangeDatePickerProps extends DatePickerDefaultProps {

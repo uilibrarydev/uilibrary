@@ -46,6 +46,7 @@ export const CustomHeader = (props: TProps): ReactElement => {
       />
       <div className="selects_container">
         <ButtonSelect
+          className="date_picker_select"
           offsets={{ top: 42, left: 48 }}
           buttonProps={{
             buttonText: getMonthLabel(month),
@@ -59,6 +60,7 @@ export const CustomHeader = (props: TProps): ReactElement => {
           dropdownWidth={150}
         />
         <ButtonSelect
+          className="date_picker_select"
           offsets={{ top: 42, left: 138 }}
           buttonProps={{
             buttonText: year.toString(),

@@ -13,4 +13,9 @@
     .cursor-pointer{
         cursor: pointer;
     }
+    .date_picker_select{
+      .select__options{
+        max-height: 200px;
+      }
+    }
   }
