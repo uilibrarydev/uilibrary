@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import dayjs from 'dayjs'
 import DatePicker from 'react-datepicker'
 import { Input } from '../Input'
@@ -13,10 +13,11 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
     name,
     setFieldValue,
     label,
+    size,
     changeHandler,
     required,
+    format = 'HH:mm',
     locale = 'hy',
-    format = 'h:mm a',
     dayjsLocale = 'hy-am',
     placeholderText,
     ...rest
@@ -26,6 +27,10 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
       ? value
       : currentTime
   const [selectedTime, setCurrentTime] = useState(dateInitialValue)
+  const calendarRef = useRef<{
+    isCalendarOpen: () => boolean
+    setOpen: (isOpen: boolean) => void | null
+  }>(null)
 
   useImportFilesDynamically(dayjsLocale)
 
@@ -40,6 +45,13 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
     }
   }
 
+  const openDatepicker = () => {
+    if (calendarRef.current) {
+      const isOpen = calendarRef.current?.isCalendarOpen()
+      calendarRef.current?.setOpen(!isOpen)
+    }
+  }
+
   return (
     <div className="picker-container">
       <Label text={label} required={required} />
@@ -49,16 +61,19 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
         locale={locale}
         showTimeSelect
         showTimeSelectOnly
-        timeIntervals={15}
-        timeCaption="Time"
         dateFormat={format}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        ref={calendarRef}
         {...rest}
         onChange={onChange}
         customInput={
           <div className="date-picker_input-container">
             <Input
+              size={size}
               placeholder={placeholderText}
-              currentValue={selectedTime ? dayjs(selectedTime.toString()).format(format) : ''}
+              currentValue={selectedTime ? dayjs(selectedTime).format(format) : ''}
+              rightIconProps={{ name: 'clock', onClick: openDatepicker }}
             />
           </div>
         }

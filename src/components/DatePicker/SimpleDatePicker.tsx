@@ -34,7 +34,10 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
 
   const startYear = minDate ? minDate.getFullYear() : 1900
   const endYear = maxDate ? maxDate.getFullYear() : new Date().getFullYear() + 5
-  const calendarRef = useRef<{ setOpen: (isOpen: boolean) => void | null }>(null)
+  const calendarRef = useRef<{
+    isCalendarOpen: () => boolean
+    setOpen: (isOpen: boolean) => void | null
+  }>(null)
 
   useImportFilesDynamically(dayjsLocale)
 
@@ -47,7 +50,8 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
 
   const openDatepicker = () => {
     if (calendarRef.current) {
-      calendarRef.current?.setOpen(true)
+      const isOpen = calendarRef.current?.isCalendarOpen()
+      calendarRef.current?.setOpen(!isOpen)
     }
   }
 

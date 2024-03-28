@@ -15,7 +15,6 @@ import {
   useGetElemSizes,
   useGetElemPositions,
   useGetHasBottomSpace,
-  useHideOnScroll,
   useGetHasTopSpace
 } from '../../../hooks'
 import { getStringWidth, setTranslationValue } from '../../../utils/helpers'
