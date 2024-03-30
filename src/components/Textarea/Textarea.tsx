@@ -75,7 +75,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
             {successMessage ? (
               <Text size="small" type="success" className="flexbox align-items--center">
                 <>
-                  <Icon name="circle-mark-hover" type="success" size="xsmall" />
+                  <Icon name="checkmark-hover" type="success" size="xsmall" />
                   <span className="ml-4">{successMessage}</span>
                 </>
               </Text>

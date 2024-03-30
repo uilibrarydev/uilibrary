@@ -57,7 +57,7 @@ Input.args = {
         <Icon name="info" type="information" size="xsmall" className={'ml-4 pointer'} />
       </div>
     </Popover>
-  )
-  // helperText: 'This is your helper text'
-  // successMessage: 'Success message'
+  ),
+  helperText: 'This is your helper text',
+  successMessage: 'Success message'
 }
