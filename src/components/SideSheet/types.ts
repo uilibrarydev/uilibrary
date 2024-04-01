@@ -5,6 +5,7 @@ export type TSideSheet = 'small' | 'large'
 
 export interface TSideSheetPropTypes {
   hideOnOutsideClick?: boolean
+  shouldRemoveCallback?: boolean
   size?: TSideSheet
   isLoading?: boolean
   isOpen: boolean
