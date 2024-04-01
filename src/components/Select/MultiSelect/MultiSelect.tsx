@@ -62,7 +62,7 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
 
   const { overflowText } = localizations
 
-  const initialSelected = (value as TSelectedValue[]) || selectedItems
+  const initialSelected = (value as TSelectedValue[]) || selectedItems || []
 
   const inputRef = useRef<HTMLInputElement | null>(null)
   const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null)
