@@ -17,6 +17,7 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
     onSubmit,
     title,
     position = 'right',
+    shouldRemoveCallback,
     className = '',
     headerButtons = {
       close: {
@@ -33,7 +34,13 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
   const [isShownScrollIcon, setIsShownScrollIcon] = useState<boolean>(false)
   const scrollbarContainerRef = useRef<HTMLDivElement>(null)
-  useOnOutsideClick(containerRef, onClose, isOpen && hideOnOutsideClick, useId())
+  useOnOutsideClick(
+    containerRef,
+    onClose,
+    isOpen && hideOnOutsideClick,
+    useId(),
+    shouldRemoveCallback
+  )
 
   useHideBodyScroll(isOpen)
   const dispatchScrollEvent = useDispatchEventOnScroll()
