@@ -1,4 +1,4 @@
-import React, { ReactElement, useRef, useState } from 'react'
+import React, { ReactElement, useRef } from 'react'
 import dayjs from 'dayjs'
 import DatePicker from 'react-datepicker'
 
@@ -41,12 +41,10 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
 
   useImportFilesDynamically(dayjsLocale)
 
-  const dateInitialValue =
+  const selectedDate =
     value !== undefined && Object.prototype.toString.call(value) === '[object Date]'
       ? value
       : currentDate
-
-  const [selectedDate, setSelectedDate] = useState(dateInitialValue)
 
   const openDatepicker = () => {
     if (calendarRef.current) {
@@ -56,8 +54,6 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
   }
 
   const onChange = (date: Date) => {
-    setSelectedDate(date)
-
     if (setFieldValue && name) {
       setFieldValue(name, date)
     }
