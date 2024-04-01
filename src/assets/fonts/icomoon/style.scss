@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: '#{$icomoon-font-family}';
-  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?2wvx1r');
-  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?2wvx1r#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?2wvx1r') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?2wvx1r') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?2wvx1r##{$icomoon-font-family}') format('svg');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?10ksfy');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?10ksfy#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?10ksfy') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?10ksfy') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?10ksfy##{$icomoon-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -27,6 +27,36 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-clock {
+  &:before {
+    content: $icon-clock; 
+  }
+}
+.icon-clock-hover {
+  &:before {
+    content: $icon-clock-hover; 
+  }
+}
+.icon-table-cell-edit {
+  &:before {
+    content: $icon-table-cell-edit; 
+  }
+}
+.icon-table-cell-edit-hover {
+  &:before {
+    content: $icon-table-cell-edit-hover; 
+  }
+}
+.icon-arrow-import {
+  &:before {
+    content: $icon-arrow-import; 
+  }
+}
+.icon-arrow-import-hover {
+  &:before {
+    content: $icon-arrow-import-hover; 
+  }
+}
 .icon-bullet-list-add {
   &:before {
     content: $icon-bullet-list-add; 
