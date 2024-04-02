@@ -2,6 +2,8 @@ import React from 'react'
 import { Icon as _Icon, Text } from '../index'
 
 const ICONS = [
+  'signout',
+  'signout-hover',
   'table-cell-edit',
   'table-cell-edit-hover',
   'clock',

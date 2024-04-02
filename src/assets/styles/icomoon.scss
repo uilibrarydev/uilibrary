@@ -25,6 +25,12 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-signout:before {
+    content: "\e9e5";
+}
+.icon-signout-hover:before {
+    content: "\e9e6";
+}
 .icon-clock:before {
     content: "\e9df";
 }
