@@ -2,6 +2,8 @@ import React from 'react'
 import { Icon as _Icon, Text } from '../index'
 
 const ICONS = [
+  'signout',
+  'signout-hover',
   'table-cell-edit',
   'table-cell-edit-hover',
   'clock',
@@ -56,6 +58,8 @@ const ICONS = [
   'status-hover',
   'document',
   'document-hover',
+  'document-bullet-list',
+  'document-bullet-list-hover',
   'database',
   'database-hover',
   'pos',
@@ -63,6 +67,8 @@ const ICONS = [
   'check-send-hover',
   'spinner',
   'spinner-hover',
+  'notebook',
+  'notebook-hover',
   'notebook-add',
   'notebook-add-hover',
   'expand-left',

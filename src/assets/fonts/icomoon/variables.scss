@@ -1,6 +1,12 @@
 $icomoon-font-family: "icomoon" !default;
 $icomoon-font-path: "fonts" !default;
 
+$icon-document-bullet-list: unquote('"\\e9e7"');
+$icon-document-bullet-list-hover: unquote('"\\e9e8"');
+$icon-notebook: unquote('"\\e9e9"');
+$icon-notebook-hover: unquote('"\\e9ea"');
+$icon-signout: unquote('"\\e9e5"');
+$icon-signout-hover: unquote('"\\e9e6"');
 $icon-clock: unquote('"\\e9df"');
 $icon-clock-hover: unquote('"\\e9e0"');
 $icon-table-cell-edit: unquote('"\\e9e1"');

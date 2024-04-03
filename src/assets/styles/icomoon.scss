@@ -25,6 +25,24 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-document-bullet-list:before {
+    content: "\e9e7";
+}
+.icon-document-bullet-list-hover:before {
+    content: "\e9e8";
+}
+.icon-notebook:before {
+    content: "\e9e9";
+}
+.icon-notebook-hover:before {
+    content: "\e9ea";
+}
+.icon-signout:before {
+    content: "\e9e5";
+}
+.icon-signout-hover:before {
+    content: "\e9e6";
+}
 .icon-clock:before {
     content: "\e9df";
 }
