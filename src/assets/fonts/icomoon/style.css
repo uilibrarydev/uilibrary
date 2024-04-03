@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?2wvx1r');
-  src:  url('fonts/icomoon.eot?2wvx1r#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?2wvx1r') format('truetype'),
-    url('fonts/icomoon.woff?2wvx1r') format('woff'),
-    url('fonts/icomoon.svg?2wvx1r#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?b33tsv');
+  src:  url('fonts/icomoon.eot?b33tsv#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?b33tsv') format('truetype'),
+    url('fonts/icomoon.woff?b33tsv') format('woff'),
+    url('fonts/icomoon.svg?b33tsv#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,42 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-document-bullet-list:before {
+  content: "\e9e7";
+}
+.icon-document-bullet-list-hover:before {
+  content: "\e9e8";
+}
+.icon-notebook:before {
+  content: "\e9e9";
+}
+.icon-notebook-hover:before {
+  content: "\e9ea";
+}
+.icon-signout:before {
+  content: "\e9e5";
+}
+.icon-signout-hover:before {
+  content: "\e9e6";
+}
+.icon-clock:before {
+  content: "\e9df";
+}
+.icon-clock-hover:before {
+  content: "\e9e0";
+}
+.icon-table-cell-edit:before {
+  content: "\e9e1";
+}
+.icon-table-cell-edit-hover:before {
+  content: "\e9e2";
+}
+.icon-arrow-import:before {
+  content: "\e9e3";
+}
+.icon-arrow-import-hover:before {
+  content: "\e9e4";
+}
 .icon-bullet-list-add:before {
   content: "\e9d9";
 }
