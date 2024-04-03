@@ -29,7 +29,7 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
     footerButtons,
     scrollToTopOptions,
     children,
-    hideOnOutsideClick = true
+    closeOnOutsideClick = true
   } = props
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
   const [isShownScrollIcon, setIsShownScrollIcon] = useState<boolean>(false)
@@ -37,7 +37,7 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   useOnOutsideClick(
     containerRef,
     onClose,
-    isOpen && hideOnOutsideClick,
+    isOpen && closeOnOutsideClick,
     useId(),
     shouldRemoveCallback
   )

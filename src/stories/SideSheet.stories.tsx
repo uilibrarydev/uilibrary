@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import {
   Button,
   Menu,
@@ -32,31 +32,36 @@ const INITIAL_VALUES = {
 
 const Template = (args: any) => {
   const [isOpen, setIsOpen] = useState(false)
-  const handleCloseSheet = () => setIsOpen(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const handleOpenSheet = () => {
     setIsOpen(true)
   }
   const [ref, setRef] = useState<HTMLDivElement | null>(null)
+  const [isDirty, setIsDirty] = useState<boolean>(false)
 
   const [open, setOpen] = useState(false)
 
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
   const closeModal = () => setIsModalOpen(false)
+  const onModalOutsideClick = () => {
+    setIsModalOpen(false)
+  }
   const openModal = () => setIsModalOpen(true)
-  const items = [
-    {
-      label: 'Edit',
-      iconProps: {
-        name: 'edit'
-      },
-      handler: () => {
-        console.log('test')
-        openModal()
-      },
-      value: 1
+  const _isDirtyRef = useRef<boolean>(false)
+
+  const onModalSubmit = () => {
+    setIsModalOpen(false)
+    setIsOpen(false)
+  }
+
+  const closeSideSheet = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    if (_isDirtyRef.current) {
+      setIsModalOpen(true)
+    } else {
+      setIsOpen(false)
     }
-  ]
+  }
 
   return (
     <div>
@@ -64,8 +69,9 @@ const Template = (args: any) => {
       <_SideSheet
         {...args}
         size="small"
-        onClose={handleCloseSheet}
+        onClose={closeSideSheet}
         isOpen={isOpen}
+        shouldRemoveCallback={false}
         onSumbit={() => console.log('submit')}
         buttonProps={{
           confirm: {
@@ -85,66 +91,10 @@ const Template = (args: any) => {
               validationScheme={VALIDATION_SCHEME}
               initialValues={INITIAL_VALUES}
             >
-              <>
-                <FormField
-                  name={'attachedEmployees'}
-                  As={(props) => {
-                    return (
-                      <MultiSelect
-                        {...props}
-                        isGrouped
-                        label={'attachedEmployees'}
-                        maxSelectCount={1}
-                        translations={{
-                          innerLabel: 'Selected employees',
-                          clearAllLabel: 'Clear All',
-                          overflowText: '%s selected',
-                          emptyListMainMessage: "Sorry, we couldn't find any results"
-                        }}
-                        helperText={'You cannot add more than 1 employees.'}
-                        options={[
-                          {
-                            title: 'Software development and automation center',
-                            data: [{ label: 'Armen', value: 3 }]
-                          }
-                        ]}
-                      />
-                    )
-                  }}
-                />
-                <div>
-                  <span>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
-                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
-                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
-                  </span>
-                  <span>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
-                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
-                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
-                  </span>
-                  <span>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
-                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
-                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
-                  </span>
-                  <span>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
-                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
-                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
-                  </span>
-                  <span>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
-                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
-                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
-                  </span>
-                  <span>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
-                    sapiente rerum sed tempore assumenda, illo mollitia perferendis eveniet unde
-                    facere officiis possimus quidem fugiat animi? Possimus, cum non?
-                  </span>
-                </div>
-              </>
+              <Button
+                buttonText={'show modal on outside click'}
+                onClick={() => (_isDirtyRef.current = true)}
+              />
               <div>
                 <span>
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet itaque vero
@@ -179,37 +129,30 @@ const Template = (args: any) => {
               </div>
             </FormContainer>
           </div>
+
           <div style={{ height: 2000 }}>
             <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
               <Button onClick={() => setOpen(!open)} iconProps={{ name: 'more' }} />
-              <Menu
-                {...args}
-                onClose={() => setOpen(false)}
-                parentRef={ref}
-                menuItems={items}
-                isOpen={open}
-              />
             </div>
           </div>
-          {isModalOpen && (
-            <Modal
-              {...args}
-              onClose={closeModal}
-              isOpen={isModalOpen}
-              onSubmit={() => console.log('submit')}
-              buttonProps={{
-                confirm: {
-                  buttonText: 'Register',
-                  buttonActionType: 'submit'
-                },
-                cancel: { buttonText: 'Cancel' }
-              }}
-            >
-              <div>Modal content</div>
-            </Modal>
-          )}
         </>
       </_SideSheet>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        onSubmit={onModalSubmit}
+        closeOnOutsideClick={false}
+        buttonProps={{
+          confirm: {
+            buttonText: 'Register',
+            buttonActionType: 'submit'
+          },
+          cancel: { buttonText: 'Cancel' }
+        }}
+      >
+        content
+      </Modal>
     </div>
   )
 }
