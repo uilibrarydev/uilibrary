@@ -38,11 +38,12 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
     size = 'small',
     withFooter = true,
     buttonProps,
-    children
+    children,
+    closeOnOutsideClick = true
   } = props
 
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
-  useOnOutsideClick(containerRef, onClose, isOpen, useId())
+  useOnOutsideClick(containerRef, onClose, closeOnOutsideClick && isOpen, useId())
   useHideBodyScroll(isOpen)
 
   return (
