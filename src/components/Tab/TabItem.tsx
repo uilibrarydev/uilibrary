@@ -14,6 +14,8 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
     className = '',
     disabled,
     isSelected,
+    rightIconProps,
+    value,
     onClick
   } = props
 
@@ -36,6 +38,19 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
         />
       ) : null}
       <span className="tab__label">{label}</span>
+      {rightIconProps?.name ? (
+        <Icon
+          {...rightIconProps}
+          onClick={(e) => {
+            if (rightIconProps?.action) {
+              e.stopPropagation()
+              rightIconProps?.action(value)
+            }
+          }}
+          className="tab__icon ml-8"
+          size={`${size == 'small' ? 'xsmall' : 'small'}`}
+        />
+      ) : null}
       {badgeProps?.text ? (
         <Badge {...badgeProps} className="tab__badge ml-8" size="small" type="secondary" />
       ) : null}

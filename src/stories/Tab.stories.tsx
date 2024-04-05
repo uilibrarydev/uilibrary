@@ -26,6 +26,13 @@ Tab.args = {
   badgeProps: {
     text: '9'
   },
+  rightIconProps: {
+    name: 'dismiss-circle',
+    action: (e: string | number) => {
+      // eslint-disable-next-line no-console
+      console.log(e, 'e')
+    }
+  },
   size: 'large',
   disabled: false,
   tabItems: [

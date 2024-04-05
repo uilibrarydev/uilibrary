@@ -26,9 +26,15 @@ export type TTabItemProps = {
     name: string
     alignment?: string
   }
+  rightIconProps?: {
+    name: string
+    alignment?: string
+    action?: (value: string | number) => void
+  }
   badgeProps?: {
     text: string
   }
+  value: string | number
   disabled?: boolean
   isSelected: boolean
   onClick: () => void
