@@ -34,7 +34,7 @@ export type TTabItemProps = {
   badgeProps?: {
     text: string
   }
-  value: string | number
+  val: string | number
   disabled?: boolean
   isSelected: boolean
   onClick: () => void
