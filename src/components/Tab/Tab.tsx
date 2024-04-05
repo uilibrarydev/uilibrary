@@ -13,7 +13,7 @@ export const Tab = (props: TTabProps): ReactElement => {
             label={tabInfo.label}
             onClick={() => onSelect(tabInfo.value)}
             key={tabInfo.value}
-            value={tabInfo.value}
+            val={tabInfo.value}
             isSelected={selectedValue === tabInfo.value}
             {...rest}
           />

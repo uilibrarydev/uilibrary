@@ -15,7 +15,7 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
     disabled,
     isSelected,
     rightIconProps,
-    value,
+    val,
     onClick
   } = props
 
@@ -44,7 +44,7 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
           onClick={(e) => {
             if (rightIconProps?.action) {
               e.stopPropagation()
-              rightIconProps?.action(value)
+              rightIconProps?.action(val)
             }
           }}
           className="tab__icon ml-8"
