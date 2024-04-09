@@ -133,10 +133,7 @@
         background-color: var(--ds-button-primary-bg-pressed);
       }
 
-      &:focus {
-        background-color: var(--ds-button-primary-bg-focused);
-        box-shadow: var(--ds-button-primary-shadow-focused);
-      }
+  
 
       &[disabled] {
         background-color: var(--ds-button-primary-bg-disabled);
