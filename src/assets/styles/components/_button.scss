@@ -85,6 +85,7 @@
 
   //----------//
 
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -96,7 +97,21 @@
   font-weight: var(--ds-button-font-weight);
   line-height: var(--ds-button-line-height);
   border-radius: var(--ds-button-border-radius);
-  //transition: var(--ds-button-transition);
+  transition: var(--ds-button-transition);
+
+  &:after {
+    content: '';
+    @include mixin.absolute(0,0,0,0);
+    opacity: 0;
+    border-radius: var(--ds-button-border-radius);
+    transition: opacity 0.2s linear;
+  }
+
+  &:active {
+    &:after {
+      opacity: 1;
+    }
+  }
 
   &[disabled] {
     cursor: default;
@@ -131,11 +146,10 @@
 
       &:active {
         background-color: var(--ds-button-primary-bg-pressed);
-      }
 
-      &:focus {
-        background-color: var(--ds-button-primary-bg-focused);
-        box-shadow: var(--ds-button-primary-shadow-focused);
+        &:after {
+          box-shadow: var(--ds-button-primary-shadow-focused);
+        }
       }
 
       &[disabled] {
@@ -165,11 +179,10 @@
 
       &:active {
         background-color: var(--ds-button-secondary-bg-pressed);
-      }
 
-      &:focus {
-        background-color: var(--ds-button-secondary-bg-focused);
-        box-shadow: var(--ds-button-secondary-shadow-focused);
+        &:after {
+          box-shadow: var(--ds-button-secondary-shadow-focused);
+        }
       }
 
       &[disabled] {
@@ -199,11 +212,10 @@
 
       &:active {
         background-color: var(--ds-button-tertiary-bg-pressed);
-      }
 
-      &:focus {
-        background-color: var(--ds-button-tertiary-bg-focused);
-        box-shadow: var(--ds-button-teritary-shadow-focused);
+        &:after {
+          box-shadow: var(--ds-button-teritary-shadow-focused);
+        }
       }
 
       &[disabled] {
@@ -232,11 +244,14 @@
 
       &:active {
         background-color: var(--ds-button-danger-bg-pressed);
+
+        &:after {
+          box-shadow: var(--ds-button-danger-shadow-focused);
+        }
       }
 
       &:focus {
         background-color: var(--ds-button-danger-bg-focused);
-        box-shadow: var(--ds-button-danger-shadow-focused);
       }
 
       &[disabled] {
@@ -272,17 +287,12 @@
       &:active {
         color: var(--ds-button-text-pressed);
 
+        &:after {
+          box-shadow: var(--ds-button-teritary-shadow-focused);
+        }
+
         #{$this}__icon {
           color: var(--ds-button-text-pressed);
-        }
-      }
-
-      &:focus {
-        color: var(--ds-button-text-focused);
-        box-shadow: var(--ds-button-teritary-shadow-focused);
-
-        #{$this}__icon {
-          color: var(--ds-button-text-focused);
         }
       }
 
@@ -321,14 +331,6 @@
 
         #{$this}__icon {
           color: var(--ds-button-link-pressed);
-        }
-      }
-
-      &:focus {
-        color: var(--ds-button-link-focused);
-
-        #{$this}__icon {
-          color: var(--ds-button-link-focused);
         }
       }
 
