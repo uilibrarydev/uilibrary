@@ -2,19 +2,9 @@ import { useMemo } from 'react'
 import { useGetElemSizes } from './useGetElemSizes'
 import { useGetElemPositions } from './useGetElemPositions'
 import { useGetTooltipPosition } from './useGetTooltipPosition'
+import { Positions } from '../components/Tooltip/types'
 
 const TOOLTIP_GAP = 8
-
-enum Positions {
-  bottomLeft = 'bottom-left',
-  bottomRight = 'bottom-right',
-  topLeft = 'top-left',
-  topRight = 'top-right',
-  middleLeft = 'middle-left',
-  middleRight = 'middle-right',
-  bottomCenter = 'bottom-center',
-  topCenter = 'top-center'
-}
 
 type TReturn = {
   tooltipPosition: TTooltipPosition
@@ -44,34 +34,34 @@ export const useGetTooltipStyles = ({
   const tooltipPosition = useGetTooltipPosition({ tooltipRef, elemRef, initialPosition })
 
   const tooltipStyles = useMemo(() => {
-    if (tooltipPosition === Positions.bottomLeft) {
+    if (tooltipPosition === Positions.BOTTOM_LEFT) {
       return { top: top + (height + TOOLTIP_GAP), left }
     }
-    if (tooltipPosition === Positions.topLeft) {
+    if (tooltipPosition === Positions.TOP_LEFT) {
       return { top: top - (tooltipHeight + TOOLTIP_GAP), left }
     }
-    if (tooltipPosition === Positions.bottomRight) {
+    if (tooltipPosition === Positions.BOTTOM_RIGHT) {
       return {
         top: top + (height + TOOLTIP_GAP),
         left: right - TOOLTIP_WIDTH - TOOLTIP_GAP
       }
     }
-    if (tooltipPosition === Positions.topRight) {
+    if (tooltipPosition === Positions.TOP_RIGHT) {
       return {
         top: top - tooltipHeight - TOOLTIP_GAP,
         left: right - TOOLTIP_WIDTH - TOOLTIP_GAP
       }
     }
-    if (tooltipPosition === Positions.bottomCenter) {
+    if (tooltipPosition === Positions.BOTTOM_CENTER) {
       return { top: top + (height + TOOLTIP_GAP), left: left - (TOOLTIP_WIDTH - width) / 2 }
     }
-    if (tooltipPosition === Positions.topCenter) {
+    if (tooltipPosition === Positions.TOP_CENTER) {
       return { top: top - (tooltipHeight + TOOLTIP_GAP), left: left - (TOOLTIP_WIDTH - width) / 2 }
     }
-    if (tooltipPosition === Positions.middleLeft) {
+    if (tooltipPosition === Positions.MIDDLE_LEFT) {
       return { top: top + height / 2 - tooltipHeight / 2, left: left - TOOLTIP_WIDTH - TOOLTIP_GAP }
     }
-    if (tooltipPosition === Positions.middleRight) {
+    if (tooltipPosition === Positions.MIDDLE_RIGHT) {
       return { top: top + height / 2 - tooltipHeight / 2, left: left + width + TOOLTIP_GAP }
     }
     return { left, top }
