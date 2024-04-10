@@ -57,9 +57,7 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
 
     useEffect(() => {
         if (isHovered) {
-            if (typeof tooltipRef?.current?.clientWidth === 'number') {
-                setToolTipCurrentWidth(tooltipRef?.current?.clientWidth)
-            }
+            setToolTipCurrentWidth(tooltipRef?.current?.clientWidth || 0)
         } else {
             setToolTipCurrentWidth(0)
         }
