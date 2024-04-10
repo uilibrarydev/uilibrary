@@ -1,0 +1,38 @@
+@use "../helpers/mixin";
+
+.card-select {
+  $this: &;
+
+
+  --ds-card-select-bg: var(--ds-color-bg-white);
+  --ds-card-select-padding: var(--ds-space-16);
+  --ds-card-select-border-radius: var(--ds-border-radius-sm);
+  --ds-card-select-border-color: var(--ds-color-border-tertiary);
+  --ds-card-select-border-color-hover: var(--ds-color-border-brand);
+  --ds-card-select-border-color-selected: var(--ds-color-border-brand);
+  --ds-card-select-border-color-disabled: var(--ds-color-border-disabled);
+
+  --ds-card-select-shadow-focused: var(--ds-shadow-brand-2);
+
+  border-radius: var(--ds-card-select-border-radius);
+  padding: var(--ds-card-select-padding);
+  background-color: var(--ds-card-select-bg);
+  border: 1px solid var(--ds-card-select-border-color);
+  width: 100%;
+
+  &:not(&#{$this}--disabled) {
+    &:hover {
+      cursor: pointer;
+      border-color: var(--ds-card-select-border-color-hover);
+      box-shadow: var(--ds-card-select-shadow-focused);
+    }
+
+    &#{$this}--selected {
+      border-color: var(--ds-card-select-border-color-selected);
+    }
+  }
+
+  &--disabled {
+    border-color: var(--ds-card-select-border-color-disabled);
+  }
+}

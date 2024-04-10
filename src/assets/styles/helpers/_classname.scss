@@ -453,31 +453,38 @@ $space-prefixes: (
 //scroll
 
 .scrollbar {
-  /* Works on Firefox */
-  scrollbar-width: thin;
-  scrollbar-color: var(--grey-50) transparent;
   overflow: hidden;
+
+  /* Works on Firefox */
+  @-moz-document url-prefix() {
+    scrollbar-width: thin;
+    scrollbar-color: var(--grey-50) transparent;
+  }
 
   /* Works on Chrome, Edge, and Safari */
 
   &::-webkit-scrollbar-track {
     background: transparent;
-    margin: 8px 0;
   }
 
   &::-webkit-scrollbar-thumb {
     background-color: var(--grey-50);
     border-radius: var(--border-radius-100);
 
+    &:hover {
+      background-color: var(--grey-100);
+    }
   }
 
   &--vertical {
     overflow-y: auto;
 
     /* Works on Chrome, Edge, and Safari */
+    &::-webkit-scrollbar-track {
+      margin: var(--ds-space-8) 0;
+    }
     &::-webkit-scrollbar {
-      width: 4px;
-
+      width: var(--ds-size-4);
     }
   }
 
@@ -485,8 +492,11 @@ $space-prefixes: (
     overflow-x: auto;
 
     /* Works on Chrome, Edge, and Safari */
+    &::-webkit-scrollbar-track {
+      margin: 0 var(--ds-space-8);
+    }
     &::-webkit-scrollbar {
-      height: 4px;
+      height: var(--ds-size-4);
     }
   }
 }

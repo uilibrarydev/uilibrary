@@ -10,6 +10,11 @@ export interface TTabProps extends IFormCompProps {
     name: string
     alignment?: string
   }
+  rightIconProps?: {
+    name: string
+    alignment?: string
+    action?: (value: string | number) => void
+  }
   badgeProps?: {
     text: string
   }
@@ -26,9 +31,15 @@ export type TTabItemProps = {
     name: string
     alignment?: string
   }
+  rightIconProps?: {
+    name: string
+    alignment?: string
+    action?: (value: string | number) => void
+  }
   badgeProps?: {
     text: string
   }
+  val: string | number
   disabled?: boolean
   isSelected: boolean
   onClick: () => void

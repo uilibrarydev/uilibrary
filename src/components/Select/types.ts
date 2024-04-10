@@ -67,6 +67,11 @@ export interface TMultiSelectGroupedProps extends TMultiSelectCompProps {
   options: TSelectGroupOptions
 }
 
+export type TCheckboxInfo = {
+  label: string
+  isChecked: boolean
+}
+
 export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps {
   dropdownWidth?: number
   align?: 'left' | 'right'
@@ -75,10 +80,11 @@ export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps 
   isSearchAvailable?: boolean
   withTabs?: boolean
   isGrouped?: boolean
+  checkboxInfo?: TCheckboxInfo
   selectedItems?: TSelectedValue[]
   translations: TSelectTranslations
   options: TSelectOptions | TSelectGroupOptions
-  setSelectedItems?: (items: TSelectedValue[]) => void
+  setSelectedItems?: (items: TSelectedValue[], isChecked: boolean) => void
   footerButtonProps?: {
     cancel: TButtonPropTypes
     confirm: TButtonPropTypes
@@ -87,6 +93,19 @@ export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps 
   className?: string
 }
 
+export interface TButtonSelectPropTypes extends IFormCompProps, TSelectBaseProps {
+  options: TSelectOptions
+  selectedItem?: TItemValue
+  setSelectedItem?: (items: TItemValue | undefined) => void
+  buttonProps: TButtonPropTypes
+  tooltipAddons?: TTooltipProps
+  dropdownWidth?: number
+  align?: 'left' | 'right'
+  offsets?: {
+    top?: number
+    left?: number
+  }
+}
 export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps {
   options: TSelectOptions
   selectedItem?: TItemValue
@@ -99,13 +118,14 @@ export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps
 }
 
 export type TSelectFooterPropTypes = {
+  checkboxInfo?: TCheckboxInfo
   hasChange?: boolean
   buttonProps: {
     cancel: TButtonPropTypes
     confirm: TButtonPropTypes
   }
   onCancel: () => void
-  onApply: () => void
+  onApply: (isChecked: boolean) => void
 }
 
 export interface TFilterProps extends IFormCompProps, TSelectBaseProps {

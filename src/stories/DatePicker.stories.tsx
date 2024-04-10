@@ -40,6 +40,7 @@ const SimplePicker = (args): JSX.Element => {
         changeHandler={setValue}
         format="DD"
         label="ddd"
+        size="small"
         excludeDates={getAllLastDays()}
         minDate={new Date(new Date().setDate(new Date().getDate() + 15))}
         maxDate={new Date(new Date().setDate(new Date().getDate() + 60))}
@@ -59,8 +60,14 @@ const TimeDatePicker = (): JSX.Element => {
   }
   return (
     <div style={{ width: 300 }}>
-      <_TimePicker value={value1} changeHandler={setValue1} />
-      <_TimePicker value={value2} changeHandler={setValue2} filterTime={filterPassedTime} />
+      <_TimePicker
+        value={value1}
+        changeHandler={setValue1}
+        timeIntervals={60}
+        format={'HH:mm'}
+        label="time"
+      />
+      {/* <_TimePicker value={value2} changeHandler={setValue2} filterTime={filterPassedTime} /> */}
     </div>
   )
 }

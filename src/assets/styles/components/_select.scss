@@ -135,7 +135,7 @@
 
   &__footer {
     @include mixin.flexbox;
-    @include mixin.justify-content(flex-end);
+    @include mixin.justify-content(space-between);
     @include mixin.align-items(center);
     height: var(--ds-select-footer-height);
     padding: var(--ds-select-footer-padding);
@@ -225,4 +225,8 @@
   &__right {
     position: relative;
   }
+}
+
+.select_button{
+  box-shadow: none !important;
 }

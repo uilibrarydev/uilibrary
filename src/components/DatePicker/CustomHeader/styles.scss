@@ -1,0 +1,21 @@
+.custom_header_container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    .selects_container{
+      display: flex;
+      align-items: center;
+      min-width: 170px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .cursor-pointer{
+        cursor: pointer;
+    }
+    .date_picker_select{
+      .select__options{
+        max-height: 200px;
+      }
+    }
+  }

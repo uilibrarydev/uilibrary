@@ -5,7 +5,6 @@ import {
   useGetElemPositions,
   useGetElemSizes,
   useGetHasBottomSpace,
-  useHideOnScroll,
   useGetHasTopSpace
 } from '../../../hooks'
 import { Input } from '../../Input'
@@ -14,6 +13,7 @@ import { OptionItem } from '../../../helperComponents'
 import { Loading } from '../SharedComponents'
 import { TSingleSelectPropTypes } from '../types'
 import { SELECTED_VISIBLE_MIN_COUNT } from '../constants'
+import { useChangePositionsOnScroll } from '../../../hooks/useChangePositionsOnScroll'
 
 export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
@@ -73,8 +73,8 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     closeDropdown()
   }
 
+  useChangePositionsOnScroll(inputRef?.current, dropdownRef)
   useOnOutsideClick(containerRef.current, handleOutsideClick, isOpen, useId())
-  useHideOnScroll(closeDropdown)
 
   const { bottom, left, top } = useGetElemPositions(inputRef.current)
   const { width } = useGetElemSizes(containerRef.current)

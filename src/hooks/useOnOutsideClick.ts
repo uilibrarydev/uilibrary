@@ -4,6 +4,7 @@ type TProps = {
   ref: HTMLElement
   callback: (event: MouseEvent) => void
   uid: string
+  shouldRemoveCallback: boolean
 }
 
 const callbackStack: TProps[] = []
@@ -13,11 +14,13 @@ function handleMouseDownEvent(event: MouseEvent) {
   if (!callbackObject) {
     return
   }
-  const { ref, callback } = callbackObject
+  const { ref, callback, shouldRemoveCallback } = callbackObject
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   if (ref && !ref.contains(event.target)) {
-    callbackStack.splice(callbackStack.length - 1, 1)
+    if (shouldRemoveCallback) {
+      callbackStack.splice(callbackStack.length - 1, 1)
+    }
     callback(event)
   }
 }
@@ -26,11 +29,12 @@ export const useOnOutsideClick = (
   ref: HTMLElement | null,
   callback: (event: MouseEvent) => void,
   state: boolean,
-  uid: string
+  uid: string,
+  shouldRemoveCallback = true
 ): void => {
   useEffect(() => {
     if (ref && state && uid) {
-      callbackStack.push({ ref, callback, uid })
+      callbackStack.push({ ref, callback, uid, shouldRemoveCallback })
       if (callbackStack.length === 1) {
         document.addEventListener('mousedown', handleMouseDownEvent)
       }

@@ -5,6 +5,7 @@ import {
   MultiSelect as _MultiSelect,
   FilterSelect as _FilterDropdown,
   NestedSelect as _NestedSelect,
+  ButtonSelect as _ButtonSelect,
   Menu,
   Icon
 } from '../index'
@@ -49,6 +50,56 @@ export default {
   }
 }
 
+const BUTTON_SELECT_OPTIONS = [
+  {
+    value: 'jan',
+    label: 'Jan'
+  },
+  {
+    value: 'feb',
+    label: 'Feb'
+  },
+  {
+    value: 'mrch',
+    label: 'March'
+  },
+  {
+    value: 'apr',
+    label: 'April'
+  },
+  {
+    value: 'may',
+    label: 'May'
+  },
+  {
+    value: 'jun',
+    label: 'Jun'
+  },
+  {
+    value: 'jul',
+    label: 'Jul'
+  },
+  {
+    value: 'aug',
+    label: 'Aug'
+  },
+  {
+    value: 'sep',
+    label: 'Sep'
+  },
+  {
+    value: 'oct',
+    label: 'Oct'
+  },
+  {
+    value: 'nov',
+    label: 'Nov'
+  },
+  {
+    value: 'dec',
+    label: 'Dec'
+  }
+]
 const OPTIONS: TSelectOptions = [
   {
     value: 1,
@@ -217,6 +268,43 @@ const Template = (args: any): JSX.Element => {
 }
 export const Select = Template.bind({})
 
+// -----------ButtonSelect---------
+const Template2 = (args: any): JSX.Element => {
+  const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
+
+  return (
+    <div
+      style={{
+        display: 'flex',
+        height: '100vh',
+        justifyContent: 'center',
+        position: 'absolute',
+        top: 100
+      }}
+    >
+      <_ButtonSelect
+        {...args}
+        size="small"
+        buttonProps={{
+          buttonText: 'Select',
+          type: 'tertiary',
+          iconProps: { name: 'caret-down-hover', alignment: 'right' }
+        }}
+        // tooltipAddons={{ position: 'bottom-left' }}
+        isRequiredField
+        options={BUTTON_SELECT_OPTIONS}
+        outerHelperText="helper text"
+        selectedItem={selectedValue}
+        setSelectedItem={setSelectedValue}
+        withSearch={true}
+        dropdownWidth={300}
+        // optionRightIconComponent={(value) => <div>{value}</div>}
+      />
+    </div>
+  )
+}
+export const ButtonSelect = Template2.bind({})
+
 const ButtonMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [buttonRef, setButtonRef] = useState<HTMLDivElement | null>(null)
@@ -271,11 +359,15 @@ Select.args = {
 const MultiSelectTemplate = (args: any): JSX.Element => {
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
 
-  const set = (value) => {
+  const set = (value, isChecked) => {
+    console.log(isChecked)
     setSelectedValues(value)
   }
   return (
-    <div style={{ width: 250, position: 'absolute', left: 500, top: 0 }} className="ddddd">
+    <div
+      style={{ width: 250, height: '100vh', position: 'absolute', left: 500, top: 10 }}
+      className="ddddd"
+    >
       <_MultiSelect
         {...args}
         isGrouped={true}

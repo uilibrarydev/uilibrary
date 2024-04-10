@@ -15,7 +15,6 @@ import {
   useGetElemSizes,
   useGetElemPositions,
   useGetHasBottomSpace,
-  useHideOnScroll,
   useGetHasTopSpace
 } from '../../../hooks'
 import { getStringWidth, setTranslationValue } from '../../../utils/helpers'
@@ -25,6 +24,7 @@ import { MultiSelectGrouped } from './MultiSelectGrouped/MultiSelectGrouped'
 import { MultiSelectWithTabs } from './MultiSelectWithTabs/MultiSelectWithTabs'
 import { TMultiSelectPropTypes } from '../types'
 import { SELECTED_VISIBLE_MIN_COUNT, TRANSLATIONS_DEFAULT_VALUES } from '../constants'
+import { useChangePositionsOnScroll } from '../../../hooks/useChangePositionsOnScroll'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | null => {
@@ -53,6 +53,8 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
     disabled,
     dropdownWidth,
     align = 'left',
+    checkboxInfo,
+    size,
     ...rest
   } = props
 
@@ -60,7 +62,7 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
 
   const { overflowText } = localizations
 
-  const initialSelected = (value as TSelectedValue[]) || selectedItems
+  const initialSelected = (value as TSelectedValue[]) || selectedItems || []
 
   const inputRef = useRef<HTMLInputElement | null>(null)
   const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null)
@@ -108,11 +110,11 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
   }, [hasChange, initialSelected])
 
   useOnOutsideClick(containerRef.current, cancelSelectedItems, isOpen, useId())
-  useHideOnScroll(closeDropdown)
+  useChangePositionsOnScroll(inputRef?.current, dropdownRef)
 
-  const submitSelectedValue = (selections: TSelectedValue[]) => {
+  const submitSelectedValue = (selections: TSelectedValue[], isChecked: boolean) => {
     if (setSelectedItems) {
-      setSelectedItems(selections)
+      setSelectedItems(selections, isChecked)
     }
     if (name && setFieldValue) {
       setFieldValue(name, selections)
@@ -121,8 +123,8 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
     closeDropdown()
   }
 
-  const applySelectedItems = () => {
-    submitSelectedValue(selectedValues)
+  const applySelectedItems = (isChecked: boolean) => {
+    submitSelectedValue(selectedValues, isChecked)
   }
 
   const checkIsValueOverflowed = useCallback(
@@ -204,6 +206,7 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
           rightIconProps={{ name: isOpen ? 'caret-up-hover' : 'caret-down-hover', size: 'xsmall' }}
           labelAddons={labelAddons}
           disabled={disabled}
+          size={size}
         />
       </div>
 
@@ -246,6 +249,7 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
             )}
             {options.length ? (
               <Footer
+                checkboxInfo={checkboxInfo}
                 hasChange={hasChange}
                 buttonProps={footerButtonProps}
                 onCancel={cancelSelectedItems}

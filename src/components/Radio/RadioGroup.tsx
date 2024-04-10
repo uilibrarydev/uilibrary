@@ -17,7 +17,8 @@ export const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element
     required,
     disabled,
     className,
-    labelAddons
+    labelAddons,
+    hasError
   } = props
 
   const onSelect = (selected: number | string) => {
@@ -43,6 +44,7 @@ export const RadioGroup = forwardRef((props: TRadioGroupProps, ref): JSX.Element
       <Label
         className="radio-group__label"
         text={label}
+        invalid={hasError}
         required={required}
         disabled={disabled}
         labelAddons={labelAddons}
