@@ -13,7 +13,7 @@ const Template = (args) => {
     setCount(count)
   }
 
-  return <_Counter {...args} handleChange={onChange} counter={count} />
+  return <_Counter {...args} handleChange={onChange} counter={count} dataId={'counter'}/>
 }
 
 export const Counter = Template.bind({})
