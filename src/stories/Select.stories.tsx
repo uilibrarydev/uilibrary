@@ -360,7 +360,6 @@ const MultiSelectTemplate = (args: any): JSX.Element => {
   const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
 
   const set = (value, isChecked) => {
-    console.log(isChecked)
     setSelectedValues(value)
   }
   return (

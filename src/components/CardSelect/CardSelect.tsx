@@ -24,9 +24,7 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
     cardValue,
     illustration
   } = props
-
   const selected = cardValue === value
-
   const cardSelectStyle = classNames(
     `card-select card-select--${disabled ? 'disabled' : selected ? 'selected' : null}`,
     className
@@ -39,7 +37,9 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
   }
 
   const handleCardSelect = () => {
-    handleCardSelectValue(cardValue)
+    if (cardValue) {
+      handleCardSelectValue(cardValue)
+    }
   }
 
   return (

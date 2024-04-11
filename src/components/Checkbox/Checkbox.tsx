@@ -46,6 +46,7 @@ export const Checkbox = (
     <Popover id={`${popoverAddons.id}`} {...popoverAddons}>
       <div id={`${popoverAddons.id}`}>
         <Icon
+          dataId={`${dataId}-icon`}
           name="info"
           type="information"
           size="small"

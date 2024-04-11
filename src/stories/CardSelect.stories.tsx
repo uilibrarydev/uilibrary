@@ -159,6 +159,7 @@ CardSelect.args = {
   badgeText: 'Badge',
   disabled: false,
   withAction: true,
+  value:null,
   additionalInfo: [
     {
       key: 'Key 1',
@@ -175,7 +176,7 @@ CardSelect.args = {
 }
 
 const CardSelectGroupTemplate = (args) => {
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState(1)
   return (
     <div style={{ width: '50%' }}>
       <_CardSelectGroup {...args} cards={CARDS} value={selected} handleChange={setSelected} />
