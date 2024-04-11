@@ -54,7 +54,7 @@ export const Counter = forwardRef((props: ICounterProps, ref): JSX.Element => {
       label={label}
       required={required}
       leftIconProps={{
-        dataId:`${rest.dataId}-decrement`,
+        dataId: `${rest.dataId}-decrement`,
         size: 'small',
         name: 'minus',
         className: classNames({ action_active: !isIncreaseIconDisabled }),
@@ -62,7 +62,7 @@ export const Counter = forwardRef((props: ICounterProps, ref): JSX.Element => {
         onClick: isIncreaseIconDisabled ? noop : increase
       }}
       rightIconProps={{
-        dataId:`${rest.dataId}-increment`,
+        dataId: `${rest.dataId}-increment`,
         name: 'add',
         size: 'small',
         className: classNames({ action_active: !isDecreaseIconDisabled }),

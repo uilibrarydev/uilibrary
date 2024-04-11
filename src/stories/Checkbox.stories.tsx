@@ -17,7 +17,7 @@ const Template = (args) => {
       popoverAddons={{
         id: 'some-id',
         text: 'hello-popover',
-        dataId:'test'
+        dataId: 'test'
       }}
     />
   )

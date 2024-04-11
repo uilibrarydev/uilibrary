@@ -159,7 +159,7 @@ CardSelect.args = {
   badgeText: 'Badge',
   disabled: false,
   withAction: true,
-  value:null,
+  value: null,
   additionalInfo: [
     {
       key: 'Key 1',
