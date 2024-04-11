@@ -25,6 +25,13 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+
+.icon-building:before {
+    content: "\e9eb";
+}
+.icon-building-hover:before {
+    content: "\e9ec";
+}
 .icon-document-bullet-list:before {
     content: "\e9e7";
 }
