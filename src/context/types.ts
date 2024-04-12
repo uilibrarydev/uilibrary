@@ -8,7 +8,8 @@ import {
   UseFormReset,
   UseFormClearErrors,
   UseFormSetError,
-  UseFormTrigger
+  UseFormTrigger,
+  UseFormGetFieldState, UseFormUnregister
 } from 'react-hook-form'
 import { noop } from '../utils/helpers'
 
@@ -27,6 +28,8 @@ export type TFormContextProps = {
   isSubmitting: boolean
   dirtyFields: TDirtyFields
   trigger?: UseFormTrigger<TFormData>
+  getFieldState?: UseFormGetFieldState<TFormData>
+  unregister?: UseFormUnregister<TFormData>
 }
 
 export const FormContext = createContext<TFormContextProps>({

@@ -7,7 +7,7 @@ import { TFormFieldPropTypes } from './types'
 import classnames from 'classnames'
 
 export const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
-  const { As, name, className = '', dataId = '' } = props
+  const { As, name, className = '', dataId = '', hideErrorMessage = false } = props
   const { register, errors, setValue, control } = useContext(FormContext)
 
   if (!register) {
@@ -38,13 +38,15 @@ export const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
                   }),
                 ...field
               })}
-              <ReactHookFormErrorMessage
-                name={name}
-                errors={errors}
-                render={({ message }: { message: string }) => {
-                  return <ErrorMessage dataId={dataId} message={message || ''} />
-                }}
-              />
+              {!hideErrorMessage ? (
+                <ReactHookFormErrorMessage
+                  name={name}
+                  errors={errors}
+                  render={({ message }: { message: string }) => {
+                    return <ErrorMessage dataId={dataId} message={message || ''} />
+                  }}
+                />
+              ) : null}
             </>
           )
         }}
