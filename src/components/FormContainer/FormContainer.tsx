@@ -31,7 +31,9 @@ export const FormContainer = (props: FormPropTypes): JSX.Element => {
     reset,
     clearErrors,
     setError,
-    trigger
+    trigger,
+    getFieldState,
+    unregister
   } = useForm({
     mode: mode,
     resolver: yupResolver(validationScheme),
@@ -70,7 +72,9 @@ export const FormContainer = (props: FormPropTypes): JSX.Element => {
           isSubmitting,
           clearErrors,
           setError,
-          dirtyFields
+          dirtyFields,
+          getFieldState,
+          unregister
         }}
       >
         <>
