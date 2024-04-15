@@ -16,7 +16,6 @@ const getFiles = (files: FileList) => {
 const Template = (args): JSX.Element => {
   const [files, setFiles] = useState([])
   const getFiles = (_files) => {
-    console.log('_files', _files)
     if (_files && _files.length) {
       setFiles(_files)
     }

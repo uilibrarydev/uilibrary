@@ -6,7 +6,7 @@ export interface TCardSelectProps extends IFormCompProps {
   type?: CARD_SELECT_TYPES
   title: string
   description: string
-  chips: TChipsProps[]
+  chips?: TChipsProps[]
   inputProps?: InputCustomProps
   className?: string
   disabled?: boolean
@@ -14,10 +14,10 @@ export interface TCardSelectProps extends IFormCompProps {
   dataId?: string
   additionalInfo?: TInfoList
   selectedCard?: number
-  value: number | string
+  value?: number | string
   handleChange?: (selected: number | string) => void
   isSelected?: boolean
-  cardValue: number | string
+  cardValue?: number | string
   illustration?: string
 }
 export interface TCardSelectGroupProps extends IFormCompProps {

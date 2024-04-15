@@ -16,7 +16,8 @@ const Template = (args) => {
       onClick={setIsChecked}
       popoverAddons={{
         id: 'some-id',
-        text: 'hello-popover'
+        text: 'hello-popover',
+        dataId:'test'
       }}
     />
   )
