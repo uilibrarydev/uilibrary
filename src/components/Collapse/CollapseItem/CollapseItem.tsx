@@ -11,6 +11,7 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
     title: { text, size = 'medium', color },
     isOpen,
     toggle,
+    dataId,
     children,
     reverse = false,
     additionalInfo
@@ -18,7 +19,7 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
 
   const title =
     typeof text === 'string' ? (
-      <Text size={size} type={color} weight="bolder">
+      <Text size={size} type={color} weight="bolder" dataId={dataId}>
         {text}
       </Text>
     ) : (

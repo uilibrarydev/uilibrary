@@ -25,7 +25,8 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     optionRightIconComponent,
     labelRightIconComponent,
     maxSelectCount,
-    menuOptions
+    menuOptions,
+    dataIdPrefix
   } = props
 
   const { emptyListMainMessage, emptyListSecondaryMessage } = translations
@@ -129,6 +130,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
     <>
       {hasTopContent ? (
         <ContentTop
+          dataIdPrefix={dataIdPrefix}
           menuOptions={menuOptions}
           isSearchAvailable={isSearchAvailable}
           hasLimitation={!!maxSelectCount}
@@ -188,6 +190,7 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                     return (
                       <OptionItem
                         data={item}
+                        dataId={item.dataId}
                         key={item.value}
                         isSelected={isSelected}
                         disabled={

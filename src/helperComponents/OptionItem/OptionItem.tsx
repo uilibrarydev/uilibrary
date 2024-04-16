@@ -71,7 +71,7 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
             {...labelLeftIconProps}
           />
         ) : null}
-        <div className="select__option__content">
+        <div className="select__option__content" data-id={dataId}>
           <span className={`select__option__text pr-4 ${disabled ? 'color-disabled' : ''}`}>
             {label}
           </span>
@@ -89,9 +89,10 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
   )
 
   return tooltipAddons ? (
-    <Tooltip {...tooltipAddons} text={`${label}`} id={`${value}`}>
+    <>
+      <Tooltip {...tooltipAddons} text={`${label}`} id={`${value}`} />
       {optionContent}
-    </Tooltip>
+    </>
   ) : (
     optionContent
   )

@@ -14,7 +14,6 @@ export const Tooltip = (props: TTooltipProps): JSX.Element | null => {
     dataId = '',
     id,
     elemRef,
-    children,
     hovered = false
   } = props
 

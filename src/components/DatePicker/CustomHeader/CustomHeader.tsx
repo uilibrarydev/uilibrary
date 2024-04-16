@@ -11,12 +11,14 @@ interface TProps extends ReactDatePickerCustomHeaderProps {
   months: TSelectOptions
   startYear: number
   endYear: number
+  dataPrefix?: string
 }
 
 export const CustomHeader = (props: TProps): ReactElement => {
   const {
     months,
     date,
+    dataPrefix,
     changeYear,
     changeMonth,
     decreaseMonth,
@@ -41,6 +43,7 @@ export const CustomHeader = (props: TProps): ReactElement => {
         name="arrow-left"
         size="small"
         className="cursor-pointer"
+        dataId={dataPrefix ? `${dataPrefix}-prev-month-button` : ''}
         onClick={prevMonthButtonDisabled ? noop : decreaseMonth}
         type={prevMonthButtonDisabled ? 'disabled' : 'primary'}
       />
@@ -50,6 +53,7 @@ export const CustomHeader = (props: TProps): ReactElement => {
           offsets={{ top: 42, left: 48 }}
           buttonProps={{
             buttonText: getMonthLabel(month),
+            dataId: dataPrefix ? `${dataPrefix}-month-select` : '',
             iconProps: { name: 'caret-down-hover', alignment: 'right' },
             type: 'tertiary'
           }}
@@ -63,6 +67,7 @@ export const CustomHeader = (props: TProps): ReactElement => {
           className="date_picker_select"
           offsets={{ top: 42, left: 138 }}
           buttonProps={{
+            dataId: dataPrefix ? `${dataPrefix}-year-select` : '',
             buttonText: year.toString(),
             iconProps: { name: 'caret-down-hover', alignment: 'right' },
             type: 'tertiary'
@@ -78,6 +83,7 @@ export const CustomHeader = (props: TProps): ReactElement => {
         name="arrow-right"
         size="small"
         className="cursor-pointer"
+        dataId={dataPrefix ? `${dataPrefix}-next-month-button` : ''}
         onClick={nextMonthButtonDisabled ? noop : increaseMonth}
         type={nextMonthButtonDisabled ? 'disabled' : 'primary'}
       />

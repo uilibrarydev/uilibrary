@@ -4,7 +4,7 @@ import { TabItem } from './TabItem'
 
 export const Tab = (props: TTabProps): ReactElement => {
   const { selectedValue, tabItems, onSelect, ...rest } = props
-
+  console.log('tabInfo', tabItems)
   return (
     <div className="tabs-container">
       {tabItems.map((tabInfo) => {
@@ -15,6 +15,7 @@ export const Tab = (props: TTabProps): ReactElement => {
             key={tabInfo.value}
             val={tabInfo.value}
             isSelected={selectedValue === tabInfo.value}
+            dataId={tabInfo?.dataId || ''}
             {...rest}
           />
         )
