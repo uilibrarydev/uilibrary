@@ -29,6 +29,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
     months = MONTHS,
     minDate,
     maxDate,
+    dataIdPrefix,
     ...rest
   } = props
 
@@ -85,7 +86,13 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
         {...rest}
         onChange={onChange}
         renderCustomHeader={(props) => (
-          <CustomHeader {...props} months={months} startYear={startYear} endYear={endYear} />
+          <CustomHeader
+            {...props}
+            months={months}
+            startYear={startYear}
+            endYear={endYear}
+            dataPrefix={dataIdPrefix}
+          />
         )}
       />
     </div>

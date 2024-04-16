@@ -4,6 +4,7 @@ import { TTooltipProps } from '../Tooltip/types'
 import { TMenuItem } from '../Menu/types'
 
 interface TSelectBaseProps {
+  dataIdPrefix?: string
   error?: string
   isLoading?: boolean
   disabled?: boolean
@@ -94,6 +95,7 @@ export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps 
 }
 
 export interface TButtonSelectPropTypes extends IFormCompProps, TSelectBaseProps {
+  dataId?: string
   options: TSelectOptions
   selectedItem?: TItemValue
   setSelectedItem?: (items: TItemValue | undefined) => void

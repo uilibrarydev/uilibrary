@@ -39,6 +39,7 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
     withFooter = true,
     buttonProps,
     children,
+    dataIdPrefix,
     closeOnOutsideClick = true
   } = props
 
@@ -66,13 +67,20 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
                 {titleIconProps?.name ? (
                   <Icon size="small" {...titleIconProps} className="mr-12" />
                 ) : null}
-                <Text className="modal__title" weight="semibold" lineHeight="large" size="medium">
+                <Text
+                  className="modal__title"
+                  weight="semibold"
+                  lineHeight="large"
+                  size="medium"
+                  dataId={dataIdPrefix ? `${dataIdPrefix}-modal-title` : ''}
+                >
                   {title}
                 </Text>
                 {closeIcon ? (
                   <Button
                     type="tertiary"
                     size="small"
+                    dataId={dataIdPrefix ? `${dataIdPrefix}-modal-close-button` : ''}
                     iconProps={{ name: 'close-hover' }}
                     onClick={onClose}
                   />
@@ -88,9 +96,16 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
                   size="medium"
                   className="mr-12"
                   onClick={onClose}
+                  dataId={dataIdPrefix ? `${dataIdPrefix}-modal-cancel-button` : ''}
                   {...(buttonProps.cancel || {})}
                 />
-                <Button type="primary" size="medium" onClick={onSubmit} {...buttonProps.confirm} />
+                <Button
+                  type="primary"
+                  size="medium"
+                  onClick={onSubmit}
+                  dataId={dataIdPrefix ? `${dataIdPrefix}-modal-confirm-button` : ''}
+                  {...buttonProps.confirm}
+                />
               </div>
             ) : null}
           </div>

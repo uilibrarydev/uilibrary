@@ -17,6 +17,7 @@ type TProps = {
   isSearchAvailable?: boolean
   hasLimitation?: boolean
   menuOptions?: TMenuItem[]
+  dataIdPrefix?: string
 }
 
 export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
@@ -31,7 +32,8 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
     isSearchAvailable = false,
     hasLimitation = false,
     isSelectAllDisabled = false,
-    menuOptions = []
+    menuOptions = [],
+    dataIdPrefix
   } = props
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -47,7 +49,8 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
           value: 1,
           handler: selectAll,
           disabled: isSelectAllDisabled,
-          iconProps: { name: 'select-all' }
+          iconProps: { name: 'select-all' },
+          dataId: dataIdPrefix ? `${dataIdPrefix}-select-all` : ''
         }
       ]
     }
@@ -59,7 +62,8 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
           value: 2,
           handler: clearAll,
           disabled: !isAnySelected,
-          iconProps: { name: 'close-hover' }
+          iconProps: { name: 'close-hover' },
+          dataId: dataIdPrefix ? `${dataIdPrefix}-clear-all` : ''
         }
       ]
     }
@@ -71,7 +75,8 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
     clearAll,
     clearAllLabel,
     isSelectAllDisabled,
-    isAnySelected
+    isAnySelected,
+    dataIdPrefix
   ])
   const onSearch = (e: TChangeEventType) => {
     setSearchValue && setSearchValue(e.target.value)

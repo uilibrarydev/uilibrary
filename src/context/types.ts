@@ -9,7 +9,8 @@ import {
   UseFormClearErrors,
   UseFormSetError,
   UseFormTrigger,
-  UseFormGetFieldState, UseFormUnregister
+  UseFormGetFieldState,
+  UseFormUnregister
 } from 'react-hook-form'
 import { noop } from '../utils/helpers'
 

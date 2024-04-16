@@ -23,7 +23,8 @@ export const MultiBase = (props: TMultySingleTabPropTypes): JSX.Element | null =
     labelRightIconComponent,
     optionRightIconComponent,
     maxSelectCount,
-    menuOptions
+    menuOptions,
+    dataIdPrefix
   } = props
 
   const { emptyListMainMessage, emptyListSecondaryMessage } = translations
@@ -93,6 +94,7 @@ export const MultiBase = (props: TMultySingleTabPropTypes): JSX.Element | null =
   return (
     <>
       <ContentTop
+        dataIdPrefix={dataIdPrefix}
         menuOptions={menuOptions}
         selectAll={selectAll}
         clearAll={clearAll}
@@ -138,6 +140,7 @@ export const MultiBase = (props: TMultySingleTabPropTypes): JSX.Element | null =
           return (
             <OptionItem
               data={item}
+              dataId={item.dataId}
               key={`${item.value}_${index}`}
               onClick={isSelected ? onDeselect : onItemSelect}
               disabled={item.disabled || (!isSelected && selectedValues.length === maxSelectCount)}

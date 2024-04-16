@@ -4,6 +4,7 @@ type DatePickerDefaultProps = Omit<IFormCompProps, 'value'> &
   Omit<ReactDatePickerProps, 'onChange' | 'value'>
 
 export interface ISimpleDatePickerProps extends DatePickerDefaultProps {
+  dataIdPrefix?: string
   label?: string | JSX.Element
   currentDate?: Date | undefined
   changeHandler?: (date: Date) => void

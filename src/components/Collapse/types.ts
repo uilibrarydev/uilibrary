@@ -17,6 +17,7 @@ export type TCollapseProps = {
   title: TCollapseItemTitle
   reverse?: boolean
   additionalInfo?: ReactNode
+  dataId: string | undefined
 }
 
 export type TCollapseValue = string | number
@@ -26,6 +27,7 @@ export type TCollapseItem = {
   value: TCollapseValue
   content: JSX.Element
   isOpen: boolean
+  dataId?: string
 }
 
 export type TCollapseGroupProps = {
