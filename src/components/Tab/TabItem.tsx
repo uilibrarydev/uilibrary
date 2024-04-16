@@ -20,7 +20,6 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
     dataId
   } = props
 
-  console.log('dataId', dataId)
   return (
     <div
       onClick={disabled ? noop : onClick}
