@@ -114,6 +114,7 @@
 
     &__meta {
       white-space: nowrap;
+      color: var(--ds-color-text-tertiary);
       &:before {
         content: '- ';
       }
