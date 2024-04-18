@@ -16,7 +16,8 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
     isSelected,
     rightIconProps,
     val,
-    onClick
+    onClick,
+    dataId
   } = props
 
   return (
@@ -37,7 +38,9 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
           size={`${size == 'small' ? 'xsmall' : 'small'}`}
         />
       ) : null}
-      <span className="tab__label">{label}</span>
+      <span className="tab__label" data-id={dataId}>
+        {label}
+      </span>
       {rightIconProps?.name ? (
         <Icon
           {...rightIconProps}

@@ -5,6 +5,7 @@ import { Avatar } from './Avatar'
 import { TAvatarGroupProps } from './types'
 import { useScreenSize } from '../../hooks'
 import classNames from 'classnames'
+import { Positions } from '../Tooltip/types'
 
 const VISIBLE_AVATARS_AMOUNT = {
   small: 2,
@@ -16,7 +17,8 @@ export const AvatarGroup = ({
   avatarGroup = [],
   onAddUser,
   size = 'medium',
-  maxCount = 0
+  maxCount = 0,
+  dataId
 }: TAvatarGroupProps): ReactElement => {
   const screenSize = useScreenSize()
   const visibleAvatarsAmount = maxCount || VISIBLE_AVATARS_AMOUNT[screenSize]
@@ -31,9 +33,14 @@ export const AvatarGroup = ({
         return (
           <div className={'avatar-group__item'} key={index}>
             {avatar.tooltipContent ? (
-              <Tooltip text={avatar.tooltipContent} id={`${index}`} position={'top-center'} />
+              <Tooltip
+                text={avatar.tooltipContent}
+                id={`${index}`}
+                position={Positions.TOP_CENTER}
+              />
             ) : null}
             <Avatar
+              dataId={dataId}
               id={`${index}`}
               size={size}
               initials={avatar.initials}
@@ -46,7 +53,7 @@ export const AvatarGroup = ({
       {invisibleAvatarsAmount ? (
         <div className="avatar-group__item">
           {/*Todo please fix tooltip*/}
-          <Tooltip text={'Name Surname'} id={'amountTooltip'} position={'top-center'} />
+          <Tooltip text={'Name Surname'} id={'amountTooltip'} position={Positions.TOP_CENTER} />
           <Avatar
             type={'count'}
             size={size}

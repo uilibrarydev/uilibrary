@@ -1,6 +1,7 @@
 export type TTabItem = {
   value: number | string
   label: string | JSX.Element
+  dataId?: string
 }
 export interface TTabProps extends IFormCompProps {
   tabItems: TTabItem[]
@@ -24,6 +25,7 @@ export interface TTabProps extends IFormCompProps {
 }
 
 export type TTabItemProps = {
+  dataId: string
   label?: string | JSX.Element
   size?: 'large' | 'medium' | 'small'
   className?: string

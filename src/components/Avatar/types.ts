@@ -4,6 +4,7 @@ import { FILE_UPLOAD_ERRORS } from '../../consts'
 export interface TAvatarProps extends IFormCompProps {
   allowedTypes?: string
   id?: string
+  dataId?: string
   imagePath?: string
   initials?: string | ReactElement
   color?: 'default' | 'purple' | 'blue' | 'green' | 'red'
@@ -18,6 +19,7 @@ export interface TAvatarProps extends IFormCompProps {
 }
 
 export interface TAvatarGroupProps {
+  dataId?: string
   avatarGroup: TAvatarProps[]
   onAddUser?: () => void
   maxCount?: 0 | 2 | 4 | 6

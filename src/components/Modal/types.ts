@@ -3,6 +3,7 @@ import { TButtonPropTypes } from '../Button/types'
 import { TIconTypes } from '../Icon/types'
 
 export interface TModalPropTypes {
+  dataIdPrefix?: string
   closeOnOutsideClick?: boolean
   isOpen: boolean
   onClose: () => void

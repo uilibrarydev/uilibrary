@@ -23,12 +23,13 @@ export const CollapseGroup = (props: TCollapseGroupProps): JSX.Element => {
 
   return (
     <>
-      {items.map(({ title, value, content }) => {
+      {items.map(({ title, value, content, dataId }) => {
         const isOpen = openValues.indexOf(value) !== -1
         return (
           <CollapseItem
             isOpen={isOpen}
             key={value}
+            dataId={dataId}
             title={{ size, color, text: title }}
             toggle={() => (isOpen ? onCollapseDeselect(value) : onCollapseSelect(value))}
           >

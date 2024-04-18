@@ -106,12 +106,14 @@ declare type TSelectOption = {
   meta?: string
   disabled?: boolean
   children?: TSelectOption[]
+  dataId?: string
 }
 
 declare type TSelectOptions = TSelectOption[]
 
 declare type TSelectGroupOption = {
   title: string
+  dataId?: string
   data: TSelectOptions
 }
 

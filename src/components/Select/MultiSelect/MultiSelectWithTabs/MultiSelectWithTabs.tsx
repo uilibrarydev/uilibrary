@@ -24,7 +24,8 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
     translations,
     isSearchAvailable,
     maxSelectCount,
-    menuOptions
+    menuOptions,
+    dataIdPrefix
   } = props
 
   const { emptyListMainMessage, emptyListSecondaryMessage } = translations
@@ -111,6 +112,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
         {<Tab selectedValue={activeTab} tabItems={tabs} onSelect={onTabSelect} size="small" />}
       </div>
       <ContentTop
+        dataIdPrefix={dataIdPrefix}
         menuOptions={menuOptions}
         isSearchAvailable={isSearchAvailable}
         clearAll={clearAll}
@@ -153,6 +155,7 @@ export const MultiSelectWithTabs = (props: TMultiSelectGroupedProps): JSX.Elemen
           return (
             <OptionItem
               data={item}
+              dataId={item.dataId}
               key={item.value}
               onClick={isSelected ? onDeselect : onItemSelect}
               disabled={item.disabled || (!isSelected && selectedValues.length === maxSelectCount)}
