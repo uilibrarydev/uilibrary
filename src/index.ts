@@ -42,6 +42,7 @@ export * from './components/Table'
 export * from './components/Text'
 export * from './components/Textarea'
 export * from './components/Tooltip'
+export * from './components/SVGIcons'
 
 export { FormContext } from './context'
 export { useFormProps } from './hooks'

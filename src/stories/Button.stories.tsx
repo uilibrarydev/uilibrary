@@ -29,7 +29,9 @@ const Template = (args) => <_Button {...args} />
 export const Button = Template.bind({})
 Button.args = {
   iconProps: {
-    name: 'home'
+    name: 'home',
+    alignment: 'left'
+    // Component: IconCopy
   },
   autoFocus: true,
   type: 'primary',

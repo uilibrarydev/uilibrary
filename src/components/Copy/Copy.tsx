@@ -2,6 +2,7 @@ import React, { useState, useRef, ReactElement } from 'react'
 import { Button } from '../Button'
 import { Popover } from '../Popover'
 import { TCopyProps } from './types'
+import { IconCopy } from '../SVGIcons/IconCopy'
 
 export const Copy = ({ textAfterCopy, className = '', text }: TCopyProps): ReactElement => {
   const [isTooltipVisible, setTooltipVisibility] = useState(false)
@@ -16,9 +17,9 @@ export const Copy = ({ textAfterCopy, className = '', text }: TCopyProps): React
   return (
     <div ref={copyIconRef} className="copy-icon">
       <Button
-        type={'tertiary'}
-        iconProps={{ name: 'copy' }}
-        size={'small'}
+        type="tertiary"
+        iconProps={{ Component: IconCopy }}
+        size="small"
         className={className}
         onClick={copy}
       />

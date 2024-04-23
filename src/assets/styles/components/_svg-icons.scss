@@ -1,0 +1,55 @@
+@use "../helpers/mixin";
+
+.svg-icon {
+  @include mixin.flexbox;
+  @include mixin.align-items(center);
+  @include mixin.justify-content(center);
+  width: 1em;
+  height: 1em;
+  vertical-align: top;
+  font-size: var(--ds-size-24);
+  color: var(--ds-color-text-primary);
+
+  path {
+    fill: var(--ds-color-text-primary);
+  }
+
+  &__size {
+    $sizes: (
+      xxsmall: var(--ds-size-12),
+      xsmall: var(--ds-size-16),
+      small: var(--ds-size-20),
+      medium: var(--ds-size-24),
+      large: var(--ds-size-28),
+      xlarge: var(--ds-size-32),
+      xxlarge: var(--ds-size-48),
+    );
+    @each $key, $value in $sizes {
+      &-#{$key} {
+        font-size: $value;
+      }
+    }
+  }
+
+  &__type {
+    $types: (
+        primary: var(--ds-color-text-primary),
+        secondary: var(--ds-color-text-secondary),
+        tertiary: var(--ds-color-text-tertiary),
+        disabled: var(--ds-color-text-disabled),
+        selected: var(--ds-color-text-selected),
+        inverse: var(--ds-color-text-inverse),
+        brand: var(--ds-color-text-brand),
+        success: var(--ds-color-text-success),
+        information: var(--ds-color-text-info),
+        warning: var(--ds-color-text-warning),
+        danger: var(--ds-color-text-danger),
+        discovery: var(--ds-color-text-discovery),
+    );
+    @each $key, $value in $types {
+      &-#{$key} path {
+        fill: $value;
+      }
+    }
+  }
+}
