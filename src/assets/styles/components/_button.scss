@@ -133,14 +133,15 @@
         background-color: var(--ds-button-primary-bg-pressed);
       }
 
-  
-
       &[disabled] {
         background-color: var(--ds-button-primary-bg-disabled);
         color: var(--ds-button-primary-text-disabled);
 
         #{$this}__icon {
           color: var(--ds-button-primary-text-disabled);
+        }
+        svg path {
+          fill: var(--ds-button-danger-text-disabled);
         }
       }
     }
@@ -172,6 +173,11 @@
         #{$this}__icon {
           color: var(--ds-button-secondary-text-disabled);
         }
+
+        svg path {
+          fill: var(--ds-button-secondary-text-disabled);
+        }
+
       }
     }
 
@@ -200,6 +206,10 @@
         #{$this}__icon {
           color: var(--ds-button-tertiary-text-disabled);
         }
+
+        svg path {
+          fill: var(--ds-button-secondary-text-disabled);
+        }
       }
     }
 
@@ -221,14 +231,16 @@
         background-color: var(--ds-button-danger-bg-pressed);
       }
 
-
-
       &[disabled] {
         background-color: var(--ds-button-danger-bg-disabled);
         color: var(--ds-button-danger-text-disabled);
 
         #{$this}__icon {
           color: var(--ds-button-danger-text-disabled);
+        }
+
+        svg path {
+          fill: var(--ds-button-secondary-text-disabled);
         }
       }
     }
@@ -251,6 +263,10 @@
         #{$this}__icon {
           color: var(--ds-button-text-hover);
         }
+
+        svg path {
+          fill: var(--ds-button-text-hover);
+        }
       }
 
       &:active {
@@ -258,6 +274,10 @@
 
         #{$this}__icon {
           color: var(--ds-button-text-pressed);
+        }
+
+        svg path {
+          fill: var(--ds-button-text-pressed);
         }
       }
 
@@ -267,6 +287,10 @@
 
         #{$this}__icon {
           color: var(--ds-button-text-disabled);
+        }
+
+        svg path {
+          fill: var(--ds-button-text-disabled);
         }
       }
     }
@@ -290,6 +314,10 @@
         #{$this}__icon {
           color: var(--ds-button-link-hover);
         }
+
+        svg path {
+          fill: var(--ds-button-link-hover);
+        }
       }
 
       &:active {
@@ -298,6 +326,10 @@
         #{$this}__icon {
           color: var(--ds-button-link-pressed);
         }
+
+        svg path {
+          fill: var(--ds-button-link-pressed);
+        }
       }
 
       &[disabled] {
@@ -305,6 +337,10 @@
 
         #{$this}__icon {
           color: var(--ds-button-link-disabled);
+        }
+
+        svg path {
+          fill: var(--ds-button-link-disabled);
         }
       }
     }

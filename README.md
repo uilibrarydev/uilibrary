@@ -28,6 +28,15 @@ How to use mixins:
     @include mixin.flexbox();
 }
 ```
+
+# How to create new icon
+    1. Add a new svg file in `svg-icons` folder.
+    2. Make sure the icon is matching with the design.
+    3. Make sure the svg file name is matching with pattern like this `chevron-right.svg`.
+    4. Run `npm run generate-svg-component` command to generate the new icon component.
+    5. Export the new icon component in the `src/components/SVGIcons/index.ts` file.
+    6. Add the new icon component in the `src/components/SVGIcons/SVGIcons.stories.tsx` file.
+
 # How to create new component
     1. Add a folder with the component name in `src/components/` folder.
     2. Add a style file in the `assets/styles/components` fodler with the name `_componentName.scss`.

@@ -1,7 +1,7 @@
 {
   "homepage": "https://dinofrontend.github.io/dino_ui_library",
   "name": "dino_ui_tools",
-  "version": "2.0.47",
+  "version": "2.0.48",
   "description": "UI library for Dino",
   "private": false,
   "main": "index.js",
@@ -9,15 +9,15 @@
     "version": "echo $npm_package_version",
     "name": "echo $npm_package_name",
     "start": "react-scripts start",
-    "build": "npm run clean && rollup -c",
+    "build": "rollup -c",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006 public",
     "build-storybook": "storybook build",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
-    "clean": "rm -rf dist",
     "prettier": "prettier --write \"./{src,stories}/**/**.{js,jsx,ts,tsx}\"",
     "check": "npm run prettier && npm run lint && tsc",
-    "install-latest": "npm install --legacy-peer-deps"
+    "install-latest": "npm install --legacy-peer-deps",
+    "generate-svg-component": "node ./bin/generate_svg_component.js"
   },
   "eslintConfig": {
     "extends": [
