@@ -2,6 +2,8 @@ import React from 'react'
 import { Icon as _Icon, Text } from '../index'
 
 const ICONS = [
+  'globe',
+  'globe-hover',
   'building',
   'building-hover',
   'signout',
