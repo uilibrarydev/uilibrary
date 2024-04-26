@@ -44,19 +44,21 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
 
   return (
     <div className={cardSelectStyle} onClick={handleCardSelect}>
-      <div className="flexbox justify-content--between align-items--start">
-        <Text type={disabled ? 'disabled' : 'primary'} size={'medium'} weight={'bold'}>
-          <>{title}</>
-        </Text>
-        {type === CARD_SELECT_TYPES.cardRadio ? (
-          <Radio name={name} isSelected={selected} disabled={disabled} className={'ml-16'} />
-        ) : null}
+      {illustration ? <div className={'card-select__image mr-8'}><Image imagePath={illustration} /></div> : null}
+      <div className={'card-select__content'}>
+        <div className="flexbox justify-content--between align-items--start">
+          <Text type={disabled ? 'disabled' : 'primary'} size={'medium'} weight={'bold'}>
+            <>{title}</>
+          </Text>
+          {type === CARD_SELECT_TYPES.cardRadio ? (
+              <Radio name={name} isSelected={selected} disabled={disabled} className={'ml-16'} />
+          ) : null}
+        </div>
+        <CardChips chips={chips} disabled={disabled} />
+        <CardInput inputProps={inputProps} disabled={disabled} />
+        <CardDescription description={description} disabled={disabled} />
+        <CardAdditionalInfo additionalInfo={additionalInfo} disabled={disabled} />
       </div>
-      {illustration ? <Image imagePath={illustration} /> : null}
-      <CardChips chips={chips} disabled={disabled} />
-      <CardDescription description={description} disabled={disabled} />
-      <CardInput inputProps={inputProps} disabled={disabled} />
-      <CardAdditionalInfo additionalInfo={additionalInfo} disabled={disabled} />
     </div>
   )
 }
