@@ -14,11 +14,14 @@
 
   --ds-card-select-shadow-focused: var(--ds-shadow-brand-2);
 
+  --ds-card-select-image-size: var(--ds-size-64);
+
   border-radius: var(--ds-card-select-border-radius);
   padding: var(--ds-card-select-padding);
   background-color: var(--ds-card-select-bg);
   border: 1px solid var(--ds-card-select-border-color);
   width: 100%;
+  @include mixin.flexbox;
 
   &:not(&#{$this}--disabled) {
     &:hover {
@@ -34,5 +37,10 @@
 
   &--disabled {
     border-color: var(--ds-card-select-border-color-disabled);
+  }
+
+  &__image {
+    width: var(--ds-card-select-image-size);
+    min-width: var(--ds-card-select-image-size);
   }
 }

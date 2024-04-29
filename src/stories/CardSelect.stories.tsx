@@ -4,6 +4,7 @@ import { CardSelect as _CardSelect } from '../components/CardSelect'
 import { Popover } from '../components/Popover'
 import { Icon } from '../components/Icon'
 import { CARD_SELECT_TYPES } from '../consts'
+import imageFile from '../assets/images/illustrations.svg'
 
 export default {
   title: 'CardSelect',
@@ -140,6 +141,7 @@ export const CardSelect = Template.bind({})
 
 CardSelect.args = {
   type: CARD_SELECT_TYPES.card,
+  illustration: imageFile,
   title: 'Card Select',
   chips: [
     {
