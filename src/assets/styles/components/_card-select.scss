@@ -43,4 +43,8 @@
     width: var(--ds-card-select-image-size);
     min-width: var(--ds-card-select-image-size);
   }
+
+  &__content {
+    flex: 1;
+  }
 }
