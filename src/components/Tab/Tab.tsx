@@ -16,6 +16,7 @@ export const Tab = (props: TTabProps): ReactElement => {
             val={tabInfo.value}
             isSelected={selectedValue === tabInfo.value}
             dataId={tabInfo?.dataId || ''}
+            disabled={tabInfo.disabled}
             {...rest}
           />
         )
