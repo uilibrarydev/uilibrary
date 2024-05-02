@@ -12,7 +12,7 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
     badgeProps,
     label,
     className = '',
-    disabled,
+    disabled= false,
     isSelected,
     rightIconProps,
     val,
