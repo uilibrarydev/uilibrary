@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button as _Button } from '../index'
+import { Button as _Button, IconChevronDown } from '../index'
 
 export default {
   title: 'Button',
@@ -29,12 +29,10 @@ const Template = (args) => <_Button {...args} />
 export const Button = Template.bind({})
 Button.args = {
   iconProps: {
-    name: 'home',
-    alignment: 'left'
-    // Component: IconCopy
+    Component: IconChevronDown
   },
   autoFocus: true,
-  type: 'primary',
+  type: 'tertiary',
   size: 'large',
   disabled: false,
   isLoading: false,

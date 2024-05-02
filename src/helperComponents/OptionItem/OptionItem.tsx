@@ -5,6 +5,7 @@ import { Icon } from '../../components/Icon'
 import { Tooltip } from '../../components/Tooltip'
 import { TSelectItemProps } from './types'
 import classNames from 'classnames'
+import { IconCheckmark } from '../../components/SVGIcons/IconCheckmark'
 
 export const OptionItem = (props: TSelectItemProps): JSX.Element => {
   const {
@@ -54,16 +55,19 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
         <Checkbox className="mr-8" selectedValue={isSelected} disabled={disabled} />
       ) : null}
       {!isCheckbox && isSelected ? (
-        <Icon
-          name="mark"
-          size="xsmall"
-          type={`${disabled ? 'disabled' : 'brand'}`}
-          className="mr-4"
-        />
+        <IconCheckmark size="xsmall" type={disabled ? 'disabled' : 'brand'} className="mr-4" />
       ) : null}
       <div className="select__option__inner">
         {avatar ? <Avatar size="xxsmall" imagePath={avatar} className="mr-4" /> : null}
-        {labelLeftIconProps ? (
+        {labelLeftIconProps?.Component ? (
+          <labelLeftIconProps.Component
+            size="xsmall"
+            type={disabled ? 'disabled' : 'primary'}
+            className="mr-4 select__left-icon"
+            {...labelLeftIconProps}
+          />
+        ) : null}
+        {labelLeftIconProps?.name ? (
           <Icon
             size="xsmall"
             type={`${disabled ? 'disabled' : 'primary'}`}

@@ -93,12 +93,16 @@ declare type TSelectedValue = {
 declare type TItemLabel = string | number
 
 declare type TClickHandler = (e: TClickEventType) => void
+
+declare type TSVGIconComponent = (props: ISVGIconProps) => ReactElement
+
 declare type TSelectIconProps = {
   type?: TIconTypes
   name: string
   size?: TIconSize
   className?: string
   onClick?: TClickHandler
+  Component?: TSVGIconComponent
 }
 declare type TSelectOption = {
   value: TItemValue

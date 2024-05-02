@@ -1,4 +1,5 @@
-import { LegacyRef, MouseEvent } from 'react'
+import { LegacyRef, MouseEvent, ReactElement } from 'react'
+import { ISVGIconProps } from '../SVGIcons/types'
 
 export type TIconTypes =
   | 'primary'
@@ -23,4 +24,5 @@ export interface IconPropTypes {
   refHandler?: LegacyRef<HTMLElement> | undefined
   id?: number | string
   dataId?: string
+  Component?: (props: ISVGIconProps) => ReactElement
 }
