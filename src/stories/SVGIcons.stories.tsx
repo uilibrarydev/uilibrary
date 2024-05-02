@@ -8,7 +8,13 @@ import {
   IconArrowExit,
   IconCaretDownFilled,
   IconCaretUpFilled,
-  IconCheckmark
+  IconCheckmark,
+  IconPeople,
+  IconCubeTree,
+  IconCalendarClock,
+  IconList,
+  IconSettings,
+  IconBeach
 } from '../components/SVGIcons'
 import { Text } from '../components/Text'
 
@@ -42,6 +48,8 @@ export default {
 
 const icons = [
   IconArrowExit,
+  IconBeach,
+  IconCalendarClock,
   IconCaretDownFilled,
   IconCaretUpFilled,
   IconCheckmark,
@@ -49,7 +57,11 @@ const icons = [
   IconChevronDown,
   IconChevronLeft,
   IconChevronRight,
-  IconCopy
+  IconCopy,
+  IconCubeTree,
+  IconList,
+  IconPeople,
+  IconSettings
 ]
 
 const Template = (args: any) => {

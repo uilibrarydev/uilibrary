@@ -25,6 +25,8 @@ import { MultiSelectWithTabs } from './MultiSelectWithTabs/MultiSelectWithTabs'
 import { TMultiSelectPropTypes } from '../types'
 import { SELECTED_VISIBLE_MIN_COUNT, TRANSLATIONS_DEFAULT_VALUES } from '../constants'
 import { useChangePositionsOnScroll } from '../../../hooks/useChangePositionsOnScroll'
+import { IconCaretDownFilled } from '../../SVGIcons/IconCaretDownFilled'
+import { IconCaretUpFilled } from '../../SVGIcons/IconCaretUpFilled'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): ReactElement | null => {
@@ -137,7 +139,12 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
 
   const toggleDropdown = (e?: TClickEventType) => {
     const clickedElement = e?.target as HTMLDivElement
-    if (e && clickedElement.className && clickedElement.className.indexOf('icon-') !== -1) {
+    const className = clickedElement?.getAttribute('class')
+    if (
+      e &&
+      className &&
+      (className.indexOf('icon-') !== -1 || className.indexOf('svg-icon') !== -1)
+    ) {
       setIsOpen(!isOpen)
       e.preventDefault()
     } else {
@@ -203,7 +210,10 @@ export const MultiSelect = forwardRef((props: TMultiSelectPropTypes, ref): React
           placeholder={placeHolder}
           required={isRequiredField}
           currentValue={selectedItemsLabels}
-          rightIconProps={{ name: isOpen ? 'caret-up-hover' : 'caret-down-hover', size: 'xsmall' }}
+          rightIconProps={{
+            Component: isOpen ? IconCaretUpFilled : IconCaretDownFilled,
+            size: 'xsmall'
+          }}
           labelAddons={labelAddons}
           disabled={disabled}
           size={size}

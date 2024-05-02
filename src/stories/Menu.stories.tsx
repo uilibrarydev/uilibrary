@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Menu as _Menu, Button } from '../index'
+import { IconArrowExit } from '../components/SVGIcons/IconArrowExit'
+import IconCheckmark from '../components/SVGIcons/IconCheckmark'
 
 export default {
   title: 'Menu',
@@ -37,12 +39,22 @@ const items = [
   {
     label: 'Delete',
     iconProps: {
-      name: 'close-hover'
+      Component: IconCheckmark,
+      type: 'selected'
     },
     handler: () => {
       console.log('delete')
     },
     value: 3
+  },
+  {
+    label: 'logout',
+    value: 1,
+    iconProps: {
+      Component: IconArrowExit,
+      type: 'selected'
+    },
+    handler: () => {}
   }
 ]
 

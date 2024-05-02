@@ -14,6 +14,8 @@ import { Loading } from '../SharedComponents'
 import { TSingleSelectPropTypes } from '../types'
 import { SELECTED_VISIBLE_MIN_COUNT } from '../constants'
 import { useChangePositionsOnScroll } from '../../../hooks/useChangePositionsOnScroll'
+import { IconCaretUpFilled } from '../../SVGIcons/IconCaretUpFilled'
+import { IconCaretDownFilled } from '../../SVGIcons/IconCaretDownFilled'
 
 export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
@@ -107,7 +109,12 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   const onOpenOptions = (e: TClickEventType): void => {
     const result = e?.target as HTMLDivElement
-    if (e && result.className && result.className.indexOf('icon-') !== -1) {
+    const className = result?.getAttribute('class')
+    if (
+      e &&
+      className &&
+      (className.indexOf('icon-') !== -1 || className.indexOf('svg-icon') !== -1)
+    ) {
       setIsOpen(!isOpen)
       e.preventDefault()
       return
@@ -158,14 +165,14 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
       <div onClick={onOpenOptions}>
         <Input
           size={size}
-          data-id={dataId}
+          dataId={dataId}
           hasError={hasError}
           className="select__input"
           label={label}
           onChange={onSearch}
           required={isRequiredField}
           rightIconProps={{
-            name: isOpen ? 'caret-up-hover' : 'caret-down-hover',
+            Component: isOpen ? IconCaretUpFilled : IconCaretDownFilled,
             size: 'xsmall'
           }}
           readonly={!withSearch || options.length <= SELECTED_VISIBLE_MIN_COUNT}

@@ -12,6 +12,7 @@
 
   path {
     fill: var(--ds-color-text-primary);
+    pointer-events: none;
   }
 
   &__size {
