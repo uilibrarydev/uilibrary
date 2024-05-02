@@ -156,7 +156,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
               size={rightIconProps.size}
               type={rightIconProps.type}
               className={classNames('input__icon', 'input__icon--right', {
-                  [rightIconProps.className || '']: !!rightIconProps.className
+                [rightIconProps.className || '']: !!rightIconProps.className
               })}
               dataId={dataId}
             />
