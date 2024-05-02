@@ -253,7 +253,7 @@ const Template = (args: any): JSX.Element => {
     <div style={{ display: 'flex', height: '100vh', justifyContent: 'center' }}>
       <_Select
         {...args}
-        dataId={'test'}
+        dataId={'kokos'}
         tooltipAddons={{ position: 'bottom-left' }}
         isRequiredField
         options={OPTIONS}
