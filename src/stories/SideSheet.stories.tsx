@@ -73,13 +73,6 @@ const Template = (args: any) => {
         isOpen={isOpen}
         shouldRemoveCallback={false}
         onSumbit={() => console.log('submit')}
-        buttonProps={{
-          confirm: {
-            buttonText: 'Register',
-            buttonActionType: 'submit'
-          },
-          cancel: { buttonText: 'Cancel' }
-        }}
         scrollToTopOptions={{
           onPixel: 200
         }}

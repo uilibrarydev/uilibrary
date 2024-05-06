@@ -3,6 +3,11 @@ import { TButtonPropTypes } from '../Button/types'
 
 export type TSideSheet = 'small' | 'large'
 
+export type TCheckboxInfo = {
+  label: string
+  isChecked: boolean
+}
+
 export interface TSideSheetPropTypes {
   closeOnOutsideClick?: boolean
   shouldRemoveCallback?: boolean
@@ -10,7 +15,7 @@ export interface TSideSheetPropTypes {
   isLoading?: boolean
   isOpen: boolean
   onClose: () => void
-  onSubmit?: () => void
+  onSubmit?: (isCheckboxSelected: boolean) => void
   position?: 'right' | 'left'
   title?: string
   footerButtons?: {
@@ -28,4 +33,5 @@ export interface TSideSheetPropTypes {
   scrollToTopOptions?: {
     onPixel: number
   }
+  checkboxInfo?: TCheckboxInfo
 }

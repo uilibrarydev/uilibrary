@@ -7,6 +7,7 @@ import { Button } from '../Button'
 import { Text } from '../Text'
 import { TSideSheetPropTypes } from './types'
 import { useDispatchEventOnScroll } from '../../hooks/useDispatchEventOnScroll'
+import { Footer } from './Footer/Footer'
 
 export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   const {
@@ -29,7 +30,8 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
     footerButtons,
     scrollToTopOptions,
     children,
-    closeOnOutsideClick = true
+    closeOnOutsideClick = true,
+    checkboxInfo
   } = props
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
   const [isShownScrollIcon, setIsShownScrollIcon] = useState<boolean>(false)
@@ -44,10 +46,6 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
 
   useHideBodyScroll(isOpen)
   const dispatchScrollEvent = useDispatchEventOnScroll()
-
-  const handleSubmit = useCallback(() => {
-    onSubmit?.()
-  }, [onSubmit])
 
   useEffect(() => {
     if (isOpen && scrollToTopOptions) {
@@ -150,34 +148,13 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
             >
               {children}
             </div>
-            {footerButtons ? (
-              <div className="side-sheet__footer">
-                {footerButtons.extraButton ? (
-                  <Button
-                    size="large"
-                    type="secondary"
-                    {...footerButtons.extraButton}
-                    className="mr-12"
-                  />
-                ) : null}
-                {
-                  <Button
-                    type="secondary"
-                    size="large"
-                    className="mr-12"
-                    onClick={onClose}
-                    {...footerButtons.cancel}
-                  />
-                }
-                <Button
-                  type="primary"
-                  size="large"
-                  onClick={handleSubmit}
-                  disabled={isLoading}
-                  {...footerButtons.confirm}
-                />
-              </div>
-            ) : null}
+            <Footer
+              footerButtons={footerButtons}
+              isLoading={isLoading}
+              onClose={onClose}
+              onSubmit={onSubmit}
+              checkboxInfo={checkboxInfo}
+            />
           </motion.div>
         </motion.div>
       ) : null}

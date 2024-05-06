@@ -93,10 +93,13 @@
   &__footer {
     @include mixin.flexbox;
     @include mixin.align-items(center);
-    @include mixin.justify-content(flex-end);
+    @include mixin.justify-content(space-between);
     height: var(--ds-side-sheet-footer-height);
     padding: var(--ds-side-sheet-footer-padding);
     border-top: var(--ds-side-sheet-content-border-width) solid var(--ds-side-sheet-content-border-color);
+    &_buttons{
+      margin-left: auto;
+    }
   }
 
   &__close {
