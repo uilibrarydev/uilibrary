@@ -1,22 +1,6 @@
 import React from 'react'
-import {
-  IconChevronUp,
-  IconCopy,
-  IconChevronDown,
-  IconChevronLeft,
-  IconChevronRight,
-  IconArrowExit,
-  IconCaretDownFilled,
-  IconCaretUpFilled,
-  IconCheckmark,
-  IconPeople,
-  IconCubeTree,
-  IconCalendarClock,
-  IconList,
-  IconSettings,
-  IconBeach
-} from '../components/SVGIcons'
 import { Text } from '../components/Text'
+import * as Icons from "../components/SVGIcons";
 
 export default {
   title: 'SVG Icons',
@@ -46,28 +30,10 @@ export default {
   }
 }
 
-const icons = [
-  IconArrowExit,
-  IconBeach,
-  IconCalendarClock,
-  IconCaretDownFilled,
-  IconCaretUpFilled,
-  IconCheckmark,
-  IconChevronUp,
-  IconChevronDown,
-  IconChevronLeft,
-  IconChevronRight,
-  IconCopy,
-  IconCubeTree,
-  IconList,
-  IconPeople,
-  IconSettings
-]
-
 const Template = (args: any) => {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
-      {icons.map((Component, index) => (
+      {Object.values(Icons).map((Component, index) => (
         <div
           key={index}
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '10px' }}

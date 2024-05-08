@@ -2,6 +2,7 @@ export type TTabItem = {
   value: number | string
   label: string | JSX.Element
   dataId?: string
+  disabled?: boolean
 }
 export interface TTabProps extends IFormCompProps {
   tabItems: TTabItem[]
