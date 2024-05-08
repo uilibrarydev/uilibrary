@@ -1,10 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Text } from '../../Text'
-import { Icon } from '../../Icon'
+import { IconChevronRight } from '../../SVGIcons/IconChevronRight'
 import { Divider } from '../../Divider'
 import { AnimatePresenceWrapper } from '../../../helperComponents/AnimatePresenceWrapper'
 import { TCollapseProps } from '../types'
+import classNames from 'classnames'
 
 export const CollapseItem = (props: TCollapseProps): JSX.Element => {
   const {
@@ -27,7 +28,12 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
     )
 
   const icon = (
-    <Icon name="arrow-right" className={isOpen ? 'collapse_icon_opened' : 'collapse_icon_closed'} />
+    <IconChevronRight
+      className={classNames({
+        collapse_icon_opened: isOpen,
+        collapse_icon_closed: !isOpen
+      })}
+    />
   )
 
   return (
