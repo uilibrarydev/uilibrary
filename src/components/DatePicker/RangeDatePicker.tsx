@@ -15,6 +15,7 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
     dataId,
     format = DateFormat.LongDate,
     maxDate,
+    minDate,
     locale = 'hy',
     dayjsLocale = 'hy-am',
     disabled,
@@ -59,9 +60,10 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
   return (
     <DatePicker
       locale={locale}
+      minDate={minDate}
+      maxDate={maxDate}
       startDate={rangeArray[0] as Date}
       endDate={rangeArray[1] as Date}
-      maxDate={maxDate}
       selectsRange
       disabled={disabled}
       onChange={onChange}
