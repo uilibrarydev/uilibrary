@@ -12,6 +12,7 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
     setFieldValue,
     name,
     changeHandler,
+    dataId,
     format = DateFormat.LongDate,
     maxDate,
     locale = 'hy',
@@ -67,6 +68,7 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
       customInput={
         <div className="date-picker_input-container">
           <Input
+            dataId={dataId}
             disabled={disabled}
             placeholder={placeholderText}
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment

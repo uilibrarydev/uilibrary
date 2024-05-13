@@ -1,8 +1,10 @@
+import { ReactNode } from 'react'
+
 export interface LabelPropTypes {
   required?: boolean
   disabled?: boolean
   invalid?: boolean
-  text?: string | JSX.Element
+  text?: ReactNode
   size?: 'xxsmall' | 'xsmall' | 'small' | 'standard' | 'medium' | 'large'
   className?: string
   labelAddons?: JSX.Element

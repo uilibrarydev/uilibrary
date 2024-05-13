@@ -14,6 +14,7 @@ export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => 
     disabled,
     label,
     inlineType = false,
+    dataId,
     size = 'large',
     setFieldValue,
     selectedValue,
@@ -54,6 +55,7 @@ export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => 
         )}
       >
         <input
+          data-id={dataId}
           type="checkbox"
           tabIndex={0}
           onChange={changeHandler}
