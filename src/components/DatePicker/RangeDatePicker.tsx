@@ -40,9 +40,7 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
   }
 
   useEffect(() => {
-    if (dateInitialValue) {
-      setRangeDate(dateInitialValue)
-    }
+    setRangeDate(dateInitialValue)
   }, [dateInitialValue])
 
   if (!Array.isArray(rangeArray)) {
