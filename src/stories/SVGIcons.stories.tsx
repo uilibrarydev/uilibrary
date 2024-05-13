@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from '../components/Text'
-import * as Icons from "../components/SVGIcons";
+import * as Icons from '../components/SVGIcons'
 
 export default {
   title: 'SVG Icons',

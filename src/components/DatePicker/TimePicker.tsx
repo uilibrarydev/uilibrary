@@ -14,6 +14,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
     setFieldValue,
     label,
     size,
+    dataId,
     changeHandler,
     required,
     format = 'HH:mm',
@@ -70,6 +71,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
         customInput={
           <div className="date-picker_input-container">
             <Input
+              dataId={dataId}
               size={size}
               placeholder={placeholderText}
               currentValue={selectedTime ? dayjs(selectedTime).format(format) : ''}
