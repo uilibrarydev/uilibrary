@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import { TAvatarProps } from './types'
 import classNames from 'classnames'
 import { FileUpload, FileUploadMode } from '../FileUpload'
@@ -28,6 +28,10 @@ export const Avatar = ({
   const style = {
     backgroundImage: image ? `url(${image})` : 'none'
   }
+
+  useEffect(() => {
+    setImage(imagePath)
+  }, [imagePath])
 
   return (
     <div
