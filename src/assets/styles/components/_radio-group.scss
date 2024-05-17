@@ -20,7 +20,7 @@
       @include mixin.align-items(flex-start);
       margin-top: calc(var(--radio-group-item-space) * -1);
 
-      @include mixin.screen('phablet') {
+      @include mixin.screen('phablet', max) {
         @include mixin.flex-direction(column);
 
         #{$this}__item {
