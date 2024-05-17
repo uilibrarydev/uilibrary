@@ -10,6 +10,7 @@ import { Text } from '../Text'
 export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
   (
     {
+      datePlaceHolderText,
       className,
       size = 'large',
       error,
@@ -43,7 +44,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
     ref
   ): JSX.Element => {
     const isErrorVisible = hasError !== undefined ? hasError : !!error
-    const placeHolder = label !== placeholder ? placeholder : ''
+    console.log('label,', label)
+    const placeHolder = label ? '' : placeholder || datePlaceHolderText
     const changeHandler = (event: TChangeEventType) => {
       const eventValue = event.target.value
       const valueWithoutSeparator =
