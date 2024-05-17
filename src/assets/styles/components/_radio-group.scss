@@ -19,10 +19,18 @@
       @include mixin.flex-wrap(wrap);
       @include mixin.align-items(flex-start);
       margin-top: calc(var(--radio-group-item-space) * -1);
+
+      @include mixin.screen('phablet') {
+        @include mixin.flex-direction(column);
+
+        #{$this}__item {
+          margin-right: 0;
+        }
+      }
     }
 
     #{$this}__item {
-      margin-right: var(--radio-group-item-space);
+      margin-right: calc(var(--radio-group-item-space) * 2);
       margin-top: var(--radio-group-item-space);
 
       &:last-child {
