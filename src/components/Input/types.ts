@@ -23,6 +23,7 @@ export interface InputCustomProps
   type?: 'text' | 'number' | 'time' | 'password' | 'email' | 'file' | 'tel' | 'date' | 'numeric'
   handleChange?: (event: TChangeEventType, value: string) => void
   placeholder?: string
+  datePlaceHolderText?: string
   helperText?: string
   successMessage?: string
   maxCount?: number
