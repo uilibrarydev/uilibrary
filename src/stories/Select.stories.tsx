@@ -288,7 +288,8 @@ const Template2 = (args: any): JSX.Element => {
         buttonProps={{
           buttonText: 'Select',
           type: 'tertiary',
-          iconProps: { name: 'caret-down-hover', alignment: 'right' }
+
+          iconProps: { name: 'caret-down-hover', alignment: 'right', size: 'xsmall' }
         }}
         // tooltipAddons={{ position: 'bottom-left' }}
         isRequiredField
