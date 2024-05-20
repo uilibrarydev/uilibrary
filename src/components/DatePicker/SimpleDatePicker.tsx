@@ -24,6 +24,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
     format = 'M/D/YYYY',
     dayjsLocale = 'hy-am',
     required = false,
+    dataId,
     hasError,
     placeholderText,
     months = MONTHS,
@@ -78,7 +79,8 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
         customInput={
           <Input
             size={size}
-            placeholder={placeholderText}
+            dataId={dataId}
+            datePlaceHolderText={label ? '' : placeholderText}
             rightIconProps={{ name: 'calendar', onClick: openDatepicker }}
             currentValue={selectedDate ? dayjs(selectedDate.toString()).format(format) : ''}
           />

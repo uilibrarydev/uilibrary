@@ -39,7 +39,8 @@ const SimplePicker = (args): JSX.Element => {
         value={value}
         changeHandler={setValue}
         format="DD"
-        label="ddd"
+        // label="ddd"
+        placeholderText="Select date"
         size="small"
         excludeDates={getAllLastDays()}
         minDate={new Date(new Date().setDate(new Date().getDate() + 15))}

@@ -12,8 +12,10 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
     setFieldValue,
     name,
     changeHandler,
+    dataId,
     format = DateFormat.LongDate,
     maxDate,
+    minDate,
     locale = 'hy',
     dayjsLocale = 'hy-am',
     disabled,
@@ -58,15 +60,17 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
   return (
     <DatePicker
       locale={locale}
+      minDate={minDate}
+      maxDate={maxDate}
       startDate={rangeArray[0] as Date}
       endDate={rangeArray[1] as Date}
-      maxDate={maxDate}
       selectsRange
       disabled={disabled}
       onChange={onChange}
       customInput={
         <div className="date-picker_input-container">
           <Input
+            dataId={dataId}
             disabled={disabled}
             placeholder={placeholderText}
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment

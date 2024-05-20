@@ -41,8 +41,12 @@ export const Alert = (props: TAlertProps): ReactElement => {
           </div>
           {buttonProps ? (
             <div className="alert__actions">
-              <Button size="medium" type="secondary" {...buttonProps.confirm} />
-              <Button size="medium" type="tertiary" className={'ml-12'} {...buttonProps.cancel} />
+              {buttonProps.confirm && (
+                <Button size="medium" type="secondary" {...buttonProps.confirm} />
+              )}
+              {buttonProps.cancel && (
+                <Button size="medium" type="tertiary" className={'ml-12'} {...buttonProps.cancel} />
+              )}
             </div>
           ) : null}
         </div>

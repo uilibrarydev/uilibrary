@@ -22,6 +22,9 @@ export const useGetTooltipPosition = (info: TTooltipInfo): TTooltipPosition => {
     const hasRightSpace = tooltipWidth + GAP < window.innerWidth - left
     const hasMiddleRightSpace = tooltipWidth + GAP < window.innerWidth - left - itemWidth
 
+    if (!hasBottomSpace && !hasRightSpace && initialPosition.includes('bottom-right')) {
+      return initialPosition.replace('bottom-right', 'top-left')
+    }
     if (!hasTopSpace && initialPosition.includes('top')) {
       return initialPosition.replace('top', 'bottom')
     }
