@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import { LegacyRef, ReactElement } from 'react'
 import { TButtonPropTypes } from '../Button/types'
 import { TTooltipProps } from '../Tooltip/types'
 import { TMenuItem } from '../Menu/types'
@@ -92,6 +92,7 @@ export interface TMultiSelectPropTypes extends IFormCompProps, TSelectBaseProps 
   }
   labelAddons?: JSX.Element
   className?: string
+  isButtonSelect?: boolean
 }
 
 export interface TButtonSelectPropTypes extends IFormCompProps, TSelectBaseProps {
@@ -108,6 +109,7 @@ export interface TButtonSelectPropTypes extends IFormCompProps, TSelectBaseProps
     left?: number
   }
 }
+
 export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps {
   options: TSelectOptions
   selectedItem?: TItemValue
@@ -187,4 +189,30 @@ export interface TFilterGroupDropdownContentProps extends IFormCompProps {
   onItemSelect: (item: TSelectedValue) => void
   onItemDeselect: (item: TSelectedValue) => void
   checkIsSelected: (item: TItemValue) => boolean
+}
+
+export type TSelectWrapperProps = {
+  children: ReactElement
+  size?: 'small' | 'large'
+  className?: string
+  dropdownWidth?: number
+  align?: 'left' | 'right'
+  offsets?: {
+    top?: number
+    left?: number
+  }
+  isOpen: boolean
+  setIsOpen: (isOpen: boolean) => void
+  containerRef: HTMLDivElement | null
+  setContainerRef: LegacyRef<HTMLDivElement> | undefined
+  options?: TSelectOptions
+  label?: string | JSX.Element
+  placeHolder?: string
+  isRequiredField?: boolean
+  overflowText?: string
+  labelAddons?: JSX.Element
+  disabled?: boolean
+  dropdownRef: HTMLDivElement | null
+  setDropdownRef: LegacyRef<HTMLDivElement>
+  selectedValues?: TSelectedValue[]
 }

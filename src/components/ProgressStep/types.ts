@@ -28,7 +28,7 @@ export type TStepProps = {
   onStepClick: (v: TStepValue) => void
   activeStep: TStepValue
 }
-export enum StepTypes {
-  number = 'number',
-  dot = 'dot'
-}
+// export enum StepTypes {
+//   number = 'number',
+//   dot = 'dot'
+// }
