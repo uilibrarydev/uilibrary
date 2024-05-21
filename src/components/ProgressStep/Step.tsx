@@ -2,20 +2,8 @@ import classNames from 'classnames'
 import React, { ReactElement, useMemo } from 'react'
 import { Text } from '../Text'
 import { Icon } from '../Icon'
-import { TStepProps } from './types'
-// import { PROGRESS_STATUSES } from './consts'
-
-enum StepTypes {
-  number = 'number',
-  dot = 'dot'
-}
-
-enum PROGRESS_STATUSES {
-  rejected = 'rejected',
-  reviewed = 'reviewed',
-  completed = 'completed',
-  initial = 'initial'
-}
+import { StepTypes, TStepProps } from './types'
+import { PROGRESS_STATUSES } from './consts'
 
 export const Step = (props: TStepProps): ReactElement => {
   const {
