@@ -1,12 +1,4 @@
-import React, {
-  ReactElement,
-  useCallback,
-  useEffect,
-  useId,
-  useMemo,
-  useRef,
-  useState
-} from 'react'
+import React, { ReactElement, useEffect, useId, useMemo, useRef, useState } from 'react'
 
 import { OptionsWrapper } from './OptionsWrapper'
 import { Footer, InputSelectWrapper, ButtonSelectWrapper } from '../SharedComponents'
@@ -76,16 +68,11 @@ export const MultiSelect = (props: TMultiSelectPropTypes): ReactElement => {
     }
   }, [selectedItems])
 
-  const cancelSelectedItems = useCallback(() => {
-    if (selectedValues?.length) {
-      setSelectedValues(selectedValues as TSelectedValue[])
-    }
-
-    if (hasChange) {
-      setSelectedValues(initialSelected)
-    }
+  const cancelSelectedItems = () => {
+    setSelectedValues(initialSelected)
     closeDropdown()
-  }, [hasChange, initialSelected])
+  }
+
   useOnOutsideClick(containerRef.current, cancelSelectedItems, isOpen, useId())
 
   const submitSelectedValue = (selections: TSelectedValue[], isChecked: boolean) => {
