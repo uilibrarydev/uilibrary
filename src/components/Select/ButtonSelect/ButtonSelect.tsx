@@ -1,10 +1,9 @@
 import React, { ReactElement, useRef, useId, useState } from 'react'
 import classNames from 'classnames'
-import { TButtonSelectPropTypes } from '../types'
-import { Loading } from '../SharedComponents'
 import { OptionItem } from '../../../helperComponents'
 import { useGetElemSizes, useOnOutsideClick } from '../../../hooks'
-import { ButtonSelect as _ButtonSelectWrapper } from '../SharedComponents/ButtonSelect/ButtonSelect'
+import { Loading, ButtonSelectWrapper } from '../SharedComponents'
+import { TButtonSelectPropTypes } from '../types'
 
 export const ButtonSelect = (props: TButtonSelectPropTypes): ReactElement => {
   const {
@@ -26,7 +25,9 @@ export const ButtonSelect = (props: TButtonSelectPropTypes): ReactElement => {
     align = 'left',
     value,
     placeHolder,
-    offsets
+    offsets,
+    dataId,
+    type
   } = props
 
   const currentSelection = (value as TItemValue) || selectedItem
@@ -68,7 +69,7 @@ export const ButtonSelect = (props: TButtonSelectPropTypes): ReactElement => {
     }
 
   return (
-    <_ButtonSelectWrapper
+    <ButtonSelectWrapper
       size={size}
       className={className}
       dropdownWidth={dropdownWidth}
@@ -81,6 +82,8 @@ export const ButtonSelect = (props: TButtonSelectPropTypes): ReactElement => {
       dropdownRef={dropdownRef}
       setDropdownRef={setDropdownRef}
       placeHolder={placeHolder}
+      dataId={dataId}
+      type={type}
     >
       {isLoading ? (
         <Loading />
@@ -112,6 +115,6 @@ export const ButtonSelect = (props: TButtonSelectPropTypes): ReactElement => {
           </div>
         </>
       )}
-    </_ButtonSelectWrapper>
+    </ButtonSelectWrapper>
   )
 }

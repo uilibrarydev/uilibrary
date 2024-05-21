@@ -14,7 +14,7 @@ import { IconCaretDownFilled } from '../../../SVGIcons/IconCaretDownFilled'
 import { IconCaretUpFilled } from '../../../SVGIcons/IconCaretUpFilled'
 import { TSelectWrapperProps } from '../../types'
 
-export const InputSelect = (props: TSelectWrapperProps): ReactElement | null => {
+export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | null => {
   const {
     children,
     options,

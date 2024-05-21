@@ -8,13 +8,11 @@ import React, {
   useState
 } from 'react'
 
-import { Footer } from '../SharedComponents'
-import { ButtonSelect } from '../SharedComponents/ButtonSelect/ButtonSelect'
 import { OptionsWrapper } from './OptionsWrapper'
-import { TMultiSelectPropTypes } from '../types'
-import { InputSelect } from '../SharedComponents/InputSelect/InputSelect'
+import { Footer, InputSelectWrapper, ButtonSelectWrapper } from '../SharedComponents'
 import { useOnOutsideClick } from '../../../hooks'
 import { TRANSLATIONS_DEFAULT_VALUES } from '../constants'
+import { TMultiSelectPropTypes } from '../types'
 
 export const MultiSelect = (props: TMultiSelectPropTypes): ReactElement => {
   const {
@@ -105,7 +103,7 @@ export const MultiSelect = (props: TMultiSelectPropTypes): ReactElement => {
     submitSelectedValue(selectedValues, isChecked)
   }
 
-  const WrapperComponent = isButtonSelect ? ButtonSelect : InputSelect
+  const WrapperComponent = isButtonSelect ? ButtonSelectWrapper : InputSelectWrapper
 
   const localizations = { ...TRANSLATIONS_DEFAULT_VALUES, ...translations }
 

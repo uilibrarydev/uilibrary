@@ -10,7 +10,7 @@ import {
 } from '../../../../hooks'
 import { TSelectWrapperProps } from '../../types'
 
-export const ButtonSelect = (props: TSelectWrapperProps): ReactElement => {
+export const ButtonSelectWrapper = (props: TSelectWrapperProps): ReactElement => {
   const {
     children,
     size,
@@ -25,7 +25,9 @@ export const ButtonSelect = (props: TSelectWrapperProps): ReactElement => {
     dropdownRef,
     setDropdownRef,
     selectedValues,
-    placeHolder
+    placeHolder,
+    dataId,
+    type = 'secondary'
   } = props
 
   const buttonRef = useRef<HTMLButtonElement>(null)
@@ -58,6 +60,9 @@ export const ButtonSelect = (props: TSelectWrapperProps): ReactElement => {
   return (
     <div className={classNames(`select select--${size}`, className)} ref={setContainerRef}>
       <Button
+        size={size}
+        type={type}
+        dataId={dataId}
         isOpen={isOpen}
         buttonText={placeHolder || ''}
         selectedItemsLabels={selectedItemsLabels}

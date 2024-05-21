@@ -100,7 +100,6 @@ export interface TButtonSelectPropTypes extends IFormCompProps, TSelectBaseProps
   options: TSelectOptions
   selectedItem?: TItemValue
   setSelectedItem?: (items: TItemValue | undefined) => void
-  buttonProps: TButtonPropTypes
   tooltipAddons?: TTooltipProps
   dropdownWidth?: number
   align?: 'left' | 'right'
@@ -108,6 +107,7 @@ export interface TButtonSelectPropTypes extends IFormCompProps, TSelectBaseProps
     top?: number
     left?: number
   }
+  type: 'secondary' | 'tertiary'
 }
 
 export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps {
@@ -215,4 +215,6 @@ export type TSelectWrapperProps = {
   dropdownRef: HTMLDivElement | null
   setDropdownRef: LegacyRef<HTMLDivElement>
   selectedValues?: TSelectedValue[]
+  dataId?: string
+  type?: 'primary' | 'secondary' | 'tertiary'
 }

@@ -13,10 +13,12 @@ type TProps = {
   refHandler?: LegacyRef<HTMLButtonElement> | undefined
   selectedItemsLabels: string
   isOpen?: boolean
+  type?: 'primary' | 'secondary' | 'tertiary'
 }
 
 export const Button = (props: TProps): ReactElement => {
   const {
+    type,
     buttonText,
     size = 'large',
     className = '',
@@ -33,7 +35,7 @@ export const Button = (props: TProps): ReactElement => {
       ref={refHandler}
       data-id={dataId}
       disabled={disabled}
-      className={classnames('btn', 'btn--secondary', `btn--${size}`, className)}
+      className={classnames('btn', `btn--${type}`, `btn--${size}`, `btn--${size}`, className)}
       onClick={onClick}
     >
       <>
