@@ -22,8 +22,14 @@ export const openFileInNewWindow = ({
   }
 
   if (file) {
-    const fileURL = URL.createObjectURL(file)
-    window.open(fileURL)
+    if (file instanceof Blob) {
+      const fileURL = URL.createObjectURL(file)
+      window.open(fileURL)
+    } else {
+      console.error('The provided object is not a File or Blob.')
+    }
+  } else {
+    console.error('No file provided.')
   }
 }
 
