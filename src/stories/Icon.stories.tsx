@@ -10,6 +10,8 @@ const ICONS = [
   'signout-hover',
   'table-cell-edit',
   'table-cell-edit-hover',
+  'clock-dismiss',
+  'clock-dismiss-hover',
   'clock',
   'clock-hover',
   'history',
