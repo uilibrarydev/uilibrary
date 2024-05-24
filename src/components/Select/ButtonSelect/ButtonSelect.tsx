@@ -1,20 +1,12 @@
 import React, { ReactElement, useRef, useId, useState } from 'react'
-import { Button } from '../../Button'
 import classNames from 'classnames'
-import { TButtonSelectPropTypes } from '../types'
-import { Loading } from '../SharedComponents'
 import { OptionItem } from '../../../helperComponents'
-import {
-  useGetElemPositions,
-  useGetElemSizes,
-  useGetHasBottomSpace,
-  useGetHasTopSpace,
-  useOnOutsideClick
-} from '../../../hooks'
+import { useGetElemSizes, useOnOutsideClick } from '../../../hooks'
+import { Loading, ButtonSelectWrapper } from '../SharedComponents'
+import { TButtonSelectPropTypes } from '../types'
 
 export const ButtonSelect = (props: TButtonSelectPropTypes): ReactElement => {
   const {
-    buttonProps,
     size,
     className,
     isLoading,
@@ -32,7 +24,10 @@ export const ButtonSelect = (props: TButtonSelectPropTypes): ReactElement => {
     optionRightIconComponent,
     align = 'left',
     value,
-    offsets
+    placeHolder,
+    offsets,
+    dataId,
+    type
   } = props
 
   const currentSelection = (value as TItemValue) || selectedItem
@@ -40,12 +35,10 @@ export const ButtonSelect = (props: TButtonSelectPropTypes): ReactElement => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
-  const buttonRef = useRef<HTMLButtonElement>(null)
   const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null)
 
   const { scrollHeight } = useGetElemSizes(scrollRef.current)
 
-  const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => setIsOpen(false)
 
   useOnOutsideClick(containerRef.current, closeDropdown, isOpen, useId())
@@ -75,78 +68,53 @@ export const ButtonSelect = (props: TButtonSelectPropTypes): ReactElement => {
       }
     }
 
-  const { bottom, left, top, right } = useGetElemPositions(buttonRef.current)
-  const { width: containerWidth } = useGetElemSizes(containerRef.current)
-
-  const { hasBottomSpace } = useGetHasBottomSpace({
-    element: dropdownRef,
-    input: buttonRef.current
-  })
-
-  const hasTopSpace = useGetHasTopSpace({
-    element: dropdownRef,
-    input: buttonRef.current
-  })
-
   return (
-    <div className={classNames(`select select--${size}`, className)} ref={containerRef}>
-      <Button
-        size={size}
-        {...buttonProps}
-        onClick={openDropdown}
-        refHandler={buttonRef}
-        className="select_button"
-      />
-
-      {isOpen && (
-        <div
-          className="select__options"
-          style={{
-            left:
-              align === 'left' ? offsets?.left || left : right - (dropdownWidth || containerWidth),
-            width: dropdownWidth || containerWidth,
-            top: hasBottomSpace || !hasTopSpace ? offsets?.top || bottom : 'initial',
-            bottom: hasBottomSpace || !hasTopSpace ? 'initial' : window.innerHeight - top + 10
-          }}
-          ref={setDropdownRef}
-        >
-          {isLoading ? (
-            <Loading />
-          ) : (
-            <>
-              <div
-                ref={scrollRef}
-                className={classNames(
-                  'select__options__scroll',
-                  'scrollbar',
-                  'scrollbar--vertical',
-                  {
-                    'mr-6': scrollHeight > 300
-                  }
-                )}
-              >
-                {options.map((item: TSelectOption) => {
-                  const isSelected = item.value === currentSelection
-                  return (
-                    <OptionItem
-                      tooltipAddons={tooltipAddons}
-                      data={item}
-                      key={item.value}
-                      onClick={clickHandler(isSelected)}
-                      labelLeftIconProps={labelLeftIconProps}
-                      OptionRightIconComponent={optionRightIconComponent}
-                      LabelRightIconComponent={labelRightIconComponent}
-                      avatar={avatar}
-                      disabled={item.disabled}
-                      isSelected={isSelected}
-                    />
-                  )
-                })}
-              </div>
-            </>
-          )}
-        </div>
+    <ButtonSelectWrapper
+      size={size}
+      className={className}
+      dropdownWidth={dropdownWidth}
+      align={align}
+      offsets={offsets}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      containerRef={containerRef.current}
+      setContainerRef={containerRef}
+      dropdownRef={dropdownRef}
+      setDropdownRef={setDropdownRef}
+      placeHolder={placeHolder}
+      dataId={dataId}
+      type={type}
+    >
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <div
+            ref={scrollRef}
+            className={classNames('select__options__scroll', 'scrollbar', 'scrollbar--vertical', {
+              'mr-6': scrollHeight > 300
+            })}
+          >
+            {options.map((item: TSelectOption) => {
+              const isSelected = item.value === currentSelection
+              return (
+                <OptionItem
+                  tooltipAddons={tooltipAddons}
+                  data={item}
+                  key={item.value}
+                  onClick={clickHandler(isSelected)}
+                  labelLeftIconProps={labelLeftIconProps}
+                  OptionRightIconComponent={optionRightIconComponent}
+                  LabelRightIconComponent={labelRightIconComponent}
+                  avatar={avatar}
+                  disabled={item.disabled}
+                  isSelected={isSelected}
+                />
+              )
+            })}
+          </div>
+        </>
       )}
-    </div>
+    </ButtonSelectWrapper>
   )
 }

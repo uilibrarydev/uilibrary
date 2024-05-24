@@ -49,29 +49,23 @@ export const CustomHeader = (props: TProps): ReactElement => {
       />
       <div className="selects_container">
         <ButtonSelect
+          size="small"
+          type="tertiary"
           className="date_picker_select"
           offsets={{ top: 42, left: 48 }}
-          buttonProps={{
-            buttonText: getMonthLabel(month),
-            dataId: dataPrefix ? `${dataPrefix}-month-select` : '',
-            iconProps: { name: 'caret-down-hover', alignment: 'right' },
-            type: 'tertiary'
-          }}
-          size="small"
+          placeHolder={getMonthLabel(month)}
+          dataId={dataPrefix ? `${dataPrefix}-month-select` : ''}
           options={months}
           selectedItem={month}
           setSelectedItem={(m) => changeMonth(m as number)}
           dropdownWidth={150}
         />
         <ButtonSelect
+          type="tertiary"
           className="date_picker_select"
           offsets={{ top: 42, left: 138 }}
-          buttonProps={{
-            dataId: dataPrefix ? `${dataPrefix}-year-select` : '',
-            buttonText: year.toString(),
-            iconProps: { name: 'caret-down-hover', alignment: 'right' },
-            type: 'tertiary'
-          }}
+          placeHolder={year.toString()}
+          dataId={dataPrefix ? `${dataPrefix}-year-select` : ''}
           size="small"
           options={getYearOptions(startYear, endYear)}
           selectedItem={year}

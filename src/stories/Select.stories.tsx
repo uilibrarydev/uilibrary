@@ -3,7 +3,7 @@ import {
   Button,
   Select as _Select,
   MultiSelect as _MultiSelect,
-  FilterSelect as _FilterDropdown,
+  // FilterSelect as _FilterDropdown,
   NestedSelect as _NestedSelect,
   ButtonSelect as _ButtonSelect,
   Menu,
@@ -114,7 +114,7 @@ const OPTIONS: TSelectOptions = [
   },
   {
     value: 3,
-    label: 'France',
+    label: 'France    France    France',
     meta: 'FR'
   },
   {
@@ -285,11 +285,7 @@ const Template2 = (args: any): JSX.Element => {
       <_ButtonSelect
         {...args}
         size="small"
-        buttonProps={{
-          buttonText: 'Select',
-          type: 'tertiary',
-          iconProps: { name: 'caret-down-hover', alignment: 'right' }
-        }}
+        placeHolder="Select month"
         // tooltipAddons={{ position: 'bottom-left' }}
         isRequiredField
         options={BUTTON_SELECT_OPTIONS}
@@ -370,6 +366,12 @@ const MultiSelectTemplate = (args: any): JSX.Element => {
       <_MultiSelect
         {...args}
         isGrouped={true}
+        isButtonSelect={true}
+        buttonProps={{
+          buttonText: 'Select',
+          type: 'secondary',
+          iconProps: { name: 'caret-down-hover', alignment: 'right', size: 'xsmall' }
+        }}
         menuOptions={[
           {
             label: 'save template',
@@ -463,47 +465,47 @@ NestedSelect.args = {
 }
 // ----------FILTERDROPDOWN---------------
 
-const FilterDropdownTemplate = (args: any): JSX.Element => {
-  const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
-  const [isOpen, setIsOpen] = useState(false)
-  const containerRef = useRef(null)
-  const closeHandler = () => setIsOpen(false)
-  return (
-    <div
-      style={{
-        width: 320,
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'absolute',
-        left: 300
-      }}
-    >
-      <div style={{ position: 'absolute', left: 300 }} ref={containerRef}>
-        <Button
-          type="secondary"
-          iconProps={{ name: 'filter' }}
-          buttonText={'filter'}
-          onClick={() => setIsOpen(!isOpen)}
-        />
-        <_FilterDropdown
-          {...args}
-          parentRef={containerRef.current}
-          closeHandler={closeHandler}
-          isOpen={isOpen}
-          selectedItems={selectedValues}
-          setSelectedItems={setSelectedValues}
-        />
-      </div>
-    </div>
-  )
-}
-export const FilterDropdown = FilterDropdownTemplate.bind({})
+// const FilterDropdownTemplate = (args: any): JSX.Element => {
+//   const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
+//   const [isOpen, setIsOpen] = useState(false)
+//   const containerRef = useRef(null)
+//   const closeHandler = () => setIsOpen(false)
+//   return (
+//     <div
+//       style={{
+//         width: 320,
+//         display: 'flex',
+//         flexDirection: 'column',
+//         position: 'absolute',
+//         left: 300
+//       }}
+//     >
+//       <div style={{ position: 'absolute', left: 300 }} ref={containerRef}>
+//         <Button
+//           type="secondary"
+//           iconProps={{ name: 'filter' }}
+//           buttonText={'filter'}
+//           onClick={() => setIsOpen(!isOpen)}
+//         />
+//         <_FilterDropdown
+//           {...args}
+//           parentRef={containerRef.current}
+//           closeHandler={closeHandler}
+//           isOpen={isOpen}
+//           selectedItems={selectedValues}
+//           setSelectedItems={setSelectedValues}
+//         />
+//       </div>
+//     </div>
+//   )
+// }
+// export const FilterDropdown = FilterDropdownTemplate.bind({})
 
-FilterDropdown.args = {
-  isLoading: true,
-  options: OPTIONS_NESTED,
-  avatar: image.src,
-  labelLeftIconProps: { name: 'user' },
-  labelRightIconComponent: () => <Icon name="user" size="xsmall" className="mr-4" />,
-  optionRightIconComponent: () => <Icon name="more" size="xsmall" />
-}
+// FilterDropdown.args = {
+//   isLoading: true,
+//   options: OPTIONS_NESTED,
+//   avatar: image.src,
+//   labelLeftIconProps: { name: 'user' },
+//   labelRightIconComponent: () => <Icon name="user" size="xsmall" className="mr-4" />,
+//   optionRightIconComponent: () => <Icon name="more" size="xsmall" />
+// }

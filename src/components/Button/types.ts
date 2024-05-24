@@ -12,6 +12,7 @@ export interface TButtonPropTypes extends Omit<ButtonHTMLAttributes<HTMLButtonEl
   isLoading?: boolean
   iconProps?: {
     name?: string
+    size?: TIconSize
     alignment?: string
     Component?: (props: ISVGIconProps) => ReactElement
   }
