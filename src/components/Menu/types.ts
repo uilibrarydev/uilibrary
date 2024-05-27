@@ -16,3 +16,19 @@ export type TMenuProps = {
   position?: TTooltipPosition // 'right' | 'left' | 'top' | 'bottom'
   isOpen: boolean
 }
+
+export type TNestedMenuItemProps = {
+  title: string
+  value: string | number
+  subItems: TMenuItem[]
+  iconProps?: TSelectIconProps
+}
+
+export type TNestedMenuProps = {
+  menuItems: TNestedMenuItemProps[]
+  parentRef: HTMLElement
+  onClose: TCallBackFn
+  className?: string
+  position?: TTooltipPosition
+  isOpen?: boolean
+}
