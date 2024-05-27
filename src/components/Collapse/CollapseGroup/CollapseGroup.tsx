@@ -23,7 +23,7 @@ export const CollapseGroup = (props: TCollapseGroupProps): JSX.Element => {
 
   return (
     <>
-      {items.map(({ title, value, content, dataId }) => {
+      {items.map(({ title, value, content, dataId, iconProps }) => {
         const isOpen = openValues.indexOf(value) !== -1
         return (
           <CollapseItem
@@ -32,6 +32,7 @@ export const CollapseGroup = (props: TCollapseGroupProps): JSX.Element => {
             dataId={dataId}
             title={{ size, color, text: title }}
             toggle={() => (isOpen ? onCollapseDeselect(value) : onCollapseSelect(value))}
+            labelLeftIconProps={iconProps}
           >
             {content}
           </CollapseItem>

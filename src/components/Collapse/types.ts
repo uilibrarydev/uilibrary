@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactElement, ReactNode } from 'react'
 
 export type TCollapseTitleColor = 'selected' | 'primary'
 
@@ -18,6 +18,7 @@ export type TCollapseProps = {
   reverse?: boolean
   additionalInfo?: ReactNode
   dataId?: string | undefined
+  labelLeftIconProps?: TSelectIconProps
 }
 
 export type TCollapseValue = string | number
@@ -25,8 +26,9 @@ export type TCollapseValue = string | number
 export type TCollapseItem = {
   title: string
   value: TCollapseValue
-  content: JSX.Element
-  isOpen: boolean
+  content?: ReactElement | null
+  iconProps?: TSelectIconProps
+  isOpen?: boolean
   dataId?: string
 }
 

@@ -15,7 +15,8 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
     dataId,
     children,
     reverse = false,
-    additionalInfo
+    additionalInfo,
+    labelLeftIconProps
   } = props
 
   const title =
@@ -49,7 +50,18 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
           </>
         ) : (
           <>
-            {title}
+            <div className="flexbox align-items--center">
+              {labelLeftIconProps?.Component ? (
+                <labelLeftIconProps.Component
+                  size="small"
+                  type="primary"
+                  className="mr-16"
+                  {...labelLeftIconProps}
+                />
+              ) : null}
+              {title}
+            </div>
+
             <div className="header_components">
               {additionalInfo}
               {icon}

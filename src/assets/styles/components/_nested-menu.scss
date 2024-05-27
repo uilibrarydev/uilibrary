@@ -1,0 +1,46 @@
+@use "../helpers/mixin";
+
+.nested-menu {
+  width: 408px;
+  max-height: 748px;
+  min-width: 408px;
+  position: fixed;
+  background-color: var(--ds-color-bg-white);
+  box-shadow: var(--shadow-3);
+  border-radius: var(--ds-border-radius-md);;
+  padding: var(--ds-space-24);
+  overflow-y: auto;
+
+  .collapse {
+    border-radius: 0;
+    border: none;
+    margin: 0;
+
+    &_header {
+      padding: var(--ds-space-14) 0;
+    }
+
+    &_container {
+      padding: 0;
+
+      .divider {
+        display: none;
+      }
+    }
+  }
+
+  &__sub-items {
+    //margin: var(--ds-space-8) 0;
+  }
+
+  &__sub-item {
+    margin: 0;
+    height: var(--ds-size-48);
+    @include mixin.font('--font-size-14');
+    padding: 0 var(--ds-space-24);
+
+    .select__option__inner {
+      gap: var(--ds-space-16);
+    }
+  }
+}

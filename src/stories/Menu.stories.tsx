@@ -1,7 +1,14 @@
 import React, { useState } from 'react'
-import { Menu as _Menu, Button } from '../index'
-import { IconArrowExit } from '../components/SVGIcons/IconArrowExit'
-import IconCheckmark from '../components/SVGIcons/IconCheckmark'
+import {
+  Menu as _Menu,
+  Button,
+  IconArrowExit,
+  IconCheckmark,
+  IconSettings,
+  IconPeople,
+  NestedMenu as _NestedMenu,
+  IconBeach
+} from '../index'
 
 export default {
   title: 'Menu',
@@ -84,3 +91,87 @@ export const Menu = Template.bind({})
 Menu.args = {
   menuItems: []
 }
+
+const NestedItems = [
+  {
+    title: 'People',
+    value: 1,
+    iconProps: {
+      Component: IconPeople,
+      size: 'medium'
+    },
+    isOpen: true,
+    subItems: [
+      {
+        label: 'Libraries',
+        value: 1,
+        iconProps: {
+          Component: IconSettings,
+          size: 'medium'
+        },
+        handler: () => {
+          console.log('libraries')
+        },
+        disabled: true
+      },
+      {
+        label: 'Users and permissions',
+        value: 2,
+        iconProps: {
+          Component: IconSettings,
+          size: 'medium'
+        },
+        handler: () => {
+          console.log('libraries')
+        }
+      }
+    ]
+  },
+  {
+    title: 'Attendance and absence management',
+    value: 2,
+    iconProps: {
+      Component: IconBeach
+    },
+    subItems: [
+      {
+        label: 'Libraries',
+        value: 1,
+        iconProps: {
+          Component: IconSettings,
+          size: 'medium'
+        },
+        handler: () => {
+          console.log('libraries')
+        }
+      }
+    ]
+  }
+]
+
+const NestedMenuTemplate = (args: any) => {
+  const [ref, setRef] = useState<HTMLDivElement | null>(null)
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+      <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
+        <Button
+          onClick={() => setOpen(!open)}
+          iconProps={{ Component: IconSettings }}
+          type="tertiary"
+        />
+        <_NestedMenu
+          {...args}
+          onClose={() => setOpen(false)}
+          parentRef={ref}
+          menuItems={NestedItems}
+          isOpen={open}
+          position="bottom-left"
+        />
+      </div>
+    </div>
+  )
+}
+
+export const NestedMenu = NestedMenuTemplate.bind({})
