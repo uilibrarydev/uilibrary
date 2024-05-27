@@ -84,7 +84,7 @@ export const NestedMenu = ({
             }
           )}
         </div>
-      ) : null,
+      ) : null
     }
   })
 
