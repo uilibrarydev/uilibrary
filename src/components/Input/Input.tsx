@@ -44,7 +44,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
     ref
   ): JSX.Element => {
     const isErrorVisible = hasError !== undefined ? hasError : !!error
-    const placeHolder = label ? '' : placeholder || datePlaceHolderText
+    const placeHolder = label === placeholder ? '' : placeholder || datePlaceHolderText
     const changeHandler = (event: TChangeEventType) => {
       const eventValue = event.target.value
       const valueWithoutSeparator =
