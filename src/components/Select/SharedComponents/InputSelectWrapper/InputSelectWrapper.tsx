@@ -108,7 +108,7 @@ export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | n
           }}
           labelAddons={labelAddons}
           disabled={disabled}
-          size={size}
+          size={size === 'large' ? 'large' : 'small'}
         />
       </div>
 
