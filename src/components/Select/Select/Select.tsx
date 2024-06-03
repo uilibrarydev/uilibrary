@@ -164,7 +164,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     >
       <div onClick={onOpenOptions}>
         <Input
-          size={size}
+          size={size === 'large' ? 'large' : 'small'}
           dataId={dataId}
           hasError={hasError}
           className="select__input"

@@ -20,7 +20,7 @@ interface TSelectBaseProps {
   optionRightIconComponent?: (value: TItemValue) => ReactElement
   labelRightIconComponent?: (value: TItemValue) => ReactElement
   avatar?: string
-  size?: 'small' | 'large'
+  size?: 'small' | 'large' | 'medium'
   className?: string
 }
 export interface TNestedSelectProps {
@@ -193,7 +193,7 @@ export interface TFilterGroupDropdownContentProps extends IFormCompProps {
 
 export type TSelectWrapperProps = {
   children: ReactElement
-  size?: 'small' | 'large'
+  size?: 'small' | 'large' | 'medium'
   className?: string
   dropdownWidth?: number
   align?: 'left' | 'right'
