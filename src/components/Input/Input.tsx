@@ -39,6 +39,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       hideCounter = false,
       labelAddons,
       witUpperCase = false,
+      isAllowed,
       ...rest
     },
     ref
@@ -104,6 +105,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         maxLength={maxCount}
         inputMode={'numeric'}
         disabled={disabled}
+        isAllowed={isAllowed}
         {...(currentValue !== undefined ? { value: currentValue } : {})}
       />
     ) : (
