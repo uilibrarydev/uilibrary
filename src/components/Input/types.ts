@@ -1,6 +1,5 @@
 import { InputHTMLAttributes, RefObject } from 'react'
 import { IconPropTypes } from '../Icon/types'
-
 export interface InputCustomProps
   extends IFormCompProps,
     Omit<
@@ -37,4 +36,5 @@ export interface InputCustomProps
   labelAddons?: JSX.Element
   autoComplete?: string
   witUpperCase?: boolean
+  isAllowed?: (values: {formattedValue: string, value: string, floatValue: number | undefined}) => boolean
 }
