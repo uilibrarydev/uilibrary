@@ -1,7 +1,7 @@
 {
   "homepage": "https://dinofrontend.github.io/dino_ui_library",
   "name": "dino_ui_tools",
-  "version": "2.0.73",
+  "version": "2.0.74",
   "description": "UI library for Dino",
   "private": false,
   "main": "index.js",
@@ -99,7 +99,8 @@
     "style-loader": "^3.3.4",
     "ts-loader": "^8.0.4",
     "typescript": "^4.9.5",
-    "yup": "^1.2.0"
+    "yup": "^1.2.0",
+    "ajv": "8.13.0"
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
