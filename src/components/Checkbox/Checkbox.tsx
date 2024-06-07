@@ -49,7 +49,7 @@ export const Checkbox = (
           dataId={`${dataId}-icon`}
           name="info"
           type="information"
-          size="small"
+          size="xsmall"
           className={'ml-4 pointer'}
           onClick={(e) => {
             e.stopPropagation()
