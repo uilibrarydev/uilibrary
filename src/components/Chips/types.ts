@@ -11,7 +11,7 @@ export type TChipsColors =
   | 'information'
   | 'discovery'
 export interface TChipsProps extends IFormCompProps {
-  text: string | ReactNode
+  text?: string | ReactNode
   leftIconProps?: IconPropTypes
   color?: TChipsColors
   type?: 'filled' | 'accent' | 'outlined'

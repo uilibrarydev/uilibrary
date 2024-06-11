@@ -49,14 +49,16 @@ export const Chips = (props: TChipsProps): ReactElement => {
           {...leftIconProps}
         />
       )}
-      <Text
-        dataId={`${dataId}-text`}
-        type={customType}
-        size={size == 'small' ? 'small' : 'standard'}
-        className="chips__label"
-      >
-        <>{text}</>
-      </Text>
+      {text ? (
+        <Text
+          dataId={`${dataId}-text`}
+          type={customType}
+          size={size == 'small' ? 'small' : 'standard'}
+          className="chips__label"
+        >
+          <>{text}</>
+        </Text>
+      ) : null}
       {withAction && (
         <Icon
           dataId={`${dataId}-icon`}
