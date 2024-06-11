@@ -36,5 +36,9 @@ export interface InputCustomProps
   labelAddons?: JSX.Element
   autoComplete?: string
   witUpperCase?: boolean
-  isAllowed?: (values: {formattedValue: string, value: string, floatValue: number | undefined}) => boolean
+  isAllowed?: (values: {
+    formattedValue: string
+    value: string
+    floatValue: number | undefined
+  }) => boolean
 }
