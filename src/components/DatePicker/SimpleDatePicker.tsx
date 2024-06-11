@@ -31,6 +31,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
     minDate,
     maxDate,
     dataIdPrefix,
+    helperText,
     ...rest
   } = props
 
@@ -80,6 +81,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
           <Input
             size={size}
             dataId={dataId}
+            helperText={helperText}
             datePlaceHolderText={label ? '' : placeholderText}
             rightIconProps={{ name: 'calendar', onClick: openDatepicker }}
             currentValue={selectedDate ? dayjs(selectedDate.toString()).format(format) : ''}

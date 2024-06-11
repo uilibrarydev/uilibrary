@@ -11,6 +11,7 @@ export interface TDatepickerBaseProps extends DatePickerDefaultProps {
 }
 
 export interface ISimpleDatePickerProps extends TDatepickerBaseProps {
+  helperText?: string
   dataIdPrefix?: string
   currentDate?: Date | undefined
   changeHandler?: (date: Date) => void
