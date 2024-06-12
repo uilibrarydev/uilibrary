@@ -44,7 +44,7 @@ const CollapseItems = [
     title: 'collapse2',
     value: 2,
     content: <div style={{ height: 100 }}>collapse2 content</div>,
-    isOpen: false,
+    isOpen: false
   },
   {
     title: 'collapse3',

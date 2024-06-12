@@ -1,4 +1,4 @@
-import React, {ReactElement, useState} from 'react'
+import React, { ReactElement, useState } from 'react'
 import { CollapseItem } from '../CollapseItem/CollapseItem'
 
 import { TCollapseGroupProps, TCollapseItem, TCollapseValue } from '../types'
@@ -27,7 +27,7 @@ export const CollapseGroup = (props: TCollapseGroupProps): ReactElement => {
         const isOpen = openValues.indexOf(value) !== -1
         return (
           <CollapseItem
-              id={id}
+            id={id}
             isOpen={isOpen}
             key={value}
             dataId={dataId}

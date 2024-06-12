@@ -17,7 +17,7 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
     reverse = false,
     additionalInfo,
     labelLeftIconProps,
-      id
+    id
   } = props
 
   const title =
