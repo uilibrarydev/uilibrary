@@ -16,7 +16,8 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
     children,
     reverse = false,
     additionalInfo,
-    labelLeftIconProps
+    labelLeftIconProps,
+      id
   } = props
 
   const title =
@@ -38,7 +39,7 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
   )
 
   return (
-    <div className="collapse">
+    <div className="collapse" id={`${id || ''}`}>
       <div className="collapse_header" onClick={toggle}>
         {reverse ? (
           <>

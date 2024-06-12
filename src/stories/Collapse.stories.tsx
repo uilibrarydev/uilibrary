@@ -7,7 +7,7 @@ export default {
   argTypes: {}
 }
 
-const Template = (args) => {
+const Template = (args: any) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const open = () => setIsOpen(true)
@@ -37,23 +37,25 @@ const CollapseItems = [
     title: 'collapse1',
     value: 1,
     content: <div>collapse1 content</div>,
-    isOpen: true
+    isOpen: true,
+    id: 1
   },
   {
     title: 'collapse2',
     value: 2,
     content: <div style={{ height: 100 }}>collapse2 content</div>,
-    isOpen: false
+    isOpen: false,
   },
   {
     title: 'collapse3',
     value: 3,
     content: <div style={{ height: 200 }}>collapse3 content</div>,
-    isOpen: true
+    isOpen: true,
+    id: 3
   }
 ]
 
-const Template1 = (args) => {
+const Template1 = (args: any) => {
   return <_CollapseGroup {...args} items={CollapseItems} titleColor="selected" />
 }
 
