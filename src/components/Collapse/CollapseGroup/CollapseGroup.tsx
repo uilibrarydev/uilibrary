@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { CollapseItem } from '../CollapseItem/CollapseItem'
 
 import { TCollapseGroupProps, TCollapseItem, TCollapseValue } from '../types'
 
-export const CollapseGroup = (props: TCollapseGroupProps): JSX.Element => {
+export const CollapseGroup = (props: TCollapseGroupProps): ReactElement => {
   const { items, singleSelection, titleProps = {} } = props
   const { size, color } = titleProps
   const [openValues, setOpenValues] = useState<TCollapseValue[]>(
@@ -23,10 +23,11 @@ export const CollapseGroup = (props: TCollapseGroupProps): JSX.Element => {
 
   return (
     <>
-      {items.map(({ title, value, content, dataId, iconProps }) => {
+      {items.map(({ id, title, value, content, dataId, iconProps }) => {
         const isOpen = openValues.indexOf(value) !== -1
         return (
           <CollapseItem
+            id={id}
             isOpen={isOpen}
             key={value}
             dataId={dataId}

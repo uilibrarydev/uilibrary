@@ -19,6 +19,7 @@ export type TCollapseProps = {
   additionalInfo?: ReactNode
   dataId?: string | undefined
   labelLeftIconProps?: TSelectIconProps
+  id?: string | number
 }
 
 export type TCollapseValue = string | number
@@ -30,6 +31,7 @@ export type TCollapseItem = {
   iconProps?: TSelectIconProps
   isOpen?: boolean
   dataId?: string
+  id?: string | number
 }
 
 export type TCollapseGroupProps = {

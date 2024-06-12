@@ -3,6 +3,7 @@ import { ErrorMessage, Label } from '../../helperComponents'
 import { TTextAreaTypeProps } from './types'
 import { Text } from '../Text'
 import { Icon } from '../Icon'
+import classNames from 'classnames'
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps>(
   (
@@ -47,7 +48,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
     }, [rest, currentValue])
 
     return (
-      <div className={`textarea  ${className} ${hasError ? 'textarea--invalid' : ''}`}>
+      <div className={classNames('textarea', className, { 'textarea--invalid': hasError })}>
         <Label
           text={label}
           invalid={isErrorVisible}
