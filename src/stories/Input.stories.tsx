@@ -38,6 +38,8 @@ Input.args = {
   type: 'text',
   label: 'Some text',
   size: 'large',
+  mask: '',
+  maskChar: '',
   leftIconProps: {
     name: 'info'
   },
