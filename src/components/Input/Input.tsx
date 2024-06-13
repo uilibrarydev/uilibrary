@@ -17,8 +17,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       hasError,
       label,
       mask,
-      maskChar,
-      maskPlaceholder,
       currentValue,
       name,
       leftIconProps,
@@ -91,8 +89,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         data-id={dataId}
         className={`${isErrorVisible ? 'with-error-styles' : ''}`}
         {...(currentValue ? { value: currentValue } : {})}
-        maskChar={maskChar}
-        maskPlaceholder={maskPlaceholder}
       />
     ) : type === 'numeric' ? (
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
