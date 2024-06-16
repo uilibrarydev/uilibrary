@@ -152,7 +152,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   useEffect(() => {
     if (inputRef && inputRef.current) {
-      inputRef.current.focus()
+      // inputRef.current.focus()
     }
   }, [inputRef])
 
