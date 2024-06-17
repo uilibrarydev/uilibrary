@@ -32,6 +32,7 @@ export const Button = (props: TProps): ReactElement => {
 
   return (
     <button
+      type="button"
       ref={refHandler}
       data-id={dataId}
       disabled={disabled}
