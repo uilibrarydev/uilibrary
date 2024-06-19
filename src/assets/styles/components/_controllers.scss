@@ -43,6 +43,10 @@
 
   --ds-controller-transition: background-color .3s linear, border .3s linear;
 
+  --ds-controller-error-bg-color: var(--ds-color-bg-danger-dark);
+  --ds-controller-error-border-color: var(--ds-color-border-danger);
+  --ds-controller-error-text-color: var(--ds-color-text-danger);
+
   --ds-radio-border-width: 6px;
 
   --ds-switch-size-sm: var(--ds-size-20);
@@ -160,7 +164,7 @@
 
   &--radio {
     input[type="radio"] {
-     & + #{$this}__icon {
+      & + #{$this}__icon {
         border-radius: var(--ds-controller-border-radius-lg);
       }
 
@@ -179,6 +183,32 @@
             background-color: var(--ds-controller-mark-dark);
           }
         }
+      }
+    }
+  }
+
+  &--error {
+    input[type="checkbox"] {
+      & + #{$this}__icon {
+        border-color: var(--ds-controller-error-border-color);
+      }
+
+      &:checked {
+        & + #{$this}__icon {
+          background-color: var(--ds-controller-error-bg-color);
+          border-color: var(--ds-controller-error-border-color);
+
+          &:hover, &:focus, &:active, &:visited {
+            background-color: var(--ds-controller-error-bg-color);
+            border-color: var(--ds-controller-error-border-color);
+          }
+        }
+      }
+    }
+
+    #{$this}__label {
+      a {
+        color: var(--ds-controller-error-text-color);
       }
     }
   }

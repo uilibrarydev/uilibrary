@@ -26,7 +26,8 @@ export const Checkbox = (
     beforeLink,
     afterLink,
     helperText = '',
-    popoverAddons
+    popoverAddons,
+    isInvalid
   } = props
 
   const localRef = useRef(null)
@@ -97,6 +98,7 @@ export const Checkbox = (
         className={classnames('controller', {
           'controller--checkbox': true,
           'controller--disabled': disabled,
+          'controller--error': isInvalid,
           [className]: !!className
         })}
       >
