@@ -14,5 +14,6 @@ export interface TCheckboxProps extends IFormCompProps {
   }
   helperText?: string
   onClick?: (isChecked: boolean) => void
-  popoverAddons?: TPopoverProps
+  popoverAddons?: TPopoverProps,
+  isInvalid?: boolean
 }
