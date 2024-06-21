@@ -22,7 +22,7 @@ export const ProgressStep = (props: TProgressStepProps): ReactElement | null => 
           <Step
             width={stepDirection == 'horizontal' ? singleStepWidth : '100%'}
             step={step}
-            index={index}
+            index={index + 1}
             key={step.value}
             activeStep={activeStep}
             onStepClick={setActiveStep}

@@ -33,7 +33,9 @@ export const Step = (props: TStepProps): ReactElement => {
   }, [isCompleted, isRejected, isActive])
 
   const onClick = () => {
-    onStepClick(value)
+    if(onStepClick){
+      onStepClick(value)
+    }
   }
 
   const stepItemContent = useMemo(() => {
