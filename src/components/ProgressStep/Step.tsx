@@ -33,7 +33,7 @@ export const Step = (props: TStepProps): ReactElement => {
   }, [isCompleted, isRejected, isActive])
 
   const onClick = () => {
-    if(onStepClick){
+    if (onStepClick) {
       onStepClick(value)
     }
   }
