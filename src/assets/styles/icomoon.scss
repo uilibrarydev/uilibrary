@@ -25,6 +25,12 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-clock-dismiss:before {
+    content: "\e9ef";
+}
+.icon-clock-dismiss-hover:before {
+    content: "\e9f0";
+}
 .icon-globe:before {
     content: "\e9ed";
 }
