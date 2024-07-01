@@ -89,6 +89,12 @@
       &:focus {
         outline: none !important;
       }
+
+      svg {
+        path {
+          fill: var(--ds-pagination-item-color);
+        }
+      }
     }
 
 
@@ -98,6 +104,12 @@
         background-color: var(--ds-pagination-item-bg-selected);
         border-color: var(--ds-pagination-item-border-selected);
         color: var(--ds-pagination-item-color-selected);
+
+        svg {
+          path {
+            fill: var(--ds-pagination-item-color-selected);
+          }
+        }
       }
     }
 
@@ -107,6 +119,12 @@
         background-color: var(--ds-pagination-item-bg-disabled);
         border-color: var(--ds-pagination-item-border-disabled);
         color: var(--ds-pagination-item-color-disabled);
+
+        svg {
+          path {
+            fill: var(--ds-pagination-item-color-disabled);
+          }
+        }
       }
     }
   }

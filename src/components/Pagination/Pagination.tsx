@@ -1,19 +1,17 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
 import { Icon } from '../Icon'
-import {
-  NEXT_LABEL_DEFAULT_TEXT,
-  PREVIOUS_LABEL_DEFAULT_TEXT,
-  PAGE_RANGE_DISPLAYED
-} from './consts'
+import { PAGE_RANGE_DISPLAYED } from './consts'
 import { TPaginationProps } from './types'
 import classNames from 'classnames'
+import IconChevronRight from '../SVGIcons/IconChevronRight'
+import IconChevronLeft from '../SVGIcons/IconChevronLeft'
 
 export const Pagination = (props: TPaginationProps): JSX.Element | null => {
   const {
     labels = {
-      next: NEXT_LABEL_DEFAULT_TEXT,
-      previous: PREVIOUS_LABEL_DEFAULT_TEXT
+      next: <IconChevronRight size={'small'} />,
+      previous: <IconChevronLeft size={'small'} />
     },
     totalCount,
     handleChangePage,
@@ -30,7 +28,7 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
   }
 
   return (
-    <div className="pagination-wrapper flexbox git status">
+    <div className="pagination-wrapper flexbox">
       <ReactPaginate
         pageCount={totalCount / pageSize}
         disableInitialCallback={disableInitialCallback}
