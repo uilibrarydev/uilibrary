@@ -30,7 +30,7 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
   return (
     <div className="pagination-wrapper flexbox">
       <ReactPaginate
-        pageCount={totalCount / pageSize}
+        pageCount={Math.ceil(totalCount / pageSize)}
         disableInitialCallback={disableInitialCallback}
         pageRangeDisplayed={PAGE_RANGE_DISPLAYED}
         marginPagesDisplayed={1}
