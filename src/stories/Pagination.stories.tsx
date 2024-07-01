@@ -1,7 +1,7 @@
 import React from 'react'
 import { Icon, Pagination as _Pagination } from '../index'
-import IconChevronRight from "../components/SVGIcons/IconChevronRight";
-import IconChevronLeft from "../components/SVGIcons/IconChevronLeft";
+import IconChevronRight from '../components/SVGIcons/IconChevronRight'
+import IconChevronLeft from '../components/SVGIcons/IconChevronLeft'
 
 export default {
   title: 'Pagination',

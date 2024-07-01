@@ -1,13 +1,11 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
 import { Icon } from '../Icon'
-import {
-  PAGE_RANGE_DISPLAYED
-} from './consts'
+import { PAGE_RANGE_DISPLAYED } from './consts'
 import { TPaginationProps } from './types'
 import classNames from 'classnames'
-import IconChevronRight from '../SVGIcons/IconChevronRight';
-import IconChevronLeft from '../SVGIcons/IconChevronLeft';
+import IconChevronRight from '../SVGIcons/IconChevronRight'
+import IconChevronLeft from '../SVGIcons/IconChevronLeft'
 
 export const Pagination = (props: TPaginationProps): JSX.Element | null => {
   const {
