@@ -71,6 +71,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
         customInput={
           <div className="date-picker_input-container">
             <Input
+              disabled={rest.disabled}
               dataId={dataId}
               size={size}
               placeholder={placeholderText}
