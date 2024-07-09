@@ -23,8 +23,11 @@ const config: StorybookConfig = {
         }, {
             test: /\.css$/,
             use: ["style-loader", "css-loader"],
-            include: path.resolve(__dirname, '../')
-        })
+            include: path.resolve(__dirname, '../'),
+            exclude: /node_modules/,
+        });
+        // @ts-ignore
+        config.resolve.extensions.push('.js', '.jsx', '.ts', '.tsx', '.css', '.scss');
         return config
     }
 };
