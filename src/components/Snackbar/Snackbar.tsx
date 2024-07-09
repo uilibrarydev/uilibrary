@@ -6,6 +6,7 @@ import { Button } from '../Button'
 import { Icon } from '../Icon'
 import { TSnackbarProps, TToastProps } from './types'
 import { DEFAULT_DURATION, ICONS_MAPPING, TYPE_MAPPING } from './consts'
+import 'react-toastify/dist/ReactToastify.css'
 
 const CustomToast = ({ actionProps, toastId, type = 'information', text }: TToastProps) => {
   return (
