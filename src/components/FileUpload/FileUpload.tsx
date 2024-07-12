@@ -1,6 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react'
 import { FileUploadMode, TFileUploadProps } from './types'
-import { Icon } from '../Icon'
 import { Button } from '../Button'
 import { Label } from '../../helperComponents'
 import { UploadItems } from './UploadItems'
@@ -11,6 +10,8 @@ import {
   checkIsAllowedTypes,
   uniqueFiles
 } from '../../utils/helpers'
+import IconEditFilled from '../SVGIcons/IconEditFilled'
+import IconEdit from '../SVGIcons/IconEdit'
 
 export const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const {
@@ -130,7 +131,11 @@ export const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
             onMouseLeave={onMouseEnterOrLeave}
             onClick={onUploadClick}
           >
-            <Icon name={isHovered ? 'edit-hover' : 'edit'} size="xxsmall" type="secondary" />
+            {isHovered ? (
+              <IconEditFilled size="xxsmall" type="secondary" />
+            ) : (
+              <IconEdit size="xxsmall" type="secondary" />
+            )}
           </div>
         )}
         {mode === FileUploadMode.attach && (
