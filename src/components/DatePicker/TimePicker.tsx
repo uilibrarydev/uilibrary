@@ -54,33 +54,32 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
   }
 
   return (
-    <div className="picker-container">
-      <Label text={label} required={required} />
+    <>
+      <div className="picker-container input__inner">
+        <Label text={label} required={required} />
 
-      <DatePicker
-        selected={dayjs(selectedTime).isValid() ? selectedTime : new Date()}
-        locale={locale}
-        showTimeSelect
-        showTimeSelectOnly
-        dateFormat={format}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        ref={calendarRef}
-        {...rest}
-        onChange={onChange}
-        customInput={
-          <div className="date-picker_input-container">
+        <DatePicker
+          selected={dayjs(selectedTime).isValid() ? selectedTime : new Date()}
+          locale={locale}
+          showTimeSelect
+          showTimeSelectOnly
+          dateFormat={format}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          ref={calendarRef}
+          {...rest}
+          onChange={onChange}
+          customInput={
             <Input
               disabled={rest.disabled}
               dataId={dataId}
               size={size}
               placeholder={placeholderText}
-              currentValue={selectedTime ? dayjs(selectedTime).format(format) : ''}
               rightIconProps={{ name: 'clock', onClick: openDatepicker }}
             />
-          </div>
-        }
-      />
-    </div>
+          }
+        />
+      </div>
+    </>
   )
 }
