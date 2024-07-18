@@ -14,6 +14,7 @@ import { setSelectedRows } from './utils'
 import { Row } from './Row'
 import { Header } from './Header'
 import classNames from 'classnames'
+import { useDispatchEventOnScroll } from '../../hooks/useDispatchEventOnScroll'
 
 export function Table({
   columns,
@@ -27,6 +28,8 @@ export function Table({
 }: TTableProps): ReactElement {
   const tableRef = useRef<HTMLTableElement | null>(null)
   const [tableWidth, setTableWidth] = useState(400)
+
+  const dispatchScrollEvent = useDispatchEventOnScroll()
 
   const sortedColumns = useMemo(() => {
     const condition1 = (item: TColumn) => item.fixed === 'left' // Move even numbers to the start
@@ -91,6 +94,7 @@ export function Table({
 
   return (
     <div
+      onScroll={dispatchScrollEvent}
       ref={containerRefHandler}
       className={classNames(
         'table-wrapper scrollbar scrollbar--horizontal scrollbar--vertical',
