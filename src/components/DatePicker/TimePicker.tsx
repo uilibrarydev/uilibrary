@@ -54,7 +54,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
   }
 
   return (
-    <div className="picker-container">
+    <div className="picker-container input__inner">
       <Label text={label} required={required} />
 
       <DatePicker
@@ -69,16 +69,13 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
         {...rest}
         onChange={onChange}
         customInput={
-          <div className="date-picker_input-container">
-            <Input
-              disabled={rest.disabled}
-              dataId={dataId}
-              size={size}
-              placeholder={placeholderText}
-              currentValue={selectedTime ? dayjs(selectedTime).format(format) : ''}
-              rightIconProps={{ name: 'clock', onClick: openDatepicker }}
-            />
-          </div>
+          <Input
+            disabled={rest.disabled}
+            dataId={dataId}
+            size={size}
+            placeholder={placeholderText}
+            rightIconProps={{ name: 'clock', onClick: openDatepicker }}
+          />
         }
       />
     </div>
