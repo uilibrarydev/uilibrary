@@ -21,6 +21,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
     locale = 'hy',
     dayjsLocale = 'hy-am',
     placeholderText,
+    hasError,
     ...rest
   } = props
   const dateInitialValue =
@@ -55,7 +56,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
 
   return (
     <div className="picker-container input__inner">
-      <Label text={label} required={required} />
+      <Label text={label} required={required} invalid={hasError} />
 
       <DatePicker
         selected={dayjs(selectedTime).isValid() ? selectedTime : new Date()}
