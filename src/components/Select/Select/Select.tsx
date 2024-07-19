@@ -57,7 +57,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const [itemLabel, setItemLabel] = useState<string | null>('')
 
   const setCurrentSelectedLabel = useCallback(() => {
-    const label = options.find((item) => item.value === currentSelection)
+    const label = options?.find((item) => item.value === currentSelection)
     setItemLabel(label?.label.toString() || '')
   }, [currentSelection, options])
 
@@ -150,12 +150,6 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     input: inputRef.current
   })
 
-  // useEffect(() => {
-  //   if (inputRef && inputRef.current) {
-  //     inputRef.current.focus()
-  //   }
-  // }, [inputRef])
-
   return (
     <div
       data-id={`${dataId}-content`}
@@ -175,7 +169,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
             Component: isOpen ? IconCaretUpFilled : IconCaretDownFilled,
             size: 'xsmall'
           }}
-          readonly={!withSearch || options.length <= SELECTED_VISIBLE_MIN_COUNT}
+          readonly={!withSearch || options?.length <= SELECTED_VISIBLE_MIN_COUNT}
           placeholder={placeHolder}
           value={itemLabel}
           isValid={isValid}
