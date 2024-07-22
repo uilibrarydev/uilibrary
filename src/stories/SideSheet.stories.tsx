@@ -63,6 +63,11 @@ const Template = (args: any) => {
     }
   }
 
+  const onSubmit = (isChecked: boolean) => {
+    console.log(isChecked)
+    console.log('submit')
+  }
+
   return (
     <div>
       <button onClick={handleOpenSheet}>Open Side Sheet</button>
@@ -72,7 +77,7 @@ const Template = (args: any) => {
         onClose={closeSideSheet}
         isOpen={isOpen}
         shouldRemoveCallback={false}
-        onSumbit={() => console.log('submit')}
+        onSubmit={onSubmit}
         scrollToTopOptions={{
           onPixel: 200
         }}
@@ -177,6 +182,10 @@ SideSheet.args = {
     },
     cancel: { buttonText: 'Cancel' },
     extraButton: { buttonText: 'Other action' }
+  },
+  checkboxInfo: {
+    label: 'Agree to terms',
+    isChecked: false
   }
   // position: 'left'
 }
