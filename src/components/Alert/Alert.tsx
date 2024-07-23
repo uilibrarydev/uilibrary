@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react'
 import { ICONS_MAPPING, TYPE_MAPPING } from './consts'
 import classnames from 'classnames'
-import { Icon } from '../Icon'
 import { Text } from '../Text'
 import { Button } from '../Button'
 import { TAlertProps } from './types'
+import IconDismissFilled from '../SVGIcons/IconDismissFilled'
+import { IconDynamicComponent } from '../../helperComponents'
 
 export const Alert = (props: TAlertProps): ReactElement => {
   const {
@@ -21,7 +22,11 @@ export const Alert = (props: TAlertProps): ReactElement => {
   return (
     <div className={classnames('alert', `alert--${type} alert--${position}`, className)}>
       <div className="alert__content">
-        <Icon name={ICONS_MAPPING[type]} type={TYPE_MAPPING[type]} size="small" />
+        <IconDynamicComponent
+          componentName={ICONS_MAPPING[type]}
+          size="small"
+          type={TYPE_MAPPING[type]}
+        />
         <div className="alert__text pl-8">
           <div>
             <Text type="primary" size="standard" weight="regular" lineHeight="large">
@@ -51,11 +56,10 @@ export const Alert = (props: TAlertProps): ReactElement => {
           ) : null}
         </div>
         {closeIcon ? (
-          <Icon
-            name={'close-hover'}
+          <IconDismissFilled
             type={TYPE_MAPPING[type]}
             size="xsmall"
-            className={'ml-12 pointer'}
+            className="ml-12 pointer"
             onClick={onClose}
           />
         ) : null}

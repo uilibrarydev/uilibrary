@@ -26,7 +26,7 @@ export const Footer = ({
 
   const handleSubmit = useCallback(() => {
     onSubmit?.(isSelected)
-  }, [onSubmit])
+  }, [onSubmit, isSelected])
 
   if (!footerButtons) {
     return null

@@ -1,11 +1,11 @@
 import React, { ReactElement } from 'react'
 import { Tooltip } from '../Tooltip'
-import { Icon } from '../Icon'
 import { Avatar } from './Avatar'
 import { TAvatarGroupProps } from './types'
 import { useScreenSize } from '../../hooks'
 import classNames from 'classnames'
 import { Positions } from '../Tooltip/types'
+import { IconAdd } from '../SVGIcons/IconAdd'
 
 const VISIBLE_AVATARS_AMOUNT = {
   small: 2,
@@ -65,7 +65,7 @@ export const AvatarGroup = ({
 
       {onAddUser ? (
         <div className={classNames(`avatar avatar-group__add avatar--${size}`)} onClick={onAddUser}>
-          <Icon name={'add'} type={'disabled'} size={size} />
+          <IconAdd type="disabled" size={size} />
         </div>
       ) : null}
     </div>
