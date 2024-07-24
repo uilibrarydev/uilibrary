@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { Icon } from '../Icon'
 import { Label } from '../../helperComponents'
 import { TSwitcherProps } from './types'
-import IconCheckmark from '../SVGIcons/IconCheckmark';
+import IconCheckmark from '../SVGIcons/IconCheckmark'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => {

@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { NavigationItemTypes, TNavigationLinkPropTypes } from './types'
 import { Icon } from '../../Icon'
 import { Badge } from '../../Badge'
-import IconArrowDown from '../../SVGIcons/IconArrowDown';
+import IconArrowDown from '../../SVGIcons/IconArrowDown'
 
 export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement => {
   const {
@@ -66,7 +66,7 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
           )}
           {expandable && isOpen && (
             <div className={classNames('navigation--item--expandable--icon', childOpen && 'open')}>
-              <IconArrowDown size = 'medium' />
+              <IconArrowDown size="medium" />
             </div>
           )}
         </div>

@@ -1,4 +1,4 @@
-import React, {ReactElement, useState} from 'react'
+import React, { ReactElement, useState } from 'react'
 import { Tab as _Tab } from '../index'
 
 export default {
