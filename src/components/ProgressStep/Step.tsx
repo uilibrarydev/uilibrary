@@ -3,8 +3,8 @@ import React, { ReactElement, useMemo } from 'react'
 import { Text } from '../Text'
 import { StepTypes, TStepProps } from './types'
 import { PROGRESS_STATUSES } from './consts'
-import IconDismissCircle from '../SVGIcons/IconDismissCircle';
-import IconCheckmarkCircle from '../SVGIcons/IconCheckmarkCircle';
+import IconDismissCircle from '../SVGIcons/IconDismissCircle'
+import IconCheckmarkCircle from '../SVGIcons/IconCheckmarkCircle'
 
 export const Step = (props: TStepProps): ReactElement => {
   const {
@@ -54,8 +54,8 @@ export const Step = (props: TStepProps): ReactElement => {
         return <span className={classNames('step__circle__dot')} />
       }
       if (isCompleted) {
-        const iconSize = stepSize == 'large' ? 'small' : 'xsmall';
-        if(isRejected) {
+        const iconSize = stepSize == 'large' ? 'small' : 'xsmall'
+        if (isRejected) {
           return <IconDismissCircle size={iconSize} type="inverse" />
         }
         return <IconCheckmarkCircle size={iconSize} type="inverse" />
