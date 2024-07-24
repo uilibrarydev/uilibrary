@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {ReactElement, useState} from 'react'
 import { Tab as _Tab } from '../index'
 
 export default {
@@ -12,19 +12,17 @@ export default {
   }
 }
 
-const Template = (args): JSX.Element | null => {
+const Template = (args: any): ReactElement => {
   const [selectedTab, onTabSelect] = useState(args.selectedValue)
   return <_Tab {...args} selectedValue={selectedTab} onSelect={onTabSelect} />
 }
 
 export const Tab = Template.bind({})
 
+// @ts-ignore
 Tab.args = {
   iconProps: {
     name: 'home'
-  },
-  badgeProps: {
-    text: '9'
   },
   rightIconProps: {
     name: 'dismiss-circle',
@@ -38,7 +36,10 @@ Tab.args = {
   tabItems: [
     {
       label: 'Prompt text 1',
-      value: 1
+      value: 1,
+      badgeProps: {
+        text: '9'
+      }
     },
     {
       label: 'Prompt text 2',

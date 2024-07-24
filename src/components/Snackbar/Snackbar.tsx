@@ -1,18 +1,22 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { ToastContainer, toast, Slide } from 'react-toastify'
 import type { ToastItem } from 'react-toastify'
 import { Text } from '../Text'
 import { Button } from '../Button'
-import { Icon } from '../Icon'
 import { TSnackbarProps, TToastProps } from './types'
 import { DEFAULT_DURATION, ICONS_MAPPING, TYPE_MAPPING } from './consts'
+import { IconDynamicComponent } from '../../helperComponents'
 import 'react-toastify/dist/ReactToastify.css'
 
 const CustomToast = ({ actionProps, toastId, type = 'information', text }: TToastProps) => {
   return (
     <div data-id={`${type}-toast-message`} className="snackbar" key={toastId}>
       <div className="snackbar__content">
-        <Icon name={ICONS_MAPPING[type]} type={TYPE_MAPPING[type]} size="medium" />
+        <IconDynamicComponent
+          componentName={ICONS_MAPPING[type]}
+          type={TYPE_MAPPING[type]}
+          size="medium"
+        />
         <Text
           className="snackbar__text pl-16 pr-8"
           type="primary"
@@ -54,7 +58,7 @@ export const notify = (toastProps: TToastProps): void => {
   })
 }
 
-export const Snackbar = (props: TSnackbarProps): JSX.Element => {
+export const Snackbar = (props: TSnackbarProps): ReactElement => {
   const { duration = 1000, position = 'bottom-center' } = props
 
   return (

@@ -14,7 +14,7 @@ export default {
     }
   }
 }
-const Template = (args) => (
+const Template = (args: any) => (
   <_Pagination
     pageSize={10}
     {...args}
@@ -28,6 +28,7 @@ const Template = (args) => (
 
 export const Pagination = Template.bind({})
 
+// @ts-ignore
 Pagination.args = {
   size: 'large',
   totalCount: 100,

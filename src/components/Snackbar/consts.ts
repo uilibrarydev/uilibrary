@@ -8,10 +8,10 @@ export const TYPE_MAPPING: { [key: string]: TIconTypes } = {
 }
 
 export const ICONS_MAPPING: { [key: string]: string } = {
-  warning: 'warning-hover',
-  success: 'checkmark-hover',
-  error: 'error-hover',
-  information: 'info-hover'
+  warning: 'warningFilled',
+  success: 'checkmarkCircleFilled',
+  error: 'errorCircleFilled',
+  information: 'infoFilled'
 }
 
 export const DEFAULT_DURATION = 6000

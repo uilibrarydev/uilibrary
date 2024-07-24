@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Snackbar as _Snackbar, notify } from '../index'
+import { SVGIcons } from './SVGIcons.stories'
 
 export default {
   title: 'Snackbar',
@@ -12,19 +13,22 @@ export default {
   }
 }
 
-const Template = () => {
-  const [infoMessages, setInfoMessages] = useState([])
+const Template = (args) => {
+  const [infoMessages, setInfoMessages] = useState<any[]>([])
 
-  const removeMessage = (id) => {
-    setInfoMessages((_infoMessages) => _infoMessages.filter((elem) => elem.toastId !== id))
+  const removeMessage = (id: number) => {
+    setInfoMessages((_infoMessages: any) =>
+      _infoMessages.filter((elem: any) => elem.toastId !== id)
+    )
   }
 
   const addMessage = () => {
     const __id = Math.random()
 
-    setInfoMessages((_infoMessages) => [
+    setInfoMessages((_infoMessages: any) => [
       ..._infoMessages,
       {
+        type: args.type,
         toastId: __id,
         message: `${__id}`,
         closeHandler: () => removeMessage(__id)
@@ -62,3 +66,7 @@ const Template = () => {
   )
 }
 export const Snackbar = Template.bind({})
+
+Snackbar.args = {
+  type: 'information'
+}
