@@ -17,7 +17,8 @@
     "prettier": "prettier --write \"./{src,stories}/**/**.{js,jsx,ts,tsx}\"",
     "check": "npm run prettier && npm run lint && tsc",
     "install-latest": "npm install --legacy-peer-deps",
-    "generate-svg-component": "node ./bin/generate_svg_component.js && npm run check"
+    "import-all-svg-components": "node ./bin/import_all_svg_components.js",
+    "generate-svg-component": "node ./bin/generate_svg_component.js && npm run import-all-svg-components && npm run check"
   },
   "eslintConfig": {
     "extends": [
