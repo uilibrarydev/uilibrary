@@ -11,7 +11,7 @@
     "start": "react-scripts start",
     "build": "rollup -c",
     "eject": "react-scripts eject",
-    "storybook": "storybook dev -p 6007 public",
+    "storybook": "storybook dev -p 6006 public",
     "build-storybook": "storybook build",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "prettier": "prettier --write \"./{src,stories}/**/**.{js,jsx,ts,tsx}\"",

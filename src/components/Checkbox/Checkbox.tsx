@@ -21,7 +21,7 @@ export const Checkbox = (
     selectedValue,
     value,
     className = '',
-    IconProps = { name: 'checkMark' },
+    IconProps = { name: 'checkmark' },
     dataId = '',
     onClick,
     beforeLink,
