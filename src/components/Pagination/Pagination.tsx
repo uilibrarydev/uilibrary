@@ -1,21 +1,21 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
-import { Icon } from '../Icon'
 import { PAGE_RANGE_DISPLAYED } from './consts'
 import { TPaginationProps } from './types'
 import classNames from 'classnames'
 import IconChevronRight from '../SVGIcons/IconChevronRight'
 import IconChevronLeft from '../SVGIcons/IconChevronLeft'
+import IconMore from '../SVGIcons/IconMore'
 
 export const Pagination = (props: TPaginationProps): JSX.Element | null => {
   const {
     labels = {
-      next: <IconChevronRight size={'small'} />,
-      previous: <IconChevronLeft size={'small'} />
+      next: <IconChevronRight size="small" />,
+      previous: <IconChevronLeft size="small" />
     },
     totalCount,
     handleChangePage,
-    breakLabel = <Icon name="more" />,
+    breakLabel = <IconMore size="small" />,
     classname = '',
     size = 'large',
     pageSize,
@@ -42,7 +42,6 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
         breakClassName="page-item"
         breakLinkClassName="page-link"
         breakLabel={breakLabel}
-        initialPage={0}
         {...(page ? { forcePage: page - 1 } : {})}
       />
     </div>

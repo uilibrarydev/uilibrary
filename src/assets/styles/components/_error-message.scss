@@ -1,6 +1,7 @@
 @use '../helpers/mixin';
 
 .error-message {
+    @include mixin.flexbox;
     @include mixin.inline-flex;
     @include mixin.align-items(center);
 }

@@ -27,6 +27,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+// Done is mean that the icon is have appropriate svg icon component
+
 .icon-clock-dismiss {
   &:before {
     content: $icon-clock-dismiss; 
@@ -916,12 +918,12 @@
   &:before {
     content: $icon-more-hover; 
   }
-}
+}                         // Done
 .icon-more {
   &:before {
     content: $icon-more; 
   }
-}
+}                               // Done
 .icon-more-vertical-hover {
   &:before {
     content: $icon-more-vertical-hover; 
@@ -1096,12 +1098,12 @@
   &:before {
     content: $icon-dismiss-circle; 
   }
-}
+}                     // Done
 .icon-dismiss-circle-hover {
   &:before {
     content: $icon-dismiss-circle-hover; 
   }
-}
+}               // Done
 .icon-blocked {
   &:before {
     content: $icon-blocked; 

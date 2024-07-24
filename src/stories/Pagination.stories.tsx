@@ -1,7 +1,8 @@
 import React from 'react'
-import { Icon, Pagination as _Pagination } from '../index'
+import { Pagination as _Pagination } from '../index'
 import IconChevronRight from '../components/SVGIcons/IconChevronRight'
 import IconChevronLeft from '../components/SVGIcons/IconChevronLeft'
+import IconMore from '../components/SVGIcons/IconMore'
 
 export default {
   title: 'Pagination',
@@ -21,7 +22,6 @@ const Template = (args) => (
       console.log(item)
     }}
     totalCount={286}
-    breakLabel={<Icon name="more" />}
     classname=""
   />
 )
@@ -35,5 +35,5 @@ Pagination.args = {
     next: <IconChevronRight size={'small'} />,
     previous: <IconChevronLeft size={'small'} />
   },
-  breakLabel: <Icon name="more" />
+  breakLabel: <IconMore size="small" />
 }
