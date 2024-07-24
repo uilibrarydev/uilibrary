@@ -1,8 +1,8 @@
 import { TSideNavigationPropTypes } from './types'
 import React from 'react'
 import classNames from 'classnames'
-import IconChevronRight from '../SVGIcons/IconChevronRight';
-import IconChevronLeft from '../SVGIcons/IconChevronLeft';
+import IconChevronRight from '../SVGIcons/IconChevronRight'
+import IconChevronLeft from '../SVGIcons/IconChevronLeft'
 
 export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => {
   const { children, open, setOpen } = props
@@ -15,9 +15,11 @@ export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => 
     <div className={classNames('side--navigation', open ? 'open' : 'close')}>
       {children}
       <div className="collapse" onClick={handleToggleOpen}>
-          {
-              open ? <IconChevronLeft  type="inverse" /> : <IconChevronRight  type="inverse" size="medium" />
-          }
+        {open ? (
+          <IconChevronLeft type="inverse" />
+        ) : (
+          <IconChevronRight type="inverse" size="medium" />
+        )}
       </div>
     </div>
   )

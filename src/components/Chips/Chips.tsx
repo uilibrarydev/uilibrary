@@ -3,7 +3,7 @@ import { Icon } from '../Icon'
 import { Text } from '../Text'
 import { ChipCustomType, TChipsProps } from './types'
 import classNames from 'classnames'
-import IconDismissCircleFilled from '../SVGIcons/IconDismissCircleFilled';
+import IconDismissCircleFilled from '../SVGIcons/IconDismissCircleFilled'
 
 enum ChipsActionIconSize {
   large = 'medium',
@@ -44,11 +44,11 @@ export const Chips = (props: TChipsProps): ReactElement => {
       )}
     >
       {leftIconProps?.Component ? (
-          <leftIconProps.Component
-              dataId={`${dataId}-icon`}
-              size={size == 'small' ? 'xsmall' : 'small'}
-              type={customType}
-          />
+        <leftIconProps.Component
+          dataId={`${dataId}-icon`}
+          size={size == 'small' ? 'xsmall' : 'small'}
+          type={customType}
+        />
       ) : null}
       {leftIconProps?.name && (
         <Icon
