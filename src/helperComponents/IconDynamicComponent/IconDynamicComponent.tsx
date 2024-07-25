@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { ReactElement, Suspense } from 'react'
 import { IconComponentMapping } from './constants'
 
 interface IconDynamicComponentProps {
@@ -13,7 +13,7 @@ export const IconDynamicComponent = ({
   size = 'small',
   type = 'inverse',
   className
-}: IconDynamicComponentProps) => {
+}: IconDynamicComponentProps): ReactElement | null => {
   if (!componentName || !IconComponentMapping[componentName]) {
     return null
   }

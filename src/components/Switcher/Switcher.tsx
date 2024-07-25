@@ -3,6 +3,7 @@ import classnames from 'classnames'
 import { Icon } from '../Icon'
 import { Label } from '../../helperComponents'
 import { TSwitcherProps } from './types'
+import IconCheckmark from '../SVGIcons/IconCheckmark'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => {
@@ -64,7 +65,7 @@ export const Switcher = forwardRef((props: TSwitcherProps, ref): JSX.Element => 
         />
         <span className="controller__icon">
           <span className="controller__icon__inner">
-            <Icon name="mark" size="xsmall" className="controller__mark" />
+            <IconCheckmark size="xsmall" className="controller__mark" />
           </span>
         </span>
       </label>

@@ -8,7 +8,7 @@ export default {
   component: _Textarea
 }
 
-const Template = (args) => {
+const Template = (args: any) => {
   const [value, setValue] = useState('')
   const changeHandler = (e: TChangeEventType) => {
     setValue(e.target.value)
@@ -20,6 +20,7 @@ const Template = (args) => {
   )
 }
 export const Textarea = Template.bind({})
+// @ts-ignore
 Textarea.args = {
   label: 'Label',
   disabled: false,

@@ -3,6 +3,9 @@ export type TTabItem = {
   label: string | JSX.Element
   dataId?: string
   disabled?: boolean
+  badgeProps?: {
+    text: string
+  }
 }
 export interface TTabProps extends IFormCompProps {
   tabItems: TTabItem[]

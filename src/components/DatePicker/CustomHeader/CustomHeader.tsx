@@ -1,11 +1,12 @@
 import React, { ReactElement } from 'react'
 
 import { ReactDatePickerCustomHeaderProps } from 'react-datepicker'
-import { Icon } from '../../Icon'
 import { ButtonSelect } from '../../Select'
 
 import { getYearOptions, noop } from '../../../utils/helpers'
 import './styles.scss'
+import IconChevronLeft from '../../SVGIcons/IconChevronLeft'
+import IconChevronRight from '../../SVGIcons/IconChevronRight'
 
 interface TProps extends ReactDatePickerCustomHeaderProps {
   months: TSelectOptions
@@ -39,8 +40,7 @@ export const CustomHeader = (props: TProps): ReactElement => {
 
   return (
     <div className="flexbox custom_header_container">
-      <Icon
-        name="arrow-left"
+      <IconChevronLeft
         size="small"
         className="cursor-pointer"
         dataId={dataPrefix ? `${dataPrefix}-prev-month-button` : ''}
@@ -73,8 +73,7 @@ export const CustomHeader = (props: TProps): ReactElement => {
           dropdownWidth={100}
         />
       </div>
-      <Icon
-        name="arrow-right"
+      <IconChevronRight
         size="small"
         className="cursor-pointer"
         dataId={dataPrefix ? `${dataPrefix}-next-month-button` : ''}

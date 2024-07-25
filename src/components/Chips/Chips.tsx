@@ -3,6 +3,7 @@ import { Icon } from '../Icon'
 import { Text } from '../Text'
 import { ChipCustomType, TChipsProps } from './types'
 import classNames from 'classnames'
+import IconDismissCircleFilled from '../SVGIcons/IconDismissCircleFilled'
 
 enum ChipsActionIconSize {
   large = 'medium',
@@ -34,6 +35,7 @@ export const Chips = (props: TChipsProps): ReactElement => {
     event.stopPropagation()
     onClick?.(event)
   }
+
   return (
     <div
       className={classNames(
@@ -41,6 +43,13 @@ export const Chips = (props: TChipsProps): ReactElement => {
         className
       )}
     >
+      {leftIconProps?.Component ? (
+        <leftIconProps.Component
+          dataId={`${dataId}-icon`}
+          size={size == 'small' ? 'xsmall' : 'small'}
+          type={customType}
+        />
+      ) : null}
       {leftIconProps?.name && (
         <Icon
           dataId={`${dataId}-icon`}
@@ -60,9 +69,8 @@ export const Chips = (props: TChipsProps): ReactElement => {
         </Text>
       ) : null}
       {withAction && (
-        <Icon
+        <IconDismissCircleFilled
           dataId={`${dataId}-icon`}
-          name="dismiss-circle-hover"
           size={ChipsActionIconSize[size]}
           type={customType}
           className="chips__delete"

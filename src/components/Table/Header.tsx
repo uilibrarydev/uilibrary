@@ -2,8 +2,9 @@ import React, { ReactElement } from 'react'
 import { HeaderGroup, CellValue } from 'react-table'
 import classNames from 'classnames'
 import { calcColumnWidth, CHECKBOX_DEFAULT_WIDTH, CHECKBOX_HEADER_ID } from './utils'
-import { Icon } from '../Icon'
 import { Text } from '../Text'
+import IconArrowDown from '../SVGIcons/IconArrowDown'
+import IconArrowUp from '../SVGIcons/IconArrowUp'
 
 type Props = {
   fixedHeader?: boolean
@@ -70,16 +71,10 @@ export function Header({
                 <Text weight="bold" className="text-truncate">
                   {render('Header')}
                 </Text>
-                {isSorted ? (
-                  <Icon
-                    size="xsmall"
-                    name={isSortedDesc ? 'arrow2-down' : 'arrow2-up'}
-                    className="ml-4"
-                  />
-                ) : columnProps?.sortable ? (
-                  <Icon size="xsmall" name="arrow2-down" className="ml-4 unsorted__icon" />
-                ) : (
-                  ''
+                {isSorted && isSortedDesc && <IconArrowDown size="xsmall" className="ml-4" />}
+                {isSorted && !isSortedDesc && <IconArrowUp size="xsmall" className="ml-4" />}
+                {!isSorted && columnProps?.sortable && (
+                  <IconArrowDown size="xsmall" className="ml-4 unsorted__icon" />
                 )}
               </div>
             </th>
