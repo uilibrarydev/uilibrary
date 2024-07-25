@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Text } from '../components/Text'
 import * as Icons from '../components/SVGIcons'
 
@@ -26,6 +26,10 @@ export default {
         'discovery'
       ],
       control: { type: 'select' }
+    },
+    filled: {
+      options: ['false', 'true'],
+      control: { type: 'select' }
     }
   }
 }
@@ -33,20 +37,30 @@ export default {
 const Template = (args: any) => {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
-      {Object.values(Icons).map((Component, index) => (
-        <div
-          key={index}
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '10px' }}
-        >
-          <Component {...args} />
-          <Text className="mt-8">
-            {Component.name
-              .replace(/^Icon([A-Z])/g, '$1')
-              .replace(/([a-z])([A-Z])/g, '$1-$2')
-              .toLowerCase()}
-          </Text>
-        </div>
-      ))}
+      {Object.values(Icons)
+        .filter((Component) => {
+          const isFilledIncluded = Component.name.toLowerCase().includes('filled')
+          return args.filled === 'true' ? isFilledIncluded : !isFilledIncluded
+        })
+        .map((Component, index) => (
+          <div
+            key={index}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              margin: '10px'
+            }}
+          >
+            <Component {...args} />
+            <Text className="mt-8">
+              {Component.name
+                .replace(/^Icon([A-Z])/g, '$1')
+                .replace(/([a-z])([A-Z])/g, '$1-$2')
+                .toLowerCase()}
+            </Text>
+          </div>
+        ))}
     </div>
   )
 }
@@ -55,5 +69,6 @@ export const SVGIcons = Template.bind({})
 
 SVGIcons.args = {
   size: 'medium',
-  type: 'primary'
+  type: 'primary',
+  filled: 'false'
 }

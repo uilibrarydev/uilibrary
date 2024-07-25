@@ -21,8 +21,6 @@ export const IconDynamicComponent = ({
   // Dynamically load the component based on the componentName prop
   const Component = IconComponentMapping[componentName]
 
-  console.log(Component)
-
   return (
     <Suspense fallback={null}>
       <Component type={type} size={size} className={className} />
