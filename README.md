@@ -34,7 +34,6 @@ How to use mixins:
     2. Make sure the icon is matching with the design.
     3. Make sure the svg file name is matching with pattern like this `chevron-right.svg`.
     4. Run `npm run generate-svg-component` command to generate the new icon component.
-    5. Export the new icon component in the `src/components/SVGIcons/index.ts` file.
 
 # How to create new component
     1. Add a folder with the component name in `src/components/` folder.
