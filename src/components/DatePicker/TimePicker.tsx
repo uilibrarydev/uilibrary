@@ -5,6 +5,7 @@ import { Input } from '../Input'
 import { ITimePickerProps } from './types'
 import { Label } from '../../helperComponents'
 import { useImportFilesDynamically } from './hooks'
+import IconClock from '../SVGIcons/IconClock'
 
 export const TimePicker = (props: ITimePickerProps): JSX.Element => {
   const {
@@ -59,7 +60,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
       <Label text={label} required={required} invalid={hasError} />
 
       <DatePicker
-        selected={dayjs(selectedTime).isValid() ? selectedTime : new Date()}
+        selected={dayjs(selectedTime).isValid() ? selectedTime : null}
         locale={locale}
         showTimeSelect
         showTimeSelectOnly
@@ -75,7 +76,7 @@ export const TimePicker = (props: ITimePickerProps): JSX.Element => {
             dataId={dataId}
             size={size}
             placeholder={placeholderText}
-            rightIconProps={{ name: 'clock', onClick: openDatepicker }}
+            rightIconProps={{ Component: IconClock, onClick: openDatepicker }}
           />
         }
       />
