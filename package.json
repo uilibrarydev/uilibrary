@@ -1,7 +1,7 @@
 {
   "homepage": "https://dinofrontend.github.io/dino_ui_library",
   "name": "dino_ui_tools",
-  "version": "2.0.101",
+  "version": "2.0.102",
   "description": "UI library for Dino",
   "private": false,
   "main": "index.js",
@@ -19,6 +19,7 @@
     "install-latest": "npm install --legacy-peer-deps",
     "import-all-svg-components": "node ./bin/import_all_svg_components.js",
     "test": "tsc",
+    "publish-alpha-version": "cd dist && npm publish --tag alpha",
     "generate-svg-component": "node ./bin/generate_svg_component.js && npm run import-all-svg-components && npm run check"
   },
   "eslintConfig": {
