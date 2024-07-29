@@ -7,6 +7,7 @@ import './styles.scss'
 
 export const More = (props: TMorePropTypes): JSX.Element => {
   const {
+    textProps = {},
     expandedText,
     collapsedText,
     buttonText = {
@@ -26,7 +27,7 @@ export const More = (props: TMorePropTypes): JSX.Element => {
   }
 
   return (
-    <Text className="info_with_more_button">
+    <Text {...textProps} className="info_with_more_button">
       {`${isExpanded ? expandedText : collapsedText}`}
       <Button
         className={classNames('more-button', { 'ml-8': !!collapsedText || isExpanded })}
