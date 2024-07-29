@@ -25,7 +25,6 @@ rules:
   "no-implicit-globals": "error"
   "react-hooks/rules-of-hooks": "error"
   "react/no-unknown-property": ["error", { ignore: ["class"] }]
-  "@typescript-eslint/no-explicit-any": "off"
   "@typescript-eslint/member-delimiter-style": ["warn", {
     multiline: {
       delimiter: 'none',
