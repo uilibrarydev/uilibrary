@@ -12,6 +12,7 @@ import {
 } from '../../utils/helpers'
 import IconEditFilled from '../SVGIcons/IconEditFilled'
 import IconEdit from '../SVGIcons/IconEdit'
+import IconAttach from '../SVGIcons/IconAttach'
 
 export const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   const {
@@ -143,7 +144,7 @@ export const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
             type="secondary"
             size="medium"
             disabled={disabled}
-            iconProps={{ name: 'attach' }}
+            iconProps={{ Component: IconAttach }}
             onClick={onUploadClick}
             buttonText={buttonText}
           />

@@ -20,7 +20,10 @@ export const useGetHasBottomSpace = ({
 }: {
   element: HTMLDivElement | null
   input: HTMLElement | null
-}): { hasBottomSpace: boolean; bottomSpace: number } => {
+}): {
+  hasBottomSpace: boolean
+  bottomSpace: number
+} => {
   const { height } = useGetElemSizes(element)
 
   const { bottom: inputBottom } = useGetElemPositions(input)

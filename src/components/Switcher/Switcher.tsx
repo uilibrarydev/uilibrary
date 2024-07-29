@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react'
 import classnames from 'classnames'
-import { Icon } from '../Icon'
 import { Label } from '../../helperComponents'
 import { TSwitcherProps } from './types'
 import IconCheckmark from '../SVGIcons/IconCheckmark'

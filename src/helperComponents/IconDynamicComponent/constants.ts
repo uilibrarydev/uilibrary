@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { lazy } from 'react'
 
 export const IconComponentMapping: { [key: string]: any } = {
