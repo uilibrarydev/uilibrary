@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import { Text } from '../../../Text'
-import { Icon } from '../../../Icon'
 import { Divider } from '../../../Divider'
 import { Empty } from '../../../Empty'
 import { useGetElemSizes } from '../../../../hooks'
@@ -8,6 +7,8 @@ import { OptionItem } from '../../../../helperComponents'
 import { ContentTop } from '../../SharedComponents'
 import { TMultiSelectGroupedProps } from '../../types'
 import { DROPDOWN_MAX_HEIGHT } from '../../constants'
+import IconCaretUpFilled from '../../../SVGIcons/IconCaretUpFilled'
+import IconCaretDownFilled from '../../../SVGIcons/IconCaretDownFilled'
 
 export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element | null => {
   const {
@@ -177,11 +178,11 @@ export const MultiSelectGrouped = (props: TMultiSelectGroupedProps): JSX.Element
                   <Text size="xxsmall" type="tertiary" className="group-item__title pr-4">
                     {title}
                   </Text>
-                  <Icon
-                    size="xxsmall"
-                    name={isActive ? 'caret-up-hover' : 'caret-down-hover'}
-                    className="group-item__icon"
-                  />
+                  {isActive ? (
+                    <IconCaretUpFilled size="xxsmall" className="group-item__icon" />
+                  ) : (
+                    <IconCaretDownFilled size="xxsmall" className="group-item__icon" />
+                  )}
                 </div>
                 {isActive &&
                   data.map((item: TSelectOption) => {

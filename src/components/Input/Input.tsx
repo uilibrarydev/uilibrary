@@ -6,6 +6,7 @@ import { InputCustomProps } from './types'
 import { Icon } from '../Icon'
 import { Label, ErrorMessage } from '../../helperComponents'
 import { Text } from '../Text'
+import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled'
 
 export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
   (
@@ -149,7 +150,17 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         />
         <div className="input__inner">
           {input}
-          {leftIconProps && (
+          {leftIconProps?.Component ? (
+            <leftIconProps.Component
+              size={leftIconProps.size || 'small'}
+              type={leftIconProps.type}
+              className={classNames('input__icon', 'input__icon--left', {
+                [leftIconProps.className || '']: !!leftIconProps.className
+              })}
+              dataId={leftIconProps.dataId}
+            />
+          ) : null}
+          {leftIconProps?.name && (
             <Icon
               size="small"
               {...leftIconProps}
@@ -165,7 +176,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
               className={classNames('input__icon', 'input__icon--right', {
                 [rightIconProps.className || '']: !!rightIconProps.className
               })}
-              dataId={dataId}
+              dataId={rightIconProps.dataId}
             />
           ) : null}
           {rightIconProps?.name && (
@@ -182,12 +193,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         {error || successMessage || helperText || maxCount ? (
           <div className="input__message mt-4">
             {isErrorVisible && error ? (
-              <ErrorMessage message={error} icon="info-hover" dataId={dataId} />
+              <ErrorMessage message={error} icon="infoFilled" dataId={dataId} />
             ) : null}
             {successMessage ? (
               <Text size="small" type="success" className="flexbox align-items--center">
                 <>
-                  <Icon name="checkmark-hover" type="success" size="xsmall" />
+                  <IconCheckmarkCircleFilled type="success" size="xsmall" />
                   <span className="ml-4">{successMessage}</span>
                 </>
               </Text>

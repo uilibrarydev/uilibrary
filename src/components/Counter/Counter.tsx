@@ -3,6 +3,8 @@ import { Input } from '../Input'
 import { ICounterProps } from './types'
 import classNames from 'classnames'
 import { noop } from '../../utils/helpers'
+import IconAdd from '../SVGIcons/IconAdd'
+import IconSubtract from '../SVGIcons/IconSubtract'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Counter = forwardRef((props: ICounterProps, ref): JSX.Element => {
@@ -56,14 +58,14 @@ export const Counter = forwardRef((props: ICounterProps, ref): JSX.Element => {
       leftIconProps={{
         dataId: `${rest.dataId}-decrement`,
         size: 'small',
-        name: 'minus',
+        Component: IconSubtract,
         className: classNames({ action_active: !isIncreaseIconDisabled }),
         type: isIncreaseIconDisabled ? 'disabled' : 'primary',
         onClick: isIncreaseIconDisabled ? noop : increase
       }}
       rightIconProps={{
         dataId: `${rest.dataId}-increment`,
-        name: 'add',
+        Component: IconAdd,
         size: 'small',
         className: classNames({ action_active: !isDecreaseIconDisabled }),
         onClick: isDecreaseIconDisabled ? noop : decrease,

@@ -11,6 +11,7 @@ export const Tab = (props: TTabProps): ReactElement => {
         return (
           <TabItem
             label={tabInfo.label}
+            badgeProps={tabInfo.badgeProps}
             onClick={() => onSelect(tabInfo.value)}
             key={tabInfo.value}
             val={tabInfo.value}

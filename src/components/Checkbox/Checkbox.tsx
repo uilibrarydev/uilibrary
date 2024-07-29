@@ -1,15 +1,16 @@
-import React, { ForwardedRef, useRef, useMemo } from 'react'
+import React, { ForwardedRef, useRef, useMemo, ReactElement } from 'react'
 import classnames from 'classnames'
 import { Popover } from '../Popover'
-import { Icon } from '../Icon'
 import { Link } from '../Link'
 import { Text } from '../Text'
 import { TCheckboxProps } from './types'
+import IconInfo from '../SVGIcons/IconInfo'
+import { IconDynamicComponent } from '../../helperComponents'
 
 export const Checkbox = (
   props: TCheckboxProps,
   ref: ForwardedRef<HTMLInputElement>
-): JSX.Element | null => {
+): ReactElement | null => {
   const {
     label,
     disabled,
@@ -20,7 +21,7 @@ export const Checkbox = (
     selectedValue,
     value,
     className = '',
-    IconProps = { name: 'mark' },
+    IconProps = { name: 'checkmark' },
     dataId = '',
     onClick,
     beforeLink,
@@ -46,9 +47,8 @@ export const Checkbox = (
   const checkboxLabelPopover = popoverAddons ? (
     <Popover id={`${popoverAddons.id}`} {...popoverAddons}>
       <div id={`${popoverAddons.id}`}>
-        <Icon
+        <IconInfo
           dataId={`${dataId}-icon`}
-          name="info"
           type="information"
           size="xsmall"
           className={'ml-4 pointer'}
@@ -112,10 +112,10 @@ export const Checkbox = (
           disabled={disabled}
         />
         <span className="controller__icon">
-          <Icon
-            name={IconProps.name}
+          <IconDynamicComponent
+            componentName={IconProps.name}
             size="xxsmall"
-            type={`${disabled ? 'disabled' : 'inverse'}`}
+            type={disabled ? 'disabled' : 'inverse'}
             className="controller__mark"
           />
         </span>

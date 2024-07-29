@@ -12,7 +12,7 @@ registerLocale('hy', hy)
 registerLocale('en', en)
 registerLocale('ru', ru)
 
-export function useImportFilesDynamically(dayjsLocale: string) {
+export function useImportFilesDynamically(dayjsLocale: string): void {
   const [_, setIsFilesLoaded] = useState(false)
 
   useEffect(() => {

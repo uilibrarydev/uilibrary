@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { LegacyRef, MouseEvent } from 'react'
 
 export type TSVGIconSize =
@@ -26,7 +27,7 @@ export type TSVGIconType =
 export interface ISVGIconProps {
   size?: TSVGIconSize
   type?: TSVGIconType
-  onClick?: (event: MouseEvent<SVGSVGElement>) => void
+  onClick?: (event: MouseEvent<any>) => void
   className?: string
   refHandler?: LegacyRef<SVGSVGElement> | undefined
   id?: string

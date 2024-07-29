@@ -2,8 +2,8 @@ import React, { useMemo } from 'react'
 import { ErrorMessage, Label } from '../../helperComponents'
 import { TTextAreaTypeProps } from './types'
 import { Text } from '../Text'
-import { Icon } from '../Icon'
 import classNames from 'classnames'
+import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled'
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps>(
   (
@@ -72,11 +72,11 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
 
         {error || successMessage || helperText || maxCount ? (
           <div className="textarea__message mt-4">
-            {error && <ErrorMessage message={error} icon="info-hover" />}
+            {error && <ErrorMessage message={error} icon="infoFilled" />}
             {successMessage ? (
               <Text size="small" type="success" className="flexbox align-items--center">
                 <>
-                  <Icon name="checkmark-hover" type="success" size="xsmall" />
+                  <IconCheckmarkCircleFilled type="success" size="xsmall" />
                   <span className="ml-4">{successMessage}</span>
                 </>
               </Text>

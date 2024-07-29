@@ -9,8 +9,16 @@ const Template = (): JSX.Element => {
   return (
     <div onClick={() => console.log('sdjbsd')}>
       <_More
-        expandedText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        collapsedText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+        buttonText={{
+          expand: 'Ավելին',
+          collapse: 'Փակել'
+        }}
+        expandedText={`I am informed and agree that:
+ - The vacation application is considered submitted if it has been approved by the manager(s) and substitute(s). If the approvals haven’t been obtained, the application cannot be considered by the HRM and is not subject to processing.
+The payment for the annual vacation is made:
+3 days before the start of the vacation, if the application approvals are available at least 6 working days before the vacation begins,
+Within 3 working days after the start of the vacation, if application approvals were provided within 5 working days before the vacation begins.`}
+        collapsedText=""
       />
     </div>
   )
