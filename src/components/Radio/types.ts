@@ -18,6 +18,7 @@ export interface TRadioGroupProps extends IFormCompProps {
   label?: string | JSX.Element
   className?: string
   isHorizontal?: boolean
+  selected: number | string
   options: TRadioOptionItem[]
   handleChange?: (selected: number | string) => void
   required?: boolean
