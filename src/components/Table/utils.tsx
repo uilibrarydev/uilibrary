@@ -5,7 +5,7 @@ import { IndeterminateCheckbox } from './IndeterminateCheckbox'
 export const CHECKBOX_HEADER_ID = 'selection'
 export const CHECKBOX_DEFAULT_WIDTH = 48
 
-export function setSelectedRows(hooks: Hooks, withSelect: boolean) {
+export function setSelectedRows(hooks: Hooks, withSelect: boolean): void {
   if (withSelect) {
     hooks.visibleColumns.push((columns: Column[]) => [
       {
