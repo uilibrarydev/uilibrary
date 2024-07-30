@@ -55,7 +55,7 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
         />
       ) : null}
       {badgeProps?.text ? (
-        <Badge {...badgeProps} className="tab__badge ml-8" size="small" type="secondary" />
+        <Badge className="tab__badge ml-8" size="small" type="secondary" {...badgeProps} />
       ) : null}
     </div>
   )
