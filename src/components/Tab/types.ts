@@ -34,13 +34,15 @@ export type TTabItemProps = {
   size?: 'large' | 'medium' | 'small'
   className?: string
   iconProps?: {
-    name: string
+    name?: string
     alignment?: string
+    Component?: TSVGIconComponent
   }
   rightIconProps?: {
-    name: string
+    name?: string
     alignment?: string
     action?: (value: string | number) => void
+    Component?: TSVGIconComponent
   }
   badgeProps?: TBadgeProps
   val: string | number

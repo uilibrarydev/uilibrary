@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Snackbar as _Snackbar, notify } from '../index'
-import { SVGIcons } from './SVGIcons.stories'
 
 export default {
   title: 'Snackbar',

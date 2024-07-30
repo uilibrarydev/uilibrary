@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { CardSelectGroup as _CardSelectGroup } from '../components/CardSelect'
 import { CardSelect as _CardSelect } from '../components/CardSelect'
 import { Popover } from '../components/Popover'
-import { Icon } from '../components/Icon'
 import { CARD_SELECT_TYPES } from '../consts'
 import imageFile from '../assets/images/illustrations.svg'
+import IconInfo from '../components/SVGIcons/IconInfo'
 
 export default {
   title: 'CardSelect',
@@ -66,7 +66,7 @@ const CARDS = [
           position="top-center"
         >
           <div id="beneficiary-tooltip">
-            <Icon name="info" type="information" size="xsmall" className={'ml-4 pointer'} />
+            <IconInfo type="information" size="xsmall" className={'ml-4 pointer'} />
           </div>
         </Popover>
       )
@@ -118,7 +118,7 @@ const CARDS = [
           position="top-center"
         >
           <div id="beneficiary-tooltip">
-            <Icon name="info" type="information" size="xsmall" className={'ml-4 pointer'} />
+            <IconInfo type="information" size="xsmall" className={'ml-4 pointer'} />
           </div>
         </Popover>
       )

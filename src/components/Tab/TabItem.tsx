@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MouseEvent } from 'react'
 import { Icon } from '../Icon'
 import { Badge } from '../Badge'
 import { noop } from '../../utils/helpers'
@@ -38,9 +38,29 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
           size={`${size == 'small' ? 'xsmall' : 'small'}`}
         />
       ) : null}
+      {iconProps?.Component ? (
+        <iconProps.Component
+          className="tab__icon mr-8"
+          size={`${size == 'small' ? 'xsmall' : 'small'}`}
+          {...iconProps}
+        />
+      ) : null}
       <span className="tab__label" data-id={dataId}>
         {label}
       </span>
+      {rightIconProps?.Component ? (
+        <rightIconProps.Component
+          onClick={(e: MouseEvent<unknown>) => {
+            if (rightIconProps?.action) {
+              e.stopPropagation()
+              rightIconProps?.action(val)
+            }
+          }}
+          className="tab__icon ml-8"
+          size={`${size == 'small' ? 'xsmall' : 'small'}`}
+          {...rightIconProps}
+        />
+      ) : null}
       {rightIconProps?.name ? (
         <Icon
           {...rightIconProps}

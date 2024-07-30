@@ -26,7 +26,7 @@ export interface TSideSheetPropTypes {
   children?: ReactNode
   className?: string
   headerButtons?: {
-    close: TButtonPropTypes
+    close?: TButtonPropTypes
     pin?: TButtonPropTypes
     back?: TButtonPropTypes
   }

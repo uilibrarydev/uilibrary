@@ -1,5 +1,7 @@
 import React from 'react'
 import { Icon, Popover, Status as _Status, Text } from '../index'
+import IconPerson from '../components/SVGIcons/IconPerson'
+import IconInfo from '../components/SVGIcons/IconInfo'
 
 export default {
   title: 'Status',
@@ -50,7 +52,7 @@ Status.args = {
   size: 'large',
   withCircle: true,
   leftIconProps: {
-    name: 'user'
+    Component: IconPerson
   },
   rightIconProps: (
     <Popover
@@ -60,7 +62,7 @@ Status.args = {
       position="top-center"
     >
       <div id="beneficiary-tooltip">
-        <Icon name="info" type="information" size="xsmall" className={'ml-4 pointer'} />
+        <IconInfo type="information" size="xsmall" className={'ml-4 pointer'} />
       </div>
     </Popover>
   )

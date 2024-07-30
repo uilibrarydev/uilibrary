@@ -101,7 +101,7 @@ declare type TSVGIconComponent = (props: ISVGIconProps) => ReactElement
 
 declare type TSelectIconProps = {
   type?: TIconTypes
-  name: string
+  name?: string
   size?: TIconSize
   className?: string
   onClick?: TClickHandler

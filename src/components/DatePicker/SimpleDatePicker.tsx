@@ -10,6 +10,7 @@ import { MONTHS } from '../../consts'
 import { useImportFilesDynamically } from './hooks'
 
 import { ISimpleDatePickerProps } from './types'
+import IconCalendarRight from '../SVGIcons/IconCalendarRight'
 
 export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement => {
   const {
@@ -83,7 +84,7 @@ export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement =>
             dataId={dataId}
             helperText={helperText}
             datePlaceHolderText={label ? '' : placeholderText}
-            rightIconProps={{ name: 'calendar', onClick: openDatepicker }}
+            rightIconProps={{ Component: IconCalendarRight, onClick: openDatepicker }}
             currentValue={selectedDate ? dayjs(selectedDate.toString()).format(format) : ''}
           />
         }

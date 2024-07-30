@@ -1,5 +1,6 @@
 import React from 'react'
 import { Empty as _Empty } from '../index'
+import IconAdd from '../components/SVGIcons/IconAdd'
 
 export default {
   title: 'Empty',
@@ -24,7 +25,7 @@ Empty.args = {
   buttonProps: {
     buttonText: 'Button',
     iconProps: {
-      name: 'add'
+      Component: IconAdd
     }
   }
 }

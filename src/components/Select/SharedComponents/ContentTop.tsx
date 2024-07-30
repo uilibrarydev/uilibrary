@@ -4,6 +4,9 @@ import { Input } from '../../Input'
 import { TMenuItem } from '../../Menu/types'
 import { TSelectTranslations } from '../types'
 import { Actions } from './Actions'
+import IconDismissFilled from '../../SVGIcons/IconDismissFilled'
+import IconSearchFilled from '../../SVGIcons/IconSearchFilled'
+import IconSelectAllOff from '../../SVGIcons/IconSelectAllOff'
 
 type TProps = {
   searchValue?: string
@@ -49,7 +52,7 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
           value: 1,
           handler: selectAll,
           disabled: isSelectAllDisabled,
-          iconProps: { name: 'select-all' },
+          iconProps: { Component: IconSelectAllOff },
           dataId: dataIdPrefix ? `${dataIdPrefix}-select-all` : ''
         }
       ]
@@ -62,7 +65,7 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
           value: 2,
           handler: clearAll,
           disabled: !isAnySelected,
-          iconProps: { name: 'close-hover' },
+          iconProps: { Component: IconDismissFilled },
           dataId: dataIdPrefix ? `${dataIdPrefix}-clear-all` : ''
         }
       ]
@@ -105,7 +108,7 @@ export const ContentTop = React.memo<TProps>((props: TProps): JSX.Element => {
           handleChange={onSearch}
           currentValue={searchValue}
           rightIconProps={{
-            name: searchValue ? 'close-hover' : 'search-hover',
+            Component: searchValue ? IconDismissFilled : IconSearchFilled,
             size: searchValue ? 'xsmall' : 'small',
             onClick: removeFilter
           }}

@@ -1,5 +1,6 @@
 import React, { ReactElement, useState } from 'react'
 import { Tab as _Tab } from '../index'
+import IconDismissCircle from '../components/SVGIcons/IconDismissCircle'
 
 export default {
   title: 'Tab',
@@ -25,7 +26,7 @@ Tab.args = {
     name: 'home'
   },
   rightIconProps: {
-    name: 'dismiss-circle',
+    Component: IconDismissCircle,
     action: (e: string | number) => {
       // eslint-disable-next-line no-console
       console.log(e, 'e')

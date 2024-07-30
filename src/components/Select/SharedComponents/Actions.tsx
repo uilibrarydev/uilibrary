@@ -3,6 +3,7 @@ import { Button } from '../../Button'
 import { Menu } from '../../Menu'
 import { Text } from '../../Text'
 import { TMenuItem } from '../../Menu/types'
+import IconMore from '../../SVGIcons/IconMore'
 
 type TProps = {
   selectActions: TMenuItem[]
@@ -25,7 +26,7 @@ export const Actions = (props: TProps): JSX.Element | null => {
         </Text>
       ) : null}
       <div ref={setButtonRef} className="action-bar__right">
-        <Button type="tertiary" onClick={open} iconProps={{ name: 'more' }} size="small" />
+        <Button type="tertiary" onClick={open} iconProps={{ Component: IconMore }} size="small" />
         {buttonRef ? (
           <Menu
             menuItems={selectActions}
