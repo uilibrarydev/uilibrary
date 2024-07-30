@@ -1,11 +1,11 @@
+import { TBadgeProps } from '../Badge/types'
+
 export type TTabItem = {
   value: number | string
   label: string | JSX.Element
   dataId?: string
   disabled?: boolean
-  badgeProps?: {
-    text: string
-  }
+  badgeProps?: TBadgeProps
 }
 export interface TTabProps extends IFormCompProps {
   tabItems: TTabItem[]
@@ -44,9 +44,7 @@ export type TTabItemProps = {
     action?: (value: string | number) => void
     Component?: TSVGIconComponent
   }
-  badgeProps?: {
-    text: string
-  }
+  badgeProps?: TBadgeProps
   val: string | number
   disabled?: boolean
   isSelected: boolean
