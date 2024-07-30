@@ -1,6 +1,6 @@
 import React, { ReactElement, useCallback } from 'react'
 import { TButtonPropTypes } from '../../Button/types'
-import { Button } from '../../Button/Button'
+import { Button } from '../../Button'
 import { TCheckboxInfo } from '../types'
 import { Checkbox } from '../../Checkbox'
 

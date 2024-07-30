@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes, LegacyRef, ReactElement } from 'react'
-import { ISVGIconProps } from '../SVGIcons/types'
 
 export interface TButtonPropTypes extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   id?: string
@@ -14,7 +13,7 @@ export interface TButtonPropTypes extends Omit<ButtonHTMLAttributes<HTMLButtonEl
     name?: string
     size?: TIconSize
     alignment?: string
-    Component?: (props: ISVGIconProps) => ReactElement
+    Component?: TSVGIconComponent
   }
   onClick?: (event: TClickEventType) => void
   formId?: string

@@ -1,4 +1,6 @@
-import React, { useRef, useState } from 'react'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import React, { useState } from 'react'
 import {
   Button,
   Select as _Select,
@@ -6,13 +8,14 @@ import {
   // FilterSelect as _FilterDropdown,
   NestedSelect as _NestedSelect,
   ButtonSelect as _ButtonSelect,
-  Menu,
-  Icon
+  Menu
 } from '../index'
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import imageFile from '../assets/images/avatar.jpg'
+import IconPerson from '../components/SVGIcons/IconPerson'
+import IconInfo from '../components/SVGIcons/IconInfo'
+import IconCaretDownFilled from '../components/SVGIcons/IconCaretDownFilled'
+import IconSelectAllOff from '../components/SVGIcons/IconSelectAllOff'
+import IconMore from '../components/SVGIcons/IconMore'
 
 type TItemValue = string | number | null
 declare type TItemLabel = string
@@ -253,7 +256,7 @@ const Template = (args: any): JSX.Element => {
     <div style={{ display: 'flex', height: '100vh', justifyContent: 'center' }}>
       <_Select
         {...args}
-        dataId={'kokos'}
+        dataId={'single-select'}
         tooltipAddons={{ position: 'bottom-left' }}
         isRequiredField
         options={OPTIONS}
@@ -345,10 +348,10 @@ Select.args = {
   label: 'country',
   avatar: image.src,
   placeHolder: 'Select country',
-  labelLeftIconProps: { name: 'user' },
+  labelLeftIconProps: { Component: IconPerson },
   optionRightIconComponent: null,
   labelRightIconComponent: null,
-  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
+  labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />
 }
 
 // -----------MULTISELECT---------
@@ -370,13 +373,13 @@ const MultiSelectTemplate = (args: any): JSX.Element => {
         buttonProps={{
           buttonText: 'Select',
           type: 'secondary',
-          iconProps: { name: 'caret-down-hover', alignment: 'right', size: 'xsmall' }
+          iconProps: { Component: IconCaretDownFilled, alignment: 'right', size: 'xsmall' }
         }}
         menuOptions={[
           {
             label: 'save template',
             value: '1',
-            iconProps: { name: 'select-all' }
+            iconProps: { Component: IconSelectAllOff }
           }
         ]}
         dropdownWidth={400}
@@ -386,8 +389,7 @@ const MultiSelectTemplate = (args: any): JSX.Element => {
         selectedItems={selectedValues}
         setSelectedItems={set}
         labelRightIconComponent={
-          <Icon
-            name="user"
+          <IconPerson
             size="xsmall"
             className="mr-4"
             onClick={(e: any) => {
@@ -416,11 +418,11 @@ MultiSelect.args = {
   placeHolder: 'Select country',
   innerLabel: 'Select',
   helperText: 'To be filled in only for USA, Canada and European countries.',
-  labelLeftIconProps: { name: 'user' },
-  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
+  labelLeftIconProps: { Component: IconPerson },
+  labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />
   // disabled: true
-  // labelRightIconComponent: <Icon name="user" size="xsmall" className="mr-4" />,
-  // optionRightIconComponent: <Icon name="more" size="xsmall" />
+  // labelRightIconComponent: <IconPerson size="xsmall" className="mr-4" />,
+  // optionRightIconComponent: <IconPerson size="xsmall" />
 }
 
 // ----------NESTED_SELECT---------------
@@ -449,11 +451,10 @@ NestedSelect.args = {
   label: 'Select',
   options: OPTIONS_NESTED,
   placeHolder: 'Select country',
-  labelLeftIconProps: { name: 'user' },
-  labelRightIconComponent: () => <Icon name="user" size="xsmall" className="mr-4" />,
+  labelLeftIconProps: { Component: IconPerson },
+  labelRightIconComponent: () => <IconPerson size="xsmall" className="mr-4" />,
   optionRightIconComponent: () => (
-    <Icon
-      name="more"
+    <IconMore
       size="xsmall"
       onClick={(e: any) => {
         e.preventDefault()
@@ -461,7 +462,7 @@ NestedSelect.args = {
       }}
     />
   ),
-  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
+  labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />
 }
 // ----------FILTERDROPDOWN---------------
 
@@ -483,7 +484,7 @@ NestedSelect.args = {
 //       <div style={{ position: 'absolute', left: 300 }} ref={containerRef}>
 //         <Button
 //           type="secondary"
-//           iconProps={{ name: 'filter' }}
+//           iconProps={{ Component: IconFilter }}
 //           buttonText={'filter'}
 //           onClick={() => setIsOpen(!isOpen)}
 //         />
@@ -505,7 +506,7 @@ NestedSelect.args = {
 //   isLoading: true,
 //   options: OPTIONS_NESTED,
 //   avatar: image.src,
-//   labelLeftIconProps: { name: 'user' },
-//   labelRightIconComponent: () => <Icon name="user" size="xsmall" className="mr-4" />,
-//   optionRightIconComponent: () => <Icon name="more" size="xsmall" />
+//   labelLeftIconProps: { Component: IconPerson },
+//   labelRightIconComponent: () => <IconPerson size="xsmall" className="mr-4" />,
+//   optionRightIconComponent: () => <IconMore size="xsmall" />
 // }

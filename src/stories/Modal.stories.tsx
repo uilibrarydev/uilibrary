@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Modal as _Modal } from '../index'
+import IconCheckmarkCircle from '../components/SVGIcons/IconCheckmarkCircle'
 
 export default {
   title: 'Modal',
@@ -45,9 +46,9 @@ export const Modal = Template.bind({})
 Modal.args = {
   size: 'small',
   title: 'Title',
-  closeIcon: false,
+  closeIcon: true,
   withFooter: true,
   titleIconProps: {
-    name: 'checkmark-hover'
+    Component: IconCheckmarkCircle
   }
 }

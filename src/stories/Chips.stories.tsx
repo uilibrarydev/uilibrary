@@ -1,5 +1,6 @@
 import React from 'react'
 import { Chips as _Chips } from '../components/Chips'
+import IconPerson from '../components/SVGIcons/IconPerson'
 
 export default {
   title: 'Chips',
@@ -30,7 +31,7 @@ Chips.args = {
   size: 'large',
   text: 'Badge',
   leftIconProps: {
-    name: 'user'
+    Component: IconPerson
   },
   disabled: false,
   withAction: false

@@ -1,14 +1,10 @@
 import React, { useRef, useState } from 'react'
-import {
-  Button,
-  Menu,
-  Modal,
-  MultiSelect,
-  SideSheet as _SideSheet,
-  FormContainer,
-  FormField
-} from '../index'
+import { Button, Modal, SideSheet as _SideSheet, FormContainer } from '../index'
 import * as yup from 'yup'
+import IconDismissFilled from '../components/SVGIcons/IconDismissFilled'
+import IconArrowLeft from '../components/SVGIcons/IconArrowLeft'
+import IconAttach from '../components/SVGIcons/IconAttach'
+import IconMore from '../components/SVGIcons/IconMore'
 
 export default {
   title: 'Side Sheet',
@@ -130,7 +126,7 @@ const Template = (args: any) => {
 
           <div style={{ height: 2000 }}>
             <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
-              <Button onClick={() => setOpen(!open)} iconProps={{ name: 'more' }} />
+              <Button onClick={() => setOpen(!open)} iconProps={{ Component: IconMore }} />
             </div>
           </div>
         </>
@@ -162,17 +158,17 @@ SideSheet.args = {
   headerButtons: {
     close: {
       iconProps: {
-        name: 'close-hover'
+        Component: IconDismissFilled
       }
     },
     back: {
       iconProps: {
-        name: 'arrow2-left'
+        Component: IconArrowLeft
       }
     },
     pin: {
       iconProps: {
-        name: 'attach'
+        Component: IconAttach
       }
     }
   },

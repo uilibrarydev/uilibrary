@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Textarea as _Textarea, Icon } from '../index'
+import { Textarea as _Textarea } from '../index'
+import IconInfo from '../components/SVGIcons/IconInfo'
 
 type TChangeEventType = React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
 
@@ -31,5 +32,5 @@ Textarea.args = {
   successMessage: 'Success message',
   error: 'Error message',
   maxCount: 240,
-  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
+  labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />
 }

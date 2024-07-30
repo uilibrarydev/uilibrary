@@ -5,6 +5,7 @@ import { useFormProps } from '../../hooks'
 import { openFileInNewWindow } from '../../utils/helpers'
 import { ErrorMessage } from '../../helperComponents'
 import { Button } from '../Button'
+import IconDelete from '../SVGIcons/IconDelete'
 
 export const UploadItems = (props: IUploadItemPropTypes): JSX.Element => {
   const { files, onRemove, withFilePreview, handleFileClick } = props
@@ -44,7 +45,7 @@ export const UploadItems = (props: IUploadItemPropTypes): JSX.Element => {
                 <Button
                   type="tertiary"
                   size="small"
-                  iconProps={{ name: 'trash' }}
+                  iconProps={{ Component: IconDelete }}
                   onClick={() => {
                     onRemove(file, index)
                   }}

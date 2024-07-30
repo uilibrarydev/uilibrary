@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Radio as _Radio, RadioGroup as _RadioGroup, Icon } from '../index'
+import IconInfo from '../components/SVGIcons/IconInfo'
 
 const RADIO_OPTIONS = [
   {
@@ -50,5 +51,5 @@ RadioGroup.args = {
   disabled: false,
   required: false,
   name: 'option',
-  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
+  labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />
 }

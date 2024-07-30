@@ -12,7 +12,7 @@ interface TSelectBaseProps {
   placeHolder?: string
   isRequiredField?: boolean
   labelLeftIconProps?: {
-    name: string
+    name?: string
     size?: TIconSize
     className?: string
     onClick?: TClickHandler
@@ -151,7 +151,7 @@ export interface TFilterProps extends IFormCompProps, TSelectBaseProps {
 export interface TFilterDropdownContentProps extends IFormCompProps {
   options: TSelectOptions
   labelLeftIconProps?: {
-    name: string
+    name?: string
     size?: TIconSize
     className?: string
     onClick?: TClickHandler
@@ -173,7 +173,7 @@ export interface TFilterDropdownContentProps extends IFormCompProps {
 export interface TFilterGroupDropdownContentProps extends IFormCompProps {
   options: TSelectGroupOptions
   labelLeftIconProps?: {
-    name: string
+    name?: string
     size?: TIconSize
     className?: string
     onClick?: TClickHandler

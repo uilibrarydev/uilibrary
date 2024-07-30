@@ -8,6 +8,8 @@ import { Text } from '../Text'
 import { TSideSheetPropTypes } from './types'
 import { useDispatchEventOnScroll } from '../../hooks/useDispatchEventOnScroll'
 import { Footer } from './Footer/Footer'
+import IconCaretUp from '../SVGIcons/IconCaretUp'
+import IconDismissFilled from '../SVGIcons/IconDismissFilled'
 
 export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
   const {
@@ -20,13 +22,7 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
     position = 'right',
     shouldRemoveCallback,
     className = '',
-    headerButtons = {
-      close: {
-        iconProps: {
-          name: 'close-hover'
-        }
-      }
-    },
+    headerButtons,
     footerButtons,
     scrollToTopOptions,
     children,
@@ -114,7 +110,7 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
           >
             <div className="side-sheet__header">
               <div className="side-sheet__header__left pr-16">
-                {headerButtons.back ? (
+                {headerButtons?.back ? (
                   <Button size="small" type="tertiary" {...headerButtons.back} className="mr-8" />
                 ) : null}
                 <Text
@@ -127,16 +123,25 @@ export const SideSheet = (props: TSideSheetPropTypes): JSX.Element | null => {
                 </Text>
               </div>
               <div className="side-sheet__header__right">
-                {headerButtons.pin ? (
+                {headerButtons?.pin ? (
                   <Button size="small" type="tertiary" {...headerButtons.pin} className="mr-8" />
                 ) : null}
-                <Button size="small" type="tertiary" onClick={onClose} {...headerButtons.close} />
+                {headerButtons?.close ? (
+                  <Button size="small" type="tertiary" {...headerButtons.close} onClick={onClose} />
+                ) : (
+                  <Button
+                    size="small"
+                    type="tertiary"
+                    iconProps={{ Component: IconDismissFilled }}
+                    onClick={onClose}
+                  />
+                )}
               </div>
               {isShownScrollIcon && (
                 <Button
                   size="large"
                   type="secondary"
-                  iconProps={{ name: 'caret-up' }}
+                  iconProps={{ Component: IconCaretUp }}
                   className={`side-sheet__header__scroll-top side-sheet__header__scroll-top__${size}`}
                   onClick={handleScrollToTop}
                 />

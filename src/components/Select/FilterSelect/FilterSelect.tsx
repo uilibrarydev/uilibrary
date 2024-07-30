@@ -6,6 +6,8 @@ import { FilterGroupDropdownContent } from './FilterGroupDropdown'
 import { Footer, Loading } from '../SharedComponents'
 import { Input } from '../../Input'
 import { TFilterProps } from '../types'
+import IconSearchFilled from '../../SVGIcons/IconSearchFilled'
+import IconDismissFilled from '../../SVGIcons/IconDismissFilled'
 
 export const FilterSelect = (props: TFilterProps): JSX.Element | null => {
   const {
@@ -95,7 +97,7 @@ export const FilterSelect = (props: TFilterProps): JSX.Element | null => {
           currentValue={filterValue}
           rightIconProps={{
             size: filterValue === '' ? 'small' : 'xsmall',
-            name: filterValue === '' ? 'search-hover' : 'close-hover',
+            Component: filterValue === '' ? IconSearchFilled : IconDismissFilled,
             onClick: removeFilterValue
           }}
         />

@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { useState } from 'react'
+import React, {ReactElement, useState} from 'react'
 import {
   Avatar,
   Button,
   NavigationItem,
   SideNavigation as _SideNavigation,
   Text,
-  Icon
 } from '../index'
 import { Block } from '../components/SideNavigation/Block'
 import { NavigationItemTypes } from '../components/SideNavigation/NavigationItem/types'
@@ -16,6 +15,15 @@ import logo from '../assets/images/logo.svg'
 import logoClosed from '../assets/images/logo-closed.svg'
 // @ts-ignore
 import avatar from '../assets/images/avatar.jpg'
+import IconDocument from '../components/SVGIcons/IconDocument'
+import IconLockClosed from '../components/SVGIcons/IconLockClosed'
+import IconSettings from '../components/SVGIcons/IconSettings'
+import IconHome from '../components/SVGIcons/IconHome'
+import IconSavings from '../components/SVGIcons/IconSavings'
+import IconWallet from '../components/SVGIcons/IconWallet'
+import IconAlertBadge from "../components/SVGIcons/IconAlertBadge";
+import IconMail from "../components/SVGIcons/IconMail";
+import IconArrowExit from "../components/SVGIcons/IconArrowExit";
 
 export default {
   title: 'Side Navigation',
@@ -27,7 +35,7 @@ export default {
   }
 }
 
-const Template = (args): JSX.Element => {
+const Template = (args: any): ReactElement => {
   const [isOpen, setIsOpen] = useState<boolean>(true)
 
   return (
@@ -49,7 +57,7 @@ const Template = (args): JSX.Element => {
             <NavigationItem
               As={() => (
                 <a href="/https://ameriabank.am">
-                  <Icon name="document" />
+                  <IconDocument />
                   <div>Accounts</div>
                 </a>
               )}
@@ -62,7 +70,7 @@ const Template = (args): JSX.Element => {
             <NavigationItem
               As={() => (
                 <a href="/https://ameriabank.am">
-                  <Icon name="lock" />
+                  <IconLockClosed />
                   <div>Test</div>
                 </a>
               )}
@@ -74,7 +82,7 @@ const Template = (args): JSX.Element => {
             <NavigationItem
               As={() => (
                 <div>
-                  <Icon name="home" />
+                  <IconHome />
                   <div>Cards</div>
                 </div>
               )}
@@ -86,7 +94,7 @@ const Template = (args): JSX.Element => {
                 <NavigationItem
                   As={() => (
                     <a href="/https://ameriabank.am">
-                      <Icon name={'document'} />
+                      <IconDocument />
                       <div>Accounts</div>
                     </a>
                   )}
@@ -96,7 +104,7 @@ const Template = (args): JSX.Element => {
                 <NavigationItem
                   As={() => (
                     <a href="/https://ameriabank.am">
-                      <Icon name={'savings'} />
+                      <IconSavings />
                       <div>Savings</div>
                     </a>
                   )}
@@ -106,7 +114,7 @@ const Template = (args): JSX.Element => {
                 <NavigationItem
                   As={() => (
                     <a href="/https://ameriabank.am">
-                      <Icon name={'wallet'} />
+                      <IconWallet />
                       <div>Overdraft</div>
                     </a>
                   )}
@@ -118,7 +126,7 @@ const Template = (args): JSX.Element => {
             <NavigationItem
               As={() => (
                 <a href="/https://ameriabank.am">
-                  <Icon name={'savings'} />
+                  <IconSavings />
                   <div>Savings</div>
                 </a>
               )}
@@ -134,7 +142,7 @@ const Template = (args): JSX.Element => {
             <NavigationItem
               As={() => (
                 <a href="/https://ameriabank.am">
-                  <Icon name={'wallet'} />
+                  <IconWallet />
                   <div>Overdraft</div>
                 </a>
               )}
@@ -144,7 +152,7 @@ const Template = (args): JSX.Element => {
             <NavigationItem
               As={() => (
                 <a href="/https://ameriabank.am">
-                  <Icon name={'home'} />
+                  <IconHome />
                   <div>Mortgage</div>
                 </a>
               )}
@@ -154,7 +162,7 @@ const Template = (args): JSX.Element => {
             <NavigationItem
               As={() => (
                 <div>
-                  <Icon name={'savings'} />
+                  <IconSavings />
                   <div>Car Leon</div>
                 </div>
               )}
@@ -166,7 +174,7 @@ const Template = (args): JSX.Element => {
                 <NavigationItem
                   As={() => (
                     <a href="/https://ameriabank.am">
-                      <Icon name={'savings'} />
+                      <IconSavings />
                       <div>Savings</div>
                     </a>
                   )}
@@ -176,7 +184,7 @@ const Template = (args): JSX.Element => {
                 <NavigationItem
                   As={() => (
                     <a href="/https://ameriabank.am">
-                      <Icon name={'document'} />
+                      <IconDocument />
                       <div>Accounts</div>
                     </a>
                   )}
@@ -196,7 +204,7 @@ const Template = (args): JSX.Element => {
               isOpen={isOpen}
               As={() => (
                 <a href="/https://ameriabank.am">
-                  <Icon name={'mail'} />
+                  <IconMail />
                   <div>Messages</div>
                 </a>
               )}
@@ -206,7 +214,7 @@ const Template = (args): JSX.Element => {
               isOpen={isOpen}
               As={() => (
                 <a href="https://ameriabank.am">
-                  <Icon name={'notification2'} />
+                  <IconAlertBadge />
                   <div>Notifications</div>
                 </a>
               )}
@@ -216,7 +224,7 @@ const Template = (args): JSX.Element => {
               isOpen={isOpen}
               As={() => (
                 <a href="https://ameriabank.am">
-                  <Icon name={'settings'} />
+                  <IconSettings />
                   <div>Settings</div>
                 </a>
               )}
@@ -228,7 +236,7 @@ const Template = (args): JSX.Element => {
                 <div onClick={() => alert()}>
                   <Avatar imagePath={avatar} size={isOpen ? 'small' : 'xsmall'} />
                   <Text size="medium">Zhorzhik Grigoryan</Text>
-                  <Icon name={'logout'} />
+                  <IconArrowExit />
                 </div>
               )}
             />
@@ -241,7 +249,8 @@ const Template = (args): JSX.Element => {
 
 export const SideNavigation = Template.bind({})
 
+// @ts-ignore
 SideNavigation.args = {
   showAction: true,
-  actionElm: <Button buttonText={'Action'} size="large" iconProps={{ name: 'home' }} />
+  actionElm: <Button buttonText={'Action'} size="large" iconProps={{ Component: IconHome }} />
 }

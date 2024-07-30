@@ -10,8 +10,9 @@ export interface TModalPropTypes {
   onSubmit: () => void
   title?: string
   titleIconProps?: {
-    name: string
+    name?: string
     type: TIconTypes
+    Component?: TSVGIconComponent
   }
   size?: 'small' | 'medium' | 'large'
   withFooter?: boolean

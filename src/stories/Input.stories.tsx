@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Input as _Input, Icon, Popover } from '../index'
+import IconInfo from '../components/SVGIcons/IconInfo'
 
 export default {
   title: 'Input',
@@ -41,7 +42,7 @@ Input.args = {
   mask: '',
   maskChar: '',
   leftIconProps: {
-    name: 'info'
+    Component: IconInfo
   },
   rightIconProps: {},
   disabled: false,
@@ -56,7 +57,7 @@ Input.args = {
       position="top-center"
     >
       <div id="beneficiary-tooltip">
-        <Icon name="info" type="information" size="xsmall" className={'ml-4 pointer'} />
+        <IconInfo type="information" size="xsmall" className={'ml-4 pointer'} />
       </div>
     </Popover>
   ),

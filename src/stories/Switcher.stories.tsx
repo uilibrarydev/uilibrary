@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Icon, Switcher as _Switcher } from '../index'
+import { Switcher as _Switcher } from '../index'
+import IconInfo from '../components/SVGIcons/IconInfo'
 
 export default {
   title: 'Switcher',
@@ -25,5 +26,5 @@ Switcher.args = {
   inlineType: false,
   disabled: false,
   label: 'label',
-  labelAddons: <Icon name={'info'} size={'xsmall'} type={'information'} className={'ml-4'} />
+  labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />
 }

@@ -9,6 +9,8 @@ import {
   NestedMenu as _NestedMenu,
   IconBeach
 } from '../index'
+import IconEdit from '../components/SVGIcons/IconEdit'
+import IconAddFilled from '../components/SVGIcons/IconAddFilled'
 
 export default {
   title: 'Menu',
@@ -25,7 +27,7 @@ const items = [
   {
     label: 'Edit',
     iconProps: {
-      name: 'edit'
+      Component: IconEdit
     },
     handler: () => {
       console.log('edit')
@@ -36,7 +38,7 @@ const items = [
   {
     label: 'Save changes',
     iconProps: {
-      name: 'add-hover'
+      Component: IconAddFilled
     },
     handler: () => {
       console.log('add')

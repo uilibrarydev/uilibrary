@@ -3,6 +3,8 @@ import { Input } from '../../Input'
 import { OptionItem } from '../../../helperComponents'
 import { useGetElemPositions, useGetElemSizes, useOnOutsideClick } from '../../../hooks'
 import { TNestedSelectProps } from '../types'
+import IconCaretUpFilled from '../../SVGIcons/IconCaretUpFilled'
+import IconCaretDownFilled from '../../SVGIcons/IconCaretDownFilled'
 
 const LEVEL_LEFT_MARGIN = 10
 
@@ -100,7 +102,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
           label={label}
           required={isRequiredField}
           rightIconProps={{
-            name: isDropdownOpen ? 'caret-up-hover' : 'caret-down-hover',
+            Component: isDropdownOpen ? IconCaretUpFilled : IconCaretDownFilled,
             size: 'xsmall'
           }}
           placeholder={placeHolder}

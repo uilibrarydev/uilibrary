@@ -7,6 +7,7 @@ import { Button } from '../Button'
 import { Text } from '../Text'
 import { TModalPropTypes } from './types'
 import { Icon } from '../Icon'
+import IconDismissFilled from '../SVGIcons/IconDismissFilled'
 
 const DESKTOP_ANIMATION = {
   initial: { opacity: 0.5, scale: 0.65 },
@@ -64,6 +65,9 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
           <div className="modal__container" ref={setContainerRef} {...DESKTOP_ANIMATION}>
             {title ? (
               <div className="modal__header">
+                {titleIconProps?.Component ? (
+                  <titleIconProps.Component size="small" className="mr-12" {...titleIconProps} />
+                ) : null}
                 {titleIconProps?.name ? (
                   <Icon size="small" {...titleIconProps} className="mr-12" />
                 ) : null}
@@ -81,7 +85,7 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
                     type="tertiary"
                     size="small"
                     dataId={dataIdPrefix ? `${dataIdPrefix}-modal-close-button` : ''}
-                    iconProps={{ name: 'close-hover' }}
+                    iconProps={{ Component: IconDismissFilled }}
                     onClick={onClose}
                   />
                 ) : null}

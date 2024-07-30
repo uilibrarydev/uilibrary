@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import { Text } from '../components/Text'
 import * as Icons from '../components/SVGIcons'
 

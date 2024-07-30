@@ -10,9 +10,10 @@ const svgDirectory = `${root}/svg-icons`;
 const outputDirectory = `${root}/src/components/SVGIcons`;
 
 function extractPathFromSvg(svgContent) {
-    const match = svgContent.match(/<path .*\/>/);
-    if (match && match[0]) {
-        return match[0];
+    const pattern = /<svg[^>]*>([\s\S]*?)<\/svg>/;
+    const match = svgContent.match(pattern);
+    if (match && match[1]) {
+        return match[1];
     }
     return null;
 }
@@ -90,10 +91,14 @@ fs.readdir(svgDirectory, (err, files) => {
             // Function to generate a valid React component name from SVG file name
             const componentName = generateComponentName(file);
 
+            const outputPath = path.join(outputDirectory, `${componentName}.tsx`);
+
+            if (fs.existsSync(outputPath)) {
+                return;
+            }
             const reactComponent = generateReactComponent(componentName, svgPath);
 
             // Write React component to file
-            const outputPath = path.join(outputDirectory, `${componentName}.tsx`);
             fs.writeFile(outputPath, reactComponent, err => {
                 if (err) {
                     console.error('Error writing file:', err);
