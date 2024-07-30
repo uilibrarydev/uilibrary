@@ -1,12 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, {ReactElement, useState} from 'react'
-import {
-  Avatar,
-  Button,
-  NavigationItem,
-  SideNavigation as _SideNavigation,
-  Text,
-} from '../index'
+import React, { ReactElement, useState } from 'react'
+import { Avatar, Button, NavigationItem, SideNavigation as _SideNavigation, Text } from '../index'
 import { Block } from '../components/SideNavigation/Block'
 import { NavigationItemTypes } from '../components/SideNavigation/NavigationItem/types'
 // @ts-ignore
@@ -21,9 +15,9 @@ import IconSettings from '../components/SVGIcons/IconSettings'
 import IconHome from '../components/SVGIcons/IconHome'
 import IconSavings from '../components/SVGIcons/IconSavings'
 import IconWallet from '../components/SVGIcons/IconWallet'
-import IconAlertBadge from "../components/SVGIcons/IconAlertBadge";
-import IconMail from "../components/SVGIcons/IconMail";
-import IconArrowExit from "../components/SVGIcons/IconArrowExit";
+import IconAlertBadge from '../components/SVGIcons/IconAlertBadge'
+import IconMail from '../components/SVGIcons/IconMail'
+import IconArrowExit from '../components/SVGIcons/IconArrowExit'
 
 export default {
   title: 'Side Navigation',
