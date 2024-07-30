@@ -38,7 +38,8 @@ Tab.args = {
       label: 'Prompt text 1',
       value: 1,
       badgeProps: {
-        text: '9'
+        text: '9',
+        type: 'primary'
       }
     },
     {
