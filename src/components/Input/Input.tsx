@@ -3,7 +3,6 @@ import InputMask from 'react-input-mask'
 import classNames from 'classnames'
 import { NumericFormat } from 'react-number-format'
 import { InputCustomProps } from './types'
-import { Icon } from '../Icon'
 import { Label, ErrorMessage } from '../../helperComponents'
 import { Text } from '../Text'
 import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled'
@@ -159,15 +158,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
               })}
             />
           ) : null}
-          {leftIconProps?.name && (
-            <Icon
-              size="small"
-              {...leftIconProps}
-              className={`input__icon input__icon--left ${
-                leftIconProps.className ? leftIconProps.className : ''
-              }`}
-            />
-          )}
           {rightIconProps?.Component ? (
             <rightIconProps.Component
               size="small"
@@ -177,15 +167,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
               })}
             />
           ) : null}
-          {rightIconProps?.name && (
-            <Icon
-              size="small"
-              {...rightIconProps}
-              className={`input__icon input__icon--right ${
-                rightIconProps.className ? rightIconProps.className : ''
-              }`}
-            />
-          )}
         </div>
 
         {error || successMessage || helperText || maxCount ? (

@@ -10,7 +10,6 @@ export interface TButtonPropTypes extends Omit<ButtonHTMLAttributes<HTMLButtonEl
   size?: 'small' | 'medium' | 'large'
   isLoading?: boolean
   iconProps?: {
-    name?: string
     size?: TIconSize
     alignment?: string
     Component?: TSVGIconComponent

@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react'
 import { Checkbox } from '../../components/Checkbox'
 import { Avatar } from '../../components/Avatar'
-import { Icon } from '../../components/Icon'
 import { Tooltip } from '../../components/Tooltip'
 import { TSelectItemProps } from './types'
 import classNames from 'classnames'
@@ -63,14 +62,6 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
           <labelLeftIconProps.Component
             size="xsmall"
             type={disabled ? 'disabled' : 'primary'}
-            className="mr-4 select__left-icon"
-            {...labelLeftIconProps}
-          />
-        ) : null}
-        {labelLeftIconProps?.name ? (
-          <Icon
-            size="xsmall"
-            type={`${disabled ? 'disabled' : 'primary'}`}
             className="mr-4 select__left-icon"
             {...labelLeftIconProps}
           />

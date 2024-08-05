@@ -1,12 +1,12 @@
-import { ReactNode } from 'react'
+import { ReactElement, ReactNode } from 'react'
 import { IconPropTypes } from '../Icon/types'
 
 export interface TItemSelectProps extends IFormCompProps {
   id?: number | string
   label: string
   image?: string
-  rightIconProps?: ReactNode
-  leftIconProps?: ReactNode
+  rightIconProps?: ReactElement
+  leftIconProps?: ReactElement
   className?: string
   disabled?: boolean
   handleCardSelectValue?: (isChecked: boolean) => void

@@ -9,7 +9,7 @@ export interface TCheckboxProps extends IFormCompProps {
   required?: boolean
   link?: string
   selectedValue?: boolean
-  IconProps?: {
+  iconProps?: {
     name: string
   }
   helperText?: string

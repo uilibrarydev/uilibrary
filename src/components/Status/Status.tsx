@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import { Icon } from '../Icon'
 import { Text } from '../Text'
 import { TStatusProps } from './types'
 import classNames from 'classnames'
@@ -25,10 +24,10 @@ export const Status = (props: TStatusProps): ReactElement => {
 
   return (
     <div className={classNames(`status status--${size}`, className)}>
-      {leftIconProps?.name && (
-        <Icon size="xsmall" type={type} {...leftIconProps} className="mr-6" />
-      )}
-      {withCircle && !leftIconProps?.name ? (
+      {leftIconProps?.Component ? (
+        <leftIconProps.Component size="xsmall" type={type} className="mr-6" {...leftIconProps} />
+      ) : null}
+      {withCircle && !leftIconProps?.Component ? (
         <span
           className={classNames('status__circle', 'mr-8', {
             [`status__circle--${type}`]: true

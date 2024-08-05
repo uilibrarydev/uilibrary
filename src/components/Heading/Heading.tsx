@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { HeadingPropTypes } from './types'
 import { noop } from '../../utils/helpers'
 import classNames from 'classnames'
 
-export const Heading: React.FC<HeadingPropTypes> = (props: HeadingPropTypes) => {
+export const Heading = (props: HeadingPropTypes): ReactElement => {
   const {
     children,
     className = '',

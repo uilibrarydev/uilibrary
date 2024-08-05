@@ -12,7 +12,6 @@ interface TSelectBaseProps {
   placeHolder?: string
   isRequiredField?: boolean
   labelLeftIconProps?: {
-    name?: string
     size?: TIconSize
     className?: string
     onClick?: TClickHandler
@@ -26,7 +25,7 @@ interface TSelectBaseProps {
 export interface TNestedSelectProps {
   options: TSelectOptions
   isRequiredField?: boolean
-  label?: string | JSX.Element
+  label?: string | ReactElement
   placeHolder?: string
   initialSelectedFolderIds?: TItemValue[]
   setSelectedValue: (value: TSelectOption | null) => void
@@ -34,7 +33,7 @@ export interface TNestedSelectProps {
   optionRightIconComponent?: (value: TItemValue) => ReactElement
   labelRightIconComponent?: (value: TItemValue) => ReactElement
   avatar?: string
-  labelAddons?: JSX.Element
+  labelAddons?: ReactElement
 }
 
 export type TSelectTranslations = {
@@ -151,7 +150,6 @@ export interface TFilterProps extends IFormCompProps, TSelectBaseProps {
 export interface TFilterDropdownContentProps extends IFormCompProps {
   options: TSelectOptions
   labelLeftIconProps?: {
-    name?: string
     size?: TIconSize
     className?: string
     onClick?: TClickHandler
@@ -173,7 +171,6 @@ export interface TFilterDropdownContentProps extends IFormCompProps {
 export interface TFilterGroupDropdownContentProps extends IFormCompProps {
   options: TSelectGroupOptions
   labelLeftIconProps?: {
-    name?: string
     size?: TIconSize
     className?: string
     onClick?: TClickHandler
