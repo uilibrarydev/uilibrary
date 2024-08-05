@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import {ISVGIconProps} from '../SVGIcons/types';
+import { ISVGIconProps } from '../SVGIcons/types'
 
 export type TChipsColors =
   | 'primary'

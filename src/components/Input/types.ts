@@ -1,5 +1,5 @@
-import {InputHTMLAttributes, ReactElement, RefObject} from 'react'
-import {ISVGIconProps} from '../SVGIcons/types';
+import { InputHTMLAttributes, ReactElement, RefObject } from 'react'
+import { ISVGIconProps } from '../SVGIcons/types'
 export interface InputCustomProps
   extends IFormCompProps,
     Omit<

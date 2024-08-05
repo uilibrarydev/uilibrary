@@ -11,7 +11,7 @@ import {
 } from '../index'
 import IconEdit from '../components/SVGIcons/IconEdit'
 import IconAddFilled from '../components/SVGIcons/IconAddFilled'
-import IconMore from "../components/SVGIcons/IconMore";
+import IconMore from '../components/SVGIcons/IconMore'
 
 export default {
   title: 'Menu',

@@ -1,4 +1,4 @@
-import React, {ReactElement} from 'react'
+import React, { ReactElement } from 'react'
 import { TextPropTypes } from './types'
 import classNames from 'classnames'
 import { noop } from '../../utils/helpers'

@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { NavigationItemTypes, TNavigationLinkPropTypes } from './types'
 import { Badge } from '../../Badge'
 import IconArrowDown from '../../SVGIcons/IconArrowDown'
-import IconDynamicComponent from '../../../helperComponents/IconDynamicComponent/IconDynamicComponent';
+import IconDynamicComponent from '../../../helperComponents/IconDynamicComponent/IconDynamicComponent'
 
 export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement => {
   const {

@@ -25,12 +25,7 @@ export const Status = (props: TStatusProps): ReactElement => {
   return (
     <div className={classNames(`status status--${size}`, className)}>
       {leftIconProps?.Component ? (
-          <leftIconProps.Component
-              size='xsmall'
-              type={type}
-              className="mr-6"
-              {...leftIconProps}
-          />
+        <leftIconProps.Component size="xsmall" type={type} className="mr-6" {...leftIconProps} />
       ) : null}
       {withCircle && !leftIconProps?.Component ? (
         <span

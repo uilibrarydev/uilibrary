@@ -1,4 +1,4 @@
-import React, {ReactElement} from 'react'
+import React, { ReactElement } from 'react'
 import { TBreadCrumbItem, TBreadCrumbProps } from './types'
 
 export const Breadcrumb = (props: TBreadCrumbProps): ReactElement | null => {
