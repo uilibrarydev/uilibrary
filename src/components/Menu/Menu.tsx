@@ -50,6 +50,7 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
 
     return { left: left, top: top + 4 + height }
   }, [left, top, width, tooltipPosition, menuWidth, height, menuHeight])
+
   if (!parentRef || !isOpen) {
     return null
   }

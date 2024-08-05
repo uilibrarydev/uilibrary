@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, {ReactElement, useContext} from 'react'
 import { ErrorMessage as ReactHookFormErrorMessage } from '@hookform/error-message'
 import { ErrorMessage } from '../../helperComponents'
 import { FormContext } from '../../context'
@@ -6,7 +6,7 @@ import { Controller } from 'react-hook-form'
 import { TFormFieldPropTypes } from './types'
 import classnames from 'classnames'
 
-export const FormField = (props: TFormFieldPropTypes): JSX.Element | null => {
+export const FormField = (props: TFormFieldPropTypes): ReactElement | null => {
   const { As, name, className = '', dataId = '', hideErrorMessage = false } = props
   const { register, errors, setValue, control } = useContext(FormContext)
 

@@ -1,5 +1,5 @@
-import { IconPropTypes } from '../Icon/types'
-import { ReactNode } from 'react'
+import {ReactElement, ReactNode} from 'react'
+import {ISVGIconProps} from '../SVGIcons/types';
 
 export type TStatusTypes =
   | 'primary'
@@ -14,8 +14,8 @@ export type TStatusTypes =
 export interface TStatusProps extends IFormCompProps {
   text?: string
   children?: ReactNode
-  leftIconProps?: IconPropTypes
-  rightIconProps?: JSX.Element
+  leftIconProps?: ISVGIconProps
+  rightIconProps?: ReactElement
   type?: TStatusTypes
   size?: 'large' | 'medium' | 'small'
   className?: string

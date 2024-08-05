@@ -1,13 +1,15 @@
+import {ReactElement} from 'react';
+
 export type TPaginationProps = {
   labels?: {
-    next: string | JSX.Element
-    previous: string | JSX.Element
+    next: string | ReactElement
+    previous: string | ReactElement
   }
   totalCount: number
   page?: number
   pageSize: number
   handleChangePage: (pageNumber: number) => void
-  breakLabel?: JSX.Element
+  breakLabel?: ReactElement
   classname?: string
   activeClassName?: string
   size?: 'large' | 'medium' | 'small'

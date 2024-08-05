@@ -1,5 +1,5 @@
-import { InputHTMLAttributes, RefObject } from 'react'
-import { IconPropTypes } from '../Icon/types'
+import {InputHTMLAttributes, ReactElement, RefObject} from 'react'
+import {ISVGIconProps} from '../SVGIcons/types';
 export interface InputCustomProps
   extends IFormCompProps,
     Omit<
@@ -12,10 +12,10 @@ export interface InputCustomProps
   className?: string
   size?: 'large' | 'small'
   currentValue?: string
-  error?: string | JSX.Element
-  label?: string | JSX.Element
-  leftIconProps?: IconPropTypes
-  rightIconProps?: IconPropTypes
+  error?: string | ReactElement
+  label?: string | ReactElement
+  leftIconProps?: ISVGIconProps
+  rightIconProps?: ISVGIconProps
   disabled?: boolean
   required?: boolean
   readonly?: boolean
@@ -35,7 +35,7 @@ export interface InputCustomProps
   separatorSymbol?: string
   allowLeadingZeros?: boolean
   thousandSeparator?: string
-  labelAddons?: JSX.Element
+  labelAddons?: ReactElement
   autoComplete?: string
   witUpperCase?: boolean
   isAllowed?: (values: {

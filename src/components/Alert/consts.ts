@@ -1,6 +1,6 @@
-import { TIconTypes } from '../Icon/types'
+import {TSVGIconType} from '../SVGIcons/types';
 
-export const TYPE_MAPPING: { [key: string]: TIconTypes } = {
+export const TYPE_MAPPING: { [key: string]: TSVGIconType } = {
   warning: 'warning',
   success: 'success',
   error: 'danger',

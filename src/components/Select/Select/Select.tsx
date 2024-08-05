@@ -150,12 +150,6 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     input: inputRef.current
   })
 
-  // useEffect(() => {
-  //   if (inputRef && inputRef.current) {
-  //     inputRef.current.focus()
-  //   }
-  // }, [inputRef])
-
   return (
     <div
       data-id={`${dataId}-content`}

@@ -12,11 +12,11 @@ export interface TTabProps extends IFormCompProps {
   size?: 'large' | 'medium' | 'small'
   className?: string
   iconProps?: {
-    name: string
+    Component?: TSVGIconComponent
     alignment?: string
   }
   rightIconProps?: {
-    name: string
+    Component?: TSVGIconComponent
     alignment?: string
     action?: (value: string | number) => void
   }

@@ -7,6 +7,7 @@ import { IconCopy } from '../SVGIcons/IconCopy'
 export const Copy = ({ textAfterCopy, className = '', text, dataId }: TCopyProps): ReactElement => {
   const [isTooltipVisible, setTooltipVisibility] = useState(false)
   const copyIconRef = useRef<HTMLDivElement | null>(null)
+
   const copy = (e: TClickEventType) => {
     e.stopPropagation()
     navigator.clipboard.writeText(text)

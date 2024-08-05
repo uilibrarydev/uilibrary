@@ -1,9 +1,9 @@
 import React, { ReactElement, useState } from 'react'
 import classNames from 'classnames'
 import { NavigationItemTypes, TNavigationLinkPropTypes } from './types'
-import { Icon } from '../../Icon'
 import { Badge } from '../../Badge'
 import IconArrowDown from '../../SVGIcons/IconArrowDown'
+import IconDynamicComponent from '../../../helperComponents/IconDynamicComponent/IconDynamicComponent';
 
 export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement => {
   const {
@@ -58,7 +58,7 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
             }
             {!isOpen && type === NavigationItemTypes.SUB && As()}
             {type === NavigationItemTypes.USER && iconName && isOpen && (
-              <Icon name={iconName} size="small" />
+              <IconDynamicComponent componentName={iconName} />
             )}
           </div>
           {showBadge && badgeContent && isOpen && (

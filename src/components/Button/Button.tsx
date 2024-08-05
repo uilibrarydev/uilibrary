@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react'
 import classnames from 'classnames'
-import { Icon } from '../Icon'
 import { TButtonPropTypes } from './types'
 import { Loader } from '../../helperComponents'
 import { ICON_SIZE_MAPPING, ICON_TYPE_MAPPING, LITE_LOADER_TYPES } from './consts'
@@ -37,7 +36,7 @@ export const Button = (props: TButtonPropTypes): ReactElement => {
         {
           'btn--icon': justIcon,
           [`btn--icon-${iconProps?.alignment || 'left'}`]:
-            !isLoading && !justIcon && (iconProps?.name || iconProps?.Component),
+            !isLoading && !justIcon && iconProps?.Component,
           'btn--loading': isLoading
         },
         className
@@ -56,9 +55,6 @@ export const Button = (props: TButtonPropTypes): ReactElement => {
               type={ICON_TYPE_MAPPING[type]}
               className="btn__icon"
             />
-          ) : null}
-          {iconProps?.name ? (
-            <Icon className="btn__icon" size={ICON_SIZE_MAPPING[size]} {...iconProps} />
           ) : null}
           {/* {buttonSecondaryText ? <span className="btn__text">{buttonSecondaryText}</span> : null} */}
           {buttonText ? <span className="btn__text">{buttonText}</span> : null}

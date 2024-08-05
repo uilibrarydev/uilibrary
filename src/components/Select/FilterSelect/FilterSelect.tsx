@@ -1,4 +1,4 @@
-import React, { useCallback, useId, useState } from 'react'
+import React, {ReactElement, useCallback, useId, useState} from 'react'
 import { createPortal } from 'react-dom'
 import { useOnOutsideClick, useHideOnScroll } from '../../../hooks'
 import { FilterDropdownContent } from './FilterDropdown'
@@ -9,7 +9,7 @@ import { TFilterProps } from '../types'
 import IconSearchFilled from '../../SVGIcons/IconSearchFilled'
 import IconDismissFilled from '../../SVGIcons/IconDismissFilled'
 
-export const FilterSelect = (props: TFilterProps): JSX.Element | null => {
+export const FilterSelect = (props: TFilterProps): ReactElement | null => {
   const {
     isLoading,
     isGrouped,

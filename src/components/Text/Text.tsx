@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {ReactElement} from 'react'
 import { TextPropTypes } from './types'
 import classNames from 'classnames'
 import { noop } from '../../utils/helpers'
 
-export const Text: React.FC<TextPropTypes> = (props: TextPropTypes) => {
+export const Text = (props: TextPropTypes): ReactElement => {
   const {
     children,
     className = '',

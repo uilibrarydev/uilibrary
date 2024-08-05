@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import { Icon } from '../Icon'
 import { Text } from '../Text'
 import { ChipCustomType, TChipsProps } from './types'
 import classNames from 'classnames'
@@ -48,16 +47,9 @@ export const Chips = (props: TChipsProps): ReactElement => {
           dataId={`${dataId}-icon`}
           size={size == 'small' ? 'xsmall' : 'small'}
           type={customType}
-        />
-      ) : null}
-      {leftIconProps?.name && (
-        <Icon
-          dataId={`${dataId}-icon`}
-          size={size == 'small' ? 'xsmall' : 'small'}
-          type={customType}
           {...leftIconProps}
         />
-      )}
+      ) : null}
       {text ? (
         <Text
           dataId={`${dataId}-text`}
