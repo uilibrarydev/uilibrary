@@ -1,9 +1,12 @@
+import {ReactNode} from 'react;
+
 export interface TRadioProps extends IFormCompProps {
   label?: string | JSX.Element
   helperText?: string | JSX.Element
   className?: string
   disabled?: boolean
   isSelected?: boolean
+  iconProps?: ReactNode
   onClick?: (isChecked: boolean) => void
 }
 
