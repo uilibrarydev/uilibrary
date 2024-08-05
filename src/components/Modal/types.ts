@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { TButtonPropTypes } from '../Button/types'
-import { TIconTypes } from '../Icon/types'
+import { TSVGIconType } from '../SVGIcons/types'
 
 export interface TModalPropTypes {
   dataIdPrefix?: string
@@ -10,8 +10,7 @@ export interface TModalPropTypes {
   onSubmit: () => void
   title?: string
   titleIconProps?: {
-    name?: string
-    type: TIconTypes
+    type: TSVGIconType
     Component?: TSVGIconComponent
   }
   size?: 'small' | 'medium' | 'large'

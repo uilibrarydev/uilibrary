@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { LinkPropTypes } from './types'
 import classNames from 'classnames'
 
-export const Link: React.FC<LinkPropTypes> = (props) => {
+export const Link = (props: LinkPropTypes): ReactElement => {
   const { children, afterLink, beforeLink, className = '', url, dataId = '', target } = props
   return beforeLink || afterLink ? (
     <span className={className}>

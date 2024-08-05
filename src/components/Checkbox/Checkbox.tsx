@@ -21,7 +21,7 @@ export const Checkbox = (
     selectedValue,
     value,
     className = '',
-    IconProps = { name: 'checkmark' },
+    iconProps = { name: 'checkmark' },
     dataId = '',
     onClick,
     beforeLink,
@@ -113,7 +113,7 @@ export const Checkbox = (
         />
         <span className="controller__icon">
           <IconDynamicComponent
-            componentName={IconProps.name}
+            componentName={iconProps.name}
             size="xxsmall"
             type={disabled ? 'disabled' : 'inverse'}
             className="controller__mark"

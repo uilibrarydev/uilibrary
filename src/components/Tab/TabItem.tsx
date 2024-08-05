@@ -1,5 +1,4 @@
 import React, { MouseEvent } from 'react'
-import { Icon } from '../Icon'
 import { Badge } from '../Badge'
 import { noop } from '../../utils/helpers'
 import { TTabItemProps } from './types'
@@ -31,13 +30,6 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
         className
       )}
     >
-      {iconProps?.name ? (
-        <Icon
-          {...iconProps}
-          className="tab__icon mr-8"
-          size={`${size == 'small' ? 'xsmall' : 'small'}`}
-        />
-      ) : null}
       {iconProps?.Component ? (
         <iconProps.Component
           className="tab__icon mr-8"
@@ -59,19 +51,6 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
           className="tab__icon ml-8"
           size={`${size == 'small' ? 'xsmall' : 'small'}`}
           {...rightIconProps}
-        />
-      ) : null}
-      {rightIconProps?.name ? (
-        <Icon
-          {...rightIconProps}
-          onClick={(e) => {
-            if (rightIconProps?.action) {
-              e.stopPropagation()
-              rightIconProps?.action(val)
-            }
-          }}
-          className="tab__icon ml-8"
-          size={`${size == 'small' ? 'xsmall' : 'small'}`}
         />
       ) : null}
       {badgeProps?.text ? (

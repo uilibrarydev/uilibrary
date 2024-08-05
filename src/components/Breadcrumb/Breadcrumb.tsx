@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { TBreadCrumbItem, TBreadCrumbProps } from './types'
 
-export const Breadcrumb = (props: TBreadCrumbProps): JSX.Element | null => {
+export const Breadcrumb = (props: TBreadCrumbProps): ReactElement | null => {
   const { selectedValue, breadCrumbItems, className = '', onSelect } = props
 
   return (

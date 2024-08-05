@@ -81,7 +81,7 @@ export const NestedSelect = (props: TNestedSelectProps): JSX.Element | null => {
             OptionRightIconComponent={optionRightIconComponent}
             LabelRightIconComponent={labelRightIconComponent}
             labelLeftIconProps={
-              children ? { name: 'caret-down-hover', size: 'xxsmall' } : undefined
+              children ? { Component: IconCaretDownFilled, size: 'xxsmall' } : undefined
             }
           />
         </div>

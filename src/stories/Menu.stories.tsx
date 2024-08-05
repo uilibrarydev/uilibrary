@@ -11,6 +11,7 @@ import {
 } from '../index'
 import IconEdit from '../components/SVGIcons/IconEdit'
 import IconAddFilled from '../components/SVGIcons/IconAddFilled'
+import IconMore from '../components/SVGIcons/IconMore'
 
 export default {
   title: 'Menu',
@@ -75,7 +76,7 @@ const Template = (args: any) => {
   return (
     <div>
       <div style={{ position: 'relative', width: 'fit-content' }} ref={setRef}>
-        <Button onClick={() => setOpen(!open)} iconProps={{ name: 'more' }} />
+        <Button onClick={() => setOpen(!open)} iconProps={{ Component: IconMore }} />
         <_Menu
           {...args}
           onClose={() => setOpen(false)}

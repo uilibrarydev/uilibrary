@@ -1,6 +1,8 @@
+import { ReactElement } from 'react'
+
 export interface TRadioProps extends IFormCompProps {
-  label?: string | JSX.Element
-  helperText?: string | JSX.Element
+  label?: string | ReactElement
+  helperText?: string | ReactElement
   className?: string
   disabled?: boolean
   isSelected?: boolean
@@ -10,12 +12,12 @@ export interface TRadioProps extends IFormCompProps {
 export type TRadioOptionItem = {
   value: number | string
   label: string
-  helperText?: string | JSX.Element
+  helperText?: string | ReactElement
   dataId?: string
 }
 
 export interface TRadioGroupProps extends IFormCompProps {
-  label?: string | JSX.Element
+  label?: string | ReactElement
   className?: string
   isHorizontal?: boolean
   selected: number | string
@@ -23,5 +25,5 @@ export interface TRadioGroupProps extends IFormCompProps {
   handleChange?: (selected: number | string) => void
   required?: boolean
   disabled?: boolean
-  labelAddons?: JSX.Element
+  labelAddons?: ReactElement
 }

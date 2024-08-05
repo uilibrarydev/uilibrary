@@ -50,7 +50,7 @@ export const Alert = (props: TAlertProps): ReactElement => {
                 <Button size="medium" type="secondary" {...buttonProps.confirm} />
               )}
               {buttonProps.cancel && (
-                <Button size="medium" type="tertiary" className={'ml-12'} {...buttonProps.cancel} />
+                <Button size="medium" type="tertiary" className="ml-12" {...buttonProps.cancel} />
               )}
             </div>
           ) : null}

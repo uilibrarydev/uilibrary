@@ -6,7 +6,6 @@ import { useHideBodyScroll, useOnOutsideClick } from '../../hooks'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { TModalPropTypes } from './types'
-import { Icon } from '../Icon'
 import IconDismissFilled from '../SVGIcons/IconDismissFilled'
 
 const DESKTOP_ANIMATION = {
@@ -67,9 +66,6 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
               <div className="modal__header">
                 {titleIconProps?.Component ? (
                   <titleIconProps.Component size="small" className="mr-12" {...titleIconProps} />
-                ) : null}
-                {titleIconProps?.name ? (
-                  <Icon size="small" {...titleIconProps} className="mr-12" />
                 ) : null}
                 <Text
                   className="modal__title"

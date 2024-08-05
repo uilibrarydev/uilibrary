@@ -1,5 +1,5 @@
-import { IconPropTypes } from '../Icon/types'
 import { ReactNode } from 'react'
+import { ISVGIconProps } from '../SVGIcons/types'
 
 export type TChipsColors =
   | 'primary'
@@ -12,7 +12,7 @@ export type TChipsColors =
   | 'discovery'
 export interface TChipsProps extends IFormCompProps {
   text?: string | ReactNode
-  leftIconProps?: IconPropTypes
+  leftIconProps?: ISVGIconProps
   color?: TChipsColors
   type?: 'filled' | 'accent' | 'outlined'
   size?: 'large' | 'medium' | 'small'
