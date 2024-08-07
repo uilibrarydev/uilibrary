@@ -26,6 +26,15 @@ export default {
       options: ['xxsmall', 'xsmall', 'small', 'standard', 'medium', 'large'],
       control: { type: 'radio' }
     },
+    as: {
+      options: [
+        'p',
+        'span',
+        'div',
+        'h1',
+      ],
+      control: { type: 'radio' }
+    },
     lineHeight: {
       options: ['xsmall', 'small', 'medium', 'large'],
       control: { type: 'radio' }
@@ -48,6 +57,7 @@ const Template = (args) => {
 export const Text = Template.bind({})
 Text.args = {
   type: 'primary',
+  as: 'p',
   size: 'standard',
   lineHeight: 'large',
   weight: 'regular',
