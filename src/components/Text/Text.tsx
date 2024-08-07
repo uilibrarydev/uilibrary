@@ -11,13 +11,14 @@ export const Text = (props: TextPropTypes): ReactElement => {
     size = 'standard',
     weight = 'regular',
     lineHeight = 'medium',
+    as: As='p',
     dataId = '',
     onClick = noop,
     id = '',
     title
   } = props
   return (
-    <p
+    <As
       id={id}
       title={title}
       data-id={dataId}
@@ -32,6 +33,6 @@ export const Text = (props: TextPropTypes): ReactElement => {
       )}
     >
       {children}
-    </p>
+    </As>
   )
 }
