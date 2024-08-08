@@ -11,7 +11,7 @@ export const Text = (props: TextPropTypes): ReactElement => {
     size = 'standard',
     weight = 'regular',
     lineHeight = 'medium',
-    as: As='p',
+    as: As = 'p',
     dataId = '',
     onClick = noop,
     id = '',

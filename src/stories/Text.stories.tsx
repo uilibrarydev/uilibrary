@@ -27,12 +27,7 @@ export default {
       control: { type: 'radio' }
     },
     as: {
-      options: [
-        'p',
-        'span',
-        'div',
-        'h1',
-      ],
+      options: ['p', 'span', 'div', 'h1'],
       control: { type: 'radio' }
     },
     lineHeight: {
