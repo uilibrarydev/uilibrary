@@ -7,7 +7,7 @@ import {
   useGetHasBottomSpace,
   useGetHasTopSpace
 } from '../../../../hooks'
-import { getStringWidth, setTranslationValue } from '../../../../utils/helpers'
+import { getStringWidth, noop, setTranslationValue } from '../../../../utils/helpers'
 
 import { useChangePositionsOnScroll } from '../../../../hooks/useChangePositionsOnScroll'
 import { IconCaretDownFilled } from '../../../SVGIcons/IconCaretDownFilled'
@@ -93,7 +93,7 @@ export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | n
 
   return (
     <div className={classNames('select select--multi', className)} ref={setContainerRef}>
-      <div onClick={toggleDropdown}>
+      <div onClick={disabled ? noop : toggleDropdown}>
         <Input
           readonly
           label={label}
