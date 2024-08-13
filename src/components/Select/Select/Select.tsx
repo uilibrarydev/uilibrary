@@ -16,6 +16,7 @@ import { SELECTED_VISIBLE_MIN_COUNT } from '../constants'
 import { useChangePositionsOnScroll } from '../../../hooks/useChangePositionsOnScroll'
 import { IconCaretUpFilled } from '../../SVGIcons/IconCaretUpFilled'
 import { IconCaretDownFilled } from '../../SVGIcons/IconCaretDownFilled'
+import { noop } from '../../../utils/helpers'
 
 export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
@@ -156,7 +157,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
       className={classNames(`select select--${size}`, className)}
       ref={containerRef}
     >
-      <div onClick={onOpenOptions}>
+      <div onClick={disabled ? noop : onOpenOptions}>
         <Input
           size={size === 'large' ? 'large' : 'small'}
           dataId={dataId}

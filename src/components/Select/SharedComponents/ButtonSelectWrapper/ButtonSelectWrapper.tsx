@@ -9,6 +9,7 @@ import {
   useGetHasTopSpace
 } from '../../../../hooks'
 import { TSelectWrapperProps } from '../../types'
+import { noop } from '../../../../utils/helpers'
 
 export const ButtonSelectWrapper = (props: TSelectWrapperProps): ReactElement => {
   const {
@@ -27,6 +28,7 @@ export const ButtonSelectWrapper = (props: TSelectWrapperProps): ReactElement =>
     selectedValues,
     placeHolder,
     dataId,
+    disabled,
     type = 'secondary'
   } = props
 
@@ -66,7 +68,7 @@ export const ButtonSelectWrapper = (props: TSelectWrapperProps): ReactElement =>
         isOpen={isOpen}
         buttonText={placeHolder || ''}
         selectedItemsLabels={selectedItemsLabels}
-        onClick={openDropdown}
+        onClick={disabled ? noop : openDropdown}
         refHandler={buttonRef}
         className="select_button"
       />
