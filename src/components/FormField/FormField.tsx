@@ -17,7 +17,7 @@ export const FormField = (props: TFormFieldPropTypes): ReactElement | null => {
   const registerOptions = register(name)
 
   return (
-    <div className={classnames('form-container__field', className)}>
+    <div className={classnames('form-container__field', className, name)}>
       <Controller
         control={control}
         name={name}
