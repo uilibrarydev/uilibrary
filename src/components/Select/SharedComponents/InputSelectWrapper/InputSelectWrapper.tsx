@@ -13,6 +13,7 @@ import { useChangePositionsOnScroll } from '../../../../hooks/useChangePositions
 import { IconCaretDownFilled } from '../../../SVGIcons/IconCaretDownFilled'
 import { IconCaretUpFilled } from '../../../SVGIcons/IconCaretUpFilled'
 import { TSelectWrapperProps } from '../../types'
+import { DROPDOWN_AND_INPUT_GAP } from '../../../../consts'
 
 export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | null => {
   const {
@@ -40,8 +41,6 @@ export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | n
   const inputRef = useRef<HTMLInputElement | null>(null)
 
   const { width } = useGetElemSizes(containerRef)
-
-  useChangePositionsOnScroll(inputRef?.current, dropdownRef)
 
   const checkIsValueOverflowed = useCallback(
     (value: string) => {
@@ -91,6 +90,8 @@ export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | n
     input: inputRef.current
   })
 
+  useChangePositionsOnScroll(inputRef?.current, dropdownRef, hasBottomSpace)
+
   return (
     <div className={classNames('select select--multi', className)} ref={setContainerRef}>
       <div onClick={disabled ? noop : toggleDropdown}>
@@ -120,8 +121,9 @@ export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | n
             style={{
               left: align === 'left' ? left : right - (dropdownWidth || containerWidth),
               width: dropdownWidth || containerWidth,
-              top: hasBottomSpace || !hasTopSpace ? bottom : 'initial',
-              bottom: hasBottomSpace || !hasTopSpace ? 'initial' : window.innerHeight - top + 10
+              ...(hasBottomSpace || !hasTopSpace
+                ? { top: bottom }
+                : { bottom: window.innerHeight - top + DROPDOWN_AND_INPUT_GAP })
             }}
           >
             {children}
