@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { CollapseItem as _CollapseItem, CollapseGroup as _CollapseGroup } from '../index'
+import IconChevronDown from "../components/SVGIcons/IconChevronDown";
 
 export default {
   title: 'Collapse',
@@ -16,6 +17,7 @@ const Template = (args: any) => {
   return (
     <_CollapseItem
       {...args}
+        reverse={true}
       title={{ text: args.title }}
       isOpen={isOpen}
       toggle={isOpen ? close : open}

@@ -6,10 +6,12 @@ import { Divider } from '../../Divider'
 import { AnimatePresenceWrapper } from '../../../helperComponents/AnimatePresenceWrapper'
 import { TCollapseProps } from '../types'
 import classNames from 'classnames'
+import IconChevronDown from "../../SVGIcons/IconChevronDown";
 
 export const CollapseItem = (props: TCollapseProps): JSX.Element => {
   const {
     title: { text, size = 'medium', color },
+    className,
     isOpen,
     toggle,
     dataId,
@@ -29,23 +31,14 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
       text
     )
 
-  const icon = (
-    <IconChevronRight
-      className={classNames({
-        collapse_icon_opened: isOpen,
-        collapse_icon_closed: !isOpen
-      })}
-    />
-  )
-
   return (
-    <div className="collapse" id={`${id || ''}`}>
-      <div className="collapse_header" onClick={toggle}>
+    <div className={classNames('collapse', {'collapse--opened': isOpen,}, className)} id={`${id || ''}`}>
+      <div className="collapse__header flexbox justify-content--between" onClick={toggle}>
         {reverse ? (
           <>
-            <div className="header_components">
-              {icon}
-              {additionalInfo}
+            <div className="collapse__header__inner flexbox align-items--center">
+                <IconChevronDown className={'collapse__header__icon'} size={'small'} />
+                {additionalInfo}
             </div>
             {title}
           </>
@@ -63,9 +56,9 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
               {title}
             </div>
 
-            <div className="header_components">
+            <div className="collapse__header__inner flexbox align-items--center">
               {additionalInfo}
-              {icon}
+              <IconChevronRight className={'collapse__header__icon'} size={'small'}/>
             </div>
           </>
         )}
@@ -78,8 +71,8 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
             exit={{ height: 0 }}
             transition={{ type: 'spring', duration: 0.5, bounce: 0 }}
           >
-            <div className="collapse_container">
-              <Divider type="primary" isHorizontal />
+            <div className="collapse__content">
+              <Divider type="primary" isHorizontal className={'collapse__divider'} />
               {children}
             </div>
           </motion.div>

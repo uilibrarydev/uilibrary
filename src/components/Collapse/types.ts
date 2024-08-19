@@ -20,6 +20,7 @@ export type TCollapseProps = {
   dataId?: string | undefined
   labelLeftIconProps?: TSelectIconProps
   id?: string | number
+  className?: string
 }
 
 export type TCollapseValue = string | number
