@@ -42,8 +42,6 @@ export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | n
 
   const { width } = useGetElemSizes(containerRef)
 
-  useChangePositionsOnScroll(inputRef?.current, dropdownRef)
-
   const checkIsValueOverflowed = useCallback(
     (value: string) => {
       const elemWidth = getStringWidth(value, 14)
@@ -92,6 +90,8 @@ export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | n
     input: inputRef.current
   })
 
+  useChangePositionsOnScroll(inputRef?.current, dropdownRef, hasBottomSpace)
+
   return (
     <div className={classNames('select select--multi', className)} ref={setContainerRef}>
       <div onClick={disabled ? noop : toggleDropdown}>
@@ -121,11 +121,9 @@ export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | n
             style={{
               left: align === 'left' ? left : right - (dropdownWidth || containerWidth),
               width: dropdownWidth || containerWidth,
-              top: hasBottomSpace || !hasTopSpace ? bottom : 'initial',
-              bottom:
-                hasBottomSpace || !hasTopSpace
-                  ? 'initial'
-                  : window.innerHeight - top + DROPDOWN_AND_INPUT_GAP
+              ...(hasBottomSpace || !hasTopSpace
+                ? { top: bottom }
+                : { bottom: window.innerHeight - top + DROPDOWN_AND_INPUT_GAP })
             }}
           >
             {children}

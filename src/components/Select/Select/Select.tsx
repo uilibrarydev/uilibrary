@@ -77,7 +77,6 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     closeDropdown()
   }
 
-  useChangePositionsOnScroll(inputRef?.current, dropdownRef)
   useOnOutsideClick(containerRef.current, handleOutsideClick, isOpen, useId())
 
   const { bottom, left, top } = useGetElemPositions(inputRef.current)
@@ -152,6 +151,8 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     input: inputRef.current
   })
 
+  useChangePositionsOnScroll(inputRef?.current, dropdownRef, hasBottomSpace)
+
   return (
     <div
       data-id={`${dataId}-content`}
@@ -189,11 +190,9 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
           style={{
             left,
             width,
-            top: hasBottomSpace || !hasTopSpace ? bottom : 'initial',
-            bottom:
-              hasBottomSpace || !hasTopSpace
-                ? 'initial'
-                : window.innerHeight - top + DROPDOWN_AND_INPUT_GAP
+            ...(hasBottomSpace || !hasTopSpace
+              ? { top: bottom }
+              : { bottom: window.innerHeight - top + DROPDOWN_AND_INPUT_GAP })
           }}
           ref={setDropdownRef}
         >
