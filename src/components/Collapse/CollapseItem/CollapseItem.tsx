@@ -6,7 +6,7 @@ import { Divider } from '../../Divider'
 import { AnimatePresenceWrapper } from '../../../helperComponents/AnimatePresenceWrapper'
 import { TCollapseProps } from '../types'
 import classNames from 'classnames'
-import IconChevronDown from "../../SVGIcons/IconChevronDown";
+import IconChevronDown from '../../SVGIcons/IconChevronDown'
 
 export const CollapseItem = (props: TCollapseProps): JSX.Element => {
   const {
@@ -32,13 +32,16 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
     )
 
   return (
-    <div className={classNames('collapse', {'collapse--opened': isOpen,}, className)} id={`${id || ''}`}>
+    <div
+      className={classNames('collapse', { 'collapse--opened': isOpen }, className)}
+      id={`${id || ''}`}
+    >
       <div className="collapse__header flexbox justify-content--between" onClick={toggle}>
         {reverse ? (
           <>
             <div className="collapse__header__inner flexbox align-items--center">
-                <IconChevronDown className={'collapse__header__icon'} size={'small'} />
-                {additionalInfo}
+              <IconChevronDown className={'collapse__header__icon'} size={'small'} />
+              {additionalInfo}
             </div>
             {title}
           </>
@@ -58,7 +61,7 @@ export const CollapseItem = (props: TCollapseProps): JSX.Element => {
 
             <div className="collapse__header__inner flexbox align-items--center">
               {additionalInfo}
-              <IconChevronRight className={'collapse__header__icon'} size={'small'}/>
+              <IconChevronRight className={'collapse__header__icon'} size={'small'} />
             </div>
           </>
         )}
