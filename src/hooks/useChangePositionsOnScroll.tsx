@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { CUSTOM_SCROLL_NAME, CUSTOM_SCROLL_MESSAGE } from '../consts'
+import { CUSTOM_SCROLL_NAME, CUSTOM_SCROLL_MESSAGE, DROPDOWN_AND_INPUT_GAP } from '../consts'
 
 export const useChangePositionsOnScroll = (
   parentElement: HTMLElement | null,
@@ -7,9 +7,14 @@ export const useChangePositionsOnScroll = (
 ): null => {
   const positionElement = () => {
     const elemDimensions = parentElement?.getBoundingClientRect()
+    const childElementDimensions = childElement?.getBoundingClientRect()
 
-    if (childElement && elemDimensions) {
-      childElement.style.top = elemDimensions.bottom + 'px'
+    if (childElementDimensions && elemDimensions && childElement) {
+      if(childElementDimensions.top > elemDimensions.top){
+        childElement.style.top = elemDimensions.bottom + 'px'
+      } else {
+        childElement.style.bottom = window.innerHeight - elemDimensions.top + DROPDOWN_AND_INPUT_GAP + 'px'
+      }
     }
   }
   useEffect(() => {

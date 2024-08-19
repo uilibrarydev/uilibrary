@@ -12,11 +12,12 @@ import { Text } from '../../Text'
 import { OptionItem } from '../../../helperComponents'
 import { Loading } from '../SharedComponents'
 import { TSingleSelectPropTypes } from '../types'
-import { SELECTED_VISIBLE_MIN_COUNT } from '../constants'
+import {SELECTED_VISIBLE_MIN_COUNT} from '../constants'
 import { useChangePositionsOnScroll } from '../../../hooks/useChangePositionsOnScroll'
 import { IconCaretUpFilled } from '../../SVGIcons/IconCaretUpFilled'
 import { IconCaretDownFilled } from '../../SVGIcons/IconCaretDownFilled'
 import { noop } from '../../../utils/helpers'
+import {DROPDOWN_AND_INPUT_GAP} from '../../../consts';
 
 export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
@@ -189,7 +190,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
             left,
             width,
             top: hasBottomSpace || !hasTopSpace ? bottom : 'initial',
-            bottom: hasBottomSpace || !hasTopSpace ? 'initial' : window.innerHeight - top + 10
+            bottom: hasBottomSpace || !hasTopSpace ? 'initial' : window.innerHeight - top + DROPDOWN_AND_INPUT_GAP
           }}
           ref={setDropdownRef}
         >
