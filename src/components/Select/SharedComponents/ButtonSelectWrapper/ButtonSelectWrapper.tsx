@@ -11,6 +11,7 @@ import {
 import { TSelectWrapperProps } from '../../types'
 import { noop } from '../../../../utils/helpers'
 import { DROPDOWN_AND_INPUT_GAP } from '../../../../consts'
+import { useChangePositionsOnScroll } from '../../../../hooks/useChangePositionsOnScroll'
 
 export const ButtonSelectWrapper = (props: TSelectWrapperProps): ReactElement => {
   const {
@@ -58,6 +59,8 @@ export const ButtonSelectWrapper = (props: TSelectWrapperProps): ReactElement =>
     return ` ${selectedValues[0].label} +${selectedValues.length - 1}`
   }, [selectedValues])
 
+  useChangePositionsOnScroll(buttonRef?.current, dropdownRef, hasBottomSpace)
+
   return (
     <div className={classNames(`select select--${size}`, className)} ref={setContainerRef}>
       <Button
@@ -79,11 +82,9 @@ export const ButtonSelectWrapper = (props: TSelectWrapperProps): ReactElement =>
             left:
               align === 'left' ? offsets?.left || left : right - (dropdownWidth || containerWidth),
             width: dropdownWidth || containerWidth,
-            top: hasBottomSpace || !hasTopSpace ? offsets?.top || bottom : 'initial',
-            bottom:
-              hasBottomSpace || !hasTopSpace
-                ? 'initial'
-                : window.innerHeight - top + DROPDOWN_AND_INPUT_GAP
+            ...(hasBottomSpace || !hasTopSpace
+              ? { top: offsets?.top || bottom }
+              : { bottom: window.innerHeight - top + DROPDOWN_AND_INPUT_GAP })
           }}
           ref={setDropdownRef}
         >

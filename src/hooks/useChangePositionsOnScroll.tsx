@@ -3,14 +3,15 @@ import { CUSTOM_SCROLL_NAME, CUSTOM_SCROLL_MESSAGE, DROPDOWN_AND_INPUT_GAP } fro
 
 export const useChangePositionsOnScroll = (
   parentElement: HTMLElement | null,
-  childElement: HTMLElement | null
+  childElement: HTMLElement | null,
+  hasBottomSpace = true
 ): null => {
   const positionElement = () => {
     const elemDimensions = parentElement?.getBoundingClientRect()
     const childElementDimensions = childElement?.getBoundingClientRect()
 
     if (childElementDimensions && elemDimensions && childElement) {
-      if (childElementDimensions.top > elemDimensions.top) {
+      if (hasBottomSpace) {
         childElement.style.top = elemDimensions.bottom + 'px'
       } else {
         childElement.style.bottom =
