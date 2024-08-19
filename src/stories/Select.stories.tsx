@@ -248,7 +248,7 @@ const OPTIONS_NESTED: TSelectOptions = [
   }
 ]
 
-// -----------SINGLESELECT---------
+// -----------SINGLE SELECT---------
 const Template = (args: any): JSX.Element => {
   const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
 
@@ -317,7 +317,7 @@ const ButtonMenu = () => {
 
   return (
     <div ref={setButtonRef}>
-      <Button type="tertiary" onClick={open} iconProps={{ name: 'more' }} size="small" />
+      <Button type="tertiary" onClick={open} iconProps={{ Component: IconMore }} size="small" />
       {buttonRef ? (
         <Menu
           menuItems={[
@@ -410,6 +410,7 @@ const MultiSelectTemplate = (args: any): JSX.Element => {
 }
 export const MultiSelect = MultiSelectTemplate.bind({})
 
+// @ts-ignore
 MultiSelect.args = {
   isLoading: false,
   label: 'Select',
@@ -446,6 +447,7 @@ const NestedSelectTemplate = (args: any): JSX.Element => {
 }
 export const NestedSelect = NestedSelectTemplate.bind({})
 
+// @ts-ignore
 NestedSelect.args = {
   isLoading: false,
   label: 'Select',

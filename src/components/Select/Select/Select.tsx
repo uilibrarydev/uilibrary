@@ -17,6 +17,7 @@ import { useChangePositionsOnScroll } from '../../../hooks/useChangePositionsOnS
 import { IconCaretUpFilled } from '../../SVGIcons/IconCaretUpFilled'
 import { IconCaretDownFilled } from '../../SVGIcons/IconCaretDownFilled'
 import { noop } from '../../../utils/helpers'
+import { DROPDOWN_AND_INPUT_GAP } from '../../../consts'
 
 export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const {
@@ -189,7 +190,10 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
             left,
             width,
             top: hasBottomSpace || !hasTopSpace ? bottom : 'initial',
-            bottom: hasBottomSpace || !hasTopSpace ? 'initial' : window.innerHeight - top + 10
+            bottom:
+              hasBottomSpace || !hasTopSpace
+                ? 'initial'
+                : window.innerHeight - top + DROPDOWN_AND_INPUT_GAP
           }}
           ref={setDropdownRef}
         >
