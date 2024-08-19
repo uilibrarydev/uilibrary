@@ -81,3 +81,5 @@ export const MONTHS = [
     value: 11
   }
 ]
+
+export const DROPDOWN_AND_INPUT_GAP = 10
