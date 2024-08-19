@@ -40,7 +40,7 @@ const CollapseItems = [
     value: 1,
     content: <div>collapse1 content</div>,
     isOpen: true,
-    id: 1
+    id: 1,
   },
   {
     title: 'collapse2',
