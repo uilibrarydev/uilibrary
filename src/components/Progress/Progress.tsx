@@ -21,7 +21,7 @@ export const Progress = (props: TProgressPropTypes): JSX.Element => {
   const _dimension = dimension ? dimension : CIRCLE_SIZES[size]
   const r = _dimension - 5
 
-  const _percent = stepCount && currentStep ? currentStep/stepCount * 100 : percent
+  const _percent = stepCount && currentStep ? (currentStep / stepCount) * 100 : percent
 
   const strokeDasharray = `${2 * r * 3.14}px`
 
@@ -57,7 +57,11 @@ export const Progress = (props: TProgressPropTypes): JSX.Element => {
           <div className="progress-bar__filled" style={{ width: `${_percent}%` }}></div>
         </div>
       )}
-      {!noText ? <span className="progress-bar__percent">{stepCount ? `${currentStep}/${stepCount}`: `${percent}%`}</span> : null}
+      {!noText ? (
+        <span className="progress-bar__percent">
+          {stepCount ? `${currentStep}/${stepCount}` : `${percent}%`}
+        </span>
+      ) : null}
     </div>
   )
 }
