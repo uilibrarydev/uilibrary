@@ -13,7 +13,7 @@ import { useChangePositionsOnScroll } from '../../../../hooks/useChangePositions
 import { IconCaretDownFilled } from '../../../SVGIcons/IconCaretDownFilled'
 import { IconCaretUpFilled } from '../../../SVGIcons/IconCaretUpFilled'
 import { TSelectWrapperProps } from '../../types'
-import {DROPDOWN_AND_INPUT_GAP} from '../../../../consts';
+import { DROPDOWN_AND_INPUT_GAP } from '../../../../consts'
 
 export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | null => {
   const {
@@ -122,7 +122,10 @@ export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | n
               left: align === 'left' ? left : right - (dropdownWidth || containerWidth),
               width: dropdownWidth || containerWidth,
               top: hasBottomSpace || !hasTopSpace ? bottom : 'initial',
-              bottom: hasBottomSpace || !hasTopSpace ? 'initial' : window.innerHeight - top + DROPDOWN_AND_INPUT_GAP
+              bottom:
+                hasBottomSpace || !hasTopSpace
+                  ? 'initial'
+                  : window.innerHeight - top + DROPDOWN_AND_INPUT_GAP
             }}
           >
             {children}

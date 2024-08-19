@@ -10,10 +10,11 @@ export const useChangePositionsOnScroll = (
     const childElementDimensions = childElement?.getBoundingClientRect()
 
     if (childElementDimensions && elemDimensions && childElement) {
-      if(childElementDimensions.top > elemDimensions.top){
+      if (childElementDimensions.top > elemDimensions.top) {
         childElement.style.top = elemDimensions.bottom + 'px'
       } else {
-        childElement.style.bottom = window.innerHeight - elemDimensions.top + DROPDOWN_AND_INPUT_GAP + 'px'
+        childElement.style.bottom =
+          window.innerHeight - elemDimensions.top + DROPDOWN_AND_INPUT_GAP + 'px'
       }
     }
   }

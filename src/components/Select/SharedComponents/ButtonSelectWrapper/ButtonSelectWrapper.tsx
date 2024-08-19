@@ -10,7 +10,7 @@ import {
 } from '../../../../hooks'
 import { TSelectWrapperProps } from '../../types'
 import { noop } from '../../../../utils/helpers'
-import {DROPDOWN_AND_INPUT_GAP} from '../../../../consts';
+import { DROPDOWN_AND_INPUT_GAP } from '../../../../consts'
 
 export const ButtonSelectWrapper = (props: TSelectWrapperProps): ReactElement => {
   const {
@@ -80,7 +80,10 @@ export const ButtonSelectWrapper = (props: TSelectWrapperProps): ReactElement =>
               align === 'left' ? offsets?.left || left : right - (dropdownWidth || containerWidth),
             width: dropdownWidth || containerWidth,
             top: hasBottomSpace || !hasTopSpace ? offsets?.top || bottom : 'initial',
-            bottom: hasBottomSpace || !hasTopSpace ? 'initial' : window.innerHeight - top + DROPDOWN_AND_INPUT_GAP
+            bottom:
+              hasBottomSpace || !hasTopSpace
+                ? 'initial'
+                : window.innerHeight - top + DROPDOWN_AND_INPUT_GAP
           }}
           ref={setDropdownRef}
         >
