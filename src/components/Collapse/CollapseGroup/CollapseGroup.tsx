@@ -22,11 +22,12 @@ export const CollapseGroup = (props: TCollapseGroupProps): ReactElement => {
   }
 
   return (
-    <>
+    <div className={'collapse-group'}>
       {items.map(({ id, title, value, content, dataId, iconProps }) => {
         const isOpen = openValues.indexOf(value) !== -1
         return (
           <CollapseItem
+            className={'collapse-group__item'}
             id={id}
             isOpen={isOpen}
             key={value}
@@ -39,6 +40,6 @@ export const CollapseGroup = (props: TCollapseGroupProps): ReactElement => {
           </CollapseItem>
         )
       })}
-    </>
+    </div>
   )
 }
