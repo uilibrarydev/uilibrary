@@ -35,7 +35,8 @@ export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | n
     isOpen,
     selectedValues,
     setContainerRef,
-    overflowText
+    overflowText,
+    hasError
   } = props
 
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -99,6 +100,7 @@ export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | n
           readonly
           label={label}
           ref={inputRef}
+          hasError={hasError}
           className="select__input"
           placeholder={placeHolder}
           required={isRequiredField}

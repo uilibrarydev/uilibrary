@@ -189,6 +189,7 @@ export interface TFilterGroupDropdownContentProps extends IFormCompProps {
 }
 
 export type TSelectWrapperProps = {
+  hasError?: boolean
   children: ReactElement
   size?: 'small' | 'large' | 'medium'
   className?: string
