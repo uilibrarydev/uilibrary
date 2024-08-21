@@ -1,3 +1,10 @@
+## [2.1.15](https://github.com/dinofrontend/dino_ui_library/compare/2.1.14...2.1.15) (2024-08-21)
+
+
+### Bug Fixes
+
+* update releaserc file ([af75f03](https://github.com/dinofrontend/dino_ui_library/commit/af75f03d986c43776f565b5c2a7696135f7b2be2))
+
 ## [2.1.14](https://github.com/dinofrontend/dino_ui_library/compare/v2.1.13...2.1.14) (2024-08-21)
 
 

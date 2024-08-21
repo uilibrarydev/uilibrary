@@ -1,0 +1,11 @@
+export { Pagination } from './Pagination.js';
+import '../../extends-a63feb99.js';
+import 'react';
+import 'react-paginate';
+import './consts.js';
+import 'classnames';
+import '../SVGIcons/IconChevronRight.js';
+import '../../defineProperty-d5787266.js';
+import '../../typeof-3b51e673.js';
+import '../SVGIcons/IconChevronLeft.js';
+import '../SVGIcons/IconMore.js';

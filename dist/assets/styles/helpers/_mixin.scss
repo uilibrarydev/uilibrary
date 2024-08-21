@@ -1,0 +1,718 @@
+@use "sass:map";
+@use "sass:meta";
+
+
+$fontFamilyMap: (
+);
+
+$fontSizeMap: (
+        --font-size-10: 10px,
+        --font-size-12: 12px,
+        --font-size-14: 14px,
+        --font-size-16: 16px,
+        --font-size-20: 20px,
+        --font-size-24: 24px,
+        --font-size-32: 32px,
+        --font-size-36: 36px,
+        --font-size-40: 40px,
+        --font-size-48: 48px,
+        --font-size-64: 64px,
+);
+
+$fontWeightsMap: (
+        --font-weight-400: 400,
+        --font-weight-500: 500,
+        --font-weight-600: 600,
+        --font-weight-700: 700,
+);
+
+$spaceMap: (
+        --space-4: 4px,
+        --space-8: 8px,
+        --space-12: 12px,
+        --space-16: 16px,
+        --space-20: 20px,
+        --space-24: 24px,
+        --space-32: 32px,
+);
+
+
+$colorMap: (
+        brand: (
+                base: #72BF44,
+                --color-900: #31531C,
+                --color-800: #416E26,
+                --color-700: #518A2F,
+                --color-600: #61A539,
+                --color-500: #72BF44,
+                --color-400: #80C557,
+                --color-300: #8ECC69,
+                --color-200: #9CD27C,
+                --color-100: #AAD98F,
+                --color-50: #B8DFA2,
+                --color-40: #CAE7B9,
+                --color-30: #DBEFD1,
+                --color-20: #EDF7E8,
+        ),
+        green: (
+                base: #4DAA5B,
+                --color-900: #265B25,
+                --color-800: #357939,
+                --color-700: #3D8B46,
+                --color-600: #469D52,
+                --color-500: #4DAA5B,
+                --color-400: #5DB773,
+                --color-300: #7AC48B,
+                --color-200: #9FD4AC,
+                --color-100: #C5E5CC,
+                --color-50: #E6F4EA,
+        ),
+        blue: (
+                base: #3C88F7,
+                --color-900: #2443B8,
+                --color-800: #2E63D6,
+                --color-700: #3475E8,
+                --color-600: #3C88F7,
+                --color-500: #4396F7,
+                --color-400: #54A6F8,
+                --color-300: #71B6F9,
+                --color-200: #9ACAFA,
+                --color-100: #9ACAFA,
+                --color-50: #E6F2FE,
+        ),
+        purple: (
+                base: #8377D7,
+                --color-900: #081FA6,
+                --color-800: #0E2AB2,
+                --color-700: #2431B9,
+                --color-600: #3838C1,
+                --color-500: #453DC7,
+                --color-400: #6559D0,
+                --color-300: #8377D7,
+                --color-200: #A89DE2,
+                --color-100: #CBC4ED,
+                --color-50: #EAE7F7,
+        ),
+        pink: (
+                base: #CA024F,
+                --color-900: #4A0A20,
+                --color-800: #79012F,
+                --color-700: #A2023F,
+                --color-600: #AD0244,
+                --color-500: #CA024F,
+                --color-400: #F50260,
+                --color-300: #FD2779,
+                --color-200: #FE7DAF,
+                --color-100: #FEA8C9,
+                --color-50: #FFD4E4,
+        ),
+        red: (
+                base: #E61B00,
+                --color-900: #A41300,
+                --color-800: #E61B00,
+                --color-700: #FF2103,
+                --color-600: #FF391F,
+                --color-500: #FF523B,
+                --color-400: #FF6B57,
+                --color-300: #FF8373,
+                --color-200: #FF9C8F,
+                --color-100: #FFB5AB,
+                --color-50: #FFE2DE,
+        ),
+        yellow: (
+                base: #F0B134,
+                --color-900: #EB7520,
+                --color-800: #ED912A,
+                --color-700: #EEA02F,
+                --color-600: #F0B134,
+                --color-500: #F1BE39,
+                --color-400: #F1BE39,
+                --color-300: #F4D264,
+                --color-200: #F7DE8E,
+                --color-100: #FAEBB9,
+                --color-50: #FDF7E4,
+        ),
+        grey: (
+                base: #222222,
+                --color-900: #222222,
+                --color-800: #333333,
+                --color-700: #555555,
+                --color-600: #666666,
+                --color-500: #888888,
+                --color-400: #AAAAAA,
+                --color-300: #BBBBBB,
+                --color-200: #BBBBBB,
+                --color-100: #DDDDDD,
+                --color-50: #ECECEC,
+                --color-40: #F4F5F4,
+                --color-30: #F7F8F7,
+                --color-20: #fafafa,
+        ),
+        white: (
+                base: #fcfcfc
+        )
+);
+
+$tokens: (
+        color: $colorMap,
+        space: $spaceMap,
+        fontSize: $fontSizeMap,
+        fontWeight: $fontWeightsMap,
+        fontFamily: $fontFamilyMap
+);
+
+
+//fonts
+
+
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+        @font-face {
+                font-family: quote($font-name);
+                src: url($file-name + '.ttf')  format('truetype');
+                font-weight: $weight;
+                font-style: $style;
+        }
+}
+
+
+/*******************/
+/********SPACE******/
+/*******************/
+@function getSize($size) {
+        $spaceTokens: map-get($tokens, 'space');
+        @return map-get($spaceTokens, $size);
+}
+
+/**padding**/
+@mixin padding($size) {
+        padding: getSize($size);
+}
+@mixin padding-top($size) {
+        padding-top: getSize($size);
+}
+@mixin padding-bottom($size) {
+        padding-bottom: getSize($size);
+}
+@mixin padding-left($size) {
+        padding-left: getSize($size);
+}
+@mixin padding-right($size) {
+        padding-right: getSize($size);
+}
+@mixin padding-horizontal($size) {
+        padding-left: getSize($size);
+        padding-right: getSize($size);
+}
+@mixin padding-vertical($size) {
+        padding-top: getSize($size);
+        padding-bottom: getSize($size);
+}
+/**margin**/
+@mixin margin($size) {
+        margin: getSize($size);
+}
+@mixin margin-top($size) {
+        margin-top: getSize($size);
+}
+@mixin margin-bottom($size) {
+        margin-bottom: getSize($size);
+}
+@mixin margin-left($size) {
+        margin-left: getSize($size);
+}
+@mixin margin-right($size) {
+        margin-right: getSize($size);
+}
+@mixin margin-horizontal($size) {
+        margin-left: getSize($size);
+        margin-right: getSize($size);
+}
+@mixin margin-vertical($size) {
+        margin-top: getSize($size);
+        margin-bottom: getSize($size);
+}
+
+/*******************/
+/********COLOR******/
+/*******************/
+@function getColor($color, $size: 'base') {
+        $colorTokens: map-get($tokens, 'color');
+        $selected: map-get($colorTokens, $color);
+        @return map-get($selected, $size)
+}
+
+/**color**/
+@mixin color($color, $size: 'base') {
+        color: getColor($color, $size);
+}
+/**background-color**/
+@mixin background-color($color, $size: 'base') {
+        background-color: getColor($color, $size);
+}
+
+
+/*******************/
+/*****Typography****/
+/*******************/
+
+/**font-size**/
+@function getFontSize($size) {
+        $fontSizeTokens: map-get($tokens, 'fontSize');
+        @return map-get($fontSizeTokens, $size);
+}
+@mixin font($size) {
+        font-size: getFontSize($size);
+}
+/**font-weight**/
+@function getFontWeight($size) {
+        $fontWeightTokens: map-get($tokens, 'fontWeight');
+        @return map-get($fontWeightTokens, $size);
+}
+@mixin font-weight($size) {
+        font-weight: getFontWeight($size);
+}
+
+//animation
+
+@mixin keyframes($animation-name) {
+        @-webkit-keyframes #{$animation-name} {
+                @content;
+        }
+        @-moz-keyframes #{$animation-name} {
+                @content;
+        }
+        @-ms-keyframes #{$animation-name} {
+                @content;
+        }
+        @-o-keyframes #{$animation-name} {
+                @content;
+        }
+        @keyframes #{$animation-name} {
+                @content;
+        }
+}
+@mixin animation($str) {
+        -webkit-animation: #{$str};
+        -moz-animation: #{$str};
+        -ms-animation: #{$str};
+        -o-animation: #{$str};
+        animation: #{$str};
+}
+
+/*animation mixin usage
+
+// Define animation name, and properties
+@include keyframes(fade-out) {
+  0% { opacity: 1; }
+  90% { opacity: 0; }
+}
+.element {
+  @include animation('fade-out 5s 3');
+}
+*/
+
+
+//retina images
+@mixin image-2x($image, $width, $height) {
+        @media (min--moz-device-pixel-ratio: 1.3),
+        (-o-min-device-pixel-ratio: 2.6/2),
+        (-webkit-min-device-pixel-ratio: 1.3),
+        (min-device-pixel-ratio: 1.3),
+        (min-resolution: 1.3dppx) {
+                background-image: url($image);
+                background-size: $width $height;
+        }
+}
+
+/*retina images mixin usage
+
+div.logo {
+  background: url("logo.png") no-repeat;
+  @include image-2x("logo2x.png", 100px, 25px);
+}
+*/
+
+
+//gradients
+@mixin background-gradient($start-color, $end-color, $orientation) {
+        background: $start-color;
+
+        @if $orientation == 'vertical' {
+                background: -webkit-linear-gradient(top, $start-color, $end-color);
+                background: linear-gradient(to bottom, $start-color, $end-color);
+        } @else if $orientation == 'horizontal' {
+                background: -webkit-linear-gradient(left, $start-color, $end-color);
+                background: linear-gradient(to right, $start-color, $end-color);
+        } @else {
+                background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+                background: radial-gradient(ellipse at center, $start-color, $end-color);
+        }
+}
+
+/*gradient mixin usage
+.foo {
+  @include background-gradient(red, black, 'vertical');
+}
+*/
+
+//positioning
+@function parseDirections($directions){
+        $top: 0; $bottom: 0; $left: 0; $right: 0;
+
+        @if length($directions) > 0{
+                $d1: nth($directions,1);
+                $top: $d1; $bottom: $d1; $left: $d1; $right: $d1;
+        }@if length($directions) > 1 {
+        $d2: nth($directions,2);
+        $left: $d2; $right: $d2;
+}@if length($directions) > 2 {
+        $d3: nth($directions,3);
+        $bottom: $d3;
+}@if length($directions) > 3 {
+        $d4: nth($directions,4);
+        $left: $d4
+}
+
+        @return (
+                top: $top,
+                bottom: $bottom,
+                left: $left,
+                right: $right
+        );
+}
+
+@mixin position($positions...){
+        $positions: parseDirections($positions);
+        top: map-get($positions,'top');
+        right: map-get($positions,'right');
+        bottom: map-get($positions,'bottom');
+        left: map-get($positions,'left');
+}
+@mixin absolute($positions...){
+        position: absolute;
+        @include position($positions...);
+}
+@mixin fixed($positions...){
+        position: fixed;
+        @include position($positions...);
+}
+@mixin sticky($positions...){
+        position: sticky;
+        @include position($positions...);
+}
+
+/*positioning element mixin usage
+.foo {
+ @include position(absolute, top right left);
+}
+*/
+
+//centering element
+@mixin center($position) {
+        position: absolute;
+
+        @if $position == 'vertical' {
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+        }
+        @else if $position == 'horizontal' {
+                left: 50%;
+                -webkit-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                transform: translate(-50%);
+        }
+        @else if $position == 'both' {
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        }
+}
+
+/*centering element mixin usage
+.foo {
+  @include center(both);
+}
+*/
+
+//clearfix
+%clearfix {
+        *zoom: 1;
+        &:before, &:after {
+                content: " ";
+                display: table;
+        }
+        &:after {
+                clear: both;
+        }
+}
+
+/*clearfix mixin usage
+.container-with-floated-children {
+        @extend %clearfix;
+}
+*/
+
+
+//media query
+$breakpoints: (
+        "phone":        400px,
+        "phone-wide":   480px,
+        "phablet":      576px,
+        "tablet-small": 640px,
+        "tablet":       768px,
+        "tablet-wide":  1024px,
+        "desktop":      1248px,
+        "desktop-wide": 1440px
+);
+@mixin screen($width, $type: min) {
+        @if map_has_key($breakpoints, $width) {
+                $width: map_get($breakpoints, $width);
+                @if $type == max {
+                        $width: $width - 1px;
+                }
+                @media only screen and (#{$type}-width: $width) {
+                        @content;
+                }
+        }
+}
+/*media queries usage
+
+.site-header {
+    @include screen('tablet-wide') {
+        padding-top: 4rem;
+        font-size: 2.4rem;
+    }
+}
+
+*/
+
+//truncation
+@mixin truncate($truncation-boundary) {
+        max-width: $truncation-boundary;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+}
+
+// --------------------------------------------------
+// Flexbox SASS mixins
+// The spec: http://www.w3.org/TR/css3-flexbox
+// --------------------------------------------------
+
+// Flexbox display
+@mixin flexbox {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+}
+
+// Inline flex display
+@mixin inline-flex {
+        display: -webkit-inline-box;
+        display: -moz-inline-box;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+}
+
+// The 'flex' shorthand
+// - applies to: flex items
+// <positive-number>, initial, auto, or none
+@mixin flex($fg: 1, $fs: 0, $fb: auto) {
+
+        // Set a variable to be used by box-flex properties
+        $fg-boxflex: $fg;
+
+        // Box-Flex only supports a flex-grow value so lets grab the
+        // first item in the list and just return that.
+        @if type-of($fg) == 'list' {
+                $fg-boxflex: nth($fg, 1);
+        }
+
+        -webkit-box: $fg-boxflex;
+        -moz-box: $fg-boxflex;
+        -webkit-flex: $fg $fs $fb;
+        -ms-flex: $fg $fs $fb;
+        flex: $fg $fs $fb;
+}
+
+// Flex Flow Direction
+// - applies to: flex containers
+// row (default) | row-reverse | column | column-reverse
+@mixin flex-direction($direction: row) {
+        @if $direction == row-reverse {
+                -webkit-box-direction: reverse;
+                -webkit-box-orient: horizontal;
+                -moz-box-direction: reverse;
+                -moz-box-orient: horizontal;
+        } @else if $direction == column {
+                -webkit-box-direction: normal;
+                -webkit-box-orient: vertical;
+                -moz-box-direction: normal;
+                -moz-box-orient: vertical;
+        } @else if $direction == column-reverse {
+                -webkit-box-direction: reverse;
+                -webkit-box-orient: vertical;
+                -moz-box-direction: reverse;
+                -moz-box-orient: vertical;
+        } @else {
+                -webkit-box-direction: normal;
+                -webkit-box-orient: horizontal;
+                -moz-box-direction: normal;
+                -moz-box-orient: horizontal;
+        }
+        -webkit-flex-direction: $direction;
+        -ms-flex-direction: $direction;
+        flex-direction: $direction;
+}
+
+// Flex Line Wrapping
+// - applies to: flex containers
+// nowrap | wrap | wrap-reverse
+@mixin flex-wrap($value: nowrap) {
+        // No Webkit/FF Box fallback.
+        -webkit-flex-wrap: $value;
+        @if $value == nowrap {
+                -ms-flex-wrap: none;
+        } @else {
+                -ms-flex-wrap: $value;
+        }
+        flex-wrap: $value;
+}
+
+// Flex Direction and Wrap
+// - applies to: flex containers
+// <flex-direction> || <flex-wrap>
+@mixin flex-flow($values: (row nowrap)) {
+        // No Webkit/FF Box fallback.
+        -webkit-flex-flow: $values;
+        -ms-flex-flow: $values;
+        flex-flow: $values;
+}
+
+// Display Order
+// - applies to: flex items
+// <integer>
+@mixin order($int: 0) {
+        -webkit-box-ordinal-group: $int + 1;
+        -moz-box-ordinal-group: $int + 1;
+        -webkit-order: $int;
+        -ms-flex-order: $int;
+        order: $int;
+}
+
+// Flex grow factor
+// - applies to: flex items
+// <number>
+@mixin flex-grow($int: 1) {
+        -webkit-box-flex: $int;
+        -moz-box-flex: $int;
+        -webkit-flex-grow: $int;
+        -ms-flex: $int;
+        flex-grow: $int;
+}
+
+// Flex shrink
+// - applies to: flex item shrink factor
+// <number>
+@mixin flex-shrink($int: 0) {
+        -webkit-flex-shrink: $int;
+        -moz-flex-shrink: $int;
+        -ms-flex: $int;
+        flex-shrink: $int;
+}
+
+// Flex basis
+// - the initial main size of the flex item
+// - applies to: flex itemsnitial main size of the flex item
+// <width>
+@mixin flex-basis($value: auto) {
+        -webkit-flex-basis: $value;
+        flex-basis: $value;
+}
+
+// Axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | space-between | space-around
+@mixin justify-content($value: flex-start) {
+        @if $value == flex-start {
+                -webkit-box-pack: start;
+                -moz-box-pack: start;
+                -ms-flex-pack: start;
+        } @else if $value == flex-end {
+                -webkit-box-pack: end;
+                -moz-box-pack: end;
+                -ms-flex-pack: end;
+        } @else if $value == space-between {
+                -webkit-box-pack: justify;
+                -moz-box-pack: justify;
+                -ms-flex-pack: justify;
+        } @else if $value == space-around {
+                -ms-flex-pack: distribute;
+        } @else {
+                -webkit-box-pack: $value;
+                -moz-box-pack: $value;
+                -ms-flex-pack: $value;
+        }
+        -webkit-justify-content: $value;
+        justify-content: $value;
+}
+
+// Packing Flex Lines
+// - applies to: multi-line flex containers
+// flex-start | flex-end | center | space-between | space-around | stretch
+@mixin align-content($value: stretch) {
+        // No Webkit Box Fallback.
+        -webkit-align-content: $value;
+        @if $value == flex-start {
+                -ms-flex-line-pack: start;
+        } @else if $value == flex-end {
+                -ms-flex-line-pack: end;
+        } @else {
+                -ms-flex-line-pack: $value;
+        }
+        align-content: $value;
+}
+
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch
+@mixin align-items($value: stretch) {
+        @if $value == flex-start {
+                -webkit-box-align: start;
+                -moz-box-align: start;
+                -ms-flex-align: start;
+        } @else if $value == flex-end {
+                -webkit-box-align: end;
+                -moz-box-align: end;
+                -ms-flex-align: end;
+        } @else {
+                -webkit-box-align: $value;
+                -moz-box-align: $value;
+                -ms-flex-align: $value;
+        }
+        -webkit-align-items: $value;
+        align-items: $value;
+}
+
+// Cross-axis Alignment
+// - applies to: flex items
+// auto | flex-start | flex-end | center | baseline | stretch
+@mixin align-self($value: auto) {
+        // No Webkit Box Fallback.
+        -webkit-align-self: $value;
+        @if $value == flex-start {
+                -ms-flex-item-align: start;
+        } @else if $value == flex-end {
+                -ms-flex-item-align: end;
+        } @else {
+                -ms-flex-item-align: $value;
+        }
+        align-self: $value;
+}
