@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker'
 import { Input } from '../Input'
 import { DateFormat, IRangeDatePickerProps, TRangePickerValues } from './types'
 import { useImportFilesDynamically } from './hooks'
+import { isSameDay } from '../../utils/helpers'
 
 export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
   const {
@@ -50,11 +51,21 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
   const formatDate = (date: Date | undefined): string => {
     return date ? dayjs(date).format(format) : ''
   }
+  const checkRange = () => {
+    const [startDate, endDate] = rangeArray
+    if (!startDate || !endDate) {
+      onChange([null, null])
+    }
+  }
 
   const renderCurrentSelectedDate = (rangeArray: (Date | undefined)[]) => {
-    return rangeArray[1]
-      ? `${formatDate(rangeArray[0])} - ${formatDate(rangeArray[1])}`
-      : `${formatDate(rangeArray[0])}`
+    const [startDate, endDate] = rangeArray
+
+    if (isSameDay(startDate, endDate) || !rangeArray[1]) {
+      return `${formatDate(rangeArray[0])}`
+    }
+
+    return `${formatDate(rangeArray[0])} - ${formatDate(rangeArray[1])}`
   }
 
   return (
@@ -67,6 +78,7 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
       selectsRange
       disabled={disabled}
       onChange={onChange}
+      onClickOutside={checkRange}
       customInput={
         <div className="date-picker_input-container">
           <Input
