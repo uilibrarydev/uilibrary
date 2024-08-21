@@ -1,3 +1,5 @@
+import dayjs from 'dayjs'
+
 export const noop = (): void => {
   return undefined
 }
@@ -80,4 +82,12 @@ export const getYearOptions = (startYear: number, lastYear: number): TSelectOpti
     lastYear--
   }
   return years
+}
+
+export const isSameDay = (date1?: Date, date2?: Date): boolean => {
+  if (!date1 || !date2) {
+    return false
+  }
+
+  return dayjs(date1).isSame(date2, 'day')
 }
