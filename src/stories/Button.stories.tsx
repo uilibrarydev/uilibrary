@@ -34,10 +34,9 @@ const designSpecs = `
 <Button size="large" buttonText="Label" isLoading />
 <Button type="text" size="large" buttonText="Label" iconProps={{ Component: IconChevronDown }} />
 <Button type="link" size="large">Label</Button>
-<Button type="secondary" size="large">{() => "Label"}</Button>
 `
 
-const Template: StoryFn<PropsWithChildren<TButtonPropTypes>> = (args) => (
+const Template: StoryFn<TButtonPropTypes> = (args) => (
   <div>
     <_Button {...args} />
     <br />
@@ -55,9 +54,6 @@ const Template: StoryFn<PropsWithChildren<TButtonPropTypes>> = (args) => (
       />
       <_Button type="link" size="large">
         Label
-      </_Button>
-      <_Button type="secondary" size="large">
-        {() => 'Label'}
       </_Button>
     </div>
     <br />
