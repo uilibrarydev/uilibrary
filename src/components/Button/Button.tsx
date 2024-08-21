@@ -24,8 +24,6 @@ export const Button = (props: TButtonPropTypes): ReactElement => {
 
   const justIcon = !buttonText && !children && iconProps !== undefined
 
-  console.log(children, typeof children)
-
   return (
     <button
       ref={refHandler}
