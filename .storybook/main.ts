@@ -11,7 +11,8 @@ const config: StorybookConfig = {
         { name: 'storybook-design-token', options: { preserveCSSVars: true } },
         '@storybook/addon-viewport',
         '@storybook/addon-controls',
-        '@storybook/addon-outline',
+        // TODO check do wee need outlining
+        // '@storybook/addon-outline',
         '@storybook/addon-links'
     ],
     webpackFinal: async (config, { configType }) => {

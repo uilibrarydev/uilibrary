@@ -1,6 +1,6 @@
-import { ButtonHTMLAttributes, LegacyRef, ReactElement } from 'react'
+import { ButtonHTMLAttributes, LegacyRef, ReactElement, ReactNode } from 'react'
 
-export interface TButtonPropTypes extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
+export interface TButtonPropTypes extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'children'> {
   id?: string
   disabled?: boolean
   buttonActionType?: 'submit' | 'button' | 'reset'
@@ -18,4 +18,5 @@ export interface TButtonPropTypes extends Omit<ButtonHTMLAttributes<HTMLButtonEl
   formId?: string
   dataId?: string
   refHandler?: LegacyRef<HTMLButtonElement> | undefined
+  children?:  ReactNode | (() => ReactNode)
 }
