@@ -59,9 +59,7 @@ export const Button = (props: TButtonPropTypes): ReactElement => {
           ) : null}
           {/* {buttonSecondaryText ? <span className="btn__text">{buttonSecondaryText}</span> : null} */}
           {buttonText || children ? (
-            <span className="btn__text">
-              {buttonText || children}
-            </span>
+            <span className="btn__text">{buttonText || children}</span>
           ) : null}
         </>
       )}
