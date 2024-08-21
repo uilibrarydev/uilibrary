@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - 'master'
-
+      - 'semver'
 jobs:
   build:
     runs-on: ubuntu-latest
