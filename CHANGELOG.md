@@ -1,3 +1,10 @@
+## [2.1.14](https://github.com/dinofrontend/dino_ui_library/compare/v2.1.13...2.1.14) (2024-08-21)
+
+
+### Bug Fixes
+
+* test semver ([5c66af4](https://github.com/dinofrontend/dino_ui_library/commit/5c66af462c1a4bd63f17f84955485ba8677bbc91))
+
 # 1.0.0 (2024-08-21)
 
 
