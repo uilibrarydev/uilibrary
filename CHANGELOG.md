@@ -1,3 +1,10 @@
+## [2.2.6](https://github.com/dinofrontend/dino_ui_library/compare/2.2.5...2.2.6) (2024-08-22)
+
+
+### Bug Fixes
+
+* test releaserc file ([6b94950](https://github.com/dinofrontend/dino_ui_library/commit/6b94950ff2bcaab49a80b5e58dc482b1e7151c98))
+
 ## [2.2.5](https://github.com/dinofrontend/dino_ui_library/compare/2.2.4...2.2.5) (2024-08-22)
 
 
