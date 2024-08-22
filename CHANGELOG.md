@@ -1,3 +1,19 @@
+# [2.2.0](https://github.com/dinofrontend/dino_ui_library/compare/2.1.16...2.2.0) (2024-08-22)
+
+
+### Features
+
+* added permission in main.yml for github_token ([170ba44](https://github.com/dinofrontend/dino_ui_library/commit/170ba44d89f2335404296a018d6ceb1161fe6e77))
+* added permission in main.yml for github_token ([9d32bc8](https://github.com/dinofrontend/dino_ui_library/commit/9d32bc8b1942017c179db437f185d2fe27e844da))
+* final config of semantic release ([7b8d270](https://github.com/dinofrontend/dino_ui_library/commit/7b8d2707a27a1e5b330e5ca0902f7dd1d61d884a))
+* semantic versioning integration  ([dbb4c5f](https://github.com/dinofrontend/dino_ui_library/commit/dbb4c5fe572bffa132a3d3f2d5ceaea09d9783b4))
+* update yaml file ([5f39adc](https://github.com/dinofrontend/dino_ui_library/commit/5f39adc85bf8b1474fa5194c64c9a7eae7f199bf))
+* updated main.yml ([ef10ab7](https://github.com/dinofrontend/dino_ui_library/commit/ef10ab72fd40ec7b17fb7bda5e83511700cf4ec1))
+* updated yaml file with ssh-key ([d19a461](https://github.com/dinofrontend/dino_ui_library/commit/d19a46186932e5c18be54c6c3517ce699c079f33))
+* yaml change ([ea3e7ca](https://github.com/dinofrontend/dino_ui_library/commit/ea3e7ca27407f5920dd9064aefba8e806e126e9b))
+* yaml change ([26b77b7](https://github.com/dinofrontend/dino_ui_library/commit/26b77b730bed2c28ae8d313d9bedf605948fe8a7))
+* yaml change ([78658dd](https://github.com/dinofrontend/dino_ui_library/commit/78658dd652a4289f11e7ee306cec14349c614c57))
+
 ## [2.1.16](https://github.com/dinofrontend/dino_ui_library/compare/2.1.15...2.1.16) (2024-08-21)
 
 
