@@ -1,3 +1,10 @@
+## [2.2.3](https://github.com/dinofrontend/dino_ui_library/compare/2.2.2...2.2.3) (2024-08-22)
+
+
+### Bug Fixes
+
+* test for root file ([5f17e0b](https://github.com/dinofrontend/dino_ui_library/commit/5f17e0b5efe90a3ba5042ffebe124d2a2b4df139))
+
 ## [2.2.2](https://github.com/dinofrontend/dino_ui_library/compare/2.2.1...2.2.2) (2024-08-22)
 
 
