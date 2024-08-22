@@ -1,3 +1,0 @@
-var PAGE_RANGE_DISPLAYED = 3;
-
-export { PAGE_RANGE_DISPLAYED };
