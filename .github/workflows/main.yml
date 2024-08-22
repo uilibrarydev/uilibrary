@@ -15,7 +15,7 @@ jobs:
       - name: Specify Node Version
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
@@ -26,14 +26,16 @@ jobs:
       - name: Build
         run: npm run build
 
-      - run: echo "VERSION=$(npm run version --silent)" >> $GITHUB_ENV
-      - run: echo "PACKAGE_NAME=$(npm run name --silent)" >> $GITHUB_ENV
-
-      - name: Publish to npm
-        run: cd ./dist/ && npm publish
-
+      # Semantic Release
+      - name: Run Semantic Release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        run: npx semantic-release
+
+      - run: echo "VERSION=$(npm run version --silent)" >> $GITHUB_ENV
+      - run: echo "PACKAGE_NAME=$(npm run name --silent)" >> $GITHUB_ENV
 
       # Slack notification
       - run: echo "PIPE_URL=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID|Pipeline#$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
@@ -41,13 +43,13 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.17.0
         with:
-           payload: |
-             {"attachments":[{"color":"#70aeff","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"Notification sent from <${{ env.PIPE_URL }}>"}},{"type":"section","text":{"type":"mrkdwn","text":"${{ env.PACKAGE_NAME }}@${{ env.VERSION }} has been published"}}]}]}
+          payload: |
+            {"attachments":[{"color":"#70aeff","blocks":[{"type":"section","text":{"type":"mrkdwn","text":"Notification sent from <${{ env.PIPE_URL }}>"}},{"type":"section","text":{"type":"mrkdwn","text":"${{ env.PACKAGE_NAME }}@${{ env.VERSION }} has been published"}}]}]}
         env:
-           SLACK_WEBHOOK_URL: ${{ secrets.WEB_SLACK_WEBHOOK_URL }}
-           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          SLACK_WEBHOOK_URL: ${{ secrets.WEB_SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
-      # Deployment on github pages
+      # Deployment on GitHub Pages
       - name: Build Storybook
         run: npm run build-storybook
 
