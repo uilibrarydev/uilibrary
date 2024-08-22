@@ -1,3 +1,16 @@
+# [2.4.0](https://github.com/dinofrontend/dino_ui_library/compare/2.3.0...2.4.0) (2024-08-22)
+
+
+### Bug Fixes
+
+* publish test ([2fb5926](https://github.com/dinofrontend/dino_ui_library/commit/2fb59268fd09826b2c30c791bdc21432a922aae5))
+* publish test ([369b90d](https://github.com/dinofrontend/dino_ui_library/commit/369b90dcaebd2201a9bcef07c55a5824b9625dc6))
+
+
+### Features
+
+* testing publish 12 ([051a820](https://github.com/dinofrontend/dino_ui_library/commit/051a820dcfe2193520d9a0efc5df2a8009a38c0c))
+
 # [2.3.0](https://github.com/dinofrontend/dino_ui_library/compare/2.2.8...2.3.0) (2024-08-22)
 
 
