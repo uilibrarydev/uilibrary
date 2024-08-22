@@ -61,7 +61,7 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
   const renderCurrentSelectedDate = (rangeArray: (Date | undefined)[]) => {
     const [startDate, endDate] = rangeArray
     const startDateFormatted = formatDate(startDate)
-    const endDateFormatted = formatDate(startDate)
+    const endDateFormatted = formatDate(endDate)
 
     if (isSameDay(startDate, endDate) || !rangeArray[1]) {
       return startDateFormatted
