@@ -3,6 +3,8 @@ import { Pagination as _Pagination } from '../index'
 import IconChevronRight from '../components/SVGIcons/IconChevronRight'
 import IconChevronLeft from '../components/SVGIcons/IconChevronLeft'
 import IconMore from '../components/SVGIcons/IconMore'
+import { StoryFn } from '@storybook/react'
+import { TPaginationProps } from '../components/Pagination/types'
 
 export default {
   title: 'Pagination',
@@ -14,7 +16,7 @@ export default {
     }
   }
 }
-const Template = (args: any) => (
+const Template: StoryFn<TPaginationProps> = ({ pageSize, ...args }) => (
   <_Pagination
     pageSize={10}
     {...args}

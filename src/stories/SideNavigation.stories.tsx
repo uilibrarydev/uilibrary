@@ -18,6 +18,8 @@ import IconWallet from '../components/SVGIcons/IconWallet'
 import IconAlertBadge from '../components/SVGIcons/IconAlertBadge'
 import IconMail from '../components/SVGIcons/IconMail'
 import IconArrowExit from '../components/SVGIcons/IconArrowExit'
+import { StoryFn } from '@storybook/react'
+import { TSideNavigationPropTypes } from '../components/SideNavigation/types'
 
 export default {
   title: 'Side Navigation',
@@ -29,11 +31,11 @@ export default {
   }
 }
 
-const Template = (args: any): ReactElement => {
+const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
   const [isOpen, setIsOpen] = useState<boolean>(true)
 
   return (
-    <_SideNavigation setOpen={setIsOpen} open={isOpen} {...args}>
+    <_SideNavigation {...args} setOpen={setIsOpen} open={isOpen}>
       <main>
         <NavigationItem
           As={() => (

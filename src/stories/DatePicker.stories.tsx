@@ -4,6 +4,8 @@ import {
   TimePicker as _TimePicker,
   RangeDatePicker as _RangeDatePicker
 } from '../index'
+import { StoryFn } from '@storybook/react'
+import { IRangeDatePickerProps, ISimpleDatePickerProps } from '../components/DatePicker/types'
 
 export default {
   title: 'DatePicker',
@@ -29,7 +31,7 @@ const getAllLastDays = () => {
   return arr
 }
 
-const SimplePicker = (args): JSX.Element => {
+const SimplePicker: StoryFn<ISimpleDatePickerProps> = (args) => {
   const [value, setValue] = useState<Date | undefined>(undefined)
 
   return (
@@ -54,11 +56,11 @@ export const SimpleDatePicker = SimplePicker.bind({})
 const TimeDatePicker = (): JSX.Element => {
   const [value1, setValue1] = useState<Date>(new Date())
   const [value2, setValue2] = useState<Date>(new Date())
-  const filterPassedTime = (time) => {
-    // const currentDate = value1
-    const selectedDate = new Date(time)
-    return value1.getTime() < selectedDate.getTime()
-  }
+  // const filterPassedTime = (time) => {
+  //   // const currentDate = value1
+  //   const selectedDate = new Date(time)
+  //   return value1.getTime() < selectedDate.getTime()
+  // }
   return (
     <div style={{ width: 300 }}>
       <_TimePicker
@@ -74,7 +76,7 @@ const TimeDatePicker = (): JSX.Element => {
 }
 export const TimePicker = TimeDatePicker.bind({})
 
-const RangePicker = (args): JSX.Element => {
+const RangePicker: StoryFn<IRangeDatePickerProps> = (args) => {
   const [value, setValue] = useState<any>([new Date(), new Date()])
 
   return (

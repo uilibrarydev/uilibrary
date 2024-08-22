@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 import { Counter as _Counter } from '../index'
+import { StoryFn } from '@storybook/react'
+import { ICounterProps } from '../components/Counter/types'
 
 export default {
   title: 'Counter',
   component: _Counter
 }
 
-const Template = (args) => {
+const Template: StoryFn<ICounterProps> = (args) => {
   const [count, setCount] = useState(6)
 
-  const onChange = (count) => {
-    setCount(count)
+  const onChange = (count: string | number | undefined) => {
+    setCount(count as number)
   }
 
   return <_Counter {...args} handleChange={onChange} counter={count} dataId={'counter'} />

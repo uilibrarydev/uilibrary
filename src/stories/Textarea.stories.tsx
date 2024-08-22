@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Textarea as _Textarea } from '../index'
 import IconInfo from '../components/SVGIcons/IconInfo'
+import { StoryFn } from '@storybook/react'
+import { TTextAreaTypeProps } from '../components/Textarea/types'
 
 type TChangeEventType = React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>
 
@@ -9,7 +11,7 @@ export default {
   component: _Textarea
 }
 
-const Template = (args: any) => {
+const Template: StoryFn<TTextAreaTypeProps> = (args) => {
   const [value, setValue] = useState('')
   const changeHandler = (e: TChangeEventType) => {
     setValue(e.target.value)
@@ -26,8 +28,7 @@ Textarea.args = {
   label: 'Label',
   disabled: false,
   required: false,
-  valid: false,
-  placeholder: 'Enter text',
+  placeHolder: 'Enter text',
   helperText: 'This is your helper text',
   successMessage: 'Success message',
   error: 'Error message',

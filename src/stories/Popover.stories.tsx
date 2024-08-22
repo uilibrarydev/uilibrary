@@ -1,5 +1,7 @@
 import React from 'react'
 import { Popover as _Popover } from '../index'
+import { StoryFn } from '@storybook/react'
+import { TPopoverProps } from '../components/Popover/types'
 
 export default {
   title: 'Popover',
@@ -21,7 +23,7 @@ export default {
   }
 }
 
-const Template = (args: any) => {
+const Template: StoryFn<TPopoverProps> = (args) => {
   return (
     <>
       <_Popover {...args} id="popover_test" />

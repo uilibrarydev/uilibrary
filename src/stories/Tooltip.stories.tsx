@@ -1,5 +1,7 @@
 import React from 'react'
 import { Tooltip as _Tooltip } from '../index'
+import { StoryFn } from '@storybook/react'
+import { TTooltipProps } from '../components/Tooltip/types'
 
 export default {
   title: 'Tooltip',
@@ -25,7 +27,7 @@ export default {
   }
 }
 
-const Template = (args: any) => {
+const Template: StoryFn<TTooltipProps> = (args) => {
   // const [elemRef, setelemRef] = useState<HTMLElement | null>(null)
   return (
     <div

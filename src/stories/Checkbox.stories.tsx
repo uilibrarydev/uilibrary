@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Checkbox as _Checkbox } from '../index'
+import { StoryFn } from '@storybook/react'
+import { TCheckboxProps } from '../components/Checkbox/types'
 
 export default {
   title: 'Checkbox',
@@ -7,7 +9,7 @@ export default {
   argTypes: {}
 }
 
-const Template = (args) => {
+const Template: StoryFn<TCheckboxProps> = (args) => {
   const [isChecked, setIsChecked] = useState(false)
   return (
     <_Checkbox

@@ -1,5 +1,7 @@
 import React from 'react'
+import { type StoryFn } from '@storybook/react'
 import { Alert as AlertComp } from '../index'
+import { TAlertProps } from '../components/Alert/types'
 
 export default {
   title: 'Alert',
@@ -16,7 +18,7 @@ export default {
   }
 }
 
-const Template = (args) => (
+const Template: StoryFn<TAlertProps> = (args) => (
   <AlertComp
     {...args}
     buttonProps={{

@@ -1,10 +1,11 @@
 import React from 'react'
-import { Meta } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import { Image as _Image } from '../index'
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import imageFile from '../assets/images/avatar.jpg'
+import { ImagePropTypes } from '../components/Image/types'
 
 const image = {
   src: imageFile,
@@ -26,7 +27,7 @@ export default {
   }
 } as Meta
 
-const Template = (args) => (
+const Template: StoryFn<ImagePropTypes> = (args) => (
   <div style={{ width: 300 }}>
     <_Image {...args} />
   </div>

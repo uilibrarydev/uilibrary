@@ -1,5 +1,7 @@
 import React from 'react'
 import { Text as _Text } from '../index'
+import { StoryFn } from '@storybook/react'
+import { TextPropTypes } from '../components/Text/types'
 
 export default {
   title: 'Text',
@@ -41,7 +43,7 @@ export default {
   }
 }
 
-const Template = (args) => {
+const Template: StoryFn<TextPropTypes & { text: string }> = (args) => {
   return (
     <div style={{ padding: '20px', backgroundColor: `${args.type == 'inverse' ? '#919191' : ''}` }}>
       <_Text {...args}>{args.text}</_Text>

@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import { CardSelectGroup as _CardSelectGroup } from '../components/CardSelect'
 import { CardSelect as _CardSelect } from '../components/CardSelect'
 import { Popover } from '../components/Popover'
 import { CARD_SELECT_TYPES } from '../consts'
 import imageFile from '../assets/images/illustrations.svg'
 import IconInfo from '../components/SVGIcons/IconInfo'
+import type { StoryFn } from '@storybook/react'
+import { TCardSelectGroupProps, TCardSelectProps } from '../components/CardSelect/types'
 
 export default {
   title: 'CardSelect',
@@ -55,7 +57,7 @@ const CARDS = [
     inputProps: {
       name: 'input 1',
       label: 'Label',
-      handleChange: (e) => {
+      handleChange: (e: ChangeEvent<HTMLInputElement>) => {
         console.log(e)
       },
       labelAddons: (
@@ -94,9 +96,7 @@ const CARDS = [
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's " +
       'standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ',
-    badgeText: 'Badge',
     disabled: false,
-    withAction: true,
     additionalInfo: [
       {
         key: 'Key 1',
@@ -122,14 +122,11 @@ const CARDS = [
           </div>
         </Popover>
       )
-    },
-    onClick: (e: any) => {
-      console.log(e)
     }
   }
-]
+] as TCardSelectProps[]
 
-const Template = (args) => {
+const Template: StoryFn<TCardSelectProps> = (args) => {
   return (
     <div style={{ width: '50%' }}>
       <_CardSelect {...args} />
@@ -158,10 +155,8 @@ CardSelect.args = {
   description:
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's " +
     'standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ',
-  badgeText: 'Badge',
   disabled: false,
-  withAction: true,
-  value: null,
+  value: undefined,
   additionalInfo: [
     {
       key: 'Key 1',
@@ -171,14 +166,12 @@ CardSelect.args = {
       key: 'Key 2',
       value: 'Value 2'
     }
-  ],
-  onClick: (e: any) => {
-    console.log(e)
-  }
+  ]
 }
 
-const CardSelectGroupTemplate = (args) => {
-  const [selected, setSelected] = useState(1)
+const CardSelectGroupTemplate: StoryFn<TCardSelectGroupProps> = (args) => {
+  const [selected, setSelected] = useState<number | string>(1)
+
   return (
     <div style={{ width: '50%' }}>
       <_CardSelectGroup {...args} cards={CARDS} value={selected} handleChange={setSelected} />

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Modal as _Modal } from '../index'
 import IconCheckmarkCircle from '../components/SVGIcons/IconCheckmarkCircle'
+import { StoryFn } from '@storybook/react'
+import { TModalPropTypes } from '../components/Modal/types'
 
 export default {
   title: 'Modal',
@@ -13,7 +15,7 @@ export default {
   }
 }
 
-const Template = (args: any): JSX.Element => {
+const Template: StoryFn<TModalPropTypes> = (args) => {
   const [isOpen, setIsOpen] = useState(false)
   const closeModal = () => setIsOpen(false)
   const openModal = () => setIsOpen(true)
@@ -24,7 +26,7 @@ const Template = (args: any): JSX.Element => {
         {...args}
         onClose={closeModal}
         isOpen={isOpen}
-        onSumbit={() => {
+        onSubmit={() => {
           closeModal()
           console.log('submit')
         }}
@@ -49,6 +51,7 @@ Modal.args = {
   closeIcon: true,
   withFooter: true,
   titleIconProps: {
-    Component: IconCheckmarkCircle
+    Component: IconCheckmarkCircle,
+    type: 'primary'
   }
 }

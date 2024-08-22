@@ -22,7 +22,7 @@ const COMP4 = () => {
 
 const LIST = [COMP1, COMP2, COMP3, COMP4]
 
-const Template = (): JSX.Element => {
+const Template = () => {
   return <_Stepper list={LIST} />
 }
 export const Stepper = Template.bind({})
