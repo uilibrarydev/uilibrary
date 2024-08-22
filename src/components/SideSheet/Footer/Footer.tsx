@@ -11,7 +11,7 @@ type TProps = {
     confirm: TButtonPropTypes
     extraButton?: TButtonPropTypes
   }
-  onClose: (e: TClickEventType | undefined) => void
+  onClose: (e?: TClickEventType) => void
   onSubmit?: (isSelected: boolean) => void
   checkboxInfo?: TCheckboxInfo
 }
