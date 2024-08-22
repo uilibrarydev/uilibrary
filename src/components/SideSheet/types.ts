@@ -14,7 +14,7 @@ export interface TSideSheetPropTypes {
   size?: TSideSheet
   isLoading?: boolean
   isOpen: boolean
-  onClose: () => void
+  onClose: (e: TClickEventType | undefined | MouseEvent) => void
   onSubmit?: (isCheckboxSelected: boolean) => void
   position?: 'right' | 'left'
   title?: string

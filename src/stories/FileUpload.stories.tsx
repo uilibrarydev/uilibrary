@@ -1,8 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import React, { useState } from 'react'
-import { FileUpload as _FileUpload } from '../components/FileUpload'
+import { FileUpload as _FileUpload, TFileUploadProps } from '../components/FileUpload'
 import IconInfo from '../components/SVGIcons/IconInfo'
+import { StoryFn } from '@storybook/react'
 
 export default {
   title: 'FileUpload',
@@ -13,7 +14,7 @@ const getFiles = (files: FileList) => {
   console.log('getFiles', files)
 }
 
-const Template = (args): JSX.Element => {
+const Template: StoryFn<TFileUploadProps> = (args) => {
   const [files, setFiles] = useState([])
   const getFiles = (_files) => {
     if (_files && _files.length) {

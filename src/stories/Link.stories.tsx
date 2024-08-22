@@ -1,12 +1,14 @@
 import React from 'react'
 import { Link as _Link } from '../index'
+import { StoryFn } from '@storybook/react'
+import { LinkPropTypes } from '../components/Link/types'
 
 export default {
   title: 'Link',
   component: _Link
 }
 
-const Template = (args) => {
+const Template: StoryFn<LinkPropTypes> = (args) => {
   return <_Link {...args} />
 }
 

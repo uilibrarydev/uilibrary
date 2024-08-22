@@ -3,7 +3,8 @@ import React from 'react'
 // @ts-ignore
 import imageFile from '../assets/images/avatar.jpg'
 import { Avatar as _Avatar, AvatarGroup as _AvatarGroup } from '../index'
-import { TAvatarProps } from '../components/Avatar/types'
+import { TAvatarGroupProps, TAvatarProps } from '../components/Avatar/types'
+import type { StoryFn } from '@storybook/react'
 
 const image = {
   src: imageFile,
@@ -29,7 +30,7 @@ export default {
   }
 }
 
-const Template = (args) => <_Avatar {...args} />
+const Template: StoryFn<TAvatarProps> = (args) => <_Avatar {...args} />
 
 export const Avatar = Template.bind({})
 
@@ -81,9 +82,9 @@ const Avatars = [
     initials: 'T M',
     tooltipContent: 'T M'
   }
-] as TAvatarProps
+] as TAvatarProps[]
 
-const AvatarGroupTemplate = (args) => {
+const AvatarGroupTemplate: StoryFn<TAvatarGroupProps> = (args) => {
   return <_AvatarGroup {...args} />
 }
 

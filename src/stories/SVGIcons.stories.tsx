@@ -1,5 +1,7 @@
 import { Text } from '../components/Text'
 import * as Icons from '../components/SVGIcons'
+import { StoryFn } from '@storybook/react'
+import { ISVGIconProps } from '../components/SVGIcons/types'
 
 export default {
   title: 'SVG Icons',
@@ -33,7 +35,7 @@ export default {
   }
 }
 
-const Template = (args: any) => {
+const Template: StoryFn<ISVGIconProps & {filled: string}> = (args) => {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
       {Object.values(Icons)

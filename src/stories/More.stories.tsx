@@ -5,7 +5,7 @@ export default {
   title: 'More',
   component: _More
 }
-const Template = (): JSX.Element => {
+const Template = () => {
   return (
     <div onClick={() => console.log('sdjbsd')}>
       <_More

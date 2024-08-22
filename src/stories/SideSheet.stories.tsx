@@ -15,6 +15,8 @@ import IconCaretDownFilled from '../components/SVGIcons/IconCaretDownFilled'
 import IconSelectAllOff from '../components/SVGIcons/IconSelectAllOff'
 import IconPerson from '../components/SVGIcons/IconPerson'
 import IconInfo from '../components/SVGIcons/IconInfo'
+import { StoryFn } from '@storybook/react'
+import { TSideSheetPropTypes } from '../components/SideSheet/types'
 
 export default {
   title: 'Side Sheet',
@@ -124,7 +126,7 @@ const OPTIONS_GROUPED: TSelectGroupOptions = [
   }
 ]
 
-const Template = (args: any) => {
+const Template: StoryFn<TSideSheetPropTypes> = (args) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const handleOpenSheet = () => {
@@ -147,9 +149,9 @@ const Template = (args: any) => {
     setIsOpen(false)
   }
 
-  const closeSideSheet = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
+  const closeSideSheet = (e: TClickEventType | undefined | MouseEvent) => {
+    e?.preventDefault()
+    e?.stopPropagation()
     if (_isDirtyRef.current) {
       setIsModalOpen(true)
     } else {
@@ -162,9 +164,9 @@ const Template = (args: any) => {
     console.log('submit')
   }
 
-  const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
+  const [selectedValues, setSelectedValues] = useState<TSelectedValue[]>([])
 
-  const set = (value, isChecked) => {
+  const set = (value: TSelectedValue[], isChecked: boolean) => {
     setSelectedValues(value)
   }
 
@@ -256,22 +258,9 @@ const Template = (args: any) => {
                 labelAddons={<IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />}
                 isGrouped={true}
                 isButtonSelect={true}
-                buttonProps={{
-                  buttonText: 'Select',
-                  type: 'secondary',
-                  iconProps: { Component: IconCaretDownFilled, alignment: 'right', size: 'xsmall' }
-                }}
-                menuOptions={[
-                  {
-                    label: 'save template',
-                    value: '1',
-                    iconProps: { Component: IconSelectAllOff }
-                  }
-                ]}
                 dropdownWidth={400}
                 align="right"
                 maxSelectCount={3}
-                emptyListMessage="List is Empty"
                 selectedItems={selectedValues}
                 setSelectedItems={set}
                 labelRightIconComponent={() => (

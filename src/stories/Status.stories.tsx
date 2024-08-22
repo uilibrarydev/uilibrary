@@ -1,7 +1,9 @@
 import React from 'react'
-import { Icon, Popover, Status as _Status, Text } from '../index'
+import { Popover, Status as _Status, Text } from '../index'
 import IconPerson from '../components/SVGIcons/IconPerson'
 import IconInfo from '../components/SVGIcons/IconInfo'
+import { StoryFn } from '@storybook/react'
+import { TStatusProps } from '../components/Status/types'
 
 export default {
   title: 'Status',
@@ -27,7 +29,7 @@ export default {
   }
 }
 
-const Template = (args) => {
+const Template: StoryFn<TStatusProps> = (args) => {
   return (
     <>
       <_Status {...args} type={'danger'}>

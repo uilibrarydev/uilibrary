@@ -1,8 +1,7 @@
 import React from 'react'
 import { NavigationItem as _NavigationItem } from '../index'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import logo from '../assets/images/logo.svg'
+import { StoryFn } from '@storybook/react'
+import { TNavigationLinkPropTypes } from '../components/SideNavigation/NavigationItem/types'
 
 export default {
   title: 'Navigation Item',
@@ -14,11 +13,10 @@ export default {
   }
 }
 
-const Template = (args: any) => <_NavigationItem {...args} As={(props) => <div>Hello</div>} />
+const Template: StoryFn<TNavigationLinkPropTypes> = (args) => <_NavigationItem {...args} As={() => <div>Hello</div>} />
 
 export const NavigationItem = Template.bind({})
 
 NavigationItem.args = {
-  label: <img src={logo} />,
   showAction: false
 }

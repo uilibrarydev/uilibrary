@@ -1,6 +1,8 @@
 import React from 'react'
 import { Empty as _Empty } from '../index'
 import IconAdd from '../components/SVGIcons/IconAdd'
+import { StoryFn } from '@storybook/react'
+import { TEmptyProps } from '../components/Empty/types'
 
 export default {
   title: 'Empty',
@@ -12,7 +14,7 @@ export default {
     }
   }
 }
-const Template = (args) => {
+const Template: StoryFn<TEmptyProps> = (args) => {
   return <_Empty {...args} />
 }
 
