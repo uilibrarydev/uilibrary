@@ -26,9 +26,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - run: echo "VERSION=$(npm run version --silent)" >> $GITHUB_ENV
-      - run: echo "PACKAGE_NAME=$(npm run name --silent)" >> $GITHUB_ENV
-
       # Semantic Release
       - name: Run Semantic Release
         env:
@@ -36,6 +33,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: npx semantic-release
+
+      - run: echo "VERSION=$(npm run version --silent)" >> $GITHUB_ENV
+      - run: echo "PACKAGE_NAME=$(npm run name --silent)" >> $GITHUB_ENV
 
       # Slack notification
       - run: echo "PIPE_URL=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID|Pipeline#$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
