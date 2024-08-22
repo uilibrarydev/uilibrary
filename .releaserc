@@ -6,7 +6,7 @@
     "@semantic-release/changelog",
     ["@semantic-release/npm", {"pkgRoot": "dist"}],
     ["@semantic-release/npm", {"pkgRoot": "."}],
-    "@semantic-release/github",,
+    "@semantic-release/github",
     [
       "@semantic-release/git",
       {
