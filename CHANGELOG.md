@@ -1,3 +1,15 @@
+## [2.2.1](https://github.com/dinofrontend/dino_ui_library/compare/2.2.0...2.2.1) (2024-08-22)
+
+
+### Bug Fixes
+
+* reverted yaml ([be95a97](https://github.com/dinofrontend/dino_ui_library/commit/be95a97198d2594e4795cfba24bf55ad62fc45c5))
+* trying again with another ssh-key ([5e16700](https://github.com/dinofrontend/dino_ui_library/commit/5e167006b0c23e78adedc1a6e61c1dcd2487ca4b))
+* trying to deploy with ssh key ([631cb1d](https://github.com/dinofrontend/dino_ui_library/commit/631cb1de06b192456273200e4e6bf8c878130efb))
+* trying to deploy with ssh key ([07c6cba](https://github.com/dinofrontend/dino_ui_library/commit/07c6cbaae5e0e0cfb8fa81772a71226d46df396a))
+* updated releaserc ([cb7c39c](https://github.com/dinofrontend/dino_ui_library/commit/cb7c39c8025f263e1b381415ede8efa163b9aeef))
+* updated releaserc again ([2032952](https://github.com/dinofrontend/dino_ui_library/commit/2032952ecd05208bdee03750f3de600a03ac6da9))
+
 # [2.2.0](https://github.com/dinofrontend/dino_ui_library/compare/2.1.16...2.2.0) (2024-08-22)
 
 
