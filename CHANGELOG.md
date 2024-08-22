@@ -1,3 +1,14 @@
+# [2.3.0](https://github.com/dinofrontend/dino_ui_library/compare/2.2.8...2.3.0) (2024-08-22)
+
+
+### Features
+
+* removed exclude of storybook from the typescript, and fixed all types in stories ([8df9b31](https://github.com/dinofrontend/dino_ui_library/commit/8df9b310fb87fb8b3e774b53742e21335091e6dd))
+* removed exclude of storybook from the typesscript, and fixed all types in stories ([68a2511](https://github.com/dinofrontend/dino_ui_library/commit/68a2511ba20f9e7da694c6ddb9a186dd3231177c))
+* removed exclude of storybook from the typesscript, and fixed all types in stories ([e0f11c7](https://github.com/dinofrontend/dino_ui_library/commit/e0f11c7a54603343037bbb9ded1eeb1c3aaf0597))
+* resolved comments ([a1e36c8](https://github.com/dinofrontend/dino_ui_library/commit/a1e36c80cc2026245fadc304796ed406c57e0384))
+* resolved comments ([1f36104](https://github.com/dinofrontend/dino_ui_library/commit/1f361046f92dfb996f922185fe69c2b95d8d112e))
+
 ## [2.2.8](https://github.com/dinofrontend/dino_ui_library/compare/2.2.7...2.2.8) (2024-08-22)
 
 
