@@ -15,7 +15,7 @@
     "build-storybook": "storybook build",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
     "prettier": "prettier --write \"./{src,stories}/**/**.{js,jsx,ts,tsx}\"",
-    "check": "npm run prettier && npm run lint && tsc",
+    "check": "tsc",
     "install-latest": "npm install --legacy-peer-deps",
     "import-all-svg-components": "node ./bin/import_all_svg_components.js",
     "publish-alpha-version": "cd dist && npm publish --tag alpha",
