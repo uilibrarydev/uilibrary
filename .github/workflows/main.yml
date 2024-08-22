@@ -26,6 +26,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - run: echo "VERSION=$(npm run version --silent)" >> $GITHUB_ENV
+      - run: echo "PACKAGE_NAME=$(npm run name --silent)" >> $GITHUB_ENV
+
       # Semantic Release
       - name: Run Semantic Release
         env:
