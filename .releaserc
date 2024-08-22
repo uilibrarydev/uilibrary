@@ -5,7 +5,8 @@
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     ["@semantic-release/npm", {"pkgRoot": "dist"}],
-    ["@semantic-release/github": {"assets": ["package.json"]}],
+    ["@semantic-release/npm", {"pkgRoot": "."}],
+    "@semantic-release/github",,
     [
       "@semantic-release/git",
       {
