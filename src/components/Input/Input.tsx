@@ -5,7 +5,6 @@ import { NumericFormat } from 'react-number-format'
 import { InputCustomProps } from './types'
 import { Label, ErrorMessage } from '../../helperComponents'
 import { Text } from '../Text'
-
 import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled'
 
 export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
