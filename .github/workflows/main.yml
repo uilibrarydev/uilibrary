@@ -13,10 +13,8 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3.5.2
-        with:
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Specify Node Version
         uses: actions/setup-node@v3
