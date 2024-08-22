@@ -21,17 +21,17 @@ Breadcrumb.args = {
     {
       label: 'Home',
       value: 1,
-      onClick: noop,
+      onClick: noop
     },
     {
       label: 'Application',
       value: 2,
-      onClick: noop,
+      onClick: noop
     },
     {
       label: 'Details',
       value: 3,
-      onClick: noop,
+      onClick: noop
     }
   ]
 }

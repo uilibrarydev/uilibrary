@@ -16,7 +16,7 @@ export default {
     }
   }
 }
-const Template: StoryFn<TPaginationProps> = ({pageSize, ...args}) => (
+const Template: StoryFn<TPaginationProps> = ({ pageSize, ...args }) => (
   <_Pagination
     pageSize={10}
     {...args}

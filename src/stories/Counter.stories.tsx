@@ -8,10 +8,10 @@ export default {
   component: _Counter
 }
 
-const Template: StoryFn<ICounterProps>= (args) => {
+const Template: StoryFn<ICounterProps> = (args) => {
   const [count, setCount] = useState(6)
 
-  const onChange = (count:  (string | number | undefined)) => {
+  const onChange = (count: string | number | undefined) => {
     setCount(count as number)
   }
 

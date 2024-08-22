@@ -43,7 +43,7 @@ export default {
   }
 }
 
-const Template: StoryFn<TextPropTypes & {text: string}> = (args) => {
+const Template: StoryFn<TextPropTypes & { text: string }> = (args) => {
   return (
     <div style={{ padding: '20px', backgroundColor: `${args.type == 'inverse' ? '#919191' : ''}` }}>
       <_Text {...args}>{args.text}</_Text>

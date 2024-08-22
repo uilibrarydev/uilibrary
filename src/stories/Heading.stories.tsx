@@ -26,7 +26,7 @@ export default {
   }
 }
 
-const Template: StoryFn<HeadingPropTypes & {text: string}> = (args) => (
+const Template: StoryFn<HeadingPropTypes & { text: string }> = (args) => (
   <_Heading {...args}>
     {args.text} {args.size} {args.weight}
   </_Heading>

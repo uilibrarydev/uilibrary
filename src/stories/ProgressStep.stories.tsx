@@ -44,7 +44,7 @@ export default {
   }
 }
 
-const Template:StoryFn<TProgressStepProps> = (args) => {
+const Template: StoryFn<TProgressStepProps> = (args) => {
   const [activeStep, setActiveStep] = useState<TStepValue>(1)
   const [steps, setSteps] = useState<TSteps>(STEPS)
 

@@ -13,7 +13,9 @@ export default {
   }
 }
 
-const Template: StoryFn<TNavigationLinkPropTypes> = (args) => <_NavigationItem {...args} As={() => <div>Hello</div>} />
+const Template: StoryFn<TNavigationLinkPropTypes> = (args) => (
+  <_NavigationItem {...args} As={() => <div>Hello</div>} />
+)
 
 export const NavigationItem = Template.bind({})
 

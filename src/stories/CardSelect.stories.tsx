@@ -169,7 +169,7 @@ CardSelect.args = {
   ]
 }
 
-const CardSelectGroupTemplate:StoryFn<TCardSelectGroupProps> = (args) => {
+const CardSelectGroupTemplate: StoryFn<TCardSelectGroupProps> = (args) => {
   const [selected, setSelected] = useState<number | string>(1)
 
   return (

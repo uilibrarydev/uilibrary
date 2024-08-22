@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import {
   Button,
@@ -17,7 +16,11 @@ import IconCaretDownFilled from '../components/SVGIcons/IconCaretDownFilled'
 import IconSelectAllOff from '../components/SVGIcons/IconSelectAllOff'
 import IconMore from '../components/SVGIcons/IconMore'
 import { StoryFn } from '@storybook/react'
-import { TButtonSelectPropTypes, TMultiSelectPropTypes, TSingleSelectPropTypes } from '../components/Select/types'
+import {
+  TButtonSelectPropTypes,
+  TMultiSelectPropTypes,
+  TSingleSelectPropTypes
+} from '../components/Select/types'
 import { Positions } from '../components/Tooltip/types'
 
 type TItemValue = string | number | null
@@ -354,7 +357,7 @@ const MultiSelectTemplate: StoryFn<TMultiSelectPropTypes> = (args) => {
   const [selectedValues, setSelectedValues] = useState<TSelectedValue[]>([])
 
   const set = (value: TSelectedValue[], isChecked: boolean) => {
-    setSelectedValues(value);
+    setSelectedValues(value)
     console.log(isChecked)
   }
   return (
@@ -371,8 +374,8 @@ const MultiSelectTemplate: StoryFn<TMultiSelectPropTypes> = (args) => {
         maxSelectCount={3}
         selectedItems={selectedValues}
         setSelectedItems={set}
-        labelRightIconComponent={
-          () => <IconPerson
+        labelRightIconComponent={() => (
+          <IconPerson
             size="xsmall"
             className="mr-4"
             onClick={(e: any) => {
@@ -380,7 +383,7 @@ const MultiSelectTemplate: StoryFn<TMultiSelectPropTypes> = (args) => {
               e.stopPropagation()
             }}
           />
-        }
+        )}
         translations={{
           emptyListMainMessage: '',
           innerLabel: 'Group name',

@@ -13,7 +13,7 @@ export default {
   }
 }
 
-const Template: StoryFn<{type: string}> = (args) => {
+const Template: StoryFn<{ type: string }> = (args) => {
   const [infoMessages, setInfoMessages] = useState<any[]>([])
 
   const removeMessage = (id: number | string) => {

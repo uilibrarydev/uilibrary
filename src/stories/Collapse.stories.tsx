@@ -11,7 +11,7 @@ export default {
   argTypes: {}
 }
 
-const Template: StoryFn<TCollapseProps & {textTitle: string}> = (args) => {
+const Template: StoryFn<TCollapseProps & { textTitle: string }> = (args) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const open = () => setIsOpen(true)

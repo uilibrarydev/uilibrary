@@ -35,7 +35,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
   const [isOpen, setIsOpen] = useState<boolean>(true)
 
   return (
-    <_SideNavigation  {...args} setOpen={setIsOpen} open={isOpen}>
+    <_SideNavigation {...args} setOpen={setIsOpen} open={isOpen}>
       <main>
         <NavigationItem
           As={() => (

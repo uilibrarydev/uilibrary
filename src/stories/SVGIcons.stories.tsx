@@ -35,7 +35,7 @@ export default {
   }
 }
 
-const Template: StoryFn<ISVGIconProps & {filled: string}> = (args) => {
+const Template: StoryFn<ISVGIconProps & { filled: string }> = (args) => {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
       {Object.values(Icons)
