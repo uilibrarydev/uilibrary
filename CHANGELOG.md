@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/dinofrontend/dino_ui_library/compare/2.4.0...2.4.1) (2024-08-22)
+
+
+### Bug Fixes
+
+* trying fix publish issue ([330de4e](https://github.com/dinofrontend/dino_ui_library/commit/330de4ebc0a33b31c3d857f963913337143d03ff))
+
 # [2.4.0](https://github.com/dinofrontend/dino_ui_library/compare/2.3.0...2.4.0) (2024-08-22)
 
 
