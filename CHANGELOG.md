@@ -1,3 +1,10 @@
+## [2.2.7](https://github.com/dinofrontend/dino_ui_library/compare/2.2.6...2.2.7) (2024-08-22)
+
+
+### Bug Fixes
+
+* stabilized ([cc41bfd](https://github.com/dinofrontend/dino_ui_library/commit/cc41bfd259efab4a627873020b12549d90e00457))
+
 ## [2.2.6](https://github.com/dinofrontend/dino_ui_library/compare/2.2.5...2.2.6) (2024-08-22)
 
 
