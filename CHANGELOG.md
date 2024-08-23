@@ -1,3 +1,11 @@
+## [2.4.2](https://github.com/dinofrontend/dino_ui_library/compare/2.4.1...2.4.2) (2024-08-23)
+
+
+### Bug Fixes
+
+* deployment test with access token ([310039a](https://github.com/dinofrontend/dino_ui_library/commit/310039a2f77f30d747aa24dcc7fd9ef0e3141752))
+* deployment test with access token 1 ([2100590](https://github.com/dinofrontend/dino_ui_library/commit/21005909af6090a8954ae7d8646071117c1980f5))
+
 ## [2.4.1](https://github.com/dinofrontend/dino_ui_library/compare/2.4.0...2.4.1) (2024-08-22)
 
 
