@@ -1,3 +1,10 @@
+## [2.4.3](https://github.com/dinofrontend/dino_ui_library/compare/2.4.2...2.4.3) (2024-08-23)
+
+
+### Bug Fixes
+
+* test dino user bot access token for direct push on protected branches ([1cac788](https://github.com/dinofrontend/dino_ui_library/commit/1cac7881a298a3efeaf450b6dce99f3886bfaf09))
+
 ## [2.4.2](https://github.com/dinofrontend/dino_ui_library/compare/2.4.1...2.4.2) (2024-08-23)
 
 
