@@ -44,3 +44,33 @@ How to use mixins:
     6. Make sure you don't have type error and the component is matching with the design.
     7. If everything is ok you can create a pull request into the master branch with the updated package version.
     8. The new version will be published automatically after the pull request is reviewed and merged.
+
+## Automated Releases with Semantic Release
+
+This project uses [Semantic Release](https://semantic-release.gitbook.io/semantic-release/) to automate versioning and releases. It follows [Semantic Versioning](https://semver.org/) (semver) and determines the next version number based on commit messages.
+
+### How It Works
+
+    Semantic Release automates:
+
+    1. Version number updates.
+    2. Release notes generation.
+    3. Package publishing to npm.
+    4. GitHub release creation.
+
+### Commit Message Guidelines
+
+Semantic Release uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) to determine release types:
+
+    `fix:` – for bug fixes (patch release)
+    `feat:` – for new features (minor release)
+    `BREAKING CHANGE:` – for breaking changes (major release)
+
+### Releasing
+
+To trigger a release:
+
+    1. Commit your changes using the conventional commit format.
+    2. Open a pull request and merge it into the `master` branch with the appropriate commit message.
+
+Semantic Release will handle the rest, including publishing to npm and creating a GitHub release.
