@@ -42,7 +42,7 @@ How to use mixins:
     4. Develop component based on the design.
     5. Add `coomponentName.stories.tsx` file in src/stories folder to test created component.
     6. Make sure you don't have type error and the component is matching with the design.
-    7. If everything is ok you can create a pull request into the master branch with the updated package version.
+    7. If everything is ok you can create a pull request into the master with correct commit message (you can read about it below).
     8. The new version will be published automatically after the pull request is reviewed and merged.
 
 ## Automated Releases with Semantic Release
