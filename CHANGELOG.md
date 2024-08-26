@@ -1,3 +1,17 @@
+# [2.5.0](https://github.com/dinofrontend/dino_ui_library/compare/2.4.3...2.5.0) (2024-08-26)
+
+
+### Bug Fixes
+
+* text fix ([22d77f8](https://github.com/dinofrontend/dino_ui_library/commit/22d77f817a112fdafdece393963753499b098842))
+* text fix ([a86bc0f](https://github.com/dinofrontend/dino_ui_library/commit/a86bc0f73cb8eeb6795a1b9c1ac5a2661c2e34b4))
+
+
+### Features
+
+* added doc in readme file for semver ([0020c21](https://github.com/dinofrontend/dino_ui_library/commit/0020c214bf2b4fb051b940cfe90716b1d22a04b4))
+* added doc in readme file for semver ([20e6a2b](https://github.com/dinofrontend/dino_ui_library/commit/20e6a2b674a3dcfeb4d0a832bfaa16f77244daac))
+
 ## [2.4.3](https://github.com/dinofrontend/dino_ui_library/compare/2.4.2...2.4.3) (2024-08-23)
 
 
