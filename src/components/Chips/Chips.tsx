@@ -3,12 +3,7 @@ import { Text } from '../Text'
 import { ChipCustomType, TChipsProps } from './types'
 import classNames from 'classnames'
 import IconDismissCircleFilled from '../SVGIcons/IconDismissCircleFilled'
-
-enum ChipsActionIconSize {
-  large = 'medium',
-  medium = 'small',
-  small = 'xsmall'
-}
+import { ICON_SIZE_MAPPING, TEXT_SIZE_MAPPING } from './consts'
 
 export const Chips = (props: TChipsProps): ReactElement => {
   const {
@@ -45,8 +40,9 @@ export const Chips = (props: TChipsProps): ReactElement => {
       {leftIconProps?.Component ? (
         <leftIconProps.Component
           dataId={`${dataId}-icon`}
-          size={size == 'small' ? 'xsmall' : 'small'}
+          size={ICON_SIZE_MAPPING[size]}
           type={customType}
+          className={'mr-6'}
           {...leftIconProps}
         />
       ) : null}
@@ -54,7 +50,7 @@ export const Chips = (props: TChipsProps): ReactElement => {
         <Text
           dataId={`${dataId}-text`}
           type={customType}
-          size={size == 'small' ? 'small' : 'standard'}
+          size={TEXT_SIZE_MAPPING[size]}
           className="chips__label"
         >
           <>{text}</>
@@ -63,9 +59,9 @@ export const Chips = (props: TChipsProps): ReactElement => {
       {withAction && (
         <IconDismissCircleFilled
           dataId={`${dataId}-icon`}
-          size={ChipsActionIconSize[size]}
+          size={ICON_SIZE_MAPPING[size]}
           type={customType}
-          className="chips__delete"
+          className="chips__delete ml-6"
           onClick={handleClick}
         />
       )}
