@@ -1,3 +1,11 @@
+## [2.5.2](https://github.com/dinofrontend/dino_ui_library/compare/2.5.1...2.5.2) (2024-08-27)
+
+
+### Bug Fixes
+
+* disable selected year and month in SimpleDatePicker ([89cf97c](https://github.com/dinofrontend/dino_ui_library/commit/89cf97ce41c2f21afa12b1fb40b92a0ff2dc000c))
+* set isRequiredField prop to ButtonSelect ([8bddb20](https://github.com/dinofrontend/dino_ui_library/commit/8bddb204fc3149cf3fb77eeda96858212e59b11e))
+
 ## [2.5.1](https://github.com/dinofrontend/dino_ui_library/compare/2.5.0...2.5.1) (2024-08-27)
 
 
