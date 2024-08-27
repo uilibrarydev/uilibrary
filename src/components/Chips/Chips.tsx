@@ -3,7 +3,7 @@ import { Text } from '../Text'
 import { ChipCustomType, TChipsProps } from './types'
 import classNames from 'classnames'
 import IconDismissCircleFilled from '../SVGIcons/IconDismissCircleFilled'
-import {ICON_SIZE_MAPPING, TEXT_SIZE_MAPPING} from './consts'
+import { ICON_SIZE_MAPPING, TEXT_SIZE_MAPPING } from './consts'
 
 export const Chips = (props: TChipsProps): ReactElement => {
   const {
