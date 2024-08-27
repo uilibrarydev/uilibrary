@@ -59,6 +59,7 @@ export const CustomHeader = (props: TProps): ReactElement => {
           selectedItem={month}
           setSelectedItem={(m) => changeMonth(m as number)}
           dropdownWidth={150}
+          isRequiredField
         />
         <ButtonSelect
           type="tertiary"
@@ -71,6 +72,7 @@ export const CustomHeader = (props: TProps): ReactElement => {
           selectedItem={year}
           setSelectedItem={(y) => changeYear(y as number)}
           dropdownWidth={100}
+          isRequiredField
         />
       </div>
       <IconChevronRight
