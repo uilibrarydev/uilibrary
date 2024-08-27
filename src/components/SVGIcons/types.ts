@@ -34,3 +34,5 @@ export interface ISVGIconProps {
   dataId?: string
   Component?: TSVGIconComponent
 }
+
+export type TTextSize = 'xxsmall' | 'xsmall' | 'small' | 'standard' | 'medium' | 'large'
