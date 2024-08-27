@@ -15,7 +15,7 @@ export interface TChipsProps extends IFormCompProps {
   leftIconProps?: ISVGIconProps
   color?: TChipsColors
   type?: 'filled' | 'accent' | 'outlined'
-  size?: 'large' | 'medium' | 'small'
+  size?: 'large' | 'medium' | 'small' | 'xsmall'
   className?: string
   disabled?: boolean
   withAction?: boolean
