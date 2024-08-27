@@ -1,3 +1,10 @@
+## [2.5.1](https://github.com/dinofrontend/dino_ui_library/compare/2.5.0...2.5.1) (2024-08-27)
+
+
+### Bug Fixes
+
+* chips sizes ([47b9850](https://github.com/dinofrontend/dino_ui_library/commit/47b9850bead429635516b26e4b133e1cd44f264c))
+
 # [2.5.0](https://github.com/dinofrontend/dino_ui_library/compare/2.4.3...2.5.0) (2024-08-26)
 
 
