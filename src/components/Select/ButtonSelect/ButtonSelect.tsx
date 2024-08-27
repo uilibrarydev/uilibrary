@@ -107,7 +107,7 @@ export const ButtonSelect = (props: TButtonSelectPropTypes): ReactElement => {
                   OptionRightIconComponent={optionRightIconComponent}
                   LabelRightIconComponent={labelRightIconComponent}
                   avatar={avatar}
-                  disabled={item.disabled || isSelected}
+                  disabled={item.disabled}
                   isSelected={isSelected}
                 />
               )
