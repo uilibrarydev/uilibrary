@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from 'react'
 import { CollapseItem } from '../CollapseItem/CollapseItem'
 
 import { TCollapseGroupProps, TCollapseItem, TCollapseValue } from '../types'
-import classNames from 'classnames';
+import classNames from 'classnames'
 
 export const CollapseGroup = (props: TCollapseGroupProps): ReactElement => {
   const { items, singleSelection, titleProps = {}, className } = props
