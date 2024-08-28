@@ -26,6 +26,7 @@ export interface TCardSelectGroupProps extends IFormCompProps {
   value: number | string
   cardsGroupDisable?: boolean
   cardsGroupType?: CARD_SELECT_TYPES
+  className?: string
 }
 
 export type TInfoList = TInfoListItem[]
