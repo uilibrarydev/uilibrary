@@ -1,12 +1,13 @@
 import React from 'react'
 import { TCardSelectGroupProps } from './types'
 import { CardSelect } from './CardSelect'
+import classNames from 'classnames';
 
 export const CardSelectGroup = (props: TCardSelectGroupProps): JSX.Element => {
-  const { cards, name, handleChange, value, cardsGroupType, cardsGroupDisable } = props
+  const { cards, name, handleChange, value, cardsGroupType, cardsGroupDisable, className } = props
 
   return (
-    <div>
+    <div className={classNames('card-select-group', className)}>
       {cards.map(
         (
           {
@@ -24,7 +25,7 @@ export const CardSelectGroup = (props: TCardSelectGroupProps): JSX.Element => {
           index
         ) => (
           <CardSelect
-            className={'mb-20'}
+            className={'card-select-group__item'}
             name={name}
             key={id || index}
             type={cardsGroupType || type}
