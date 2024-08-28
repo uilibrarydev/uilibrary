@@ -39,4 +39,5 @@ export type TCollapseGroupProps = {
   items: TCollapseItem[]
   singleSelection?: boolean
   titleProps?: ICollapseTitleProps
+  className?: string
 }
