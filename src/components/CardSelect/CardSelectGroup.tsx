@@ -1,7 +1,7 @@
 import React from 'react'
 import { TCardSelectGroupProps } from './types'
 import { CardSelect } from './CardSelect'
-import classNames from 'classnames';
+import classNames from 'classnames'
 
 export const CardSelectGroup = (props: TCardSelectGroupProps): JSX.Element => {
   const { cards, name, handleChange, value, cardsGroupType, cardsGroupDisable, className } = props
