@@ -1,3 +1,11 @@
+## [2.5.3](https://github.com/dinofrontend/dino_ui_library/compare/2.5.2...2.5.3) (2024-08-28)
+
+
+### Bug Fixes
+
+* added classname prop for collapse group ([033994c](https://github.com/dinofrontend/dino_ui_library/commit/033994c4faf663449e4ea979888fb0960d541e45))
+* added classname prop for collapse group ([4d7ec85](https://github.com/dinofrontend/dino_ui_library/commit/4d7ec85725dd5a21b3856d23fced5ea852a34bda))
+
 ## [2.5.2](https://github.com/dinofrontend/dino_ui_library/compare/2.5.1...2.5.2) (2024-08-27)
 
 
