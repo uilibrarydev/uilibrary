@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { Text } from '../Text'
 import { TMorePropTypes } from './types'
 import { Button } from '../Button'
-import classNames from 'classnames'
-import './styles.scss'
 
 export const More = (props: TMorePropTypes): JSX.Element => {
   const {
@@ -27,11 +25,11 @@ export const More = (props: TMorePropTypes): JSX.Element => {
   }
 
   return (
-    <Text {...textProps} className="info_with_more_button">
+    <Text {...textProps} className={'more'}>
       {`${isExpanded ? expandedText : collapsedText}`}
       <Button
-        className={classNames('more-button', { 'ml-8': !!collapsedText || isExpanded })}
-        type="text"
+        className={'more__btn ml-4'}
+        type="link"
         buttonText={isExpanded ? buttonText.collapse : buttonText.expand}
         onClick={isExpanded ? collapse : expand}
       />
