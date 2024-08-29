@@ -1,3 +1,11 @@
+# [2.6.0](https://github.com/dinofrontend/dino_ui_library/compare/2.5.4...2.6.0) (2024-08-29)
+
+
+### Features
+
+* added arrow-sync icon ([424904c](https://github.com/dinofrontend/dino_ui_library/commit/424904cfc0555239f559e0a4c3e46db1e47186cc))
+* added arrow-sync icon ([7156096](https://github.com/dinofrontend/dino_ui_library/commit/7156096bea78d4603675c60c781887a85eb06cf0))
+
 ## [2.5.4](https://github.com/dinofrontend/dino_ui_library/compare/2.5.3...2.5.4) (2024-08-29)
 
 
