@@ -1,3 +1,11 @@
+## [2.5.4](https://github.com/dinofrontend/dino_ui_library/compare/2.5.3...2.5.4) (2024-08-29)
+
+
+### Bug Fixes
+
+* more component ui correction ([c8ce9a5](https://github.com/dinofrontend/dino_ui_library/commit/c8ce9a5da1f59e6c0bf1f7197eee9beddb98bacf))
+* more component ui correction ([09ce8d0](https://github.com/dinofrontend/dino_ui_library/commit/09ce8d091c82236e6afbed04a40b686073bd628d))
+
 ## [2.5.3](https://github.com/dinofrontend/dino_ui_library/compare/2.5.2...2.5.3) (2024-08-28)
 
 
