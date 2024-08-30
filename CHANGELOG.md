@@ -1,3 +1,10 @@
+## [2.6.1](https://github.com/dinofrontend/dino_ui_library/compare/2.6.0...2.6.1) (2024-08-30)
+
+
+### Bug Fixes
+
+* changed red-50 token value ([83064b4](https://github.com/dinofrontend/dino_ui_library/commit/83064b47705c8cb717584bd1454a5acaeda428ee))
+
 # [2.6.0](https://github.com/dinofrontend/dino_ui_library/compare/2.5.4...2.6.0) (2024-08-29)
 
 
