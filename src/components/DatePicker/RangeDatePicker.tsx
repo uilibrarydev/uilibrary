@@ -5,7 +5,7 @@ import { Input } from '../Input'
 import { DateFormat, IRangeDatePickerProps, TRangePickerValues } from './types'
 import { useImportFilesDynamically } from './hooks'
 import { isSameDay } from '../../utils/helpers'
-import {Label} from '../../helperComponents';
+import { Label } from '../../helperComponents'
 
 export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
   const {
@@ -22,9 +22,9 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
     dayjsLocale = 'hy-am',
     disabled,
     placeholderText,
-      label,
-      hasError,
-      required
+    label,
+    hasError,
+    required
   } = props
 
   useImportFilesDynamically(dayjsLocale)
@@ -78,27 +78,27 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
     <div className="picker-container input__inner">
       <Label text={label} required={required} invalid={hasError} />
       <DatePicker
-          locale={locale}
-          minDate={minDate}
-          maxDate={maxDate}
-          startDate={rangeArray[0] as Date}
-          endDate={rangeArray[1] as Date}
-          selectsRange
-          disabled={disabled}
-          onChange={onChange}
-          onClickOutside={checkRange}
-          customInput={
-            <div className="date-picker_input-container">
-              <Input
-                  dataId={dataId}
-                  disabled={disabled}
-                  placeholder={placeholderText}
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
-                  currentValue={renderCurrentSelectedDate(rangeArray)}
-              />
-            </div>
-          }
+        locale={locale}
+        minDate={minDate}
+        maxDate={maxDate}
+        startDate={rangeArray[0] as Date}
+        endDate={rangeArray[1] as Date}
+        selectsRange
+        disabled={disabled}
+        onChange={onChange}
+        onClickOutside={checkRange}
+        customInput={
+          <div className="date-picker_input-container">
+            <Input
+              dataId={dataId}
+              disabled={disabled}
+              placeholder={placeholderText}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              currentValue={renderCurrentSelectedDate(rangeArray)}
+            />
+          </div>
+        }
       />
     </div>
   )
