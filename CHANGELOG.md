@@ -1,3 +1,12 @@
+## [2.6.2](https://github.com/dinofrontend/dino_ui_library/compare/2.6.1...2.6.2) (2024-09-03)
+
+
+### Bug Fixes
+
+* Add calendar icon into the range date picker ([2a7a0a7](https://github.com/dinofrontend/dino_ui_library/commit/2a7a0a757aadf59b44ab24cd04e12248656036c1))
+* Add label in range picker ([aac114a](https://github.com/dinofrontend/dino_ui_library/commit/aac114afa24620c7c9b7f4c416b2a9d8068e23f5))
+* Code prettier ([b5d2b64](https://github.com/dinofrontend/dino_ui_library/commit/b5d2b64463d61a9112189bd19f0e1bee63918512))
+
 ## [2.6.1](https://github.com/dinofrontend/dino_ui_library/compare/2.6.0...2.6.1) (2024-08-30)
 
 
