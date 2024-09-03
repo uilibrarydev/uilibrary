@@ -55,7 +55,7 @@ export const SimpleDatePicker = SimplePicker.bind({})
 
 const TimeDatePicker = (): JSX.Element => {
   const [value1, setValue1] = useState<Date>(new Date())
-  const [value2, setValue2] = useState<Date>(new Date())
+  // const [value2, setValue2] = useState<Date>(new Date())
   // const filterPassedTime = (time) => {
   //   // const currentDate = value1
   //   const selectedDate = new Date(time)
@@ -87,6 +87,7 @@ const RangePicker: StoryFn<IRangeDatePickerProps> = (args) => {
         changeHandler={setValue}
         maxDate={new Date()}
         locale={'en'}
+        label={'Range Label'}
       />
     </div>
   )

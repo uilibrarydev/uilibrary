@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import dayjs from 'dayjs'
 import DatePicker from 'react-datepicker'
 import { Input } from '../Input'
 import { DateFormat, IRangeDatePickerProps, TRangePickerValues } from './types'
 import { useImportFilesDynamically } from './hooks'
 import { isSameDay } from '../../utils/helpers'
+import { Label } from '../../helperComponents'
+import IconCalendarRight from '../SVGIcons/IconCalendarRight'
 
 export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
   const {
@@ -20,14 +22,21 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
     locale = 'hy',
     dayjsLocale = 'hy-am',
     disabled,
-    placeholderText
+    placeholderText,
+    label,
+    hasError,
+    required
   } = props
 
   useImportFilesDynamically(dayjsLocale)
 
   const dateInitialValue = value !== undefined && Array.isArray(value) ? value : currentDates
-
   const [rangeArray, setRangeDate] = useState(dateInitialValue)
+  const calendarRef = useRef<{
+    isCalendarOpen: () => boolean
+    setOpen: (isOpen: boolean) => void | null
+  }>(null)
+
   const onChange = (date: TRangePickerValues): void => {
     if (date && Array.isArray(date)) {
       setRangeDate(date)
@@ -70,29 +79,43 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
     return `${startDateFormatted} - ${endDateFormatted}`
   }
 
+  const openDatepicker = () => {
+    if (calendarRef.current) {
+      const isOpen = calendarRef.current?.isCalendarOpen()
+      calendarRef.current?.setOpen(!isOpen)
+    }
+  }
+
   return (
-    <DatePicker
-      locale={locale}
-      minDate={minDate}
-      maxDate={maxDate}
-      startDate={rangeArray[0] as Date}
-      endDate={rangeArray[1] as Date}
-      selectsRange
-      disabled={disabled}
-      onChange={onChange}
-      onClickOutside={checkRange}
-      customInput={
-        <div className="date-picker_input-container">
-          <Input
-            dataId={dataId}
-            disabled={disabled}
-            placeholder={placeholderText}
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            currentValue={renderCurrentSelectedDate(rangeArray)}
-          />
-        </div>
-      }
-    />
+    <div className="picker-container input__inner">
+      <Label text={label} required={required} invalid={hasError} />
+      <DatePicker
+        locale={locale}
+        minDate={minDate}
+        maxDate={maxDate}
+        startDate={rangeArray[0] as Date}
+        endDate={rangeArray[1] as Date}
+        selectsRange
+        disabled={disabled}
+        onChange={onChange}
+        onClickOutside={checkRange}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        ref={calendarRef}
+        customInput={
+          <div className="date-picker_input-container">
+            <Input
+              dataId={dataId}
+              disabled={disabled}
+              placeholder={placeholderText}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              currentValue={renderCurrentSelectedDate(rangeArray)}
+              rightIconProps={{ Component: IconCalendarRight, onClick: openDatepicker }}
+            />
+          </div>
+        }
+      />
+    </div>
   )
 }
