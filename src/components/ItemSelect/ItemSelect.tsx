@@ -63,7 +63,7 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
           isSelected={selected}
           disabled={disabled}
           className={'ml-16'}
-          // iconProps={rightIconProps}
+          iconProps={rightIconProps}
         />
       ) : null}
     </div>
