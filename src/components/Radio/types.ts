@@ -5,8 +5,8 @@ export interface TRadioProps extends IFormCompProps {
   helperText?: string | ReactElement
   className?: string
   disabled?: boolean
-  isSelected?: boolean
   iconProps?: ReactElement
+  isSelected?: boolean
   onClick?: (isChecked: boolean) => void
 }
 
