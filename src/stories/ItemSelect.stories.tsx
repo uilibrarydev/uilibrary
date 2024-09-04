@@ -6,6 +6,8 @@ import imageFile2 from '../assets/images/Mastercard.svg'
 import imageFile3 from '../assets/images/Visa.svg'
 import IconCheckmark from '../components/SVGIcons/IconCheckmark'
 import IconAmd from '../components/SVGIcons/IconAmd'
+import { TItemSelectGroupProps, TItemSelectProps } from '../components/ItemSelect/types'
+import { StoryFn } from '@storybook/react'
 
 export default {
   title: 'ItemSelect',
@@ -42,7 +44,7 @@ const ITEMS = [
   }
 ]
 
-const Template = (args) => {
+const Template: StoryFn<TItemSelectProps> = (args) => {
   return (
     <div style={{ width: '50%' }}>
       <_ItemSelect {...args} />
@@ -55,23 +57,21 @@ export const ItemSelect = Template.bind({})
 ItemSelect.args = {
   leftIconProps: <IconAmd size={'small'} />,
   rightIconProps: <IconCheckmark type={'brand'} />,
-  image: null,
+  // image: '',
   label: 'Item Select',
-  disabled: false,
-  value: null,
-  onClick: (e: any) => {
-    console.log(e)
-  }
+  disabled: false
+  // value: null,
 }
 
-const ItemSelectGroupTemplate = (args) => {
-  const [selected, setSelected] = useState(1)
+const ItemSelectGroupTemplate: StoryFn<TItemSelectGroupProps> = (args) => {
+  const [selected, setSelected] = useState<number | string>(1)
   return (
     <div style={{ width: '50%' }}>
       <_ItemSelectGroup {...args} items={ITEMS} value={selected} handleChange={setSelected} />
     </div>
   )
 }
+
 export const ItemSelectGroup = ItemSelectGroupTemplate.bind({})
 
 ItemSelectGroup.args = {
