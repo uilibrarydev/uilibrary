@@ -1,3 +1,10 @@
+## [2.6.3](https://github.com/dinofrontend/dino_ui_library/compare/2.6.2...2.6.3) (2024-09-04)
+
+
+### Bug Fixes
+
+* allow to have both placeholder and label in `Textarea` component. ([9aa90f2](https://github.com/dinofrontend/dino_ui_library/commit/9aa90f21e3d5201ebb3333eb565f914d04fd31ae))
+
 ## [2.6.2](https://github.com/dinofrontend/dino_ui_library/compare/2.6.1...2.6.2) (2024-09-03)
 
 
