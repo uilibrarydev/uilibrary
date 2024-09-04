@@ -1,3 +1,23 @@
+# [2.7.0](https://github.com/dinofrontend/dino_ui_library/compare/2.6.3...2.7.0) (2024-09-04)
+
+
+### Bug Fixes
+
+* fixes ([564c5ec](https://github.com/dinofrontend/dino_ui_library/commit/564c5ec12233009589c3c1e8bbda925f26498bbd))
+* fixes for item select ([12a93fd](https://github.com/dinofrontend/dino_ui_library/commit/12a93fd9097c239eab59b4457e061117735ddedb))
+
+
+### Features
+
+* create item-select component ([e0418bf](https://github.com/dinofrontend/dino_ui_library/commit/e0418bfe5d89a6c1105f25dfb147c8bd81e72ee5))
+* create item-select component ([c76a1a7](https://github.com/dinofrontend/dino_ui_library/commit/c76a1a733a28e13c6535219567dfa5a2064b3b5f))
+* create item-select component ([1db7a63](https://github.com/dinofrontend/dino_ui_library/commit/1db7a63796885b252dbb0e93df4ccb42de1b7da6))
+* create item-select component ([e996fe5](https://github.com/dinofrontend/dino_ui_library/commit/e996fe50ec84533f4d23d7674be7978bb22937be))
+* create item-select component ([cdad356](https://github.com/dinofrontend/dino_ui_library/commit/cdad3567a0a319451f564b5f4c21bfd28bd52835))
+* create item-select component ([d5f7368](https://github.com/dinofrontend/dino_ui_library/commit/d5f7368c41acb15cfbbc94c1b4a2101ad1fb7ff6))
+* create item-select component ([2c0e9aa](https://github.com/dinofrontend/dino_ui_library/commit/2c0e9aabd7a0408f0806aeb2c828058ed5587ad2))
+* create item-select component ([ae9688a](https://github.com/dinofrontend/dino_ui_library/commit/ae9688a703cf2c151481d9dbe9854848617f1c1e))
+
 ## [2.6.3](https://github.com/dinofrontend/dino_ui_library/compare/2.6.2...2.6.3) (2024-09-04)
 
 
