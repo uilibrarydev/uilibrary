@@ -63,7 +63,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
             data-id={dataId}
             disabled={disabled}
             ref={ref}
-            placeholder={label ? '' : placeHolder}
+            placeholder={placeHolder}
             onChange={handleChange}
             {...rest}
             {...(currentValue ? { value: currentValue } : {})}

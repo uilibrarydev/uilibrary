@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import { CollapseItem as _CollapseItem, CollapseGroup as _CollapseGroup } from '../index'
+import IconChevronDown from '../components/SVGIcons/IconChevronDown'
+import { StoryFn } from '@storybook/react'
+import { TCollapseGroupProps, TCollapseProps } from '../components/Collapse/types'
+import { str } from 'ajv'
 
 export default {
   title: 'Collapse',
@@ -7,7 +11,7 @@ export default {
   argTypes: {}
 }
 
-const Template = (args: any) => {
+const Template: StoryFn<TCollapseProps & { textTitle: string }> = (args) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const open = () => setIsOpen(true)
@@ -16,7 +20,8 @@ const Template = (args: any) => {
   return (
     <_CollapseItem
       {...args}
-      title={{ text: args.title }}
+      reverse={true}
+      title={{ text: args.textTitle }}
       isOpen={isOpen}
       toggle={isOpen ? close : open}
       additionalInfo={<div>COMPONENT</div>}
@@ -29,7 +34,7 @@ const Template = (args: any) => {
 export const CollapseItem = Template.bind({})
 
 CollapseItem.args = {
-  title: 'Collapse'
+  textTitle: 'Collapse'
 }
 
 const CollapseItems = [
@@ -55,7 +60,7 @@ const CollapseItems = [
   }
 ]
 
-const Template1 = (args: any) => {
+const Template1: StoryFn<TCollapseGroupProps> = (args: any) => {
   return <_CollapseGroup {...args} items={CollapseItems} titleColor="selected" />
 }
 

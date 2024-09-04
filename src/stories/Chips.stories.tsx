@@ -1,6 +1,8 @@
 import React from 'react'
 import { Chips as _Chips } from '../components/Chips'
 import IconPerson from '../components/SVGIcons/IconPerson'
+import { StoryFn } from '@storybook/react'
+import { TChipsProps } from '../components/Chips/types'
 
 export default {
   title: 'Chips',
@@ -15,13 +17,13 @@ export default {
       control: { type: 'radio' }
     },
     size: {
-      options: ['large', 'medium', 'small'],
+      options: ['large', 'medium', 'small', 'xsmall'],
       control: { type: 'radio' }
     }
   }
 }
 
-const Template = (args) => <_Chips {...args} />
+const Template: StoryFn<TChipsProps> = (args) => <_Chips {...args} />
 
 export const Chips = Template.bind({})
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Switcher as _Switcher } from '../index'
 import IconInfo from '../components/SVGIcons/IconInfo'
+import { StoryFn } from '@storybook/react'
+import { TSwitcherProps } from '../components/Switcher/types'
 
 export default {
   title: 'Switcher',
@@ -14,7 +16,7 @@ export default {
 }
 const ID = 'am_custom_switcher'
 
-const Template = (args) => {
+const Template: StoryFn<TSwitcherProps> = (args) => {
   const [isChecked, setIsChecked] = useState(false)
   return <_Switcher {...args} selectedValue={isChecked} onClick={setIsChecked} id={ID} />
 }

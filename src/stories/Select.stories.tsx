@@ -1,5 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import React, { useState } from 'react'
 import {
   Button,
@@ -10,12 +8,20 @@ import {
   ButtonSelect as _ButtonSelect,
   Menu
 } from '../index'
+// @ts-ignore
 import imageFile from '../assets/images/avatar.jpg'
 import IconPerson from '../components/SVGIcons/IconPerson'
 import IconInfo from '../components/SVGIcons/IconInfo'
 import IconCaretDownFilled from '../components/SVGIcons/IconCaretDownFilled'
 import IconSelectAllOff from '../components/SVGIcons/IconSelectAllOff'
 import IconMore from '../components/SVGIcons/IconMore'
+import { StoryFn } from '@storybook/react'
+import {
+  TButtonSelectPropTypes,
+  TMultiSelectPropTypes,
+  TSingleSelectPropTypes
+} from '../components/Select/types'
+import { Positions } from '../components/Tooltip/types'
 
 type TItemValue = string | number | null
 declare type TItemLabel = string
@@ -248,16 +254,16 @@ const OPTIONS_NESTED: TSelectOptions = [
   }
 ]
 
-// -----------SINGLESELECT---------
-const Template = (args: any): JSX.Element => {
-  const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
+// -----------SINGLE SELECT---------
+const Template: StoryFn<TSingleSelectPropTypes> = (args) => {
+  const [selectedValue, setSelectedValue] = useState<TItemValue | undefined>(null)
 
   return (
     <div style={{ display: 'flex', height: '100vh', justifyContent: 'center' }}>
       <_Select
         {...args}
         dataId={'single-select'}
-        tooltipAddons={{ position: 'bottom-left' }}
+        tooltipAddons={{ position: Positions.BOTTOM_LEFT, text: '' }}
         isRequiredField
         options={OPTIONS}
         outerHelperText="helper text"
@@ -272,8 +278,8 @@ const Template = (args: any): JSX.Element => {
 export const Select = Template.bind({})
 
 // -----------ButtonSelect---------
-const Template2 = (args: any): JSX.Element => {
-  const [selectedValue, setSelectedValue] = useState<TItemValue>(null)
+const Template2: StoryFn<TButtonSelectPropTypes> = (args) => {
+  const [selectedValue, setSelectedValue] = useState<TItemValue | undefined>(null)
 
   return (
     <div
@@ -292,10 +298,8 @@ const Template2 = (args: any): JSX.Element => {
         // tooltipAddons={{ position: 'bottom-left' }}
         isRequiredField
         options={BUTTON_SELECT_OPTIONS}
-        outerHelperText="helper text"
         selectedItem={selectedValue}
         setSelectedItem={setSelectedValue}
-        withSearch={true}
         dropdownWidth={300}
         // optionRightIconComponent={(value) => <div>{value}</div>}
       />
@@ -317,7 +321,7 @@ const ButtonMenu = () => {
 
   return (
     <div ref={setButtonRef}>
-      <Button type="tertiary" onClick={open} iconProps={{ name: 'more' }} size="small" />
+      <Button type="tertiary" onClick={open} iconProps={{ Component: IconMore }} size="small" />
       {buttonRef ? (
         <Menu
           menuItems={[
@@ -337,29 +341,24 @@ const ButtonMenu = () => {
     </div>
   )
 }
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 Select.args = {
   size: 'large',
   disabled: false,
   isLoading: false,
   options: OPTIONS,
-  withFooter: true,
   label: 'country',
   avatar: image.src,
   placeHolder: 'Select country',
-  labelLeftIconProps: { Component: IconPerson },
-  optionRightIconComponent: null,
-  labelRightIconComponent: null,
   labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />
 }
 
 // -----------MULTISELECT---------
-const MultiSelectTemplate = (args: any): JSX.Element => {
-  const [selectedValues, setSelectedValues] = useState<TItemValue[]>([])
+const MultiSelectTemplate: StoryFn<TMultiSelectPropTypes> = (args) => {
+  const [selectedValues, setSelectedValues] = useState<TSelectedValue[]>([])
 
-  const set = (value, isChecked) => {
+  const set = (value: TSelectedValue[], isChecked: boolean) => {
     setSelectedValues(value)
+    console.log(isChecked)
   }
   return (
     <div
@@ -370,25 +369,12 @@ const MultiSelectTemplate = (args: any): JSX.Element => {
         {...args}
         isGrouped={true}
         isButtonSelect={true}
-        buttonProps={{
-          buttonText: 'Select',
-          type: 'secondary',
-          iconProps: { Component: IconCaretDownFilled, alignment: 'right', size: 'xsmall' }
-        }}
-        menuOptions={[
-          {
-            label: 'save template',
-            value: '1',
-            iconProps: { Component: IconSelectAllOff }
-          }
-        ]}
         dropdownWidth={400}
         align="right"
         maxSelectCount={3}
-        emptyListMessage="List is Empty"
         selectedItems={selectedValues}
         setSelectedItems={set}
-        labelRightIconComponent={
+        labelRightIconComponent={() => (
           <IconPerson
             size="xsmall"
             className="mr-4"
@@ -397,28 +383,28 @@ const MultiSelectTemplate = (args: any): JSX.Element => {
               e.stopPropagation()
             }}
           />
-        }
+        )}
         translations={{
+          emptyListMainMessage: '',
           innerLabel: 'Group name',
           clearAllLabel: 'Clear All',
           selectAllLabel: 'Select All'
         }}
-        optionRightIconComponent={<ButtonMenu />}
+        optionRightIconComponent={() => <ButtonMenu />}
       />
     </div>
   )
 }
 export const MultiSelect = MultiSelectTemplate.bind({})
 
+// @ts-ignore
 MultiSelect.args = {
   isLoading: false,
   label: 'Select',
   options: OPTIONS_GROUPED,
   avatar: image.src,
   placeHolder: 'Select country',
-  innerLabel: 'Select',
   helperText: 'To be filled in only for USA, Canada and European countries.',
-  labelLeftIconProps: { Component: IconPerson },
   labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />
   // disabled: true
   // labelRightIconComponent: <IconPerson size="xsmall" className="mr-4" />,
@@ -446,6 +432,7 @@ const NestedSelectTemplate = (args: any): JSX.Element => {
 }
 export const NestedSelect = NestedSelectTemplate.bind({})
 
+// @ts-ignore
 NestedSelect.args = {
   isLoading: false,
   label: 'Select',

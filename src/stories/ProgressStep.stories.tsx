@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Button, ProgressStep as _ProgressStep } from '../index'
-import { TSteps, TStepValue } from '../components/ProgressStep/types'
+import { TProgressStepProps, TSteps, TStepValue } from '../components/ProgressStep/types'
 import { PROGRESS_STATUSES } from '../components/ProgressStep/consts'
+import { StoryFn } from '@storybook/react'
 
 const STEPS = [
   {
@@ -43,11 +44,11 @@ export default {
   }
 }
 
-const Template = (args) => {
+const Template: StoryFn<TProgressStepProps> = (args) => {
   const [activeStep, setActiveStep] = useState<TStepValue>(1)
   const [steps, setSteps] = useState<TSteps>(STEPS)
 
-  const changeStep = (stepValue) => {
+  const changeStep = (stepValue: TStepValue) => {
     setActiveStep(stepValue)
 
     const modified = steps.map((stepItem) => {

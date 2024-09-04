@@ -12,6 +12,8 @@ import {
 import IconEdit from '../components/SVGIcons/IconEdit'
 import IconAddFilled from '../components/SVGIcons/IconAddFilled'
 import IconMore from '../components/SVGIcons/IconMore'
+import { StoryFn } from '@storybook/react'
+import { LinkPropTypes } from '../components/Link/types'
 
 export default {
   title: 'Menu',
@@ -68,7 +70,7 @@ const items = [
   }
 ]
 
-const Template = (args: any) => {
+const Template: StoryFn<LinkPropTypes> = (args) => {
   const [ref, setRef] = useState<HTMLDivElement | null>(null)
 
   const [open, setOpen] = useState(false)
@@ -90,10 +92,6 @@ const Template = (args: any) => {
 }
 
 export const Menu = Template.bind({})
-
-Menu.args = {
-  menuItems: []
-}
 
 const NestedItems = [
   {

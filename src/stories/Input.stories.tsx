@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { Input as _Input, Icon, Popover } from '../index'
+import { Input as _Input, Popover } from '../index'
 import IconInfo from '../components/SVGIcons/IconInfo'
+import { StoryFn } from '@storybook/react'
+import { InputCustomProps } from '../components/Input/types'
 
 export default {
   title: 'Input',
@@ -12,10 +14,10 @@ export default {
     }
   }
 }
-const Template = (args) => {
+const Template: StoryFn<InputCustomProps> = (args) => {
   const [value, setValue] = useState('')
   const [isErrorVisible, setIsErrorVisible] = useState(false)
-  const changeHandler = (e: TChangeEventType, value) => {
+  const changeHandler = (e: TChangeEventType, value: string) => {
     setValue(value)
     setIsErrorVisible(true)
   }

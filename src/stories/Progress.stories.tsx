@@ -1,5 +1,7 @@
 import React from 'react'
 import { Progress as _Progress } from '../index'
+import { StoryFn } from '@storybook/react'
+import { TProgressPropTypes } from '../components/Progress/types'
 
 export default {
   title: 'Progress',
@@ -16,7 +18,7 @@ export default {
   }
 }
 
-const Template = (args) => {
+const Template: StoryFn<TProgressPropTypes> = (args) => {
   return <_Progress {...args} />
 }
 
@@ -26,6 +28,6 @@ Progress.args = {
   size: 'large',
   percent: 30,
   noText: false,
-  dimension: '',
+  dimension: 0,
   loop: false
 }

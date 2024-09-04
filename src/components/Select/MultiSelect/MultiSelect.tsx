@@ -32,6 +32,7 @@ export const MultiSelect = (props: TMultiSelectPropTypes): ReactElement => {
     isButtonSelect,
     checkboxInfo,
     translations,
+    hasError,
     ...rest
   } = props
 
@@ -114,6 +115,7 @@ export const MultiSelect = (props: TMultiSelectPropTypes): ReactElement => {
       selectedValues={selectedValues}
       isRequiredField={isRequiredField}
       overflowText={overflowText}
+      hasError={hasError}
     >
       <>
         <OptionsWrapper

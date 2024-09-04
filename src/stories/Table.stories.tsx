@@ -1,6 +1,7 @@
 import React from 'react'
 import { Table as _Table } from '../index'
-import { TColumn, TTableState } from '../components/Table/types'
+import { TColumn, TTableProps, TTableState } from '../components/Table/types'
+import { StoryFn } from '@storybook/react'
 
 const data: any[] = [
   {
@@ -37,7 +38,7 @@ const data: any[] = [
   }
 ]
 
-const Template = (args) => {
+const Template: StoryFn<TTableProps> = (args) => {
   const columns: TColumn[] = [
     {
       Header: 'User',

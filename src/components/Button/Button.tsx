@@ -18,10 +18,11 @@ export const Button = (props: TButtonPropTypes): ReactElement => {
     dataId = '',
     onClick,
     refHandler = null,
+    children,
     ...rest
   } = props
 
-  const justIcon = !buttonText && iconProps !== undefined
+  const justIcon = !buttonText && !children && iconProps !== undefined
 
   return (
     <button
@@ -57,7 +58,9 @@ export const Button = (props: TButtonPropTypes): ReactElement => {
             />
           ) : null}
           {/* {buttonSecondaryText ? <span className="btn__text">{buttonSecondaryText}</span> : null} */}
-          {buttonText ? <span className="btn__text">{buttonText}</span> : null}
+          {buttonText || children ? (
+            <span className="btn__text">{buttonText || children}</span>
+          ) : null}
         </>
       )}
     </button>

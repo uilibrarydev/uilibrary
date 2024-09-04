@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Snackbar as _Snackbar, notify } from '../index'
+import { StoryFn } from '@storybook/react'
 
 export default {
   title: 'Snackbar',
@@ -12,10 +13,10 @@ export default {
   }
 }
 
-const Template = (args) => {
+const Template: StoryFn<{ type: string }> = (args) => {
   const [infoMessages, setInfoMessages] = useState<any[]>([])
 
-  const removeMessage = (id: number) => {
+  const removeMessage = (id: number | string) => {
     setInfoMessages((_infoMessages: any) =>
       _infoMessages.filter((elem: any) => elem.toastId !== id)
     )

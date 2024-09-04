@@ -48,3 +48,15 @@
     flex: 1;
   }
 }
+
+.card-select-group {
+  --ds-card-select-group-space: var(--ds-space-20);
+
+  &__item {
+    margin-bottom: var(--ds-card-select-group-space);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
