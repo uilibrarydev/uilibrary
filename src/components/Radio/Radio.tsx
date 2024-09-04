@@ -15,8 +15,7 @@ export const Radio = forwardRef((props: TRadioProps, ref): ReactElement | null =
     value,
     className = '',
     onClick,
-    dataId = '',
-    iconProps
+    dataId = ''
   } = props
   const isChecked = !!value || !!isSelected
 
@@ -43,8 +42,7 @@ export const Radio = forwardRef((props: TRadioProps, ref): ReactElement | null =
         checked={isSelected}
         disabled={disabled}
       />
-      {iconProps ? iconProps : <span className="controller__icon"></span>}
-
+      <span className="controller__icon"></span>
       {label ? (
         <div className="controller__right">
           <Text type={disabled ? 'disabled' : 'primary'} className="controller__label">
