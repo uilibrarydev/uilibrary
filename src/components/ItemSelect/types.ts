@@ -3,9 +3,9 @@ import { IconPropTypes } from '../Icon/types'
 
 export interface TItemSelectProps extends IFormCompProps {
   id?: number | string
-  label: string
   image?: string
   rightIconProps?: ReactElement
+  label: string
   leftIconProps?: ReactElement
   className?: string
   disabled?: boolean
