@@ -5,7 +5,7 @@ import classnames from 'classnames'
 import IconCheckmark from '../SVGIcons/IconCheckmark'
 
 export const ItemSelectGroup = (props: TItemSelectGroupProps): JSX.Element => {
-  const { items, name, handleChange, value, isHorizontal, className } = props
+  const { items, name, value, isHorizontal, handleChange, className } = props
 
   return (
     <div

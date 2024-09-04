@@ -7,10 +7,10 @@ import { Radio } from '../Radio'
 
 export const ItemSelect = (props: TItemSelectProps): ReactElement => {
   const {
-    image,
     rightIconProps,
     leftIconProps,
     label,
+    image,
     disabled,
     className,
     handleChange,

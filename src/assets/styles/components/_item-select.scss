@@ -3,7 +3,6 @@
 .item-select {
   $this: &;
 
-
   --ds-item-select-height: var(--ds-size-40);
   --ds-item-select-bg: var(--ds-color-bg-white);
   --ds-item-select-padding: var(--ds-space-8) var(--ds-space-12);
@@ -56,16 +55,16 @@
     border-right: var(--ds-item-select-left-border);
   }
 
+  &__content {
+    flex: 1;
+  }
+
   &__image {
     width: var(--ds-item-select-image-width);
     height: var(--ds-item-select-image-height);
     min-width: var(--ds-item-select-image-size);
     border: var(--ds-item-select-image-border);
     border-radius: var(--ds-item-select-image-border-radius);
-  }
-
-  &__content {
-    flex: 1;
   }
 }
 

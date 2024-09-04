@@ -53,9 +53,9 @@ const Template = (args) => {
 export const ItemSelect = Template.bind({})
 
 ItemSelect.args = {
-  image: null,
   leftIconProps: <IconAmd size={'small'} />,
   rightIconProps: <IconCheckmark type={'brand'} />,
+  image: null,
   label: 'Item Select',
   disabled: false,
   value: null,
