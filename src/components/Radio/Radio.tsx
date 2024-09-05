@@ -4,7 +4,7 @@ import { Text } from '../Text'
 import classnames from 'classnames'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const Radio = forwardRef((props: TRadioProps, ref): ReactElement | null => {
+export const Radio = forwardRef((props: TRadioProps): ReactElement | null => {
   const {
     name,
     label,
@@ -16,9 +16,17 @@ export const Radio = forwardRef((props: TRadioProps, ref): ReactElement | null =
     className = '',
     onClick,
     dataId = '',
-    iconProps
+    iconProps,
+    showRadioIcon = true
   } = props
   const isChecked = !!value || !!isSelected
+  const iconElement = showRadioIcon ? (
+    iconProps ? (
+      iconProps
+    ) : (
+      <span className="controller__icon"></span>
+    )
+  ) : null
 
   const changeHandler = () => {
     if (name && setFieldValue) {
@@ -43,11 +51,7 @@ export const Radio = forwardRef((props: TRadioProps, ref): ReactElement | null =
         checked={isSelected}
         disabled={disabled}
       />
-      {!iconProps ? (
-        <span className="controller__icon"></span>
-      ) : iconProps && isSelected ? (
-        iconProps
-      ) : null}
+      {iconElement}
       {label ? (
         <div className="controller__right">
           <Text type={disabled ? 'disabled' : 'primary'} className="controller__label">
