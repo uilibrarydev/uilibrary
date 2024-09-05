@@ -24,6 +24,7 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
     `item-select ${disabled ? 'item-select--disabled' : selected ? 'item-select--selected' : ''}`,
     className
   )
+  const iconProps = selected ? rightIconProps : undefined
   const handleCardSelectValue = (selected: number | string) => {
     if (name && setFieldValue) {
       setFieldValue(name, selected, { shouldValidate: true })
@@ -59,11 +60,13 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
       </div>
       {!disabled ? (
         <Radio
+          showRadioIcon={selected}
+          value={itemValue}
           name={name}
           isSelected={selected}
           disabled={disabled}
           className={'ml-16'}
-          iconProps={rightIconProps}
+          iconProps={iconProps}
         />
       ) : null}
     </div>
