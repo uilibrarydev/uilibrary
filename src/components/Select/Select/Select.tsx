@@ -68,7 +68,10 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   }, [setCurrentSelectedLabel])
 
   const openDropdown = () => setIsOpen(true)
-  const closeDropdown = () => setIsOpen(false)
+  const closeDropdown = () => {
+    setIsOpen(false)
+    setSearchValue('')
+  }
 
   const handleOutsideClick = () => {
     if (!searchValue && isRequiredField) {
