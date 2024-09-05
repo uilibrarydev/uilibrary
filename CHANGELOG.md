@@ -1,3 +1,11 @@
+## [2.7.4](https://github.com/dinofrontend/dino_ui_library/compare/2.7.3...2.7.4) (2024-09-05)
+
+
+### Bug Fixes
+
+* add commitlint to husky to enforce conventional commit messages ([ad96d13](https://github.com/dinofrontend/dino_ui_library/commit/ad96d139fcfab7846b759806742c77f0cafbaf02))
+* add commitlint to husky to enforce conventional commit messages ([55438fe](https://github.com/dinofrontend/dino_ui_library/commit/55438fe41ca05aa18777816afa6b1b2a3ba82e81))
+
 ## [2.7.3](https://github.com/dinofrontend/dino_ui_library/compare/2.7.2...2.7.3) (2024-09-05)
 
 
