@@ -61,6 +61,7 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
   const formatDate = (date: Date | undefined): string => {
     return date ? dayjs(date).format(format) : ''
   }
+
   const checkRange = () => {
     const [startDate, endDate] = rangeArray
     if (!startDate || !endDate) {
