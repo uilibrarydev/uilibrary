@@ -85,13 +85,15 @@ const RangePicker: StoryFn<IRangeDatePickerProps> = (args) => {
         {...args}
         value={value}
         changeHandler={setValue}
-        maxDate={new Date()}
         locale={'en'}
         label={'Range Label'}
+        filterDate={(date) => date.getDay() !== 0 && date.getDay() !== 6}
       />
     </div>
   )
 }
 export const RangeDatePicker = RangePicker.bind({})
 
-RangeDatePicker.args = {}
+RangeDatePicker.args = {
+  label: 'Range Date Picker'
+}

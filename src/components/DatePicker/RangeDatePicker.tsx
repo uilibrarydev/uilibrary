@@ -25,7 +25,8 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
     placeholderText,
     label,
     hasError,
-    required
+    required,
+    ...rest
   } = props
 
   useImportFilesDynamically(dayjsLocale)
@@ -90,6 +91,7 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
     <div className="picker-container input__inner">
       <Label text={label} required={required} invalid={hasError} />
       <DatePicker
+        {...rest}
         locale={locale}
         minDate={minDate}
         maxDate={maxDate}
