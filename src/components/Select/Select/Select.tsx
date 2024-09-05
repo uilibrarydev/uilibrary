@@ -69,7 +69,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
 
   const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => {
-    setIsOpen(false);
+    setIsOpen(false)
     setSearchValue('')
   }
 
