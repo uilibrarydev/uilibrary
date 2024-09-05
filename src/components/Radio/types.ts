@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 
 export interface TRadioProps extends IFormCompProps {
+  showRadioIcon?: boolean
   label?: string | ReactElement
   helperText?: string | ReactElement
   className?: string

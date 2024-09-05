@@ -1,3 +1,10 @@
+## [2.7.1](https://github.com/dinofrontend/dino_ui_library/compare/2.7.0...2.7.1) (2024-09-05)
+
+
+### Bug Fixes
+
+* item-select ([025edc4](https://github.com/dinofrontend/dino_ui_library/commit/025edc422973027380ac904a01dad1507787df1b))
+
 # [2.7.0](https://github.com/dinofrontend/dino_ui_library/compare/2.6.3...2.7.0) (2024-09-04)
 
 
