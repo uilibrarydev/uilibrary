@@ -1,3 +1,10 @@
+## [2.7.3](https://github.com/dinofrontend/dino_ui_library/compare/2.7.2...2.7.3) (2024-09-05)
+
+
+### Bug Fixes
+
+* Update version ([b6a3489](https://github.com/dinofrontend/dino_ui_library/commit/b6a3489e09f1b640bf579fbc470b13df058865e4))
+
 ## [2.7.2](https://github.com/dinofrontend/dino_ui_library/compare/2.7.1...2.7.2) (2024-09-05)
 
 
