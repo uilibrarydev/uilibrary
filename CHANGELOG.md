@@ -1,3 +1,12 @@
+## [2.7.2](https://github.com/dinofrontend/dino_ui_library/compare/2.7.1...2.7.2) (2024-09-05)
+
+
+### Bug Fixes
+
+* fixed Select with search when dropdown is set close ([f72324a](https://github.com/dinofrontend/dino_ui_library/commit/f72324addc10139cbfa80ef8adc085a369dfb9ae))
+* fixed Select with search when dropdown is set close ([cec3606](https://github.com/dinofrontend/dino_ui_library/commit/cec3606825638cd84d47a72e6285044f580f6376))
+* fixed Select with search when dropdown is set close ([d6504a4](https://github.com/dinofrontend/dino_ui_library/commit/d6504a4fd92b3963ad0af77e13e8e637c8bd8fb9))
+
 ## [2.7.1](https://github.com/dinofrontend/dino_ui_library/compare/2.7.0...2.7.1) (2024-09-05)
 
 
