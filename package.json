@@ -46,6 +46,8 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-dynamic-import-vars": "^2.1.2",
@@ -130,7 +132,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run check"
+      "pre-commit": "npm run check",
+      "commit-msg": "commitlint --edit $1"
     }
   },
   "repository": {
