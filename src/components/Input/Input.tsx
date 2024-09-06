@@ -79,6 +79,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
     }, [rest, currentValue])
 
     const input = mask ? (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       <InputMask
         name={name}
         mask={mask}

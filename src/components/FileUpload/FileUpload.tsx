@@ -49,7 +49,7 @@ export const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
   }
 
   const updateInForm = useCallback(
-    (values: File[] | null) => {
+    (values: File[] | FileReader[] | null) => {
       if (name && setFieldValue) {
         setFieldValue(name, values as TFormValue)
       }
@@ -73,13 +73,10 @@ export const FileUpload = (props: TFileUploadProps): JSX.Element | null => {
       onError && onError(FILE_UPLOAD_ERRORS.size)
       return
     }
-    updateInForm(selectedFiles)
+    updateInForm(toBase64 ? getFormattedValues(selectedFiles) : selectedFiles)
+
     if (getFiles) {
-      if (toBase64) {
-        getFormattedValues(selectedFiles)
-      } else {
-        getFiles(selectedFiles)
-      }
+      getFiles(selectedFiles)
     }
   }
 
