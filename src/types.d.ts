@@ -139,6 +139,7 @@ declare type TFormValue =
   | TSelectOption
   | TItemValue
   | File[]
+  | FileReader[]
   | Date
   | TRangePickerValues
   | null
