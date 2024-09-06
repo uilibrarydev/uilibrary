@@ -1,3 +1,10 @@
+## [2.7.5](https://github.com/dinofrontend/dino_ui_library/compare/2.7.4...2.7.5) (2024-09-06)
+
+
+### Bug Fixes
+
+* set tobase64 files when prop is passed in Fileupload ([654b2bf](https://github.com/dinofrontend/dino_ui_library/commit/654b2bf49b038666b141dee85cac941df4cb9b2d))
+
 ## [2.7.4](https://github.com/dinofrontend/dino_ui_library/compare/2.7.3...2.7.4) (2024-09-05)
 
 
