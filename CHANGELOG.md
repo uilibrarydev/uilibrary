@@ -1,3 +1,10 @@
+## [2.7.6](https://github.com/dinofrontend/dino_ui_library/compare/2.7.5...2.7.6) (2024-09-09)
+
+
+### Bug Fixes
+
+* add new svg icons ([4f48d39](https://github.com/dinofrontend/dino_ui_library/commit/4f48d394b7adae6d6dda4341ae68b20a21f313ef))
+
 ## [2.7.5](https://github.com/dinofrontend/dino_ui_library/compare/2.7.4...2.7.5) (2024-09-06)
 
 
