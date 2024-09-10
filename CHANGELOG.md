@@ -1,3 +1,10 @@
+## [2.7.7](https://github.com/dinofrontend/dino_ui_library/compare/2.7.6...2.7.7) (2024-09-10)
+
+
+### Bug Fixes
+
+* fix forward ref warnings in checkbox and range date picker ([67fd5b8](https://github.com/dinofrontend/dino_ui_library/commit/67fd5b84f15c7b46f989519bcc405aa2e34f8890))
+
 ## [2.7.6](https://github.com/dinofrontend/dino_ui_library/compare/2.7.5...2.7.6) (2024-09-09)
 
 
