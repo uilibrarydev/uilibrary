@@ -123,7 +123,9 @@
         display: block;
       }
 
-      background: var(--ds-color-bg-container-light);
+      & {
+        background: var(--ds-color-bg-container-light);
+      }
     }
 
     .navigation-item-label {

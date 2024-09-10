@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { forwardRef, ReactElement, useEffect, useRef, useState } from 'react'
 import dayjs from 'dayjs'
 import DatePicker from 'react-datepicker'
 import { Input } from '../Input'
@@ -8,7 +8,7 @@ import { isSameDay } from '../../utils/helpers'
 import { Label } from '../../helperComponents'
 import IconCalendarRight from '../SVGIcons/IconCalendarRight'
 
-export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | null => {
+export const RangeDatePicker = forwardRef((props: IRangeDatePickerProps): ReactElement | null => {
   const {
     value,
     currentDates = [],
@@ -121,4 +121,6 @@ export const RangeDatePicker = (props: IRangeDatePickerProps): JSX.Element | nul
       />
     </div>
   )
-}
+})
+
+RangeDatePicker.displayName = 'RangeDatePicker'
