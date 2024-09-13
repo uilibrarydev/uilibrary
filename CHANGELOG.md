@@ -1,3 +1,12 @@
+## [2.7.8](https://github.com/dinofrontend/dino_ui_library/compare/2.7.7...2.7.8) (2024-09-13)
+
+
+### Bug Fixes
+
+* color fix ([3ff3fff](https://github.com/dinofrontend/dino_ui_library/commit/3ff3fffc5d31c090fecafd37b10d4a48181ff2c7))
+* fixes for pagination ([0c62d1b](https://github.com/dinofrontend/dino_ui_library/commit/0c62d1bf7dd9542ae0d81d8f284ab44609338e39))
+* fixes for pagination ([e7101c0](https://github.com/dinofrontend/dino_ui_library/commit/e7101c0c7a077530bfbac784e41679c9a0497e80))
+
 ## [2.7.7](https://github.com/dinofrontend/dino_ui_library/compare/2.7.6...2.7.7) (2024-09-10)
 
 
