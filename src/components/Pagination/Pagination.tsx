@@ -6,7 +6,7 @@ import classNames from 'classnames'
 import IconChevronRight from '../SVGIcons/IconChevronRight'
 import IconChevronLeft from '../SVGIcons/IconChevronLeft'
 import IconMore from '../SVGIcons/IconMore'
-import {ICON_SIZE_MAPPING} from './consts';
+import { ICON_SIZE_MAPPING } from './consts'
 
 export const Pagination = (props: TPaginationProps): JSX.Element | null => {
   const {
@@ -20,8 +20,8 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
     breakLabel = <IconMore size={ICON_SIZE_MAPPING[size]} />,
     labels = {
       next: <IconChevronRight size={ICON_SIZE_MAPPING[size]} />,
-      previous: <IconChevronLeft  size={ICON_SIZE_MAPPING[size]} />
-    },
+      previous: <IconChevronLeft size={ICON_SIZE_MAPPING[size]} />
+    }
   } = props
 
   const handlePageChange = ({ selected }: { selected: number }) => {
