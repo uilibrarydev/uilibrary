@@ -34,9 +34,9 @@ export const Pagination = Template.bind({})
 Pagination.args = {
   size: 'large',
   totalCount: 100,
-  labels: {
-    next: <IconChevronRight size={'small'} />,
-    previous: <IconChevronLeft size={'small'} />
-  },
-  breakLabel: <IconMore size="small" />
+  // labels: {
+  //   next: <IconChevronRight size={'small'} />,
+  //   previous: <IconChevronLeft size={'small'} />
+  // },
+  // breakLabel: <IconMore size="small" />
 }

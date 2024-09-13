@@ -6,21 +6,22 @@ import classNames from 'classnames'
 import IconChevronRight from '../SVGIcons/IconChevronRight'
 import IconChevronLeft from '../SVGIcons/IconChevronLeft'
 import IconMore from '../SVGIcons/IconMore'
+import {ICON_SIZE_MAPPING} from './consts';
 
 export const Pagination = (props: TPaginationProps): JSX.Element | null => {
   const {
-    labels = {
-      next: <IconChevronRight size="small" />,
-      previous: <IconChevronLeft size="small" />
-    },
     totalCount,
     handleChangePage,
-    breakLabel = <IconMore size="small" />,
     classname = '',
     size = 'large',
     pageSize,
     disableInitialCallback = false,
-    page
+    page,
+    breakLabel = <IconMore size={ICON_SIZE_MAPPING[size]} />,
+    labels = {
+      next: <IconChevronRight size={ICON_SIZE_MAPPING[size]} />,
+      previous: <IconChevronLeft  size={ICON_SIZE_MAPPING[size]} />
+    },
   } = props
 
   const handlePageChange = ({ selected }: { selected: number }) => {
@@ -39,8 +40,8 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
         activeClassName={classname || 'active'}
         previousLabel={labels?.previous}
         nextLabel={labels?.next}
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
+        breakClassName="pagination__more"
+        breakLinkClassName="pagination__more__link"
         breakLabel={breakLabel}
         {...(page ? { forcePage: page - 1 } : {})}
       />
