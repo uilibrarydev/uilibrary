@@ -4,10 +4,10 @@ import { Text } from '../../components/Text'
 import { IconDynamicComponent } from '../IconDynamicComponent'
 
 export const ErrorMessage = (props: TErrorMessageProps): JSX.Element => {
-  const { message, icon, dataId } = props
+  const { message, icon, dataId, className } = props
   return (
     <Text
-      className="error-message"
+      className={`error-message ${className}`}
       size="small"
       type="danger"
       dataId={dataId ? `${dataId}-error-message` : ''}

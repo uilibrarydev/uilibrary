@@ -43,7 +43,7 @@ export const FormField = (props: TFormFieldPropTypes): ReactElement | null => {
                   name={name}
                   errors={errors}
                   render={({ message }: { message: string }) => {
-                    return <ErrorMessage dataId={dataId} message={message || ''} />
+                    return <ErrorMessage dataId={dataId} message={message || ''} className={'full-width'}/>
                   }}
                 />
               ) : null}
