@@ -1,3 +1,12 @@
+## [2.7.9](https://github.com/dinofrontend/dino_ui_library/compare/2.7.8...2.7.9) (2024-09-17)
+
+
+### Bug Fixes
+
+* add classname prop for error-message ([77ceb33](https://github.com/dinofrontend/dino_ui_library/commit/77ceb337d904d0684b5fd88e8f4425190c53ca07))
+* add classname prop for error-message ([cf52eac](https://github.com/dinofrontend/dino_ui_library/commit/cf52eac6a58122510b0688b69672deff7d682f0d))
+* fix for checkbox ui ([ad03a90](https://github.com/dinofrontend/dino_ui_library/commit/ad03a90bcd94e79200ab6462edc1bd48ccb25ed8))
+
 ## [2.7.8](https://github.com/dinofrontend/dino_ui_library/compare/2.7.7...2.7.8) (2024-09-13)
 
 
