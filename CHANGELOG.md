@@ -1,3 +1,10 @@
+## [2.7.10](https://github.com/dinofrontend/dino_ui_library/compare/2.7.9...2.7.10) (2024-09-18)
+
+
+### Bug Fixes
+
+* select right alignment ([edf8710](https://github.com/dinofrontend/dino_ui_library/commit/edf8710e337c9877ca510c81b5a741277904137c))
+
 ## [2.7.9](https://github.com/dinofrontend/dino_ui_library/compare/2.7.8...2.7.9) (2024-09-17)
 
 
