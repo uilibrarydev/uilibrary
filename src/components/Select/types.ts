@@ -218,3 +218,11 @@ export type TSelectWrapperProps = {
   dataId?: string
   type?: 'primary' | 'secondary' | 'tertiary'
 }
+
+export type TProfileDropdownProps = {
+  avatar: ReactElement
+  email: string
+  name: string
+  bodyItems: ReactElement[]
+  footerItems: ReactElement[]
+}

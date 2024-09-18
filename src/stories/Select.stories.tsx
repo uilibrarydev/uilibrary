@@ -6,7 +6,11 @@ import {
   // FilterSelect as _FilterDropdown,
   NestedSelect as _NestedSelect,
   ButtonSelect as _ButtonSelect,
-  Menu
+  ProfileDropdown as _ProfileDropdown,
+  Menu,
+  Avatar,
+  IconArrowExit,
+  Text
 } from '../index'
 // @ts-ignore
 import imageFile from '../assets/images/avatar.jpg'
@@ -451,6 +455,52 @@ NestedSelect.args = {
   ),
   labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />
 }
+
+// ----------PROFILE DROPDOWN---------------
+
+const ProfileDropdownTemplate = (args: any): JSX.Element => {
+  return (
+    <div
+      style={{
+        width: 320,
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'absolute',
+        left: 300
+      }}
+    >
+      <div style={{ position: 'absolute', left: 300 }}>
+        <_ProfileDropdown {...args} />
+      </div>
+    </div>
+  )
+}
+
+export const ProfileDropdown = ProfileDropdownTemplate.bind({})
+
+// @ts-ignore
+ProfileDropdown.args = {
+  avatar: <Avatar size={'medium'} initials={'RG'} />,
+  name: 'Mariam Yeghiazaryan',
+  email: 'mariam.yeghiazaryan@gmail.com',
+  bodyItems: [
+    <div className={'flexbox align-items'}>
+      <IconInfo />
+      <a href={'#s'}>Հաճախ տրվող հարցեր</a>
+    </div>,
+    <div className={'flexbox align-items'}>
+      <IconMore />
+      <a href={'#s'}>Հետադարձ կապ</a>
+    </div>
+  ],
+  footerItems: [
+    <div className={'flexbox align-items-center'}>
+      <IconArrowExit />
+      <Text size={'small'}>Ելք</Text>
+    </div>
+  ]
+}
+
 // ----------FILTERDROPDOWN---------------
 
 // const FilterDropdownTemplate = (args: any): JSX.Element => {
