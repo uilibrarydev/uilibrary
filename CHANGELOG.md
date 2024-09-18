@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/dinofrontend/dino_ui_library/compare/2.7.10...2.8.0) (2024-09-18)
+
+
+### Features
+
+* profile dropdown ([5ff0e42](https://github.com/dinofrontend/dino_ui_library/commit/5ff0e427a2d690bc12f48cac8652b178fb06250d))
+
 ## [2.7.10](https://github.com/dinofrontend/dino_ui_library/compare/2.7.9...2.7.10) (2024-09-18)
 
 
