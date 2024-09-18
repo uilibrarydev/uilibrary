@@ -105,6 +105,7 @@ export interface TButtonSelectPropTypes extends IFormCompProps, TSelectBaseProps
   offsets?: {
     top?: number
     left?: number
+    right?: number
   }
   type: 'secondary' | 'tertiary'
 }
@@ -198,6 +199,7 @@ export type TSelectWrapperProps = {
   offsets?: {
     top?: number
     left?: number
+    right?: number
   }
   isOpen: boolean
   setIsOpen: (isOpen: boolean) => void
