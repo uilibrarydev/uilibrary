@@ -3,6 +3,7 @@ import { TProfileDropdownProps } from '../types'
 import './styles.scss'
 import { Text } from '../../Text'
 import { useOnOutsideClick } from '../../../hooks'
+import { Link } from '../../Link'
 
 export const ProfileDropdown = (props: TProfileDropdownProps): JSX.Element => {
   const menuRef = useRef<HTMLDivElement>(null)
@@ -16,30 +17,44 @@ export const ProfileDropdown = (props: TProfileDropdownProps): JSX.Element => {
     <div ref={menuRef}>
       <div onClick={() => setIsOpen(!isOpen)}>{avatar}</div>
       {isOpen && (
-        <div className="profile-dropdown-menu">
-          <div className="profile-dropdown-menu-header">
+        <div className="profile-dropdown">
+          <div className="profile-dropdown__top">
             {avatar}
-            <div>
-              <Text size={'medium'} weight={'bold'}>
+            <div className={'pl-12'}>
+              <Text size={'medium'} weight={'bold'} lineHeight={'large'}>
                 {name}
               </Text>
-              <Text size={'small'} type={'secondary'}>
-                {email}
-              </Text>
+              <Text type={'tertiary'}>{email}</Text>
             </div>
           </div>
-          <div className="profile-dropdown-menu-items">
-            <ul className={'body'}>
+          <div className="profile-dropdown__menu">
+            <ul className={'profile-dropdown__nav'}>
               {bodyItems?.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li key={index}>
+                  <Link url={item.url} className={'profile-dropdown__nav__link'}>
+                    <>
+                      {item.icon}
+                      {item.text}
+                    </>
+                  </Link>
+                </li>
               ))}
             </ul>
             {footerItems?.length ? (
-              <ul className={'footer'}>
-                {footerItems?.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
+              <div className={'profile-dropdown__bottom'}>
+                <ul className={'profile-dropdown__nav'}>
+                  {footerItems?.map((item, index) => (
+                    <li key={index}>
+                      <Link url={item.url} className={'profile-dropdown__nav__link'}>
+                        <>
+                          {item.icon}
+                          {item.text}
+                        </>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ) : null}
           </div>
         </div>

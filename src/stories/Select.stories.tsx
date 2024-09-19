@@ -3,21 +3,16 @@ import {
   Button,
   Select as _Select,
   MultiSelect as _MultiSelect,
-  // FilterSelect as _FilterDropdown,
   NestedSelect as _NestedSelect,
   ButtonSelect as _ButtonSelect,
   ProfileDropdown as _ProfileDropdown,
   Menu,
-  Avatar,
-  IconArrowExit,
-  Text
+  Avatar
 } from '../index'
 // @ts-ignore
 import imageFile from '../assets/images/avatar.jpg'
 import IconPerson from '../components/SVGIcons/IconPerson'
 import IconInfo from '../components/SVGIcons/IconInfo'
-import IconCaretDownFilled from '../components/SVGIcons/IconCaretDownFilled'
-import IconSelectAllOff from '../components/SVGIcons/IconSelectAllOff'
 import IconMore from '../components/SVGIcons/IconMore'
 import { StoryFn } from '@storybook/react'
 import {
@@ -26,6 +21,9 @@ import {
   TSingleSelectPropTypes
 } from '../components/Select/types'
 import { Positions } from '../components/Tooltip/types'
+import IconSignOut from '../components/SVGIcons/IconSignOut'
+import IconQuestion from '../components/SVGIcons/IconQuestion'
+import IconChatMultiple from '../components/SVGIcons/IconChatMultiple'
 
 type TItemValue = string | number | null
 declare type TItemLabel = string
@@ -484,20 +482,23 @@ ProfileDropdown.args = {
   name: 'Mariam Yeghiazaryan',
   email: 'mariam.yeghiazaryan@gmail.com',
   bodyItems: [
-    <div className={'flexbox align-items'}>
-      <IconInfo />
-      <a href={'#s'}>Հաճախ տրվող հարցեր</a>
-    </div>,
-    <div className={'flexbox align-items'}>
-      <IconMore />
-      <a href={'#s'}>Հետադարձ կապ</a>
-    </div>
+    {
+      icon: <IconQuestion size={'small'} className={'mr-8'} />,
+      text: 'Հաճախ տրվող հարցեր',
+      path: '#s'
+    },
+    {
+      icon: <IconChatMultiple size={'small'} className={'mr-8'} />,
+      text: 'Հետադարձ կապ',
+      path: '#s'
+    }
   ],
   footerItems: [
-    <div className={'flexbox align-items-center'}>
-      <IconArrowExit />
-      <Text size={'small'}>Ելք</Text>
-    </div>
+    {
+      icon: <IconSignOut size={'small'} className={'mr-8'} />,
+      text: 'Ելք',
+      path: '#s'
+    }
   ]
 }
 
