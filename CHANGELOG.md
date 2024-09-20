@@ -1,3 +1,10 @@
+## [2.8.1](https://github.com/dinofrontend/dino_ui_library/compare/2.8.0...2.8.1) (2024-09-20)
+
+
+### Bug Fixes
+
+* profile dropdown ui fixes, and added chat-multiple icon ([45a7738](https://github.com/dinofrontend/dino_ui_library/commit/45a773865e37a63e0aa36c5d366332d3bba41dda))
+
 # [2.8.0](https://github.com/dinofrontend/dino_ui_library/compare/2.7.10...2.8.0) (2024-09-18)
 
 
