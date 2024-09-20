@@ -16,6 +16,6 @@ export const Link = Template.bind({})
 Link.args = {
   children: 'Bro',
   url: '/',
-  beforeLink: 'Hello',
-  afterLink: 'By'
+  beforeLink: 'Hello ',
+  afterLink: ' By'
 }
