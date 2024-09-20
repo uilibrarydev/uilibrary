@@ -231,4 +231,5 @@ export type TProfileDropdownProps = {
   name: string
   bodyItems: TNavItemValue[]
   footerItems: TNavItemValue[]
+  className?: string
 }
