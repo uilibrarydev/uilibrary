@@ -485,19 +485,19 @@ ProfileDropdown.args = {
     {
       icon: <IconQuestion size={'small'} className={'mr-8'} />,
       text: 'Հաճախ տրվող հարցեր',
-      path: '#s'
+      url: '#s'
     },
     {
       icon: <IconChatMultiple size={'small'} className={'mr-8'} />,
       text: 'Հետադարձ կապ',
-      path: '#s'
+      url: '#s'
     }
   ],
   footerItems: [
     {
       icon: <IconSignOut size={'small'} className={'mr-8'} />,
       text: 'Ելք',
-      path: '#s'
+      onclick: () => alert('button clicked')
     }
   ]
 }

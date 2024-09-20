@@ -31,7 +31,7 @@ export const ProfileDropdown = (props: TProfileDropdownProps): JSX.Element => {
             <ul className={'profile-dropdown__nav'}>
               {bodyItems?.map((item, index) => (
                 <li key={index}>
-                  <Link url={item.url} className={'profile-dropdown__nav__link'}>
+                  <Link url={item.url} onclick={item.onclick} className={'profile-dropdown__nav__link'}>
                     <>
                       {item.icon}
                       {item.text}
@@ -45,7 +45,7 @@ export const ProfileDropdown = (props: TProfileDropdownProps): JSX.Element => {
                 <ul className={'profile-dropdown__nav'}>
                   {footerItems?.map((item, index) => (
                     <li key={index}>
-                      <Link url={item.url} className={'profile-dropdown__nav__link'}>
+                      <Link url={item.url} onclick={item.onclick} className={'profile-dropdown__nav__link'}>
                         <>
                           {item.icon}
                           {item.text}
