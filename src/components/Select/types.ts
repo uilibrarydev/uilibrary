@@ -219,10 +219,15 @@ export type TSelectWrapperProps = {
   type?: 'primary' | 'secondary' | 'tertiary'
 }
 
+declare type TNavItemValue = {
+  icon?: TSVGIconComponent
+  text: string
+  url: string
+}
 export type TProfileDropdownProps = {
   avatar: ReactElement
   email: string
   name: string
-  bodyItems: ReactElement[]
-  footerItems: ReactElement[]
+  bodyItems: TNavItemValue[]
+  footerItems: TNavItemValue[]
 }
