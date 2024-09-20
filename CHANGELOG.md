@@ -1,3 +1,10 @@
+## [2.8.4](https://github.com/dinofrontend/dino_ui_library/compare/2.8.3...2.8.4) (2024-09-20)
+
+
+### Bug Fixes
+
+* remove link spacing ([d1acd53](https://github.com/dinofrontend/dino_ui_library/commit/d1acd53b0d421f07e7371e286f483641d6be0630))
+
 ## [2.8.3](https://github.com/dinofrontend/dino_ui_library/compare/2.8.2...2.8.3) (2024-09-20)
 
 
