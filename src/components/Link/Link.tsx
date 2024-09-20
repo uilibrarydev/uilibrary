@@ -24,7 +24,7 @@ export const Link = (props: LinkPropTypes): ReactElement => {
           }
         }}
         href={url}
-        className={classNames('link', { 'ml-4': beforeLink, 'mr-4': afterLink })}
+        className={'link'}
         data-id={`${dataId}-link`}
         target={target}
       >
