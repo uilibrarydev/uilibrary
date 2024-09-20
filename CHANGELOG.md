@@ -1,3 +1,11 @@
+## [2.8.2](https://github.com/dinofrontend/dino_ui_library/compare/2.8.1...2.8.2) (2024-09-20)
+
+
+### Bug Fixes
+
+* added click for Link component, added click prop for profile dropdown item ([224b675](https://github.com/dinofrontend/dino_ui_library/commit/224b6759a24a01b5bf2cf0ddf87fc1b372a3a30d))
+* added click for Link component, added click prop for profile dropdown item ([618ca07](https://github.com/dinofrontend/dino_ui_library/commit/618ca07c9018673deeae2f493bde04db998ac9d8))
+
 ## [2.8.1](https://github.com/dinofrontend/dino_ui_library/compare/2.8.0...2.8.1) (2024-09-20)
 
 
