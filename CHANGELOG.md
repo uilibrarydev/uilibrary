@@ -1,3 +1,11 @@
+## [2.8.3](https://github.com/dinofrontend/dino_ui_library/compare/2.8.2...2.8.3) (2024-09-20)
+
+
+### Bug Fixes
+
+* add bg-color ([6cdacde](https://github.com/dinofrontend/dino_ui_library/commit/6cdacde66382a9bf05127462f0e92e7efd95eab5))
+* added classname prop ([de6b09f](https://github.com/dinofrontend/dino_ui_library/commit/de6b09f53389eb6d5a413bc2c827ee432e890e75))
+
 ## [2.8.2](https://github.com/dinofrontend/dino_ui_library/compare/2.8.1...2.8.2) (2024-09-20)
 
 
