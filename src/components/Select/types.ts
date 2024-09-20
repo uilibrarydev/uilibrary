@@ -222,7 +222,8 @@ export type TSelectWrapperProps = {
 declare type TNavItemValue = {
   icon?: TSVGIconComponent
   text: string
-  url: string
+  url?: string
+  onclick?: () => void
 }
 export type TProfileDropdownProps = {
   avatar: ReactElement
