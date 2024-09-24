@@ -63,6 +63,7 @@ export const Snackbar = (props: TSnackbarProps): ReactElement => {
 
   return (
     <ToastContainer
+      className={'snackbar-wrapper'}
       theme="light"
       hideProgressBar
       transition={Slide}
