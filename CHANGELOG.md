@@ -1,3 +1,10 @@
+## [2.8.5](https://github.com/dinofrontend/dino_ui_library/compare/2.8.4...2.8.5) (2024-09-24)
+
+
+### Bug Fixes
+
+* ui fix for snackbar ([60a03b7](https://github.com/dinofrontend/dino_ui_library/commit/60a03b71a4d92351e42e99aacb16fe3ea4f3173f))
+
 ## [2.8.4](https://github.com/dinofrontend/dino_ui_library/compare/2.8.3...2.8.4) (2024-09-20)
 
 
