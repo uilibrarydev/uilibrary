@@ -14,7 +14,7 @@ export const Footer = (props: TSelectFooterPropTypes): JSX.Element => {
           <Checkbox label={checkboxInfo.label} selectedValue={isSelected} onClick={setIsSelected} />
         ) : null}
       </div>
-      <div>
+      <div className={'select__footer__right flexbox'}>
         <Button
           {...(buttonProps.cancel || {})}
           type="tertiary"

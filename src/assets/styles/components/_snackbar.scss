@@ -1,11 +1,5 @@
 @use "../helpers/mixin";
 
-:root {
-  --toastify-toast-width: 80%;
-  --toastify-color-light: var(--ds-color-bg-white);
-  --toastify-toast-min-height: var(--ds-size-56);
-}
-
 .snackbar {
   $this: &;
 
@@ -25,25 +19,39 @@
 }
 
 .Toastify {
+  --toastify-toast-width: 400px;
+  --toastify-color-light: var(--ds-color-bg-white);
+  --toastify-toast-min-height: var(--ds-size-56);
+  --toastify-toast-bottom: max(var(--toastify-toast-offset), env(safe-area-inset-bottom));
+
   --ds-snackbar-padding: var(--ds-space-16) var(--ds-space-24);
   --ds-snackbar-border-radius: var(--ds-border-radius-xs);
   --ds-snackbar-shadow: var(--ds-shadow-2);
 
-  &__toast {
-    padding: var(--ds-snackbar-padding);
-    border-radius: var(--ds-snackbar-border-radius);
-    box-shadow: var(--ds-snackbar-shadow);
-
-    &-container {
-      max-width: 400px;
-    }
-    &-body {
+  &__toast-container {
+    &.snackbar-wrapper {
       width: 100%;
-      padding: 0;
+      max-width: var(--toastify-toast-width);
+      padding: 0 var(--ds-space-16);
 
-      >div {
-        width: 100%;
+      .Toastify__toast {
+        padding: var(--ds-snackbar-padding);
+        border-radius: var(--ds-snackbar-border-radius);
+        box-shadow: var(--ds-snackbar-shadow);
+        margin-bottom: 0;
+
+        &-body {
+          width: 100%;
+          padding: 0;
+
+          >div {
+            width: 100%;
+          }
+        }
       }
+    }
+    &--bottom-center {
+      bottom: var(--toastify-toast-bottom) !important;
     }
   }
 }
