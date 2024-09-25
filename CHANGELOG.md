@@ -1,3 +1,11 @@
+# [2.9.0](https://github.com/dinofrontend/dino_ui_library/compare/2.8.5...2.9.0) (2024-09-25)
+
+
+### Features
+
+* added building-bank icon ([19fdcfc](https://github.com/dinofrontend/dino_ui_library/commit/19fdcfc1d67bb9bb5de6772c425c3456e0074f00))
+* added building-bank icon ([e253fc8](https://github.com/dinofrontend/dino_ui_library/commit/e253fc8ec8769c31a2ffa6fa886a85b147d2c29e))
+
 ## [2.8.5](https://github.com/dinofrontend/dino_ui_library/compare/2.8.4...2.8.5) (2024-09-24)
 
 
