@@ -3,7 +3,7 @@ import { Input as _Input, Popover } from '../index'
 import IconInfo from '../components/SVGIcons/IconInfo'
 import { StoryFn } from '@storybook/react'
 import { InputCustomProps } from '../components/Input/types'
-import IconCalendarRight from "../components/SVGIcons/IconCalendarRight";
+import IconCalendarRight from '../components/SVGIcons/IconCalendarRight'
 
 export default {
   title: 'Input',
