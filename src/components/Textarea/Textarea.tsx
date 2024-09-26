@@ -51,7 +51,6 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
       <div className={classNames('textarea', className, { 'textarea--invalid': hasError })}>
         <Label
           text={label}
-          invalid={isErrorVisible}
           required={required}
           disabled={disabled}
           labelAddons={labelAddons}
