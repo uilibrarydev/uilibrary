@@ -1,3 +1,13 @@
+## [2.9.1](https://github.com/dinofrontend/dino_ui_library/compare/2.9.0...2.9.1) (2024-09-27)
+
+
+### Bug Fixes
+
+* remove label error state ([9e2a86f](https://github.com/dinofrontend/dino_ui_library/commit/9e2a86ffce8eeaf24070f2980e3c18aef0598fb0))
+* remove label error state ([9ef595f](https://github.com/dinofrontend/dino_ui_library/commit/9ef595fbed4d29a1bd21ae6bf365264c90496606))
+* truncated input long values ([04db7a6](https://github.com/dinofrontend/dino_ui_library/commit/04db7a697fd1646275f2ee3fe62b7d3cd365e721))
+* truncated input long values ([f6367b5](https://github.com/dinofrontend/dino_ui_library/commit/f6367b5759338c13156b76a9db1ffd203b786c0a))
+
 # [2.9.0](https://github.com/dinofrontend/dino_ui_library/compare/2.8.5...2.9.0) (2024-09-25)
 
 
