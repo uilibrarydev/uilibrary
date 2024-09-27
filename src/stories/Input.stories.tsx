@@ -3,6 +3,7 @@ import { Input as _Input, Popover } from '../index'
 import IconInfo from '../components/SVGIcons/IconInfo'
 import { StoryFn } from '@storybook/react'
 import { InputCustomProps } from '../components/Input/types'
+import IconCalendarRight from '../components/SVGIcons/IconCalendarRight'
 
 export default {
   title: 'Input',
@@ -26,7 +27,6 @@ const Template: StoryFn<InputCustomProps> = (args) => {
     <div style={{ maxWidth: 300 }}>
       <_Input
         {...args}
-        witUpperCase={true}
         error={!value && isErrorVisible ? 'requeired field' : ''}
         currentValue={value}
         handleChange={changeHandler}
@@ -46,10 +46,13 @@ Input.args = {
   leftIconProps: {
     Component: IconInfo
   },
-  rightIconProps: {},
+  rightIconProps: {
+    Component: IconCalendarRight
+  },
   disabled: false,
   required: true,
   maxCount: 15,
+  witUpperCase: false,
   placeholder: 'Some text',
   labelAddons: (
     <Popover

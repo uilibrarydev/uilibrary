@@ -144,7 +144,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       >
         <Label
           text={label}
-          invalid={isErrorVisible}
           required={required}
           disabled={disabled}
           labelAddons={labelAddons}
