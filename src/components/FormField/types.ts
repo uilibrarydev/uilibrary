@@ -4,4 +4,5 @@ export interface TFormFieldPropTypes {
   className?: string
   dataId?: string
   hideErrorMessage?: boolean
+  errorMessageIcon?: string
 }
