@@ -1,6 +1,6 @@
 import React from 'react'
 import * as yup from 'yup'
-import {FormField, FormContainer as _FormContainer, Button, MultiSelect, Input} from '../index'
+import { FormField, FormContainer as _FormContainer, Button, MultiSelect, Input } from '../index'
 
 export default {
   title: 'Form Container',
@@ -159,12 +159,7 @@ const Template = (): JSX.Element => {
         initialValues={INITIAL_VALUES}
       >
         <>
-          <FormField
-              name="firstname"
-              As={(props) => (
-                  <Input {...props} />
-              )}
-          />
+          <FormField name="firstname" As={(props) => <Input {...props} />} />
           {/*<FormField*/}
           {/*  name="multiselect"*/}
           {/*  As={(props) => (*/}
