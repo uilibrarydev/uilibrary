@@ -1,6 +1,6 @@
 import React from 'react'
 import * as yup from 'yup'
-import { FormField, FormContainer as _FormContainer, Button, MultiSelect } from '../index'
+import {FormField, FormContainer as _FormContainer, Button, MultiSelect, Input} from '../index'
 
 export default {
   title: 'Form Container',
@@ -143,17 +143,12 @@ const OPTIONS_COUNTRIES: TSelectOptions = [
 
 const VALIDATION_SCHEME = yup.object({
   // conditions: yup.string().required('validation').nullable()
-  // firstname: yup.string().required('validation').nullable()
+  firstname: yup.string().required('validation').nullable()
 })
 
 const Template = (): JSX.Element => {
   const INITIAL_VALUES = {
-    multiselect: [
-      {
-        value: 'yerevan',
-        label: 'Yerevan'
-      }
-    ]
+    firstname: ''
   }
 
   return (
@@ -165,23 +160,29 @@ const Template = (): JSX.Element => {
       >
         <>
           <FormField
-            name="multiselect"
-            As={(props) => (
-              <MultiSelect
-                {...props}
-                isGrouped
-                translations={{
-                  innerLabel: 'Selected employees',
-                  clearAllLabel: 'Clear All',
-                  overflowText: '%s selected',
-                  emptyListMainMessage: "Sorry, we couldn't find any results"
-                }}
-                helperText="helperText"
-                options={OPTIONS_GROUPED}
-                isSearchAvailable
-              />
-            )}
+              name="firstname"
+              As={(props) => (
+                  <Input {...props} />
+              )}
           />
+          {/*<FormField*/}
+          {/*  name="multiselect"*/}
+          {/*  As={(props) => (*/}
+          {/*    <MultiSelect*/}
+          {/*      {...props}*/}
+          {/*      isGrouped*/}
+          {/*      translations={{*/}
+          {/*        innerLabel: 'Selected employees',*/}
+          {/*        clearAllLabel: 'Clear All',*/}
+          {/*        overflowText: '%s selected',*/}
+          {/*        emptyListMainMessage: "Sorry, we couldn't find any results"*/}
+          {/*      }}*/}
+          {/*      helperText="helperText"*/}
+          {/*      options={OPTIONS_GROUPED}*/}
+          {/*      isSearchAvailable*/}
+          {/*    />*/}
+          {/*  )}*/}
+          {/*/>*/}
           <Button buttonActionType="submit" buttonText={'Ok'} />
         </>
       </_FormContainer>
