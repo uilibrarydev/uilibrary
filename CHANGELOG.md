@@ -1,3 +1,12 @@
+## [2.9.2](https://github.com/dinofrontend/dino_ui_library/compare/2.9.1...2.9.2) (2024-10-01)
+
+
+### Bug Fixes
+
+* add error message icon as props in form field ([b55279d](https://github.com/dinofrontend/dino_ui_library/commit/b55279d4c211db3a283fc3fb472737a95279771f))
+* eslint fixes ([c7eb5b0](https://github.com/dinofrontend/dino_ui_library/commit/c7eb5b005177cf0817709b49ef54d1d161d77064))
+* pull from master ([e4e324b](https://github.com/dinofrontend/dino_ui_library/commit/e4e324b096082b0e419156fa38318bebef4dd247))
+
 ## [2.9.1](https://github.com/dinofrontend/dino_ui_library/compare/2.9.0...2.9.1) (2024-09-27)
 
 
