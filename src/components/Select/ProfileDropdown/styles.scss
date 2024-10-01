@@ -1,0 +1,47 @@
+@use "../../../assets/styles/helpers/mixin";
+
+.profile-dropdown {
+  width: 360px;
+  box-shadow: var(--ds-shadow-2);
+  border-radius: var(--ds-border-radius-sm);
+  background-color: var(--ds-color-bg-white);
+  @include mixin.absolute(calc(100% + var(--ds-space-8)), 0, unset, unset);
+
+  &__top {
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    padding: var(--ds-space-16);
+    border-bottom: 1px solid var(--grey-50);
+  }
+
+  &__nav {
+    list-style: none;
+
+    li {
+      padding: var(--ds-space-10) var(--ds-space-16);
+    }
+
+    &__link {
+      @include mixin.inline-flex;
+      @include mixin.align-items(center);
+      color: var(--ds-color-text-primary);
+
+      &:hover {
+        color: var(--ds-color-text-brand);
+        text-decoration: none;
+        transition: none;
+        cursor: pointer;
+
+        .svg-icon {
+          path {
+            fill: var(--ds-color-text-brand);
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid var(--grey-50);
+  }
+}

@@ -3,13 +3,28 @@ import { LinkPropTypes } from './types'
 import classNames from 'classnames'
 
 export const Link = (props: LinkPropTypes): ReactElement => {
-  const { children, afterLink, beforeLink, className = '', url, dataId = '', target } = props
+  const {
+    children,
+    afterLink,
+    beforeLink,
+    className = '',
+    url,
+    dataId = '',
+    target,
+    onclick
+  } = props
   return beforeLink || afterLink ? (
     <span className={className}>
       {beforeLink}
       <a
+        onClick={(e) => {
+          if (onclick) {
+            e.preventDefault()
+            onclick()
+          }
+        }}
         href={url}
-        className={classNames('link', { 'ml-4': beforeLink, 'mr-4': afterLink })}
+        className={'link'}
         data-id={`${dataId}-link`}
         target={target}
       >
@@ -19,6 +34,12 @@ export const Link = (props: LinkPropTypes): ReactElement => {
     </span>
   ) : (
     <a
+      onClick={(e) => {
+        if (onclick) {
+          e.preventDefault()
+          onclick()
+        }
+      }}
       href={url}
       className={classNames(`link ${className}`)}
       data-id={`${dataId}-link`}

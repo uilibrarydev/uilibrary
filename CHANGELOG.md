@@ -1,3 +1,97 @@
+## [2.9.1](https://github.com/dinofrontend/dino_ui_library/compare/2.9.0...2.9.1) (2024-09-27)
+
+
+### Bug Fixes
+
+* remove label error state ([9e2a86f](https://github.com/dinofrontend/dino_ui_library/commit/9e2a86ffce8eeaf24070f2980e3c18aef0598fb0))
+* remove label error state ([9ef595f](https://github.com/dinofrontend/dino_ui_library/commit/9ef595fbed4d29a1bd21ae6bf365264c90496606))
+* truncated input long values ([04db7a6](https://github.com/dinofrontend/dino_ui_library/commit/04db7a697fd1646275f2ee3fe62b7d3cd365e721))
+* truncated input long values ([f6367b5](https://github.com/dinofrontend/dino_ui_library/commit/f6367b5759338c13156b76a9db1ffd203b786c0a))
+
+# [2.9.0](https://github.com/dinofrontend/dino_ui_library/compare/2.8.5...2.9.0) (2024-09-25)
+
+
+### Features
+
+* added building-bank icon ([19fdcfc](https://github.com/dinofrontend/dino_ui_library/commit/19fdcfc1d67bb9bb5de6772c425c3456e0074f00))
+* added building-bank icon ([e253fc8](https://github.com/dinofrontend/dino_ui_library/commit/e253fc8ec8769c31a2ffa6fa886a85b147d2c29e))
+
+## [2.8.5](https://github.com/dinofrontend/dino_ui_library/compare/2.8.4...2.8.5) (2024-09-24)
+
+
+### Bug Fixes
+
+* ui fix for snackbar ([60a03b7](https://github.com/dinofrontend/dino_ui_library/commit/60a03b71a4d92351e42e99aacb16fe3ea4f3173f))
+
+## [2.8.4](https://github.com/dinofrontend/dino_ui_library/compare/2.8.3...2.8.4) (2024-09-20)
+
+
+### Bug Fixes
+
+* remove link spacing ([d1acd53](https://github.com/dinofrontend/dino_ui_library/commit/d1acd53b0d421f07e7371e286f483641d6be0630))
+
+## [2.8.3](https://github.com/dinofrontend/dino_ui_library/compare/2.8.2...2.8.3) (2024-09-20)
+
+
+### Bug Fixes
+
+* add bg-color ([6cdacde](https://github.com/dinofrontend/dino_ui_library/commit/6cdacde66382a9bf05127462f0e92e7efd95eab5))
+* added classname prop ([de6b09f](https://github.com/dinofrontend/dino_ui_library/commit/de6b09f53389eb6d5a413bc2c827ee432e890e75))
+
+## [2.8.2](https://github.com/dinofrontend/dino_ui_library/compare/2.8.1...2.8.2) (2024-09-20)
+
+
+### Bug Fixes
+
+* added click for Link component, added click prop for profile dropdown item ([224b675](https://github.com/dinofrontend/dino_ui_library/commit/224b6759a24a01b5bf2cf0ddf87fc1b372a3a30d))
+* added click for Link component, added click prop for profile dropdown item ([618ca07](https://github.com/dinofrontend/dino_ui_library/commit/618ca07c9018673deeae2f493bde04db998ac9d8))
+
+## [2.8.1](https://github.com/dinofrontend/dino_ui_library/compare/2.8.0...2.8.1) (2024-09-20)
+
+
+### Bug Fixes
+
+* profile dropdown ui fixes, and added chat-multiple icon ([45a7738](https://github.com/dinofrontend/dino_ui_library/commit/45a773865e37a63e0aa36c5d366332d3bba41dda))
+
+# [2.8.0](https://github.com/dinofrontend/dino_ui_library/compare/2.7.10...2.8.0) (2024-09-18)
+
+
+### Features
+
+* profile dropdown ([5ff0e42](https://github.com/dinofrontend/dino_ui_library/commit/5ff0e427a2d690bc12f48cac8652b178fb06250d))
+
+## [2.7.10](https://github.com/dinofrontend/dino_ui_library/compare/2.7.9...2.7.10) (2024-09-18)
+
+
+### Bug Fixes
+
+* select right alignment ([edf8710](https://github.com/dinofrontend/dino_ui_library/commit/edf8710e337c9877ca510c81b5a741277904137c))
+
+## [2.7.9](https://github.com/dinofrontend/dino_ui_library/compare/2.7.8...2.7.9) (2024-09-17)
+
+
+### Bug Fixes
+
+* add classname prop for error-message ([77ceb33](https://github.com/dinofrontend/dino_ui_library/commit/77ceb337d904d0684b5fd88e8f4425190c53ca07))
+* add classname prop for error-message ([cf52eac](https://github.com/dinofrontend/dino_ui_library/commit/cf52eac6a58122510b0688b69672deff7d682f0d))
+* fix for checkbox ui ([ad03a90](https://github.com/dinofrontend/dino_ui_library/commit/ad03a90bcd94e79200ab6462edc1bd48ccb25ed8))
+
+## [2.7.8](https://github.com/dinofrontend/dino_ui_library/compare/2.7.7...2.7.8) (2024-09-13)
+
+
+### Bug Fixes
+
+* color fix ([3ff3fff](https://github.com/dinofrontend/dino_ui_library/commit/3ff3fffc5d31c090fecafd37b10d4a48181ff2c7))
+* fixes for pagination ([0c62d1b](https://github.com/dinofrontend/dino_ui_library/commit/0c62d1bf7dd9542ae0d81d8f284ab44609338e39))
+* fixes for pagination ([e7101c0](https://github.com/dinofrontend/dino_ui_library/commit/e7101c0c7a077530bfbac784e41679c9a0497e80))
+
+## [2.7.7](https://github.com/dinofrontend/dino_ui_library/compare/2.7.6...2.7.7) (2024-09-10)
+
+
+### Bug Fixes
+
+* fix forward ref warnings in checkbox and range date picker ([67fd5b8](https://github.com/dinofrontend/dino_ui_library/commit/67fd5b84f15c7b46f989519bcc405aa2e34f8890))
+
 ## [2.7.6](https://github.com/dinofrontend/dino_ui_library/compare/2.7.5...2.7.6) (2024-09-09)
 
 

@@ -33,10 +33,10 @@ export const Pagination = Template.bind({})
 // @ts-ignore
 Pagination.args = {
   size: 'large',
-  totalCount: 100,
-  labels: {
-    next: <IconChevronRight size={'small'} />,
-    previous: <IconChevronLeft size={'small'} />
-  },
-  breakLabel: <IconMore size="small" />
+  totalCount: 100
+  // labels: {
+  //   next: <IconChevronRight size={'small'} />,
+  //   previous: <IconChevronLeft size={'small'} />
+  // },
+  // breakLabel: <IconMore size="small" />
 }

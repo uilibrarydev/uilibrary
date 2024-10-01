@@ -58,7 +58,7 @@
 
   @include mixin.inline-flex;
   @include mixin.flex-wrap(wrap);
-  @include mixin.align-items(center);
+  @include mixin.align-items(flex-start);
   cursor: pointer;
 
   input[type="checkbox"],
@@ -80,6 +80,7 @@
       border-radius: var(--ds-controller-border-radius-sm);
       border: var(--ds-controller-border) var(--ds-controller-border-color-default);
       transition: var(--ds-controller-transition);
+      margin-top: var(--ds-space-2);
 
       &:hover {
         background-color: var(--ds-controller-bg-hover-light);

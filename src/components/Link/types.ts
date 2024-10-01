@@ -8,4 +8,5 @@ export interface LinkPropTypes {
   target?: string
   beforeLink?: string | JSX.Element
   afterLink?: string | JSX.Element
+  onclick?: () => void
 }

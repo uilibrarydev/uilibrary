@@ -81,6 +81,10 @@ export const ButtonSelectWrapper = (props: TSelectWrapperProps): ReactElement =>
           style={{
             left:
               align === 'left' ? offsets?.left || left : right - (dropdownWidth || containerWidth),
+            right:
+              align === 'right'
+                ? offsets?.right || left
+                : right - (dropdownWidth || containerWidth),
             width: dropdownWidth || containerWidth,
             ...(hasBottomSpace || !hasTopSpace
               ? { top: offsets?.top || bottom }

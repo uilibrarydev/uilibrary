@@ -105,6 +105,7 @@ export interface TButtonSelectPropTypes extends IFormCompProps, TSelectBaseProps
   offsets?: {
     top?: number
     left?: number
+    right?: number
   }
   type: 'secondary' | 'tertiary'
 }
@@ -198,6 +199,7 @@ export type TSelectWrapperProps = {
   offsets?: {
     top?: number
     left?: number
+    right?: number
   }
   isOpen: boolean
   setIsOpen: (isOpen: boolean) => void
@@ -215,4 +217,19 @@ export type TSelectWrapperProps = {
   selectedValues?: TSelectedValue[]
   dataId?: string
   type?: 'primary' | 'secondary' | 'tertiary'
+}
+
+declare type TNavItemValue = {
+  icon?: TSVGIconComponent
+  text: string
+  url?: string
+  onclick?: () => void
+}
+export type TProfileDropdownProps = {
+  avatar: ReactElement
+  email: string
+  name: string
+  bodyItems: TNavItemValue[]
+  footerItems: TNavItemValue[]
+  className?: string
 }

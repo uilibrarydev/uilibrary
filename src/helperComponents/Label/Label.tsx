@@ -8,7 +8,6 @@ export const Label: React.FC<LabelPropTypes> = (props: LabelPropTypes) => {
     size = 'small',
     required = false,
     disabled = false,
-    invalid = false,
     className = '',
     labelAddons
   } = props
@@ -18,7 +17,7 @@ export const Label: React.FC<LabelPropTypes> = (props: LabelPropTypes) => {
   return (
     <Text
       size={size}
-      type={invalid ? 'danger' : disabled ? 'disabled' : 'primary'}
+      type={disabled ? 'disabled' : 'primary'}
       className={`label flexbox align-items--start mb-4 ${className}`}
     >
       <>

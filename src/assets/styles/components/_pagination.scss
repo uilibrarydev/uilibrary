@@ -15,6 +15,7 @@
   --ds-pagination-item-color-selected: var(--ds-color-text-inverse);
   --ds-pagination-item-color-disabled: var(--ds-color-text-disabled);
   --ds-pagination-item-bg: var(--ds-color-bg-white);
+  --ds-pagination-item-bg-hover: var(--ds-color-bg-container-light);
   --ds-pagination-item-bg-selected: var(--ds-color-bg-brand);
   --ds-pagination-item-bg-disabled: var(--ds-color-bg-container-lighter);
   --ds-pagination-item-border: 1px solid var(--ds-color-border-tertiary);
@@ -22,10 +23,6 @@
   --ds-pagination-item-border-disabled: var(--ds-color-bg-disabled);
 
   --ds-pagination-item-border-radius: var(--ds-border-radius-xs);
-
-  --ds-pagination-item-icon-size-lg: var(--ds-size-20);
-  --ds-pagination-item-icon-size-md: var(--ds-size-16);
-  --ds-pagination-item-icon-size-sm: var(--ds-size-12);
 
   @include mixin.flexbox;
   @include mixin.align-items(center);
@@ -39,10 +36,6 @@
         height: var(--ds-pagination-item-size-lg);
         font: var(--ds-font-weight-default) var(--ds-pagination-item-font-size-lg) var(--ds-font-family);
       }
-
-      .icon {
-        font-size: var(--ds-pagination-item-icon-size-lg);
-      }
     }
   }
 
@@ -53,10 +46,6 @@
         height: var(--ds-pagination-item-size-md);
         font: var(--ds-font-weight-default) var(--ds-pagination-item-font-size-md) var(--ds-font-family);
       }
-
-      .icon {
-        font-size: var(--ds-pagination-item-icon-size-md);
-      }
     }
   }
 
@@ -66,10 +55,6 @@
         min-width: var(--ds-pagination-item-size-sm);
         height: var(--ds-pagination-item-size-sm);
         font: var(--ds-font-weight-default) var(--ds-pagination-item-font-size-sm) var(--ds-font-family);
-      }
-
-      .icon {
-        font-size: var(--ds-pagination-item-icon-size-sm);
       }
     }
   }
@@ -86,6 +71,8 @@
       @include mixin.align-items(center);
       @include mixin.justify-content(center);
 
+
+
       &:focus {
         outline: none !important;
       }
@@ -97,6 +84,13 @@
       }
     }
 
+    &:not(&.active) {
+      a {
+        &:hover {
+          background-color: var(--ds-pagination-item-bg-hover);
+        }
+      }
+    }
 
     &.active {
       a {
@@ -119,6 +113,10 @@
         background-color: var(--ds-pagination-item-bg-disabled);
         border-color: var(--ds-pagination-item-border-disabled);
         color: var(--ds-pagination-item-color-disabled);
+
+        &:hover {
+          background-color: var(--ds-pagination-item-bg-disabled) !important;
+        }
 
         svg {
           path {
