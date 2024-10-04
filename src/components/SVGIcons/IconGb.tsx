@@ -4,7 +4,6 @@ import classNames from 'classnames'
 
 export const IconGb = ({
   size,
-  type,
   className = '',
   onClick,
   refHandler,

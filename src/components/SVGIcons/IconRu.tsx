@@ -4,7 +4,6 @@ import classNames from 'classnames'
 
 export const IconRu = ({
   size,
-  type,
   className = '',
   onClick,
   refHandler,
