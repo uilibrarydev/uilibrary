@@ -27,7 +27,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
     },
     ref
   ): JSX.Element => {
-    const isErrorVisible = hasError !== undefined ? hasError : !!error
+    // const isErrorVisible = hasError !== undefined ? hasError : !!error
 
     const handleChange = (event: TChangeEventType) => {
       if (changeHandler) {
