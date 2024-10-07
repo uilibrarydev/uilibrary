@@ -1,3 +1,11 @@
+# [2.10.0](https://github.com/dinofrontend/dino_ui_library/compare/2.9.2...2.10.0) (2024-10-07)
+
+
+### Features
+
+* change version ([b51f742](https://github.com/dinofrontend/dino_ui_library/commit/b51f742c08c69283dbe816447660967e9d287fd1))
+* new properties in select for languages ([371f5ac](https://github.com/dinofrontend/dino_ui_library/commit/371f5ac00ac3c83ad571975a1d44f9279daf9162))
+
 ## [2.9.2](https://github.com/dinofrontend/dino_ui_library/compare/2.9.1...2.9.2) (2024-10-01)
 
 

@@ -92,6 +92,7 @@ declare type TItemValue = string | number | null
 declare type TSelectedValue = {
   value: TItemValue
   label: TItemLabel
+  optionLeftIcon?: TSelectIconProps
 }
 declare type TItemLabel = string | number
 
@@ -113,6 +114,7 @@ declare type TSelectOption = {
   disabled?: boolean
   children?: TSelectOption[]
   dataId?: string
+  optionLeftIcon?: TSelectIconProps
 }
 
 declare type TSelectOptions = TSelectOption[]

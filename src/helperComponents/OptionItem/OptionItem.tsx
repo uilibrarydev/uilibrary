@@ -14,6 +14,7 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
     avatar,
     isSelected,
     labelLeftIconProps,
+    optionLeftIcon,
     LabelRightIconComponent,
     OptionRightIconComponent,
     isCheckbox,
@@ -57,6 +58,9 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
         <IconCheckmark size="xsmall" type={disabled ? 'disabled' : 'brand'} className="mr-4" />
       ) : null}
       <div className="select__option__inner">
+        {optionLeftIcon && optionLeftIcon.Component ? (
+          <optionLeftIcon.Component {...optionLeftIcon} />
+        ) : null}
         {avatar ? <Avatar size="xxsmall" imagePath={avatar} className="mr-4" /> : null}
         {labelLeftIconProps?.Component ? (
           <labelLeftIconProps.Component
