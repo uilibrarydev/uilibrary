@@ -14,7 +14,7 @@ export interface InputCustomProps
   currentValue?: string
   error?: string | ReactElement
   label?: string | ReactElement
-  leftIconProps?: ISVGIconProps
+  leftIconProps?: ISVGIconProps | null
   rightIconProps?: ISVGIconProps
   disabled?: boolean
   required?: boolean
