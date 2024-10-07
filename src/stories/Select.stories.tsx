@@ -27,8 +27,8 @@ import IconQuestion from '../components/SVGIcons/IconQuestion'
 import IconChatMultiple from '../components/SVGIcons/IconChatMultiple'
 import IconAm from '../components/SVGIcons/IconAm'
 import IconGb from '../components/SVGIcons/IconGb'
-import IconChevronDownFilled from '../components/SVGIcons/IconChevronDownFilled'
-import IconChevronUpFilled from '../components/SVGIcons/IconChevronUpFilled'
+import IconChevronDown from "../components/SVGIcons/IconChevronDown";
+import IconChevronUp from "../components/SVGIcons/IconChevronUp";
 
 type TItemValue = string | number | null
 declare type TItemLabel = string
@@ -489,8 +489,8 @@ const LanguageSelectTemplate: StoryFn<TSingleSelectPropTypes> = (args) => {
         selectedItem={selectedValue}
         setSelectedItem={setSelectedValue}
         className={'select--language'}
-        selectRightIconProps={IconChevronDownFilled}
-        selectRightIconOpenedProps={IconChevronUpFilled}
+        selectRightIconProps={IconChevronDown}
+        selectRightIconOpenedProps={IconChevronUp}
       />
     </div>
   )
