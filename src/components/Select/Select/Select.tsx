@@ -61,11 +61,12 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     const selectedItem = options.find((item) => item.value === currentSelection) as TSelectOption
     setSelectedOption(selectedItem)
   }, [currentSelection, options])
+  
   const leftIconProps = selectedOption?.optionLeftIcon?.Component
     ? {
         Component: selectedOption?.optionLeftIcon?.Component
       }
-    : {}
+    : null
 
   useEffect(() => {
     setCurrentSelectedLabel()
@@ -175,7 +176,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
           label={label}
           onChange={onSearch}
           required={isRequiredField}
-          leftIconProps={{ ...leftIconProps }}
+          leftIconProps={leftIconProps}
           rightIconProps={{
             Component: isOpen ? IconCaretUpFilled : IconCaretDownFilled,
             size: 'xsmall'
