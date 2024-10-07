@@ -7,7 +7,8 @@ import {
   ButtonSelect as _ButtonSelect,
   ProfileDropdown as _ProfileDropdown,
   Menu,
-  Avatar
+  Avatar,
+  IconEdit
 } from '../index'
 // @ts-ignore
 import imageFile from '../assets/images/avatar.jpg'
@@ -256,6 +257,23 @@ const OPTIONS_NESTED: TSelectOptions = [
   }
 ]
 
+const languagesOptions = [
+  {
+    label: 'ARM',
+    value: 'ARM',
+    optionLeftIcon: {
+      Component: IconEdit
+    }
+  },
+  {
+    label: 'ENG',
+    value: 'ENG',
+    optionLeftIcon: {
+      Component: IconInfo
+    }
+  }
+]
+
 // -----------SINGLE SELECT---------
 const Template: StoryFn<TSingleSelectPropTypes> = (args) => {
   const [selectedValue, setSelectedValue] = useState<TItemValue | undefined>(null)
@@ -453,6 +471,24 @@ NestedSelect.args = {
   ),
   labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />
 }
+
+// ----------LANGUAGE-SELECT----------------
+
+const LanguageSelectTemplate: StoryFn<TSingleSelectPropTypes> = (args) => {
+  const [selectedValue, setSelectedValue] = useState<TItemValue | undefined>(null)
+
+  return (
+    <div style={{ display: 'flex', height: '100vh', justifyContent: 'center', width: '20vw' }}>
+      <_Select
+        {...args}
+        options={languagesOptions}
+        selectedItem={selectedValue}
+        setSelectedItem={setSelectedValue}
+      />
+    </div>
+  )
+}
+export const LanguageSelect = LanguageSelectTemplate.bind({})
 
 // ----------PROFILE DROPDOWN---------------
 
