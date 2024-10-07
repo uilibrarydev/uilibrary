@@ -1,3 +1,11 @@
+# [2.11.0](https://github.com/dinofrontend/dino_ui_library/compare/2.10.0...2.11.0) (2024-10-07)
+
+
+### Features
+
+* added flag icons of (am,ru,gb) and updated folder-link icon ([c114c1a](https://github.com/dinofrontend/dino_ui_library/commit/c114c1af52c6ad024764aa48fb946ce8a22e0632))
+* added flag icons of (am,ru,gb) and updated folder-link icon ([7f785d0](https://github.com/dinofrontend/dino_ui_library/commit/7f785d041710868285a7832d6346937fd57ff8fe))
+
 # [2.10.0](https://github.com/dinofrontend/dino_ui_library/compare/2.9.2...2.10.0) (2024-10-07)
 
 
