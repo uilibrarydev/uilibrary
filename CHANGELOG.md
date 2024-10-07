@@ -1,3 +1,10 @@
+## [2.11.1](https://github.com/dinofrontend/dino_ui_library/compare/2.11.0...2.11.1) (2024-10-07)
+
+
+### Bug Fixes
+
+* select empty space ([bb52bf1](https://github.com/dinofrontend/dino_ui_library/commit/bb52bf17466518ef1239085701f611129e832788))
+
 # [2.11.0](https://github.com/dinofrontend/dino_ui_library/compare/2.10.0...2.11.0) (2024-10-07)
 
 
