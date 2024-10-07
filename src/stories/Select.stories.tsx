@@ -27,8 +27,8 @@ import IconQuestion from '../components/SVGIcons/IconQuestion'
 import IconChatMultiple from '../components/SVGIcons/IconChatMultiple'
 import IconAm from '../components/SVGIcons/IconAm'
 import IconGb from '../components/SVGIcons/IconGb'
-import IconChevronDown from "../components/SVGIcons/IconChevronDown";
-import IconChevronUp from "../components/SVGIcons/IconChevronUp";
+import IconChevronDown from '../components/SVGIcons/IconChevronDown'
+import IconChevronUp from '../components/SVGIcons/IconChevronUp'
 
 type TItemValue = string | number | null
 declare type TItemLabel = string
