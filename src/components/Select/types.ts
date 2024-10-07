@@ -19,6 +19,8 @@ interface TSelectBaseProps {
   }
   optionRightIconComponent?: (value: TItemValue) => ReactElement
   labelRightIconComponent?: (value: TItemValue) => ReactElement
+  selectRightIconProps?: TSVGIconComponent
+  selectRightIconOpenedProps?: TSVGIconComponent
   avatar?: string
   size?: 'small' | 'large' | 'medium'
   className?: string

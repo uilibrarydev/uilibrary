@@ -44,6 +44,8 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     labelLeftIconProps,
     labelRightIconComponent,
     optionRightIconComponent,
+    selectRightIconProps = IconCaretDownFilled,
+    selectRightIconOpenedProps = IconCaretUpFilled,
     labelAddons,
     tooltipAddons
   } = props
@@ -163,7 +165,9 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   return (
     <div
       data-id={`${dataId}-content`}
-      className={classNames(`select select--${size}`, className)}
+      className={classNames(`select select--${size}`, className, {
+        'select--opened': isOpen
+      })}
       ref={containerRef}
     >
       <div onClick={disabled ? noop : onOpenOptions}>
@@ -177,7 +181,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
           required={isRequiredField}
           leftIconProps={{ ...leftIconProps }}
           rightIconProps={{
-            Component: isOpen ? IconCaretUpFilled : IconCaretDownFilled,
+            Component: isOpen ? selectRightIconOpenedProps : selectRightIconProps,
             size: 'xsmall'
           }}
           readonly={!withSearch || options.length <= SELECTED_VISIBLE_MIN_COUNT}

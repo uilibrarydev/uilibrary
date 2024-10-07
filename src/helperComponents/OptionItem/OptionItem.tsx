@@ -59,14 +59,14 @@ export const OptionItem = (props: TSelectItemProps): JSX.Element => {
       ) : null}
       <div className="select__option__inner">
         {optionLeftIcon && optionLeftIcon.Component ? (
-          <optionLeftIcon.Component {...optionLeftIcon} />
+          <optionLeftIcon.Component {...optionLeftIcon} size="small" className="select__option__icon--left" />
         ) : null}
         {avatar ? <Avatar size="xxsmall" imagePath={avatar} className="mr-4" /> : null}
         {labelLeftIconProps?.Component ? (
           <labelLeftIconProps.Component
             size="xsmall"
             type={disabled ? 'disabled' : 'primary'}
-            className="mr-4 select__left-icon"
+            className="mr-4"
             {...labelLeftIconProps}
           />
         ) : null}

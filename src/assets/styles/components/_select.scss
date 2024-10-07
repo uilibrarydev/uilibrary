@@ -40,6 +40,16 @@
   --ds-select-max-menu-width: var(--ds-size-240);
   --ds-select-menu-option-padding: 0 var(--ds-space-16);
 
+  --ds-select-language-width: 110px;
+  --ds-select-language-bg-hover: var(--ds-color-bg-container);
+  --ds-select-language-input-border-color: transparent;
+  --ds-select-language-input-border-color-hover: transparent;
+  --ds-select-language-input-border-color-active: var(--grey-200);
+  --ds-select-language-input-space: 44px;
+  --ds-select-language-icon-position: var(--ds-space-16);
+  --ds-select-language-option-icon-right-space: var(--ds-space-8);
+  --ds-select-language-shadow-focused: var(--ds-shadow-brand-2);
+
   position: relative;
 
   .tabs-container{
@@ -171,6 +181,47 @@
     .divider {
       width: calc(100% - var(--ds-space-32));
       margin: var(--ds-space-8) auto;
+    }
+  }
+
+  &--language {
+    .input {
+      --ds-input-bg-hover: var(--ds-select-language-bg-hover);
+      --ds-input-bg-focused: var(--ds-select-language-bg-hover);
+      --ds-input-bg-pressed: var(--ds-select-language-bg-hover);
+      --ds-input-bg-activated: var(--ds-select-language-bg-hover);
+      --ds-input-border-color-default: var(--ds-select-language-input-border-color);
+      --ds-input-border-color-hover: var(--ds-select-language-input-border-color-hover);
+      --ds-input-border-color-focused: var(--ds-select-language-input-border-color-active);
+      --ds-input-border-color-activated: var(--ds-select-language-input-border-color-active);
+      --ds-input-padding-lg: var(--ds-select-language-input-space);
+
+      --ds-input-icon-position: var(--ds-select-language-icon-position);
+
+      max-width: var(--ds-select-language-width);
+
+      input {
+       text-overflow: unset;
+
+        &:read-only {
+          cursor: pointer;
+        }
+      }
+    }
+
+    #{$this}__option {
+      &__icon {
+        &--left {
+          margin-right: var(--ds-select-language-option-icon-right-space);
+        }
+      }
+    }
+
+    &#{$this}--opened {
+      .input {
+        --ds-input-bg-default: var(--ds-select-language-bg-hover);
+        --ds-input-border-color-default: var(--ds-select-language-input-border-color-active);
+      }
     }
   }
 }
