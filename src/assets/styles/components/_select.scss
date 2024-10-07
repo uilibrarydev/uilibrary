@@ -47,7 +47,6 @@
   --ds-select-language-input-border-color-active: var(--grey-200);
   --ds-select-language-input-space: 44px;
   --ds-select-language-icon-position: var(--ds-space-16);
-  --ds-select-language-option-icon-right-space: var(--ds-space-8);
   --ds-select-language-shadow-focused: var(--ds-shadow-brand-2);
 
   position: relative;
@@ -205,14 +204,6 @@
 
         &:read-only {
           cursor: pointer;
-        }
-      }
-    }
-
-    #{$this}__option {
-      &__icon {
-        &--left {
-          margin-right: var(--ds-select-language-option-icon-right-space);
         }
       }
     }
