@@ -22,7 +22,7 @@
   --ds-pagination-item-border-selected: var(--ds-color-border-brand);
   --ds-pagination-item-border-disabled: var(--ds-color-bg-disabled);
 
-  --ds-pagination-item-border-radius: var(--ds-border-radius-xs);
+  --ds-pagination-item-border-radius: var(--ds-border-radius-xxs);
 
   @include mixin.flexbox;
   @include mixin.align-items(center);

@@ -77,7 +77,9 @@
   --ds-button-icon-margin-md: var(--ds-space-8);
   --ds-button-icon-margin-sm: var(--ds-space-4);
 
-  --ds-button-border-radius: var(--ds-border-radius-xs);
+  --ds-button-border-radius-lg: var(--ds-border-radius-lg);
+  --ds-button-border-radius-md: var(--ds-border-radius-md);
+  --ds-button-border-radius-sm: var(--ds-border-radius-sm);
 
   --ds-button-transition: background-color .3s linear, color .3s linear, border-color .3s linear;
 
@@ -95,7 +97,6 @@
   font-family: var(--ds-button-font-family);
   font-weight: var(--ds-button-font-weight);
   line-height: var(--ds-button-line-height);
-  border-radius: var(--ds-button-border-radius);
   //transition: var(--ds-button-transition);
 
   &[disabled] {
@@ -106,18 +107,21 @@
     height: var(--ds-button-size-lg);
     padding: var(--ds-button-padding-lg);
     font-size: var(--ds-button-font-size-lg);
+    border-radius: var(--ds-button-border-radius-lg);
   }
 
   &--medium {
     height: var(--ds-button-size-md);
     padding: var(--ds-button-padding-md);
     font-size: var(--ds-button-font-size-md);
+    border-radius: var(--ds-button-border-radius-md);
   }
 
   &--small {
     height: var(--ds-button-size-sm);
     padding: var(--ds-button-padding-sm);
     font-size: var(--ds-button-font-size-sm);
+    border-radius: var(--ds-button-border-radius-sm);
   }
 
   &--primary {

@@ -25,7 +25,7 @@
   --toastify-toast-bottom: max(var(--toastify-toast-offset), env(safe-area-inset-bottom));
 
   --ds-snackbar-padding: var(--ds-space-16) var(--ds-space-24);
-  --ds-snackbar-border-radius: var(--ds-border-radius-xs);
+  --ds-snackbar-border-radius: var(--ds-border-radius-xxs);
   --ds-snackbar-shadow: var(--ds-shadow-2);
 
   &__toast-container {

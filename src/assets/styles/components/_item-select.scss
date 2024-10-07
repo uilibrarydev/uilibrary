@@ -6,7 +6,7 @@
   --ds-item-select-height: var(--ds-size-40);
   --ds-item-select-bg: var(--ds-color-bg-white);
   --ds-item-select-padding: var(--ds-space-8) var(--ds-space-12);
-  --ds-item-select-border-radius: var(--ds-border-radius-sm);
+  --ds-item-select-border-radius: var(--ds-border-radius-xs);
   --ds-item-select-border-color: var(--ds-color-border-tertiary);
   --ds-item-select-border-color-hover: var(--ds-color-border-brand);
   --ds-item-select-border-color-selected: var(--ds-color-border-brand);
@@ -21,7 +21,7 @@
   --ds-item-select-image-width: 34px;
   --ds-item-select-image-height: var(--ds-size-24);
   --ds-item-select-image-border: 1px solid var(--grey-50);
-  --ds-item-select-image-border-radius: var(--ds-border-radius-sm);
+  --ds-item-select-image-border-radius: var(--ds-border-radius-xs);
   --ds-item-select-image-padding: var(--ds-space-6) var(--ds-space-4);
 
   @include mixin.flexbox;

@@ -3,7 +3,7 @@
 .collapse {
     $this: &;
 
-    --ds-collapse-border-radius: var(--ds-border-radius-sm);
+    --ds-collapse-border-radius: var(--ds-border-radius-xs);
     --ds-collapse-border: 1px solid var(--ds-color-border-tertiary);
     --ds-collapse-bg: var(--ds-color-bg-white);
 
