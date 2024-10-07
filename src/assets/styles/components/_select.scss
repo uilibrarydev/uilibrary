@@ -59,7 +59,17 @@
     .input__icon {
       &--right {
         right: var(--ds-select-input-arrow-position);
+        pointer-events: none;
       }
+    }
+
+    input {
+      &:not(&:disabled) {
+        &:read-only {
+          cursor: pointer;
+        }
+      }
+
     }
   }
 
@@ -82,9 +92,6 @@
       min-height: var(--ds-select-scroll-min-height);
       padding: var(--ds-select-scroll-padding);
     }
-  }
-  &__open_top{
-    top: -10px;
   }
 
   &__option, &__option__inner, &__option__content {
@@ -128,13 +135,6 @@
         content: '- ';
       }
     }
-  }
-
-  &__icon {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
   }
 
   &__top {

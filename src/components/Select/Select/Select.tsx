@@ -63,7 +63,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     const selectedItem = options.find((item) => item.value === currentSelection) as TSelectOption
     setSelectedOption(selectedItem)
   }, [currentSelection, options])
-  
+
   const leftIconProps = selectedOption?.optionLeftIcon?.Component
     ? {
         Component: selectedOption?.optionLeftIcon?.Component
@@ -171,31 +171,30 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
       })}
       ref={containerRef}
     >
-      <div onClick={disabled ? noop : onOpenOptions}>
-        <Input
-          size={size === 'large' ? 'large' : 'small'}
-          dataId={dataId}
-          hasError={hasError}
-          className="select__input"
-          label={label}
-          onChange={onSearch}
-          required={isRequiredField}
-          leftIconProps={leftIconProps}
-          rightIconProps={{
-            Component: isOpen ? selectRightIconOpenedProps : selectRightIconProps,
-            size: 'xsmall'
-          }}
-          readonly={!withSearch || options.length <= SELECTED_VISIBLE_MIN_COUNT}
-          placeholder={placeHolder}
-          value={selectedOption?.label}
-          isValid={isValid}
-          disabled={disabled}
-          helperText={isOpen ? '' : outerHelperText}
-          ref={inputRef}
-          labelAddons={labelAddons}
-          autoComplete="false"
-        />
-      </div>
+      <Input
+        onClick={disabled ? noop : onOpenOptions}
+        size={size === 'large' ? 'large' : 'small'}
+        dataId={dataId}
+        hasError={hasError}
+        className="select__input"
+        label={label}
+        onChange={onSearch}
+        required={isRequiredField}
+        leftIconProps={leftIconProps}
+        rightIconProps={{
+          Component: isOpen ? selectRightIconOpenedProps : selectRightIconProps,
+          size: 'small'
+        }}
+        readonly={!withSearch || options.length <= SELECTED_VISIBLE_MIN_COUNT}
+        placeholder={placeHolder}
+        value={selectedOption?.label}
+        isValid={isValid}
+        disabled={disabled}
+        helperText={isOpen ? '' : outerHelperText}
+        ref={inputRef}
+        labelAddons={labelAddons}
+        autoComplete="false"
+      />
 
       {isOpen && (
         <div
