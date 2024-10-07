@@ -15,6 +15,7 @@ interface TSelectBaseProps {
     size?: TIconSize
     className?: string
     onClick?: TClickHandler
+    Component?: TSVGIconComponent
   }
   optionRightIconComponent?: (value: TItemValue) => ReactElement
   labelRightIconComponent?: (value: TItemValue) => ReactElement

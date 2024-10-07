@@ -55,13 +55,17 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const [searchValue, setSearchValue] = useState<string>('')
   const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null)
   const currentSelection = (value as TItemValue) || selectedItem
-
-  const [itemLabel, setItemLabel] = useState<string | null>('')
+  const [selectedOption, setSelectedOption] = useState<TSelectOption | null>(null)
 
   const setCurrentSelectedLabel = useCallback(() => {
-    const label = options.find((item) => item.value === currentSelection)
-    setItemLabel(label?.label.toString() || '')
+    const selectedItem = options.find((item) => item.value === currentSelection) as TSelectOption
+    setSelectedOption(selectedItem)
   }, [currentSelection, options])
+  const leftIconProps = selectedOption?.optionLeftIcon?.Component
+    ? {
+        Component: selectedOption?.optionLeftIcon?.Component
+      }
+    : {}
 
   useEffect(() => {
     setCurrentSelectedLabel()
@@ -141,7 +145,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     }
 
   const onSearch = (e: TChangeEventType) => {
-    setItemLabel(null)
+    setSelectedOption(null)
     setSearchValue(e.target.value)
   }
   const { hasBottomSpace } = useGetHasBottomSpace({
@@ -171,13 +175,14 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
           label={label}
           onChange={onSearch}
           required={isRequiredField}
+          leftIconProps={{ ...leftIconProps }}
           rightIconProps={{
             Component: isOpen ? IconCaretUpFilled : IconCaretDownFilled,
             size: 'xsmall'
           }}
           readonly={!withSearch || options.length <= SELECTED_VISIBLE_MIN_COUNT}
           placeholder={placeHolder}
-          value={itemLabel}
+          value={selectedOption?.label}
           isValid={isValid}
           disabled={disabled}
           helperText={isOpen ? '' : outerHelperText}
@@ -231,6 +236,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
                       data={item}
                       key={item.value}
                       onClick={clickHandler(isSelected)}
+                      optionLeftIcon={item?.optionLeftIcon}
                       labelLeftIconProps={labelLeftIconProps}
                       OptionRightIconComponent={optionRightIconComponent}
                       LabelRightIconComponent={labelRightIconComponent}
