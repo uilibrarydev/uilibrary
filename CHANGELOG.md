@@ -1,3 +1,11 @@
+## [2.12.1](https://github.com/dinofrontend/dino_ui_library/compare/2.12.0...2.12.1) (2024-10-08)
+
+
+### Bug Fixes
+
+* fix classname prop for pagination ([017b819](https://github.com/dinofrontend/dino_ui_library/commit/017b81999eb0068d3196f7f182026890d1f3f16a))
+* fix top spacing ([c2298dc](https://github.com/dinofrontend/dino_ui_library/commit/c2298dc2664d9e607dc382f2e964563a1a43e291))
+
 # [2.12.0](https://github.com/dinofrontend/dino_ui_library/compare/2.11.5...2.12.0) (2024-10-08)
 
 
