@@ -1,3 +1,11 @@
+## [2.11.4](https://github.com/dinofrontend/dino_ui_library/compare/2.11.3...2.11.4) (2024-10-08)
+
+
+### Bug Fixes
+
+* added scrollbar for modal content ([039ca45](https://github.com/dinofrontend/dino_ui_library/commit/039ca45506a8077bd303c8302932e3ac95197d88))
+* change border-radius for textarea ([72f53a8](https://github.com/dinofrontend/dino_ui_library/commit/72f53a888c87d630700f551f73577c45b7548755))
+
 ## [2.11.3](https://github.com/dinofrontend/dino_ui_library/compare/2.11.2...2.11.3) (2024-10-08)
 
 
