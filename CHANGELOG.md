@@ -1,3 +1,10 @@
+# [2.12.0](https://github.com/dinofrontend/dino_ui_library/compare/2.11.5...2.12.0) (2024-10-08)
+
+
+### Features
+
+* accept expend icon for navigation item component (not required) ([c223b6b](https://github.com/dinofrontend/dino_ui_library/commit/c223b6bf1d8577303203eb079fd2d2ab0c820ba5))
+
 ## [2.11.5](https://github.com/dinofrontend/dino_ui_library/compare/2.11.4...2.11.5) (2024-10-08)
 
 
