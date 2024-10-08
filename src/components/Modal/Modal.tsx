@@ -88,7 +88,7 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
               </div>
             ) : null}
 
-            <div className="modal__content">{children}</div>
+            <div className="modal__content scrollbar scrollbar--vertical">{children}</div>
             {withFooter && buttonProps ? (
               <div className="modal__footer">
                 <Button
