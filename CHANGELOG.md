@@ -1,3 +1,16 @@
+## [2.11.2](https://github.com/dinofrontend/dino_ui_library/compare/2.11.1...2.11.2) (2024-10-08)
+
+
+### Bug Fixes
+
+* changed border-radius sizes for button, input, select components ([3ade35a](https://github.com/dinofrontend/dino_ui_library/commit/3ade35a16e6ce17183d2cbf3dcdf24af5fa2ee05))
+* fixes ([a86783d](https://github.com/dinofrontend/dino_ui_library/commit/a86783dab19a4604b7b4d62775ce5faee8024820))
+* fixes ([b38e47b](https://github.com/dinofrontend/dino_ui_library/commit/b38e47b1a1cc752100a532c7c6b083cf545a9bde))
+* language-select ui fix ([7e3a0ea](https://github.com/dinofrontend/dino_ui_library/commit/7e3a0ea1b5a273b42863fe81ad96d793a50f63c8))
+* language-select ui fix ([d7df60a](https://github.com/dinofrontend/dino_ui_library/commit/d7df60affde6441bd7f7e1f2392226bb0be905ad))
+* rollback textarea changes ([9479bb9](https://github.com/dinofrontend/dino_ui_library/commit/9479bb9dd068ef42b607a4e00fe46f2755a94a2e))
+* update caret icons ([9b998b9](https://github.com/dinofrontend/dino_ui_library/commit/9b998b91be7e27d0104b06b5cc36f81ffdb1588d))
+
 ## [2.11.1](https://github.com/dinofrontend/dino_ui_library/compare/2.11.0...2.11.1) (2024-10-07)
 
 
