@@ -263,14 +263,14 @@ const OPTIONS_NESTED: TSelectOptions = [
 
 const languagesOptions = [
   {
-    label: 'AM',
+    label: 'Հայ',
     value: 'AM',
     optionLeftIcon: {
       Component: IconAm
     }
   },
   {
-    label: 'EN',
+    label: 'Eng',
     value: 'EN',
     optionLeftIcon: {
       Component: IconGb
