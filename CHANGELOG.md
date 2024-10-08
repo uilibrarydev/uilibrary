@@ -1,3 +1,10 @@
+## [2.11.5](https://github.com/dinofrontend/dino_ui_library/compare/2.11.4...2.11.5) (2024-10-08)
+
+
+### Bug Fixes
+
+* fix width and values for language ([55e3f90](https://github.com/dinofrontend/dino_ui_library/commit/55e3f906702889b2173509883570e5078b5b27db))
+
 ## [2.11.4](https://github.com/dinofrontend/dino_ui_library/compare/2.11.3...2.11.4) (2024-10-08)
 
 
