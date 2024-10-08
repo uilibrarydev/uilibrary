@@ -17,6 +17,10 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
     actionElm,
     active = false,
     badgeContent,
+    expandIconProps = {
+      Component: IconArrowDown,
+      size: 'medium'
+    },
     children
   } = props
 
@@ -66,7 +70,7 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
           )}
           {expandable && isOpen && (
             <div className={classNames('navigation--item--expandable--icon', childOpen && 'open')}>
-              <IconArrowDown size="medium" />
+              {expandIconProps.Component && <expandIconProps.Component />}
             </div>
           )}
         </div>

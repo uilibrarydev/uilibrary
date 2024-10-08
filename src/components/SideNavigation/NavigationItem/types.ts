@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { ISVGIconProps } from '../../SVGIcons/types'
 
 export enum NavigationItemTypes {
   MAIN = 'main',
@@ -11,6 +12,7 @@ export enum NavigationItemTypes {
 
 export interface TNavigationLinkPropTypes {
   As: () => JSX.Element
+  expandIconProps?: ISVGIconProps
   type: NavigationItemTypes
   isOpen: boolean
   iconName?: string
