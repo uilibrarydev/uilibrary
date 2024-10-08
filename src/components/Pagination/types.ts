@@ -11,7 +11,6 @@ export type TPaginationProps = {
   handleChangePage: (pageNumber: number) => void
   breakLabel?: ReactElement
   classname?: string
-  activeClassName?: string
   size?: 'large' | 'medium' | 'small'
   disableInitialCallback?: boolean
 }
