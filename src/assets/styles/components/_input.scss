@@ -48,7 +48,9 @@
   --ds-input-border-color-invalid: var(--ds-color-border-danger);
   --ds-input-border-color-disabled: var(--ds-color-border-disabled);
   --ds-input-border: var(--ds-border-thin) solid var(--ds-input-border-color-default);
-  --ds-input-border-radius: var(--ds-border-radius-xs);
+
+  --ds-input-border-radius-lg: var(--ds-border-radius-lg);
+  --ds-input-border-radius-sm: var(--ds-border-radius-md);
 
   --ds-input-icon-position: var(--ds-space-10);
 
@@ -65,7 +67,6 @@
     padding: 0 var(--ds-input-padding);
     color: var(--ds-input-body-text-default);
     background-color: var(--ds-input-bg-default);
-    border-radius: var(--ds-input-border-radius);
     border: var(--ds-input-border);
     transition: var(--ds-input-transition);
     text-overflow: ellipsis;
@@ -200,12 +201,14 @@
   &--large {
     input {
       height: var(--ds-input-size-lg);
+      border-radius: var(--ds-input-border-radius-lg);
     }
   }
 
   &--small {
     input {
       height: var(--ds-input-size-sm);
+      border-radius: var(--ds-input-border-radius-sm);
     }
   }
 

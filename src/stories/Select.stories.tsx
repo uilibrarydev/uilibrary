@@ -25,6 +25,10 @@ import { Positions } from '../components/Tooltip/types'
 import IconSignOut from '../components/SVGIcons/IconSignOut'
 import IconQuestion from '../components/SVGIcons/IconQuestion'
 import IconChatMultiple from '../components/SVGIcons/IconChatMultiple'
+import IconAm from '../components/SVGIcons/IconAm'
+import IconGb from '../components/SVGIcons/IconGb'
+import IconChevronDownFilled from '../components/SVGIcons/IconChevronDownFilled'
+import IconChevronUpFilled from '../components/SVGIcons/IconChevronUpFilled'
 
 type TItemValue = string | number | null
 declare type TItemLabel = string
@@ -259,17 +263,17 @@ const OPTIONS_NESTED: TSelectOptions = [
 
 const languagesOptions = [
   {
-    label: 'ARM',
-    value: 'ARM',
+    label: 'AM',
+    value: 'AM',
     optionLeftIcon: {
-      Component: IconEdit
+      Component: IconAm
     }
   },
   {
-    label: 'ENG',
-    value: 'ENG',
+    label: 'EN',
+    value: 'EN',
     optionLeftIcon: {
-      Component: IconInfo
+      Component: IconGb
     }
   }
 ]
@@ -290,7 +294,7 @@ const Template: StoryFn<TSingleSelectPropTypes> = (args) => {
         selectedItem={selectedValue}
         setSelectedItem={setSelectedValue}
         withSearch={true}
-        optionRightIconComponent={(value) => <div>{value}</div>}
+        optionRightIconComponent={(value) => <>{value}</>}
       />
     </div>
   )
@@ -321,7 +325,7 @@ const Template2: StoryFn<TButtonSelectPropTypes> = (args) => {
         selectedItem={selectedValue}
         setSelectedItem={setSelectedValue}
         dropdownWidth={300}
-        // optionRightIconComponent={(value) => <div>{value}</div>}
+        // optionRightIconComponent={(value) => <>{value}</div>}
       />
     </div>
   )
@@ -484,6 +488,9 @@ const LanguageSelectTemplate: StoryFn<TSingleSelectPropTypes> = (args) => {
         options={languagesOptions}
         selectedItem={selectedValue}
         setSelectedItem={setSelectedValue}
+        className={'select--language'}
+        selectRightIconProps={IconChevronDownFilled}
+        selectRightIconOpenedProps={IconChevronUpFilled}
       />
     </div>
   )

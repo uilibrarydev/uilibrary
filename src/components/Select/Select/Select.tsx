@@ -44,6 +44,8 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     labelLeftIconProps,
     labelRightIconComponent,
     optionRightIconComponent,
+    selectRightIconProps = IconCaretDownFilled,
+    selectRightIconOpenedProps = IconCaretUpFilled,
     labelAddons,
     tooltipAddons
   } = props
@@ -61,7 +63,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     const selectedItem = options.find((item) => item.value === currentSelection) as TSelectOption
     setSelectedOption(selectedItem)
   }, [currentSelection, options])
-  
+
   const leftIconProps = selectedOption?.optionLeftIcon?.Component
     ? {
         Component: selectedOption?.optionLeftIcon?.Component
@@ -164,34 +166,35 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   return (
     <div
       data-id={`${dataId}-content`}
-      className={classNames(`select select--${size}`, className)}
+      className={classNames(`select select--${size}`, className, {
+        'select--opened': isOpen
+      })}
       ref={containerRef}
     >
-      <div onClick={disabled ? noop : onOpenOptions}>
-        <Input
-          size={size === 'large' ? 'large' : 'small'}
-          dataId={dataId}
-          hasError={hasError}
-          className="select__input"
-          label={label}
-          onChange={onSearch}
-          required={isRequiredField}
-          leftIconProps={leftIconProps}
-          rightIconProps={{
-            Component: isOpen ? IconCaretUpFilled : IconCaretDownFilled,
-            size: 'xsmall'
-          }}
-          readonly={!withSearch || options.length <= SELECTED_VISIBLE_MIN_COUNT}
-          placeholder={placeHolder}
-          value={selectedOption?.label}
-          isValid={isValid}
-          disabled={disabled}
-          helperText={isOpen ? '' : outerHelperText}
-          ref={inputRef}
-          labelAddons={labelAddons}
-          autoComplete="false"
-        />
-      </div>
+      <Input
+        onClick={disabled ? noop : onOpenOptions}
+        size={size === 'large' ? 'large' : 'small'}
+        dataId={dataId}
+        hasError={hasError}
+        className="select__input"
+        label={label}
+        onChange={onSearch}
+        required={isRequiredField}
+        leftIconProps={leftIconProps}
+        rightIconProps={{
+          Component: isOpen ? selectRightIconOpenedProps : selectRightIconProps,
+          size: 'small'
+        }}
+        readonly={!withSearch || options.length <= SELECTED_VISIBLE_MIN_COUNT}
+        placeholder={placeHolder}
+        value={selectedOption?.label}
+        isValid={isValid}
+        disabled={disabled}
+        helperText={isOpen ? '' : outerHelperText}
+        ref={inputRef}
+        labelAddons={labelAddons}
+        autoComplete="false"
+      />
 
       {isOpen && (
         <div

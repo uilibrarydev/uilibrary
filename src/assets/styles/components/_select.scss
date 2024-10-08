@@ -8,7 +8,8 @@
 
   --ds-select-options-bg: var(--white);
   --ds-select-options-shadow: var(--shadow-2);
-  --ds-select-options-border-radius: var(--ds-border-radius-sm);
+  --ds-select-options-border-radius-lg: var(--ds-border-radius-lg);
+  --ds-select-options-border-radius-sm: var(--ds-border-radius-md);
   --ds-select-options-border-size: 0;
   --ds-select-options-border-color: none;
   --ds-select-options-margin: var(--ds-space-4);
@@ -33,12 +34,21 @@
   --ds-select-footer-border-top: 1px solid var(--ds-color-divider);
 
   --ds-select-menu-bg: var(--ds-color-bg-white);
-  --ds-select-menu-border-radius: var(--ds-border-radius-sm);
+  --ds-select-menu-border-radius: var(--ds-border-radius-xs);
   --ds-select-menu-shadow: var(--shadow-2);
   --ds-select-menu-padding: var(--ds-space-8) 0;
   --ds-select-min-menu-width: var(--ds-size-140);
   --ds-select-max-menu-width: var(--ds-size-240);
   --ds-select-menu-option-padding: 0 var(--ds-space-16);
+
+  --ds-select-language-width: 110px;
+  --ds-select-language-bg-hover: var(--ds-color-bg-container);
+  --ds-select-language-input-border-color: transparent;
+  --ds-select-language-input-border-color-hover: transparent;
+  --ds-select-language-input-border-color-active: var(--grey-200);
+  --ds-select-language-input-space: 44px;
+  --ds-select-language-icon-position: var(--ds-space-16);
+  --ds-select-language-shadow-focused: var(--ds-shadow-brand-2);
 
   position: relative;
 
@@ -50,7 +60,17 @@
     .input__icon {
       &--right {
         right: var(--ds-select-input-arrow-position);
+        pointer-events: none;
       }
+    }
+
+    input {
+      &:not(&:disabled) {
+        &:read-only {
+          cursor: pointer;
+        }
+      }
+
     }
   }
 
@@ -63,7 +83,6 @@
     padding: var(--ds-select-options-padding);
     margin-top: var(--ds-select-options-margin);
     box-shadow: var(--ds-select-options-shadow);
-    border-radius: var(--ds-select-options-border-radius);
     border-width: var(--ds-select-options-border-size);
     border-style: solid;
     border-color: var(--ds-select-options-border-color);
@@ -73,9 +92,6 @@
       min-height: var(--ds-select-scroll-min-height);
       padding: var(--ds-select-scroll-padding);
     }
-  }
-  &__open_top{
-    top: -10px;
   }
 
   &__option, &__option__inner, &__option__content {
@@ -121,13 +137,6 @@
     }
   }
 
-  &__icon {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
   &__top {
     padding: var(--ds-select-top-padding);
     margin: var(--ds-select-top-margin);
@@ -141,6 +150,18 @@
     height: var(--ds-select-footer-height);
     padding: var(--ds-select-footer-padding);
     border-top: var(--ds-select-footer-border-top);
+  }
+
+  &--large {
+    #{$this}__options {
+      border-radius: var(--ds-select-options-border-radius-lg);
+    }
+  }
+
+  &--small {
+    #{$this}__options {
+      border-radius: var(--ds-select-options-border-radius-sm);
+    }
   }
 
   &--menu {
@@ -171,6 +192,39 @@
     .divider {
       width: calc(100% - var(--ds-space-32));
       margin: var(--ds-space-8) auto;
+    }
+  }
+
+  &--language {
+    .input {
+      --ds-input-bg-hover: var(--ds-select-language-bg-hover);
+      --ds-input-bg-focused: var(--ds-select-language-bg-hover);
+      --ds-input-bg-pressed: var(--ds-select-language-bg-hover);
+      --ds-input-bg-activated: var(--ds-select-language-bg-hover);
+      --ds-input-border-color-default: var(--ds-select-language-input-border-color);
+      --ds-input-border-color-hover: var(--ds-select-language-input-border-color-hover);
+      --ds-input-border-color-focused: var(--ds-select-language-input-border-color-active);
+      --ds-input-border-color-activated: var(--ds-select-language-input-border-color-active);
+      --ds-input-padding-lg: var(--ds-select-language-input-space);
+
+      --ds-input-icon-position: var(--ds-select-language-icon-position);
+
+      max-width: var(--ds-select-language-width);
+
+      input {
+       text-overflow: unset;
+
+        &:read-only {
+          cursor: pointer;
+        }
+      }
+    }
+
+    &#{$this}--opened {
+      .input {
+        --ds-input-bg-default: var(--ds-select-language-bg-hover);
+        --ds-input-border-color-default: var(--ds-select-language-input-border-color-active);
+      }
     }
   }
 }
