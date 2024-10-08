@@ -1,3 +1,11 @@
+## [2.11.3](https://github.com/dinofrontend/dino_ui_library/compare/2.11.2...2.11.3) (2024-10-08)
+
+
+### Bug Fixes
+
+* changed icons for language-select ([d7285d7](https://github.com/dinofrontend/dino_ui_library/commit/d7285d760e5f91ed72c3d4743033a71226c9f727))
+* changed icons for language-select ([cbdc0f0](https://github.com/dinofrontend/dino_ui_library/commit/cbdc0f0e7fee81cfc16a1e2aefa36743b5e0f622))
+
 ## [2.11.2](https://github.com/dinofrontend/dino_ui_library/compare/2.11.1...2.11.2) (2024-10-08)
 
 
