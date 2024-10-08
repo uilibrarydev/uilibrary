@@ -37,7 +37,7 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
         marginPagesDisplayed={1}
         onPageChange={handlePageChange}
         containerClassName={classNames(`pagination pagination--${size}`, classname)}
-        activeClassName={classname || 'active'}
+        activeClassName={'active'}
         previousLabel={labels?.previous}
         nextLabel={labels?.next}
         breakClassName="pagination__more"
