@@ -19,8 +19,8 @@ export const Pagination = (props: TPaginationProps): JSX.Element | null => {
     page,
     breakLabel = <IconMore size={ICON_SIZE_MAPPING[size]} />,
     labels = {
-      next: <IconChevronRight size={ICON_SIZE_MAPPING[size]} />,
-      previous: <IconChevronLeft size={ICON_SIZE_MAPPING[size]} />
+      previous: <IconChevronLeft size={ICON_SIZE_MAPPING[size]} />,
+      next: <IconChevronRight size={ICON_SIZE_MAPPING[size]} />
     }
   } = props
 
