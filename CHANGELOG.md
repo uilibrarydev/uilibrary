@@ -1,3 +1,11 @@
+## [2.12.2](https://github.com/dinofrontend/dino_ui_library/compare/2.12.1...2.12.2) (2024-10-09)
+
+
+### Bug Fixes
+
+* fix ([c2cf6af](https://github.com/dinofrontend/dino_ui_library/commit/c2cf6af53643772fb91950ef3dcc05016f363747))
+* remove additional imports ([774a3bc](https://github.com/dinofrontend/dino_ui_library/commit/774a3bc460402bb06539b505b981ca40eb741230))
+
 ## [2.12.1](https://github.com/dinofrontend/dino_ui_library/compare/2.12.0...2.12.1) (2024-10-08)
 
 
