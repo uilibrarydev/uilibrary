@@ -12,5 +12,5 @@ export const IconComponentMapping: { [key: string]: any } = {
   subtract: lazy((): any => import('../../components/SVGIcons/IconSubtract')),
   am: lazy((): any => import('../../components/SVGIcons/IconAm')),
   ru: lazy((): any => import('../../components/SVGIcons/IconRu')),
-  us: lazy((): any => import('../../components/SVGIcons/IconGb')),
+  us: lazy((): any => import('../../components/SVGIcons/IconGb'))
 }
