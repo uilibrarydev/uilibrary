@@ -5,7 +5,19 @@ import IconChevronRight from '../SVGIcons/IconChevronRight'
 import IconChevronLeft from '../SVGIcons/IconChevronLeft'
 
 export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => {
-  const { children, open, setOpen } = props
+  const {
+    children,
+    open,
+    setOpen,
+    sidebarOpenIconProps = {
+      Component: IconChevronRight,
+      size: 'medium'
+    },
+    sidebarCloseIconProps = {
+      Component: IconChevronLeft,
+      size: 'medium'
+    },
+  } = props
 
   const handleToggleOpen = () => {
     setOpen(!open)
@@ -16,9 +28,17 @@ export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => 
       {children}
       <div className="collapse" onClick={handleToggleOpen}>
         {open ? (
-          <IconChevronLeft type="inverse" />
+          <>
+            {sidebarOpenIconProps.Component && (
+              <sidebarOpenIconProps.Component type="inverse" size={sidebarOpenIconProps.size} />
+            )}
+          </>
         ) : (
-          <IconChevronRight type="inverse" size="medium" />
+          <>
+            {sidebarCloseIconProps.Component && (
+              <sidebarCloseIconProps.Component type="inverse" size={sidebarCloseIconProps.size} />
+            )}
+          </>
         )}
       </div>
     </div>
