@@ -1,3 +1,10 @@
+# [2.13.0](https://github.com/dinofrontend/dino_ui_library/compare/2.12.5...2.13.0) (2024-10-10)
+
+
+### Features
+
+* accept sidebar open icon from sidebar navigation component ([1dd80b7](https://github.com/dinofrontend/dino_ui_library/commit/1dd80b72bb3fd4de676da8c209050d91322282c3))
+
 ## [2.12.5](https://github.com/dinofrontend/dino_ui_library/compare/2.12.4...2.12.5) (2024-10-10)
 
 
