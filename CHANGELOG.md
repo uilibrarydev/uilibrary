@@ -1,3 +1,11 @@
+## [2.12.3](https://github.com/dinofrontend/dino_ui_library/compare/2.12.2...2.12.3) (2024-10-10)
+
+
+### Bug Fixes
+
+* fixes for select right icon props ([7bd5441](https://github.com/dinofrontend/dino_ui_library/commit/7bd544103591b588fe213ac97dc9affd2709709a))
+* fixes for select right icon props ([e3093c2](https://github.com/dinofrontend/dino_ui_library/commit/e3093c28fc295b675ea6a4144a9a339ca97d84e8))
+
 ## [2.12.2](https://github.com/dinofrontend/dino_ui_library/compare/2.12.1...2.12.2) (2024-10-09)
 
 
