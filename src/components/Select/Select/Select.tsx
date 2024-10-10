@@ -44,8 +44,14 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     labelLeftIconProps,
     labelRightIconComponent,
     optionRightIconComponent,
-    selectRightIconProps = IconCaretDownFilled,
-    selectRightIconOpenedProps = IconCaretUpFilled,
+    selectRightIconProps = {
+      Component: IconCaretDownFilled,
+      size:'xsmall'
+    },
+    selectRightIconOpenedProps = {
+      Component: IconCaretUpFilled,
+      size:'xsmall'
+    },
     labelAddons,
     tooltipAddons
   } = props
@@ -181,10 +187,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         onChange={onSearch}
         required={isRequiredField}
         leftIconProps={leftIconProps}
-        rightIconProps={{
-          Component: isOpen ? selectRightIconOpenedProps : selectRightIconProps,
-          size: 'small'
-        }}
+        rightIconProps={isOpen ? selectRightIconOpenedProps : selectRightIconProps}
         readonly={!withSearch || options.length <= SELECTED_VISIBLE_MIN_COUNT}
         placeholder={placeHolder}
         value={selectedOption?.label}
