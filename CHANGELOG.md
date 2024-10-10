@@ -1,3 +1,10 @@
+## [2.12.4](https://github.com/dinofrontend/dino_ui_library/compare/2.12.3...2.12.4) (2024-10-10)
+
+
+### Bug Fixes
+
+* navigation item expend icon size ([5a53b49](https://github.com/dinofrontend/dino_ui_library/commit/5a53b498512f172925df5aae163581ad2f2f32c7))
+
 ## [2.12.3](https://github.com/dinofrontend/dino_ui_library/compare/2.12.2...2.12.3) (2024-10-10)
 
 
