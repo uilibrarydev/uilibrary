@@ -9,5 +9,8 @@ export const IconComponentMapping: { [key: string]: any } = {
   errorCircleFilled: lazy((): any => import('../../components/SVGIcons/IconErrorCircleFilled')),
   infoFilled: lazy((): any => import('../../components/SVGIcons/IconInfoFilled')),
   checkmark: lazy((): any => import('../../components/SVGIcons/IconCheckmark')),
-  subtract: lazy((): any => import('../../components/SVGIcons/IconSubtract'))
+  subtract: lazy((): any => import('../../components/SVGIcons/IconSubtract')),
+  am: lazy((): any => import('../../components/SVGIcons/IconAm')),
+  ru: lazy((): any => import('../../components/SVGIcons/IconRu')),
+  us: lazy((): any => import('../../components/SVGIcons/IconGb'))
 }
