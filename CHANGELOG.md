@@ -1,3 +1,12 @@
+## [2.13.1](https://github.com/dinofrontend/dino_ui_library/compare/2.13.0...2.13.1) (2024-10-10)
+
+
+### Bug Fixes
+
+* add language icons in dynamic import ([d36c0e6](https://github.com/dinofrontend/dino_ui_library/commit/d36c0e6a0594ebe2965bbf7fb806435e16890fad))
+* merge ([4d34d16](https://github.com/dinofrontend/dino_ui_library/commit/4d34d1634059ce5521da29ec27a44aa099e2ca1d))
+* reformating ([5e6eca1](https://github.com/dinofrontend/dino_ui_library/commit/5e6eca1aac9400c8e435a70b0b39ffcc7cd7cb22))
+
 # [2.13.0](https://github.com/dinofrontend/dino_ui_library/compare/2.12.5...2.13.0) (2024-10-10)
 
 
