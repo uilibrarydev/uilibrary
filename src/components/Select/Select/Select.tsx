@@ -46,11 +46,11 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     optionRightIconComponent,
     selectRightIconProps = {
       Component: IconCaretDownFilled,
-      size:'xsmall'
+      size: 'xsmall'
     },
     selectRightIconOpenedProps = {
       Component: IconCaretUpFilled,
-      size:'xsmall'
+      size: 'xsmall'
     },
     labelAddons,
     tooltipAddons
