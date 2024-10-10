@@ -70,7 +70,7 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
           )}
           {expandable && isOpen && (
             <div className={classNames('navigation--item--expandable--icon', childOpen && 'open')}>
-              {expandIconProps.Component && <expandIconProps.Component />}
+              {expandIconProps.Component && <expandIconProps.Component size={expandIconProps.size || 'small'} />}
             </div>
           )}
         </div>
