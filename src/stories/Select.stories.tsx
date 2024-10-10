@@ -489,8 +489,14 @@ const LanguageSelectTemplate: StoryFn<TSingleSelectPropTypes> = (args) => {
         selectedItem={selectedValue}
         setSelectedItem={setSelectedValue}
         className={'select--language'}
-        selectRightIconProps={IconChevronDown}
-        selectRightIconOpenedProps={IconChevronUp}
+        selectRightIconProps={{
+          Component: IconChevronDown,
+          size: 'small'
+        }}
+        selectRightIconOpenedProps={{
+          Component: IconChevronUp,
+          size: 'small'
+        }}
       />
     </div>
   )
