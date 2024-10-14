@@ -16,7 +16,7 @@ export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => 
     sidebarCloseIconProps = {
       Component: IconChevronLeft,
       size: 'medium'
-    },
+    }
   } = props
 
   const handleToggleOpen = () => {

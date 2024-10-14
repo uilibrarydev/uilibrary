@@ -18,7 +18,8 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
     onClose,
     isOpen,
     position = 'bottom-right',
-    className = ''
+    className = '',
+    children
   } = props
   const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null)
   useOnOutsideClick(menuRef, onClose, isOpen, useId())
@@ -61,27 +62,37 @@ export const Menu = (props: TMenuProps): ReactElement | null => {
       style={menuStyles}
       ref={setMenuRef}
     >
-      {menuItems.map(({ label, meta, value, handler, iconProps, disabled, dataId }: TMenuItem) => {
-        return (
-          <OptionItem
-            dataId={dataId}
-            disabled={disabled}
-            key={value}
-            data={{
-              label,
-              value,
-              meta
-            }}
-            labelLeftIconProps={iconProps}
-            onClick={() => {
-              onClose()
-              if (handler) {
-                handler()
+      <>
+        {children ? (
+          children
+        ) : (
+          <>
+            {menuItems.map(
+              ({ label, meta, value, handler, iconProps, disabled, dataId }: TMenuItem) => {
+                return (
+                  <OptionItem
+                    dataId={dataId}
+                    disabled={disabled}
+                    key={value}
+                    data={{
+                      label,
+                      value,
+                      meta
+                    }}
+                    labelLeftIconProps={iconProps}
+                    onClick={() => {
+                      onClose()
+                      if (handler) {
+                        handler()
+                      }
+                    }}
+                  />
+                )
               }
-            }}
-          />
-        )
-      })}
+            )}
+          </>
+        )}
+      </>
     </div>,
     parentRef
   )
