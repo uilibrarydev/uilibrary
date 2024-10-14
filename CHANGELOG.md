@@ -1,3 +1,10 @@
+# [2.14.0](https://github.com/dinofrontend/dino_ui_library/compare/2.13.1...2.14.0) (2024-10-14)
+
+
+### Features
+
+* menu accept children ([35e694b](https://github.com/dinofrontend/dino_ui_library/commit/35e694b45da5b73f9cd8ac8eac510479dfaab09e))
+
 ## [2.13.1](https://github.com/dinofrontend/dino_ui_library/compare/2.13.0...2.13.1) (2024-10-10)
 
 
