@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export type TMenuItem = {
   label: TItemLabel
   value: TItemValue
@@ -10,11 +12,12 @@ export type TMenuItem = {
 
 export type TMenuProps = {
   className?: string
-  menuItems: TMenuItem[]
+  menuItems?: TMenuItem[]
   parentRef: HTMLElement | null
   onClose: TCallBackFn
   position?: TTooltipPosition // 'right' | 'left' | 'top' | 'bottom'
   isOpen: boolean
+  children?: ReactNode
 }
 
 export type TNestedMenuItemProps = {
