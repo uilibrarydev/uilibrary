@@ -1,3 +1,10 @@
+# [2.15.0](https://github.com/dinofrontend/dino_ui_library/compare/2.14.0...2.15.0) (2024-10-15)
+
+
+### Features
+
+* added secondary type ui for tabs ([850b687](https://github.com/dinofrontend/dino_ui_library/commit/850b687c5184cf42d55af66ed9c3b011187fdcb2))
+
 # [2.14.0](https://github.com/dinofrontend/dino_ui_library/compare/2.13.1...2.14.0) (2024-10-14)
 
 
