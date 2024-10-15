@@ -29,6 +29,8 @@
 
   @include mixin.inline-flex;
   @include mixin.align-items(center);
+  @include mixin.justify-content(center);
+  flex: 1;
   position: relative;
   color: var(--ds-tab-color-default);
   border-radius: var(--ds-badge-border-radius);
@@ -36,6 +38,10 @@
   border-style: solid;
   border-color: var(--ds-tab-border-default);
   margin: var(--ds-tab-margin);
+
+  &:last-child {
+    margin: 0;
+  }
 
   &:after {
     content: '';
@@ -47,10 +53,6 @@
     transition: width .3s linear;
   }
 
-  &:last-child {
-    margin: 0;
-  }
-
   &__icon {
     color: var(--ds-tab-icon-color-default);
   }
@@ -59,7 +61,7 @@
     font: var(--ds-tab-font);
   }
 
-  &:hover {
+  &:not(&--selected, &--disabled):hover {
     cursor: pointer;
 
     #{$this}__icon {
@@ -71,16 +73,8 @@
   }
 
   &--disabled {
-    &:hover {
-      cursor: default;
+    cursor: default;
 
-      #{$this}__icon {
-        color: var(--ds-tab-icon-color-disabled);
-      }
-      #{$this}__label {
-        color: var(--ds-tab-color-disabled);
-      }
-    }
     #{$this}__icon {
       color: var(--ds-tab-icon-color-disabled);
     }
@@ -90,16 +84,7 @@
   }
 
   &--selected {
-    &:hover {
-      cursor: default;
-
-      #{$this}__icon {
-        color: var(--ds-tab-icon-color-selected);
-      }
-      #{$this}__label {
-        color: var(--ds-tab-color-selected);
-      }
-    }
+    cursor: default;
 
     &:after {
       width: 100%;
@@ -138,12 +123,81 @@
 }
 
 .tabs-container {
-  --ds-tabs-border-size: 0 0 1px 0;
-  --ds-tabs-border-default: var(--ds-color-divider);
+  --ds-tabs-primary-border-size: 0 0 1px 0;
+  --ds-tabs-primary-border-default: var(--ds-color-divider);
+
+  --ds-tabs-secondary-bg: var(--ds-color-bg-container-light);
+  --ds-tabs-secondary-padding: var(--ds-space-8);
+  --ds-tabs-secondary-border-radius: var(--border-radius-12);
+  --ds-tabs-secondary-tab-heightt: var(--ds-size-40);
+  --ds-tabs-secondary-tab-padding: var(--ds-space-10) var(--ds-space-12);
+  --ds-tabs-secondary-tab-margin: 0 var(--ds-space-8) 0 0;
+  --ds-tabs-secondary-tab-bg-default: transparent;
+  --ds-tabs-secondary-tab-bg-hover: var(--ds-color-bg-container-dark);
+  --ds-tabs-secondary-tab-bg-selected: var(--ds-color-bg-white);
+  --ds-tabs-secondary-tab-color-default: var(--ds-color-text-primary);
+  --ds-tabs-secondary-tab-color-hover: var(--ds-color-text-primary);
+  --ds-tabs-secondary-tab-color-selected: var(--ds-color-text-primary);
+  --ds-tabs-secondary-tab-border-size: 1px;
+  --ds-tabs-secondary-tab-border-default: transparent;
+  --ds-tabs-secondary-tab-border-hover: transparent;
+  --ds-tabs-secondary-tab-border-selected: var(--ds-color-border-tertiary);
+  --ds-tabs-secondary-tab-border-radius: var(--ds-border-radius-lg);
 
   @include mixin.inline-flex;
   @include mixin.align-items(flex-end);
-  border-width: var(--ds-tabs-border-size);
-  border-style: solid;
-  border-color: var(--ds-tabs-border-default);
+
+  &--primary {
+    border-width: var(--ds-tabs-primary-border-size);
+    border-style: solid;
+    border-color: var(--ds-tabs-primary-border-default);
+  }
+
+  &--secondary {
+    background-color: var(--ds-tabs-secondary-bg);
+    padding: var(--ds-tabs-secondary-padding);
+    border-radius: var(--ds-tabs-secondary-border-radius);
+
+    .tab {
+      padding: var(--ds-tabs-secondary-tab-padding);
+      height: var(--ds-tabs-secondary-tab-heightt);
+      margin: var(--ds-tabs-secondary-tab-margin);
+      border-width: var(--ds-tabs-secondary-tab-border-size);
+      border-style: solid;
+      background-color: var(--ds-tabs-secondary-tab-bg-default);
+      border-color: var(--ds-tabs-secondary-tab-border-default);
+      border-radius: var(--ds-tabs-secondary-tab-border-radius);
+      transition: background-color .3s linear, border-color .3s linear;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      &:after {
+        content: none;
+      }
+
+      &__icon, &__label {
+        color: var(--ds-tabs-secondary-tab-color-default);
+      }
+
+      &:not(&--selected):hover {
+        background-color: var(--ds-tabs-secondary-tab-bg-hover);
+        border-color: var(--ds-tabs-secondary-tab-border-hover);
+
+        .tab__icon, .tab__label {
+          color: var(--ds-tabs-secondary-tab-color-hover);
+        }
+      }
+
+      &--selected {
+        background-color: var(--ds-tabs-secondary-tab-bg-selected);
+        border-color: var(--ds-tabs-secondary-tab-border-selected);
+
+        .tab__icon, .tab__label {
+          color: var(--ds-tabs-secondary-tab-color-selected);
+        }
+      }
+    }
+  }
 }
