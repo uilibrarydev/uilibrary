@@ -6,23 +6,22 @@ export type TTabItem = {
   dataId?: string
   disabled?: boolean
   badgeProps?: TBadgeProps
+  iconProps?: {
+    alignment?: string
+    Component?: TSVGIconComponent
+  }
+  rightIconProps?: {
+    name?: string
+    alignment?: string
+    action?: (value: string | number) => void
+    Component?: TSVGIconComponent
+  }
 }
 export interface TTabProps extends IFormCompProps {
   tabItems: TTabItem[]
+  type?: 'primary' | 'secondary'
   size?: 'large' | 'medium' | 'small'
   className?: string
-  iconProps?: {
-    Component?: TSVGIconComponent
-    alignment?: string
-  }
-  rightIconProps?: {
-    Component?: TSVGIconComponent
-    alignment?: string
-    action?: (value: string | number) => void
-  }
-  badgeProps?: {
-    text: string
-  }
   disabled?: boolean
   selectedValue: number | string
   onSelect: (value: string | number) => void
