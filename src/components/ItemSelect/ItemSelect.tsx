@@ -58,14 +58,14 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
           <>{label}</>
         </Text>
       </div>
-        <Radio
-          value={itemValue}
-          name={name}
-          isSelected={selected}
-          disabled={disabled}
-          className={'ml-16'}
-          iconProps={iconProps}
-        />
+      <Radio
+        value={itemValue}
+        name={name}
+        isSelected={selected}
+        disabled={disabled}
+        className={'ml-16'}
+        iconProps={iconProps}
+      />
     </div>
   )
 }
