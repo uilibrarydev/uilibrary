@@ -21,7 +21,6 @@
   --ds-item-select-image-border-radius: var(--ds-border-radius-xs);
   --ds-item-select-image-bg-default: var(--ds-color-bg-white);
 
-
   @include mixin.flexbox;
   @include mixin.align-items(center);
   border-radius: var(--ds-item-select-border-radius);

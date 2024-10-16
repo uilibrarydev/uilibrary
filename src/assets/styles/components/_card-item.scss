@@ -11,6 +11,7 @@
   --ds-card-item-image-height: var(--ds-size-28);
   --ds-card-item-image-border: 1px solid var(--grey-50);
   --ds-card-item-image-border-radius: var(--ds-border-radius-xs);
+  --ds-card-item-image-bg-default: var(--ds-color-bg-white);
 
   @include mixin.flexbox;
   @include mixin.align-items(center);
@@ -29,5 +30,6 @@
     min-width: var(--ds-card-item-image-size);
     border: var(--ds-card-item-image-border);
     border-radius: var(--ds-card-item-image-border-radius);
+    background-color: var(--ds-card-item-image-bg-default);
   }
 }
