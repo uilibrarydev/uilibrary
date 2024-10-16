@@ -1,32 +1,33 @@
 import React, { ReactElement } from 'react'
 import { TCardItemProps } from './types'
 import { Text } from '../Text'
+import classNames from 'classnames';
+import {Image} from '../Image';
 export const CardItem = (props: TCardItemProps): ReactElement => {
-  const { title, icon, subtitleProps, children } = props
-  return (
-    <div
-      style = {{
-      border:'1px solid lightgrey',
-        borderRadius:'24px'
-    }}
-      className={'flexbox cursor-pointer mb-20 justify-content--between p-12 align-items--center'}
+  const { title, icon, subtitleProps, children, className, image } = props
 
-    >
-      <div className={'flexbox'}>
-        <div className={'mr-12'}>
-          {icon && icon.Component ? <icon.Component {...icon} /> : null}
+  return (
+    <div className={classNames('card-item', className)}>
+        <div className={'card-item__left flexbox align-items--center'}>
+            {image ? (
+                <div className={'card-item__image flexbox align-items--center justify-content--center'}>
+                    <Image imagePath={image} />
+                </div>
+                ) : icon && icon.Component ? <icon.Component {...icon} />
+            : null}
+            <div className={`card-item__content text-truncate ${(image || (icon && icon?.Component)) && 'pl-12' }`}>
+                <Text weight={'semibold'}>{title}</Text>
+                <Text type={'tertiary'} className={'flexbox align-items--center mt-2'}>
+                    <>
+                        {subtitleProps?.subtitle}
+                        {subtitleProps?.iconProps && subtitleProps.iconProps.Component ? (
+                          <subtitleProps.iconProps.Component {...icon} size={'xsmall'} type={'tertiary'} className={'ml-6'} />
+                        ) : null}
+                    </>
+                </Text>
+            </div>
         </div>
-        <div>
-          <Text>{title}</Text>
-          <div className={'flexbox align-items--center'}>
-            <Text className={'mr-12'}>{subtitleProps?.subtitle} </Text>
-            {subtitleProps?.iconProps && subtitleProps.iconProps.Component ? (
-              <subtitleProps.iconProps.Component {...icon} />
-            ) : null}
-          </div>
-        </div>
-      </div>
-      <div>{children ? children : null}</div>
+        <div className={'card-item__right'}>{children ? children : null}</div>
     </div>
   )
 }

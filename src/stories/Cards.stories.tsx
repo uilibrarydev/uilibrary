@@ -8,6 +8,8 @@ import {
 } from '../index'
 import type { StoryFn } from '@storybook/react'
 import { TCardItemProps } from '../components/Cards/types'
+import imageFile1 from '../assets/images/ArCa.svg'
+import {Button} from '../components/Button'
 
 export default {
   title: 'Cards',
@@ -21,39 +23,21 @@ const Template: StoryFn<TCardItemProps> = (args) => {
 export const Cards = Template.bind({})
 
 Cards.args = {
+  image: imageFile1,
   icon: {
-    Component: IconPerson,
-    size: 'large'
+    Component: IconPerson
   },
   title: 'Michael Jordan',
   subtitleProps: {
     subtitle: 'Michael Jordan',
     iconProps: {
       Component: IconInfo,
-      size: 'small'
     }
   },
   children: (
     <div className={'flexbox'}>
-      <IconDelete className={'mr-12'}/>
-      <IconEdit />
+      <Button type={'tertiary'} size={'medium'} iconProps={{Component: IconDelete}} />
+      <Button type={'tertiary'} size={'medium'} iconProps={{Component: IconEdit}} className={'ml-12'}/>
     </div>
   )
-  // breadCrumbItems: [
-  //   {
-  //     label: 'Home',
-  //     value: 1,
-  //     onClick: noop
-  //   },
-  //   {
-  //     label: 'Application',
-  //     value: 2,
-  //     onClick: noop
-  //   },
-  //   {
-  //     label: 'Details',
-  //     value: 3,
-  //     onClick: noop
-  //   }
-  // ]
 }
