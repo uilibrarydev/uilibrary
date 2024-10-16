@@ -17,16 +17,14 @@ export const Radio = forwardRef((props: TRadioProps): ReactElement | null => {
     onClick,
     dataId = '',
     iconProps,
-    showRadioIcon = true
   } = props
   const isChecked = !!value || !!isSelected
-  const iconElement = showRadioIcon ? (
+  const iconElement =
     iconProps ? (
       iconProps
     ) : (
       <span className="controller__icon"></span>
     )
-  ) : null
 
   const changeHandler = () => {
     if (name && setFieldValue) {

@@ -19,4 +19,5 @@ export interface TItemSelectGroupProps extends IFormCompProps {
   items: TItemSelectProps[]
   handleChange?: (selected: number | string) => void
   value: number | string
+  rightIconProps?: ReactElement
 }

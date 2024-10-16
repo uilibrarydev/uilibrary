@@ -33,7 +33,7 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
   }
 
   const handleCardSelect = () => {
-    if (itemValue) {
+    if (!disabled && itemValue) {
       handleCardSelectValue(itemValue)
     }
   }
@@ -41,7 +41,7 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
   return (
     <div className={itemSelectStyle} onClick={handleCardSelect}>
       {image || leftIconProps ? (
-        <div className={'item-select__left'}>
+        <div className={'item-select__left mr-12'}>
           {image ? (
             <div
               className={'item-select__image flexbox align-items--center justify-content--center'}
@@ -58,9 +58,7 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
           <>{label}</>
         </Text>
       </div>
-      {!disabled ? (
         <Radio
-          showRadioIcon={selected}
           value={itemValue}
           name={name}
           isSelected={selected}
@@ -68,7 +66,6 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
           className={'ml-16'}
           iconProps={iconProps}
         />
-      ) : null}
     </div>
   )
 }
