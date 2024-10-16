@@ -37,9 +37,9 @@ export const CardItem = (props: TCardItemProps): ReactElement => {
           </Text>
         </div>
       </div>
-        {!disabled ?
-            <div className={'card-item__right ml-12'}>{children ? children : null}</div>
-        : null }
+      {!disabled ? (
+        <div className={'card-item__right ml-12'}>{children ? children : null}</div>
+      ) : null}
     </div>
   )
 }
