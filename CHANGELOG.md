@@ -1,3 +1,18 @@
+## [2.15.1](https://github.com/dinofrontend/dino_ui_library/compare/2.15.0...2.15.1) (2024-10-16)
+
+
+### Bug Fixes
+
+* fixes for item-select ui ([949ee26](https://github.com/dinofrontend/dino_ui_library/commit/949ee2695c8b344cf8abe902b28bca695af00ae6))
+* fixes for item-select ui ([858a377](https://github.com/dinofrontend/dino_ui_library/commit/858a377cdf124427bf4113d5b001dca52b3865c0))
+
+# [2.15.0](https://github.com/dinofrontend/dino_ui_library/compare/2.14.0...2.15.0) (2024-10-15)
+
+
+### Features
+
+* added secondary type ui for tabs ([850b687](https://github.com/dinofrontend/dino_ui_library/commit/850b687c5184cf42d55af66ed9c3b011187fdcb2))
+
 # [2.14.0](https://github.com/dinofrontend/dino_ui_library/compare/2.13.1...2.14.0) (2024-10-14)
 
 

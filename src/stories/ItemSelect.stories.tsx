@@ -28,7 +28,7 @@ const ITEMS = [
     value: 2,
     image: imageFile2,
     label: 'MasterCard',
-    disabled: false,
+    disabled: true,
     onClick: (e: any) => {
       console.log(e)
     }
@@ -75,5 +75,6 @@ const ItemSelectGroupTemplate: StoryFn<TItemSelectGroupProps> = (args) => {
 export const ItemSelectGroup = ItemSelectGroupTemplate.bind({})
 
 ItemSelectGroup.args = {
-  isHorizontal: false
+  isHorizontal: false,
+  rightIconProps: <IconCheckmark type={'brand'} />
 }

@@ -2,10 +2,9 @@ import React from 'react'
 import { TItemSelectGroupProps } from './types'
 import { ItemSelect } from './ItemSelect'
 import classnames from 'classnames'
-import IconCheckmark from '../SVGIcons/IconCheckmark'
 
 export const ItemSelectGroup = (props: TItemSelectGroupProps): JSX.Element => {
-  const { items, name, value, isHorizontal, handleChange, className } = props
+  const { items, name, value, isHorizontal, handleChange, className, rightIconProps } = props
 
   return (
     <div
@@ -24,7 +23,7 @@ export const ItemSelectGroup = (props: TItemSelectGroupProps): JSX.Element => {
           label={label}
           image={image}
           leftIconProps={leftIconProps}
-          rightIconProps={<IconCheckmark type={'brand'} />}
+          rightIconProps={rightIconProps}
           handleChange={handleChange}
           itemValue={itemValue}
           value={value}

@@ -7,7 +7,7 @@
   --border-radius-0: 0;
   --border-radius-2: 2px;
   --border-radius-4: 4px;
-  --border-radius-6: 4px;
+  --border-radius-6: 6px;
   --border-radius-8: 8px;
   --border-radius-10: 10px;
   --border-radius-12: 12px;
@@ -33,9 +33,10 @@
   --ds-border-radius-sm: var(--border-radius-6);
   --ds-border-radius-md: var(--border-radius-8);
   --ds-border-radius-lg: var(--border-radius-10);
-  --ds-border-radius-xl: var(--border-radius-16);
-  --ds-border-radius-xxl: var(--border-radius-40);
-  --ds-border-radius-exl: var(--border-radius-100);
+  --ds-border-radius-xl: var(--border-radius-12);
+  --ds-border-radius-2xl: var(--border-radius-16);
+  --ds-border-radius-3xl: var(--border-radius-40);
+  --ds-border-radius-4xl: var(--border-radius-100);
   --ds-border-radius-full: var(--border-radius-percent-100);
 
 
