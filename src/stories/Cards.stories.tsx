@@ -9,7 +9,7 @@ import {
 import type { StoryFn } from '@storybook/react'
 import { TCardItemProps } from '../components/Cards/types'
 import imageFile1 from '../assets/images/ArCa.svg'
-import {Button} from '../components/Button'
+import { Button } from '../components/Button'
 
 export default {
   title: 'Cards',
@@ -31,13 +31,19 @@ Cards.args = {
   subtitleProps: {
     subtitle: 'Michael Jordan',
     iconProps: {
-      Component: IconInfo,
+      Component: IconInfo
     }
   },
   children: (
     <div className={'flexbox'}>
-      <Button type={'tertiary'} size={'medium'} iconProps={{Component: IconDelete}} />
-      <Button type={'tertiary'} size={'medium'} iconProps={{Component: IconEdit}} className={'ml-12'}/>
+      <Button type={'tertiary'} size={'medium'} iconProps={{ Component: IconDelete }} />
+      <Button
+        type={'tertiary'}
+        size={'medium'}
+        iconProps={{ Component: IconEdit }}
+        className={'ml-12'}
+      />
     </div>
-  )
+  ),
+  disabled: false
 }

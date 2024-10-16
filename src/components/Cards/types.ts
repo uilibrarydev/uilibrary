@@ -11,4 +11,5 @@ export interface TCardItemProps {
   children?: ReactNode
   className?: string
   image?: string
+  disabled?: boolean
 }
