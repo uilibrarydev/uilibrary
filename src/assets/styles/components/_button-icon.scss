@@ -1,0 +1,72 @@
+@use "../helpers/mixin";
+
+.btn-icon {
+  $this: &;
+
+  //----------- component specific tokens -------------//
+
+  --ds-button-icon-size-lg: var(--ds-size-40);
+  --ds-button-icon-size-md: var(--ds-size-32);
+  --ds-button-icon-size-sm: var(--ds-size-24);
+
+  --ds-button-icon-bg: transparent;
+  --ds-button-icon-bg-hover: var(--ds-color-bg-container-light);
+  --ds-button-icon-bg-disabled: transparent;
+  --ds-button-icon-bg-pressed: var(--ds-color-bg-container-dark);
+  --ds-button-icon-bg-focused: var(--ds-color-bg-container-light);
+
+  --ds-button-icon-border-radius-lg: var(--ds-border-radius-lg);
+  --ds-button-icon-border-radius-md: var(--ds-border-radius-md);
+  --ds-button-icon-border-radius-sm: var(--ds-border-radius-sm);
+
+  --ds-button-icon-shadow-focused: var(--ds-shadow-brand-2);
+  --ds-button-icon-transition: background-color .3s linear, color .3s linear, border-color .3s linear;
+
+  //----------//
+
+  @include mixin.flexbox;
+  @include mixin.align-items(center);
+  @include mixin.justify-content(center);
+  border: 0;
+  cursor: pointer;
+  background-color: var(--ds-button-icon-bg);
+  color: var(--ds-button-icon-text-default);
+
+  &:not(&[disabled]) {
+    &:hover {
+      background-color: var(--ds-button-icon-bg-hover);
+    }
+
+    &:active {
+      background-color: var(--ds-button-icon-bg-pressed);
+    }
+
+    &:focus {
+      box-shadow: var(--ds-button-icon-shadow-focused);
+      background-color: var(--ds-button-icon-bg-focused);
+    }
+  }
+
+  &[disabled] {
+    cursor: default;
+    background-color: var(--ds-button-icon-bg-disabled);
+  }
+
+  &--large {
+    height: var(--ds-button-icon-size-lg);
+    width: var(--ds-button-icon-size-lg);
+    border-radius: var(--ds-button-icon-border-radius-lg);
+  }
+
+  &--medium {
+    height: var(--ds-button-icon-size-md);
+    width: var(--ds-button-icon-size-md);
+    border-radius: var(--ds-button-icon-border-radius-md);
+  }
+
+  &--small {
+    height: var(--ds-button-icon-size-sm);
+    width: var(--ds-button-icon-size-sm);
+    border-radius: var(--ds-button-icon-border-radius-sm);
+  }
+}

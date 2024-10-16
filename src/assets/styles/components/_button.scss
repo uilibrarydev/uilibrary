@@ -83,8 +83,6 @@
 
   --ds-button-transition: background-color .3s linear, color .3s linear, border-color .3s linear;
 
-  --ds-button-loader-animation: btn-spin 3s linear infinite;
-
   //----------//
 
   display: inline-flex;
@@ -421,20 +419,5 @@
       width: var(--ds-button-size-sm);
       min-width: var(--ds-button-size-sm);
     }
-  }
-
-  &--loading {
-    cursor: default;
-    pointer-events: none;
-
-    #{$this}__icon {
-      @include mixin.animation(var(--ds-button-loader-animation));
-    }
-  }
-}
-
-@include mixin.keyframes(btn-spin) {
-  100% {
-    transform: rotate(360deg);
   }
 }
