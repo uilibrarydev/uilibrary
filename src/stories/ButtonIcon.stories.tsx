@@ -21,13 +21,18 @@ const designSpecs = `
 `
 
 const Template: StoryFn<TButtonIconPropTypes> = (args) => (
-    <div>
+  <div>
     <_ButtonIcon {...args} />
-    <div style={{ display: 'flex', gap: '20px' , borderTop: '1px solid #ccc', marginTop: '30px', paddingTop: '20px' }}>
-      <_ButtonIcon
-        size="large"
-        iconProps={{ Component: IconChevronDown }}
-      />
+    <div
+      style={{
+        display: 'flex',
+        gap: '20px',
+        borderTop: '1px solid #ccc',
+        marginTop: '30px',
+        paddingTop: '20px'
+      }}
+    >
+      <_ButtonIcon size="large" iconProps={{ Component: IconChevronDown }} />
     </div>
     <br />
     <CodeBlock title="Design Specs Example">{designSpecs}</CodeBlock>

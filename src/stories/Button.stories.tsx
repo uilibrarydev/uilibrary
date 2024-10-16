@@ -32,7 +32,15 @@ const Template: StoryFn<TButtonPropTypes> = (args) => (
   <div>
     <_Button {...args} />
     <br />
-    <div style={{ display: 'flex', gap: '20px' , borderTop: '1px solid #ccc', marginTop: '30px', paddingTop: '20px' }}>
+    <div
+      style={{
+        display: 'flex',
+        gap: '20px',
+        borderTop: '1px solid #ccc',
+        marginTop: '30px',
+        paddingTop: '20px'
+      }}
+    >
       <_Button size="large" buttonText="Label" />
       <_Button type="tertiary" size="large" buttonText="Label" />
       <_Button size="large" buttonText="Label" isLoading />
