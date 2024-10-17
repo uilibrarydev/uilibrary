@@ -50,10 +50,10 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
           <Image imagePath={illustration} />
         </div>
       ) : icon && icon.Component ? (
-          <div className={'card-select__icon mr-16'}>
-            <icon.Component {...icon} />
-          </div>
-      ): null}
+        <div className={'card-select__icon mr-16'}>
+          <icon.Component {...icon} />
+        </div>
+      ) : null}
       <div className={'card-select__content'}>
         <div className="flexbox justify-content--between align-items--start">
           <Text type={disabled ? 'disabled' : 'primary'} size={'medium'} weight={'bold'}>
@@ -63,7 +63,7 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
             <Radio name={name} isSelected={selected} disabled={disabled} className={'ml-16'} />
           ) : null}
         </div>
-        {chips.length ? <CardChips chips={chips} disabled={disabled} /> : null }
+        {chips.length ? <CardChips chips={chips} disabled={disabled} /> : null}
         <CardInput inputProps={inputProps} disabled={disabled} />
         <CardDescription description={description} disabled={disabled} />
         <CardAdditionalInfo additionalInfo={additionalInfo} disabled={disabled} />

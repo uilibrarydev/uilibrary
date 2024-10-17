@@ -7,7 +7,7 @@ import imageFile from '../assets/images/illustrations.svg'
 import IconInfo from '../components/SVGIcons/IconInfo'
 import type { StoryFn } from '@storybook/react'
 import { TCardSelectGroupProps, TCardSelectProps } from '../components/CardSelect/types'
-import IconQuestion from "../components/SVGIcons/IconQuestion";
+import IconQuestion from '../components/SVGIcons/IconQuestion'
 
 export default {
   title: 'CardSelect',
