@@ -6,7 +6,8 @@ import { useHideBodyScroll, useOnOutsideClick } from '../../hooks'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import { TModalPropTypes } from './types'
-import IconDismissFilled from '../SVGIcons/IconDismissFilled'
+import IconDismiss from '../SVGIcons/IconDismiss'
+import { ButtonIcon } from '../ButtonIcon'
 
 const DESKTOP_ANIMATION = {
   initial: { opacity: 0.5, scale: 0.65 },
@@ -32,7 +33,7 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
     onClose,
     onSubmit,
     title,
-    titleIconProps,
+    subtitle,
     closeIcon,
     className = '',
     size = 'small',
@@ -64,24 +65,29 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
           <div className="modal__container" ref={setContainerRef} {...DESKTOP_ANIMATION}>
             {title ? (
               <div className="modal__header">
-                {titleIconProps?.Component ? (
-                  <titleIconProps.Component size="small" className="mr-12" {...titleIconProps} />
-                ) : null}
-                <Text
-                  className="modal__title"
-                  weight="semibold"
-                  lineHeight="large"
-                  size="medium"
-                  dataId={dataIdPrefix ? `${dataIdPrefix}-modal-title` : ''}
-                >
-                  {title}
-                </Text>
+                <div>
+                  <Text
+                    lineHeight="large"
+                    size="large"
+                    weight={'bolder'}
+                    dataId={dataIdPrefix ? `${dataIdPrefix}-modal-title` : ''}
+                  >
+                    {title}
+                  </Text>
+                  {subtitle ? (
+                    <Text
+                      className={'mt-12'}
+                      dataId={dataIdPrefix ? `${dataIdPrefix}-modal-title` : ''}
+                    >
+                      {subtitle}
+                    </Text>
+                  ) : null}
+                </div>
                 {closeIcon ? (
-                  <Button
-                    type="tertiary"
-                    size="small"
+                  <ButtonIcon
+                    className={'modal__close ml-16'}
                     dataId={dataIdPrefix ? `${dataIdPrefix}-modal-close-button` : ''}
-                    iconProps={{ Component: IconDismissFilled }}
+                    iconProps={{ Component: IconDismiss }}
                     onClick={onClose}
                   />
                 ) : null}
@@ -93,15 +99,14 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
               <div className="modal__footer">
                 <Button
                   type="tertiary"
-                  size="medium"
-                  className="mr-12"
+                  className="modal__footer__btn mr-16"
                   onClick={onClose}
                   dataId={dataIdPrefix ? `${dataIdPrefix}-modal-cancel-button` : ''}
                   {...(buttonProps.cancel || {})}
                 />
                 <Button
+                  className={'modal__footer__btn'}
                   type="primary"
-                  size="medium"
                   onClick={onSubmit}
                   dataId={dataIdPrefix ? `${dataIdPrefix}-modal-confirm-button` : ''}
                   {...buttonProps.confirm}
