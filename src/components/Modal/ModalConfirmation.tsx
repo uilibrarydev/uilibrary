@@ -5,9 +5,8 @@ import { AnimatePresenceWrapper } from '../../helperComponents/AnimatePresenceWr
 import { useHideBodyScroll, useOnOutsideClick } from '../../hooks'
 import { Button } from '../Button'
 import { Text } from '../Text'
-import { TModalConfirmationPropTypes, TModalPropTypes } from './types'
-import IconDismissFilled from '../SVGIcons/IconDismissFilled'
-import { ICON_SIZE_MAPPING, ICON_TYPE_MAPPING } from '../Button/consts'
+import { TModalConfirmationPropTypes } from './types'
+
 
 const DESKTOP_ANIMATION = {
   initial: { opacity: 0.5, scale: 0.65 },
