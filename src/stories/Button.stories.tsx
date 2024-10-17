@@ -16,14 +16,6 @@ export default {
     size: {
       options: ['large', 'medium', 'small'],
       control: { type: 'radio' }
-    },
-    disabled: {
-      options: ['true', 'false'],
-      control: { disabled: 'true' }
-    },
-    isLoading: {
-      options: ['true', 'false'],
-      control: { isLoading: 'false' }
     }
   }
 }
@@ -40,9 +32,15 @@ const Template: StoryFn<TButtonPropTypes> = (args) => (
   <div>
     <_Button {...args} />
     <br />
-    <br />
-    <br />
-    <div style={{ display: 'flex', gap: '20px' }}>
+    <div
+      style={{
+        display: 'flex',
+        gap: '20px',
+        borderTop: '1px solid #ccc',
+        marginTop: '30px',
+        paddingTop: '20px'
+      }}
+    >
       <_Button size="large" buttonText="Label" />
       <_Button type="tertiary" size="large" buttonText="Label" />
       <_Button size="large" buttonText="Label" isLoading />
@@ -56,7 +54,6 @@ const Template: StoryFn<TButtonPropTypes> = (args) => (
         Label
       </_Button>
     </div>
-    <br />
     <br />
     <CodeBlock title="Design Specs Example">{designSpecs}</CodeBlock>
   </div>
