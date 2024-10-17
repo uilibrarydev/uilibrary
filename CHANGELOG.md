@@ -1,3 +1,11 @@
+## [2.16.1](https://github.com/dinofrontend/dino_ui_library/compare/2.16.0...2.16.1) (2024-10-17)
+
+
+### Bug Fixes
+
+* card select ui fix ([3f68441](https://github.com/dinofrontend/dino_ui_library/commit/3f68441a80e351b3bcfd9b5b16f911552969346f))
+* card select ui fix ([e149167](https://github.com/dinofrontend/dino_ui_library/commit/e1491675fad325c53f05dc0c58bb55f40fb487c4))
+
 # [2.16.0](https://github.com/dinofrontend/dino_ui_library/compare/2.15.1...2.16.0) (2024-10-17)
 
 
