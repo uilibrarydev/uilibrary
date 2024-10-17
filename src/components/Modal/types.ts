@@ -1,6 +1,5 @@
 import { ReactNode } from 'react'
 import { TButtonPropTypes } from '../Button/types'
-import { TSVGIconType } from '../SVGIcons/types'
 
 export interface TModalPropTypes {
   dataIdPrefix?: string
@@ -9,11 +8,8 @@ export interface TModalPropTypes {
   onClose: () => void
   onSubmit: () => void
   title?: string
-  titleIconProps?: {
-    type: TSVGIconType
-    Component?: TSVGIconComponent
-  }
-  size?: 'small' | 'medium' | 'large'
+  subtitle?: string
+  size?: 'small' | 'medium' | 'large' | 'xlarge'
   withFooter?: boolean
   buttonProps?: {
     cancel?: TButtonPropTypes
@@ -32,15 +28,13 @@ export interface TModalConfirmationPropTypes {
   onSubmit: () => void
   title?: string
   subtitle?: string
-  size?: 'small' | 'medium' | 'large'
+  size?: 'small' | 'large'
   buttonProps?: {
     cancel?: TButtonPropTypes
     confirm: TButtonPropTypes
   }
   iconProps?: {
-    type: TSVGIconType
     Component: TSVGIconComponent
-    size: string
   }
   className?: string
 }

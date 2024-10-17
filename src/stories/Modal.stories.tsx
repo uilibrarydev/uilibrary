@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import { IconDelete, Modal as _Modal } from '../index'
+import { Modal as _Modal } from '../index'
 import { ModalConfirmation as _ModalConfirmation } from '../index'
-import IconCheckmarkCircle from '../components/SVGIcons/IconCheckmarkCircle'
 import { StoryFn } from '@storybook/react'
 import { TModalConfirmationPropTypes, TModalPropTypes } from '../components/Modal/types'
+import IconDelete from '../components/SVGIcons/IconDelete'
 
 export default {
   title: 'Modal',
   component: _Modal,
   argTypes: {
     size: {
-      options: ['large', 'medium', 'small'],
+      options: ['xlarge', 'large', 'medium', 'small'],
       control: { type: 'radio' }
     }
   }
@@ -33,7 +33,7 @@ const Template: StoryFn<TModalPropTypes> = (args) => {
         }}
         buttonProps={{
           confirm: {
-            buttonText: 'Register',
+            buttonText: 'Save',
             buttonActionType: 'submit'
           },
           cancel: { buttonText: 'Cancel' }
@@ -47,14 +47,11 @@ const Template: StoryFn<TModalPropTypes> = (args) => {
 export const Modal = Template.bind({})
 
 Modal.args = {
-  size: 'small',
+  size: 'medium',
   title: 'Title',
+  subtitle: 'Subtitle',
   closeIcon: true,
-  withFooter: true,
-  titleIconProps: {
-    Component: IconCheckmarkCircle,
-    type: 'primary'
-  }
+  withFooter: true
 }
 
 const ModalConfirmationTemplate: StoryFn<TModalConfirmationPropTypes> = (args) => {
@@ -67,9 +64,7 @@ const ModalConfirmationTemplate: StoryFn<TModalConfirmationPropTypes> = (args) =
       <_ModalConfirmation
         {...args}
         iconProps={{
-          type:'primary',
-          Component:IconDelete,
-          size: 'large'
+          Component: IconDelete
         }}
         onClose={closeModal}
         isOpen={isOpen}
@@ -79,13 +74,12 @@ const ModalConfirmationTemplate: StoryFn<TModalConfirmationPropTypes> = (args) =
         }}
         buttonProps={{
           confirm: {
-            buttonText: 'Register',
+            buttonText: 'Delete the card',
             buttonActionType: 'submit'
           },
           cancel: { buttonText: 'Cancel' }
         }}
       />
-
     </div>
   )
 }
@@ -93,6 +87,6 @@ export const ModalConfirmation = ModalConfirmationTemplate.bind({})
 
 ModalConfirmation.args = {
   size: 'small',
-  title: 'Title',
-  subtitle: 'asddsa'
+  title: 'Title text',
+  subtitle: 'This is your subtitle that will give you more context'
 }

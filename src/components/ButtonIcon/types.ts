@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, LegacyRef, PropsWithChildren, ReactElement } from 'react'
+import { ButtonHTMLAttributes, LegacyRef, PropsWithChildren } from 'react'
 
 export interface TButtonIconPropTypes
   extends PropsWithChildren<Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'children'>> {

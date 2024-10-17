@@ -7,7 +7,6 @@ import { Button } from '../Button'
 import { Text } from '../Text'
 import { TModalConfirmationPropTypes } from './types'
 
-
 const DESKTOP_ANIMATION = {
   initial: { opacity: 0.5, scale: 0.65 },
   animate: { opacity: 1, scale: [0.95, 1] },
@@ -49,7 +48,7 @@ export const ModalConfirmation = (props: TModalConfirmationPropTypes): ReactElem
     <AnimatePresenceWrapper>
       {isOpen ? (
         <motion.div
-          className={classnames('modal', `modal--${size}`, className)}
+          className={classnames('modal modal--confirmation', `modal--${size}`, className)}
           initial={{
             opacity: 0
           }}
@@ -59,53 +58,48 @@ export const ModalConfirmation = (props: TModalConfirmationPropTypes): ReactElem
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <div className="modal__container text-center" ref={setContainerRef} {...DESKTOP_ANIMATION}>
-            {title ? (
-              <div className="modal__header">
+          <div
+            className="modal__container text-center"
+            ref={setContainerRef}
+            {...DESKTOP_ANIMATION}
+          >
+            <div className={'modal__content'}>
+              {iconProps?.Component ? (
+                <div className="modal__icon mb-32">
+                  <iconProps.Component size={'xlarge'} />
+                </div>
+              ) : null}
+              {title ? (
                 <Text
-                  className="modal__title"
-                  weight="semibold"
+                  weight="bolder"
                   lineHeight="large"
-                  size="medium"
+                  size="large"
                   dataId={dataIdPrefix ? `${dataIdPrefix}-modal-title` : ''}
                 >
                   {title}
                 </Text>
-              </div>
-            ) : null}
-            <div className={'flexbox justify-content--center'}>
-              {iconProps?.Component ? (
-                <iconProps.Component
-                  size={iconProps.size}
-                  type={iconProps.type}
-                  className="btn__icon"
-                />
+              ) : null}
+              {subtitle ? <Text className={'mt-12'}>{subtitle}</Text> : null}
+
+              {buttonProps ? (
+                <div className="modal__footer mt-32">
+                  <Button
+                    type="secondary"
+                    className="modal__footer__btn mr-16"
+                    onClick={onClose}
+                    dataId={dataIdPrefix ? `${dataIdPrefix}-modal-cancel-button` : ''}
+                    {...(buttonProps.cancel || {})}
+                  />
+                  <Button
+                    type="danger"
+                    className={'modal__footer__btn'}
+                    onClick={onSubmit}
+                    dataId={dataIdPrefix ? `${dataIdPrefix}-modal-confirm-button` : ''}
+                    {...buttonProps.confirm}
+                  />
+                </div>
               ) : null}
             </div>
-            {
-              subtitle ? (
-                <Text>{subtitle}</Text>
-              ) : null
-            }
-            {buttonProps ? (
-              <div className="modal__footer">
-                <Button
-                  type="tertiary"
-                  size="medium"
-                  className="mr-12"
-                  onClick={onClose}
-                  dataId={dataIdPrefix ? `${dataIdPrefix}-modal-cancel-button` : ''}
-                  {...(buttonProps.cancel || {})}
-                />
-                <Button
-                  type="primary"
-                  size="medium"
-                  onClick={onSubmit}
-                  dataId={dataIdPrefix ? `${dataIdPrefix}-modal-confirm-button` : ''}
-                  {...buttonProps.confirm}
-                />
-              </div>
-            ) : null}
           </div>
         </motion.div>
       ) : null}
