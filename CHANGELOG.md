@@ -1,3 +1,10 @@
+# [2.17.0](https://github.com/dinofrontend/dino_ui_library/compare/2.16.1...2.17.0) (2024-10-17)
+
+
+### Features
+
+* added CardBody component ([528b66a](https://github.com/dinofrontend/dino_ui_library/commit/528b66af6bf6d0fe02edaa13a282fc45fbbbd9a7))
+
 ## [2.16.1](https://github.com/dinofrontend/dino_ui_library/compare/2.16.0...2.16.1) (2024-10-17)
 
 
