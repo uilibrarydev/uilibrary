@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Modal as _Modal } from '../index'
+import { IconDelete, Modal as _Modal } from '../index'
+import { ModalConfirmation as _ModalConfirmation } from '../index'
 import IconCheckmarkCircle from '../components/SVGIcons/IconCheckmarkCircle'
 import { StoryFn } from '@storybook/react'
-import { TModalPropTypes } from '../components/Modal/types'
+import { TModalConfirmationPropTypes, TModalPropTypes } from '../components/Modal/types'
 
 export default {
   title: 'Modal',
@@ -54,4 +55,44 @@ Modal.args = {
     Component: IconCheckmarkCircle,
     type: 'primary'
   }
+}
+
+const ModalConfirmationTemplate: StoryFn<TModalConfirmationPropTypes> = (args) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const closeModal = () => setIsOpen(false)
+  const openModal = () => setIsOpen(true)
+  return (
+    <div>
+      <p onClick={openModal}>click here </p>
+      <_ModalConfirmation
+        {...args}
+        iconProps={{
+          type:'primary',
+          Component:IconDelete,
+          size: 'large'
+        }}
+        onClose={closeModal}
+        isOpen={isOpen}
+        onSubmit={() => {
+          closeModal()
+          console.log('submit')
+        }}
+        buttonProps={{
+          confirm: {
+            buttonText: 'Register',
+            buttonActionType: 'submit'
+          },
+          cancel: { buttonText: 'Cancel' }
+        }}
+      />
+
+    </div>
+  )
+}
+export const ModalConfirmation = ModalConfirmationTemplate.bind({})
+
+ModalConfirmation.args = {
+  size: 'small',
+  title: 'Title',
+  subtitle: 'asddsa'
 }
