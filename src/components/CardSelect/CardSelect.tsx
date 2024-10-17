@@ -22,7 +22,8 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
     setFieldValue,
     value,
     cardValue,
-    illustration
+    illustration,
+    icon
   } = props
   const selected = cardValue === value
   const cardSelectStyle = classNames(
@@ -45,8 +46,12 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
   return (
     <div className={cardSelectStyle} onClick={handleCardSelect}>
       {illustration ? (
-        <div className={'card-select__image mr-8'}>
+        <div className={'card-select__image mr-16'}>
           <Image imagePath={illustration} />
+        </div>
+      ) : icon && icon.Component ? (
+        <div className={'card-select__icon mr-16'}>
+          <icon.Component {...icon} />
         </div>
       ) : null}
       <div className={'card-select__content'}>
@@ -58,7 +63,7 @@ export const CardSelect = (props: TCardSelectProps): ReactElement => {
             <Radio name={name} isSelected={selected} disabled={disabled} className={'ml-16'} />
           ) : null}
         </div>
-        <CardChips chips={chips} disabled={disabled} />
+        {chips.length ? <CardChips chips={chips} disabled={disabled} /> : null}
         <CardInput inputProps={inputProps} disabled={disabled} />
         <CardDescription description={description} disabled={disabled} />
         <CardAdditionalInfo additionalInfo={additionalInfo} disabled={disabled} />

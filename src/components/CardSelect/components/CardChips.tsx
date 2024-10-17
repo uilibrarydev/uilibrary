@@ -9,7 +9,7 @@ interface TCardChips {
 export const CardChips = (props: TCardChips): ReactElement => {
   const { chips, disabled } = props
   return (
-    <>
+    <div>
       {chips.map((chip) => (
         <Chips
           {...chip}
@@ -20,6 +20,6 @@ export const CardChips = (props: TCardChips): ReactElement => {
           withAction={chip.withAction}
         />
       ))}
-    </>
+    </div>
   )
 }
