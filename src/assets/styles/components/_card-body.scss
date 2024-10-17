@@ -1,0 +1,25 @@
+@use "../helpers/mixin";
+
+.card-body {
+  $this: &;
+
+  --ds-card-body-bg: var(--ds-color-bg-container-light);
+  --ds-card-body-padding: var(--ds-space-32);
+  --ds-card-body-border-radius: var(--ds-border-radius-3xl);
+
+  --ds-card-body-image-size: 200px;
+
+  background-color: var(--ds-card-body-bg);
+  padding: var(--ds-card-body-padding);
+  border-radius: var(--ds-card-body-border-radius);
+  text-align: center;
+
+  &__image {
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.justify-content(center);
+    width: var(--ds-card-body-image-size);
+    height: var(--ds-card-body-image-size);
+    margin: auto;
+  }
+}
