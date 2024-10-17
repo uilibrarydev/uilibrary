@@ -1,11 +1,4 @@
-import {
-  CardItem as _TCardItem,
-  IconDelete,
-  IconEdit,
-  IconInfo,
-  IconPeople,
-  IconPerson
-} from '../index'
+import { CardItem as _TCardItem, IconDelete, IconEdit, IconInfo, IconPerson } from '../index'
 import type { StoryFn } from '@storybook/react'
 import { TCardItemProps } from '../components/Cards/types'
 import imageFile1 from '../assets/images/ArCa.svg'
