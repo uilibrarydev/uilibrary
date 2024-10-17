@@ -1,3 +1,22 @@
+# [2.16.0](https://github.com/dinofrontend/dino_ui_library/compare/2.15.1...2.16.0) (2024-10-17)
+
+
+### Bug Fixes
+
+* add styles ([ef077a5](https://github.com/dinofrontend/dino_ui_library/commit/ef077a532073973c4bf1390ad97779250112aa21))
+* card-item ui fix ([5c97031](https://github.com/dinofrontend/dino_ui_library/commit/5c970312261dc0a3f806feabae931b46365435c5))
+* card-item ui fix ([62ba165](https://github.com/dinofrontend/dino_ui_library/commit/62ba16517b9a5f1d6c86ce185f3a90e8c7b2853b))
+* card-item ui fix ([71ab9fe](https://github.com/dinofrontend/dino_ui_library/commit/71ab9fe3d5a325389273720196151011481d06b3))
+* create ButtonIcon component ([a833fb2](https://github.com/dinofrontend/dino_ui_library/commit/a833fb2ef89cf88732fe6af446be26c33c7746ed))
+* delete additional style for item-select ([2a106f6](https://github.com/dinofrontend/dino_ui_library/commit/2a106f6eb3664cde686cd6173deec17e017cc0cf))
+* fix title weight ([691033e](https://github.com/dinofrontend/dino_ui_library/commit/691033e55592c42b32caa8160960fdfc1e113f8d))
+
+
+### Features
+
+* add cart item component ([7af6356](https://github.com/dinofrontend/dino_ui_library/commit/7af6356e437d58624a1ebe08e947b12201c30de5))
+* create ButtonIcon component ([a451fe4](https://github.com/dinofrontend/dino_ui_library/commit/a451fe4b6af97bcaa7bbd3e9e84a62d971dbb205))
+
 ## [2.15.1](https://github.com/dinofrontend/dino_ui_library/compare/2.15.0...2.15.1) (2024-10-16)
 
 
