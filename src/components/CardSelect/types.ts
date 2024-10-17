@@ -19,6 +19,7 @@ export interface TCardSelectProps extends IFormCompProps {
   isSelected?: boolean
   cardValue?: number | string
   illustration?: string
+  icon?: TSelectIconProps
 }
 export interface TCardSelectGroupProps extends IFormCompProps {
   cards: TCardSelectProps[]

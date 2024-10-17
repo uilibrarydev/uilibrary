@@ -7,6 +7,7 @@ import imageFile from '../assets/images/illustrations.svg'
 import IconInfo from '../components/SVGIcons/IconInfo'
 import type { StoryFn } from '@storybook/react'
 import { TCardSelectGroupProps, TCardSelectProps } from '../components/CardSelect/types'
+import IconQuestion from "../components/SVGIcons/IconQuestion";
 
 export default {
   title: 'CardSelect',
@@ -25,7 +26,11 @@ export default {
 
 const CARDS = [
   {
+    value: 1,
     title: 'Card Select',
+    icon: {
+      Component: IconQuestion
+    },
     chips: [
       {
         text: 'Chip 1',
@@ -75,12 +80,14 @@ const CARDS = [
     },
     onClick: (e: any) => {
       console.log(e)
-    },
-    value: 1
+    }
   },
   {
     value: 2,
     title: 'Card Select 2',
+    icon: {
+      Component: IconQuestion
+    },
     chips: [
       {
         text: 'Chip 1',
@@ -139,6 +146,9 @@ export const CardSelect = Template.bind({})
 CardSelect.args = {
   type: CARD_SELECT_TYPES.card,
   illustration: imageFile,
+  icon: {
+    Component: IconQuestion
+  },
   title: 'Card Select',
   chips: [
     {
