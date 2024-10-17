@@ -1,3 +1,16 @@
+# [2.18.0](https://github.com/dinofrontend/dino_ui_library/compare/2.17.0...2.18.0) (2024-10-17)
+
+
+### Bug Fixes
+
+* modal and modalConfirmation ui fixes ([5fd594b](https://github.com/dinofrontend/dino_ui_library/commit/5fd594bce621bd0646b84f64cc7e2763172f90ae))
+
+
+### Features
+
+* confirmation modal ([e6b8bdd](https://github.com/dinofrontend/dino_ui_library/commit/e6b8bddd9d0101f566c00dc4b4cfb31ac7e76734))
+* remove unused constants ([5c15a79](https://github.com/dinofrontend/dino_ui_library/commit/5c15a7951bcf0f0f849c5e2e2f89926a8902c1ef))
+
 # [2.17.0](https://github.com/dinofrontend/dino_ui_library/compare/2.16.1...2.17.0) (2024-10-17)
 
 
