@@ -1,0 +1,35 @@
+@use "../helpers/mixin";
+
+.card-item {
+  $this: &;
+
+  --ds-card-item-bg: var(--ds-color-bg-container-light);
+  --ds-card-item-padding: var(--ds-space-12) var(--ds-space-16);
+  --ds-card-item-border-radius: var(--ds-border-radius-lg);
+
+  --ds-card-item-image-width: var(--ds-size-40);
+  --ds-card-item-image-height: var(--ds-size-28);
+  --ds-card-item-image-border: 1px solid var(--grey-50);
+  --ds-card-item-image-border-radius: var(--ds-border-radius-xs);
+  --ds-card-item-image-bg-default: var(--ds-color-bg-white);
+
+  @include mixin.flexbox;
+  @include mixin.align-items(center);
+  @include mixin.justify-content(space-between);
+  border-radius: var(--ds-card-item-border-radius);
+  padding: var(--ds-card-item-padding);
+  background-color: var(--ds-card-item-bg);
+
+  &__content {
+    flex: 1;
+  }
+
+  &__image {
+    width: var(--ds-card-item-image-width);
+    height: var(--ds-card-item-image-height);
+    min-width: var(--ds-card-item-image-size);
+    border: var(--ds-card-item-image-border);
+    border-radius: var(--ds-card-item-image-border-radius);
+    background-color: var(--ds-card-item-image-bg-default);
+  }
+}
