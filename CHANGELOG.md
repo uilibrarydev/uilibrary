@@ -1,3 +1,10 @@
+## [2.18.1](https://github.com/dinofrontend/dino_ui_library/compare/2.18.0...2.18.1) (2024-10-18)
+
+
+### Bug Fixes
+
+* change spacing between items ([6ca38e6](https://github.com/dinofrontend/dino_ui_library/commit/6ca38e65df0a2c30913836ca60a85e131b4aac34))
+
 # [2.18.0](https://github.com/dinofrontend/dino_ui_library/compare/2.17.0...2.18.0) (2024-10-17)
 
 
