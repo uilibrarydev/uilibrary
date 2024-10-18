@@ -72,7 +72,7 @@
 .item-select-group {
   $this: &;
 
-  --ds-item-select-group-item-space: var(--ds-space-16);
+  --ds-item-select-group-item-space: var(--ds-space-12);
 
   &:not(&#{$this}--horizontal) {
     .item-select {
