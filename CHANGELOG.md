@@ -1,3 +1,10 @@
+## [2.18.3](https://github.com/dinofrontend/dino_ui_library/compare/2.18.2...2.18.3) (2024-10-18)
+
+
+### Bug Fixes
+
+* added bolder type for heading ([2316358](https://github.com/dinofrontend/dino_ui_library/commit/2316358d5fd3f3729ae59d1f7508dc8798f33093))
+
 ## [2.18.2](https://github.com/dinofrontend/dino_ui_library/compare/2.18.1...2.18.2) (2024-10-18)
 
 
