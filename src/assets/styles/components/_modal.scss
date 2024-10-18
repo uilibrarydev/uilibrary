@@ -121,12 +121,14 @@
     }
   }
 
+  &--small {
+    #{$this}__container {
+      max-width: var(--ds-modal-size-sm);
+    }
+  }
+
   &:not(&#{$this}--confirmation) {
     &#{$this}--small {
-      #{$this}__container {
-        max-width: var(--ds-modal-size-sm);
-      }
-
       #{$this}__header {
         padding: var(--ds-modal-header-padding-sm);
       }
