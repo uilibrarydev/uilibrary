@@ -1,3 +1,11 @@
+## [2.18.2](https://github.com/dinofrontend/dino_ui_library/compare/2.18.1...2.18.2) (2024-10-18)
+
+
+### Bug Fixes
+
+* modal size fix ([a5e47ec](https://github.com/dinofrontend/dino_ui_library/commit/a5e47ecb14d88a6059d51e7cba76d0196a52711e))
+* modal size fix ([b91e5f1](https://github.com/dinofrontend/dino_ui_library/commit/b91e5f1a2d5fa269f052a78bfccccc9ee6f9acb3))
+
 ## [2.18.1](https://github.com/dinofrontend/dino_ui_library/compare/2.18.0...2.18.1) (2024-10-18)
 
 
