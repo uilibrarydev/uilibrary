@@ -1,3 +1,10 @@
+# [2.19.0](https://github.com/dinofrontend/dino_ui_library/compare/2.18.3...2.19.0) (2024-10-21)
+
+
+### Features
+
+* added card icon ([aeb243e](https://github.com/dinofrontend/dino_ui_library/commit/aeb243e739058e6cbcc195d47ffc8390f67bbb8d))
+
 ## [2.18.3](https://github.com/dinofrontend/dino_ui_library/compare/2.18.2...2.18.3) (2024-10-18)
 
 
