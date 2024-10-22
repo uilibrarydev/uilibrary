@@ -1,3 +1,10 @@
+## [2.19.3](https://github.com/dinofrontend/dino_ui_library/compare/2.19.2...2.19.3) (2024-10-22)
+
+
+### Bug Fixes
+
+* fixed form fields border and label ui ([bda6034](https://github.com/dinofrontend/dino_ui_library/commit/bda6034b0e3a1bef0e806839059c70625e5b7d5d))
+
 ## [2.19.2](https://github.com/dinofrontend/dino_ui_library/compare/2.19.1...2.19.2) (2024-10-22)
 
 
