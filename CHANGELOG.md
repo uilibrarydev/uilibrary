@@ -1,3 +1,13 @@
+## [2.19.1](https://github.com/dinofrontend/dino_ui_library/compare/2.19.0...2.19.1) (2024-10-22)
+
+
+### Bug Fixes
+
+* added new icons ([929a9c4](https://github.com/dinofrontend/dino_ui_library/commit/929a9c4852ba1bd9973dc50bb34780a240401db3))
+* card-select item spacing fix ([c7d0bf3](https://github.com/dinofrontend/dino_ui_library/commit/c7d0bf30a9d971c6eb58ee1a8be3e53d05075e96))
+* fixed card-select item spacing and radius ([2a7390a](https://github.com/dinofrontend/dino_ui_library/commit/2a7390a7db5457d5438f5478529c3b2d9e1d33da))
+* remove border from images ([03bb69d](https://github.com/dinofrontend/dino_ui_library/commit/03bb69dc18d38b2e37b050d586807fbbac15cc40))
+
 # [2.19.0](https://github.com/dinofrontend/dino_ui_library/compare/2.18.3...2.19.0) (2024-10-21)
 
 
