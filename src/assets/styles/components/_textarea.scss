@@ -25,11 +25,11 @@
   --ds-textarea-body-text-invalid: var(--ds-color-text-primary);
   --ds-textarea-body-text-disabled: var(--ds-color-text-disabled);
 
-  --ds-textarea-border-color-default: var(--ds-color-border-primary);
-  --ds-textarea-border-color-hover: var(--ds-color-border-primary);
+  --ds-textarea-border-color-default: var(--ds-color-border-tertiary);
+  --ds-textarea-border-color-hover: var(--ds-color-border-secondary);
   --ds-textarea-border-color-focused: var(--brand-700);
-  --ds-textarea-border-color-activated: var(--ds-color-border-primary);
-  --ds-textarea-border-color-validated: var(--ds-color-border-primary);
+  --ds-textarea-border-color-activated: var(--ds-color-border-tertiary);
+  --ds-textarea-border-color-validated: var(--ds-color-border-tertiary);
   --ds-textarea-border-color-invalid: var(--ds-color-border-danger);
   --ds-textarea-border-color-disabled: var(--ds-color-border-disabled);
   --ds-textarea-border: var(--ds-border-thin) solid var(--ds-textarea-border-color-default);
