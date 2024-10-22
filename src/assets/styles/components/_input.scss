@@ -40,11 +40,11 @@
   --ds-input-body-icon-invalid: var(--ds-color-text-primary);
   --ds-input-body-icon-disabled: var(--ds-color-text-disabled);
 
-  --ds-input-border-color-default: var(--ds-color-border-primary);
-  --ds-input-border-color-hover: var(--ds-color-border-primary);
+  --ds-input-border-color-default: var(--ds-color-border-tertiary);
+  --ds-input-border-color-hover: var(--ds-color-border-secondary);
   --ds-input-border-color-focused: var(--brand-700);
-  --ds-input-border-color-activated: var(--ds-color-border-primary);
-  --ds-input-border-color-validated: var(--ds-color-border-primary);
+  --ds-input-border-color-activated: var(--ds-color-border-tertiary);
+  --ds-input-border-color-validated: var(--ds-color-border-tertiary);
   --ds-input-border-color-invalid: var(--ds-color-border-danger);
   --ds-input-border-color-disabled: var(--ds-color-border-disabled);
   --ds-input-border: var(--ds-border-thin) solid var(--ds-input-border-color-default);
