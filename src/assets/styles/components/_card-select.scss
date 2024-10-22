@@ -18,6 +18,7 @@
   --ds-card-select-border-radius: var(--ds-border-radius-2xl);
   --ds-card-select-padding: var(--ds-space-16);
   --ds-card-select-shadow-focused: var(--ds-shadow-brand-2);
+  --ds-card-select-shadow-selected: var(--ds-shadow-brand-1);
 
   --ds-card-select-image-size: var(--ds-size-64);
 
@@ -43,13 +44,14 @@
       border-color: var(--ds-card-select-border-color-active);
       box-shadow: var(--ds-card-select-shadow-focused);
       background-color: var(--ds-card-select-bg-active);
-
     }
   }
 
   &--selected {
     border-color: var(--ds-card-select-border-color-selected);
     background-color: var(--ds-card-select-bg-selected);
+    box-shadow: var(--ds-card-select-shadow-selected);
+
   }
 
   &--disabled {

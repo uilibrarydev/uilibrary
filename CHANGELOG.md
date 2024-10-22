@@ -1,3 +1,10 @@
+## [2.19.2](https://github.com/dinofrontend/dino_ui_library/compare/2.19.1...2.19.2) (2024-10-22)
+
+
+### Bug Fixes
+
+* fixed selected state ui ([71f2802](https://github.com/dinofrontend/dino_ui_library/commit/71f2802d60e2d2151195f023785fe11eec89714c))
+
 ## [2.19.1](https://github.com/dinofrontend/dino_ui_library/compare/2.19.0...2.19.1) (2024-10-22)
 
 
