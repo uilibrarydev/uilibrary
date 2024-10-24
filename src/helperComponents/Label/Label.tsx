@@ -19,7 +19,7 @@ export const Label: React.FC<LabelPropTypes> = (props: LabelPropTypes) => {
       size={size}
       weight={'semibold'}
       type={disabled ? 'disabled' : 'primary'}
-      className={`label flexbox align-items--start mb-4 ${className}`}
+      className={`label flexbox align-items--start mb-8 ${className}`}
     >
       <>
         {text}

@@ -65,7 +65,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TTextAreaTypeProps
         </div>
 
         {error || successMessage || helperText || maxCount ? (
-          <div className="textarea__message mt-4">
+          <div className="textarea__message mt-8">
             {error && <ErrorMessage message={error} icon="infoFilled" />}
             {successMessage ? (
               <Text size="small" type="success" className="flexbox align-items--center">

@@ -172,7 +172,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
         </div>
 
         {error || successMessage || helperText || maxCount ? (
-          <div className="input__message mt-4">
+          <div className="input__message mt-8">
             {isErrorVisible && error ? (
               <ErrorMessage message={error} icon="infoFilled" dataId={dataId} />
             ) : null}
