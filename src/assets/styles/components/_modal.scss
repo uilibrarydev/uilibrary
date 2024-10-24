@@ -17,13 +17,13 @@
   --ds-modal-header-padding-lg: var(--ds-space-32) var(--ds-space-32) 0;
   --ds-modal-header-padding-sm: var(--ds-space-24) var(--ds-space-24) 0;
 
-  --ds-modal-content-border-width: var(--ds-border-thin);
-  --ds-modal-content-border-color: var(--ds-color-divider);
   --ds-modal-content-padding-lg: var(--ds-space-32) var(--ds-space-32);
   --ds-modal-content-padding-sm: var(--ds-space-24);
 
   --ds-modal-footer-padding-lg: var(--ds-space-20) var(--ds-space-32);
   --ds-modal-footer-padding-sm: var(--ds-space-20) var(--ds-space-24);
+  --ds-modal-footer-border-width: var(--ds-border-thin);
+  --ds-modal-footer-border-color: var(--ds-color-divider);
 
   --ds-modal-icon-size: var(--ds-size-48);
   --ds-modal-icon-border-radius: var(--ds-border-radius-sm);
@@ -66,7 +66,6 @@
 
   &__content {
     padding: var(--ds-modal-content-padding-lg);
-    border-bottom: var(--ds-modal-content-border-width) solid var(--ds-modal-content-border-color);
 
     @include mixin.screen('phablet', max) {
       padding: var(--ds-modal-content-padding-sm);
@@ -78,6 +77,7 @@
     @include mixin.align-items(center);
     @include mixin.justify-content(flex-end);
     padding: var(--ds-modal-footer-padding-lg);
+    border-top: var(--ds-modal-footer-border-width) solid var(--ds-modal-footer-border-color);
 
     @include mixin.screen('phablet', max) {
       @include mixin.justify-content(space-between);
@@ -160,13 +160,10 @@
   }
 
   &--confirmation {
-    #{$this}__content {
-      border-bottom: 0;
-    }
-
     #{$this}__footer {
       @include mixin.justify-content(space-between);
       padding: 0;
+      border-top: 0;
 
       &__btn {
         width: 100%;
