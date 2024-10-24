@@ -1,3 +1,11 @@
+## [2.19.4](https://github.com/dinofrontend/dino_ui_library/compare/2.19.3...2.19.4) (2024-10-24)
+
+
+### Bug Fixes
+
+* change default size for modals ([8960ea6](https://github.com/dinofrontend/dino_ui_library/commit/8960ea6957a31e1a90acac754de7f2903e461864))
+* change label and helpertext spacing ([31da0cf](https://github.com/dinofrontend/dino_ui_library/commit/31da0cffbf8e1b161208126c7e7cf9919881e027))
+
 ## [2.19.3](https://github.com/dinofrontend/dino_ui_library/compare/2.19.2...2.19.3) (2024-10-22)
 
 
