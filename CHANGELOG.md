@@ -1,3 +1,10 @@
+## [2.19.5](https://github.com/dinofrontend/dino_ui_library/compare/2.19.4...2.19.5) (2024-10-24)
+
+
+### Bug Fixes
+
+* added border top for modal footer ([29f98d4](https://github.com/dinofrontend/dino_ui_library/commit/29f98d4d06011a41a42e55106bed32ff088e647f))
+
 ## [2.19.4](https://github.com/dinofrontend/dino_ui_library/compare/2.19.3...2.19.4) (2024-10-24)
 
 
