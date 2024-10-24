@@ -36,7 +36,7 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
     subtitle,
     closeIcon,
     className = '',
-    size = 'small',
+    size = 'medium',
     withFooter = true,
     buttonProps,
     children,
