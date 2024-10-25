@@ -18,6 +18,7 @@ export interface TModalPropTypes {
   closeIcon?: boolean
   children?: ReactNode
   className?: string
+  confirmBtnTooltipText?: string
 }
 
 export interface TModalConfirmationPropTypes {

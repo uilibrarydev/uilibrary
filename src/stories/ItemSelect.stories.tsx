@@ -65,9 +65,19 @@ ItemSelect.args = {
 
 const ItemSelectGroupTemplate: StoryFn<TItemSelectGroupProps> = (args) => {
   const [selected, setSelected] = useState<number | string>(1)
+  const handleChange = (val:any) => {
+    console.log(val)
+    if (val === selected) {
+      // @ts-ignore
+      setSelected(null)
+    } else {
+      setSelected(val)
+    }
+  }
+
   return (
     <div style={{ width: '50%' }}>
-      <_ItemSelectGroup {...args} items={ITEMS} value={selected} handleChange={setSelected} />
+      <_ItemSelectGroup {...args} items={ITEMS} value={selected} handleChange={handleChange} />
     </div>
   )
 }
