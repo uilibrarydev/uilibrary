@@ -1,3 +1,10 @@
+# [2.21.0](https://github.com/dinofrontend/dino_ui_library/compare/2.20.0...2.21.0) (2024-10-25)
+
+
+### Features
+
+* added DocumentEdit icon ([297fb85](https://github.com/dinofrontend/dino_ui_library/commit/297fb851e597e9190978f57a7d65374dd29dbb09))
+
 # [2.20.0](https://github.com/dinofrontend/dino_ui_library/compare/2.19.5...2.20.0) (2024-10-25)
 
 
