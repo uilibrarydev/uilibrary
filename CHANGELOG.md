@@ -1,3 +1,10 @@
+## [2.21.2](https://github.com/dinofrontend/dino_ui_library/compare/2.21.1...2.21.2) (2024-10-25)
+
+
+### Bug Fixes
+
+* added rightInfoProps for profileDropdown list ([de2d392](https://github.com/dinofrontend/dino_ui_library/commit/de2d392ff87dbf0920c68dbff172eea57ee753b1))
+
 ## [2.21.1](https://github.com/dinofrontend/dino_ui_library/compare/2.21.0...2.21.1) (2024-10-25)
 
 
