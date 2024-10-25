@@ -8,6 +8,8 @@ import { Text } from '../Text'
 import { TModalPropTypes } from './types'
 import IconDismiss from '../SVGIcons/IconDismiss'
 import { ButtonIcon } from '../ButtonIcon'
+import { Tooltip } from '../Tooltip'
+import { Positions } from '../Tooltip/types'
 
 const DESKTOP_ANIMATION = {
   initial: { opacity: 0.5, scale: 0.65 },
@@ -41,7 +43,8 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
     buttonProps,
     children,
     dataIdPrefix,
-    closeOnOutsideClick = true
+    closeOnOutsideClick = true,
+    confirmBtnTooltipText
   } = props
 
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
@@ -104,7 +107,15 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
                   dataId={dataIdPrefix ? `${dataIdPrefix}-modal-cancel-button` : ''}
                   {...(buttonProps.cancel || {})}
                 />
+                {confirmBtnTooltipText ? (
+                  <Tooltip
+                    text={confirmBtnTooltipText as string}
+                    id={'confirm-btn-tooltip'}
+                    position={Positions.TOP_CENTER}
+                  />
+                ) : null}
                 <Button
+                  id={'confirm-btn-tooltip'}
                   className={'modal__footer__btn'}
                   type="primary"
                   onClick={onSubmit}

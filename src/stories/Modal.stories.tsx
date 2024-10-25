@@ -51,7 +51,8 @@ Modal.args = {
   title: 'Title',
   subtitle: 'Subtitle',
   closeIcon: true,
-  withFooter: true
+  withFooter: true,
+  confirmBtnTooltipText: 'Confirm'
 }
 
 const ModalConfirmationTemplate: StoryFn<TModalConfirmationPropTypes> = (args) => {
