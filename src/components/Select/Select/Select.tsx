@@ -190,7 +190,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         rightIconProps={isOpen ? selectRightIconOpenedProps : selectRightIconProps}
         readonly={!withSearch || options.length <= SELECTED_VISIBLE_MIN_COUNT}
         placeholder={placeHolder}
-        value={selectedOption?.label}
+        value={selectedOption?.label || ''}
         isValid={isValid}
         disabled={disabled}
         helperText={isOpen ? '' : outerHelperText}
