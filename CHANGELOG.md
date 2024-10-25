@@ -1,3 +1,15 @@
+# [2.20.0](https://github.com/dinofrontend/dino_ui_library/compare/2.19.5...2.20.0) (2024-10-25)
+
+
+### Bug Fixes
+
+* ts types ([91e4f5c](https://github.com/dinofrontend/dino_ui_library/commit/91e4f5cfa143090e953ea50c46c23b7f770814d1))
+
+
+### Features
+
+* tooltip for modal confirm button ([7f9fb0a](https://github.com/dinofrontend/dino_ui_library/commit/7f9fb0a9ce2044a2ecd6e566d6140f0e9d1f6042))
+
 ## [2.19.5](https://github.com/dinofrontend/dino_ui_library/compare/2.19.4...2.19.5) (2024-10-24)
 
 
