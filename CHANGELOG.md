@@ -1,3 +1,13 @@
+## [2.21.1](https://github.com/dinofrontend/dino_ui_library/compare/2.21.0...2.21.1) (2024-10-25)
+
+
+### Bug Fixes
+
+* fixed option unselect issue ([8233e54](https://github.com/dinofrontend/dino_ui_library/commit/8233e54e761fd6f89d9a84cc822782a31a795c2a))
+* fixed option unselect issue ([953e781](https://github.com/dinofrontend/dino_ui_library/commit/953e781a891da80c1f9f7f6c9ea3bf3c7d7cd038))
+* reverted yarn lock change ([c2a24c2](https://github.com/dinofrontend/dino_ui_library/commit/c2a24c24afbfc727ff5c081cb213957d03671990))
+* reverted yarn lock change ([f2727fd](https://github.com/dinofrontend/dino_ui_library/commit/f2727fd4670da0ee792da212ef9199e26a9593dd))
+
 # [2.21.0](https://github.com/dinofrontend/dino_ui_library/compare/2.20.0...2.21.0) (2024-10-25)
 
 
