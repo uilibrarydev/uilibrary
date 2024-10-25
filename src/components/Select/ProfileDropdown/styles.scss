@@ -3,7 +3,7 @@
 .profile-dropdown {
   width: 360px;
   box-shadow: var(--ds-shadow-2);
-  border-radius: var(--ds-border-radius-xs);
+  border-radius: var(--ds-border-radius-lg);
   background-color: var(--ds-color-bg-white);
   @include mixin.absolute(calc(100% + var(--ds-space-8)), 0, unset, unset);
 

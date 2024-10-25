@@ -5,6 +5,7 @@
 
   --ds-badge-primary-bg: var(--pink-500);
   --ds-badge-secondary-bg: var(--grey-50);
+  --ds-badge-tertiary-bg: var(--green-500);
 
   --ds-badge-border-radius: var(--ds-border-radius-4xl);
   --ds-badge-padding-lg: var(--ds-space-6);
@@ -27,6 +28,10 @@
 
   &--secondary {
     background-color: var(--ds-badge-secondary-bg);
+  }
+
+  &--tertiary {
+    background-color: var(--ds-badge-tertiary-bg);
   }
 
   &--large {

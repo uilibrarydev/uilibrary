@@ -11,7 +11,7 @@ export const Badge = (props: TBadgeProps): ReactElement => {
       {text ? (
         <Text
           size="xsmall"
-          type={type == 'primary' ? 'inverse' : 'primary'}
+          type={type == 'secondary' ? 'primary' : 'inverse'}
           className="badge__inner"
         >
           <>{text}</>

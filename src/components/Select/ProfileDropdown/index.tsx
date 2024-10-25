@@ -37,8 +37,13 @@ export const ProfileDropdown = (props: TProfileDropdownProps): JSX.Element => {
                     className={'profile-dropdown__nav__link'}
                   >
                     <>
-                      {item.icon}
-                      {item.text}
+                      <span className={'flexbox align-items--center'}>
+                        <>
+                          {item.icon}
+                          {item.text}
+                        </>
+                      </span>
+                      {item.rightInfoProps}
                     </>
                   </Link>
                 </li>
