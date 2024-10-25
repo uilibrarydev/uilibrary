@@ -8,7 +8,7 @@ export default {
   component: _Badge,
   argTypes: {
     type: {
-      options: ['primary', 'secondary'],
+      options: ['primary', 'secondary', 'tertiary'],
       control: { type: 'radio' }
     },
     size: {

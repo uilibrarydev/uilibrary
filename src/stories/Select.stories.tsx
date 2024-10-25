@@ -8,7 +8,7 @@ import {
   ProfileDropdown as _ProfileDropdown,
   Menu,
   Avatar,
-  IconEdit
+  Badge
 } from '../index'
 // @ts-ignore
 import imageFile from '../assets/images/avatar.jpg'
@@ -534,7 +534,8 @@ ProfileDropdown.args = {
     {
       icon: <IconQuestion size={'small'} className={'mr-8'} />,
       text: 'Հաճախ տրվող հարցեր',
-      url: '#s'
+      url: '#s',
+      rightInfoProps: <Badge text={'5'} type={'tertiary'} className={'ml-12'} />
     },
     {
       icon: <IconChatMultiple size={'small'} className={'mr-8'} />,

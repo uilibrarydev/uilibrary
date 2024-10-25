@@ -227,6 +227,7 @@ declare type TNavItemValue = {
   text: string
   url?: string
   onclick?: () => void
+  rightInfoProps?: ReactElement
 }
 export type TProfileDropdownProps = {
   avatar: ReactElement
