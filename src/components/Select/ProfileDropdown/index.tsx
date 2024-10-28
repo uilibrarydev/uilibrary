@@ -33,9 +33,9 @@ export const ProfileDropdown = (props: TProfileDropdownProps): JSX.Element => {
                 <li key={index}>
                   {item.url ? (
                     <Link
-                        url={item.url}
-                        onclick={item.onclick}
-                        className={'profile-dropdown__nav__link'}
+                      url={item.url}
+                      onclick={item.onclick}
+                      className={'profile-dropdown__nav__link'}
                     >
                       <>
                         <span className={'flexbox align-items--center'}>
@@ -47,8 +47,9 @@ export const ProfileDropdown = (props: TProfileDropdownProps): JSX.Element => {
                         {item.rightInfoProps}
                       </>
                     </Link>
-                    ) : item.children
-                  }
+                  ) : (
+                    item.children
+                  )}
                 </li>
               ))}
             </ul>
@@ -73,8 +74,9 @@ export const ProfileDropdown = (props: TProfileDropdownProps): JSX.Element => {
                             {item.rightInfoProps}
                           </>
                         </Link>
-                        ) : item.children
-                      }
+                      ) : (
+                        item.children
+                      )}
                     </li>
                   ))}
                 </ul>
