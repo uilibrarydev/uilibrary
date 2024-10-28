@@ -31,6 +31,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     hasError,
     isLoading,
     isValid,
+    // REMEMBER that withSearch works only when options length is more than SELECTED_VISIBLE_MIN_COUNT/15
     withSearch,
     disabled,
     dataId = '',
@@ -64,6 +65,8 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null)
   const currentSelection = (value as TItemValue) || selectedItem
   const [selectedOption, setSelectedOption] = useState<TSelectOption | null>(null)
+
+  const isWithSearch = withSearch && options.length > SELECTED_VISIBLE_MIN_COUNT
 
   const setCurrentSelectedLabel = useCallback(() => {
     const selectedItem = options.find((item) => item.value === currentSelection) as TSelectOption
@@ -135,6 +138,8 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
       setIsOpen(!isOpen)
       e.preventDefault()
       return
+    } else if (isOpen && !isWithSearch) {
+      closeDropdown()
     } else {
       openDropdown()
     }
@@ -188,7 +193,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         required={isRequiredField}
         leftIconProps={leftIconProps}
         rightIconProps={isOpen ? selectRightIconOpenedProps : selectRightIconProps}
-        readonly={!withSearch || options.length <= SELECTED_VISIBLE_MIN_COUNT}
+        readonly={!isWithSearch}
         placeholder={placeHolder}
         value={selectedOption?.label || ''}
         isValid={isValid}
