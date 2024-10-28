@@ -1,3 +1,11 @@
+## [2.21.5](https://github.com/dinofrontend/dino_ui_library/compare/2.21.4...2.21.5) (2024-10-28)
+
+
+### Bug Fixes
+
+* added children props for profileDropdown ([748e590](https://github.com/dinofrontend/dino_ui_library/commit/748e5904fecbef20c9d5a41356b5b01164ce924f))
+* added children props for profileDropdown ([d84a36e](https://github.com/dinofrontend/dino_ui_library/commit/d84a36ec481301b3385996a1e18582fbb0f9fc87))
+
 ## [2.21.4](https://github.com/dinofrontend/dino_ui_library/compare/2.21.3...2.21.4) (2024-10-28)
 
 
