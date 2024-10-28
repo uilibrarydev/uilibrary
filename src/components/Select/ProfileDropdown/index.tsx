@@ -31,21 +31,25 @@ export const ProfileDropdown = (props: TProfileDropdownProps): JSX.Element => {
             <ul className={'profile-dropdown__nav'}>
               {bodyItems?.map((item, index) => (
                 <li key={index}>
-                  <Link
-                    url={item.url}
-                    onclick={item.onclick}
-                    className={'profile-dropdown__nav__link'}
-                  >
-                    <>
-                      <span className={'flexbox align-items--center'}>
-                        <>
-                          {item.icon}
-                          {item.text}
-                        </>
-                      </span>
-                      {item.rightInfoProps}
-                    </>
-                  </Link>
+                  {item.url ? (
+                    <Link
+                      url={item.url}
+                      onclick={item.onclick}
+                      className={'profile-dropdown__nav__link'}
+                    >
+                      <>
+                        <span className={'flexbox align-items--center'}>
+                          <>
+                            {item.icon}
+                            {item.text}
+                          </>
+                        </span>
+                        {item.rightInfoProps}
+                      </>
+                    </Link>
+                  ) : (
+                    item.children
+                  )}
                 </li>
               ))}
             </ul>
@@ -54,21 +58,25 @@ export const ProfileDropdown = (props: TProfileDropdownProps): JSX.Element => {
                 <ul className={'profile-dropdown__nav'}>
                   {footerItems?.map((item, index) => (
                     <li key={index}>
-                      <Link
-                        url={item.url}
-                        onclick={item.onclick}
-                        className={'profile-dropdown__nav__link'}
-                      >
-                        <>
-                          <span className={'flexbox align-items--center'}>
-                            <>
-                              {item.icon}
-                              {item.text}
-                            </>
-                          </span>
-                          {item.rightInfoProps}
-                        </>
-                      </Link>
+                      {item.url ? (
+                        <Link
+                          url={item.url}
+                          onclick={item.onclick}
+                          className={'profile-dropdown__nav__link'}
+                        >
+                          <>
+                            <span className={'flexbox align-items--center'}>
+                              <>
+                                {item.icon}
+                                {item.text}
+                              </>
+                            </span>
+                            {item.rightInfoProps}
+                          </>
+                        </Link>
+                      ) : (
+                        item.children
+                      )}
                     </li>
                   ))}
                 </ul>

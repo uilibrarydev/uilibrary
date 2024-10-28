@@ -1,4 +1,4 @@
-import { LegacyRef, ReactElement } from 'react'
+import { LegacyRef, ReactElement, ReactNode } from 'react'
 import { TButtonPropTypes } from '../Button/types'
 import { TTooltipProps } from '../Tooltip/types'
 import { TMenuItem } from '../Menu/types'
@@ -228,6 +228,7 @@ declare type TNavItemValue = {
   url?: string
   onclick?: () => void
   rightInfoProps?: ReactElement
+  children: ReactNode
 }
 export type TProfileDropdownProps = {
   avatar: ReactElement
