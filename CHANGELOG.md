@@ -1,3 +1,10 @@
+## [2.21.3](https://github.com/dinofrontend/dino_ui_library/compare/2.21.2...2.21.3) (2024-10-28)
+
+
+### Bug Fixes
+
+* fix for profileDropdown list footer ([7468878](https://github.com/dinofrontend/dino_ui_library/commit/746887804552c288fc47dc94f92209ecee1cb31f))
+
 ## [2.21.2](https://github.com/dinofrontend/dino_ui_library/compare/2.21.1...2.21.2) (2024-10-25)
 
 
