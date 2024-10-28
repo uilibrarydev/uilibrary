@@ -1,3 +1,11 @@
+## [2.21.4](https://github.com/dinofrontend/dino_ui_library/compare/2.21.3...2.21.4) (2024-10-28)
+
+
+### Bug Fixes
+
+* fixed Select close logic ([8a9b0d6](https://github.com/dinofrontend/dino_ui_library/commit/8a9b0d62e7cc85ab732f1e5b905333fda96455f3))
+* fixed Select close logic ([9f3069c](https://github.com/dinofrontend/dino_ui_library/commit/9f3069cdccde4a3585e9c07dd7439bd8b2a08b4b))
+
 ## [2.21.3](https://github.com/dinofrontend/dino_ui_library/compare/2.21.2...2.21.3) (2024-10-28)
 
 
