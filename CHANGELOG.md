@@ -1,3 +1,10 @@
+## [2.21.8](https://github.com/dinofrontend/dino_ui_library/compare/2.21.7...2.21.8) (2024-10-29)
+
+
+### Bug Fixes
+
+* add forward ref in collapse group component ([05b2371](https://github.com/dinofrontend/dino_ui_library/commit/05b23717bca656132458c16b0533fa34ae80cb2e))
+
 ## [2.21.7](https://github.com/dinofrontend/dino_ui_library/compare/2.21.6...2.21.7) (2024-10-29)
 
 
