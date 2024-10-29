@@ -48,7 +48,8 @@ export const ProfileDropdown = (props: TProfileDropdownProps): JSX.Element => {
                       </>
                     </Link>
                   ) : (
-                    item.children
+                    // item.children
+                    <div onClick={closeDropdown}>{item.children}</div>
                   )}
                 </li>
               ))}
