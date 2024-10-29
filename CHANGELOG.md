@@ -1,3 +1,11 @@
+## [2.21.7](https://github.com/dinofrontend/dino_ui_library/compare/2.21.6...2.21.7) (2024-10-29)
+
+
+### Bug Fixes
+
+* close profile dropdown on item click ([b8f3217](https://github.com/dinofrontend/dino_ui_library/commit/b8f3217f6fc7069c558a4d159c19724554250bae))
+* close profile dropdown on item click ([5f2d8d2](https://github.com/dinofrontend/dino_ui_library/commit/5f2d8d2f026f02c3cfe0b6fb3ae5664bc17ef4b6))
+
 ## [2.21.6](https://github.com/dinofrontend/dino_ui_library/compare/2.21.5...2.21.6) (2024-10-29)
 
 
