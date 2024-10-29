@@ -1,3 +1,10 @@
+## [2.21.6](https://github.com/dinofrontend/dino_ui_library/compare/2.21.5...2.21.6) (2024-10-29)
+
+
+### Bug Fixes
+
+* added isOpen output props for profileDropdown ([dafb4ec](https://github.com/dinofrontend/dino_ui_library/commit/dafb4ec4151e7d188f0f5b6e0ac8be72ddbf1e94))
+
 ## [2.21.5](https://github.com/dinofrontend/dino_ui_library/compare/2.21.4...2.21.5) (2024-10-28)
 
 
