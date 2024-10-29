@@ -237,5 +237,4 @@ export type TProfileDropdownProps = {
   bodyItems: TNavItemValue[]
   footerItems: TNavItemValue[]
   className?: string
-  isOpen?: boolean
 }
