@@ -57,10 +57,18 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
           <>{label}</>
         </Text>
       </div>
-      { icon && icon.Component ? (
-          selected ? <icon.Component {...icon} /> : null
-        ) : <Radio name={name} isSelected={selected} disabled={disabled} className={'item-select__radio ml-16'} />
-      }
+      {icon && icon.Component ? (
+        selected ? (
+          <icon.Component {...icon} />
+        ) : null
+      ) : (
+        <Radio
+          name={name}
+          isSelected={selected}
+          disabled={disabled}
+          className={'item-select__radio ml-16'}
+        />
+      )}
     </div>
   )
 }

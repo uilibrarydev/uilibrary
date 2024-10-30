@@ -8,7 +8,7 @@ import IconCheckmark from '../components/SVGIcons/IconCheckmark'
 import IconAmd from '../components/SVGIcons/IconAmd'
 import { TItemSelectGroupProps, TItemSelectProps } from '../components/ItemSelect/types'
 import { StoryFn } from '@storybook/react'
-import IconQuestion from "../components/SVGIcons/IconQuestion";
+import IconQuestion from '../components/SVGIcons/IconQuestion'
 
 export default {
   title: 'ItemSelect',
