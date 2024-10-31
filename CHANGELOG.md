@@ -1,3 +1,12 @@
+## [2.21.9](https://github.com/dinofrontend/dino_ui_library/compare/2.21.8...2.21.9) (2024-10-31)
+
+
+### Bug Fixes
+
+* fixed itemSelect icon props issue ([50e41bd](https://github.com/dinofrontend/dino_ui_library/commit/50e41bd993b561e4193a92f50fb6c95b655b48b9))
+* fixed itemSelect icon props issue ([dd632d0](https://github.com/dinofrontend/dino_ui_library/commit/dd632d05072a8b1d0a36bb092604fafcee58e882))
+* uncheck checked item ([a652a26](https://github.com/dinofrontend/dino_ui_library/commit/a652a2631305e6ba90336def22e78d0b3055f528))
+
 ## [2.21.8](https://github.com/dinofrontend/dino_ui_library/compare/2.21.7...2.21.8) (2024-10-29)
 
 
