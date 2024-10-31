@@ -32,7 +32,7 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
   }
 
   const handleItemSelect = () => {
-    if (!disabled && itemValue) {
+    if (!disabled && itemValue && !selected) {
       handleItemSelectValue(itemValue)
     }
   }
