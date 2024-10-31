@@ -8,6 +8,7 @@ import IconCheckmark from '../components/SVGIcons/IconCheckmark'
 import IconAmd from '../components/SVGIcons/IconAmd'
 import { TItemSelectGroupProps, TItemSelectProps } from '../components/ItemSelect/types'
 import { StoryFn } from '@storybook/react'
+import IconQuestion from '../components/SVGIcons/IconQuestion'
 
 export default {
   title: 'ItemSelect',
@@ -56,7 +57,9 @@ export const ItemSelect = Template.bind({})
 
 ItemSelect.args = {
   leftIconProps: <IconAmd size={'small'} />,
-  rightIconProps: <IconCheckmark type={'brand'} />,
+  icon: {
+    Component: IconQuestion
+  },
   // image: '',
   label: 'Item Select',
   disabled: false
@@ -85,5 +88,7 @@ export const ItemSelectGroup = ItemSelectGroupTemplate.bind({})
 
 ItemSelectGroup.args = {
   isHorizontal: false,
-  rightIconProps: <IconCheckmark type={'brand'} />
+  iconGroup: {
+    Component: IconCheckmark
+  }
 }
