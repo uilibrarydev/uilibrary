@@ -1,3 +1,10 @@
+# [2.22.0](https://github.com/dinofrontend/dino_ui_library/compare/2.21.9...2.22.0) (2024-11-04)
+
+
+### Features
+
+* add type props for button icon component ([3373afa](https://github.com/dinofrontend/dino_ui_library/commit/3373afa731042a1940193effeb6abb7a02e9e1e8))
+
 ## [2.21.9](https://github.com/dinofrontend/dino_ui_library/compare/2.21.8...2.21.9) (2024-10-31)
 
 
