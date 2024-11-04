@@ -1,3 +1,10 @@
+## [2.22.1](https://github.com/dinofrontend/dino_ui_library/compare/2.22.0...2.22.1) (2024-11-04)
+
+
+### Bug Fixes
+
+* change spacing for tabs secondary ui ([174009a](https://github.com/dinofrontend/dino_ui_library/commit/174009ab1b86280479a357f4f0c15a518d906664))
+
 # [2.22.0](https://github.com/dinofrontend/dino_ui_library/compare/2.21.9...2.22.0) (2024-11-04)
 
 
