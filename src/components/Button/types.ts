@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, LegacyRef, PropsWithChildren, ReactElement } from 'react'
+import { TSVGIconType } from '../SVGIcons/types'
 
 export interface TButtonPropTypes
   extends PropsWithChildren<Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'children'>> {
@@ -12,6 +13,7 @@ export interface TButtonPropTypes
   isLoading?: boolean
   iconProps?: {
     size?: TIconSize
+    type?: TSVGIconType
     alignment?: string
     Component?: TSVGIconComponent
   }
