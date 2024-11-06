@@ -54,7 +54,7 @@ export const FormField = (props: TFormFieldPropTypes): ReactElement | null => {
                       <ErrorMessage
                         dataId={dataId}
                         message={message || ''}
-                        className="full-width"
+                        className="full-width mt-8"
                         icon={errorMessageIcon}
                       />
                     )
