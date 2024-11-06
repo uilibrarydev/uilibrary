@@ -1,3 +1,10 @@
+## [2.22.2](https://github.com/dinofrontend/dino_ui_library/compare/2.22.1...2.22.2) (2024-11-06)
+
+
+### Bug Fixes
+
+* font-size, border-radius and spacing fixes ([68756f2](https://github.com/dinofrontend/dino_ui_library/commit/68756f28bb3c24c7f2722992f0314998a0af1edb))
+
 ## [2.22.1](https://github.com/dinofrontend/dino_ui_library/compare/2.22.0...2.22.1) (2024-11-04)
 
 
