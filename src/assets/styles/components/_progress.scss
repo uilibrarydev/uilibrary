@@ -142,7 +142,7 @@
     @include mixin.align-items(center);
     width: 100%;
 
-    &__item {
+    .progress-bar {
         margin-right: var(--ds-space-8);
         flex: 1;
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Progress as _Progress } from '../index'
-import { ProgressBar as _ProgressBar } from '../index'
+import { ProgressBarWrapper as _ProgressBarWrapper } from '../index'
 import { StoryFn } from '@storybook/react'
-import {TProgressBarPropTypes, TProgressPropTypes} from '../components/Progress/types'
+import { TProgressPropTypes } from '../components/Progress/types'
 import { CodeBlock } from '../helperComponents'
 
 export default {
@@ -57,29 +57,26 @@ Progress.args = {
   loop: false
 }
 
-const ITEMS = [
-  {
-    percent: 30,
-  },
-  {
-    percent: 0,
-  },
-  {
-    percent: 0,
-  },
-]
+const progressBarWrapperDesignSpecs = `
+<ProgressBarWrapper>
+  <Progress percent={30} noText={true} />
+  <Progress percent={0} noText={true} />
+  <Progress percent={0} noText={true} />
+</ProgressBarWrapper>
+`
 
-
-const ProgressBarTemplate: StoryFn<TProgressBarPropTypes> = (args) => {
+const ProgressBarWrapperTemplate = () => {
   return (
-      <div style={{ width: '60%' }}>
-        <_ProgressBar {...args} stepItems={ITEMS}/>
-      </div>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <_ProgressBarWrapper>
+        <_Progress percent={30} noText={true} />
+        <_Progress percent={0} noText={true} />
+        <_Progress percent={0} noText={true} />
+      </_ProgressBarWrapper>
+      <CodeBlock title="Design Specs Example">{progressBarWrapperDesignSpecs}</CodeBlock>
+    </div>
   )
 }
 
-export const ProgressBar = ProgressBarTemplate.bind({})
+export const ProgressBar = ProgressBarWrapperTemplate.bind({})
 
-ProgressBar.args = {
-
-}
