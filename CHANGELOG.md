@@ -1,3 +1,12 @@
+# [2.23.0](https://github.com/dinofrontend/dino_ui_library/compare/2.22.2...2.23.0) (2024-11-07)
+
+
+### Features
+
+* added error state to Progress component ([11783d2](https://github.com/dinofrontend/dino_ui_library/commit/11783d25bd48a3a6ac90abc0f62c6d396ca0fa22))
+* added error state to Progress component ([b48e325](https://github.com/dinofrontend/dino_ui_library/commit/b48e32569545cb996c74ed59122d51ad2ed0227b))
+* added error state to Progress component ([bc9d667](https://github.com/dinofrontend/dino_ui_library/commit/bc9d667036a5d152e8ef8ded27ae6c4affc6e8cd))
+
 ## [2.22.2](https://github.com/dinofrontend/dino_ui_library/compare/2.22.1...2.22.2) (2024-11-06)
 
 
