@@ -10,3 +10,9 @@ export interface TProgressPropTypes {
   loop?: boolean
   hasError?: boolean
 }
+
+export interface TProgressBarPropTypes {
+  stepItems?: TProgressPropTypes[]
+  size?: 'large' | 'small'
+  className?: string
+}

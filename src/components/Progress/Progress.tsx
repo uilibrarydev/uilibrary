@@ -33,7 +33,7 @@ export const Progress = (props: TProgressPropTypes): JSX.Element => {
         'progress-bar',
         `progress-bar--${type}`,
         `progress-bar--${size}`,
-        { className },
+        className,
         { 'progress-bar--loop': loop }
       )}
       style={

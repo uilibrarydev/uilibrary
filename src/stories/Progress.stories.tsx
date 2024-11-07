@@ -1,7 +1,8 @@
 import React from 'react'
 import { Progress as _Progress } from '../index'
+import { ProgressBar as _ProgressBar } from '../index'
 import { StoryFn } from '@storybook/react'
-import { TProgressPropTypes } from '../components/Progress/types'
+import {TProgressBarPropTypes, TProgressPropTypes} from '../components/Progress/types'
 import { CodeBlock } from '../helperComponents'
 
 export default {
@@ -54,4 +55,31 @@ Progress.args = {
   hasError: false,
   dimension: 0,
   loop: false
+}
+
+const ITEMS = [
+  {
+    percent: 30,
+  },
+  {
+    percent: 0,
+  },
+  {
+    percent: 0,
+  },
+]
+
+
+const ProgressBarTemplate: StoryFn<TProgressBarPropTypes> = (args) => {
+  return (
+      <div style={{ width: '60%' }}>
+        <_ProgressBar {...args} stepItems={ITEMS}/>
+      </div>
+  )
+}
+
+export const ProgressBar = ProgressBarTemplate.bind({})
+
+ProgressBar.args = {
+
 }
