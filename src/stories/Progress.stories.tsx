@@ -38,12 +38,11 @@ const designSpecs = `
 
 const Template: StoryFn<TProgressPropTypes> = (args) => {
   return (
-    <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       <_Progress {...args} />
       <CodeBlock title="Design Specs Example">{designSpecs}</CodeBlock>
     </div>
   )
-
 }
 
 export const Progress = Template.bind({})

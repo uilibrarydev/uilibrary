@@ -29,7 +29,13 @@ export const Progress = (props: TProgressPropTypes): JSX.Element => {
 
   return (
     <div
-      className={classNames('progress-bar', `progress-bar--${type}`, `progress-bar--${size}`, {className}, {'progress-bar--loop': loop})}
+      className={classNames(
+        'progress-bar',
+        `progress-bar--${type}`,
+        `progress-bar--${size}`,
+        { className },
+        { 'progress-bar--loop': loop }
+      )}
       style={
         type == 'circle'
           ? {
@@ -41,9 +47,14 @@ export const Progress = (props: TProgressPropTypes): JSX.Element => {
     >
       {type == 'circle' ? (
         <svg>
-          <circle cx={_dimension} cy={_dimension} className={classNames({'progress-bar__hasError': hasError})} r={r}></circle>
           <circle
-            className={classNames({'progress-bar__hasError': hasError})}
+            cx={_dimension}
+            cy={_dimension}
+            className={classNames({ 'progress-bar__hasError': hasError })}
+            r={r}
+          ></circle>
+          <circle
+            className={classNames({ 'progress-bar__hasError': hasError })}
             cx={_dimension}
             cy={_dimension}
             r={r}
@@ -54,8 +65,11 @@ export const Progress = (props: TProgressPropTypes): JSX.Element => {
           ></circle>
         </svg>
       ) : (
-        <div className={classNames('progress-bar__inner', {'progress-bar__hasError': hasError})}>
-          <div className={classNames('progress-bar__filled', {'progress-bar__hasError': hasError})} style={{ width: `${_percent}%` }}></div>
+        <div className={classNames('progress-bar__inner', { 'progress-bar__hasError': hasError })}>
+          <div
+            className={classNames('progress-bar__filled', { 'progress-bar__hasError': hasError })}
+            style={{ width: `${_percent}%` }}
+          ></div>
         </div>
       )}
       {!noText ? (
