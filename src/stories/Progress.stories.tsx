@@ -79,4 +79,3 @@ const ProgressBarWrapperTemplate = () => {
 }
 
 export const ProgressBar = ProgressBarWrapperTemplate.bind({})
-
