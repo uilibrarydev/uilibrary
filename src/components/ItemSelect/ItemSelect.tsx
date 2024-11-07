@@ -17,7 +17,8 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
     value,
     itemValue,
     setFieldValue,
-    icon
+    icon,
+    deSelectable
   } = props
   const selected = itemValue === value
   const itemSelectStyle = classNames(
@@ -32,10 +33,10 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
   }
 
   const handleItemSelect = () => {
-    if (!disabled && itemValue && !selected) {
-      handleItemSelectValue(itemValue)
+    if (!disabled && itemValue && (!selected || deSelectable)) {
+      handleItemSelectValue(itemValue);
     }
-  }
+  };
 
   return (
     <div className={itemSelectStyle} onClick={handleItemSelect}>
