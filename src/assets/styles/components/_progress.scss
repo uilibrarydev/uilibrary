@@ -46,12 +46,19 @@
             background-color: var(--ds-progress-bg-default);
             border-radius: var(--ds-progress-linear-border-radius);
         }
+        #{$this}__hasError {
+            background-color: var(--red-50);
+        }
 
         #{$this}__filled {
             height: 100%;
             background-color: var(--ds-progress-bg-filled);
             border-radius: var(--ds-progress-linear-border-radius);
             transition: width .3s linear;
+
+            &.progress-bar__hasError {
+                background-color: var(--red-700);
+            }
         }
 
         #{$this}__percent {
@@ -73,8 +80,15 @@
                 stroke-linecap: round;
                 transition: stroke-dashoffset .3s linear;
 
+                &.progress-bar__hasError {
+                    stroke: var(--red-50);
+                }
                 &:last-of-type {
                     stroke: var(--ds-progress-bg-filled);
+
+                    &.progress-bar__hasError {
+                        stroke: var(--red-700);
+                    }
                 }
             }
         }

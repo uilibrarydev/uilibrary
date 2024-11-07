@@ -8,4 +8,5 @@ export interface TProgressPropTypes {
   dimension?: number
   className?: string
   loop?: boolean
+  hasError?: boolean
 }
