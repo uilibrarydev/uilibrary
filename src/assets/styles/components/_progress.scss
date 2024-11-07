@@ -3,7 +3,7 @@
 .progress-bar {
     $this: &;
 
-    --ds-progress-linear-size-lg: var(--ds-size-6);
+    --ds-progress-linear-size-lg: var(--ds-size-8);
     --ds-progress-linear-size-sm: var(--ds-size-2);
     --ds-progress-linear-border-radius: var(--ds-border-radius-md);
     --ds-progress-linear-font-size-lg: var(--ds-paragraph-sm);
@@ -134,5 +134,20 @@
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+.progress-bar-wrapper {
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    width: 100%;
+
+    .progress-bar {
+        margin-right: var(--ds-space-8);
+        flex: 1;
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
 }

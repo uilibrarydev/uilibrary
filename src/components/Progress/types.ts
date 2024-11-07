@@ -1,3 +1,5 @@
+import { HTMLAttributes } from 'react'
+
 export interface TProgressPropTypes {
   percent?: number
   stepCount?: number
@@ -10,3 +12,5 @@ export interface TProgressPropTypes {
   loop?: boolean
   hasError?: boolean
 }
+
+export type TProgressBarWrapperPropTypes = HTMLAttributes<HTMLDivElement>
