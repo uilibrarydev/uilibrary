@@ -1,3 +1,13 @@
+# [2.24.0](https://github.com/dinofrontend/dino_ui_library/compare/2.23.0...2.24.0) (2024-11-07)
+
+
+### Features
+
+* added Progress bar wrapper ([6704fdc](https://github.com/dinofrontend/dino_ui_library/commit/6704fdca695aff2fe741f2d5b2640a1c389660da))
+* added Progress bar wrapper ([ff77f3b](https://github.com/dinofrontend/dino_ui_library/commit/ff77f3bc278dbbb75072038b7f12d972dd95c842))
+* added progressBar component ([d2891fd](https://github.com/dinofrontend/dino_ui_library/commit/d2891fdff93972c8eb89f5399a223aa131a34382))
+* added progressBarWrapper component ([6bd93f9](https://github.com/dinofrontend/dino_ui_library/commit/6bd93f95bbb1461ce2671ecbcb68a9506f28df92))
+
 # [2.23.0](https://github.com/dinofrontend/dino_ui_library/compare/2.22.2...2.23.0) (2024-11-07)
 
 
