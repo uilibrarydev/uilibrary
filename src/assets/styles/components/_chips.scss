@@ -60,6 +60,7 @@
   @include mixin.inline-flex;
   @include mixin.align-items(center);
   @include mixin.justify-content(center);
+  @include mixin.truncate(100%);
   border-radius: var(--ds-chips-border-radius);
 
   &:not(&#{$this}--disabled) {

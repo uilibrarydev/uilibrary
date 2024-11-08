@@ -51,7 +51,7 @@ export const Chips = (props: TChipsProps): ReactElement => {
           dataId={`${dataId}-text`}
           type={customType}
           size={TEXT_SIZE_MAPPING[size]}
-          className="chips__label"
+          className="chips__label text-truncate"
         >
           <>{text}</>
         </Text>

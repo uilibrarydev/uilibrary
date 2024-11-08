@@ -26,6 +26,7 @@
     @each $key, $value in $sizes {
       &-#{$key} {
         font-size: $value;
+        min-width: $value;
       }
     }
   }
