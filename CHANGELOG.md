@@ -1,3 +1,10 @@
+# [2.25.0](https://github.com/dinofrontend/dino_ui_library/compare/2.24.0...2.25.0) (2024-11-08)
+
+
+### Features
+
+* add deSelectable prop to itemSelect component ([887227f](https://github.com/dinofrontend/dino_ui_library/commit/887227f20436953858b8abf2db18c697026db4ca))
+
 # [2.24.0](https://github.com/dinofrontend/dino_ui_library/compare/2.23.0...2.24.0) (2024-11-07)
 
 
