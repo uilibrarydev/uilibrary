@@ -1,3 +1,10 @@
+## [2.25.1](https://github.com/dinofrontend/dino_ui_library/compare/2.25.0...2.25.1) (2024-11-08)
+
+
+### Bug Fixes
+
+* fix for chips label, and added min-width for svg-icons ([659f6ea](https://github.com/dinofrontend/dino_ui_library/commit/659f6ea21594bbf7cbd61f8e8c9ad8db84afdc01))
+
 # [2.25.0](https://github.com/dinofrontend/dino_ui_library/compare/2.24.0...2.25.0) (2024-11-08)
 
 
