@@ -12,6 +12,7 @@ export interface TItemSelectProps extends IFormCompProps {
   isSelected?: boolean
   itemValue?: number | string
   icon?: TSelectIconProps
+  deSelectable?: boolean
 }
 export interface TItemSelectGroupProps extends IFormCompProps {
   isHorizontal?: boolean
@@ -19,5 +20,6 @@ export interface TItemSelectGroupProps extends IFormCompProps {
   items: TItemSelectProps[]
   iconGroup?: TSelectIconProps
   handleChange?: (selected: number | string) => void
-  value: number | string
+  value: number | string,
+  deSelectable?: boolean
 }

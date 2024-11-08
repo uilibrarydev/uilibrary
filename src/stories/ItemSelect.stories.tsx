@@ -23,7 +23,8 @@ const ITEMS = [
     disabled: false,
     onClick: (e: any) => {
       console.log(e)
-    }
+    },
+    deSelectable: false
   },
   {
     value: 2,
@@ -32,7 +33,9 @@ const ITEMS = [
     disabled: true,
     onClick: (e: any) => {
       console.log(e)
-    }
+    },
+    deSelectable: true
+
   },
   {
     value: 3,
@@ -41,7 +44,8 @@ const ITEMS = [
     disabled: false,
     onClick: (e: any) => {
       console.log(e)
-    }
+    },
+    deSelectable: true
   }
 ]
 
@@ -62,7 +66,8 @@ ItemSelect.args = {
   },
   // image: '',
   label: 'Item Select',
-  disabled: false
+  disabled: false,
+  deSelectable: true
   // value: null,
 }
 
