@@ -224,11 +224,9 @@ export type TSelectWrapperProps = {
 
 export type TProfileDropdownBodyItems = {
   icon?: TSVGIconComponent
-  text?: string
   url?: string
   onclick?: () => void
   rightInfoProps?: ReactElement
-  children?: ReactNode
 }
 export interface TProfileDropdownBodyItemsWithText extends TProfileDropdownBodyItems {
   text: string
