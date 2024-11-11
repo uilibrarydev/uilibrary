@@ -222,14 +222,23 @@ export type TSelectWrapperProps = {
   type?: 'primary' | 'secondary' | 'tertiary'
 }
 
-declare type TNavItemValue = {
+export type TProfileDropdownBodyItems = {
   icon?: TSVGIconComponent
-  text: string
   url?: string
   onclick?: () => void
   rightInfoProps?: ReactElement
+}
+export interface TProfileDropdownBodyItemsWithText extends TProfileDropdownBodyItems {
+  text: string
+  children?: never
+}
+export interface TProfileDropdownBodyItemsWithChildren extends TProfileDropdownBodyItems {
+  text?: never
   children: ReactNode
 }
+
+type TNavItemValue = TProfileDropdownBodyItemsWithText | TProfileDropdownBodyItemsWithChildren
+
 export type TProfileDropdownProps = {
   avatar: ReactElement
   email: string

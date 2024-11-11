@@ -34,9 +34,9 @@ export const ItemSelect = (props: TItemSelectProps): ReactElement => {
 
   const handleItemSelect = () => {
     if (!disabled && itemValue && (!selected || deSelectable)) {
-      handleItemSelectValue(itemValue);
+      handleItemSelectValue(itemValue)
     }
-  };
+  }
 
   return (
     <div className={itemSelectStyle} onClick={handleItemSelect}>

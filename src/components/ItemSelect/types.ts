@@ -20,6 +20,6 @@ export interface TItemSelectGroupProps extends IFormCompProps {
   items: TItemSelectProps[]
   iconGroup?: TSelectIconProps
   handleChange?: (selected: number | string) => void
-  value: number | string,
+  value: number | string
   deSelectable?: boolean
 }

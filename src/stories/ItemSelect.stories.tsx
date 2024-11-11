@@ -35,7 +35,6 @@ const ITEMS = [
       console.log(e)
     },
     deSelectable: true
-
   },
   {
     value: 3,
