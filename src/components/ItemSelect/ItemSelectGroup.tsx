@@ -20,7 +20,6 @@ export const ItemSelectGroup = (props: TItemSelectGroupProps): JSX.Element => {
           { value: itemValue, label, image, leftIconProps, id, disabled, icon, deSelectable },
           index
         ) => {
-          console.log(label, 'des')
           return (
             <ItemSelect
               name={name}
