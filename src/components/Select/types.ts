@@ -222,7 +222,6 @@ export type TSelectWrapperProps = {
   type?: 'primary' | 'secondary' | 'tertiary'
 }
 
-
 export type TProfileDropdownBodyItems = {
   icon?: TSVGIconComponent
   text?: string
