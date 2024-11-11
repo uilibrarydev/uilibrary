@@ -1,3 +1,10 @@
+## [2.25.3](https://github.com/dinofrontend/dino_ui_library/compare/2.25.2...2.25.3) (2024-11-11)
+
+
+### Bug Fixes
+
+* tab component icon props ([02c94e5](https://github.com/dinofrontend/dino_ui_library/commit/02c94e51e017fd07e91b7e46f367c250e2118cd2))
+
 ## [2.25.2](https://github.com/dinofrontend/dino_ui_library/compare/2.25.1...2.25.2) (2024-11-11)
 
 
