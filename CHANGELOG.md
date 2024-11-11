@@ -1,3 +1,14 @@
+## [2.25.2](https://github.com/dinofrontend/dino_ui_library/compare/2.25.1...2.25.2) (2024-11-11)
+
+
+### Bug Fixes
+
+* fixed profile dropdown type allows either text or children ([0a9f061](https://github.com/dinofrontend/dino_ui_library/commit/0a9f06113af64a90e0e9f42450106a8a8001331d))
+* fixed profile dropdown type allows either text or children ([60689e0](https://github.com/dinofrontend/dino_ui_library/commit/60689e012e60ad7f492c2c53783a951d010d287b))
+* fixed profile dropdown type allows either text or children ([3ea2767](https://github.com/dinofrontend/dino_ui_library/commit/3ea2767d91dc938a71d231775db1cfad6f2a757f))
+* fixed profile dropdown type allows either text or children ([5b42c34](https://github.com/dinofrontend/dino_ui_library/commit/5b42c343130b2846c833ee1c086eb2a8948e3325))
+* fixed profile dropdown type allows either text or children ([68e4cc9](https://github.com/dinofrontend/dino_ui_library/commit/68e4cc913b7210e531011565353b35d98f5514a4))
+
 ## [2.25.1](https://github.com/dinofrontend/dino_ui_library/compare/2.25.0...2.25.1) (2024-11-08)
 
 
