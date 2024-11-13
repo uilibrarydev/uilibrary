@@ -1,3 +1,10 @@
+# [2.26.0](https://github.com/dinofrontend/dino_ui_library/compare/2.25.3...2.26.0) (2024-11-13)
+
+
+### Features
+
+* otp component creation ([94c9e0b](https://github.com/dinofrontend/dino_ui_library/commit/94c9e0bceb2b2dc83268a54de687cd5e0a2eaaf8))
+
 ## [2.25.3](https://github.com/dinofrontend/dino_ui_library/compare/2.25.2...2.25.3) (2024-11-11)
 
 
