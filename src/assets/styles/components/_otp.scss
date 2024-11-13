@@ -1,23 +1,18 @@
 .otp {
-  &--input-wrapper {
-    display: flex;
-    gap: var(--ds-space-8);
+  --otp-input-gap: var(--ds-space-8);
+  --otp-input-width: var(--ds-size-40);
+  --otp-input-padding: 0;
+
+  &__inner {
+    gap: var(--otp-input-gap);
   }
+
   .input {
-    .input__inner {
-      input {
-        width: var(--ds-size-40);
-        text-indent: var(--ds-space-4);
-      }
-    }
-  }
-  &--invalid {
-    .input {
-      .input__inner {
-        input {
-          border-color: var(--ds-color-border-danger);
-        }
-      }
+    --ds-input-padding: var(--otp-input-padding);
+
+    input {
+      width: var(--otp-input-width);
+      text-align: center;
     }
   }
 }
