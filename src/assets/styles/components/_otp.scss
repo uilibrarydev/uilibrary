@@ -1,0 +1,23 @@
+.otp {
+  &--input-wrapper {
+    display: flex;
+    gap: var(--ds-space-8);
+  }
+  .input {
+    .input__inner {
+      input {
+        width: var(--ds-size-40);
+        text-indent: var(--ds-space-4);
+      }
+    }
+  }
+  &--invalid {
+    .input {
+      .input__inner {
+        input {
+          border-color: var(--ds-color-border-danger);
+        }
+      }
+    }
+  }
+}
