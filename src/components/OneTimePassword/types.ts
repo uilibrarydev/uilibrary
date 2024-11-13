@@ -20,5 +20,6 @@ export interface OtpCustomProps
   placeholder?: string
   helperText?: string
   successMessage?: string
+  hasError?: boolean
   onFocus?: (event: TClickEventType) => void
 }
