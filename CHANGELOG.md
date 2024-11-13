@@ -1,3 +1,10 @@
+## [2.26.1](https://github.com/dinofrontend/dino_ui_library/compare/2.26.0...2.26.1) (2024-11-13)
+
+
+### Bug Fixes
+
+* add hasError props in otp props type ([8ca8e20](https://github.com/dinofrontend/dino_ui_library/commit/8ca8e20ed0ef111909d2a8ac29b92df713436ee7))
+
 # [2.26.0](https://github.com/dinofrontend/dino_ui_library/compare/2.25.3...2.26.0) (2024-11-13)
 
 
