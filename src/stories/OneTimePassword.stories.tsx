@@ -32,7 +32,7 @@ export const OneTimePassword = Template.bind({})
 OneTimePassword.args = {
   type: 'text',
   size: 'large',
-  length: 5,
+  count: 5,
   label: 'One Time Password',
   hasError: true,
   error: 'error text',
