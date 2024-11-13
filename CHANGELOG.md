@@ -1,3 +1,11 @@
+## [2.26.2](https://github.com/dinofrontend/dino_ui_library/compare/2.26.1...2.26.2) (2024-11-13)
+
+
+### Bug Fixes
+
+* fix for otp ([4eea113](https://github.com/dinofrontend/dino_ui_library/commit/4eea113190d70db749d68d3a7169872811b73dc3))
+* rename length props to count ([c5e878f](https://github.com/dinofrontend/dino_ui_library/commit/c5e878f21d48a82764699d5c11e8d13154f9db81))
+
 ## [2.26.1](https://github.com/dinofrontend/dino_ui_library/compare/2.26.0...2.26.1) (2024-11-13)
 
 
