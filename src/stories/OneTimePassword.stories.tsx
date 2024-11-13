@@ -12,11 +12,7 @@ export default {
       control: { type: 'radio' }
     },
     size: {
-      options: ['large', 'medium', 'small'],
-      control: { type: 'radio' }
-    },
-    length: {
-      options: [4, 6, 8],
+      options: ['large', 'small'],
       control: { type: 'radio' }
     },
     hasError: {
@@ -36,7 +32,7 @@ export const OneTimePassword = Template.bind({})
 OneTimePassword.args = {
   type: 'text',
   size: 'large',
-  length: 4,
+  count: 5,
   label: 'One Time Password',
   hasError: true,
   error: 'error text',

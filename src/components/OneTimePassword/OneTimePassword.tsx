@@ -22,12 +22,12 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
     handleChange,
     dataId = '',
     isValid,
-    length,
+    count,
     successMessage,
     ...rest
   }): JSX.Element => {
     const isErrorVisible = hasError !== undefined ? hasError : !!error
-    const [otp, setOtp] = useState<string[]>(Array(length).fill(''))
+    const [otp, setOtp] = useState<string[]>(Array(count).fill(''))
     const inputRefs = useRef<(HTMLInputElement | null)[]>([])
 
     const onChange = (e: TChangeEventType, value: string, index: number) => {
@@ -42,7 +42,7 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
         if (setFieldValue && name) {
           setFieldValue(name, currentValue)
         }
-        if (value && index < length - 1) {
+        if (value && index < count - 1) {
           inputRefs.current[index + 1]?.focus()
         }
       } else return
@@ -55,9 +55,9 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
     }
 
     return (
-      <div className={classNames('otp', className, { 'otp--invalid': hasError })}>
+      <div className={classNames('otp', className)}>
         <Label text={label} required={required} disabled={disabled} dataId={dataId} />
-        <div className="otp--input-wrapper">
+        <div className="otp__inner flexbox">
           {otp.map((digits, index) => (
             <Input
               key={index}
@@ -65,6 +65,7 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
               ref={(el) => (inputRefs.current[index] = el)}
               max={1}
               type={type}
+              hasError={hasError}
               isValid={isValid}
               readonly={disabled}
               disabled={disabled}
