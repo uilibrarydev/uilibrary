@@ -1,4 +1,4 @@
-import { TextPropTypes } from '../Text/types'
+import type { TextPropTypes } from '../Text/types'
 
 export type TMorePropTypes = {
   textProps?: TextPropTypes

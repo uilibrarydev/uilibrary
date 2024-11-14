@@ -1,5 +1,5 @@
 import React from 'react'
-import { LabelPropTypes } from './types'
+import type { LabelPropTypes } from './types'
 import { Text } from '../../components/Text'
 
 export const Label: React.FC<LabelPropTypes> = (props: LabelPropTypes) => {

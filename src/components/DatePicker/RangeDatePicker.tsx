@@ -1,8 +1,10 @@
-import React, { forwardRef, ReactElement, useEffect, useRef, useState } from 'react'
+import type { ReactElement} from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react'
 import dayjs from 'dayjs'
 import DatePicker from 'react-datepicker'
 import { Input } from '../Input'
-import { DateFormat, IRangeDatePickerProps, TRangePickerValues } from './types'
+import type { IRangeDatePickerProps, TRangePickerValues } from './types';
+import { DateFormat } from './types'
 import { useImportFilesDynamically } from './hooks'
 import { isSameDay } from '../../utils/helpers'
 import { Label } from '../../helperComponents'

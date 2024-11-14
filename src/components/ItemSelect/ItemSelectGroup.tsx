@@ -1,5 +1,5 @@
 import React from 'react'
-import { TItemSelectGroupProps } from './types'
+import type { TItemSelectGroupProps } from './types'
 import { ItemSelect } from './ItemSelect'
 import classnames from 'classnames'
 

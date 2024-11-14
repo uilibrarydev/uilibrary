@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { Input } from '../Input'
-import { ICounterProps } from './types'
+import type { ICounterProps } from './types'
 import classNames from 'classnames'
 import { noop } from '../../utils/helpers'
 import IconAdd from '../SVGIcons/IconAdd'

@@ -1,4 +1,4 @@
-import { TSVGIconSize, TTextSize } from '../SVGIcons/types'
+import type { TSVGIconSize, TTextSize } from '../SVGIcons/types'
 
 export const ICON_SIZE_MAPPING: { [key: string]: TSVGIconSize } = {
   large: 'medium',

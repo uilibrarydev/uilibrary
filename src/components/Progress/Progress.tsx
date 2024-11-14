@@ -1,5 +1,5 @@
 import React from 'react'
-import { TProgressPropTypes } from './types'
+import type { TProgressPropTypes } from './types'
 import classNames from 'classnames'
 
 enum CIRCLE_SIZES {

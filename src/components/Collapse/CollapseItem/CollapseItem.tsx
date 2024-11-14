@@ -4,7 +4,7 @@ import { Text } from '../../Text'
 import { IconChevronRight } from '../../SVGIcons/IconChevronRight'
 import { Divider } from '../../Divider'
 import { AnimatePresenceWrapper } from '../../../helperComponents/AnimatePresenceWrapper'
-import { TCollapseProps } from '../types'
+import type { TCollapseProps } from '../types'
 import classNames from 'classnames'
 import IconChevronDown from '../../SVGIcons/IconChevronDown'
 

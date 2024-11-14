@@ -1,5 +1,6 @@
-import React, { ReactElement, useEffect, useState } from 'react'
-import { TAvatarProps } from './types'
+import type { ReactElement} from 'react';
+import React, { useEffect, useState } from 'react'
+import type { TAvatarProps } from './types'
 import classNames from 'classnames'
 import { FileUpload, FileUploadMode } from '../FileUpload'
 

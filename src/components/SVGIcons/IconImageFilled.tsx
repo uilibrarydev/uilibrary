@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
-import { ISVGIconProps } from './types'
+import type { ReactElement } from 'react';
+import React from 'react'
+import type { ISVGIconProps } from './types'
 import classNames from 'classnames'
 
 export const IconImageFilled = ({

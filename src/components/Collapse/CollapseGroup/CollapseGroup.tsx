@@ -1,7 +1,8 @@
-import React, { ForwardedRef, forwardRef, ReactElement, useState } from 'react'
+import type { ForwardedRef, ReactElement} from 'react';
+import React, { forwardRef, useState } from 'react'
 import { CollapseItem } from '../CollapseItem/CollapseItem'
 
-import { TCollapseGroupProps, TCollapseItem, TCollapseValue } from '../types'
+import type { TCollapseGroupProps, TCollapseItem, TCollapseValue } from '../types'
 import classNames from 'classnames'
 
 export const CollapseGroup = forwardRef(

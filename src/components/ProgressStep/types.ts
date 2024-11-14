@@ -1,4 +1,4 @@
-import { PROGRESS_STATUSES } from './consts'
+import type { PROGRESS_STATUSES } from './consts'
 
 export type TStepValue = number | string
 export interface TStep {

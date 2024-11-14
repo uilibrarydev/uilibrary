@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import classnames from 'classnames'
 import { Label } from '../../helperComponents'
-import { TSwitcherProps } from './types'
+import type { TSwitcherProps } from './types'
 import IconCheckmark from '../SVGIcons/IconCheckmark'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

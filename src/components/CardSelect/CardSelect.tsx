@@ -1,6 +1,7 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React from 'react'
 import { Text } from '../Text'
-import { TCardSelectProps } from './types'
+import type { TCardSelectProps } from './types'
 import classNames from 'classnames'
 import { CardAdditionalInfo, CardChips, CardDescription, CardInput } from './components'
 import { CARD_SELECT_TYPES } from '../../consts'

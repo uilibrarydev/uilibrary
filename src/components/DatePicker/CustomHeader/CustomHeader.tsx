@@ -1,6 +1,7 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React from 'react'
 
-import { ReactDatePickerCustomHeaderProps } from 'react-datepicker'
+import type { ReactDatePickerCustomHeaderProps } from 'react-datepicker'
 import { ButtonSelect } from '../../Select'
 
 import { getYearOptions, noop } from '../../../utils/helpers'

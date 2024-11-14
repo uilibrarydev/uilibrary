@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
-import { TCardItemProps } from './types'
+import type { ReactElement } from 'react';
+import React from 'react'
+import type { TCardItemProps } from './types'
 import { Text } from '../Text'
 import classNames from 'classnames'
 import { Image } from '../Image'

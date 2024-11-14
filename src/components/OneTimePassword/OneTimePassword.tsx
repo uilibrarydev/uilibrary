@@ -1,7 +1,8 @@
-import React, { useState, useRef, KeyboardEvent } from 'react'
+import type { KeyboardEvent } from 'react';
+import React, { useState, useRef } from 'react'
 import classNames from 'classnames'
 import { Input } from '../Input'
-import { OtpCustomProps } from './types'
+import type { OtpCustomProps } from './types'
 import { ErrorMessage, Label } from '../../helperComponents'
 import { Text } from '../Text'
 import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled'

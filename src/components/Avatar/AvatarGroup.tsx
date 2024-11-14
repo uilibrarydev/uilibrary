@@ -1,7 +1,8 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React from 'react'
 import { Tooltip } from '../Tooltip'
 import { Avatar } from './Avatar'
-import { TAvatarGroupProps } from './types'
+import type { TAvatarGroupProps } from './types'
 import { useScreenSize } from '../../hooks'
 import classNames from 'classnames'
 import { Positions } from '../Tooltip/types'

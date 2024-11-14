@@ -1,6 +1,7 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React from 'react'
 import { Text } from '../Text'
-import { TBadgeProps } from './types'
+import type { TBadgeProps } from './types'
 import classNames from 'classnames'
 
 export const Badge = (props: TBadgeProps): ReactElement => {

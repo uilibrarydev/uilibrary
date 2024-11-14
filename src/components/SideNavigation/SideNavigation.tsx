@@ -1,4 +1,4 @@
-import { TSideNavigationPropTypes } from './types'
+import type { TSideNavigationPropTypes } from './types'
 import React from 'react'
 import classNames from 'classnames'
 import IconChevronRight from '../SVGIcons/IconChevronRight'

@@ -4,7 +4,7 @@ import { Empty } from '../../../Empty'
 import { useGetElemSizes } from '../../../../hooks'
 import { OptionItem } from '../../../../helperComponents'
 import { ContentTop } from '../../SharedComponents'
-import { TMultySingleTabPropTypes } from '../../types'
+import type { TMultySingleTabPropTypes } from '../../types'
 import { DROPDOWN_MAX_HEIGHT } from '../../constants'
 
 export const MultiBase = (props: TMultySingleTabPropTypes): JSX.Element | null => {

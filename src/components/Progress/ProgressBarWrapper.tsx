@@ -1,5 +1,6 @@
-import React, { FC, PropsWithChildren } from 'react'
-import { TProgressBarWrapperPropTypes } from './types'
+import type { FC, PropsWithChildren } from 'react';
+import React from 'react'
+import type { TProgressBarWrapperPropTypes } from './types'
 import classnames from 'classnames'
 
 export const ProgressBarWrapper: FC<PropsWithChildren<TProgressBarWrapperPropTypes>> = ({

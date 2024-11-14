@@ -1,7 +1,8 @@
-import React, { MouseEvent } from 'react'
+import type { MouseEvent } from 'react';
+import React from 'react'
 import { Badge } from '../Badge'
 import { noop } from '../../utils/helpers'
-import { TTabItemProps } from './types'
+import type { TTabItemProps } from './types'
 import classNames from 'classnames'
 
 export const TabItem = (props: TTabItemProps): JSX.Element | null => {

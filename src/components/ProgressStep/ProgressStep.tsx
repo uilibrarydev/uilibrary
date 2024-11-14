@@ -1,7 +1,8 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React from 'react'
 import classnames from 'classnames'
 import { Step } from './Step'
-import { TProgressStepProps } from './types'
+import type { TProgressStepProps } from './types'
 
 export const ProgressStep = (props: TProgressStepProps): ReactElement | null => {
   const {

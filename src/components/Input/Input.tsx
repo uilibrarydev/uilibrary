@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import InputMask from 'react-input-mask'
 import classNames from 'classnames'
 import { NumericFormat } from 'react-number-format'
-import { InputCustomProps } from './types'
+import type { InputCustomProps } from './types'
 import { Label, ErrorMessage } from '../../helperComponents'
 import { Text } from '../Text'
 

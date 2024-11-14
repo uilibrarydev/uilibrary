@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import type { ReactElement } from 'react'
 
 export enum Positions {
   BOTTOM_LEFT = 'bottom-left',

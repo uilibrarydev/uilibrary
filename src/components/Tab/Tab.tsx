@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
-import { TTabProps } from './types'
+import type { ReactElement } from 'react';
+import React from 'react'
+import type { TTabProps } from './types'
 import { TabItem } from './TabItem'
 import classNames from 'classnames'
 

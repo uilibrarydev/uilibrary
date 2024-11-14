@@ -1,6 +1,7 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React from 'react'
 import { Text } from '../Text'
-import { TItemSelectProps } from './types'
+import type { TItemSelectProps } from './types'
 import { Image } from '../Image'
 import { Radio } from '../Radio'
 import classNames from 'classnames'

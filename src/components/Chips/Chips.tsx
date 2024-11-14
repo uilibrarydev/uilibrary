@@ -1,6 +1,8 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React from 'react'
 import { Text } from '../Text'
-import { ChipCustomType, TChipsProps } from './types'
+import type { TChipsProps } from './types';
+import { ChipCustomType } from './types'
 import classNames from 'classnames'
 import IconDismissCircleFilled from '../SVGIcons/IconDismissCircleFilled'
 import { ICON_SIZE_MAPPING, TEXT_SIZE_MAPPING } from './consts'

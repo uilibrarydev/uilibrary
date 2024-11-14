@@ -1,5 +1,5 @@
-import { ReactElement, ReactNode } from 'react'
-import { LinkPropTypes } from '../Link/types'
+import type { ReactElement, ReactNode } from 'react'
+import type { LinkPropTypes } from '../Link/types'
 
 export interface TPopoverProps extends IFormCompProps {
   clicked?: boolean

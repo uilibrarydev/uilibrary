@@ -1,5 +1,5 @@
 import React from 'react'
-import { TDividerProps } from './types'
+import type { TDividerProps } from './types'
 import classnames from 'classnames'
 
 export const Divider = (props: TDividerProps): JSX.Element => {

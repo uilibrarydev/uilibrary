@@ -1,6 +1,6 @@
-import { InputCustomProps } from '../Input/types'
-import { TChipsProps } from '../Chips/types'
-import { CARD_SELECT_TYPES } from '../../consts'
+import type { InputCustomProps } from '../Input/types'
+import type { TChipsProps } from '../Chips/types'
+import type { CARD_SELECT_TYPES } from '../../consts'
 export interface TCardSelectProps extends IFormCompProps {
   id?: number | string
   type?: CARD_SELECT_TYPES

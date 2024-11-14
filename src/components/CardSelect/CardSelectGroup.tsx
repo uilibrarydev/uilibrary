@@ -1,5 +1,5 @@
 import React from 'react'
-import { TCardSelectGroupProps } from './types'
+import type { TCardSelectGroupProps } from './types'
 import { CardSelect } from './CardSelect'
 import classNames from 'classnames'
 

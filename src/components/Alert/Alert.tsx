@@ -1,9 +1,10 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React from 'react'
 import { ICONS_MAPPING, TYPE_MAPPING } from './consts'
 import classnames from 'classnames'
 import { Text } from '../Text'
 import { Button } from '../Button'
-import { TAlertProps } from './types'
+import type { TAlertProps } from './types'
 import IconDismissFilled from '../SVGIcons/IconDismissFilled'
 import { IconDynamicComponent } from '../../helperComponents'
 

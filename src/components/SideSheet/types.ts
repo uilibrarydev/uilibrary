@@ -1,5 +1,5 @@
-import { ReactNode } from 'react'
-import { TButtonPropTypes } from '../Button/types'
+import type { ReactNode } from 'react'
+import type { TButtonPropTypes } from '../Button/types'
 
 export type TSideSheet = 'small' | 'large'
 

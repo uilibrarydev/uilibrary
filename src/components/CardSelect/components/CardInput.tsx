@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
-import { InputCustomProps } from '../../Input/types'
+import type { ReactElement } from 'react';
+import React from 'react'
+import type { InputCustomProps } from '../../Input/types'
 import { Input } from '../../Input'
 
 interface TCardInput {

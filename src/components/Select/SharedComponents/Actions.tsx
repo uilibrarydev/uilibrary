@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button } from '../../Button'
 import { Menu } from '../../Menu'
 import { Text } from '../../Text'
-import { TMenuItem } from '../../Menu/types'
+import type { TMenuItem } from '../../Menu/types'
 import IconMore from '../../SVGIcons/IconMore'
 
 type TProps = {

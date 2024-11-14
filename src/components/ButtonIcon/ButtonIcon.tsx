@@ -1,6 +1,7 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React from 'react'
 import classnames from 'classnames'
-import { TButtonIconPropTypes } from './types'
+import type { TButtonIconPropTypes } from './types'
 import { Loader } from '../../helperComponents'
 
 export const ButtonIcon = (props: TButtonIconPropTypes): ReactElement => {

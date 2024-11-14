@@ -2,7 +2,7 @@ import React from 'react'
 import { Text } from '../Text'
 import { Image } from '../Image'
 import { Button } from '../Button'
-import { TCardBodyProps } from './types'
+import type { TCardBodyProps } from './types'
 import classNames from 'classnames'
 
 export const CardBody = (props: TCardBodyProps): JSX.Element => {

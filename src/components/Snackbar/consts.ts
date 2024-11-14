@@ -1,4 +1,4 @@
-import { TSVGIconType } from '../SVGIcons/types'
+import type { TSVGIconType } from '../SVGIcons/types'
 
 export const TYPE_MAPPING: { [key: string]: TSVGIconType } = {
   warning: 'warning',

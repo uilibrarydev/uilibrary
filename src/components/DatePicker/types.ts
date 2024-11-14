@@ -1,5 +1,5 @@
-import { ReactDatePickerProps } from 'react-datepicker'
-import { ReactNode } from 'react'
+import type { ReactDatePickerProps } from 'react-datepicker'
+import type { ReactNode } from 'react'
 
 type DatePickerDefaultProps = Omit<IFormCompProps, 'value'> &
   Omit<ReactDatePickerProps, 'onChange' | 'value'>

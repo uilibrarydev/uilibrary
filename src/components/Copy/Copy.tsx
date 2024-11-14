@@ -1,7 +1,8 @@
-import React, { useState, useRef, ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React, { useState, useRef } from 'react'
 import { Button } from '../Button'
 import { Popover } from '../Popover'
-import { TCopyProps } from './types'
+import type { TCopyProps } from './types'
 import { IconCopy } from '../SVGIcons/IconCopy'
 
 export const Copy = ({ textAfterCopy, className = '', text, dataId }: TCopyProps): ReactElement => {
