@@ -1,5 +1,5 @@
-import { ReactElement, ReactNode } from 'react'
-import { ISVGIconProps } from '../SVGIcons/types'
+import type { ReactElement, ReactNode } from 'react'
+import type { ISVGIconProps } from '../SVGIcons/types'
 
 export type TStatusTypes =
   | 'primary'

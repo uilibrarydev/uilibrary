@@ -1,6 +1,7 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React from 'react'
 import classnames from 'classnames'
-import { TButtonPropTypes } from './types'
+import type { TButtonPropTypes } from './types'
 import { Loader } from '../../helperComponents'
 import { ICON_SIZE_MAPPING, ICON_TYPE_MAPPING, LITE_LOADER_TYPES } from './consts'
 

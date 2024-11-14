@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import classnames from 'classnames'
 import { FormContext } from '../../context'
-import { FormPropTypes } from './types'
+import type { FormPropTypes } from './types'
 import { Button } from '../Button'
 
 export const FormContainer = (props: FormPropTypes): JSX.Element => {

@@ -1,4 +1,5 @@
-import React, { ReactElement, useRef } from 'react'
+import type { ReactElement} from 'react';
+import React, { useRef } from 'react'
 import dayjs from 'dayjs'
 import DatePicker from 'react-datepicker'
 
@@ -9,7 +10,7 @@ import { CustomHeader } from './CustomHeader/CustomHeader'
 import { MONTHS } from '../../consts'
 import { useImportFilesDynamically } from './hooks'
 
-import { ISimpleDatePickerProps } from './types'
+import type { ISimpleDatePickerProps } from './types'
 import IconCalendarRight from '../SVGIcons/IconCalendarRight'
 
 export const SimpleDatePicker = (props: ISimpleDatePickerProps): ReactElement => {

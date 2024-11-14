@@ -1,5 +1,5 @@
 import React, { useId, useRef } from 'react'
-import { TProfileDropdownProps } from '../types'
+import type { TProfileDropdownProps } from '../types'
 import './styles.scss'
 import { Text } from '../../Text'
 import { useOnOutsideClick } from '../../../hooks'

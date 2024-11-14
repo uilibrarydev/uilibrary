@@ -1,9 +1,10 @@
-import React, { ReactElement, useContext } from 'react'
+import type { ReactElement} from 'react';
+import React, { useContext } from 'react'
 import { ErrorMessage as ReactHookFormErrorMessage } from '@hookform/error-message'
 import { ErrorMessage } from '../../helperComponents'
 import { FormContext } from '../../context'
 import { Controller } from 'react-hook-form'
-import { TFormFieldPropTypes } from './types'
+import type { TFormFieldPropTypes } from './types'
 import classnames from 'classnames'
 
 export const FormField = (props: TFormFieldPropTypes): ReactElement | null => {

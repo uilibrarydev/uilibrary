@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
-import { LinkPropTypes } from './types'
+import type { ReactElement } from 'react';
+import React from 'react'
+import type { LinkPropTypes } from './types'
 import classNames from 'classnames'
 
 export const Link = (props: LinkPropTypes): ReactElement => {

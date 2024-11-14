@@ -1,5 +1,5 @@
 import React from 'react'
-import { TFilterGroupDropdownContentProps } from '../types'
+import type { TFilterGroupDropdownContentProps } from '../types'
 import { FilterDropdownContent } from './FilterDropdown'
 
 export const FilterGroupDropdownContent = (

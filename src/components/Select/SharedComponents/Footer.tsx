@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from '../../Button'
-import { TSelectFooterPropTypes } from '../types'
+import type { TSelectFooterPropTypes } from '../types'
 import { Checkbox } from '../../Checkbox'
 
 export const Footer = (props: TSelectFooterPropTypes): JSX.Element => {

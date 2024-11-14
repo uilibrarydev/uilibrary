@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
-import { TextPropTypes } from './types'
+import type { ReactElement } from 'react';
+import React from 'react'
+import type { TextPropTypes } from './types'
 import classNames from 'classnames'
 import { noop } from '../../utils/helpers'
 

@@ -1,7 +1,8 @@
-import React, { ReactElement, useCallback } from 'react'
-import { TButtonPropTypes } from '../../Button/types'
+import type { ReactElement} from 'react';
+import React, { useCallback } from 'react'
+import type { TButtonPropTypes } from '../../Button/types'
 import { Button } from '../../Button'
-import { TCheckboxInfo } from '../types'
+import type { TCheckboxInfo } from '../types'
 import { Checkbox } from '../../Checkbox'
 
 type TProps = {

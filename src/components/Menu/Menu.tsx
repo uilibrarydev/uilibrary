@@ -1,4 +1,5 @@
-import React, { ReactElement, useId, useMemo, useState } from 'react'
+import type { ReactElement} from 'react';
+import React, { useId, useMemo, useState } from 'react'
 import ReactDOM from 'react-dom'
 import {
   useOnOutsideClick,
@@ -8,7 +9,7 @@ import {
   useHideOnScroll
 } from '../../hooks'
 import { OptionItem } from '../../helperComponents'
-import { TMenuProps, TMenuItem } from './types'
+import type { TMenuProps, TMenuItem } from './types'
 import classNames from 'classnames'
 
 export const Menu = (props: TMenuProps): ReactElement | null => {

@@ -1,6 +1,7 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React from 'react'
 import { Text } from '../Text'
-import { TBlock } from './types'
+import type { TBlock } from './types'
 
 export const Block = (props: TBlock): ReactElement => {
   const { children, label, open } = props

@@ -1,4 +1,4 @@
-import { TButtonPropTypes } from '../Button/types'
+import type { TButtonPropTypes } from '../Button/types'
 
 export type TSnackbarTypes = 'success' | 'error' | 'warning' | 'information'
 

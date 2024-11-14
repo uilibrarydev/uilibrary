@@ -1,7 +1,7 @@
-import { LegacyRef, ReactElement, ReactNode } from 'react'
-import { TButtonPropTypes } from '../Button/types'
-import { TTooltipProps } from '../Tooltip/types'
-import { TMenuItem } from '../Menu/types'
+import type { LegacyRef, ReactElement, ReactNode } from 'react'
+import type { TButtonPropTypes } from '../Button/types'
+import type { TTooltipProps } from '../Tooltip/types'
+import type { TMenuItem } from '../Menu/types'
 
 interface TSelectBaseProps {
   dataIdPrefix?: string

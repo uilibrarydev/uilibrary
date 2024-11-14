@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ReactElement, useMemo } from 'react'
+import type { ReactElement} from 'react';
+import React, { useMemo } from 'react'
 import classNames from 'classnames'
-import { Row as RowType, CellValue } from 'react-table'
+import type { Row as RowType, CellValue } from 'react-table'
 import { CHECKBOX_DEFAULT_WIDTH, CHECKBOX_HEADER_ID } from './utils'
 
 type Props = {

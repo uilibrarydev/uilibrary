@@ -1,9 +1,10 @@
-import React, { ReactElement, useRef, useId, useState } from 'react'
+import type { ReactElement} from 'react';
+import React, { useRef, useId, useState } from 'react'
 import classNames from 'classnames'
 import { OptionItem } from '../../../helperComponents'
 import { useGetElemSizes, useOnOutsideClick } from '../../../hooks'
 import { Loading, ButtonSelectWrapper } from '../SharedComponents'
-import { TButtonSelectPropTypes } from '../types'
+import type { TButtonSelectPropTypes } from '../types'
 
 export const ButtonSelect = (props: TButtonSelectPropTypes): ReactElement => {
   const {

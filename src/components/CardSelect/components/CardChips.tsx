@@ -1,6 +1,7 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React from 'react'
 import { Chips } from '../../Chips'
-import { TChipsProps } from '../../Chips/types'
+import type { TChipsProps } from '../../Chips/types'
 
 interface TCardChips {
   chips: TChipsProps[]

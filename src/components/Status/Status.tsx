@@ -1,6 +1,7 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React from 'react'
 import { Text } from '../Text'
-import { TStatusProps } from './types'
+import type { TStatusProps } from './types'
 import classNames from 'classnames'
 
 enum StatusTextSize {

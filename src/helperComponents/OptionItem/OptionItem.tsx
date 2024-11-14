@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import { Checkbox } from '../../components/Checkbox'
 import { Avatar } from '../../components/Avatar'
 import { Tooltip } from '../../components/Tooltip'
-import { TSelectItemProps } from './types'
+import type { TSelectItemProps } from './types'
 import classNames from 'classnames'
 import { IconCheckmark } from '../../components/SVGIcons/IconCheckmark'
 

@@ -1,10 +1,11 @@
-import React, { ReactElement, useEffect, useId, useMemo, useRef, useState } from 'react'
+import type { ReactElement} from 'react';
+import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
 
 import { OptionsWrapper } from './OptionsWrapper'
 import { Footer, InputSelectWrapper, ButtonSelectWrapper } from '../SharedComponents'
 import { useOnOutsideClick } from '../../../hooks'
 import { TRANSLATIONS_DEFAULT_VALUES } from '../constants'
-import { TMultiSelectPropTypes } from '../types'
+import type { TMultiSelectPropTypes } from '../types'
 
 export const MultiSelect = (props: TMultiSelectPropTypes): ReactElement => {
   const {

@@ -1,11 +1,12 @@
-import React, { ReactElement, useId, useState } from 'react'
+import type { ReactElement} from 'react';
+import React, { useId, useState } from 'react'
 import classnames from 'classnames'
 import { motion } from 'framer-motion'
 import { AnimatePresenceWrapper } from '../../helperComponents/AnimatePresenceWrapper'
 import { useHideBodyScroll, useOnOutsideClick } from '../../hooks'
 import { Button } from '../Button'
 import { Text } from '../Text'
-import { TModalConfirmationPropTypes } from './types'
+import type { TModalConfirmationPropTypes } from './types'
 
 const DESKTOP_ANIMATION = {
   initial: { opacity: 0.5, scale: 0.65 },

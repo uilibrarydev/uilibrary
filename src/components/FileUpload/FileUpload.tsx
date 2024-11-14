@@ -1,5 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react'
-import { FileUploadMode, TFileUploadProps } from './types'
+import type { TFileUploadProps } from './types';
+import { FileUploadMode } from './types'
 import { Button } from '../Button'
 import { Label } from '../../helperComponents'
 import { UploadItems } from './UploadItems'

@@ -1,4 +1,4 @@
-import { TBadgeProps } from '../Badge/types'
+import type { TBadgeProps } from '../Badge/types'
 
 export type TTabItem = {
   value: number | string

@@ -1,4 +1,5 @@
-import React, { ReactElement, useId, useMemo, useState } from 'react'
+import type { ReactElement} from 'react';
+import React, { useId, useMemo, useState } from 'react'
 import ReactDOM from 'react-dom'
 import {
   useOnOutsideClick,
@@ -7,7 +8,7 @@ import {
   useGetElemPositions,
   useHideOnScroll
 } from '../../hooks'
-import { TMenuItem, TNestedMenuProps } from './types'
+import type { TMenuItem, TNestedMenuProps } from './types'
 import classNames from 'classnames'
 import { CollapseGroup } from '../Collapse'
 import { OptionItem } from '../../helperComponents'

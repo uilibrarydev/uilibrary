@@ -1,4 +1,5 @@
-import React, { ReactElement, useCallback, useMemo, useRef } from 'react'
+import type { ReactElement} from 'react';
+import React, { useCallback, useMemo, useRef } from 'react'
 import { Loading } from '../SharedComponents'
 import { MultiSelectGrouped } from './MultiSelectGrouped/MultiSelectGrouped'
 import { MultiBase } from './MultiBase/MultiBase'
@@ -6,7 +7,7 @@ import { MultiSelectWithTabs } from './MultiSelectWithTabs/MultiSelectWithTabs'
 import { getStringWidth } from '../../../utils/helpers'
 import { SELECTED_VISIBLE_MIN_COUNT, TRANSLATIONS_DEFAULT_VALUES } from '../constants'
 import { useGetElemSizes, useGetHasBottomSpace, useGetHasTopSpace } from '../../../hooks'
-import { TSelectTranslations } from '../types'
+import type { TSelectTranslations } from '../types'
 
 type TProps = {
   isLoading?: boolean

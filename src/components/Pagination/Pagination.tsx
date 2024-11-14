@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
 import { PAGE_RANGE_DISPLAYED } from './consts'
-import { TPaginationProps } from './types'
+import type { TPaginationProps } from './types'
 import classNames from 'classnames'
 import IconChevronRight from '../SVGIcons/IconChevronRight'
 import IconChevronLeft from '../SVGIcons/IconChevronLeft'

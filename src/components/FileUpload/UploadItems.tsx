@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from '../Text'
-import { IUploadItemPropTypes } from './types'
+import type { IUploadItemPropTypes } from './types'
 import { useFormProps } from '../../hooks'
 import { openFileInNewWindow } from '../../utils/helpers'
 import { ErrorMessage } from '../../helperComponents'

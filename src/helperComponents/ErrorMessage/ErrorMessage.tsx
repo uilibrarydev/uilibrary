@@ -1,5 +1,5 @@
 import React from 'react'
-import { TErrorMessageProps } from './types'
+import type { TErrorMessageProps } from './types'
 import { Text } from '../../components/Text'
 import { IconDynamicComponent } from '../IconDynamicComponent'
 

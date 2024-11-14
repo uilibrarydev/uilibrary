@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
-import { LoaderProps } from './types'
+import type { ReactElement } from 'react';
+import React from 'react'
+import type { LoaderProps } from './types'
 
 export const Loader = (props: LoaderProps): ReactElement => {
   const { size = 'large', type = 'lite' } = props

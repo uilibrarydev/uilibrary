@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Text } from '../Text'
-import { TMorePropTypes } from './types'
+import type { TMorePropTypes } from './types'
 import { Button } from '../Button'
 
 export const More = (props: TMorePropTypes): JSX.Element => {

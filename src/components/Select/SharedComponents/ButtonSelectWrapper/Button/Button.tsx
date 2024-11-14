@@ -1,4 +1,5 @@
-import React, { LegacyRef, ReactElement } from 'react'
+import type { LegacyRef, ReactElement } from 'react';
+import React from 'react'
 import classnames from 'classnames'
 import { Text } from '../../../../Text'
 import { IconCaretDownFilled, IconCaretUpFilled } from '../../../../SVGIcons'

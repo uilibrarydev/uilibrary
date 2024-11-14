@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
-import { HeaderGroup, CellValue } from 'react-table'
+import type { ReactElement } from 'react';
+import React from 'react'
+import type { HeaderGroup, CellValue } from 'react-table'
 import classNames from 'classnames'
 import { calcColumnWidth, CHECKBOX_DEFAULT_WIDTH, CHECKBOX_HEADER_ID } from './utils'
 import { Text } from '../Text'

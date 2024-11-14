@@ -1,9 +1,10 @@
-import React, { ForwardedRef, useRef, useMemo, ReactElement, forwardRef } from 'react'
+import type { ForwardedRef, ReactElement} from 'react';
+import React, { useRef, useMemo, forwardRef } from 'react'
 import classnames from 'classnames'
 import { Popover } from '../Popover'
 import { Link } from '../Link'
 import { Text } from '../Text'
-import { TCheckboxProps } from './types'
+import type { TCheckboxProps } from './types'
 import IconInfo from '../SVGIcons/IconInfo'
 import { IconDynamicComponent } from '../../helperComponents'
 

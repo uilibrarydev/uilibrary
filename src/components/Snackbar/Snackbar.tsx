@@ -1,9 +1,10 @@
-import React, { ReactElement } from 'react'
+import type { ReactElement } from 'react';
+import React from 'react'
 import { ToastContainer, toast, Slide } from 'react-toastify'
 import type { ToastItem } from 'react-toastify'
 import { Text } from '../Text'
 import { Button } from '../Button'
-import { TSnackbarProps, TToastProps } from './types'
+import type { TSnackbarProps, TToastProps } from './types'
 import { DEFAULT_DURATION, ICONS_MAPPING, TYPE_MAPPING } from './consts'
 import { IconDynamicComponent } from '../../helperComponents'
 import 'react-toastify/dist/ReactToastify.css'

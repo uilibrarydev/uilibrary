@@ -1,7 +1,8 @@
 import { Divider } from '../../Divider'
 import { Text } from '../../Text'
-import React, { ReactElement } from 'react'
-import { TInfoList } from '../types'
+import type { ReactElement } from 'react';
+import React from 'react'
+import type { TInfoList } from '../types'
 
 interface TCardAdditionalInfo {
   additionalInfo?: TInfoList

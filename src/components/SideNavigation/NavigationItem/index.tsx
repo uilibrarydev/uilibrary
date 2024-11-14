@@ -1,6 +1,8 @@
-import React, { ReactElement, useState } from 'react'
+import type { ReactElement} from 'react';
+import React, { useState } from 'react'
 import classNames from 'classnames'
-import { NavigationItemTypes, TNavigationLinkPropTypes } from './types'
+import type { TNavigationLinkPropTypes } from './types';
+import { NavigationItemTypes } from './types'
 import { Badge } from '../../Badge'
 import IconArrowDown from '../../SVGIcons/IconArrowDown'
 import IconDynamicComponent from '../../../helperComponents/IconDynamicComponent/IconDynamicComponent'

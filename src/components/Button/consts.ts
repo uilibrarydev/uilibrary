@@ -1,4 +1,4 @@
-import { TSVGIconSize, TSVGIconType } from '../SVGIcons/types'
+import type { TSVGIconSize, TSVGIconType } from '../SVGIcons/types'
 
 export const LITE_LOADER_TYPES = ['primary', 'danger']
 

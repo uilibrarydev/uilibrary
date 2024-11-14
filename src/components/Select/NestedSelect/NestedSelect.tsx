@@ -2,7 +2,7 @@ import React, { useCallback, useId, useRef, useState } from 'react'
 import { Input } from '../../Input'
 import { OptionItem } from '../../../helperComponents'
 import { useGetElemPositions, useGetElemSizes, useOnOutsideClick } from '../../../hooks'
-import { TNestedSelectProps } from '../types'
+import type { TNestedSelectProps } from '../types'
 import IconCaretUpFilled from '../../SVGIcons/IconCaretUpFilled'
 import IconCaretDownFilled from '../../SVGIcons/IconCaretDownFilled'
 

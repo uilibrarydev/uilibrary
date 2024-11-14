@@ -1,4 +1,5 @@
-import React, { ReactElement, useMemo, useRef } from 'react'
+import type { ReactElement} from 'react';
+import React, { useMemo, useRef } from 'react'
 import classNames from 'classnames'
 import { Button } from './Button/Button'
 
@@ -8,7 +9,7 @@ import {
   useGetHasBottomSpace,
   useGetHasTopSpace
 } from '../../../../hooks'
-import { TSelectWrapperProps } from '../../types'
+import type { TSelectWrapperProps } from '../../types'
 import { noop } from '../../../../utils/helpers'
 import { DROPDOWN_AND_INPUT_GAP } from '../../../../consts'
 import { useChangePositionsOnScroll } from '../../../../hooks/useChangePositionsOnScroll'

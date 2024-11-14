@@ -1,4 +1,5 @@
-import React, { ReactElement, useCallback, useMemo, useRef } from 'react'
+import type { ReactElement} from 'react';
+import React, { useCallback, useMemo, useRef } from 'react'
 import classNames from 'classnames'
 import { Input } from '../../../Input'
 import {
@@ -12,7 +13,7 @@ import { getStringWidth, noop, setTranslationValue } from '../../../../utils/hel
 import { useChangePositionsOnScroll } from '../../../../hooks/useChangePositionsOnScroll'
 import { IconCaretDownFilled } from '../../../SVGIcons/IconCaretDownFilled'
 import { IconCaretUpFilled } from '../../../SVGIcons/IconCaretUpFilled'
-import { TSelectWrapperProps } from '../../types'
+import type { TSelectWrapperProps } from '../../types'
 import { DROPDOWN_AND_INPUT_GAP } from '../../../../consts'
 
 export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | null => {

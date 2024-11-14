@@ -1,11 +1,12 @@
-import React, { ReactElement, useCallback, useId, useState } from 'react'
+import type { ReactElement} from 'react';
+import React, { useCallback, useId, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useOnOutsideClick, useHideOnScroll } from '../../../hooks'
 import { FilterDropdownContent } from './FilterDropdown'
 import { FilterGroupDropdownContent } from './FilterGroupDropdown'
 import { Footer, Loading } from '../SharedComponents'
 import { Input } from '../../Input'
-import { TFilterProps } from '../types'
+import type { TFilterProps } from '../types'
 import IconSearchFilled from '../../SVGIcons/IconSearchFilled'
 import IconDismissFilled from '../../SVGIcons/IconDismissFilled'
 

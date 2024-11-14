@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, ReactElement, RefObject } from 'react'
+import type { InputHTMLAttributes, ReactElement, RefObject } from 'react'
 export interface OtpCustomProps
   extends IFormCompProps,
     Omit<
