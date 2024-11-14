@@ -1,3 +1,10 @@
+## [2.26.3](https://github.com/dinofrontend/dino_ui_library/compare/2.26.2...2.26.3) (2024-11-14)
+
+
+### Bug Fixes
+
+* updated eslint and typescript version, fixed eslint issues related eslint ([befc16e](https://github.com/dinofrontend/dino_ui_library/commit/befc16e2668ef48decf0a283d923198afd16a707))
+
 ## [2.26.2](https://github.com/dinofrontend/dino_ui_library/compare/2.26.1...2.26.2) (2024-11-13)
 
 
