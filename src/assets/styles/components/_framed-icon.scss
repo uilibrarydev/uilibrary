@@ -1,0 +1,60 @@
+@use "../helpers/mixin";
+
+.framed-icon {
+  $this: &;
+
+  //----------- component specific tokens -------------//
+
+  --ds-framed-icon-size-lg: var(--ds-size-64);
+  --ds-framed-icon-size-md: var(--ds-size-48);
+  --ds-framed-icon-size-sm: var(--ds-size-40);
+
+
+  --ds-framed-icon-border-radius: var(--ds-border-radius-lg);
+
+  //----------//
+
+  @include mixin.flexbox;
+  @include mixin.align-items(center);
+  @include mixin.justify-content(center);
+  border-radius: var(--ds-framed-icon-border-radius);
+
+  &--large {
+    height: var(--ds-framed-icon-size-lg);
+    width: var(--ds-framed-icon-size-lg);
+  }
+
+  &--medium {
+    height: var(--ds-framed-icon-size-md);
+    width: var(--ds-framed-icon-size-md);
+  }
+
+  &--small {
+    height: var(--ds-framed-icon-size-sm);
+    width: var(--ds-framed-icon-size-sm);
+  }
+
+  &--secondary {
+    background-color: var(--ds-color-bg-container);
+  }
+
+  &--danger {
+    background-color: var(--ds-color-bg-danger-lighter);
+  }
+
+  &--success {
+    background-color: var(--ds-color-bg-success-lighter);
+  }
+
+  &--brand {
+    background-color: var(--ds-color-bg-brand-lighter);
+  }
+
+  &--warning {
+    background-color: var(--ds-color-bg-warning-lighter);
+  }
+
+  &--information {
+    background-color: var(--ds-color-bg-info-lighter);
+  }
+}
