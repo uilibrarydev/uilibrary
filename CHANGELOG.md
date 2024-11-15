@@ -1,3 +1,11 @@
+## [2.27.2](https://github.com/dinofrontend/dino_ui_library/compare/2.27.1...2.27.2) (2024-11-15)
+
+
+### Bug Fixes
+
+* added grey  type ([6bca24f](https://github.com/dinofrontend/dino_ui_library/commit/6bca24f45d0713950e62846fe7c8901de896c3e7))
+* remove additional consolelogs ([8e8704c](https://github.com/dinofrontend/dino_ui_library/commit/8e8704c0986b46f16a97dbfb95b91a3f3d206c35))
+
 ## [2.27.1](https://github.com/dinofrontend/dino_ui_library/compare/2.27.0...2.27.1) (2024-11-15)
 
 
