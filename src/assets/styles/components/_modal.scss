@@ -27,7 +27,6 @@
 
   --ds-modal-icon-size: var(--ds-size-48);
   --ds-modal-icon-border-radius: var(--ds-border-radius-sm);
-  --ds-modal-icon-bg: var(--ds-color-bg-container);
 
   @include mixin.fixed(0,0,0,0);
   @include mixin.flexbox;
@@ -154,7 +153,6 @@
     width: var(--ds-modal-icon-size);
     height: var(--ds-modal-icon-size);
     border-radius: var(--ds-modal-icon-border-radius);
-    background-color: var(--ds-modal-icon-bg);
     margin-left: auto;
     margin-right: auto;
   }
