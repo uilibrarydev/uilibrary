@@ -1,3 +1,11 @@
+## [2.27.1](https://github.com/dinofrontend/dino_ui_library/compare/2.27.0...2.27.1) (2024-11-15)
+
+
+### Bug Fixes
+
+* added types for confirmation modal icon ([1864695](https://github.com/dinofrontend/dino_ui_library/commit/186469533970b8751d457f960ae48f75a119d734))
+* fix for confirmation modal and framed-icons ([2720ac6](https://github.com/dinofrontend/dino_ui_library/commit/2720ac63ca68f5f42c05d0c1aeb0907dc422fa28))
+
 # [2.27.0](https://github.com/dinofrontend/dino_ui_library/compare/2.26.3...2.27.0) (2024-11-15)
 
 
