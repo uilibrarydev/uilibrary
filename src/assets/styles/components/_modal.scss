@@ -155,30 +155,6 @@
     border-radius: var(--ds-modal-icon-border-radius);
     margin-left: auto;
     margin-right: auto;
-
-    &--secondary {
-      background-color: var(--ds-color-bg-container);
-    }
-
-    &--danger {
-      background-color: var(--ds-color-bg-danger-lighter);
-    }
-
-    &--warning {
-      background-color: var(--ds-color-bg-warning-lighter);
-    }
-
-    &--success {
-      background-color: var(--ds-color-bg-success-lighter);
-    }
-
-    &--brand {
-      background-color: var(--ds-color-bg-brand-lighter);
-    }
-
-    &--information {
-      background-color: var(--ds-color-bg-info-lighter);
-    }
   }
 
   &--confirmation {

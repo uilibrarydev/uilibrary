@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import type { TButtonPropTypes } from '../Button/types'
-import {TSVGIconType} from "../SVGIcons/types";
+import type {ISVGIconProps} from '../SVGIcons/types';
 
 export interface TModalPropTypes {
   dataIdPrefix?: string
@@ -31,13 +31,10 @@ export interface TModalConfirmationPropTypes {
   title?: string
   subtitle?: string
   size?: 'small' | 'large'
-  type?: TSVGIconType
   buttonProps?: {
     cancel?: TButtonPropTypes
     confirm: TButtonPropTypes
   }
-  iconProps?: {
-    Component?: TSVGIconComponent
-  }
+  iconProps?: ISVGIconProps
   className?: string
 }

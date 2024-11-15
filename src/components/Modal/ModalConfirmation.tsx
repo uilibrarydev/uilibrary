@@ -1,5 +1,5 @@
 import type { ReactElement} from 'react';
-import React, { useId, useState } from 'react'
+import React, {useId, useState} from 'react'
 import classnames from 'classnames'
 import { motion } from 'framer-motion'
 import { AnimatePresenceWrapper } from '../../helperComponents/AnimatePresenceWrapper'
@@ -7,6 +7,7 @@ import { useHideBodyScroll, useOnOutsideClick } from '../../hooks'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import type { TModalConfirmationPropTypes } from './types'
+import {FramedIcon} from '../FramedIcon';
 
 const DESKTOP_ANIMATION = {
   initial: { opacity: 0.5, scale: 0.65 },
@@ -38,14 +39,15 @@ export const ModalConfirmation = (props: TModalConfirmationPropTypes): ReactElem
     dataIdPrefix,
     closeOnOutsideClick = true,
     iconProps,
-    type= 'danger',
-    subtitle
+    subtitle,
+    // type = 'secondary'
   } = props
 
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
   useOnOutsideClick(containerRef, onClose, closeOnOutsideClick && isOpen, useId())
   useHideBodyScroll(isOpen)
 
+  console.log(iconProps, 'kdidi')
   return (
     <AnimatePresenceWrapper>
       {isOpen ? (
@@ -67,9 +69,7 @@ export const ModalConfirmation = (props: TModalConfirmationPropTypes): ReactElem
           >
             <div className={'modal__content'}>
               {iconProps?.Component ? (
-                <div className={classnames('modal__icon mb-32', `modal__icon--${type}`)}>
-                  <iconProps.Component size={'xlarge'} type={type} />
-                </div>
+                <FramedIcon className={'modal__icon mb-32'} size={'medium'} iconProps={iconProps}/>
               ) : null}
               {title ? (
                 <Text
