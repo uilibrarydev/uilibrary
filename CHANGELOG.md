@@ -1,3 +1,10 @@
+# [2.27.0](https://github.com/dinofrontend/dino_ui_library/compare/2.26.3...2.27.0) (2024-11-15)
+
+
+### Features
+
+* added framedIcon component, updte grey-30 and grey-40 tokens value ([263ad71](https://github.com/dinofrontend/dino_ui_library/commit/263ad718c4aaf3c5c5976f8f3151deda0073528b))
+
 ## [2.26.3](https://github.com/dinofrontend/dino_ui_library/compare/2.26.2...2.26.3) (2024-11-14)
 
 
