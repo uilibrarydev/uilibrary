@@ -38,6 +38,7 @@ export const ModalConfirmation = (props: TModalConfirmationPropTypes): ReactElem
     dataIdPrefix,
     closeOnOutsideClick = true,
     iconProps,
+    type= 'danger',
     subtitle
   } = props
 
@@ -66,8 +67,8 @@ export const ModalConfirmation = (props: TModalConfirmationPropTypes): ReactElem
           >
             <div className={'modal__content'}>
               {iconProps?.Component ? (
-                <div className="modal__icon mb-32">
-                  <iconProps.Component size={'xlarge'} />
+                <div className={classnames('modal__icon mb-32', `modal__icon--${type}`)}>
+                  <iconProps.Component size={'xlarge'} type={type} />
                 </div>
               ) : null}
               {title ? (
