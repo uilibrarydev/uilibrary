@@ -3,8 +3,10 @@
 .alert {
   $this: &;
 
-  --ds-alert-border-radius: var(--ds-border-radius-md);
-  --ds-alert-padding: var(--ds-space-12) var(--ds-space-20);
+  --ds-alert-border-radius: var(--ds-border-radius-lg);
+  --ds-alert-padding: var(--ds-space-16);
+
+  --ds-alert-grey-bg: var(--ds-color-bg-container-light);
 
   --ds-alert-information-bg: var(--ds-color-bg-info-lighter);
   --ds-alert-information-border-color: var(--ds-color-border-info);
@@ -48,6 +50,11 @@
       margin-left: var(--ds-space-8);
       white-space: nowrap;
     }
+  }
+
+  &--grey {
+    background-color: var(--ds-alert-grey-bg);
+    border: 0;
   }
 
   &--information {

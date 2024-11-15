@@ -5,10 +5,12 @@ export const TYPE_MAPPING: { [key: string]: TSVGIconType } = {
   success: 'success',
   error: 'danger',
   information: 'information',
-  discovery: 'discovery'
+  discovery: 'discovery',
+  grey: 'disabled'
 }
 
 export const ICONS_MAPPING: { [key: string]: string } = {
+  grey: 'infoFilled',
   warning: 'warningFilled',
   success: 'checkmarkCircleFilled',
   error: 'errorCircleFilled',

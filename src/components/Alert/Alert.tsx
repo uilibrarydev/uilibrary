@@ -28,9 +28,9 @@ export const Alert = (props: TAlertProps): ReactElement => {
           size="small"
           type={TYPE_MAPPING[type]}
         />
-        <div className="alert__text pl-8">
+        <div className="alert__text pl-12">
           <div>
-            <Text type="primary" size="standard" weight="regular" lineHeight="large">
+            <Text type="primary" weight="regular" lineHeight="large">
               {text}
             </Text>
             {subtext ? (

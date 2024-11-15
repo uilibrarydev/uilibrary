@@ -1,6 +1,6 @@
 import type { TButtonPropTypes } from '../Button/types'
 
-export type TAlertTypes = 'success' | 'error' | 'warning' | 'information' | 'discovery'
+export type TAlertTypes = 'grey' | 'success' | 'error' | 'warning' | 'information' | 'discovery'
 export type TAlertPosition = 'inline' | 'sticky'
 
 export interface TAlertProps extends IFormCompProps {

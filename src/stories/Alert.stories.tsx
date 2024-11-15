@@ -8,7 +8,7 @@ export default {
   component: AlertComp,
   argTypes: {
     type: {
-      options: ['information', 'success', 'error', 'warning', 'discovery'],
+      options: ['grey', 'information', 'success', 'error', 'warning', 'discovery'],
       control: { type: 'radio' }
     },
     position: {
