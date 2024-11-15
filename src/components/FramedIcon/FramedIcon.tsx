@@ -11,7 +11,6 @@ export const FramedIcon = (props: TFramedIconPropTypes): ReactElement => {
     iconProps
   } = props
 
-    console.log(iconProps, 'lskdkdk')
   return (
       <>
           {iconProps?.Component ? (
