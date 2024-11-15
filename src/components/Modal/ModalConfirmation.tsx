@@ -47,7 +47,6 @@ export const ModalConfirmation = (props: TModalConfirmationPropTypes): ReactElem
   useOnOutsideClick(containerRef, onClose, closeOnOutsideClick && isOpen, useId())
   useHideBodyScroll(isOpen)
 
-  console.log(iconProps, 'kdidi')
   return (
     <AnimatePresenceWrapper>
       {isOpen ? (
