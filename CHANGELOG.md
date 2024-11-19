@@ -1,3 +1,12 @@
+## [2.27.3](https://github.com/dinofrontend/dino_ui_library/compare/2.27.2...2.27.3) (2024-11-19)
+
+
+### Bug Fixes
+
+* fixed select dropdown when scroll window ([1fa8790](https://github.com/dinofrontend/dino_ui_library/commit/1fa8790ed52d06b59982fb8b80bb473ad5fc8857))
+* fixed select dropdown when scroll window ([90b3c10](https://github.com/dinofrontend/dino_ui_library/commit/90b3c106d435906d7249f3f6569663007eaa6cc2))
+* fixed select dropdown when scroll window ([c061143](https://github.com/dinofrontend/dino_ui_library/commit/c061143e5b192c50b37db9b2b89722225878b33d))
+
 ## [2.27.2](https://github.com/dinofrontend/dino_ui_library/compare/2.27.1...2.27.2) (2024-11-15)
 
 
