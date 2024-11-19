@@ -283,7 +283,8 @@ const Template: StoryFn<TSingleSelectPropTypes> = (args) => {
   const [selectedValue, setSelectedValue] = useState<TItemValue | undefined>(null)
 
   return (
-    <div style={{ display: 'flex', height: '100vh', justifyContent: 'center' }}>
+    <div style={{ display: 'flex', maxHeight: '100vh', justifyContent: 'center' }}>
+    <div style={{ display: 'flex',  justifyContent: 'center', minHeight: '1000px' }}>
       <_Select
         {...args}
         dataId={'single-select'}
@@ -296,6 +297,7 @@ const Template: StoryFn<TSingleSelectPropTypes> = (args) => {
         withSearch={true}
         optionRightIconComponent={(value) => <>{value}</>}
       />
+    </div>
     </div>
   )
 }
