@@ -284,20 +284,20 @@ const Template: StoryFn<TSingleSelectPropTypes> = (args) => {
 
   return (
     <div style={{ display: 'flex', maxHeight: '100vh', justifyContent: 'center' }}>
-    <div style={{ display: 'flex',  justifyContent: 'center', minHeight: '1000px' }}>
-      <_Select
-        {...args}
-        dataId={'single-select'}
-        tooltipAddons={{ position: Positions.BOTTOM_LEFT, text: '' }}
-        isRequiredField
-        options={OPTIONS}
-        outerHelperText="helper text"
-        selectedItem={selectedValue}
-        setSelectedItem={setSelectedValue}
-        withSearch={true}
-        optionRightIconComponent={(value) => <>{value}</>}
-      />
-    </div>
+      <div style={{ display: 'flex', justifyContent: 'center', minHeight: '1000px' }}>
+        <_Select
+          {...args}
+          dataId={'single-select'}
+          tooltipAddons={{ position: Positions.BOTTOM_LEFT, text: '' }}
+          isRequiredField
+          options={OPTIONS}
+          outerHelperText="helper text"
+          selectedItem={selectedValue}
+          setSelectedItem={setSelectedValue}
+          withSearch={true}
+          optionRightIconComponent={(value) => <>{value}</>}
+        />
+      </div>
     </div>
   )
 }
