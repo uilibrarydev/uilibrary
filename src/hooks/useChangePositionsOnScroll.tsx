@@ -20,7 +20,13 @@ export const useChangePositionsOnScroll = (
     }
   }
   useEffect(() => {
-    window.addEventListener('scroll', positionElement)
+    if (childElement) {
+      window.addEventListener('scroll', positionElement)
+
+      return () => {
+        window.removeEventListener('scroll', positionElement)
+      }
+    }
   }, [positionElement])
 
   useEffect(() => {
