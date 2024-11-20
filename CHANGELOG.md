@@ -1,3 +1,10 @@
+## [2.27.4](https://github.com/dinofrontend/dino_ui_library/compare/2.27.3...2.27.4) (2024-11-20)
+
+
+### Bug Fixes
+
+* added icon props for link component, update link and button link type ui ([c3f1913](https://github.com/dinofrontend/dino_ui_library/commit/c3f1913d8ff1f79d24a4c618b4454a817dbb080d))
+
 ## [2.27.3](https://github.com/dinofrontend/dino_ui_library/compare/2.27.2...2.27.3) (2024-11-19)
 
 
