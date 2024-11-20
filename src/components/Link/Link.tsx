@@ -12,11 +12,12 @@ export const Link = (props: LinkPropTypes): ReactElement => {
     url,
     dataId = '',
     target,
+    iconProps,
     onclick
   } = props
   return beforeLink || afterLink ? (
     <span className={className}>
-      {beforeLink}
+      {beforeLink + ' '}
       <a
         onClick={(e) => {
           if (onclick) {
@@ -31,7 +32,7 @@ export const Link = (props: LinkPropTypes): ReactElement => {
       >
         {children}
       </a>
-      {afterLink}
+      {' ' + afterLink}
     </span>
   ) : (
     <a
@@ -42,11 +43,22 @@ export const Link = (props: LinkPropTypes): ReactElement => {
         }
       }}
       href={url}
-      className={classNames(`link ${className}`)}
+      className={classNames('link', {
+          [`link--icon-${iconProps?.alignment || 'left'}`] : iconProps?.Component
+        }, className
+      )}
       data-id={`${dataId}-link`}
       target={target}
     >
-      {children}
+        <>
+            {iconProps?.Component ? (
+                <iconProps.Component
+                    size='small'
+                    className="link__icon"
+                />
+            ) : null}
+            {children}
+        </>
     </a>
   )
 }
