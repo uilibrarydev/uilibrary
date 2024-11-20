@@ -1,3 +1,10 @@
+## [2.27.5](https://github.com/dinofrontend/dino_ui_library/compare/2.27.4...2.27.5) (2024-11-20)
+
+
+### Bug Fixes
+
+* add height for button link type ([7ded3e9](https://github.com/dinofrontend/dino_ui_library/commit/7ded3e96e37fe96a15130c1ec5415bcca2765ee9))
+
 ## [2.27.4](https://github.com/dinofrontend/dino_ui_library/compare/2.27.3...2.27.4) (2024-11-20)
 
 
