@@ -1,3 +1,10 @@
+## [2.27.6](https://github.com/dinofrontend/dino_ui_library/compare/2.27.5...2.27.6) (2024-11-26)
+
+
+### Bug Fixes
+
+* add new border radius tokens ([ac0726b](https://github.com/dinofrontend/dino_ui_library/commit/ac0726b81ffe498f53436327b1b9b08c861efadb))
+
 ## [2.27.5](https://github.com/dinofrontend/dino_ui_library/compare/2.27.4...2.27.5) (2024-11-20)
 
 
