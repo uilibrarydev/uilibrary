@@ -1,4 +1,4 @@
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react'
 import React, { useCallback, useMemo, useRef } from 'react'
 import { Loading } from '../SharedComponents'
 import { MultiSelectGrouped } from './MultiSelectGrouped/MultiSelectGrouped'

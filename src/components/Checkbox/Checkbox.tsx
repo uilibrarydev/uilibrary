@@ -1,4 +1,4 @@
-import type { ForwardedRef, ReactElement} from 'react';
+import type { ForwardedRef, ReactElement } from 'react'
 import React, { useRef, useMemo, forwardRef } from 'react'
 import classnames from 'classnames'
 import { Popover } from '../Popover'

@@ -1,4 +1,4 @@
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react'
 import React, { useCallback, useId, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useOnOutsideClick, useHideOnScroll } from '../../../hooks'

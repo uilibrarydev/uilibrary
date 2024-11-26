@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement } from 'react'
 import React from 'react'
 import { ToastContainer, toast, Slide } from 'react-toastify'
 import type { ToastItem } from 'react-toastify'

@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement } from 'react'
 import React from 'react'
 import type { LinkPropTypes } from './types'
 import classNames from 'classnames'
@@ -43,22 +43,20 @@ export const Link = (props: LinkPropTypes): ReactElement => {
         }
       }}
       href={url}
-      className={classNames('link', {
-          [`link--icon-${iconProps?.alignment || 'left'}`] : iconProps?.Component
-        }, className
+      className={classNames(
+        'link',
+        {
+          [`link--icon-${iconProps?.alignment || 'left'}`]: iconProps?.Component
+        },
+        className
       )}
       data-id={`${dataId}-link`}
       target={target}
     >
-        <>
-            {iconProps?.Component ? (
-                <iconProps.Component
-                    size='small'
-                    className="link__icon"
-                />
-            ) : null}
-            {children}
-        </>
+      <>
+        {iconProps?.Component ? <iconProps.Component size="small" className="link__icon" /> : null}
+        {children}
+      </>
     </a>
   )
 }

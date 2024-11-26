@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement } from 'react'
 import React from 'react'
 import { ICONS_MAPPING, TYPE_MAPPING } from './consts'
 import classnames from 'classnames'

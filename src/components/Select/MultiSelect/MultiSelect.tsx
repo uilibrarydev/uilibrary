@@ -1,4 +1,4 @@
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react'
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
 
 import { OptionsWrapper } from './OptionsWrapper'

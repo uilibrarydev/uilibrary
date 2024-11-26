@@ -1,4 +1,4 @@
-import type { ForwardedRef, ReactElement} from 'react';
+import type { ForwardedRef, ReactElement } from 'react'
 import React, { forwardRef, useState } from 'react'
 import { CollapseItem } from '../CollapseItem/CollapseItem'
 

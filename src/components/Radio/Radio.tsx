@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement } from 'react'
 import React, { forwardRef } from 'react'
 import type { TRadioProps } from './types'
 import { Text } from '../Text'

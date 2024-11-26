@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement } from 'react'
 import React from 'react'
 import type { HeadingPropTypes } from './types'
 import { noop } from '../../utils/helpers'

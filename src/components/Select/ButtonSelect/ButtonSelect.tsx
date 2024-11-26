@@ -1,4 +1,4 @@
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react'
 import React, { useRef, useId, useState } from 'react'
 import classNames from 'classnames'
 import { OptionItem } from '../../../helperComponents'

@@ -4,7 +4,7 @@ import { type StoryFn } from '@storybook/react'
 import { Button as _Button } from '../index'
 import { TButtonPropTypes } from '../components/Button/types'
 import { CodeBlock } from '../helperComponents'
-import IconChevronDown from "../components/SVGIcons/IconChevronDown";
+import IconChevronDown from '../components/SVGIcons/IconChevronDown'
 
 export default {
   title: 'Button',
