@@ -1,3 +1,10 @@
+## [2.27.7](https://github.com/dinofrontend/dino_ui_library/compare/2.27.6...2.27.7) (2024-11-26)
+
+
+### Bug Fixes
+
+* otp input fix to accept 0 ([9082ca0](https://github.com/dinofrontend/dino_ui_library/commit/9082ca0f3ebb4a9c93d9a9b2a1a06b709c10a2dc))
+
 ## [2.27.6](https://github.com/dinofrontend/dino_ui_library/compare/2.27.5...2.27.6) (2024-11-26)
 
 
