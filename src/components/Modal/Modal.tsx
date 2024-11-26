@@ -1,4 +1,4 @@
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react'
 import React, { useId, useState } from 'react'
 import classnames from 'classnames'
 import { motion } from 'framer-motion'

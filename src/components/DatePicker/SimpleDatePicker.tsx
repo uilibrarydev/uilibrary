@@ -1,4 +1,4 @@
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react'
 import React, { useRef } from 'react'
 import dayjs from 'dayjs'
 import DatePicker from 'react-datepicker'

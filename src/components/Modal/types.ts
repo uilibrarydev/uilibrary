@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import type { TButtonPropTypes } from '../Button/types'
-import type {ISVGIconProps} from '../SVGIcons/types';
+import type { ISVGIconProps } from '../SVGIcons/types'
 
 export interface TModalPropTypes {
   dataIdPrefix?: string

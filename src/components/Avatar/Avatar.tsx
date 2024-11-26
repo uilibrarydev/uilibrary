@@ -1,4 +1,4 @@
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react'
 import React, { useEffect, useState } from 'react'
 import type { TAvatarProps } from './types'
 import classNames from 'classnames'

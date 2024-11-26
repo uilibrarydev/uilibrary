@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement } from 'react'
 import React from 'react'
 import type { ISVGIconProps } from './types'
 import classNames from 'classnames'

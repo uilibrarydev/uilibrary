@@ -1,4 +1,4 @@
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react'
 import React, { useContext } from 'react'
 import { ErrorMessage as ReactHookFormErrorMessage } from '@hookform/error-message'
 import { ErrorMessage } from '../../helperComponents'

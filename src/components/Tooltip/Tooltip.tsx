@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
 import { Text } from '../Text'
 import { useGetTooltipStyles, useHideOnScroll } from '../../hooks'
-import type { TTooltipProps } from './types';
+import type { TTooltipProps } from './types'
 import { Positions } from './types'
 
 export const Tooltip = (props: TTooltipProps): JSX.Element | null => {

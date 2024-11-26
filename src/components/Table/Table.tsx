@@ -1,17 +1,7 @@
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
-import type {
-  Column,
-  HeaderGroup,
-  Row as RowType,
-  TableInstance,
-  Hooks
-} from 'react-table';
-import {
-  useSortBy,
-  useTable,
-  useRowSelect
-} from 'react-table'
+import type { Column, HeaderGroup, Row as RowType, TableInstance, Hooks } from 'react-table'
+import { useSortBy, useTable, useRowSelect } from 'react-table'
 import type { TColumn, TTableProps } from './types'
 import { setSelectedRows } from './utils'
 import { Row } from './Row'

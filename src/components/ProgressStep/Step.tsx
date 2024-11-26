@@ -1,8 +1,8 @@
 import classNames from 'classnames'
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react'
 import React, { useMemo } from 'react'
 import { Text } from '../Text'
-import type { TStepProps } from './types';
+import type { TStepProps } from './types'
 import { StepTypes } from './types'
 import { PROGRESS_STATUSES } from './consts'
 import IconDismissCircle from '../SVGIcons/IconDismissCircle'

@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement } from 'react'
 import React, { useState, useRef } from 'react'
 import { Button } from '../Button'
 import { Popover } from '../Popover'

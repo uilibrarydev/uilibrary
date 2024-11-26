@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement } from 'react'
 import React from 'react'
 import { Chips } from '../../Chips'
 import type { TChipsProps } from '../../Chips/types'
