@@ -1,5 +1,5 @@
-import type { ReactElement} from 'react';
-import React, {useId, useState} from 'react'
+import type { ReactElement } from 'react'
+import React, { useId, useState } from 'react'
 import classnames from 'classnames'
 import { motion } from 'framer-motion'
 import { AnimatePresenceWrapper } from '../../helperComponents/AnimatePresenceWrapper'
@@ -7,7 +7,7 @@ import { useHideBodyScroll, useOnOutsideClick } from '../../hooks'
 import { Button } from '../Button'
 import { Text } from '../Text'
 import type { TModalConfirmationPropTypes } from './types'
-import {FramedIcon} from '../FramedIcon';
+import { FramedIcon } from '../FramedIcon'
 
 const DESKTOP_ANIMATION = {
   initial: { opacity: 0.5, scale: 0.65 },
@@ -39,7 +39,7 @@ export const ModalConfirmation = (props: TModalConfirmationPropTypes): ReactElem
     dataIdPrefix,
     closeOnOutsideClick = true,
     iconProps,
-    subtitle,
+    subtitle
     // type = 'secondary'
   } = props
 
@@ -68,7 +68,7 @@ export const ModalConfirmation = (props: TModalConfirmationPropTypes): ReactElem
           >
             <div className={'modal__content'}>
               {iconProps?.Component ? (
-                <FramedIcon className={'modal__icon mb-32'} size={'medium'} iconProps={iconProps}/>
+                <FramedIcon className={'modal__icon mb-32'} size={'medium'} iconProps={iconProps} />
               ) : null}
               {title ? (
                 <Text

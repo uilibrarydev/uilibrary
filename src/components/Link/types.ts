@@ -1,4 +1,4 @@
-import type {TSVGIconType} from '../SVGIcons/types';
+import type { TSVGIconType } from '../SVGIcons/types'
 
 export interface LinkPropTypes {
   children?: string | JSX.Element

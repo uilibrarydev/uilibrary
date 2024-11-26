@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link as _Link} from '../index'
+import { Link as _Link } from '../index'
 import { StoryFn } from '@storybook/react'
 import { LinkPropTypes } from '../components/Link/types'
-import IconChevronDown from "../components/SVGIcons/IconChevronDown";
+import IconChevronDown from '../components/SVGIcons/IconChevronDown'
 
 export default {
   title: 'Link',

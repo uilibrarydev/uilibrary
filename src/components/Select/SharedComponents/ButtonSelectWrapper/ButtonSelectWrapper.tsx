@@ -1,4 +1,4 @@
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react'
 import React, { useMemo, useRef } from 'react'
 import classNames from 'classnames'
 import { Button } from './Button/Button'

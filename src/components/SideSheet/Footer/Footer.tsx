@@ -1,4 +1,4 @@
-import type { ReactElement} from 'react';
+import type { ReactElement } from 'react'
 import React, { useCallback } from 'react'
 import type { TButtonPropTypes } from '../../Button/types'
 import { Button } from '../../Button'

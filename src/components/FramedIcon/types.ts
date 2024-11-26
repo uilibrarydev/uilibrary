@@ -1,4 +1,4 @@
-import type {ISVGIconProps} from '../SVGIcons/types';
+import type { ISVGIconProps } from '../SVGIcons/types'
 
 export interface TFramedIconPropTypes {
   className?: string

@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import type { TFormContextProps } from './types';
+import type { TFormContextProps } from './types'
 import { FormContext } from './types'
 
 export const WithFormFeedback = ({

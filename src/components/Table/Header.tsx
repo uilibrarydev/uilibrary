@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement } from 'react'
 import React from 'react'
 import type { HeaderGroup, CellValue } from 'react-table'
 import classNames from 'classnames'

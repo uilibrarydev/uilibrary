@@ -1,4 +1,4 @@
-import type { ReactElement } from 'react';
+import type { ReactElement } from 'react'
 import React from 'react'
 import { Tooltip } from '../Tooltip'
 import { Avatar } from './Avatar'

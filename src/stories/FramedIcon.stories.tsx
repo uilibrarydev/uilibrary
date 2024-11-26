@@ -3,7 +3,7 @@ import { type StoryFn } from '@storybook/react'
 
 import { FramedIcon as _FramedIcon } from '../index'
 import { TButtonIconPropTypes } from '../components/ButtonIcon/types'
-import IconDelete from "../components/SVGIcons/IconDelete";
+import IconDelete from '../components/SVGIcons/IconDelete'
 
 export default {
   title: 'FramedIcon',
@@ -16,14 +16,11 @@ export default {
   }
 }
 
-
 const Template: StoryFn<TButtonIconPropTypes> = (args) => (
   <div>
-    <_FramedIcon {...args} iconProps={{Component: IconDelete, type: 'warning'}}/>
+    <_FramedIcon {...args} iconProps={{ Component: IconDelete, type: 'warning' }} />
   </div>
 )
 
 export const FramedIcon = Template.bind({})
-FramedIcon.args = {
-
-}
+FramedIcon.args = {}
