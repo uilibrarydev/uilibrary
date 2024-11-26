@@ -32,7 +32,7 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
     const inputRefs = useRef<(HTMLInputElement | null)[]>([])
 
     const onChange = (e: TChangeEventType, value: string, index: number) => {
-      if ((!!Number(value) && value.length <= 1) || value === '') {
+      if (((!!Number(value) || value === '0') && value.length === 1) || value === '') {
         const newOtp = [...otp]
         newOtp[index] = value?.slice(-1)
         setOtp(newOtp)
