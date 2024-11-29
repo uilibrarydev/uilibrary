@@ -90,7 +90,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   }
 
   const handleOutsideClick = () => {
-    if (!searchValue && isRequiredField) {
+    if (!searchValue) {
       setCurrentSelectedLabel()
     }
     closeDropdown()
@@ -195,7 +195,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         rightIconProps={isOpen ? selectRightIconOpenedProps : selectRightIconProps}
         readonly={!isWithSearch}
         placeholder={placeHolder}
-        value={selectedOption?.label || ''}
+        value={selectedOption?.label || searchValue || ''}
         isValid={isValid}
         disabled={disabled}
         helperText={isOpen ? '' : outerHelperText}
