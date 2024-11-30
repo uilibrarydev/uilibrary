@@ -1,3 +1,10 @@
+## [2.27.8](https://github.com/dinofrontend/dino_ui_library/compare/2.27.7...2.27.8) (2024-11-30)
+
+
+### Bug Fixes
+
+* input value for searching items ([751c2f7](https://github.com/dinofrontend/dino_ui_library/commit/751c2f7b5fba0ee6f669d419169be963cff126d1))
+
 ## [2.27.7](https://github.com/dinofrontend/dino_ui_library/compare/2.27.6...2.27.7) (2024-11-26)
 
 
