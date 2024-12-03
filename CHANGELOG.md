@@ -1,3 +1,10 @@
+## [2.27.9](https://github.com/dinofrontend/dino_ui_library/compare/2.27.8...2.27.9) (2024-12-03)
+
+
+### Bug Fixes
+
+* change helper text condition ([5d4fa76](https://github.com/dinofrontend/dino_ui_library/commit/5d4fa7611aed7e6531e23d6d2552987830c0fc31))
+
 ## [2.27.8](https://github.com/dinofrontend/dino_ui_library/compare/2.27.7...2.27.8) (2024-11-30)
 
 
