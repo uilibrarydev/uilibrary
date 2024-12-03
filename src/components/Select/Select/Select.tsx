@@ -198,7 +198,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         value={selectedOption?.label || searchValue || ''}
         isValid={isValid}
         disabled={disabled}
-        helperText={isOpen ? '' : outerHelperText}
+        helperText={outerHelperText}
         ref={inputRef}
         labelAddons={labelAddons}
         autoComplete="false"
