@@ -1,3 +1,11 @@
+## [2.27.10](https://github.com/dinofrontend/dino_ui_library/compare/2.27.9...2.27.10) (2024-12-09)
+
+
+### Bug Fixes
+
+* added types for link component ([70c6402](https://github.com/dinofrontend/dino_ui_library/commit/70c6402695bc468333ee2a40ad114c30a60055e2))
+* update hexes of brand colors and update text button ui ([79e2bcb](https://github.com/dinofrontend/dino_ui_library/commit/79e2bcbeb722fd2f7ef4407140042c598d892bf5))
+
 ## [2.27.9](https://github.com/dinofrontend/dino_ui_library/compare/2.27.8...2.27.9) (2024-12-03)
 
 
