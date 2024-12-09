@@ -6,7 +6,13 @@ import IconChevronDown from '../components/SVGIcons/IconChevronDown'
 
 export default {
   title: 'Link',
-  component: _Link
+  component: _Link,
+  argTypes: {
+    type: {
+      options: ['primary', 'secondary'],
+      control: {type: 'radio'}
+    }
+  }
 }
 
 const Template: StoryFn<LinkPropTypes> = (args) => {
