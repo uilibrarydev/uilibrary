@@ -1,3 +1,10 @@
+## [2.27.11](https://github.com/dinofrontend/dino_ui_library/compare/2.27.10...2.27.11) (2024-12-10)
+
+
+### Bug Fixes
+
+* fix underline for link ([0aac23f](https://github.com/dinofrontend/dino_ui_library/commit/0aac23f4cc36d4c757ce24d119f006ba9e94fc25))
+
 ## [2.27.10](https://github.com/dinofrontend/dino_ui_library/compare/2.27.9...2.27.10) (2024-12-09)
 
 
