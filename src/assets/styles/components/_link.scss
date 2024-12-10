@@ -20,13 +20,10 @@
 
   --ds-link-transition: background-color .3s linear, color .3s linear, border-color .3s linear;
 
-  transition: var(--ds-link-transition);
   @include mixin.inline-flex;
   @include mixin.align-items(center);
-
-  &:hover {
-    text-decoration: underline;
-  }
+  text-decoration: underline;
+  transition: var(--ds-link-transition);
 
   &:focus {
     box-shadow: var(--ds-link-shadown-focused);
