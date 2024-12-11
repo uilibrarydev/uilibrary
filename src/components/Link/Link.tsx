@@ -5,6 +5,7 @@ import classNames from 'classnames'
 
 export const Link = (props: LinkPropTypes): ReactElement => {
   const {
+    type = 'primary',
     children,
     afterLink,
     beforeLink,
@@ -26,7 +27,10 @@ export const Link = (props: LinkPropTypes): ReactElement => {
           }
         }}
         href={url}
-        className={'link'}
+        className={classNames(
+            'link',
+            `link--${type}`
+        )}
         data-id={`${dataId}-link`}
         target={target}
       >
@@ -44,7 +48,8 @@ export const Link = (props: LinkPropTypes): ReactElement => {
       }}
       href={url}
       className={classNames(
-        'link',
+          'link',
+          `link--${type}`,
         {
           [`link--icon-${iconProps?.alignment || 'left'}`]: iconProps?.Component
         },
