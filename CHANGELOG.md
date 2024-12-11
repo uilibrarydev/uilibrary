@@ -1,3 +1,16 @@
+# [2.28.0](https://github.com/dinofrontend/dino_ui_library/compare/2.27.11...2.28.0) (2024-12-11)
+
+
+### Bug Fixes
+
+* fix comments ([f4724de](https://github.com/dinofrontend/dino_ui_library/commit/f4724deab51dd923d54d4298f708b441e6f6fe94))
+
+
+### Features
+
+* change select search functionality ([4728ad6](https://github.com/dinofrontend/dino_ui_library/commit/4728ad6a7720670caf175ebf60f14bbb51469c72))
+* remove use callback ([b1cf973](https://github.com/dinofrontend/dino_ui_library/commit/b1cf973688baa46e7e0ed9b00e21d931d26e5722))
+
 ## [2.27.11](https://github.com/dinofrontend/dino_ui_library/compare/2.27.10...2.27.11) (2024-12-10)
 
 
