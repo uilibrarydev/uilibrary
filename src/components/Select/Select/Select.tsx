@@ -61,17 +61,26 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [searchValue, setSearchValue] = useState<string>('')
   const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null)
-  const [isDynamicSearchEnabled, setIsDynamicSearchEnabled] = useState<boolean>(false)
 
+  const isDynamicSearchEnabled = useMemo(() => {
+    if (isOpen) {
+      const scrollHeight = scrollRef.current?.scrollHeight || 0
+      const optionsContentHeight = dropdownRef?.offsetHeight || 0
+
+      return scrollHeight > optionsContentHeight
+    }
+
+    return false
+  }, [isOpen, scrollRef, dropdownRef])
   const currentSelection = (value as TItemValue) || selectedItem
   const [selectedOption, setSelectedOption] = useState<TSelectOption | null>(null)
 
   const isWithSearch = withSearch && isDynamicSearchEnabled
 
-  const setCurrentSelectedLabel = () => {
+  const setCurrentSelectedLabel = useCallback(() => {
     const selectedItem = options.find((item) => item.value === currentSelection) as TSelectOption
     setSelectedOption(selectedItem)
-  }
+  }, [currentSelection, options])
 
   const leftIconProps = selectedOption?.optionLeftIcon?.Component
     ? {
@@ -79,21 +88,9 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
       }
     : null
 
-  const handleScrollHeightCheck = useCallback(() => {
-    const scrollHeight = scrollRef.current?.scrollHeight || 0
-    const optionsContentHeight = dropdownRef?.offsetHeight || 0
-    setIsDynamicSearchEnabled(scrollHeight > optionsContentHeight)
-  }, [dropdownRef])
-
   useEffect(() => {
     setCurrentSelectedLabel()
   }, [setCurrentSelectedLabel])
-
-  useEffect(() => {
-    if (isOpen) {
-      handleScrollHeightCheck()
-    }
-  }, [isOpen, handleScrollHeightCheck])
 
   const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => {
@@ -228,7 +225,6 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
           }}
           ref={(ref) => {
             setDropdownRef(ref)
-            handleScrollHeightCheck()
           }}
         >
           {isLoading ? (
