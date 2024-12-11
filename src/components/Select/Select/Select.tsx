@@ -12,7 +12,6 @@ import { Text } from '../../Text'
 import { OptionItem } from '../../../helperComponents'
 import { Loading } from '../SharedComponents'
 import type { TSingleSelectPropTypes } from '../types'
-import { SELECTED_VISIBLE_MIN_COUNT } from '../constants'
 import { useChangePositionsOnScroll } from '../../../hooks/useChangePositionsOnScroll'
 import { IconCaretUpFilled } from '../../SVGIcons/IconCaretUpFilled'
 import { IconCaretDownFilled } from '../../SVGIcons/IconCaretDownFilled'
@@ -31,7 +30,6 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     hasError,
     isLoading,
     isValid,
-    // REMEMBER that withSearch works only when options length is more than SELECTED_VISIBLE_MIN_COUNT/15
     withSearch,
     disabled,
     dataId = '',
@@ -56,17 +54,28 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     labelAddons,
     tooltipAddons
   } = props
+
   const scrollRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement | null>(null)
-  const { scrollHeight } = useGetElemSizes(scrollRef.current)
-  const [isOpen, setIsOpen] = useState<boolean>(false)
   const containerRef = useRef<HTMLDivElement>(null)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   const [searchValue, setSearchValue] = useState<string>('')
   const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null)
+
+  const isDynamicSearchEnabled = useMemo(() => {
+    if (isOpen) {
+      const scrollHeight = scrollRef.current?.scrollHeight || 0
+      const optionsContentHeight = dropdownRef?.offsetHeight || 0
+
+      return scrollHeight > optionsContentHeight
+    }
+
+    return false
+  }, [isOpen, scrollRef, dropdownRef])
   const currentSelection = (value as TItemValue) || selectedItem
   const [selectedOption, setSelectedOption] = useState<TSelectOption | null>(null)
 
-  const isWithSearch = withSearch && options.length > SELECTED_VISIBLE_MIN_COUNT
+  const isWithSearch = withSearch && isDynamicSearchEnabled
 
   const setCurrentSelectedLabel = useCallback(() => {
     const selectedItem = options.find((item) => item.value === currentSelection) as TSelectOption
@@ -193,7 +202,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
         required={isRequiredField}
         leftIconProps={leftIconProps}
         rightIconProps={isOpen ? selectRightIconOpenedProps : selectRightIconProps}
-        readonly={!isWithSearch}
+        readonly={!searchValue && !isWithSearch}
         placeholder={placeHolder}
         value={selectedOption?.label || searchValue || ''}
         isValid={isValid}
@@ -214,52 +223,47 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
               ? { top: bottom }
               : { bottom: window.innerHeight - top + DROPDOWN_AND_INPUT_GAP })
           }}
-          ref={setDropdownRef}
+          ref={(ref) => {
+            setDropdownRef(ref)
+          }}
         >
           {isLoading ? (
             <Loading />
           ) : (
-            <>
-              <div
-                data-id={`${dataId}-options-content`}
-                ref={scrollRef}
-                className={classNames(
-                  'select__options__scroll',
-                  'scrollbar',
-                  'scrollbar--vertical',
-                  {
-                    'mr-6': scrollHeight > 300
-                  }
-                )}
-              >
-                {innerHelperText ? (
-                  <div className="content-top">
-                    <Text size="xsmall" type="secondary" className="content-top__label">
-                      {innerHelperText}
-                    </Text>
-                  </div>
-                ) : null}
+            <div
+              data-id={`${dataId}-options-content`}
+              ref={scrollRef}
+              className={classNames('select__options__scroll', 'scrollbar', 'scrollbar--vertical', {
+                'mr-6': (scrollRef.current?.scrollHeight || 0) > 300
+              })}
+            >
+              {innerHelperText ? (
+                <div className="content-top">
+                  <Text size="xsmall" type="secondary" className="content-top__label">
+                    {innerHelperText}
+                  </Text>
+                </div>
+              ) : null}
 
-                {filteredData.map((item: TSelectOption) => {
-                  const isSelected = item.value === currentSelection
-                  return (
-                    <OptionItem
-                      tooltipAddons={tooltipAddons}
-                      data={item}
-                      key={item.value}
-                      onClick={clickHandler(isSelected)}
-                      optionLeftIcon={item?.optionLeftIcon}
-                      labelLeftIconProps={labelLeftIconProps}
-                      OptionRightIconComponent={optionRightIconComponent}
-                      LabelRightIconComponent={labelRightIconComponent}
-                      avatar={avatar}
-                      disabled={item.disabled}
-                      isSelected={isSelected}
-                    />
-                  )
-                })}
-              </div>
-            </>
+              {filteredData.map((item: TSelectOption) => {
+                const isSelected = item.value === currentSelection
+                return (
+                  <OptionItem
+                    tooltipAddons={tooltipAddons}
+                    data={item}
+                    key={item.value}
+                    onClick={clickHandler(isSelected)}
+                    optionLeftIcon={item?.optionLeftIcon}
+                    labelLeftIconProps={labelLeftIconProps}
+                    OptionRightIconComponent={optionRightIconComponent}
+                    LabelRightIconComponent={labelRightIconComponent}
+                    avatar={avatar}
+                    disabled={item.disabled}
+                    isSelected={isSelected}
+                  />
+                )
+              })}
+            </div>
           )}
         </div>
       )}
