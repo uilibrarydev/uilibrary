@@ -53,49 +53,49 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     },
     labelAddons,
     tooltipAddons
-  } = props;
+  } = props
 
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [searchValue, setSearchValue] = useState<string>('');
-  const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null);
-  const [isDynamicSearchEnabled, setIsDynamicSearchEnabled] = useState<boolean>(false);
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [searchValue, setSearchValue] = useState<string>('')
+  const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null)
+  const [isDynamicSearchEnabled, setIsDynamicSearchEnabled] = useState<boolean>(false)
 
-  const currentSelection = (value as TItemValue) || selectedItem;
-  const [selectedOption, setSelectedOption] = useState<TSelectOption | null>(null);
+  const currentSelection = (value as TItemValue) || selectedItem
+  const [selectedOption, setSelectedOption] = useState<TSelectOption | null>(null)
 
-  const isWithSearch = withSearch && (isDynamicSearchEnabled );
+  const isWithSearch = withSearch && isDynamicSearchEnabled
 
-  const setCurrentSelectedLabel = useCallback(() => {
+  const setCurrentSelectedLabel = () => {
     const selectedItem = options.find((item) => item.value === currentSelection) as TSelectOption
     setSelectedOption(selectedItem)
-  }, [currentSelection, options])
+  }
 
   const leftIconProps = selectedOption?.optionLeftIcon?.Component
     ? {
-      Component: selectedOption?.optionLeftIcon?.Component
-    }
+        Component: selectedOption?.optionLeftIcon?.Component
+      }
     : null
 
   const handleScrollHeightCheck = useCallback(() => {
-    const scrollHeight = scrollRef.current?.scrollHeight || 0;
-    const optionsContentHeight = dropdownRef?.offsetHeight || 0;
-    setIsDynamicSearchEnabled(scrollHeight > optionsContentHeight);
-  }, [dropdownRef]);
+    const scrollHeight = scrollRef.current?.scrollHeight || 0
+    const optionsContentHeight = dropdownRef?.offsetHeight || 0
+    setIsDynamicSearchEnabled(scrollHeight > optionsContentHeight)
+  }, [dropdownRef])
 
   useEffect(() => {
-    setCurrentSelectedLabel();
-  }, [setCurrentSelectedLabel]);
+    setCurrentSelectedLabel()
+  }, [setCurrentSelectedLabel])
 
   useEffect(() => {
     if (isOpen) {
-      handleScrollHeightCheck();
+      handleScrollHeightCheck()
     }
-  }, [isOpen, handleScrollHeightCheck]);
+  }, [isOpen, handleScrollHeightCheck])
 
-  const openDropdown = () => setIsOpen(true);
+  const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => {
     setIsOpen(false)
     setSearchValue('')
@@ -227,8 +227,8 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
               : { bottom: window.innerHeight - top + DROPDOWN_AND_INPUT_GAP })
           }}
           ref={(ref) => {
-            setDropdownRef(ref);
-            handleScrollHeightCheck();
+            setDropdownRef(ref)
+            handleScrollHeightCheck()
           }}
         >
           {isLoading ? (
@@ -237,14 +237,9 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
             <div
               data-id={`${dataId}-options-content`}
               ref={scrollRef}
-              className={classNames(
-                'select__options__scroll',
-                'scrollbar',
-                'scrollbar--vertical',
-                {
-                  'mr-6': (scrollRef.current?.scrollHeight || 0) > 300
-                }
-              )}
+              className={classNames('select__options__scroll', 'scrollbar', 'scrollbar--vertical', {
+                'mr-6': (scrollRef.current?.scrollHeight || 0) > 300
+              })}
             >
               {innerHelperText ? (
                 <div className="content-top">
@@ -255,7 +250,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
               ) : null}
 
               {filteredData.map((item: TSelectOption) => {
-                const isSelected = item.value === currentSelection;
+                const isSelected = item.value === currentSelection
                 return (
                   <OptionItem
                     tooltipAddons={tooltipAddons}
@@ -270,12 +265,12 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
                     disabled={item.disabled}
                     isSelected={isSelected}
                   />
-                );
+                )
               })}
             </div>
           )}
         </div>
       )}
     </div>
-  );
-};
+  )
+}
