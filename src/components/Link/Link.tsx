@@ -5,7 +5,7 @@ import classNames from 'classnames'
 
 export const Link = (props: LinkPropTypes): ReactElement => {
   const {
-    type = 'primary',
+    type = 'secondary',
     children,
     afterLink,
     beforeLink,
