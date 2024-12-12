@@ -1,3 +1,11 @@
+## [2.28.1](https://github.com/dinofrontend/dino_ui_library/compare/2.28.0...2.28.1) (2024-12-12)
+
+
+### Bug Fixes
+
+* change primary style for link component ([4ce461b](https://github.com/dinofrontend/dino_ui_library/commit/4ce461be4a61e5ff692325e7795115339e682ef6))
+* chnage line-height medium value ([7850ade](https://github.com/dinofrontend/dino_ui_library/commit/7850ade2f04f5f68340cc506694645c0e7dcf89b))
+
 # [2.28.0](https://github.com/dinofrontend/dino_ui_library/compare/2.27.11...2.28.0) (2024-12-11)
 
 
