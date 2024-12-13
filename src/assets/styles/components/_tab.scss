@@ -143,6 +143,20 @@
   --ds-tabs-secondary-tab-border-hover: transparent;
   --ds-tabs-secondary-tab-border-selected: var(--ds-color-border-tertiary);
   --ds-tabs-secondary-tab-border-radius: var(--ds-border-radius-lg);
+  --ds-tabs-tertiary-tab-heightt: var(--ds-size-40);
+  --ds-tabs-tertiary-tab-padding: var(--ds-space-10) var(--ds-space-12);
+  --ds-tabs-tertiary-tab-margin: 0 var(--ds-space-8) 0 0;
+  --ds-tabs-tertiary-tab-border-size: 1px;
+  --ds-tabs-tertiary-tab-border-default: transparent;
+  --ds-tabs-tertiary-bg: var(--ds-color-bg-container-light);
+  --ds-tabs-tertiary-tab-bg-default: transparent;
+  --ds-tabs-tertiary-tab-bg-hover: var(--ds-color-bg-container-lighter);
+  --ds-tabs-tertiary-tab-bg-selected: var(--ds-color-bg-container-light);
+  --ds-tabs-tertiary-tab-color-default: var(--ds-color-text-primary);
+  --ds-tabs-tertiary-tab-color-hover: var(--ds-color-text-primary);
+  --ds-tabs-tertiary-tab-color-selected: var(--ds-color-text-primary);
+  --ds-tabs-tertiary-tab-border-radius: var(--ds-border-radius-lg);
+  
 
   @include mixin.inline-flex;
   @include mixin.align-items(flex-end);
@@ -196,6 +210,51 @@
 
         .tab__icon, .tab__label {
           color: var(--ds-tabs-secondary-tab-color-selected);
+        }
+      }
+    }
+  }
+  &--tertiary {
+    
+    padding: var(--ds-tabs-secondary-padding);
+    border-radius: var(--ds-tabs-secondary-border-radius);
+
+    .tab {
+      padding: var(--ds-tabs-tertiary-tab-padding);
+      height: var(--ds-tabs-tertiary-tab-heightt);
+      margin: var(--ds-tabs-tertiary-tab-margin);
+      border-width: var(--ds-tabs-tertiary-tab-border-size);
+      border-style: solid;
+      background-color: var(--ds-tabs-tertiary-tab-bg-default);
+      border-color: var(--ds-tabs-tertiary-tab-border-default);
+      border-radius: var(--ds-tabs-tertiary-tab-border-radius);
+      transition: background-color .3s linear, border-color .3s linear;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      &:after {
+        content: none;
+      }
+
+      &__icon, &__label {
+        color: var(--ds-tabs-tertiary-tab-color-default);
+      }
+
+      &:not(&--selected):hover {
+        background-color: var(--ds-tabs-tertiary-tab-bg-hover);
+
+        .tab__icon, .tab__label {
+          color: var(--ds-tabs-tertiary-tab-color-hover);
+        }
+      }
+
+      &--selected {
+        background-color: var(--ds-tabs-tertiary-bg);
+
+        .tab__icon, .tab__label {
+          color: var(--ds-tabs-tertiary-tab-color-selected);
         }
       }
     }
