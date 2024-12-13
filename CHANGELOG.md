@@ -1,3 +1,10 @@
+## [2.29.1](https://github.com/dinofrontend/dino_ui_library/compare/2.29.0...2.29.1) (2024-12-13)
+
+
+### Bug Fixes
+
+* tab item padding ([11f0ebf](https://github.com/dinofrontend/dino_ui_library/commit/11f0ebf928fd1a190db3a65af135edf7b4120796))
+
 # [2.29.0](https://github.com/dinofrontend/dino_ui_library/compare/2.28.2...2.29.0) (2024-12-13)
 
 
