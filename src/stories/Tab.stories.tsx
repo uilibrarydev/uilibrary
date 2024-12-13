@@ -11,7 +11,7 @@ export default {
   component: _Tab,
   argTypes: {
     type: {
-      options: ['primary', 'secondary'],
+      options: ['primary', 'secondary', 'tertiary'],
       control: { type: 'radio' }
     },
     size: {

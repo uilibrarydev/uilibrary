@@ -10,7 +10,7 @@ export default {
   argTypes: {
     type: {
       options: ['primary', 'secondary'],
-      control: {type: 'radio'}
+      control: { type: 'radio' }
     }
   }
 }

@@ -19,7 +19,7 @@ export type TTabItem = {
 }
 export interface TTabProps extends IFormCompProps {
   tabItems: TTabItem[]
-  type?: 'primary' | 'secondary'
+  type?: 'primary' | 'secondary' | 'tertiary'
   size?: 'large' | 'medium' | 'small'
   className?: string
   disabled?: boolean
