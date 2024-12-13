@@ -1,3 +1,13 @@
+## [2.28.2](https://github.com/dinofrontend/dino_ui_library/compare/2.28.1...2.28.2) (2024-12-13)
+
+
+### Bug Fixes
+
+* fixed bugs on Select when we scroll menu should be scrolled also ([74418a2](https://github.com/dinofrontend/dino_ui_library/commit/74418a263ef8e56166da117adea020fdd79760c9))
+* fixed bugs on Select when we scroll menu should be scrolled also ([dc9d63e](https://github.com/dinofrontend/dino_ui_library/commit/dc9d63e1c2dd65c9dfadb6a05b115094ce3cd24f))
+* fixed bugs on Select when we scroll menu should be scrolled also ([79ea63c](https://github.com/dinofrontend/dino_ui_library/commit/79ea63cdabc35b20335d3ca64165010bf33610a7))
+* fixed bugs on Select when we scroll menu should be scrolled also ([0bd5b6e](https://github.com/dinofrontend/dino_ui_library/commit/0bd5b6e10143e00e6bac5ec2b9938d5cb79d0b10))
+
 ## [2.28.1](https://github.com/dinofrontend/dino_ui_library/compare/2.28.0...2.28.1) (2024-12-12)
 
 
