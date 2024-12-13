@@ -105,7 +105,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     closeDropdown()
   }
 
-  useOnOutsideClick(containerRef.current, handleOutsideClick, isOpen, useId())
+  useOnOutsideClick([inputRef.current, dropdownRef], handleOutsideClick, isOpen, useId())
 
   const { bottom, left, top } = useGetElemPositions(inputRef.current)
   const { width } = useGetElemSizes(containerRef.current)
