@@ -19,7 +19,7 @@ function handleMouseDownEvent(event: MouseEvent) {
   const { ref, callback, shouldRemoveCallback } = callbackObject
   let isContained = false
 
-  if (ref && Array.isArray(ref) && ref.some(eachElement => eachElement?.contains(event.target))) {
+  if (ref && Array.isArray(ref) && ref.some((eachElement) => eachElement?.contains(event.target))) {
     isContained = true
   } else if (ref && !Array.isArray(ref) && ref.contains(event.target)) {
     isContained = true
