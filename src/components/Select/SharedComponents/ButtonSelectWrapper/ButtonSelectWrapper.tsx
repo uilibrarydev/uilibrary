@@ -37,7 +37,7 @@ export const ButtonSelectWrapper = (props: TSelectWrapperProps): ReactElement =>
 
   const buttonRef = useRef<HTMLButtonElement>(null)
 
-  const openDropdown = () => setIsOpen(true)
+  const changeOpenState = () => setIsOpen(!isOpen)
 
   const { bottom, left, top, right } = useGetElemPositions(buttonRef.current)
   const { width: containerWidth } = useGetElemSizes(containerRef)
@@ -71,7 +71,7 @@ export const ButtonSelectWrapper = (props: TSelectWrapperProps): ReactElement =>
         isOpen={isOpen}
         buttonText={placeHolder || ''}
         selectedItemsLabels={selectedItemsLabels}
-        onClick={disabled ? noop : openDropdown}
+        onClick={disabled ? noop : changeOpenState}
         refHandler={buttonRef}
         className="select_button"
       />

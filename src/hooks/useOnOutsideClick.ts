@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 
+type TRefs = HTMLElement | (HTMLElement | null)[] | null
+
 type TProps = {
-  ref: HTMLElement
+  ref: TRefs
   callback: (event: MouseEvent) => void
   uid: string
   shouldRemoveCallback: boolean
@@ -15,9 +17,15 @@ function handleMouseDownEvent(event: MouseEvent) {
     return
   }
   const { ref, callback, shouldRemoveCallback } = callbackObject
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  if (ref && !ref.contains(event.target)) {
+  let isContained = false
+
+  if (ref && Array.isArray(ref) && ref.some(eachElement => eachElement?.contains(event.target))) {
+    isContained = true
+  } else if (ref && !Array.isArray(ref) && ref.contains(event.target)) {
+    isContained = true
+  }
+
+  if (!isContained) {
     if (shouldRemoveCallback) {
       callbackStack.splice(callbackStack.length - 1, 1)
     }
@@ -26,7 +34,7 @@ function handleMouseDownEvent(event: MouseEvent) {
 }
 
 export const useOnOutsideClick = (
-  ref: HTMLElement | null,
+  ref: TRefs,
   callback: (event: MouseEvent) => void,
   state: boolean,
   uid: string,
