@@ -1,3 +1,11 @@
+# [2.29.0](https://github.com/dinofrontend/dino_ui_library/compare/2.28.2...2.29.0) (2024-12-13)
+
+
+### Features
+
+* create new tab type ([d00160d](https://github.com/dinofrontend/dino_ui_library/commit/d00160d1eebc66ad2889ca2da0563ffacb61a4ff))
+* create new tab type ([35665a9](https://github.com/dinofrontend/dino_ui_library/commit/35665a9077e5edb6698bb503a4315871c8826923))
+
 ## [2.28.2](https://github.com/dinofrontend/dino_ui_library/compare/2.28.1...2.28.2) (2024-12-13)
 
 
