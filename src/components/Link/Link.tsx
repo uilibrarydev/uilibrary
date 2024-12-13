@@ -27,10 +27,7 @@ export const Link = (props: LinkPropTypes): ReactElement => {
           }
         }}
         href={url}
-        className={classNames(
-            'link',
-            `link--${type}`
-        )}
+        className={classNames('link', `link--${type}`)}
         data-id={`${dataId}-link`}
         target={target}
       >
@@ -48,8 +45,8 @@ export const Link = (props: LinkPropTypes): ReactElement => {
       }}
       href={url}
       className={classNames(
-          'link',
-          `link--${type}`,
+        'link',
+        `link--${type}`,
         {
           [`link--icon-${iconProps?.alignment || 'left'}`]: iconProps?.Component
         },
