@@ -14,8 +14,12 @@ export default {
       options: ['primary', 'secondary', 'tertiary'],
       control: { type: 'radio' }
     },
+    color: {
+      options: ['dark', 'light'],
+      control: { type: 'radio' }
+    },
     size: {
-      options: ['large', 'medium', 'small'],
+      options: ['large', 'small'],
       control: { type: 'radio' }
     }
   }
@@ -23,7 +27,7 @@ export default {
 
 const Template: StoryFn<TTabProps> = (args) => {
   const [selectedTab, onTabSelect] = useState(args.selectedValue)
-  return <_Tab {...args} selectedValue={selectedTab} onSelect={onTabSelect} />
+  return <_Tab {...args} selectedValue={selectedTab} onSelect={onTabSelect}/>
 }
 
 export const Tab = Template.bind({})
@@ -49,7 +53,7 @@ Tab.args = {
       },
       badgeProps: {
         text: '9',
-        type: 'primary'
+        type: 'secondary'
       }
     },
     {

@@ -4,10 +4,10 @@ import { Badge } from '../Badge'
 import { noop } from '../../utils/helpers'
 import type { TTabItemProps } from './types'
 import classNames from 'classnames'
+import {Text} from '../Text';
 
 export const TabItem = (props: TTabItemProps): JSX.Element | null => {
   const {
-    size = 'large',
     iconProps,
     badgeProps,
     label,
@@ -25,7 +25,6 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
       onClick={disabled ? noop : onClick}
       className={classNames(
         'tab',
-        { [`tab--${size}`]: size },
         { 'tab--disabled': disabled },
         { 'tab--selected': isSelected },
         className
@@ -34,13 +33,13 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
       {iconProps?.Component ? (
         <iconProps.Component
           className="tab__icon mr-8"
-          size={`${size == 'small' ? 'xsmall' : 'small'}`}
+          size={'small'}
           {...iconProps}
         />
       ) : null}
-      <span className="tab__label" data-id={dataId}>
+      <Text as={'span'} className={'tab__label'} data-id={dataId}>
         {label}
-      </span>
+      </Text>
       {rightIconProps?.Component ? (
         <rightIconProps.Component
           onClick={(e: MouseEvent<unknown>) => {
@@ -50,7 +49,7 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
             }
           }}
           className="tab__icon ml-8"
-          size={`${size == 'small' ? 'xsmall' : 'small'}`}
+          size={'small'}
           {...rightIconProps}
         />
       ) : null}

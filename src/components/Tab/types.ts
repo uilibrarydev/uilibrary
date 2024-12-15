@@ -20,7 +20,8 @@ export type TTabItem = {
 export interface TTabProps extends IFormCompProps {
   tabItems: TTabItem[]
   type?: 'primary' | 'secondary' | 'tertiary'
-  size?: 'large' | 'medium' | 'small'
+  color?: 'dark' | 'light'
+  size?: 'large' | 'small'
   className?: string
   disabled?: boolean
   selectedValue: number | string
@@ -30,7 +31,7 @@ export interface TTabProps extends IFormCompProps {
 export type TTabItemProps = {
   dataId?: string
   label?: string | JSX.Element
-  size?: 'large' | 'medium' | 'small'
+  size?: 'large' | 'small'
   className?: string
   iconProps?: {
     name?: string

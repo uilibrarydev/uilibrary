@@ -5,14 +5,17 @@ import { TabItem } from './TabItem'
 import classNames from 'classnames'
 
 export const Tab = (props: TTabProps): ReactElement => {
-  const { selectedValue, tabItems, onSelect, size, className, type = 'primary', ...rest } = props
+  const { selectedValue, tabItems, onSelect, size, className, type = 'primary', color, ...rest } = props
 
   return (
-    <div className={classNames('tabs-container', `tabs-container--${type}`, className)}>
+    <div className={classNames('tabs-container',
+        `tabs-container--${type}`,
+        `${color ? 'tabs-container--' + color : null }`,
+        `tabs-container--${size}`,
+        className)}>
       {tabItems.map((tabInfo) => {
         return (
           <TabItem
-            size={type === 'secondary' ? 'medium' : size}
             label={tabInfo.label}
             badgeProps={tabInfo.badgeProps}
             onClick={() => onSelect(tabInfo.value)}
