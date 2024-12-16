@@ -1,3 +1,11 @@
+## [2.29.3](https://github.com/dinofrontend/dino_ui_library/compare/2.29.2...2.29.3) (2024-12-16)
+
+
+### Bug Fixes
+
+* sidebar icon type ([b4095fa](https://github.com/dinofrontend/dino_ui_library/commit/b4095fa833f6cdaabee0efdc100b473cd0620861))
+* sidebar icon type ([5378a59](https://github.com/dinofrontend/dino_ui_library/commit/5378a59bfe417e315b7f4e7f1691786299b1b615))
+
 ## [2.29.2](https://github.com/dinofrontend/dino_ui_library/compare/2.29.1...2.29.2) (2024-12-16)
 
 
