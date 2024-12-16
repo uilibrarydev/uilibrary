@@ -32,13 +32,19 @@ export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => 
         {open ? (
           <>
             {sidebarOpenIconProps.Component && (
-              <sidebarOpenIconProps.Component type={sidebarOpenIconProps.type} size={sidebarOpenIconProps.size} />
+              <sidebarOpenIconProps.Component
+                type={sidebarOpenIconProps.type}
+                size={sidebarOpenIconProps.size}
+              />
             )}
           </>
         ) : (
           <>
             {sidebarCloseIconProps.Component && (
-              <sidebarCloseIconProps.Component type={sidebarCloseIconProps.type} size={sidebarCloseIconProps.size} />
+              <sidebarCloseIconProps.Component
+                type={sidebarCloseIconProps.type}
+                size={sidebarCloseIconProps.size}
+              />
             )}
           </>
         )}
