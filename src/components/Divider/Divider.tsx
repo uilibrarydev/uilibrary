@@ -3,7 +3,7 @@ import type { TDividerProps } from './types'
 import classnames from 'classnames'
 
 export const Divider = (props: TDividerProps): JSX.Element => {
-  const { type, color = 'dark', isHorizontal, className } = props
+  const { type = 'primary', color = 'dark', isHorizontal, className } = props
   return (
     <hr
       className={classnames(
