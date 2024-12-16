@@ -29,12 +29,12 @@
 
 .upload-item {
   --ds-upload-item-height: var(--ds-size-48);
-  --ds-upload-item-padding: 0 var(--ds-space-12);
+  --ds-upload-item-padding: 0 var(--ds-space-10);
   --ds-upload-item-border: 1px solid var(--grey-50);
-  --ds-upload-item-border-radius: var(--ds-border-radius-xxs);
+  --ds-upload-item-border-radius: var(--ds-border-radius-md);
 
   --ds-upload-item-image-size: var(--ds-size-32);
-  --ds-upload-item-image-border-radius: var(--ds-border-radius-xxs);
+  --ds-upload-item-image-border-radius: var(--ds-border-radius-sm);
   --ds-upload-item-image-margin: var(--ds-space-8);
 
   --ds-upload-item-button-size: var(--ds-size-24);
