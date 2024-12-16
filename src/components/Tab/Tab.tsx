@@ -3,7 +3,6 @@ import React from 'react'
 import type { TTabProps } from './types'
 import { TabItem } from './TabItem'
 import classNames from 'classnames'
-
 export const Tab = (props: TTabProps): ReactElement => {
   const { selectedValue, tabItems, onSelect, size, className, type = 'primary', color, ...rest } = props
 
