@@ -1,3 +1,10 @@
+## [2.29.2](https://github.com/dinofrontend/dino_ui_library/compare/2.29.1...2.29.2) (2024-12-16)
+
+
+### Bug Fixes
+
+* fix svg icon color change logic ([802cc74](https://github.com/dinofrontend/dino_ui_library/commit/802cc748f3acbd3d09e17e0c739bbe56312298e5))
+
 ## [2.29.1](https://github.com/dinofrontend/dino_ui_library/compare/2.29.0...2.29.1) (2024-12-13)
 
 
