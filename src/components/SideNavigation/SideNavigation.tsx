@@ -11,11 +11,13 @@ export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => 
     setOpen,
     sidebarOpenIconProps = {
       Component: IconChevronRight,
-      size: 'medium'
+      size: 'medium',
+      type: 'inverse'
     },
     sidebarCloseIconProps = {
       Component: IconChevronLeft,
-      size: 'medium'
+      size: 'medium',
+      type: 'inverse'
     }
   } = props
 
@@ -30,13 +32,13 @@ export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => 
         {open ? (
           <>
             {sidebarOpenIconProps.Component && (
-              <sidebarOpenIconProps.Component type="inverse" size={sidebarOpenIconProps.size} />
+              <sidebarOpenIconProps.Component type={sidebarOpenIconProps.type} size={sidebarOpenIconProps.size} />
             )}
           </>
         ) : (
           <>
             {sidebarCloseIconProps.Component && (
-              <sidebarCloseIconProps.Component type="inverse" size={sidebarCloseIconProps.size} />
+              <sidebarCloseIconProps.Component type={sidebarCloseIconProps.type} size={sidebarCloseIconProps.size} />
             )}
           </>
         )}
