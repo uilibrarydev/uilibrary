@@ -47,8 +47,12 @@
         discovery: var(--ds-color-text-discovery),
     );
     @each $key, $value in $types {
-      &-#{$key} path {
+      &-#{$key} path[fill] {
         fill: $value;
+      }
+      &-#{$key} path:not([fill]) {
+        stroke: $value;
+        fill: none;
       }
     }
   }
