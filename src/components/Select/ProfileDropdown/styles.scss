@@ -25,6 +25,7 @@
       @include mixin.inline-flex;
       @include mixin.align-items(center);
       color: var(--ds-color-text-primary);
+      text-decoration: none;
 
       &:hover {
         color: var(--ds-color-text-brand);
