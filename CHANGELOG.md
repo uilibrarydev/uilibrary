@@ -1,3 +1,13 @@
+## [2.29.4](https://github.com/dinofrontend/dino_ui_library/compare/2.29.3...2.29.4) (2024-12-16)
+
+
+### Bug Fixes
+
+* added color props for divider dark and light mode ([0a9d8bc](https://github.com/dinofrontend/dino_ui_library/commit/0a9d8bceaaeb17b8a052db037a814edaaf1d585b))
+* fix props ruqirement ([0bf6e58](https://github.com/dinofrontend/dino_ui_library/commit/0bf6e58eaf391eb9f2170e00363ffa73d92fa757))
+* fixes for tabs type ui, added color props for dark and light mode ([058703c](https://github.com/dinofrontend/dino_ui_library/commit/058703c2d4b7a7183f81a861bb38c54e3a44e106))
+* remove underline for profile-dropdown links ([bceaacc](https://github.com/dinofrontend/dino_ui_library/commit/bceaacc24858712a6540c83f5ebccf38d190e084))
+
 ## [2.29.3](https://github.com/dinofrontend/dino_ui_library/compare/2.29.2...2.29.3) (2024-12-16)
 
 
