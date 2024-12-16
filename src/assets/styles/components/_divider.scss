@@ -1,7 +1,8 @@
 .divider {
     $this: &;
 
-    --ds-divider-bg-color: var(--ds-color-divider);
+    --ds-divider-bg-dark: var(--ds-color-divider);
+    --ds-divider-bg-light: var(--ds-color-divider-light);
 
     border: none;
 
@@ -9,20 +10,37 @@
         height: 1px;
         width: 100%;
     }
+
     &--vertical{
         width: 1px;
         height: 100%;
     }
 
     &--primary {
-        background-color: var(--ds-divider-bg-color);
+        &#{$this}--dark {
+            background-color: var(--ds-divider-bg-dark);
+        }
+
+        &#{$this}--light {
+            background-color: var(--ds-divider-bg-light);
+        }
     }
 
     &--secondary {
-        background: repeating-linear-gradient(90deg,var(--ds-divider-bg-color),var(--ds-divider-bg-color) 4px,transparent 6px,transparent 8px);
+        &#{$this}--dark {
+            background: repeating-linear-gradient(90deg,var(--ds-divider-bg-dark),var(--ds-divider-bg-dark) 4px,transparent 6px,transparent 8px);
 
-        &#{$this}--vertical {
-            background: repeating-linear-gradient(0deg,var(--ds-divider-bg-color),var(--ds-divider-bg-color) 4px,transparent 6px,transparent 8px);
+            &#{$this}--vertical {
+                background: repeating-linear-gradient(0deg,var(--ds-divider-bg-dark),var(--ds-divider-bg-dark) 4px,transparent 6px,transparent 8px);
+            }
+        }
+
+        &#{$this}--light {
+            background: repeating-linear-gradient(90deg,var(--ds-divider-bg-light),var(--ds-divider-bg-light) 4px,transparent 6px,transparent 8px);
+
+            &#{$this}--vertical {
+                background: repeating-linear-gradient(0deg,var(--ds-divider-bg-light),var(--ds-divider-bg-light) 4px,transparent 6px,transparent 8px);
+            }
         }
     }
 }
