@@ -1,3 +1,10 @@
+## [2.29.5](https://github.com/dinofrontend/dino_ui_library/compare/2.29.4...2.29.5) (2024-12-17)
+
+
+### Bug Fixes
+
+* fixes for upload item ui ([915a8f1](https://github.com/dinofrontend/dino_ui_library/commit/915a8f19c78285a4f0576559ee7a8ae016d84a70))
+
 ## [2.29.4](https://github.com/dinofrontend/dino_ui_library/compare/2.29.3...2.29.4) (2024-12-16)
 
 
