@@ -23,7 +23,7 @@ export const UploadItems = (props: IUploadItemPropTypes): JSX.Element => {
             key={index}
           >
             <div className="upload-item__inner">
-              <div className="upload-item__content mb-2">
+              <div className="upload-item__content">
                 <div className="upload-item__content__inner pr-8">
                   <Text
                     size="small"
