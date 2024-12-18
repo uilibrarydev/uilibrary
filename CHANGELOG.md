@@ -1,3 +1,11 @@
+## [2.29.6](https://github.com/dinofrontend/dino_ui_library/compare/2.29.5...2.29.6) (2024-12-18)
+
+
+### Bug Fixes
+
+* fixed useOnOutsideClick ([96fdc0a](https://github.com/dinofrontend/dino_ui_library/commit/96fdc0a36937c177d1c02996dfcb6d5e839eca75))
+* fixed useOnOutsideClick ([0c8e5e3](https://github.com/dinofrontend/dino_ui_library/commit/0c8e5e34c341ea01e65e69af8244ddca5cd6f97b))
+
 ## [2.29.5](https://github.com/dinofrontend/dino_ui_library/compare/2.29.4...2.29.5) (2024-12-17)
 
 
