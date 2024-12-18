@@ -48,6 +48,10 @@ export const useOnOutsideClick = (
       }
 
       return () => {
+        const activeElementIndex = callbackStack.findIndex((stack) => stack.uid === uid)
+        if (activeElementIndex >= 0) {
+          callbackStack.splice(activeElementIndex, 1)
+        }
         if (callbackStack.length === 0) {
           document.removeEventListener('mousedown', handleMouseDownEvent)
         }
