@@ -21,7 +21,7 @@ export interface TTabProps extends IFormCompProps {
   tabItems: TTabItem[]
   type?: 'primary' | 'secondary' | 'tertiary'
   color?: 'dark' | 'light'
-  size?: 'large' | 'small'
+  size?: 'large' | 'medium' | 'small'
   className?: string
   disabled?: boolean
   selectedValue: number | string

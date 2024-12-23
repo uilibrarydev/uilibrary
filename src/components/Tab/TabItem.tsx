@@ -5,12 +5,14 @@ import { noop } from '../../utils/helpers'
 import type { TTabItemProps } from './types'
 import classNames from 'classnames'
 import {Text} from '../Text';
+import {ICON_SIZE_MAPPING, TEXT_SIZE_MAPPING} from './consts';
 
 export const TabItem = (props: TTabItemProps): JSX.Element | null => {
   const {
     iconProps,
     badgeProps,
     label,
+    size = 'large',
     className = '',
     disabled = false,
     isSelected,
@@ -33,11 +35,11 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
       {iconProps?.Component ? (
         <iconProps.Component
           className="tab__icon mr-8"
-          size={'small'}
+          size={ICON_SIZE_MAPPING[size]}
           {...iconProps}
         />
       ) : null}
-      <Text as={'span'} className={'tab__label'} data-id={dataId}>
+      <Text as={'span'} className={'tab__label'} data-id={dataId}  size={TEXT_SIZE_MAPPING[size]}>
         {label}
       </Text>
       {rightIconProps?.Component ? (
@@ -49,7 +51,7 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
             }
           }}
           className="tab__icon ml-8"
-          size={'small'}
+          size={ICON_SIZE_MAPPING[size]}
           {...rightIconProps}
         />
       ) : null}

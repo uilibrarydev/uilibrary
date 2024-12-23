@@ -19,7 +19,7 @@ export default {
       control: { type: 'radio' }
     },
     size: {
-      options: ['large', 'small'],
+      options: ['large', 'medium', 'small'],
       control: { type: 'radio' }
     }
   }
@@ -40,7 +40,7 @@ Tab.args = {
     {
       label: 'Prompt text 1',
       value: 1,
-      disabled: false,
+      disabled: true,
       iconProps: {
         Component: IconHome
       },
