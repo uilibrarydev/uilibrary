@@ -39,7 +39,7 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
           {...iconProps}
         />
       ) : null}
-      <Text as={'span'} className={'tab__label'} data-id={dataId}  size={TEXT_SIZE_MAPPING[size]}>
+      <Text as={'span'} className={'tab__label'} data-id={dataId} lineHeight={'xsmall'} size={TEXT_SIZE_MAPPING[size]}>
         {label}
       </Text>
       {rightIconProps?.Component ? (
