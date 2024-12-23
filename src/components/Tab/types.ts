@@ -31,7 +31,7 @@ export interface TTabProps extends IFormCompProps {
 export type TTabItemProps = {
   dataId?: string
   label?: string | JSX.Element
-  size?: 'large' | 'small'
+  size?: 'large' | 'medium' | 'small'
   className?: string
   iconProps?: {
     name?: string
