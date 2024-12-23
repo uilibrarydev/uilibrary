@@ -1,3 +1,11 @@
+## [2.29.8](https://github.com/dinofrontend/dino_ui_library/compare/2.29.7...2.29.8) (2024-12-23)
+
+
+### Bug Fixes
+
+* size fixes ([afeea9a](https://github.com/dinofrontend/dino_ui_library/commit/afeea9adcac608bcb039654d80468e2b24e5219f))
+* update lineheight ([618592b](https://github.com/dinofrontend/dino_ui_library/commit/618592b19aca288f1ec4791fc25b8cbbe3f7f710))
+
 ## [2.29.7](https://github.com/dinofrontend/dino_ui_library/compare/2.29.6...2.29.7) (2024-12-23)
 
 
