@@ -40,7 +40,7 @@ Tab.args = {
     {
       label: 'Prompt text 1',
       value: 1,
-      disabled: true,
+      disabled: false,
       iconProps: {
         Component: IconHome
       },

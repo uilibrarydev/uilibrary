@@ -179,6 +179,7 @@
 
     gap: var(--ds-tabs-primary-gap);
     border-bottom: var(--ds-tabs-primary-border);
+    width: fit-content;
 
     .tab {
       border-radius: 0;
