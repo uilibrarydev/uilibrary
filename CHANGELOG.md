@@ -1,3 +1,12 @@
+## [2.29.7](https://github.com/dinofrontend/dino_ui_library/compare/2.29.6...2.29.7) (2024-12-23)
+
+
+### Bug Fixes
+
+* fixes for tab-ui ([c47df6e](https://github.com/dinofrontend/dino_ui_library/commit/c47df6e04b1ba2d8ec3f15cdb4db13a1052fb29d))
+* fixes for tab-ui ([6ab2a36](https://github.com/dinofrontend/dino_ui_library/commit/6ab2a365eecb60d67c807b78e8f0942e3ac89c82))
+* size fixes ([0e754e0](https://github.com/dinofrontend/dino_ui_library/commit/0e754e023894432fbcebdf8c9674bc5026cb95bc))
+
 ## [2.29.6](https://github.com/dinofrontend/dino_ui_library/compare/2.29.5...2.29.6) (2024-12-18)
 
 
