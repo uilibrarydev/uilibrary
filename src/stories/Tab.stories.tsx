@@ -19,7 +19,7 @@ export default {
       control: { type: 'radio' }
     },
     size: {
-      options: ['large', 'small'],
+      options: ['large', 'medium', 'small'],
       control: { type: 'radio' }
     }
   }

@@ -2,13 +2,12 @@
 
 :root {
   --ds-tab-padding-lg: 0 var(--ds-space-16);
+  --ds-tab-padding-md: 0 var(--ds-space-16);
   --ds-tab-padding-sm: 0 var(--ds-space-12);
 
-  --ds-tab-border-radius-lg: var(--ds-border-radius-lg);
+  --ds-tab-border-radius-lg: var(--ds-border-radius-xl);
+  --ds-tab-border-radius-md: var(--ds-border-radius-lg);
   --ds-tab-border-radius-sm: var(--ds-border-radius-md);
-
-  --ds-tab-font: var(--font-weight-400) var(--font-size-14) var(--font-family-primary);
-  --ds-tab-icon-size: var(--ds-size-20);
 
   --ds-tab-color-default: var(--ds-color-text-secondary);
   --ds-tab-color-hover: var(--ds-color-text-tertiary);
@@ -19,11 +18,13 @@
   --ds-tab-bg-color-hover: transparent;
   --ds-tab-bg-color-selected: transparent;
   --ds-tab-bg-color-disabled: transparent;
+  --ds-tab-bg-color-selected-disabled: transparent;
 
   --ds-tab-border-color-default: transparent;
   --ds-tab-border-color-hover: transparent;
   --ds-tab-border-color-selected: transparent;
   --ds-tab-border-color-disabled: transparent;
+  --ds-tab-border-color-selected-disabled: transparent;
 }
 
 .tab {
@@ -48,7 +49,6 @@
   }
 
   &__label {
-    font: var(--ds-tab-font);
     color: var(--ds-tab-color-default);
   }
 
@@ -76,22 +76,6 @@
     }
   }
 
-  &--disabled {
-    background-color: var(--ds-tab-bg-color-disabled);
-    border-color: var(--ds-tab-border-color-disabled);
-    cursor: default;
-
-    #{$this}__label {
-      color: var(--ds-tab-color-disabled);
-    }
-
-    #{$this}__icon {
-      path {
-        fill: var(--ds-tab-color-disabled);
-      }
-    }
-  }
-
   &--selected {
     background-color: var(--ds-tab-bg-color-selected);
     border-color: var(--ds-tab-border-color-selected);
@@ -111,15 +95,38 @@
       }
     }
   }
+
+  &--disabled {
+    background-color: var(--ds-tab-bg-color-disabled);
+    border-color: var(--ds-tab-border-color-disabled);
+    cursor: default;
+
+    #{$this}__label {
+      color: var(--ds-tab-color-disabled);
+    }
+
+    #{$this}__icon {
+      path {
+        fill: var(--ds-tab-color-disabled);
+      }
+    }
+
+    &#{$this}--selected {
+      background-color: var(--ds-tab-bg-color-selected-disabled);
+      border-color: var(--ds-tab-border-color-selected-disabled);
+    }
+  }
 }
 
 .tabs-container {
   $this: &;
 
-  --ds-tabs-size-lg: var(--size-48);
-  --ds-tabs-size-sm: var(--size-32);
+  --ds-tabs-size-lg: var(--size-56);
+  --ds-tabs-size-md: var(--size-48);
+  --ds-tabs-size-sm: var(--size-40);
 
   --ds-tabs-primary-gap: var(--ds-space-24);
+  --ds-tabs-primary-border: 1px solid var(--ds-color-border-tertiary);
 
   --ds-tabs-secondary-gap: var(--ds-space-4);
   --ds-tabs-secondary-padding: var(--ds-space-4);
@@ -144,9 +151,17 @@
     }
   }
 
+  &--medium {
+    min-height: var(--ds-tabs-size-md);
+
+    .tab {
+      border-radius: var(--ds-tab-border-radius-md);
+      padding: var(--ds-tab-padding-md);
+    }
+  }
+
   &--small {
     min-height: var(--ds-tabs-size-sm);
-
 
     .tab {
       border-radius: var(--ds-tab-border-radius-sm);
@@ -161,11 +176,12 @@
     --ds-tab-border-color-disabled: var(--ds-color-border-tertiary);
 
     gap: var(--ds-tabs-primary-gap);
+    border-bottom: var(--ds-tabs-primary-border);
+    width: fit-content;
 
     .tab {
       border-radius: 0;
       border-width: 0;
-      border-bottom-width: 1px;
 
       &:after {
         content: '';
@@ -196,9 +212,11 @@
       --ds-tab-bg-color-hover: var(--ds-color-bg-container);
       --ds-tab-bg-color-selected: var(--ds-color-bg-white);
       --ds-tab-bg-color-disabled: transparent;
+      --ds-tab-bg-color-selected-disabled: var(--ds-color-bg-white);
 
       --ds-tab-border-color-selected: var(--ds-color-border-tertiary);
       --ds-tab-border-color-disabled: transparent;
+      --ds-tab-border-color-selected-disabled: var(--ds-color-border-disabled);
 
       background-color: var(--ds-tabs-dark-bg);
     }
@@ -208,6 +226,7 @@
       --ds-tab-bg-color-hover: var(--ds-color-bg-container-lighter);
       --ds-tab-bg-color-selected: var(--ds-color-bg-container-light);
       --ds-tab-bg-color-disabled: transparent;
+      --ds-tab-bg-color-selected-disabled: var(--ds-color-bg-container-light);
 
       background-color: var(--ds-tabs-light-bg);
       border: var(--ds-tabs-light-border);
@@ -230,6 +249,18 @@
     &#{$this}--light {
       --ds-tabs-light-bg: none;
       --ds-tabs-light-border: 0;
+    }
+
+    &#{$this}--large {
+      min-height: calc(var(--ds-tabs-size-lg) - var(--ds-size-8));
+    }
+
+    &#{$this}--medium {
+      min-height: calc(var(--ds-tabs-size-md) - var(--ds-size-8));
+    }
+
+    &#{$this}--small {
+      min-height: calc(var(--ds-tabs-size-sm) - var(--ds-size-8));
     }
   }
 }

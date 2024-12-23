@@ -93,6 +93,7 @@ export const ItemSelectGroup = ItemSelectGroupTemplate.bind({})
 ItemSelectGroup.args = {
   isHorizontal: false,
   iconGroup: {
-    Component: IconCheckmark
+    Component: IconCheckmark,
+    type: 'brand'
   }
 }
