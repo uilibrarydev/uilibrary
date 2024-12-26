@@ -4,8 +4,8 @@ import { Badge } from '../Badge'
 import { noop } from '../../utils/helpers'
 import type { TTabItemProps } from './types'
 import classNames from 'classnames'
-import {Text} from '../Text';
-import {ICON_SIZE_MAPPING, TEXT_SIZE_MAPPING} from './consts';
+import { Text } from '../Text'
+import { ICON_SIZE_MAPPING, TEXT_SIZE_MAPPING } from './consts'
 
 export const TabItem = (props: TTabItemProps): JSX.Element | null => {
   const {
@@ -39,7 +39,13 @@ export const TabItem = (props: TTabItemProps): JSX.Element | null => {
           {...iconProps}
         />
       ) : null}
-      <Text as={'span'} className={'tab__label'} data-id={dataId} lineHeight={'xsmall'} size={TEXT_SIZE_MAPPING[size]}>
+      <Text
+        as={'span'}
+        className={'tab__label'}
+        data-id={dataId}
+        lineHeight={'xsmall'}
+        size={TEXT_SIZE_MAPPING[size]}
+      >
         {label}
       </Text>
       {rightIconProps?.Component ? (
