@@ -27,7 +27,7 @@ export default {
 
 const Template: StoryFn<TTabProps> = (args) => {
   const [selectedTab, onTabSelect] = useState(args.selectedValue)
-  return <_Tab {...args} selectedValue={selectedTab} onSelect={onTabSelect}/>
+  return <_Tab {...args} selectedValue={selectedTab} onSelect={onTabSelect} />
 }
 
 export const Tab = Template.bind({})
