@@ -1,3 +1,15 @@
+# [2.30.0](https://github.com/dinofrontend/dino_ui_library/compare/2.29.8...2.30.0) (2025-01-03)
+
+
+### Bug Fixes
+
+* update button secondary type ui ([753b9fa](https://github.com/dinofrontend/dino_ui_library/commit/753b9fa000b1367f1f4805d7b3f63da96732fcac))
+
+
+### Features
+
+* added new icons ([92a610c](https://github.com/dinofrontend/dino_ui_library/commit/92a610c81e15d9cb51356c6d82da62444f589497))
+
 ## [2.29.8](https://github.com/dinofrontend/dino_ui_library/compare/2.29.7...2.29.8) (2024-12-23)
 
 
