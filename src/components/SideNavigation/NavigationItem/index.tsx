@@ -4,7 +4,6 @@ import classNames from 'classnames'
 import type { TNavigationLinkPropTypes } from './types'
 import { NavigationItemTypes } from './types'
 import { Badge } from '../../Badge'
-import IconArrowDown from '../../SVGIcons/IconArrowDown'
 import IconDynamicComponent from '../../../helperComponents/IconDynamicComponent/IconDynamicComponent'
 import IconChevronRight from '../../SVGIcons/IconChevronRight'
 
@@ -19,7 +18,7 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
     showAction = false,
     actionElm,
     active = false,
-    badgeType ='tertiary',
+    badgeType = 'tertiary',
     badgeContent,
     expandIconProps = {
       Component: IconChevronRight,
