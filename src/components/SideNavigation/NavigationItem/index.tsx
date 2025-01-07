@@ -6,7 +6,7 @@ import { NavigationItemTypes } from './types'
 import { Badge } from '../../Badge'
 import IconArrowDown from '../../SVGIcons/IconArrowDown'
 import IconDynamicComponent from '../../../helperComponents/IconDynamicComponent/IconDynamicComponent'
-import IconChevronRight from "../../SVGIcons/IconChevronRight";
+import IconChevronRight from '../../SVGIcons/IconChevronRight'
 
 export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement => {
   const {
@@ -45,12 +45,7 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
         className={classNames('navigation-item', `navigation-item--${type}`)}
         onClick={() => setChildOpen(!childOpen)}
       >
-        <div
-          className={classNames(
-            'navigation-item__inner',
-            active && 'active'
-          )}
-        >
+        <div className={classNames('navigation-item__inner', active && 'active')}>
           <>
             {!isOpen && type === NavigationItemTypes.HEADER && As()}
             {displayHeader}
@@ -60,23 +55,21 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
             )}
           </>
           {showBadge && badgeContent && isOpen && (
-            <Badge type="primary" text={badgeContent} size="small" className={'mr-12'}/>
+            <Badge type="primary" text={badgeContent} size="small" className={'mr-12'} />
           )}
           {expandable && isOpen && (
             <span className={classNames('navigation-item__expandable-icon', childOpen && 'opened')}>
               {expandIconProps.Component && (
-                <expandIconProps.Component size={expandIconProps.size || 'small'} className={'mr-12'}/>
+                <expandIconProps.Component
+                  size={expandIconProps.size || 'small'}
+                  className={'mr-12'}
+                />
               )}
             </span>
           )}
         </div>
         {children && (
-          <div
-            className={classNames(
-              'navigation-item__child',
-              childOpen && 'active',
-            )}
-          >
+          <div className={classNames('navigation-item__child', childOpen && 'active')}>
             {children}
           </div>
         )}

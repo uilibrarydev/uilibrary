@@ -1,6 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { ReactElement, useState } from 'react'
-import {Avatar, Button, IconHandOpenHeart, NavigationItem, SideNavigation as _SideNavigation, Text} from '../index'
+import {
+  Avatar,
+  Button,
+  IconHandOpenHeart,
+  NavigationItem,
+  SideNavigation as _SideNavigation,
+  Text
+} from '../index'
 import { Block } from '../components/SideNavigation/Block'
 import { NavigationItemTypes } from '../components/SideNavigation/NavigationItem/types'
 // @ts-ignore
@@ -20,7 +27,7 @@ import IconMail from '../components/SVGIcons/IconMail'
 import IconArrowExit from '../components/SVGIcons/IconArrowExit'
 import { StoryFn } from '@storybook/react'
 import { TSideNavigationPropTypes } from '../components/SideNavigation/types'
-import IconSignOut from "../components/SVGIcons/IconSignOut";
+import IconSignOut from '../components/SVGIcons/IconSignOut'
 
 export default {
   title: 'Side Navigation',
@@ -33,18 +40,18 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
 
   return (
     <_SideNavigation {...args} setOpen={setIsOpen} isOpen={isOpen}>
-        <header>
-            <NavigationItem
-                As={() => (
-                    <div>
-                      <IconHandOpenHeart />
-                      <Text>Welcome</Text>
-                  </div>
-                )}
-                type={NavigationItemTypes.MAIN}
-                isOpen={isOpen}
-            />
-        </header>
+      <header>
+        <NavigationItem
+          As={() => (
+            <div>
+              <IconHandOpenHeart />
+              <Text>Welcome</Text>
+            </div>
+          )}
+          type={NavigationItemTypes.MAIN}
+          isOpen={isOpen}
+        />
+      </header>
       <main>
         <Block isOpen={isOpen} label="Finance">
           <>
@@ -221,5 +228,4 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
 export const SideNavigation = Template.bind({})
 
 // @ts-ignore
-SideNavigation.args = {
-}
+SideNavigation.args = {}
