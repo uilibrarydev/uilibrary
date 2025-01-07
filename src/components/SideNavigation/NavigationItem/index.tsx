@@ -6,6 +6,7 @@ import { NavigationItemTypes } from './types'
 import { Badge } from '../../Badge'
 import IconArrowDown from '../../SVGIcons/IconArrowDown'
 import IconDynamicComponent from '../../../helperComponents/IconDynamicComponent/IconDynamicComponent'
+import IconChevronRight from "../../SVGIcons/IconChevronRight";
 
 export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement => {
   const {
@@ -20,7 +21,7 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
     active = false,
     badgeContent,
     expandIconProps = {
-      Component: IconArrowDown,
+      Component: IconChevronRight,
       size: 'medium'
     },
     children
@@ -29,61 +30,51 @@ export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement =>
   const [childOpen, setChildOpen] = useState(false)
 
   const displayNavigationItem = () => {
-    if (type === NavigationItemTypes.BLOCK_HEADER && !isOpen) {
+    if (type === NavigationItemTypes.HEADER && !isOpen) {
       return null
     }
     return As()
   }
 
   const displayHeader =
-    isOpen && type === NavigationItemTypes.BLOCK_HEADER && showAction && actionElm && actionElm
+    isOpen && type === NavigationItemTypes.HEADER && showAction && actionElm && actionElm
 
   return (
     <>
       <div
-        className={classNames('navigation--wrapper', `navigation--wrapper--${type}`)}
+        className={classNames('navigation-item', `navigation-item--${type}`)}
         onClick={() => setChildOpen(!childOpen)}
       >
         <div
           className={classNames(
-            'navigation--item',
-            `navigation--item--${type}`,
-            expandable && 'expandable',
+            'navigation-item__inner',
             active && 'active'
           )}
         >
-          <div className="navigation--item--wrapper">
-            {!isOpen && type === NavigationItemTypes.BLOCK_HEADER && As()}
+          <>
+            {!isOpen && type === NavigationItemTypes.HEADER && As()}
             {displayHeader}
-            {
-              <div
-                className={classNames('navigation--item--as--wrapper', isOpen ? 'open' : 'close')}
-              >
-                {displayNavigationItem()}
-              </div>
-            }
-            {!isOpen && type === NavigationItemTypes.SUB && As()}
+            {displayNavigationItem()}
             {type === NavigationItemTypes.USER && iconName && isOpen && (
               <IconDynamicComponent componentName={iconName} />
             )}
-          </div>
+          </>
           {showBadge && badgeContent && isOpen && (
-            <Badge type="primary" text={badgeContent} size="small" />
+            <Badge type="primary" text={badgeContent} size="small" className={'mr-12'}/>
           )}
           {expandable && isOpen && (
-            <div className={classNames('navigation--item--expandable--icon', childOpen && 'open')}>
+            <span className={classNames('navigation-item__expandable-icon', childOpen && 'opened')}>
               {expandIconProps.Component && (
-                <expandIconProps.Component size={expandIconProps.size || 'small'} />
+                <expandIconProps.Component size={expandIconProps.size || 'small'} className={'mr-12'}/>
               )}
-            </div>
+            </span>
           )}
         </div>
         {children && (
           <div
             className={classNames(
-              'navigation--items--child',
+              'navigation-item__child',
               childOpen && 'active',
-              !isOpen && 'isOpen'
             )}
           >
             {children}
