@@ -12,15 +12,10 @@
   --ds-badge-padding-sm: var(--ds-space-4);
   --ds-badge-inner-padding-lg: 0 var(--ds-space-2);
   --ds-badge-inner-padding-sm: 0 var(--ds-space-4);
-  --ds-badge-font: var(--ds-font-weight-default) var(--ds-paragraph-xs)/0.8 var(--ds-font-family);
 
   @include mixin.inline-flex;
   @include mixin.align-items(center);
   border-radius: var(--ds-badge-border-radius);
-
-  &__inner {
-    font: var(--ds-badge-font);
-  }
 
   &--primary {
     background-color: var(--ds-badge-primary-bg);
@@ -38,6 +33,7 @@
     padding: var(--ds-badge-padding-lg);
 
     #{$this}__inner {
+      line-height: 0.858;
       padding: var(--ds-badge-inner-padding-lg);
     }
   }
@@ -46,6 +42,7 @@
     padding: var(--ds-badge-padding-sm);
 
     #{$this}__inner {
+      line-height: 1;
       padding: var(--ds-badge-inner-padding-sm);
     }
   }
