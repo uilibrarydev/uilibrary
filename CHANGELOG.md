@@ -1,3 +1,13 @@
+## [2.30.1](https://github.com/dinofrontend/dino_ui_library/compare/2.30.0...2.30.1) (2025-01-08)
+
+
+### Bug Fixes
+
+* fix for badge component ([e345770](https://github.com/dinofrontend/dino_ui_library/commit/e3457700efe7d33b4b74eeb7240c4afd13ff1e41))
+* fix for badge component ([7dac033](https://github.com/dinofrontend/dino_ui_library/commit/7dac033c26ab19d5caed56832a82077e63ebcdad))
+* fixed sidebar navigation ui , remove additional functionality ([add721c](https://github.com/dinofrontend/dino_ui_library/commit/add721c3dca9a1e60def27b324954c508d6a0a04))
+* fixed sidebar navigation ui , remove additional functionality ([d598e84](https://github.com/dinofrontend/dino_ui_library/commit/d598e84a265d021b265dcc6a6cab9bdd6e00c12c))
+
 # [2.30.0](https://github.com/dinofrontend/dino_ui_library/compare/2.29.8...2.30.0) (2025-01-03)
 
 
