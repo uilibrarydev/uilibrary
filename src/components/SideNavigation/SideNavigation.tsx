@@ -2,53 +2,24 @@ import type { TSideNavigationPropTypes } from './types'
 import React from 'react'
 import classNames from 'classnames'
 import IconChevronRight from '../SVGIcons/IconChevronRight'
-import IconChevronLeft from '../SVGIcons/IconChevronLeft'
+import { Button } from '../Button'
 
 export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => {
-  const {
-    children,
-    open,
-    setOpen,
-    sidebarOpenIconProps = {
-      Component: IconChevronRight,
-      size: 'medium',
-      type: 'inverse'
-    },
-    sidebarCloseIconProps = {
-      Component: IconChevronLeft,
-      size: 'medium',
-      type: 'inverse'
-    }
-  } = props
+  const { children, isOpen, setOpen } = props
 
   const handleToggleOpen = () => {
-    setOpen(!open)
+    setOpen(!isOpen)
   }
 
   return (
-    <div className={classNames('side--navigation', open ? 'open' : 'close')}>
+    <div className={classNames('side-navigation', isOpen ? 'side-navigation__opened' : null)}>
+      <Button
+        iconProps={{ Component: IconChevronRight }}
+        size={'small'}
+        className={'side-navigation__btn'}
+        onClick={handleToggleOpen}
+      />
       {children}
-      <div className="collapse" onClick={handleToggleOpen}>
-        {open ? (
-          <>
-            {sidebarOpenIconProps.Component && (
-              <sidebarOpenIconProps.Component
-                type={sidebarOpenIconProps.type}
-                size={sidebarOpenIconProps.size}
-              />
-            )}
-          </>
-        ) : (
-          <>
-            {sidebarCloseIconProps.Component && (
-              <sidebarCloseIconProps.Component
-                type={sidebarCloseIconProps.type}
-                size={sidebarCloseIconProps.size}
-              />
-            )}
-          </>
-        )}
-      </div>
     </div>
   )
 }

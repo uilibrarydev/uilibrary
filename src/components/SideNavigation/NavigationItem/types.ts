@@ -4,7 +4,7 @@ import type { ISVGIconProps } from '../../SVGIcons/types'
 export enum NavigationItemTypes {
   MAIN = 'main',
   SUB = 'sub',
-  BLOCK_HEADER = 'block-header',
+  HEADER = 'header',
   USER = 'user',
   PRODUCT = 'product',
   ACTION = 'action'
@@ -22,5 +22,6 @@ export interface TNavigationLinkPropTypes {
   actionElm?: JSX.Element
   active?: boolean
   badgeContent?: string
+  badgeType?: 'primary' | 'secondary' | 'tertiary'
   children?: ReactNode
 }

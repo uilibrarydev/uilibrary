@@ -1,6 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { ReactElement, useState } from 'react'
-import { Avatar, Button, NavigationItem, SideNavigation as _SideNavigation, Text } from '../index'
+import {
+  Avatar,
+  Button,
+  IconHandOpenHeart,
+  NavigationItem,
+  SideNavigation as _SideNavigation,
+  Text
+} from '../index'
 import { Block } from '../components/SideNavigation/Block'
 import { NavigationItemTypes } from '../components/SideNavigation/NavigationItem/types'
 // @ts-ignore
@@ -20,67 +27,62 @@ import IconMail from '../components/SVGIcons/IconMail'
 import IconArrowExit from '../components/SVGIcons/IconArrowExit'
 import { StoryFn } from '@storybook/react'
 import { TSideNavigationPropTypes } from '../components/SideNavigation/types'
+import IconSignOut from '../components/SVGIcons/IconSignOut'
 
 export default {
   title: 'Side Navigation',
   component: _SideNavigation,
-  argTypes: {
-    showAction: {
-      options: [true, false]
-    }
-  }
+  argTypes: {}
 }
 
 const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
   const [isOpen, setIsOpen] = useState<boolean>(true)
 
   return (
-    <_SideNavigation {...args} setOpen={setIsOpen} open={isOpen}>
-      <main>
+    <_SideNavigation {...args} setOpen={setIsOpen} isOpen={isOpen}>
+      <header>
         <NavigationItem
           As={() => (
-            <a href="/https://ameriabank.am">
-              <img src={isOpen ? logo : logoClosed} alt="Product Logo" />
-            </a>
+            <div>
+              <IconHandOpenHeart />
+              <Text>Welcome</Text>
+            </div>
           )}
-          type={NavigationItemTypes.BLOCK_HEADER}
+          type={NavigationItemTypes.MAIN}
           isOpen={isOpen}
-          showAction={args.showAction}
-          actionElm={args.actionElm}
         />
-        <Block open={isOpen} label="Finance">
+      </header>
+      <main>
+        <Block isOpen={isOpen} label="Finance">
           <>
             <NavigationItem
               As={() => (
                 <a href="/https://ameriabank.am">
                   <IconDocument />
-                  <div>Accounts</div>
+                  <Text>Accounts</Text>
                 </a>
               )}
               type={NavigationItemTypes.MAIN}
               isOpen={isOpen}
-              showAction={args.showAction}
-              actionElm={args.actionElm}
               active
             />
             <NavigationItem
               As={() => (
                 <a href="/https://ameriabank.am">
                   <IconLockClosed />
-                  <div>Test</div>
+                  <Text>Test</Text>
                 </a>
               )}
               type={NavigationItemTypes.MAIN}
               isOpen={isOpen}
               showAction={args.showAction}
-              actionElm={args.actionElm}
             />
             <NavigationItem
               As={() => (
-                <div>
+                <a>
                   <IconHome />
-                  <div>Cards</div>
-                </div>
+                  <Text>Cards</Text>
+                </a>
               )}
               type={NavigationItemTypes.MAIN}
               isOpen={isOpen}
@@ -91,7 +93,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
                   As={() => (
                     <a href="/https://ameriabank.am">
                       <IconDocument />
-                      <div>Accounts</div>
+                      <Text>Accounts</Text>
                     </a>
                   )}
                   type={NavigationItemTypes.SUB}
@@ -101,7 +103,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
                   As={() => (
                     <a href="/https://ameriabank.am">
                       <IconSavings />
-                      <div>Savings</div>
+                      <Text>Savings</Text>
                     </a>
                   )}
                   type={NavigationItemTypes.SUB}
@@ -111,7 +113,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
                   As={() => (
                     <a href="/https://ameriabank.am">
                       <IconWallet />
-                      <div>Overdraft</div>
+                      <Text>Overdraft</Text>
                     </a>
                   )}
                   type={NavigationItemTypes.SUB}
@@ -123,7 +125,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
               As={() => (
                 <a href="/https://ameriabank.am">
                   <IconSavings />
-                  <div>Savings</div>
+                  <Text>Savings</Text>
                 </a>
               )}
               type={NavigationItemTypes.MAIN}
@@ -133,13 +135,13 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
             />
           </>
         </Block>
-        <Block open={isOpen} label="Finance">
+        <Block isOpen={isOpen} label="Finance">
           <>
             <NavigationItem
               As={() => (
                 <a href="/https://ameriabank.am">
                   <IconWallet />
-                  <div>Overdraft</div>
+                  <Text>Overdraft</Text>
                 </a>
               )}
               type={NavigationItemTypes.MAIN}
@@ -149,7 +151,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
               As={() => (
                 <a href="/https://ameriabank.am">
                   <IconHome />
-                  <div>Mortgage</div>
+                  <Text>Mortgage</Text>
                 </a>
               )}
               type={NavigationItemTypes.MAIN}
@@ -157,10 +159,10 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
             />
             <NavigationItem
               As={() => (
-                <div>
+                <a>
                   <IconSavings />
-                  <div>Car Leon</div>
-                </div>
+                  <Text>Car Leon</Text>
+                </a>
               )}
               type={NavigationItemTypes.MAIN}
               isOpen={isOpen}
@@ -171,7 +173,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
                   As={() => (
                     <a href="/https://ameriabank.am">
                       <IconSavings />
-                      <div>Savings</div>
+                      <Text>Savings</Text>
                     </a>
                   )}
                   type={NavigationItemTypes.SUB}
@@ -181,7 +183,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
                   As={() => (
                     <a href="/https://ameriabank.am">
                       <IconDocument />
-                      <div>Accounts</div>
+                      <Text>Accounts</Text>
                     </a>
                   )}
                   type={NavigationItemTypes.SUB}
@@ -199,43 +201,23 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
               type={NavigationItemTypes.MAIN}
               isOpen={isOpen}
               As={() => (
-                <a href="/https://ameriabank.am">
-                  <IconMail />
-                  <div>Messages</div>
-                </a>
-              )}
-            />
-            <NavigationItem
-              type={NavigationItemTypes.MAIN}
-              isOpen={isOpen}
-              As={() => (
                 <a href="https://ameriabank.am">
-                  <IconAlertBadge />
-                  <div>Notifications</div>
+                  <IconSignOut />
+                  <Text>Logout</Text>
                 </a>
               )}
             />
-            <NavigationItem
-              type={NavigationItemTypes.MAIN}
-              isOpen={isOpen}
-              As={() => (
-                <a href="https://ameriabank.am">
-                  <IconSettings />
-                  <div>Settings</div>
-                </a>
-              )}
-            />
-            <NavigationItem
-              type={NavigationItemTypes.USER}
-              isOpen={isOpen}
-              As={() => (
-                <div onClick={() => alert()}>
-                  <Avatar imagePath={avatar} size={isOpen ? 'small' : 'xsmall'} />
-                  <Text size="medium">Zhorzhik Grigoryan</Text>
-                  <IconArrowExit />
-                </div>
-              )}
-            />
+            {/*<NavigationItem*/}
+            {/*  type={NavigationItemTypes.USER}*/}
+            {/*  isOpen={isOpen}*/}
+            {/*  As={() => (*/}
+            {/*    <div onClick={() => alert()}>*/}
+            {/*      <Avatar imagePath={avatar} size={isOpen ? 'small' : 'xsmall'} />*/}
+            {/*      <Text size="medium">Zhorzhik Grigoryan</Text>*/}
+            {/*      <IconArrowExit />*/}
+            {/*    </div>*/}
+            {/*  )}*/}
+            {/*/>*/}
           </>
         </Block>
       </footer>
@@ -246,7 +228,4 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
 export const SideNavigation = Template.bind({})
 
 // @ts-ignore
-SideNavigation.args = {
-  showAction: true,
-  actionElm: <Button buttonText={'Action'} size="large" iconProps={{ Component: IconHome }} />
-}
+SideNavigation.args = {}
