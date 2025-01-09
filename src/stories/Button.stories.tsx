@@ -11,7 +11,7 @@ export default {
   component: _Button,
   argTypes: {
     type: {
-      options: ['primary', 'secondary', 'tertiary', 'danger', 'text', 'link'],
+      options: ['primary', 'secondary', 'tertiary', 'danger', 'text'],
       control: { type: 'radio' }
     },
     size: {
@@ -26,7 +26,6 @@ const designSpecs = `
 <Button type="tertiary" size="large" buttonText="Label" />
 <Button size="large" buttonText="Label" isLoading />
 <Button type="text" size="large" buttonText="Label" iconProps={{ Component: IconChevronDown }} />
-<Button type="link" size="large">Label</Button>
 `
 
 const Template: StoryFn<TButtonPropTypes> = (args) => (
@@ -51,9 +50,6 @@ const Template: StoryFn<TButtonPropTypes> = (args) => (
         buttonText="Label"
         iconProps={{ Component: IconChevronDown }}
       />
-      <_Button type="link" size="large">
-        Label
-      </_Button>
     </div>
     <br />
     <CodeBlock title="Design Specs Example">{designSpecs}</CodeBlock>

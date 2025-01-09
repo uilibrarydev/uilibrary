@@ -29,7 +29,7 @@ export const More = (props: TMorePropTypes): JSX.Element => {
       {`${isExpanded ? expandedText : collapsedText}`}
       <Button
         className={'more__btn ml-4'}
-        type="link"
+        type="text"
         buttonText={isExpanded ? buttonText.collapse : buttonText.expand}
         onClick={isExpanded ? collapse : expand}
       />
