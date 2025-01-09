@@ -1,3 +1,10 @@
+## [2.30.2](https://github.com/dinofrontend/dino_ui_library/compare/2.30.1...2.30.2) (2025-01-09)
+
+
+### Bug Fixes
+
+* show hide toggle button ([3a2975b](https://github.com/dinofrontend/dino_ui_library/commit/3a2975b88c32c25b91f9d5f5f01d68abd605df56))
+
 ## [2.30.1](https://github.com/dinofrontend/dino_ui_library/compare/2.30.0...2.30.1) (2025-01-08)
 
 
