@@ -1,3 +1,13 @@
+## [2.30.3](https://github.com/dinofrontend/dino_ui_library/compare/2.30.2...2.30.3) (2025-01-09)
+
+
+### Bug Fixes
+
+* added sortIconProps for table ([8542c60](https://github.com/dinofrontend/dino_ui_library/commit/8542c6039660cf11b744b4a8eb9b955218b95bf3))
+* added sortIconProps for table ([eed4b56](https://github.com/dinofrontend/dino_ui_library/commit/eed4b5614c45d6de18f43fd5370ed24e27ce781e))
+* fix for table and sidebar navigation ([deb854e](https://github.com/dinofrontend/dino_ui_library/commit/deb854e14477c1d02d9aacbebaf3914accbf22c9))
+* remove button link type ([93edd23](https://github.com/dinofrontend/dino_ui_library/commit/93edd23e3e221496cf209c33421b5ab579611430))
+
 ## [2.30.2](https://github.com/dinofrontend/dino_ui_library/compare/2.30.1...2.30.2) (2025-01-09)
 
 
