@@ -2,6 +2,8 @@ import React from 'react'
 import { Table as _Table } from '../index'
 import { TColumn, TTableProps, TTableState } from '../components/Table/types'
 import { StoryFn } from '@storybook/react'
+import IconChevronDown from '../components/SVGIcons/IconChevronDown'
+import IconHeart from '../components/SVGIcons/IconHeart'
 
 const data: any[] = [
   {
@@ -92,5 +94,9 @@ Table.args = {
   fixedHeader: { y: 500 },
   withSelect: true,
   data: [],
-  columns: []
+  columns: [],
+  sortIconProps: {
+    Component: IconHeart,
+    size: 'small'
+  }
 }

@@ -8,7 +8,7 @@ export interface TButtonPropTypes
   buttonActionType?: 'submit' | 'button' | 'reset'
   buttonText?: string | ReactElement
   className?: string
-  type?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'text' | 'link'
+  type?: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'text'
   size?: 'small' | 'medium' | 'large'
   isLoading?: boolean
   iconProps?: {

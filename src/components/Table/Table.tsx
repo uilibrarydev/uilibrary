@@ -17,6 +17,7 @@ export function Table({
   withSelect = false,
   handleRowClick,
   className,
+  sortIconProps,
   containerRefHandler
 }: TTableProps): ReactElement {
   const tableRef = useRef<HTMLTableElement | null>(null)
@@ -100,6 +101,7 @@ export function Table({
           {headerGroups.map((headerGroup: HeaderGroup, i) => (
             <Header
               key={i}
+              sortIconProps={sortIconProps}
               withSelect={withSelect}
               fixedHeader={Boolean(fixedHeader)}
               headerGroup={headerGroup}

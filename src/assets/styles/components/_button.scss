@@ -61,19 +61,12 @@
   --ds-button-danger-text-default: var(--ds-color-text-inverse);
   --ds-button-danger-text-disabled: var(--ds-color-text-disabled);
 
-  --ds-button-text: var(--brand-700);
-  --ds-button-text-hover: var(--brand-800);
-  --ds-button-text-pressed: var(--brand-900);
-  --ds-button-text-focused: var(--brand-700);
+  --ds-button-text: var(--ds-color-text-primary);
+  --ds-button-text-hover: var(--ds-color-text-secondary);
+  --ds-button-text-pressed: var(--ds-color-text-tertiary);
+  --ds-button-text-focused: var(--ds-color-text-primary);
   --ds-button-text-disabled: var(--ds-color-text-disabled);
   --ds-button-text-shadow-focused: var(--ds-shadow-brand-2);
-
-  --ds-button-link: var(--ds-color-text-primary);
-  --ds-button-link-hover: var(--ds-color-text-secondary);
-  --ds-button-link-pressed: var(--ds-color-text-tertiary);
-  --ds-button-link-focused: var(--ds-color-text-primary);
-  --ds-button-link-disabled: var(--ds-color-text-disabled);
-  --ds-button-link-shadow-focused: var(--ds-shadow-brand-2);
 
   --ds-button-icon-margin-lg: var(--ds-space-8);
   --ds-button-icon-margin-md: var(--ds-space-8);
@@ -299,61 +292,7 @@
         }
       }
     }
-
-    #{$this}__icon {
-      color: var(--ds-button-text);
-    }
   }
-
-  &--link {
-    padding: 0;
-    width: auto;
-    background: none;
-    color: var(--ds-button-link);
-
-    #{$this}__text {
-      text-decoration: underline;
-    }
-
-    &:not(#{$this}--loading) {
-      &:hover {
-        color: var(--ds-button-link-hover);
-
-        #{$this}__icon {
-          path {
-            fill: var(--ds-button-link-hover);
-          }
-        }
-      }
-
-      &:active {
-        color: var(--ds-button-link-pressed);
-
-        #{$this}__icon {
-          color: var(--ds-button-link-pressed);
-
-          path {
-            fill: var(--ds-button-link-pressed);
-          }
-        }
-      }
-
-      &[disabled] {
-        color: var(--ds-button-link-disabled);
-
-        #{$this}__icon {
-          path {
-            fill: var(--ds-button-link-disabled);
-          }
-        }
-      }
-    }
-
-    #{$this}__icon {
-      color: var(--ds-button-link);
-    }
-  }
-
 
   &--icon-left {
     #{$this}__icon {
