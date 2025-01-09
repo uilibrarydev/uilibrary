@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Column, TableState } from 'react-table'
+import type {TSVGIconType} from '../SVGIcons/types';
 
 type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
   ? Acc[number]
@@ -30,6 +31,11 @@ export type TTableProps = {
   handleRowClick?: (row: any) => void
   onChange?: (state: TableState) => void
   containerRefHandler?: (ref: HTMLDivElement) => void
+  sortIconProps?: {
+    size?: TIconSize
+    type?: TSVGIconType
+    Component?: TSVGIconComponent
+  }
 }
 
 export type SortBy = {
