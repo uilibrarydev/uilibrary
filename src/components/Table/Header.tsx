@@ -6,13 +6,13 @@ import { calcColumnWidth, CHECKBOX_DEFAULT_WIDTH, CHECKBOX_HEADER_ID } from './u
 import { Text } from '../Text'
 import IconArrowDown from '../SVGIcons/IconArrowDown'
 import IconArrowUp from '../SVGIcons/IconArrowUp'
-import type {TSVGIconType} from '../SVGIcons/types';
+import type { TSVGIconType } from '../SVGIcons/types'
 
 type Props = {
   fixedHeader?: boolean
   withSelect: boolean
   tableWidth: number
-  headerGroup: HeaderGroup,
+  headerGroup: HeaderGroup
   sortIconProps?: {
     size?: TIconSize
     type?: TSVGIconType
@@ -81,15 +81,15 @@ export function Header({
                 </Text>
                 {isSorted && isSortedDesc && <IconArrowDown size="xsmall" className="ml-4" />}
                 {isSorted && !isSortedDesc && <IconArrowUp size="xsmall" className="ml-4" />}
-                {!isSorted && columnProps?.sortable && (
-                    sortIconProps?.Component ? (
-                        <sortIconProps.Component
-                            size={sortIconProps?.size}
-                            type={sortIconProps?.type}
-                            className="unsorted__icon ml-4"
-                        />
-                    ) : null
-                )}
+                {!isSorted &&
+                  columnProps?.sortable &&
+                  (sortIconProps?.Component ? (
+                    <sortIconProps.Component
+                      size={sortIconProps?.size}
+                      type={sortIconProps?.type}
+                      className="unsorted__icon ml-4"
+                    />
+                  ) : null)}
               </div>
             </th>
           )
