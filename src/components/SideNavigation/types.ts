@@ -6,8 +6,8 @@ export interface TSideNavigationPropTypes {
   showAction: boolean
   children: ReactNode
   showToggleIcon?: boolean
-  isOpen: boolean
-  setOpen: (arg: boolean) => void
+  isOpen?: boolean
+  setOpen?: (arg: boolean) => void
   sidebarOpenIconProps?: ISVGIconProps
   sidebarCloseIconProps?: ISVGIconProps
 }
