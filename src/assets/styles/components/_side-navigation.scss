@@ -173,18 +173,6 @@
           border-radius: var(--ds-border-radius-xs) 0 0 var(--ds-border-radius-xs);
           background-color: var(--ds-color-text-selected);
         }
-
-        >a {
-          >.svg-icon {
-            path {
-              fill: var(--ds-color-text-selected);
-            }
-
-            & + .body {
-              color: var(--ds-color-text-selected);
-            }
-          }
-        }
       }
   }
 
