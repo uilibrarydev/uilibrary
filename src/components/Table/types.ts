@@ -27,7 +27,7 @@ export type TTableProps = {
   columns: TColumn[]
   data: any[]
   withSelect?: boolean
-  fixedHeader?: { y: number }
+  fixedHeader?: boolean
   handleRowClick?: (row: any) => void
   onChange?: (state: TableState) => void
   containerRefHandler?: (ref: HTMLDivElement) => void
