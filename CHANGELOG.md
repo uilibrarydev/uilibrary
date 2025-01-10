@@ -1,3 +1,12 @@
+## [2.30.5](https://github.com/dinofrontend/dino_ui_library/compare/2.30.4...2.30.5) (2025-01-10)
+
+
+### Bug Fixes
+
+* chnage active icon for sidebar navigation ([c4e8290](https://github.com/dinofrontend/dino_ui_library/commit/c4e829098457e6dba4a3ee19c575c660a546ce77))
+* chnage active icon for sidebar navigation ([b2b2ccb](https://github.com/dinofrontend/dino_ui_library/commit/b2b2ccb52cf0e38d7670c4f894b1710dc48d2a81))
+* fix for sidebar naviagtion active state, added cursor base classes ([2fda8de](https://github.com/dinofrontend/dino_ui_library/commit/2fda8de8ec23c84eec2ee79af368878ab4714783))
+
 ## [2.30.4](https://github.com/dinofrontend/dino_ui_library/compare/2.30.3...2.30.4) (2025-01-10)
 
 
