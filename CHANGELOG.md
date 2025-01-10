@@ -1,3 +1,13 @@
+## [2.30.4](https://github.com/dinofrontend/dino_ui_library/compare/2.30.3...2.30.4) (2025-01-10)
+
+
+### Bug Fixes
+
+* change sort icon ([46d24fe](https://github.com/dinofrontend/dino_ui_library/commit/46d24fe6539d4dce6cf11569fca64d778c86811f))
+* change sort icon ([5641b80](https://github.com/dinofrontend/dino_ui_library/commit/5641b8007a1416e91d7781fc5d79cad8e6e7f395))
+* fix positioning issue for table rows ([c046907](https://github.com/dinofrontend/dino_ui_library/commit/c046907e63f7fd1e55558fb765465b486b2bd6b5))
+* table head sticky  ui issue ([9488347](https://github.com/dinofrontend/dino_ui_library/commit/948834786e3705f66dac8426ab66c6ae0c05e7b2))
+
 ## [2.30.3](https://github.com/dinofrontend/dino_ui_library/compare/2.30.2...2.30.3) (2025-01-09)
 
 
