@@ -28,6 +28,7 @@ import IconArrowExit from '../components/SVGIcons/IconArrowExit'
 import { StoryFn } from '@storybook/react'
 import { TSideNavigationPropTypes } from '../components/SideNavigation/types'
 import IconSignOut from '../components/SVGIcons/IconSignOut'
+import IconDocumentFilled from "../components/SVGIcons/IconDocumentFilled";
 
 export default {
   title: 'Side Navigation',
@@ -58,7 +59,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
             <NavigationItem
               As={() => (
                 <a href="/https://ameriabank.am">
-                  <IconDocument />
+                  <IconDocumentFilled />
                   <Text>Accounts</Text>
                 </a>
               )}

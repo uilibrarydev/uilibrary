@@ -79,8 +79,12 @@ export function Header({
                 <Text weight="bold" className="text-truncate">
                   {render('Header')}
                 </Text>
-                {isSorted && isSortedDesc && <IconArrowDown size="xsmall" className="ml-8 cursor-pointer" />}
-                {isSorted && !isSortedDesc && <IconArrowUp size="xsmall" className="ml-8 cursor-pointer" />}
+                {isSorted && isSortedDesc && (
+                  <IconArrowDown size="xsmall" className="ml-8 cursor-pointer" />
+                )}
+                {isSorted && !isSortedDesc && (
+                  <IconArrowUp size="xsmall" className="ml-8 cursor-pointer" />
+                )}
                 {!isSorted &&
                   columnProps?.sortable &&
                   (sortIconProps?.Component ? (
