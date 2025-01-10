@@ -35,6 +35,10 @@ export type TTableProps = {
     size?: TIconSize
     type?: TSVGIconType
     Component?: TSVGIconComponent
+  },
+  noResultProps?: {
+    title?: string
+    text?: string
   }
 }
 

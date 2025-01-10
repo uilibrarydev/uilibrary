@@ -8,6 +8,7 @@ import { Row } from './Row'
 import { Header } from './Header'
 import classNames from 'classnames'
 import { useDispatchEventOnScroll } from '../../hooks/useDispatchEventOnScroll'
+import {Empty} from '../Empty';
 
 export function Table({
   columns,
@@ -18,7 +19,8 @@ export function Table({
   handleRowClick,
   className,
   sortIconProps,
-  containerRefHandler
+  containerRefHandler,
+  noResultProps
 }: TTableProps): ReactElement {
   const tableRef = useRef<HTMLTableElement | null>(null)
   const [tableWidth, setTableWidth] = useState(400)
@@ -108,19 +110,27 @@ export function Table({
             />
           ))}
         </thead>
+
         <tbody {...getTableBodyProps()}>
-          {rows.map((row: RowType) => {
-            prepareRow(row)
-            return (
-              <Row
-                handleRowClick={handleRowClick}
-                withSelect={withSelect}
-                selectedFlatRows={selectedFlatRows}
-                row={row}
-                key={row.id}
-              />
-            )
-          })}
+          {rows?.length ? (
+              rows.map((row: RowType) => {
+              prepareRow(row)
+              return (
+                  <Row
+                      handleRowClick={handleRowClick}
+                      withSelect={withSelect}
+                      selectedFlatRows={selectedFlatRows}
+                      row={row}
+                      key={row.id}
+                  />
+              )
+            })
+          ) : <tr>
+                <td colSpan={withSelect ? (columns.length + 1) : columns.length}>
+                  <Empty mainMessage={noResultProps?.title} paragraphMessage={noResultProps?.text} />
+                </td>
+              </tr>
+          }
         </tbody>
       </table>
     </div>
