@@ -2,8 +2,7 @@ import React from 'react'
 import { Table as _Table } from '../index'
 import { TColumn, TTableProps, TTableState } from '../components/Table/types'
 import { StoryFn } from '@storybook/react'
-import IconChevronDown from '../components/SVGIcons/IconChevronDown'
-import IconHeart from '../components/SVGIcons/IconHeart'
+import IconArrowSort from "../components/SVGIcons/IconArrowSort";
 
 const data: any[] = [
   {
@@ -80,7 +79,11 @@ const Template: StoryFn<TTableProps> = (args) => {
     console.log(state)
   }
 
-  return <div style={{height: '95vh'}}><_Table {...args} data={data} onChange={handleChange} columns={columns} /></div>
+  return (
+    <div style={{ height: '95vh' }}>
+      <_Table {...args} data={data} onChange={handleChange} columns={columns} />
+    </div>
+  )
 }
 
 export default {
@@ -96,8 +99,7 @@ Table.args = {
   data: [],
   columns: [],
   sortIconProps: {
-    Component: IconHeart,
+    Component: IconArrowSort,
     size: 'small'
   }
 }
-
