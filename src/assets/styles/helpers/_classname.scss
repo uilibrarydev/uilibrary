@@ -604,3 +604,13 @@ $space-prefixes: (
 .text-truncate {
   @include mixin.truncate(100%);
 }
+
+//
+.cursor {
+  &-pointer {
+    cursor: pointer;
+  }
+  &-not-allowed {
+    cursor: not-allowed;
+  }
+}
