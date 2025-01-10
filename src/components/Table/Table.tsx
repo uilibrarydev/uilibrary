@@ -8,7 +8,7 @@ import { Row } from './Row'
 import { Header } from './Header'
 import classNames from 'classnames'
 import { useDispatchEventOnScroll } from '../../hooks/useDispatchEventOnScroll'
-import {Empty} from '../Empty';
+import { Empty } from '../Empty'
 
 export function Table({
   columns,
@@ -113,24 +113,25 @@ export function Table({
 
         <tbody {...getTableBodyProps()}>
           {rows?.length ? (
-              rows.map((row: RowType) => {
+            rows.map((row: RowType) => {
               prepareRow(row)
               return (
-                  <Row
-                      handleRowClick={handleRowClick}
-                      withSelect={withSelect}
-                      selectedFlatRows={selectedFlatRows}
-                      row={row}
-                      key={row.id}
-                  />
+                <Row
+                  handleRowClick={handleRowClick}
+                  withSelect={withSelect}
+                  selectedFlatRows={selectedFlatRows}
+                  row={row}
+                  key={row.id}
+                />
               )
             })
-          ) : <tr>
-                <td colSpan={withSelect ? (columns.length + 1) : columns.length}>
-                  <Empty mainMessage={noResultProps?.title} paragraphMessage={noResultProps?.text} />
-                </td>
-              </tr>
-          }
+          ) : (
+            <tr>
+              <td colSpan={withSelect ? columns.length + 1 : columns.length}>
+                <Empty mainMessage={noResultProps?.title} paragraphMessage={noResultProps?.text} />
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
