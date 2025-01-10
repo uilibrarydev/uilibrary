@@ -2,7 +2,7 @@ import React from 'react'
 import { Table as _Table } from '../index'
 import { TColumn, TTableProps, TTableState } from '../components/Table/types'
 import { StoryFn } from '@storybook/react'
-import IconArrowSort from "../components/SVGIcons/IconArrowSort";
+import IconArrowSort from '../components/SVGIcons/IconArrowSort'
 
 const data: any[] = [
   {
