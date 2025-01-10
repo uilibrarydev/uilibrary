@@ -39,6 +39,10 @@
               opacity: 1;
             }
           }
+
+          &.fixed_column_left {
+            z-index: 2;
+          }
         }
       }
     }
@@ -87,7 +91,7 @@
   }
 
   .fixed_column_left {
-    @include mixin.sticky(0, unset, unset, unset);
+    @include mixin.sticky(unset, unset, unset, unset);
     z-index: 1;
     border-right: 1px solid var(--ds-table-td-border-color)
   }

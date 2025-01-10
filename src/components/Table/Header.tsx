@@ -79,15 +79,15 @@ export function Header({
                 <Text weight="bold" className="text-truncate">
                   {render('Header')}
                 </Text>
-                {isSorted && isSortedDesc && <IconArrowDown size="xsmall" className="ml-4" />}
-                {isSorted && !isSortedDesc && <IconArrowUp size="xsmall" className="ml-4" />}
+                {isSorted && isSortedDesc && <IconArrowDown size="xsmall" className="ml-8" />}
+                {isSorted && !isSortedDesc && <IconArrowUp size="xsmall" className="ml-8" />}
                 {!isSorted &&
                   columnProps?.sortable &&
                   (sortIconProps?.Component ? (
                     <sortIconProps.Component
                       size={sortIconProps?.size}
                       type={sortIconProps?.type}
-                      className="unsorted__icon ml-4"
+                      className="unsorted__icon ml-8"
                     />
                   ) : null)}
               </div>
