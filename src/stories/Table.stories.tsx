@@ -80,7 +80,7 @@ const Template: StoryFn<TTableProps> = (args) => {
     console.log(state)
   }
 
-  return <_Table {...args} data={data} onChange={handleChange} columns={columns} />
+  return <div style={{height: '95vh'}}><_Table {...args} data={data} onChange={handleChange} columns={columns} /></div>
 }
 
 export default {
@@ -91,7 +91,7 @@ export default {
 export const Table = Template.bind({})
 
 Table.args = {
-  fixedHeader: { y: 500 },
+  fixedHeader: true,
   withSelect: true,
   data: [],
   columns: [],
@@ -100,3 +100,4 @@ Table.args = {
     size: 'small'
   }
 }
+

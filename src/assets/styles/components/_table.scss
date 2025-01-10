@@ -16,10 +16,13 @@
   --ds-table-td-bg-color: var(--ds-color-bg-white);
   --ds-table-td-bg-color-dark: var(--ds-color-bg-container-lighter);
 
+  max-height: 100%;
+
   table {
     border-collapse: separate;
     border-spacing: 0;
     width: 100%;
+    max-height: 100%;
 
     thead {
       tr {
