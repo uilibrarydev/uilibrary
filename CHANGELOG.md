@@ -1,3 +1,11 @@
+## [2.30.7](https://github.com/dinofrontend/dino_ui_library/compare/2.30.6...2.30.7) (2025-01-13)
+
+
+### Bug Fixes
+
+* added noResult props for tables and fixed ui ([b5a388e](https://github.com/dinofrontend/dino_ui_library/commit/b5a388ec42b111659d3d14024ae472c33f4b3361))
+* fixes ([69d1cf1](https://github.com/dinofrontend/dino_ui_library/commit/69d1cf18a618a902938c949ce6ca181a06301b49))
+
 ## [2.30.6](https://github.com/dinofrontend/dino_ui_library/compare/2.30.5...2.30.6) (2025-01-13)
 
 
