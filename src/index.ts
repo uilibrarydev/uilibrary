@@ -46,7 +46,6 @@ export * from './components/Text'
 export * from './components/Textarea'
 export * from './components/Tooltip'
 export * from './components/SVGIcons'
-export * from './components/SVGIconsNew'
 export * from './components/OneTimePassword'
 export * from './helperComponents/OptionItem'
 
