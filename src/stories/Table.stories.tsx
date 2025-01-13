@@ -5,38 +5,38 @@ import { StoryFn } from '@storybook/react'
 import IconArrowSort from '../components/SVGIcons/IconArrowSort'
 
 const data: any[] = [
-  {
-    user: 'Luke Skywalker',
-    age: 21,
-    id: 'fffffffsdf',
-    visits: [7, 8, 9],
-    progress: 'fdfsdfsdfsd',
-    status: 'Active'
-  },
-  ...Array(13).fill({
-    user: 'John Doe',
-    age: 30,
-    id: 'dsfsdf',
-    visits: [4, 5, 6],
-    progress: 'divv',
-    status: 'Active'
-  }),
-  {
-    user: 'John Doe',
-    age: 30,
-    id: 'dsfsdf',
-    visits: [4, 5, 6],
-    progress: 'divv',
-    status: 'Active'
-  },
-  {
-    user: 'Bruce wayne',
-    id: 'fffffffeeeee',
-    age: 29,
-    visits: [1, 2, 3],
-    progress: 'diff',
-    status: 'Active'
-  }
+  // {
+  //   user: 'Luke Skywalker',
+  //   age: 21,
+  //   id: 'fffffffsdf',
+  //   visits: [7, 8, 9],
+  //   progress: 'fdfsdfsdfsd',
+  //   status: 'Active'
+  // },
+  // ...Array(13).fill({
+  //   user: 'John Doe',
+  //   age: 30,
+  //   id: 'dsfsdf',
+  //   visits: [4, 5, 6],
+  //   progress: 'divv',
+  //   status: 'Active'
+  // }),
+  // {
+  //   user: 'John Doe',
+  //   age: 30,
+  //   id: 'dsfsdf',
+  //   visits: [4, 5, 6],
+  //   progress: 'divv',
+  //   status: 'Active'
+  // },
+  // {
+  //   user: 'Bruce wayne',
+  //   id: 'fffffffeeeee',
+  //   age: 29,
+  //   visits: [1, 2, 3],
+  //   progress: 'diff',
+  //   status: 'Active'
+  // }
 ]
 
 const Template: StoryFn<TTableProps> = (args) => {

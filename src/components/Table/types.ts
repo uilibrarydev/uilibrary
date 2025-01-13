@@ -36,6 +36,10 @@ export type TTableProps = {
     type?: TSVGIconType
     Component?: TSVGIconComponent
   }
+  noResultProps?: {
+    title?: string
+    text?: string
+  }
 }
 
 export type SortBy = {
