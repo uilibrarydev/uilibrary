@@ -1,3 +1,10 @@
+## [2.30.6](https://github.com/dinofrontend/dino_ui_library/compare/2.30.5...2.30.6) (2025-01-13)
+
+
+### Bug Fixes
+
+* add new icons folder with flag icons ([c4761e5](https://github.com/dinofrontend/dino_ui_library/commit/c4761e5d224d3a4c46bed38be7d33fe5b3db2969))
+
 ## [2.30.5](https://github.com/dinofrontend/dino_ui_library/compare/2.30.4...2.30.5) (2025-01-10)
 
 
