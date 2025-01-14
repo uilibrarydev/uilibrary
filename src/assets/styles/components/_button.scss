@@ -260,6 +260,10 @@
       }
     }
 
+    #{$this}__text {
+      text-decoration: underline;
+    }
+
     &:not(#{$this}--loading) {
       &:hover {
         color: var(--ds-button-text-hover);
