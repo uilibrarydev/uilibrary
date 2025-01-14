@@ -1,3 +1,10 @@
+## [2.30.8](https://github.com/dinofrontend/dino_ui_library/compare/2.30.7...2.30.8) (2025-01-14)
+
+
+### Bug Fixes
+
+* added underline on button text type ([06b94aa](https://github.com/dinofrontend/dino_ui_library/commit/06b94aac182a197666704f057f09bb8baa9b791e))
+
 ## [2.30.7](https://github.com/dinofrontend/dino_ui_library/compare/2.30.6...2.30.7) (2025-01-13)
 
 
