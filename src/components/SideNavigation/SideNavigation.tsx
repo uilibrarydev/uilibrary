@@ -5,14 +5,14 @@ import IconChevronRight from '../SVGIcons/IconChevronRight'
 import { Button } from '../Button'
 
 export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => {
-  const { children, isOpen = true, setOpen, showToggleIcon = true } = props
+  const { children, isOpen = true, setOpen, showToggleIcon = true, className = '' } = props
 
   const handleToggleOpen = () => {
     setOpen?.(!isOpen)
   }
 
   return (
-    <div className={classNames('side-navigation', isOpen ? 'side-navigation__opened' : null)}>
+    <div className={classNames('side-navigation', isOpen ? 'side-navigation--opened' : null, className)}>
       {showToggleIcon && (
         <Button
           iconProps={{ Component: IconChevronRight }}

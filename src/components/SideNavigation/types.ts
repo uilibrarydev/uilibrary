@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import type { ISVGIconProps } from '../SVGIcons/types'
 
 export interface TSideNavigationPropTypes {
+  className: string
   actionElm: JSX.Element
   showAction: boolean
   children: ReactNode

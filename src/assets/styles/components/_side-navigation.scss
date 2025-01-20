@@ -24,19 +24,45 @@
     }
   }
 
-  &__opened {
+  &--opened {
     width: 268px;
     padding-left: var(--ds-space-12);
 
     .navigation-item {
       &__inner {
-        > a,  >div:not(.badge) {
+        > a,  >div:not(.badge, .avatar) {
           padding-left: var(--ds-space-12);
 
           > .svg-icon + .body {
             max-width: 100%;
             padding-left: var(--ds-space-8);
           }
+        }
+      }
+
+      &.navigation-item--user {
+        .navigation-item__inner {
+          .avatar + .body {
+            max-width: 100%;
+            padding-left: var(--ds-space-8);
+          }
+        }
+      }
+
+      &__child {
+        position: relative;
+        width: initial;
+        right: unset;
+        overflow: hidden;
+        transition: max-height 300ms linear;
+        border: 0;
+        border-radius: 0;
+        display: block;
+        max-height: 0;
+
+        &.active {
+          max-height: 1000px;
+          transition: max-height 300ms linear;
         }
       }
     }
@@ -133,7 +159,7 @@
       width: 100%;
       border-radius: var(--ds-border-radius-sm);
 
-      >a, >div:not(.badge) {
+      >a, >div:not(.badge, .avatar) {
         @include mixin.flexbox;
         @include mixin.align-items(center);
         position: relative;
@@ -201,6 +227,16 @@
     }
   }
 
+  &#{$this}--user {
+    #{$this}__inner {
+      .avatar + .body {
+        @include mixin.truncate(0);
+        padding-left: 0;
+        transition: all 0.3s linear;
+      }
+    }
+  }
+
 
   &#{$this}--sub {
     #{$this}__inner {
@@ -224,7 +260,6 @@
     display: none;
 
     &.active {
-      height: auto;
       overflow: visible;
       display: block;
     }
@@ -243,6 +278,18 @@
         >.svg-icon + .body {
           max-width: 100% !important;
         }
+      }
+    }
+  }
+
+  &__expandable-icon {
+    .svg-icon {
+      transition: all 0.3s linear;
+    }
+
+    &.opened {
+      .svg-icon {
+        transform: rotate(-180deg);
       }
     }
   }
@@ -272,4 +319,8 @@
       transition: max-width 0.5s linear;
     }
   }
+}
+
+.profile-text {
+  flex: 1;
 }
