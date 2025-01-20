@@ -1,3 +1,13 @@
+## [2.30.10](https://github.com/dinofrontend/dino_ui_library/compare/2.30.9...2.30.10) (2025-01-20)
+
+
+### Bug Fixes
+
+* fixes for types ([048a104](https://github.com/dinofrontend/dino_ui_library/commit/048a10464d0c3b65405c9f434adad9bf49ab1111))
+* fixes for types ([6ac5c93](https://github.com/dinofrontend/dino_ui_library/commit/6ac5c93a5d8d0e28941546477426b6c613ea552d))
+* fixes min-width ([35097c7](https://github.com/dinofrontend/dino_ui_library/commit/35097c716448b05f05152d17801b269c34977a16))
+* style fixes ([a3f02fb](https://github.com/dinofrontend/dino_ui_library/commit/a3f02fb11073dc5ce161b87d7202df51211952a6))
+
 ## [2.30.9](https://github.com/dinofrontend/dino_ui_library/compare/2.30.8...2.30.9) (2025-01-20)
 
 
