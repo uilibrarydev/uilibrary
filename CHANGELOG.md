@@ -1,3 +1,13 @@
+## [2.30.9](https://github.com/dinofrontend/dino_ui_library/compare/2.30.8...2.30.9) (2025-01-20)
+
+
+### Bug Fixes
+
+* added classname props for sideNavigation, and added logo, profile cases ([91ddc51](https://github.com/dinofrontend/dino_ui_library/commit/91ddc5155b4e8ed79c5430192fa506bbb2878525))
+* added classname props for sideNavigation, and added logo, profile cases ([9ac678e](https://github.com/dinofrontend/dino_ui_library/commit/9ac678e56f9abfb78347ef2f3527174d8471446c))
+* fixes for sidebar profile list ([bd5f39b](https://github.com/dinofrontend/dino_ui_library/commit/bd5f39bcb9fed623ea65890718cf0a31df45aaa8))
+* fixes for sidebar profile list ([3710cb4](https://github.com/dinofrontend/dino_ui_library/commit/3710cb468039b1778488884ffeeecc1c5ed3bc64))
+
 ## [2.30.8](https://github.com/dinofrontend/dino_ui_library/compare/2.30.7...2.30.8) (2025-01-14)
 
 
