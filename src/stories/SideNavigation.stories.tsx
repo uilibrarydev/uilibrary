@@ -217,28 +217,28 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
               </div>
             )}
           >
-              <>
-                  <NavigationItem
-                      As={() => (
-                          <a href="/">
-                              <Text className={'text-truncate'}> Zhorzhik Grigoryan</Text>
-                          </a>
-                      )}
-                      type={NavigationItemTypes.SUB}
-                      isOpen={isOpen}
-                  />
-                  <NavigationItem
-                      As={() => (
-                          <a href="/https://ameriabank.am">
-                              <IconSignOut />
-                              <Text>Logout</Text>
-                          </a>
-                      )}
-                      type={NavigationItemTypes.SUB}
-                      isOpen={isOpen}
-                  />
-                  </>
-              </NavigationItem>
+            <>
+              <NavigationItem
+                As={() => (
+                  <a href="/">
+                    <Text className={'text-truncate'}> Zhorzhik Grigoryan</Text>
+                  </a>
+                )}
+                type={NavigationItemTypes.SUB}
+                isOpen={isOpen}
+              />
+              <NavigationItem
+                As={() => (
+                  <a href="/https://ameriabank.am">
+                    <IconSignOut />
+                    <Text>Logout</Text>
+                  </a>
+                )}
+                type={NavigationItemTypes.SUB}
+                isOpen={isOpen}
+              />
+            </>
+          </NavigationItem>
           {/*<NavigationItem*/}
           {/*  type={NavigationItemTypes.MAIN}*/}
           {/*  isOpen={isOpen}*/}
