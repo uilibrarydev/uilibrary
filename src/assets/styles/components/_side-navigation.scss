@@ -270,9 +270,10 @@
     left: calc(100% + 4px);
     overflow: hidden;
     transition: 300ms;
-    border: 1px solid #DDDDDD;
+    border: 1px solid var(--ds-color-border-primary);
     border-radius: 4px;
     display: none;
+    background-color: var(--ds-color-bg-white);
 
     &.active {
       overflow: visible;
