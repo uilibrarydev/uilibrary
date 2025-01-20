@@ -198,6 +198,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
           <NavigationItem
             type={NavigationItemTypes.USER}
             isOpen={isOpen}
+            expandable
             As={() => (
               <div className={'flexbox align-items--center'}>
                 <Avatar imagePath={avatar} size={'xsmall'} />
@@ -215,7 +216,29 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
                 ) : null}
               </div>
             )}
-          />
+          >
+              <>
+                  <NavigationItem
+                      As={() => (
+                          <a href="/">
+                              <Text className={'text-truncate'}> Zhorzhik Grigoryan</Text>
+                          </a>
+                      )}
+                      type={NavigationItemTypes.SUB}
+                      isOpen={isOpen}
+                  />
+                  <NavigationItem
+                      As={() => (
+                          <a href="/https://ameriabank.am">
+                              <IconSignOut />
+                              <Text>Logout</Text>
+                          </a>
+                      )}
+                      type={NavigationItemTypes.SUB}
+                      isOpen={isOpen}
+                  />
+                  </>
+              </NavigationItem>
           {/*<NavigationItem*/}
           {/*  type={NavigationItemTypes.MAIN}*/}
           {/*  isOpen={isOpen}*/}

@@ -47,12 +47,16 @@
             padding-left: var(--ds-space-8);
           }
         }
+
+        .navigation-item__child {
+          display: none;
+        }
       }
 
       &__child {
         position: relative;
         width: initial;
-        right: unset;
+        left: unset;
         overflow: hidden;
         transition: max-height 300ms linear;
         border: 0;
@@ -235,6 +239,17 @@
         transition: all 0.3s linear;
       }
     }
+
+    #{$this}__child {
+      &.active {
+        top: unset;
+        bottom: 0;
+      }
+    }
+
+    #{$this}__expandable-icon {
+      display: none;
+    }
   }
 
 
@@ -251,8 +266,8 @@
   &__child {
     position: absolute;
     top: 0;
-    width: 160px;
-    right: -164px;
+    min-width: 160px;
+    left: calc(100% + 4px);
     overflow: hidden;
     transition: 300ms;
     border: 1px solid #DDDDDD;
