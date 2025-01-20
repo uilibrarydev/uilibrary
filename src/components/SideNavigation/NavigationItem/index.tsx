@@ -5,7 +5,7 @@ import type { TNavigationLinkPropTypes } from './types'
 import { NavigationItemTypes } from './types'
 import { Badge } from '../../Badge'
 import IconDynamicComponent from '../../../helperComponents/IconDynamicComponent/IconDynamicComponent'
-import IconChevronDown from "../../SVGIcons/IconChevronDown";
+import IconChevronDown from '../../SVGIcons/IconChevronDown'
 
 export const NavigationItem = (props: TNavigationLinkPropTypes): ReactElement => {
   const {

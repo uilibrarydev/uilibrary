@@ -23,5 +23,5 @@ export interface TNavigationLinkPropTypes {
   active?: boolean
   badgeContent?: string
   badgeType?: 'primary' | 'secondary' | 'tertiary'
-  children?: ReactNode,
+  children?: ReactNode
 }

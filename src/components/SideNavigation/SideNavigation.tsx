@@ -12,7 +12,13 @@ export const SideNavigation = (props: TSideNavigationPropTypes): JSX.Element => 
   }
 
   return (
-    <div className={classNames('side-navigation', isOpen ? 'side-navigation--opened' : null, className)}>
+    <div
+      className={classNames(
+        'side-navigation',
+        isOpen ? 'side-navigation--opened' : null,
+        className
+      )}
+    >
       {showToggleIcon && (
         <Button
           iconProps={{ Component: IconChevronRight }}

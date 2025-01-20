@@ -1,12 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { ReactElement, useState } from 'react'
-import {
-    Avatar,
-    Image,
-    NavigationItem,
-    SideNavigation as _SideNavigation,
-    Text
-} from '../index'
+import { Avatar, Image, NavigationItem, SideNavigation as _SideNavigation, Text } from '../index'
 import { Block } from '../components/SideNavigation/Block'
 import { NavigationItemTypes } from '../components/SideNavigation/NavigationItem/types'
 // @ts-ignore
@@ -50,7 +44,7 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
         <NavigationItem
           As={() => (
             <div>
-             <Image imagePath={isOpen ? logo : logoClosed} isBackgroundImage={false} />
+              <Image imagePath={isOpen ? logo : logoClosed} isBackgroundImage={false} />
             </div>
           )}
           type={NavigationItemTypes.MAIN}
@@ -201,36 +195,37 @@ const Template: StoryFn<TSideNavigationPropTypes> = (args) => {
       </main>
       <footer>
         <Block>
-              <NavigationItem
-                  type={NavigationItemTypes.USER}
-                  isOpen={isOpen}
-                  As={() => (
-                      <div className={'flexbox align-items--center'}>
-                          <Avatar imagePath={avatar} size={'xsmall'} />
-                          {
-                              isOpen ?  <Text className={'flexbox align-items--center justify-content--between profile-text'}>
-                                  <>
-                                      Zhorzhik Grigoryan
-                                      <a href="https://ameriabank.am">
-                                          <IconSignOut />
-                                      </a>
-                                  </>
-
-                              </Text> : null
-                          }
-                      </div>
-                  )}
-              />
-            {/*<NavigationItem*/}
-            {/*  type={NavigationItemTypes.MAIN}*/}
-            {/*  isOpen={isOpen}*/}
-            {/*  As={() => (*/}
-            {/*    <a href="https://ameriabank.am">*/}
-            {/*      <IconSignOut />*/}
-            {/*      <Text>Logout</Text>*/}
-            {/*    </a>*/}
-            {/*  )}*/}
-            {/*/>*/}
+          <NavigationItem
+            type={NavigationItemTypes.USER}
+            isOpen={isOpen}
+            As={() => (
+              <div className={'flexbox align-items--center'}>
+                <Avatar imagePath={avatar} size={'xsmall'} />
+                {isOpen ? (
+                  <Text
+                    className={'flexbox align-items--center justify-content--between profile-text'}
+                  >
+                    <>
+                      Zhorzhik Grigoryan
+                      <a href="https://ameriabank.am">
+                        <IconSignOut />
+                      </a>
+                    </>
+                  </Text>
+                ) : null}
+              </div>
+            )}
+          />
+          {/*<NavigationItem*/}
+          {/*  type={NavigationItemTypes.MAIN}*/}
+          {/*  isOpen={isOpen}*/}
+          {/*  As={() => (*/}
+          {/*    <a href="https://ameriabank.am">*/}
+          {/*      <IconSignOut />*/}
+          {/*      <Text>Logout</Text>*/}
+          {/*    </a>*/}
+          {/*  )}*/}
+          {/*/>*/}
         </Block>
       </footer>
     </_SideNavigation>
