@@ -35,8 +35,9 @@ const SimplePicker: StoryFn<ISimpleDatePickerProps> = (args) => {
   const [value, setValue] = useState<Date | undefined>(undefined)
 
   return (
-    <div style={{ width: 300 }}>
-      <_SimpleDatePicker
+    <div style={{ display: 'flex', maxHeight: '100vh', justifyContent: 'center' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', minHeight: '1000px' }}>
+        <_SimpleDatePicker
         {...args}
         value={value}
         changeHandler={setValue}
@@ -48,6 +49,7 @@ const SimplePicker: StoryFn<ISimpleDatePickerProps> = (args) => {
         minDate={new Date(new Date().setDate(new Date().getDate() + 15))}
         maxDate={new Date(new Date().setDate(new Date().getDate() + 60))}
       />
+    </div>
     </div>
   )
 }

@@ -60,7 +60,12 @@ export const ButtonSelectWrapper = (props: TSelectWrapperProps): ReactElement =>
     return ` ${selectedValues[0].label} +${selectedValues.length - 1}`
   }, [selectedValues])
 
-  useChangePositionsOnScroll(buttonRef?.current, dropdownRef, hasBottomSpace)
+  useChangePositionsOnScroll({
+    parentElement: buttonRef?.current,
+    childElement: dropdownRef,
+    hasBottomSpace,
+    checkPositionsOnScroll: !(typeof offsets?.top === 'number')
+  })
 
   return (
     <div className={classNames(`select select--${size}`, className)} ref={setContainerRef}>
