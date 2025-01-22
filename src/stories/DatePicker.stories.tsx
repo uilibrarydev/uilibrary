@@ -38,18 +38,18 @@ const SimplePicker: StoryFn<ISimpleDatePickerProps> = (args) => {
     <div style={{ display: 'flex', maxHeight: '100vh', justifyContent: 'center' }}>
       <div style={{ display: 'flex', justifyContent: 'center', minHeight: '1000px' }}>
         <_SimpleDatePicker
-        {...args}
-        value={value}
-        changeHandler={setValue}
-        format="DD"
-        // label="ddd"
-        placeholderText="Select date"
-        size="small"
-        excludeDates={getAllLastDays()}
-        minDate={new Date(new Date().setDate(new Date().getDate() + 15))}
-        maxDate={new Date(new Date().setDate(new Date().getDate() + 60))}
-      />
-    </div>
+          {...args}
+          value={value}
+          changeHandler={setValue}
+          format="DD"
+          // label="ddd"
+          placeholderText="Select date"
+          size="small"
+          excludeDates={getAllLastDays()}
+          minDate={new Date(new Date().setDate(new Date().getDate() + 15))}
+          maxDate={new Date(new Date().setDate(new Date().getDate() + 60))}
+        />
+      </div>
     </div>
   )
 }

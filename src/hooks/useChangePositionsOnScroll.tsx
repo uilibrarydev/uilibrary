@@ -1,19 +1,17 @@
 import { useEffect } from 'react'
 import { CUSTOM_SCROLL_NAME, CUSTOM_SCROLL_MESSAGE, DROPDOWN_AND_INPUT_GAP } from '../consts'
 
-export const useChangePositionsOnScroll = (
-  {
-    parentElement,
-    childElement,
-    hasBottomSpace = true,
-    checkPositionsOnScroll = true
-  }: {
-    parentElement: HTMLElement | null
-    childElement: HTMLElement | null
-    hasBottomSpace?: boolean
-    checkPositionsOnScroll?: boolean
-  }
-): null => {
+export const useChangePositionsOnScroll = ({
+  parentElement,
+  childElement,
+  hasBottomSpace = true,
+  checkPositionsOnScroll = true
+}: {
+  parentElement: HTMLElement | null
+  childElement: HTMLElement | null
+  hasBottomSpace?: boolean
+  checkPositionsOnScroll?: boolean
+}): null => {
   const positionElement = () => {
     const elemDimensions = parentElement?.getBoundingClientRect()
     const childElementDimensions = childElement?.getBoundingClientRect()

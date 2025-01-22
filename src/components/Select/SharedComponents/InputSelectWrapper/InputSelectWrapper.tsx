@@ -96,8 +96,7 @@ export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | n
     parentElement: inputRef?.current,
     childElement: dropdownRef,
     hasBottomSpace
-  }
-)
+  })
 
   return (
     <div className={classNames('select select--multi', className)} ref={setContainerRef}>
