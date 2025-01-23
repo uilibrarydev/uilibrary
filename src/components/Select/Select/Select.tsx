@@ -181,7 +181,11 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     input: inputRef.current
   })
 
-  useChangePositionsOnScroll(inputRef?.current, dropdownRef, hasBottomSpace)
+  useChangePositionsOnScroll({
+    parentElement: inputRef?.current,
+    childElement: dropdownRef,
+    hasBottomSpace
+  })
 
   return (
     <div

@@ -92,7 +92,11 @@ export const InputSelectWrapper = (props: TSelectWrapperProps): ReactElement | n
     input: inputRef.current
   })
 
-  useChangePositionsOnScroll(inputRef?.current, dropdownRef, hasBottomSpace)
+  useChangePositionsOnScroll({
+    parentElement: inputRef?.current,
+    childElement: dropdownRef,
+    hasBottomSpace
+  })
 
   return (
     <div className={classNames('select select--multi', className)} ref={setContainerRef}>
