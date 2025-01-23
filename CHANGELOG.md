@@ -1,3 +1,12 @@
+## [2.30.11](https://github.com/dinofrontend/dino_ui_library/compare/2.30.10...2.30.11) (2025-01-23)
+
+
+### Bug Fixes
+
+* fixed position of options container if top offset is provided ([25f7666](https://github.com/dinofrontend/dino_ui_library/commit/25f7666cc5bbec3cf06a6beac8dc84776cd7664d))
+* fixed position of options container if top offset is provided ([203d75a](https://github.com/dinofrontend/dino_ui_library/commit/203d75a242bd4bb14e8c2548de0fb64fdc8c521e))
+* fixed position of options container if top offset is provided ([aa5b943](https://github.com/dinofrontend/dino_ui_library/commit/aa5b9434c7e90f5786339e527694def2f5b7edd4))
+
 ## [2.30.10](https://github.com/dinofrontend/dino_ui_library/compare/2.30.9...2.30.10) (2025-01-20)
 
 
