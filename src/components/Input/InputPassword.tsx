@@ -5,6 +5,11 @@ import { IconCheckmark, IconDismiss, IconEyeOff, IconEyeOn } from '../SVGIcons'
 import { Text } from '../Text'
 import { Divider } from '../Divider'
 
+const getTextType = (password:string, isValid:boolean, isFocused:boolean) => {
+  if (password.length === 0 || isFocused) return 'disabled';
+  return isValid ? 'success' : 'danger';
+};
+
 export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsProps>(
   (props, ref): JSX.Element => {
     const { validations, onValidationChange, dataId, label, placeholder, hasError } = props
@@ -13,20 +18,12 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
     const [validationResults, setValidationResults] = useState<Record<string, boolean>>({})
     const [isFocused, setIsFocused] = useState<boolean>(false)
 
-    const eyeIcon = !showPassword
-      ? {
-          Component: IconEyeOn,
-          onClick: () => {
-            setShowPassword(!showPassword)
-          }
-        }
-      : {
-          Component: IconEyeOff,
-          onClick: () => {
-            setShowPassword(!showPassword)
-          }
-        }
-
+    const eyeIcon = {
+      Component: !showPassword ? IconEyeOn : IconEyeOff,
+      onClick: () => {
+        setShowPassword(!showPassword)
+      }
+    }
     useEffect(() => {
       const results = validations.reduce((acc: Record<string, boolean>, rule) => {
         acc[rule.label] = rule.test(password)
@@ -38,6 +35,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
       const isValid = Object.values(results).every(Boolean)
       onValidationChange?.(isValid)
     }, [password, validations, onValidationChange])
+
     return (
       <div className={'password-wrapper'}>
         <Input
@@ -77,15 +75,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
               )}
               <Text
                 key={rule.label}
-                type={
-                  password.length === 0
-                    ? 'disabled'
-                    : validationResults[rule.label]
-                    ? 'success'
-                    : isFocused
-                    ? 'disabled'
-                    : 'danger'
-                }
+                type={getTextType(password, validationResults[rule.label], isFocused)}
               >
                 {rule.label}
               </Text>
