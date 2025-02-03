@@ -44,3 +44,24 @@ export interface InputCustomProps
     floatValue: number | undefined
   }) => boolean
 }
+
+interface IPasswordValidationRule {
+  label: string
+  test: (password: string) => boolean
+}
+
+export interface InputPasswordsProps
+  extends IFormCompProps,
+    Omit<
+      InputHTMLAttributes<HTMLInputElement>,
+      'size' | 'onFocus' | 'value' | 'onChange' | 'autoComplete'
+    > {
+  validations: IPasswordValidationRule[]
+  onValidationChange?: (isValid: boolean) => void
+  className?: string
+  dataId?: string
+  placeholder?: string
+  id?: string
+  label?: string | ReactElement
+  hasError?: boolean
+}

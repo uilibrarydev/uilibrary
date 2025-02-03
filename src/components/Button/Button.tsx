@@ -29,7 +29,7 @@ export const Button = (props: TButtonPropTypes): ReactElement => {
     <button
       ref={refHandler}
       data-id={dataId}
-      disabled={disabled}
+      disabled={disabled || isLoading}
       type={buttonActionType}
       className={classnames(
         'btn',
