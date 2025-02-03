@@ -1,3 +1,10 @@
+## [2.31.1](https://github.com/dinofrontend/dino_ui_library/compare/2.31.0...2.31.1) (2025-02-03)
+
+
+### Bug Fixes
+
+* icon color ([45ea9f4](https://github.com/dinofrontend/dino_ui_library/commit/45ea9f4ea0cf13d2b4d624bc0a77b11bfb7a8724))
+
 # [2.31.0](https://github.com/dinofrontend/dino_ui_library/compare/2.30.11...2.31.0) (2025-02-03)
 
 
