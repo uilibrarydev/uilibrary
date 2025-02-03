@@ -5,14 +5,32 @@ import { IconCheckmark, IconDismiss, IconEyeOff, IconEyeOn } from '../SVGIcons'
 import { Text } from '../Text'
 import { Divider } from '../Divider'
 
-const getTextType = (password:string, isValid:boolean, isFocused:boolean) => {
-  if (password.length === 0 || isFocused) return 'disabled';
-  return isValid ? 'success' : 'danger';
-};
+const getTextType = (
+  password: string,
+  isValid: boolean,
+  isFocused: boolean,
+  hasError: boolean | undefined
+) => {
+  if (hasError) return 'danger'
+  if (password.length === 0 || isFocused) return 'disabled'
+  return isValid ? 'success' : 'danger'
+}
+
+const getIconType = (
+  password: string,
+  isValid: boolean,
+  isFocused: boolean,
+  hasError: boolean | undefined
+) => {
+  if (hasError) return <IconDismiss type="danger" />
+  if (password.length === 0 || isFocused) return <IconDismiss type="disabled" />
+  if (isValid) return <IconCheckmark type={isFocused ? 'disabled' : 'success'} />
+  return <IconDismiss type={isFocused ? 'disabled' : 'danger'} />
+}
 
 export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsProps>(
   (props, ref): JSX.Element => {
-    const { validations, onValidationChange, dataId, label, placeholder, hasError } = props
+    const { validations, onValidationChange, dataId, label, placeholder, hasError, error } = props
     const [password, setPassword] = useState<string>('')
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const [validationResults, setValidationResults] = useState<Record<string, boolean>>({})
@@ -50,11 +68,10 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
           rightIconProps={eyeIcon}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
+          error={error}
         />
-        {hasError ? (
-          <Divider className={'mt-12 mb-12'} type={'primary'} color={'dark'} isHorizontal={true} />
-        ) : null}
         <div
+          className={'mt-12'}
           style={{
             display: 'flex',
             flexWrap: 'wrap',
@@ -66,21 +83,23 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
               key={rule?.label}
               style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
             >
-              {password.length === 0 ? (
-                <IconDismiss type={'disabled'} />
-              ) : validationResults[rule.label] ? (
-                <IconCheckmark type={'success'} />
-              ) : (
-                <IconDismiss type={isFocused ? 'disabled' : 'danger'} />
-              )}
+              {getIconType(password, validationResults[rule.label], isFocused, hasError)}
               <Text
                 key={rule.label}
-                type={getTextType(password, validationResults[rule.label], isFocused)}
+                type={getTextType(password, validationResults[rule.label], isFocused, hasError)}
               >
                 {rule.label}
               </Text>
             </div>
           ))}
+          {hasError ? (
+            <Divider
+              className={'mt-12 mb-12'}
+              type={'primary'}
+              color={'dark'}
+              isHorizontal={true}
+            />
+          ) : null}
         </div>
       </div>
     )
