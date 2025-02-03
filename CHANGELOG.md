@@ -1,3 +1,12 @@
+# [2.31.0](https://github.com/dinofrontend/dino_ui_library/compare/2.30.11...2.31.0) (2025-02-03)
+
+
+### Features
+
+* implement password input ([86f40f5](https://github.com/dinofrontend/dino_ui_library/commit/86f40f5bd8b1486bc2076b6a8b3a6d9514b30190))
+* refactor some sections ([f31b574](https://github.com/dinofrontend/dino_ui_library/commit/f31b574fefd94f264d1e30064412322908fc416e))
+* remove comment ([36a1aa4](https://github.com/dinofrontend/dino_ui_library/commit/36a1aa436faca3a18dec76aa0c8c82f44387f559))
+
 ## [2.30.11](https://github.com/dinofrontend/dino_ui_library/compare/2.30.10...2.30.11) (2025-01-23)
 
 
