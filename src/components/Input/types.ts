@@ -64,4 +64,5 @@ export interface InputPasswordsProps
   id?: string
   label?: string | ReactElement
   hasError?: boolean
+  error?: string | ReactElement
 }
