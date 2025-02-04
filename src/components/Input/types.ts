@@ -55,4 +55,5 @@ export interface InputPasswordsProps extends InputCustomProps {
   onValidationChange?: (isValid: boolean) => void
   dataId?: string
   hasError?: boolean
+
 }
