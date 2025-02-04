@@ -39,6 +39,8 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
       hasError,
       error,
       onChange,
+      onBlur,
+      onFocus,
       ...rest
     } = props
     const [password, setPassword] = useState<string>('')
@@ -80,8 +82,20 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
           }}
           placeholder={placeholder}
           rightIconProps={eyeIcon}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
+          onFocus={(e) => {
+            setIsFocused(true)
+            if (onFocus) {
+              onFocus(e as TClickEventType)
+            }
+          }}
+          onBlur={(e) => {
+            setIsFocused(false)
+            if (onBlur) {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              onBlur(e as TClickEventType)
+            }
+          }}
           error={error}
         />
         <div
