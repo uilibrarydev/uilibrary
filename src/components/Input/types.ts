@@ -50,19 +50,9 @@ interface IPasswordValidationRule {
   test: (password: string) => boolean
 }
 
-export interface InputPasswordsProps
-  extends IFormCompProps,
-    Omit<
-      InputHTMLAttributes<HTMLInputElement>,
-      'size' | 'onFocus' | 'value' | 'onChange' | 'autoComplete'
-    > {
+export interface InputPasswordsProps extends InputCustomProps {
   validations: IPasswordValidationRule[]
   onValidationChange?: (isValid: boolean) => void
-  className?: string
   dataId?: string
-  placeholder?: string
-  id?: string
-  label?: string | ReactElement
   hasError?: boolean
-  error?: string | ReactElement
 }

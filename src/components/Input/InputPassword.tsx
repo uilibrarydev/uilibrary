@@ -23,14 +23,24 @@ const getIconType = (
   hasError: boolean | undefined
 ) => {
   if (hasError) return <IconDismiss type="danger" />
-  if (password.length === 0 || isFocused) return <IconDismiss type="disabled" />
+  if (password.length === 0) return <IconDismiss type="disabled" />
   if (isValid) return <IconCheckmark type={isFocused ? 'disabled' : 'success'} />
   return <IconDismiss type={isFocused ? 'disabled' : 'danger'} />
 }
 
 export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsProps>(
   (props, ref): JSX.Element => {
-    const { validations, onValidationChange, dataId, label, placeholder, hasError, error } = props
+    const {
+      validations,
+      onValidationChange,
+      dataId,
+      label,
+      placeholder,
+      hasError,
+      error,
+      onChange,
+      ...rest
+    } = props
     const [password, setPassword] = useState<string>('')
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const [validationResults, setValidationResults] = useState<Record<string, boolean>>({})
@@ -57,13 +67,17 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
     return (
       <div className={'password-wrapper'}>
         <Input
+          {...rest}
           ref={ref}
           dataId={dataId}
           label={label}
           type={showPassword ? 'text' : 'password'}
-          value={password}
-          id={'password'}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+            setPassword(e.target.value)
+            if (onChange) {
+              onChange(e)
+            }
+          }}
           placeholder={placeholder}
           rightIconProps={eyeIcon}
           onFocus={() => setIsFocused(true)}
@@ -106,4 +120,4 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
   }
 )
 
-InputPassword.displayName = 'InputPassword' // Add this line
+InputPassword.displayName = 'InputPassword'
