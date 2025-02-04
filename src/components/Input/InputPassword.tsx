@@ -73,9 +73,9 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
           label={label}
           type={showPassword ? 'text' : 'password'}
           onChange={(e) => {
+            setPassword(e.target.value)
             if (onChange) {
               onChange(e)
-              setPassword(e.target.value)
             }
           }}
           placeholder={placeholder}
