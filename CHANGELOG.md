@@ -1,3 +1,12 @@
+## [2.31.2](https://github.com/dinofrontend/dino_ui_library/compare/2.31.1...2.31.2) (2025-02-04)
+
+
+### Bug Fixes
+
+* extend props from input and fix icon show ([02feded](https://github.com/dinofrontend/dino_ui_library/commit/02feded565af42fd947998d39f142d88469bc14d))
+* remove log ([e8579c2](https://github.com/dinofrontend/dino_ui_library/commit/e8579c2a36f0b4686696c60f63fc8be189531967))
+* remove log ([84aad46](https://github.com/dinofrontend/dino_ui_library/commit/84aad46ea34b1f9304c92b175b4da1f5711ebd7f))
+
 ## [2.31.1](https://github.com/dinofrontend/dino_ui_library/compare/2.31.0...2.31.1) (2025-02-03)
 
 
