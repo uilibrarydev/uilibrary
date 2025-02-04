@@ -45,7 +45,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const [validationResults, setValidationResults] = useState<Record<string, boolean>>({})
     const [isFocused, setIsFocused] = useState<boolean>(false)
-    console.log(rest)
+
     const eyeIcon = {
       Component: !showPassword ? IconEyeOn : IconEyeOff,
       onClick: () => {
