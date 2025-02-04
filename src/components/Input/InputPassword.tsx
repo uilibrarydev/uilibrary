@@ -91,6 +91,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
           onBlur={(e) => {
             setIsFocused(false)
             if (onBlur) {
+              // @TODO add onBlur correct type
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
               onBlur(e as TClickEventType)
