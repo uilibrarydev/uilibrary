@@ -1,3 +1,12 @@
+## [2.31.3](https://github.com/dinofrontend/dino_ui_library/compare/2.31.2...2.31.3) (2025-02-04)
+
+
+### Bug Fixes
+
+* add to do ([c999e3b](https://github.com/dinofrontend/dino_ui_library/commit/c999e3b6c5d170145af254a53cfb05a49107cb8a))
+* check on Blur and onFocus ([c7eb3b1](https://github.com/dinofrontend/dino_ui_library/commit/c7eb3b1ad6155e745471815cd5c4a38205c553c4))
+* remove uncorrect type ([05c1405](https://github.com/dinofrontend/dino_ui_library/commit/05c14056f447475bb335441e52a12c74bbb98a31))
+
 ## [2.31.2](https://github.com/dinofrontend/dino_ui_library/compare/2.31.1...2.31.2) (2025-02-04)
 
 
