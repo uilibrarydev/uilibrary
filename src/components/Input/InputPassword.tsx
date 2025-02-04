@@ -94,7 +94,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
               // @TODO add onBlur correct type
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
-              onBlur(e as TClickEventType)
+              onBlur(e)
             }
           }}
           error={error}
