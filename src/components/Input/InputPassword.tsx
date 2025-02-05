@@ -4,9 +4,9 @@ import { Input } from './Input'
 import { IconEyeOff, IconEyeOn } from '../SVGIcons'
 import { Text } from '../Text'
 import { Divider } from '../Divider'
-import IconDismissCircle from '../SVGIcons/IconDismissCircle';
-import IconDismissCircleFilled from '../SVGIcons/IconDismissCircleFilled';
-import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled';
+import IconDismissCircle from '../SVGIcons/IconDismissCircle'
+import IconDismissCircleFilled from '../SVGIcons/IconDismissCircleFilled'
+import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled'
 
 const getTextType = (
   password: string,
@@ -15,9 +15,9 @@ const getTextType = (
   hasError: boolean | undefined
 ) => {
   if (hasError) return 'danger'
-  if (password.length === 0 ) return 'disabled'
-  if (isValid) return'success'
-    return isFocused ? 'disabled' : 'danger'
+  if (password.length === 0) return 'disabled'
+  if (isValid) return 'success'
+  return isFocused ? 'disabled' : 'danger'
 }
 
 const getIconType = (
@@ -29,7 +29,11 @@ const getIconType = (
   if (hasError) return <IconDismissCircleFilled size={'xsmall'} type="danger" />
   if (password.length === 0) return <IconDismissCircle size={'xsmall'} type="disabled" />
   if (isValid) return <IconCheckmarkCircleFilled size={'xsmall'} type={'success'} />
-  return isFocused ? <IconDismissCircle size={'xsmall'} type={'disabled'} /> : <IconDismissCircleFilled size={'xsmall'} type={'danger'} />
+  return isFocused ? (
+    <IconDismissCircle size={'xsmall'} type={'disabled'} />
+  ) : (
+    <IconDismissCircleFilled size={'xsmall'} type={'danger'} />
+  )
 }
 
 export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsProps>(
@@ -105,10 +109,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
         />
         <div className={'input-password__validation mt-8'}>
           {validations.map((rule) => (
-            <div
-              className={'input-password__validation__item'}
-              key={rule?.label}
-            >
+            <div className={'input-password__validation__item'} key={rule?.label}>
               {getIconType(password, validationResults[rule.label], isFocused, hasError)}
               <Text
                 size={'small'}
