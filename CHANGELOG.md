@@ -1,3 +1,10 @@
+## [2.31.7](https://github.com/dinofrontend/dino_ui_library/compare/2.31.6...2.31.7) (2025-02-05)
+
+
+### Bug Fixes
+
+* added broder radius size, and spacing size ([620e20a](https://github.com/dinofrontend/dino_ui_library/commit/620e20a55af9ff1222f552662c04d71915643461))
+
 ## [2.31.6](https://github.com/dinofrontend/dino_ui_library/compare/2.31.5...2.31.6) (2025-02-05)
 
 
