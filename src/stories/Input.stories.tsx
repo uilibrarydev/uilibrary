@@ -17,11 +17,11 @@ export default {
 }
 
 const passwordValidations = [
-  { label: 'At least 8 characters', test: (pwd: string) => pwd.length >= 8 },
-  { label: 'At least one uppercase letter', test: (pwd: string) => /[A-Z]/.test(pwd) },
-  { label: 'At least one lowercase letter', test: (pwd: string) => /[a-z]/.test(pwd) },
-  { label: 'At least one number', test: (pwd: string) => /\d/.test(pwd) },
-  { label: 'At least one special character', test: (pwd: string) => /[^a-zA-Z0-9]/.test(pwd) }
+  { label: '8+ characters', test: (pwd: string) => pwd.length >= 8 },
+  { label: 'Uppercase', test: (pwd: string) => /[A-Z]/.test(pwd) },
+  { label: 'Lowercase', test: (pwd: string) => /[a-z]/.test(pwd) },
+  { label: 'Number', test: (pwd: string) => /\d/.test(pwd) },
+  { label: 'Symbol', test: (pwd: string) => /[^a-zA-Z0-9]/.test(pwd) }
 ]
 
 const Template: StoryFn<InputCustomProps> = (args) => {
