@@ -1,3 +1,11 @@
+## [2.31.8](https://github.com/dinofrontend/dino_ui_library/compare/2.31.7...2.31.8) (2025-02-05)
+
+
+### Bug Fixes
+
+* fixed validation spacing issue ([d10272c](https://github.com/dinofrontend/dino_ui_library/commit/d10272c62620b1b4574f013f15d65c5c72b69d4a))
+* fixed validation spacing issue ([fd1fe4f](https://github.com/dinofrontend/dino_ui_library/commit/fd1fe4ff99c5f16aaa34399b95aeaa0ac36ce8f7))
+
 ## [2.31.7](https://github.com/dinofrontend/dino_ui_library/compare/2.31.6...2.31.7) (2025-02-05)
 
 
