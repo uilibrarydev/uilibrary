@@ -122,12 +122,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
             </div>
           ))}
           {hasError ? (
-            <Divider
-              className={'mt-8 mb-12'}
-              type={'primary'}
-              color={'light'}
-              isHorizontal={true}
-            />
+            <Divider className={'mt-8'} type={'primary'} color={'light'} isHorizontal={true} />
           ) : null}
         </div>
       </div>
