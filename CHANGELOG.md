@@ -1,3 +1,10 @@
+## [2.31.4](https://github.com/dinofrontend/dino_ui_library/compare/2.31.3...2.31.4) (2025-02-05)
+
+
+### Bug Fixes
+
+* fixed profile dropdown item hover state ui ([b66ebc4](https://github.com/dinofrontend/dino_ui_library/commit/b66ebc40907a31ad8b7bfc8ffea0db9173889aa3))
+
 ## [2.31.3](https://github.com/dinofrontend/dino_ui_library/compare/2.31.2...2.31.3) (2025-02-04)
 
 
