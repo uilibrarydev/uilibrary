@@ -123,7 +123,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
           ))}
           {hasError ? (
             <Divider
-              className={'mt-8 mb-12'}
+              className={'mt-8'}
               type={'primary'}
               color={'light'}
               isHorizontal={true}
