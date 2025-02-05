@@ -1,3 +1,11 @@
+## [2.31.6](https://github.com/dinofrontend/dino_ui_library/compare/2.31.5...2.31.6) (2025-02-05)
+
+
+### Bug Fixes
+
+* fixed input password error spacing ([69df74b](https://github.com/dinofrontend/dino_ui_library/commit/69df74b62c866efa46fb7121cef847085ff5f115))
+* fixed input password error spacing ([dcdcaad](https://github.com/dinofrontend/dino_ui_library/commit/dcdcaad90d70cac80f14ea84bc386d77abb0b3c7))
+
 ## [2.31.5](https://github.com/dinofrontend/dino_ui_library/compare/2.31.4...2.31.5) (2025-02-05)
 
 
