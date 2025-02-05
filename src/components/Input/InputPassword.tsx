@@ -47,6 +47,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const [validationResults, setValidationResults] = useState<Record<string, boolean>>({})
     const [isFocused, setIsFocused] = useState<boolean>(false)
+    const [hasTyped, setHasTyped] = useState(false);
 
     const eyeIcon = {
       Component: !showPassword ? IconEyeOn : IconEyeOff,
@@ -55,16 +56,20 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
       }
     }
     useEffect(() => {
+      if (!hasTyped) return;
+
       const results = validations.reduce((acc: Record<string, boolean>, rule) => {
-        acc[rule.label] = rule.test(password)
-        return acc
-      }, {})
+        acc[rule.label] = rule.test(password);
+        return acc;
+      }, {});
 
-      setValidationResults(results)
+      setValidationResults(results);
 
-      const isValid = Object.values(results).every(Boolean)
-      onValidationChange?.(isValid)
-    }, [password, validations, onValidationChange])
+      const isValid = Object.values(results).every(Boolean);
+      onValidationChange?.(isValid);
+    }, [password, validations, onValidationChange, hasTyped]);
+
+
 
     return (
       <div className={'password-wrapper'}>
@@ -75,9 +80,10 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
           label={label}
           type={showPassword ? 'text' : 'password'}
           onChange={(e) => {
-            setPassword(e.target.value)
+            if (!hasTyped) setHasTyped(true);
+            setPassword(e.target.value);
             if (onChange) {
-              onChange(e)
+              onChange(e);
             }
           }}
           placeholder={placeholder}
