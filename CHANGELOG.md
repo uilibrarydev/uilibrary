@@ -1,3 +1,11 @@
+## [2.31.5](https://github.com/dinofrontend/dino_ui_library/compare/2.31.4...2.31.5) (2025-02-05)
+
+
+### Bug Fixes
+
+* fixed input password ui ([0bbfcac](https://github.com/dinofrontend/dino_ui_library/commit/0bbfcac66b30f2bdfefd4f1db6fe84d62134bd2a))
+* fixed input password ui ([95a04fd](https://github.com/dinofrontend/dino_ui_library/commit/95a04fdf3039cabdca056ecd27397ffbfe87d8e6))
+
 ## [2.31.4](https://github.com/dinofrontend/dino_ui_library/compare/2.31.3...2.31.4) (2025-02-05)
 
 
