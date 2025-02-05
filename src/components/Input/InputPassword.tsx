@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import type { InputPasswordsProps } from './types'
 import { Input } from './Input'
-import { IconCheckmark, IconDismiss, IconEyeOff, IconEyeOn } from '../SVGIcons'
+import { IconEyeOff, IconEyeOn } from '../SVGIcons'
 import { Text } from '../Text'
 import { Divider } from '../Divider'
+import IconDismissCircle from '../SVGIcons/IconDismissCircle'
+import IconDismissCircleFilled from '../SVGIcons/IconDismissCircleFilled'
+import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled'
 
 const getTextType = (
   password: string,
@@ -12,8 +15,9 @@ const getTextType = (
   hasError: boolean | undefined
 ) => {
   if (hasError) return 'danger'
-  if (password.length === 0 || isFocused) return 'disabled'
-  return isValid ? 'success' : 'danger'
+  if (password.length === 0) return 'disabled'
+  if (isValid) return 'success'
+  return isFocused ? 'disabled' : 'danger'
 }
 
 const getIconType = (
@@ -22,10 +26,14 @@ const getIconType = (
   isFocused: boolean,
   hasError: boolean | undefined
 ) => {
-  if (hasError) return <IconDismiss type="danger" />
-  if (password.length === 0) return <IconDismiss type="disabled" />
-  if (isValid) return <IconCheckmark type={isFocused ? 'disabled' : 'success'} />
-  return <IconDismiss type={isFocused ? 'disabled' : 'danger'} />
+  if (hasError) return <IconDismissCircleFilled size={'xsmall'} type="danger" />
+  if (password.length === 0) return <IconDismissCircle size={'xsmall'} type="disabled" />
+  if (isValid) return <IconCheckmarkCircleFilled size={'xsmall'} type={'success'} />
+  return isFocused ? (
+    <IconDismissCircle size={'xsmall'} type={'disabled'} />
+  ) : (
+    <IconDismissCircleFilled size={'xsmall'} type={'danger'} />
+  )
 }
 
 export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsProps>(
@@ -67,7 +75,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
     }, [password, validations, onValidationChange])
 
     return (
-      <div className={'password-wrapper'}>
+      <div className={'input-password'}>
         <Input
           {...rest}
           ref={ref}
@@ -99,21 +107,13 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
           }}
           error={error}
         />
-        <div
-          className={'mt-12'}
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around'
-          }}
-        >
+        <div className={'input-password__validation mt-8'}>
           {validations.map((rule) => (
-            <div
-              key={rule?.label}
-              style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-            >
+            <div className={'input-password__validation__item'} key={rule?.label}>
               {getIconType(password, validationResults[rule.label], isFocused, hasError)}
               <Text
+                size={'small'}
+                className={'pl-4'}
                 key={rule.label}
                 type={getTextType(password, validationResults[rule.label], isFocused, hasError)}
               >
@@ -123,9 +123,9 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
           ))}
           {hasError ? (
             <Divider
-              className={'mt-12 mb-12'}
+              className={'mt-8 mb-12'}
               type={'primary'}
-              color={'dark'}
+              color={'light'}
               isHorizontal={true}
             />
           ) : null}
