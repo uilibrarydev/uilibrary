@@ -228,7 +228,7 @@
   &__validation {
     @include mixin.flexbox;
     @include mixin.flex-wrap(wrap);
-    gap: var(--ds-space-4)  var(--ds-space-12);
+    gap: var(--ds-space-12)  var(--ds-space-12);
 
     &__item {
       @include mixin.flexbox;
