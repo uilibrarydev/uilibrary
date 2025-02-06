@@ -5,8 +5,8 @@ import { NumericFormat } from 'react-number-format'
 import type { InputCustomProps } from './types'
 import { Label, ErrorMessage } from '../../helperComponents'
 import { Text } from '../Text'
+
 import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled'
-import { Tooltip } from '../Tooltip'
 
 export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
   (
@@ -77,7 +77,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
       }
       return 0
     }, [rest, currentValue])
-    const rightIconTooltipAddons = rightIconProps?.tooltipAddons
+
     const input = mask ? (
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
@@ -160,26 +160,17 @@ export const Input = React.forwardRef<HTMLInputElement, InputCustomProps>(
               })}
             />
           ) : null}
-          {rightIconTooltipAddons ? (
-            <Tooltip
-              text={rightIconTooltipAddons.text as string}
-              id={rightIconTooltipAddons.id as string}
-              timer={1000}
-              position={rightIconTooltipAddons.position}
+          {rightIconProps?.Component ? (
+            <rightIconProps.Component
+              size="small"
+              {...rightIconProps}
+              className={classNames('input__icon', 'input__icon--right', {
+                [rightIconProps.className || '']: !!rightIconProps.className
+              })}
             />
           ) : null}
-          <div id={rightIconTooltipAddons ? `${rightIconTooltipAddons?.id}` : ''}>
-            {rightIconProps?.Component ? (
-              <rightIconProps.Component
-                size="small"
-                {...rightIconProps}
-                className={classNames('input__icon', 'input__icon--right', {
-                  [rightIconProps.className || '']: !!rightIconProps.className
-                })}
-              />
-            ) : null}
-          </div>
         </div>
+
         {error || successMessage || helperText || maxCount ? (
           <div className="input__message mt-8">
             {isErrorVisible && error ? (
