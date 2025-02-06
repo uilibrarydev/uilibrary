@@ -1,5 +1,6 @@
 import type { InputHTMLAttributes, ReactElement, RefObject } from 'react'
 import type { ISVGIconProps } from '../SVGIcons/types'
+import type { TTooltipProps } from '../Tooltip/types'
 export interface InputCustomProps
   extends IFormCompProps,
     Omit<
@@ -55,4 +56,5 @@ export interface InputPasswordsProps extends InputCustomProps {
   onValidationChange?: (isValid: boolean) => void
   dataId?: string
   hasError?: boolean
+  tooltipAddons?: TTooltipProps
 }

@@ -5,24 +5,12 @@ import { IconCheckmark, IconDismiss, IconEyeOff, IconEyeOn } from '../SVGIcons'
 import { Text } from '../Text'
 import { Divider } from '../Divider'
 
-const getTextType = (
-  password: string,
-  isValid: boolean,
-  isFocused: boolean,
-  hasError: boolean | undefined
-) => {
-  if (hasError) return 'danger'
+const getTextType = (password: string, isValid: boolean, isFocused: boolean) => {
   if (password.length === 0 || isFocused) return 'disabled'
   return isValid ? 'success' : 'danger'
 }
 
-const getIconType = (
-  password: string,
-  isValid: boolean,
-  isFocused: boolean,
-  hasError: boolean | undefined
-) => {
-  if (hasError) return <IconDismiss type="danger" />
+const getIconType = (password: string, isValid: boolean, isFocused: boolean) => {
   if (password.length === 0) return <IconDismiss type="disabled" />
   if (isValid) return <IconCheckmark type={isFocused ? 'disabled' : 'success'} />
   return <IconDismiss type={isFocused ? 'disabled' : 'danger'} />
@@ -36,19 +24,19 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
       dataId,
       label,
       placeholder,
-      hasError,
       error,
       onChange,
       onBlur,
       onFocus,
+      hasError,
+      tooltipAddons,
       ...rest
     } = props
     const [password, setPassword] = useState<string>('')
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const [validationResults, setValidationResults] = useState<Record<string, boolean>>({})
     const [isFocused, setIsFocused] = useState<boolean>(false)
-    const [hasTyped, setHasTyped] = useState(false);
-
+    const [hasTyped, setHasTyped] = useState(false)
     const eyeIcon = {
       Component: !showPassword ? IconEyeOn : IconEyeOff,
       onClick: () => {
@@ -56,20 +44,18 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
       }
     }
     useEffect(() => {
-      if (!hasTyped) return;
+      if (!hasTyped) return
 
       const results = validations.reduce((acc: Record<string, boolean>, rule) => {
-        acc[rule.label] = rule.test(password);
-        return acc;
-      }, {});
+        acc[rule.label] = rule.test(password)
+        return acc
+      }, {})
 
-      setValidationResults(results);
+      setValidationResults(results)
 
-      const isValid = Object.values(results).every(Boolean);
-      onValidationChange?.(isValid);
-    }, [password, validations, onValidationChange, hasTyped]);
-
-
+      const isValid = Object.values(results).every(Boolean)
+      onValidationChange?.(isValid)
+    }, [password, validations, onValidationChange, hasTyped])
 
     return (
       <div className={'password-wrapper'}>
@@ -80,14 +66,17 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
           label={label}
           type={showPassword ? 'text' : 'password'}
           onChange={(e) => {
-            if (!hasTyped) setHasTyped(true);
-            setPassword(e.target.value);
+            if (!hasTyped) setHasTyped(true)
+            setPassword(e.target.value)
             if (onChange) {
-              onChange(e);
+              onChange(e)
             }
           }}
           placeholder={placeholder}
-          rightIconProps={eyeIcon}
+          rightIconProps={{
+            ...eyeIcon,
+            tooltipAddons
+          }}
           onFocus={(e) => {
             setIsFocused(true)
             if (onFocus) {
@@ -118,10 +107,10 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
               key={rule?.label}
               style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
             >
-              {getIconType(password, validationResults[rule.label], isFocused, hasError)}
+              {getIconType(password, validationResults[rule.label], isFocused)}
               <Text
                 key={rule.label}
-                type={getTextType(password, validationResults[rule.label], isFocused, hasError)}
+                type={getTextType(password, validationResults[rule.label], isFocused)}
               >
                 {rule.label}
               </Text>
