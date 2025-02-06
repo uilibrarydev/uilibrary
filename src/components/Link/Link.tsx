@@ -6,6 +6,7 @@ import classNames from 'classnames'
 export const Link = (props: LinkPropTypes): ReactElement => {
   const {
     type = 'primary',
+    weight = 'regular',
     children,
     afterLink,
     beforeLink,
@@ -27,7 +28,7 @@ export const Link = (props: LinkPropTypes): ReactElement => {
           }
         }}
         href={url}
-        className={classNames('link', `link--${type}`)}
+        className={classNames('link', `link--${type}`, weight)}
         data-id={`${dataId}-link`}
         target={target}
       >
@@ -47,6 +48,7 @@ export const Link = (props: LinkPropTypes): ReactElement => {
       className={classNames(
         'link',
         `link--${type}`,
+         weight,
         {
           [`link--icon-${iconProps?.alignment || 'left'}`]: iconProps?.Component
         },
