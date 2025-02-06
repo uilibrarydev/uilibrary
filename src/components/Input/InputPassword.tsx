@@ -102,6 +102,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
             }
           }}
           error={error}
+          hasError={hasError}
         />
         <div className={'input-password__validation mt-8'}>
           {validations.map((rule) => (
