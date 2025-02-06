@@ -48,7 +48,7 @@ export const Link = (props: LinkPropTypes): ReactElement => {
       className={classNames(
         'link',
         `link--${type}`,
-         weight,
+        weight,
         {
           [`link--icon-${iconProps?.alignment || 'left'}`]: iconProps?.Component
         },
