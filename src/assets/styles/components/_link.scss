@@ -4,13 +4,13 @@
   $this: &;
 
 
-  --ds-link-primary-color: var(--brand-700);
-  --ds-link-primary-color-hover: var(--brand-800);
-  --ds-link-primary-color-pressed: var(--brand-900);
-  --ds-link-primary-color-focused: var(--brand-700);
+  --ds-link-primary-color: var(--ds-color-text-primary);
+  --ds-link-primary-color-hover: var(--ds-color-text-secondary);
+  --ds-link-primary-color-pressed: var(--ds-color-text-tertiary);
+  --ds-link-primary-color-focused: var(--ds-color-text-primary);
 
-  --ds-link-secondary-color: var(--ds-color-text-primary);
-  --ds-link-secondary-color-hover: var(--ds-color-text-secondary);
+  --ds-link-secondary-color: var(--ds-color-text-secondary);
+  --ds-link-secondary-color-hover: var(--ds-color-text-primary);
   --ds-link-secondary-color-pressed: var(--ds-color-text-tertiary);
   --ds-link-secondary-color-focused: var(--ds-color-text-primary);
 
