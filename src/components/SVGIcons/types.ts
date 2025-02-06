@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { LegacyRef, MouseEvent } from 'react'
+import type { TTooltipProps } from '../Tooltip/types'
 
 export type TSVGIconSize =
   | 'xxsmall'
@@ -33,6 +34,7 @@ export interface ISVGIconProps {
   id?: string
   dataId?: string
   Component?: TSVGIconComponent
+  tooltipAddons?: TTooltipProps
 }
 
 export type TTextSize = 'xxsmall' | 'xsmall' | 'small' | 'standard' | 'medium' | 'large'
