@@ -1,3 +1,12 @@
+## [2.31.9](https://github.com/dinofrontend/dino_ui_library/compare/2.31.8...2.31.9) (2025-02-06)
+
+
+### Bug Fixes
+
+* add tooltip addons for icon and remove hasError check ([7f3314c](https://github.com/dinofrontend/dino_ui_library/commit/7f3314c06f13fd846866b625b1e979af9d78a456))
+* fix icons after margin ([c35b39d](https://github.com/dinofrontend/dino_ui_library/commit/c35b39db7365c5d3df85bc8ef6ae802932631190))
+* validations only when user typing ([011cae7](https://github.com/dinofrontend/dino_ui_library/commit/011cae73ef990e18a60fab1068d7b8877acd4080))
+
 ## [2.31.8](https://github.com/dinofrontend/dino_ui_library/compare/2.31.7...2.31.8) (2025-02-05)
 
 
