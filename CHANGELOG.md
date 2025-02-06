@@ -1,3 +1,75 @@
+## [2.31.8](https://github.com/dinofrontend/dino_ui_library/compare/2.31.7...2.31.8) (2025-02-05)
+
+
+### Bug Fixes
+
+* fixed validation spacing issue ([d10272c](https://github.com/dinofrontend/dino_ui_library/commit/d10272c62620b1b4574f013f15d65c5c72b69d4a))
+* fixed validation spacing issue ([fd1fe4f](https://github.com/dinofrontend/dino_ui_library/commit/fd1fe4ff99c5f16aaa34399b95aeaa0ac36ce8f7))
+
+## [2.31.7](https://github.com/dinofrontend/dino_ui_library/compare/2.31.6...2.31.7) (2025-02-05)
+
+
+### Bug Fixes
+
+* added broder radius size, and spacing size ([620e20a](https://github.com/dinofrontend/dino_ui_library/commit/620e20a55af9ff1222f552662c04d71915643461))
+
+## [2.31.6](https://github.com/dinofrontend/dino_ui_library/compare/2.31.5...2.31.6) (2025-02-05)
+
+
+### Bug Fixes
+
+* fixed input password error spacing ([69df74b](https://github.com/dinofrontend/dino_ui_library/commit/69df74b62c866efa46fb7121cef847085ff5f115))
+* fixed input password error spacing ([dcdcaad](https://github.com/dinofrontend/dino_ui_library/commit/dcdcaad90d70cac80f14ea84bc386d77abb0b3c7))
+
+## [2.31.5](https://github.com/dinofrontend/dino_ui_library/compare/2.31.4...2.31.5) (2025-02-05)
+
+
+### Bug Fixes
+
+* fixed input password ui ([0bbfcac](https://github.com/dinofrontend/dino_ui_library/commit/0bbfcac66b30f2bdfefd4f1db6fe84d62134bd2a))
+* fixed input password ui ([95a04fd](https://github.com/dinofrontend/dino_ui_library/commit/95a04fdf3039cabdca056ecd27397ffbfe87d8e6))
+
+## [2.31.4](https://github.com/dinofrontend/dino_ui_library/compare/2.31.3...2.31.4) (2025-02-05)
+
+
+### Bug Fixes
+
+* fixed profile dropdown item hover state ui ([b66ebc4](https://github.com/dinofrontend/dino_ui_library/commit/b66ebc40907a31ad8b7bfc8ffea0db9173889aa3))
+
+## [2.31.3](https://github.com/dinofrontend/dino_ui_library/compare/2.31.2...2.31.3) (2025-02-04)
+
+
+### Bug Fixes
+
+* add to do ([c999e3b](https://github.com/dinofrontend/dino_ui_library/commit/c999e3b6c5d170145af254a53cfb05a49107cb8a))
+* check on Blur and onFocus ([c7eb3b1](https://github.com/dinofrontend/dino_ui_library/commit/c7eb3b1ad6155e745471815cd5c4a38205c553c4))
+* remove uncorrect type ([05c1405](https://github.com/dinofrontend/dino_ui_library/commit/05c14056f447475bb335441e52a12c74bbb98a31))
+
+## [2.31.2](https://github.com/dinofrontend/dino_ui_library/compare/2.31.1...2.31.2) (2025-02-04)
+
+
+### Bug Fixes
+
+* extend props from input and fix icon show ([02feded](https://github.com/dinofrontend/dino_ui_library/commit/02feded565af42fd947998d39f142d88469bc14d))
+* remove log ([e8579c2](https://github.com/dinofrontend/dino_ui_library/commit/e8579c2a36f0b4686696c60f63fc8be189531967))
+* remove log ([84aad46](https://github.com/dinofrontend/dino_ui_library/commit/84aad46ea34b1f9304c92b175b4da1f5711ebd7f))
+
+## [2.31.1](https://github.com/dinofrontend/dino_ui_library/compare/2.31.0...2.31.1) (2025-02-03)
+
+
+### Bug Fixes
+
+* icon color ([45ea9f4](https://github.com/dinofrontend/dino_ui_library/commit/45ea9f4ea0cf13d2b4d624bc0a77b11bfb7a8724))
+
+# [2.31.0](https://github.com/dinofrontend/dino_ui_library/compare/2.30.11...2.31.0) (2025-02-03)
+
+
+### Features
+
+* implement password input ([86f40f5](https://github.com/dinofrontend/dino_ui_library/commit/86f40f5bd8b1486bc2076b6a8b3a6d9514b30190))
+* refactor some sections ([f31b574](https://github.com/dinofrontend/dino_ui_library/commit/f31b574fefd94f264d1e30064412322908fc416e))
+* remove comment ([36a1aa4](https://github.com/dinofrontend/dino_ui_library/commit/36a1aa436faca3a18dec76aa0c8c82f44387f559))
+
 ## [2.30.11](https://github.com/dinofrontend/dino_ui_library/compare/2.30.10...2.30.11) (2025-01-23)
 
 

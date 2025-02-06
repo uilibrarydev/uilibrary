@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import type { InputPasswordsProps } from './types'
 import { Input } from './Input'
-import { IconCheckmark, IconDismiss, IconEyeOff, IconEyeOn } from '../SVGIcons'
+import { IconEyeOff, IconEyeOn } from '../SVGIcons'
 import { Text } from '../Text'
 import { Divider } from '../Divider'
+import IconDismissCircle from '../SVGIcons/IconDismissCircle'
+import IconDismissCircleFilled from '../SVGIcons/IconDismissCircleFilled'
+import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled'
+
 
 const getTextType = (password: string, isValid: boolean, isFocused: boolean) => {
   if (password.length === 0 || isFocused) return 'disabled'
@@ -58,7 +62,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
     }, [password, validations, onValidationChange, hasTyped])
 
     return (
-      <div className={'password-wrapper'}>
+      <div className={'input-password'}>
         <Input
           {...rest}
           ref={ref}
@@ -94,14 +98,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
           }}
           error={error}
         />
-        <div
-          className={'mt-12'}
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around'
-          }}
-        >
+        <div className={'input-password__validation mt-8'}>
           {validations.map((rule) => (
             <div
               key={rule?.label}
@@ -109,6 +106,8 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
             >
               {getIconType(password, validationResults[rule.label], isFocused)}
               <Text
+                size={'small'}
+                className={'pl-4'}
                 key={rule.label}
                 type={getTextType(password, validationResults[rule.label], isFocused)}
               >
@@ -116,14 +115,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
               </Text>
             </div>
           ))}
-          {hasError ? (
-            <Divider
-              className={'mt-12 mb-12'}
-              type={'primary'}
-              color={'dark'}
-              isHorizontal={true}
-            />
-          ) : null}
+          {hasError ? <Divider type={'primary'} color={'light'} isHorizontal={true} /> : null}
         </div>
       </div>
     )
