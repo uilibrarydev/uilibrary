@@ -8,21 +8,13 @@ import IconDismissCircle from '../SVGIcons/IconDismissCircle'
 import IconDismissCircleFilled from '../SVGIcons/IconDismissCircleFilled'
 import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled'
 
-const getTextType = (
-  password: string,
-  isValid: boolean,
-  isFocused: boolean,
-) => {
+const getTextType = (password: string, isValid: boolean, isFocused: boolean) => {
   if (password.length === 0) return 'disabled'
   if (isValid) return 'success'
   return isFocused ? 'disabled' : 'danger'
 }
 
-const getIconType = (
-  password: string,
-  isValid: boolean,
-  isFocused: boolean,
-) => {
+const getIconType = (password: string, isValid: boolean, isFocused: boolean) => {
   if (password.length === 0) return <IconDismissCircle size={'xsmall'} type="disabled" />
   if (isValid) return <IconCheckmarkCircleFilled size={'xsmall'} type={'success'} />
   return isFocused ? (
@@ -118,9 +110,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
               </Text>
             </div>
           ))}
-          {hasError ? (
-            <Divider type={'primary'} color={'light'} isHorizontal={true} />
-          ) : null}
+          {hasError ? <Divider type={'primary'} color={'light'} isHorizontal={true} /> : null}
         </div>
       </div>
     )
