@@ -1,3 +1,10 @@
+# [2.32.0](https://github.com/dinofrontend/dino_ui_library/compare/2.31.10...2.32.0) (2025-02-06)
+
+
+### Features
+
+* add hasError property for input password ([b9c37af](https://github.com/dinofrontend/dino_ui_library/commit/b9c37afc606905c10ed5dc0a78e9303f81988d2e))
+
 ## [2.31.10](https://github.com/dinofrontend/dino_ui_library/compare/2.31.9...2.31.10) (2025-02-06)
 
 
