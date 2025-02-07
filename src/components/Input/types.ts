@@ -54,6 +54,7 @@ interface IPasswordValidationRule {
 export interface InputPasswordsProps extends InputCustomProps {
   validations: IPasswordValidationRule[]
   onValidationChange?: (isValid: boolean) => void
+  onPasswordShow?: (isValid: boolean) => void
   dataId?: string
   hasError?: boolean
   tooltipAddons?: TTooltipProps
