@@ -1,3 +1,10 @@
+# [2.33.0](https://github.com/dinofrontend/dino_ui_library/compare/2.32.1...2.33.0) (2025-02-07)
+
+
+### Features
+
+* add tooltips for password icons ([014ba23](https://github.com/dinofrontend/dino_ui_library/commit/014ba23e3f6776770504fc4bd1ce8915c9d1a2e7))
+
 ## [2.32.1](https://github.com/dinofrontend/dino_ui_library/compare/2.32.0...2.32.1) (2025-02-06)
 
 
