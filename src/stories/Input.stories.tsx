@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Input as _Input, Popover, InputPassword as _InputPassword } from '../index'
+import { Input as _Input, InputPassword as _InputPassword, Popover } from '../index'
 import IconInfo from '../components/SVGIcons/IconInfo'
 import { StoryFn } from '@storybook/react'
 import { InputCustomProps, type InputPasswordsProps } from '../components/Input/types'
 import IconCalendarRight from '../components/SVGIcons/IconCalendarRight'
+import { Positions } from '../components/Tooltip/types'
 
 export default {
   title: 'Input',
@@ -49,6 +50,20 @@ export const Input = Template.bind({})
 
 const InputPasswordTemplate: StoryFn<InputPasswordsProps> = (args) => {
   const [isPasswordValid, setIsPasswordValid] = useState<boolean>(false)
+  const [showPassword, setShowPassword] = useState(false)
+  const tooltipAddons = !showPassword
+    ? {
+        id: 'test',
+        text: 'Show',
+        position: Positions.TOP_CENTER,
+        timer: 1000
+      }
+    : {
+        id: 'test',
+        text: 'hide',
+        position: Positions.TOP_CENTER,
+        timer: 1000
+      }
 
   // @ts-ignore
   return (
@@ -59,6 +74,8 @@ const InputPasswordTemplate: StoryFn<InputPasswordsProps> = (args) => {
         label={'Password'}
         placeholder={'Create password'}
         hasError={false}
+        tooltipAddons={tooltipAddons}
+        onPasswordShow={setShowPassword}
       />
     </div>
   )

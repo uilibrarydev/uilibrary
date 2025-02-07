@@ -7,6 +7,8 @@ import { Divider } from '../Divider'
 import IconDismissCircle from '../SVGIcons/IconDismissCircle'
 import IconDismissCircleFilled from '../SVGIcons/IconDismissCircleFilled'
 import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled'
+import { Tooltip } from '../Tooltip'
+import type { ISVGIconProps } from '../SVGIcons/types'
 
 const getTextType = (password: string, isValid: boolean, isFocused: boolean) => {
   if (password.length === 0) return 'disabled'
@@ -23,12 +25,30 @@ const getIconType = (password: string, isValid: boolean, isFocused: boolean) => 
     <IconDismissCircleFilled size={'xsmall'} type={'danger'} />
   )
 }
-
+const IconEyeOnWithTooltip = (props: ISVGIconProps) => {
+  const { tooltipAddons } = props
+  return (
+    <>
+      <Tooltip text={tooltipAddons?.text as string} {...tooltipAddons} />
+      <IconEyeOn {...props} id={tooltipAddons?.id as string} />
+    </>
+  )
+}
+const IconEyeOffTooltip = (props: ISVGIconProps) => {
+  const { tooltipAddons } = props
+  return (
+    <>
+      <Tooltip text={tooltipAddons?.text as string} {...tooltipAddons} />
+      <IconEyeOff {...props} id={tooltipAddons?.id as string} />
+    </>
+  )
+}
 export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsProps>(
   (props, ref): JSX.Element => {
     const {
       validations,
       onValidationChange,
+      onPasswordShow,
       dataId,
       label,
       placeholder,
@@ -37,6 +57,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
       onChange,
       onBlur,
       onFocus,
+      tooltipAddons,
       ...rest
     } = props
     const [password, setPassword] = useState<string>('')
@@ -45,8 +66,9 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
     const [isFocused, setIsFocused] = useState<boolean>(false)
 
     const eyeIcon = {
-      Component: !showPassword ? IconEyeOn : IconEyeOff,
+      Component: !showPassword ? IconEyeOnWithTooltip : IconEyeOffTooltip,
       onClick: () => {
+        onPasswordShow?.(!showPassword)
         setShowPassword(!showPassword)
       }
     }
@@ -77,7 +99,10 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
             }
           }}
           placeholder={placeholder}
-          rightIconProps={eyeIcon}
+          rightIconProps={{
+            ...eyeIcon,
+            tooltipAddons
+          }}
           onFocus={(e) => {
             setIsFocused(true)
             if (onFocus) {
