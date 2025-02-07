@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import type { InputPasswordsProps } from './types'
 import { Input } from './Input'
 import { IconEyeOff, IconEyeOn } from '../SVGIcons'
@@ -9,6 +9,8 @@ import IconDismissCircleFilled from '../SVGIcons/IconDismissCircleFilled'
 import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled'
 import { Tooltip } from '../Tooltip'
 import type { ISVGIconProps } from '../SVGIcons/types'
+import { Popover } from '../Popover'
+import { Positions } from '../Tooltip/types'
 
 const getTextType = (password: string, isValid: boolean, isFocused: boolean) => {
   if (password.length === 0) return 'disabled'
@@ -58,20 +60,42 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
       onBlur,
       onFocus,
       tooltipAddons,
+      capsLockText,
       ...rest
     } = props
     const [password, setPassword] = useState<string>('')
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const [validationResults, setValidationResults] = useState<Record<string, boolean>>({})
     const [isFocused, setIsFocused] = useState<boolean>(false)
+    const inputRef = useRef<HTMLInputElement>(null)
+    const combinedRef = (ref || inputRef) as React.RefObject<HTMLInputElement>
+    const [capsLockOn, setCapsLockOn] = useState<boolean>(false)
 
     const eyeIcon = {
       Component: !showPassword ? IconEyeOnWithTooltip : IconEyeOffTooltip,
+      onMouseDown: (e: React.MouseEvent) => {
+        e.preventDefault()
+      },
       onClick: () => {
+        setShowPassword((prev) => !prev)
         onPasswordShow?.(!showPassword)
-        setShowPassword(!showPassword)
+        if (combinedRef.current) {
+          const length = combinedRef.current.value.length
+          setTimeout(() => {
+            combinedRef.current?.focus()
+            combinedRef.current?.setSelectionRange(length, length)
+          }, 0)
+        }
       }
     }
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+      setCapsLockOn(event.getModifierState('CapsLock'))
+    }
+
+    const handleKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
+      setCapsLockOn(event.getModifierState('CapsLock'))
+    }
+
     useEffect(() => {
       const results = validations.reduce((acc: Record<string, boolean>, rule) => {
         acc[rule.label] = rule.test(password)
@@ -86,9 +110,18 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
 
     return (
       <div className={'input-password'}>
+        {capsLockOn ? (
+          <Popover
+            text={capsLockText}
+            id={'caps-lock'}
+            clicked={true}
+            position={Positions?.MIDDLE_LEFT}
+          />
+        ) : null}
         <Input
           {...rest}
-          ref={ref}
+          id={'caps-lock'}
+          ref={combinedRef}
           dataId={dataId}
           label={label}
           type={showPassword ? 'text' : 'password'}
@@ -118,6 +151,8 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
               onBlur(e)
             }
           }}
+          onKeyDown={handleKeyDown}
+          onKeyUp={handleKeyUp}
           error={error}
           hasError={hasError}
         />
