@@ -11,6 +11,10 @@ export default {
     type: {
       options: ['primary', 'secondary'],
       control: { type: 'radio' }
+    },
+    weight: {
+      options: ['regular', 'semibold'],
+      control: { type: 'radio' }
     }
   }
 }

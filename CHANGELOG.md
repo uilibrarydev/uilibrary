@@ -1,3 +1,13 @@
+## [2.32.1](https://github.com/dinofrontend/dino_ui_library/compare/2.32.0...2.32.1) (2025-02-06)
+
+
+### Bug Fixes
+
+* added weight props for link ([f71b41d](https://github.com/dinofrontend/dino_ui_library/commit/f71b41d57110ed8b0a96d9e36699c01dfd8981fe))
+* added weight props for link ([95a082b](https://github.com/dinofrontend/dino_ui_library/commit/95a082b488fda5ecbfd2ddeab65b67663570dbcc))
+* fixed link types ui ([e00b21b](https://github.com/dinofrontend/dino_ui_library/commit/e00b21bf73747fb4ace1febdda0cb85e37a5239c))
+* fixed link types ui ([af7bb77](https://github.com/dinofrontend/dino_ui_library/commit/af7bb777b1598cdd050746f64875a82bb266b574))
+
 # [2.32.0](https://github.com/dinofrontend/dino_ui_library/compare/2.31.10...2.32.0) (2025-02-06)
 
 

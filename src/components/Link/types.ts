@@ -2,6 +2,7 @@ import type { TSVGIconType } from '../SVGIcons/types'
 
 export interface LinkPropTypes {
   type?: 'primary' | 'secondary'
+  weight?: 'regular' | 'semibold'
   children?: string | JSX.Element
   className?: string
   url?: string
