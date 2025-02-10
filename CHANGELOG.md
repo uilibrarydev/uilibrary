@@ -1,3 +1,16 @@
+# [2.34.0](https://github.com/dinofrontend/dino_ui_library/compare/2.33.0...2.34.0) (2025-02-10)
+
+
+### Bug Fixes
+
+* change input focus state functionality after show or hide password ([93b8497](https://github.com/dinofrontend/dino_ui_library/commit/93b8497ead30c0eaf861cc62cb358a7bfad9cc06))
+* remove duplicate method ([a37753d](https://github.com/dinofrontend/dino_ui_library/commit/a37753d7035aaf794dddde75c6f2e31c9da885f2))
+
+
+### Features
+
+* add caps lock functionality ([46a6c7a](https://github.com/dinofrontend/dino_ui_library/commit/46a6c7a0697bc8436037cc1ec162362b6ce81b63))
+
 # [2.33.0](https://github.com/dinofrontend/dino_ui_library/compare/2.32.1...2.33.0) (2025-02-07)
 
 
