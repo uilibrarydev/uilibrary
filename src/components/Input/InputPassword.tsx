@@ -63,12 +63,12 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
       capsLockText,
       ...rest
     } = props
+    const inputRef = useRef<HTMLInputElement>(null)
+    const combinedRef = (ref || inputRef) as React.RefObject<HTMLInputElement>
     const [password, setPassword] = useState<string>('')
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const [validationResults, setValidationResults] = useState<Record<string, boolean>>({})
     const [isFocused, setIsFocused] = useState<boolean>(false)
-    const inputRef = useRef<HTMLInputElement>(null)
-    const combinedRef = (ref || inputRef) as React.RefObject<HTMLInputElement>
     const [capsLockOn, setCapsLockOn] = useState<boolean>(false)
 
     const eyeIcon = {
@@ -88,11 +88,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
         }
       }
     }
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-      setCapsLockOn(event.getModifierState('CapsLock'))
-    }
-
-    const handleKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const checkCapsLock = (event: React.KeyboardEvent<HTMLInputElement>) => {
       setCapsLockOn(event.getModifierState('CapsLock'))
     }
 
@@ -151,8 +147,8 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
               onBlur(e)
             }
           }}
-          onKeyDown={handleKeyDown}
-          onKeyUp={handleKeyUp}
+          onKeyDown={checkCapsLock}
+          onKeyUp={checkCapsLock}
           error={error}
           hasError={hasError}
         />
