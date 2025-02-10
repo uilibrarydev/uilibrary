@@ -29,6 +29,7 @@ export interface ISVGIconProps {
   size?: TSVGIconSize
   type?: TSVGIconType
   onClick?: (event: MouseEvent<any>) => void
+  onMouseDown?: (event: MouseEvent<any>) => void
   className?: string
   refHandler?: LegacyRef<SVGSVGElement> | undefined
   id?: string

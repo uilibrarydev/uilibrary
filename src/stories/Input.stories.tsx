@@ -67,8 +67,9 @@ const InputPasswordTemplate: StoryFn<InputPasswordsProps> = (args) => {
 
   // @ts-ignore
   return (
-    <div style={{ maxWidth: 400 }}>
+    <div style={{ marginLeft: 100, maxWidth: 400 }}>
       <_InputPassword
+        capsLockText={'Caps Lock is On'}
         validations={passwordValidations}
         onValidationChange={setIsPasswordValid}
         label={'Password'}

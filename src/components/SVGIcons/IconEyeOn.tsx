@@ -8,6 +8,7 @@ export const IconEyeOn = ({
   type,
   className = '',
   onClick,
+  onMouseDown,
   refHandler,
   id,
   dataId
@@ -22,6 +23,7 @@ export const IconEyeOn = ({
     viewBox="0 0 24 24"
     fill="none"
     onClick={onClick}
+    onMouseDown={onMouseDown}
     ref={refHandler}
     id={id}
     data-id={dataId ? `${dataId}-svg-icon` : ''}
