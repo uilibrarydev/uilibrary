@@ -1,3 +1,10 @@
+## [2.34.1](https://github.com/dinofrontend/dino_ui_library/compare/2.34.0...2.34.1) (2025-02-10)
+
+
+### Bug Fixes
+
+* password input focus at once ([c2f0729](https://github.com/dinofrontend/dino_ui_library/commit/c2f0729cdf37763dbbf254eb466856e0f77deee1))
+
 # [2.34.0](https://github.com/dinofrontend/dino_ui_library/compare/2.33.0...2.34.0) (2025-02-10)
 
 
