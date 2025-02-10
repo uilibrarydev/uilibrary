@@ -79,16 +79,9 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
       onClick: () => {
         setShowPassword((prev) => !prev)
         onPasswordShow?.(!showPassword)
-        if (combinedRef.current) {
-          const length = combinedRef.current.value.length
-          setTimeout(() => {
-            combinedRef.current?.focus()
-            combinedRef.current?.setSelectionRange(length, length)
-          }, 0)
-        }
       }
     }
-    const checkCapsLock = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleCapsLockDetection = (event: React.KeyboardEvent<HTMLInputElement>) => {
       setCapsLockOn(event.getModifierState('CapsLock'))
     }
 
@@ -103,6 +96,16 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
       const isValid = Object.values(results).every(Boolean)
       onValidationChange?.(isValid)
     }, [password, validations, onValidationChange])
+
+    useEffect(() => {
+      if (combinedRef.current) {
+        const length = combinedRef.current.value.length
+        requestAnimationFrame(() => {
+          combinedRef.current?.focus()
+          combinedRef.current?.setSelectionRange(length, length)
+        })
+      }
+    }, [showPassword])
 
     return (
       <div className={'input-password'}>
@@ -147,8 +150,8 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
               onBlur(e)
             }
           }}
-          onKeyDown={checkCapsLock}
-          onKeyUp={checkCapsLock}
+          onKeyDown={handleCapsLockDetection}
+          onKeyUp={handleCapsLockDetection}
           error={error}
           hasError={hasError}
         />
