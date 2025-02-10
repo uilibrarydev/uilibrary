@@ -98,14 +98,14 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
     }, [password, validations, onValidationChange])
 
     useEffect(() => {
-      if (combinedRef.current) {
+      if (combinedRef.current && password) {
         const length = combinedRef.current.value.length
         requestAnimationFrame(() => {
           combinedRef.current?.focus()
           combinedRef.current?.setSelectionRange(length, length)
         })
       }
-    }, [showPassword])
+    }, [showPassword,password])
 
     return (
       <div className={'input-password'}>
