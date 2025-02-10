@@ -1,3 +1,10 @@
+## [2.34.2](https://github.com/dinofrontend/dino_ui_library/compare/2.34.1...2.34.2) (2025-02-10)
+
+
+### Bug Fixes
+
+* added new types for badge ([3cfd9fb](https://github.com/dinofrontend/dino_ui_library/commit/3cfd9fbf8aba08f9e50d2ef0dadb651e979eefce))
+
 ## [2.34.1](https://github.com/dinofrontend/dino_ui_library/compare/2.34.0...2.34.1) (2025-02-10)
 
 
