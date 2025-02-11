@@ -1,10 +1,6 @@
 @use "../helpers/mixin";
 
 :root {
-  --ds-tab-padding-lg: 0 var(--ds-space-16);
-  --ds-tab-padding-md: 0 var(--ds-space-16);
-  --ds-tab-padding-sm: 0 var(--ds-space-12);
-
   --ds-tab-border-radius-lg: var(--ds-border-radius-xl);
   --ds-tab-border-radius-md: var(--ds-border-radius-lg);
   --ds-tab-border-radius-sm: var(--ds-border-radius-md);
@@ -147,7 +143,6 @@
 
     .tab {
       border-radius: var(--ds-tab-border-radius-lg);
-      padding: var(--ds-tab-padding-lg);
     }
   }
 
@@ -156,7 +151,6 @@
 
     .tab {
       border-radius: var(--ds-tab-border-radius-md);
-      padding: var(--ds-tab-padding-md);
     }
   }
 
@@ -165,7 +159,6 @@
 
     .tab {
       border-radius: var(--ds-tab-border-radius-sm);
-      padding: var(--ds-tab-padding-sm);
     }
   }
 
