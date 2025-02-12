@@ -1,3 +1,10 @@
+## [2.35.1](https://github.com/dinofrontend/dino_ui_library/compare/2.35.0...2.35.1) (2025-02-12)
+
+
+### Bug Fixes
+
+* show popover only in hide mode ([d0a5a26](https://github.com/dinofrontend/dino_ui_library/commit/d0a5a26c54f89f2c7c651cde7f8c9d0269854aca))
+
 # [2.35.0](https://github.com/dinofrontend/dino_ui_library/compare/2.34.3...2.35.0) (2025-02-12)
 
 
