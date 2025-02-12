@@ -109,7 +109,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordsPr
 
     return (
       <div className={'input-password'}>
-        {capsLockOn ? (
+        {capsLockOn && !showPassword ? (
           <Popover
             text={capsLockText}
             id={'caps-lock'}
