@@ -1,3 +1,10 @@
+## [2.34.3](https://github.com/dinofrontend/dino_ui_library/compare/2.34.2...2.34.3) (2025-02-12)
+
+
+### Bug Fixes
+
+* change tooltip and popover radiuses, remove padding form tab-item ([3dca179](https://github.com/dinofrontend/dino_ui_library/commit/3dca179238b6dade563a827a6febbd9e1dd9f3fd))
+
 ## [2.34.2](https://github.com/dinofrontend/dino_ui_library/compare/2.34.1...2.34.2) (2025-02-10)
 
 
