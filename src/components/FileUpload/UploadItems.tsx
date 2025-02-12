@@ -24,12 +24,12 @@ export const UploadItems = (props: IUploadItemPropTypes): JSX.Element => {
             }`}
             key={index}
           >
+            {/*Todo need to add imagePath after uploading image*/}
+            <div className={'upload-item__image'}>
+              <Image isBackgroundImage={true} backgroundSize={'cover'} imagePath={''} />
+            </div>
             <div className="upload-item__inner">
               <div className="upload-item__content">
-                {/*Todo need to add imagePath after uploading image*/}
-                <div className={'upload-item__image'}>
-                  <Image isBackgroundImage={true} backgroundSize={'cover'} imagePath={''} />
-                </div>
                 <div className="upload-item__content__inner pr-8">
                   <Text
                     size="small"
