@@ -4,8 +4,10 @@ import type { IUploadItemPropTypes } from './types'
 import { useFormProps } from '../../hooks'
 import { openFileInNewWindow } from '../../utils/helpers'
 import { ErrorMessage } from '../../helperComponents'
-import { Button } from '../Button'
 import IconDelete from '../SVGIcons/IconDelete'
+import {ButtonIcon} from '../ButtonIcon';
+import {Progress} from '../Progress';
+import {Image} from '../Image';
 
 export const UploadItems = (props: IUploadItemPropTypes): JSX.Element => {
   const { files, onRemove, withFilePreview, handleFileClick } = props
@@ -24,6 +26,10 @@ export const UploadItems = (props: IUploadItemPropTypes): JSX.Element => {
           >
             <div className="upload-item__inner">
               <div className="upload-item__content">
+                {/*Todo need to add imagePath after uploading image*/}
+                <div className={'upload-item__image'}>
+                  <Image isBackgroundImage={true} backgroundSize={'cover'} imagePath={''}/>
+                </div>
                 <div className="upload-item__content__inner pr-8">
                   <Text
                     size="small"
@@ -42,8 +48,7 @@ export const UploadItems = (props: IUploadItemPropTypes): JSX.Element => {
                   </Text>
                   {filesErrors && <ErrorMessage message={errors.files[index]?.message} />}
                 </div>
-                <Button
-                  type="tertiary"
+                <ButtonIcon
                   size="small"
                   iconProps={{ Component: IconDelete }}
                   onClick={() => {
@@ -51,6 +56,8 @@ export const UploadItems = (props: IUploadItemPropTypes): JSX.Element => {
                   }}
                 />
               </div>
+              {/*Todo need to show progress until image will be uploaded*/}
+              <Progress type={'linear'} size={'small'} noText={true} className={'mt-4'}/>
             </div>
           </div>
         )
