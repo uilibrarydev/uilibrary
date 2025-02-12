@@ -1,3 +1,17 @@
+# [2.35.0](https://github.com/dinofrontend/dino_ui_library/compare/2.34.3...2.35.0) (2025-02-12)
+
+
+### Features
+
+* added zoom-in and zoom-out icons ([2a94d81](https://github.com/dinofrontend/dino_ui_library/commit/2a94d8102fad443842bddbb03176d8d86ce5a4be))
+
+## [2.34.3](https://github.com/dinofrontend/dino_ui_library/compare/2.34.2...2.34.3) (2025-02-12)
+
+
+### Bug Fixes
+
+* change tooltip and popover radiuses, remove padding form tab-item ([3dca179](https://github.com/dinofrontend/dino_ui_library/commit/3dca179238b6dade563a827a6febbd9e1dd9f3fd))
+
 ## [2.34.2](https://github.com/dinofrontend/dino_ui_library/compare/2.34.1...2.34.2) (2025-02-10)
 
 
