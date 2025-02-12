@@ -91,9 +91,4 @@
     font-size: var(--font-size-10) !important;
     @include mixin.truncate(100%)
   }
-
-  &__image {
-    width: var(--ds-size-32);
-    height: var(--ds-size-32);
-  }
 }

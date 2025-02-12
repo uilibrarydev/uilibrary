@@ -5,9 +5,9 @@ import { useFormProps } from '../../hooks'
 import { openFileInNewWindow } from '../../utils/helpers'
 import { ErrorMessage } from '../../helperComponents'
 import IconDelete from '../SVGIcons/IconDelete'
-import {ButtonIcon} from '../ButtonIcon';
-import {Progress} from '../Progress';
-import {Image} from '../Image';
+import { ButtonIcon } from '../ButtonIcon'
+import { Progress } from '../Progress'
+import { Image } from '../Image'
 
 export const UploadItems = (props: IUploadItemPropTypes): JSX.Element => {
   const { files, onRemove, withFilePreview, handleFileClick } = props
@@ -28,7 +28,7 @@ export const UploadItems = (props: IUploadItemPropTypes): JSX.Element => {
               <div className="upload-item__content">
                 {/*Todo need to add imagePath after uploading image*/}
                 <div className={'upload-item__image'}>
-                  <Image isBackgroundImage={true} backgroundSize={'cover'} imagePath={''}/>
+                  <Image isBackgroundImage={true} backgroundSize={'cover'} imagePath={''} />
                 </div>
                 <div className="upload-item__content__inner pr-8">
                   <Text
@@ -57,7 +57,7 @@ export const UploadItems = (props: IUploadItemPropTypes): JSX.Element => {
                 />
               </div>
               {/*Todo need to show progress until image will be uploaded*/}
-              <Progress type={'linear'} size={'small'} noText={true} className={'mt-4'}/>
+              <Progress type={'linear'} size={'small'} noText={true} className={'mt-4'} />
             </div>
           </div>
         )
