@@ -81,6 +81,7 @@ export const Popover = (props: TPopoverProps): JSX.Element | null => {
               </Text>
             )}
           </div>
+          <span className="popover__arrow"></span>
         </div>
       )}
       {children}
