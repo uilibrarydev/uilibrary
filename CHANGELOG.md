@@ -1,3 +1,12 @@
+## [2.35.2](https://github.com/dinofrontend/dino_ui_library/compare/2.35.1...2.35.2) (2025-02-13)
+
+
+### Bug Fixes
+
+* button onclick and fix warnings ([44c4c83](https://github.com/dinofrontend/dino_ui_library/commit/44c4c83b58ac01efa54f727cbe35dd2479add9c7))
+* remove is loading ([1d386c8](https://github.com/dinofrontend/dino_ui_library/commit/1d386c8278e59651a510a50cd5dbc6691995b379))
+* remove is loading ([f803c60](https://github.com/dinofrontend/dino_ui_library/commit/f803c60fc7d3d1e23e4d3da5389545e8f0d57ff1))
+
 ## [2.35.1](https://github.com/dinofrontend/dino_ui_library/compare/2.35.0...2.35.1) (2025-02-12)
 
 
