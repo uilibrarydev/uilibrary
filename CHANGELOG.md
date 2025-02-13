@@ -1,3 +1,10 @@
+# [2.36.0](https://github.com/dinofrontend/dino_ui_library/compare/2.35.2...2.36.0) (2025-02-13)
+
+
+### Features
+
+* add link properties for alert ([6bd55f1](https://github.com/dinofrontend/dino_ui_library/commit/6bd55f1ef821547ca8e262b92651a43722ca6e60))
+
 ## [2.35.2](https://github.com/dinofrontend/dino_ui_library/compare/2.35.1...2.35.2) (2025-02-13)
 
 
