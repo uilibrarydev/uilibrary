@@ -42,7 +42,11 @@ export const Button = (props: TButtonPropTypes): ReactElement => {
         },
         className
       )}
-      onClick={onClick}
+      onClick={(e: TClickEventType) => {
+        if (!isLoading && onClick) {
+          onClick(e)
+        }
+      }}
       form={formId}
       {...rest}
     >
