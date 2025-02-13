@@ -7,6 +7,7 @@ import { Button } from '../Button'
 import type { TAlertProps } from './types'
 import IconDismissFilled from '../SVGIcons/IconDismissFilled'
 import { IconDynamicComponent } from '../../helperComponents'
+import { Link } from '../Link'
 
 export const Alert = (props: TAlertProps): ReactElement => {
   const {
@@ -17,7 +18,8 @@ export const Alert = (props: TAlertProps): ReactElement => {
     subtext,
     closeIcon,
     onClose,
-    className = ''
+    className = '',
+    linkAddons
   } = props
 
   return (
@@ -44,6 +46,7 @@ export const Alert = (props: TAlertProps): ReactElement => {
                 {subtext}
               </Text>
             ) : null}
+            {linkAddons ? <Link className={'mt-4'} {...linkAddons} /> : null}
           </div>
           {buttonProps ? (
             <div className="alert__actions">
