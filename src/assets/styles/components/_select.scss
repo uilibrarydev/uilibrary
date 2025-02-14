@@ -183,8 +183,9 @@
     #{$this}__options__scroll {
       padding-top: var(--ds-space-0);
     }
+
     .input {
-      input {
+      &:not(&:disabled) {
         color: var(--ds-select-input-color);
       }
     }
@@ -216,6 +217,10 @@
 
         &:read-only {
           cursor: pointer;
+        }
+
+        &:focus {
+          box-shadow: var(--ds-select-language-shadow-focused);
         }
       }
     }

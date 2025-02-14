@@ -13,16 +13,16 @@ import { Popover } from '../Popover'
 import { Positions } from '../Tooltip/types'
 
 const getTextType = (password: string, isValid: boolean, isFocused: boolean) => {
-  if (password.length === 0) return 'disabled'
+  if (password.length === 0) return 'tertiary'
   if (isValid) return 'success'
   return isFocused ? 'disabled' : 'danger'
 }
 
 const getIconType = (password: string, isValid: boolean, isFocused: boolean) => {
-  if (password.length === 0) return <IconDismissCircle size={'xsmall'} type="disabled" />
+  if (password.length === 0) return <IconDismissCircle size={'xsmall'} type="tertiary" />
   if (isValid) return <IconCheckmarkCircleFilled size={'xsmall'} type={'success'} />
   return isFocused ? (
-    <IconDismissCircle size={'xsmall'} type={'disabled'} />
+    <IconDismissCircle size={'xsmall'} type={'tertiary'} />
   ) : (
     <IconDismissCircleFilled size={'xsmall'} type={'danger'} />
   )
