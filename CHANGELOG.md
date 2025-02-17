@@ -1,3 +1,11 @@
+## [2.36.1](https://github.com/dinofrontend/dino_ui_library/compare/2.36.0...2.36.1) (2025-02-17)
+
+
+### Bug Fixes
+
+* fixes for password, language select ([04d97c6](https://github.com/dinofrontend/dino_ui_library/commit/04d97c68f6e0ce363cd5f4db54f431b074212335))
+* fixes for password, language select ([0ea0174](https://github.com/dinofrontend/dino_ui_library/commit/0ea01742cfcec744c9ece76625fe58725e5da148))
+
 # [2.36.0](https://github.com/dinofrontend/dino_ui_library/compare/2.35.2...2.36.0) (2025-02-13)
 
 
