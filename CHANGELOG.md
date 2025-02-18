@@ -1,3 +1,10 @@
+## [2.36.2](https://github.com/dinofrontend/dino_ui_library/compare/2.36.1...2.36.2) (2025-02-18)
+
+
+### Bug Fixes
+
+* fix for language dropdown ([5f3cb83](https://github.com/dinofrontend/dino_ui_library/commit/5f3cb833b22d75331953485ff595fd0b19d26374))
+
 ## [2.36.1](https://github.com/dinofrontend/dino_ui_library/compare/2.36.0...2.36.1) (2025-02-17)
 
 
