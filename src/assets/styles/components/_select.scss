@@ -49,6 +49,8 @@
   --ds-select-language-input-space: 44px;
   --ds-select-language-icon-position: var(--ds-space-16);
   --ds-select-language-shadow-focused: var(--ds-shadow-brand-2);
+  --ds-select-language-scroll-padding: 0;
+
 
   position: relative;
 
@@ -86,6 +88,7 @@
     border-width: var(--ds-select-options-border-size);
     border-style: solid;
     border-color: var(--ds-select-options-border-color);
+    overflow: hidden;
 
     &__scroll {
       max-height: var(--ds-select-scroll-max-height);
@@ -229,6 +232,12 @@
       .input {
         --ds-input-bg-default: var(--ds-select-language-bg-hover);
         --ds-input-border-color-default: var(--ds-select-language-input-border-color-active);
+      }
+    }
+
+    #{$this}__options {
+      &__scroll {
+        padding: var(--ds-select-language-scroll-padding);
       }
     }
   }
