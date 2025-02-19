@@ -22,7 +22,7 @@ export const CardItem = (props: TCardItemProps): ReactElement => {
             (image || (icon && icon?.Component)) && 'pl-12'
           }`}
         >
-          <Text weight={'bold'}>{title}</Text>
+          <Text weight={'semibold'}>{title}</Text>
           <Text type={'tertiary'} className={'flexbox align-items--center mt-2'}>
             <>
               {subtitleProps?.subtitle}
