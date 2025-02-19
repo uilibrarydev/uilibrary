@@ -1,4 +1,11 @@
-import {ButtonIcon, CardItem as _TCardItem, IconDelete, IconEdit, IconInfo, IconPerson} from '../index'
+import {
+  ButtonIcon,
+  CardItem as _TCardItem,
+  IconDelete,
+  IconEdit,
+  IconInfo,
+  IconPerson
+} from '../index'
 import type { StoryFn } from '@storybook/react'
 import { TCardItemProps } from '../components/Cards/types'
 import imageFile1 from '../assets/images/ArCa.svg'
@@ -30,11 +37,7 @@ Cards.args = {
   children: (
     <div className={'flexbox'}>
       <ButtonIcon size={'medium'} iconProps={{ Component: IconDelete }} />
-      <ButtonIcon
-        size={'medium'}
-        iconProps={{ Component: IconEdit }}
-        className={'ml-12'}
-      />
+      <ButtonIcon size={'medium'} iconProps={{ Component: IconEdit }} className={'ml-12'} />
     </div>
   ),
   disabled: false

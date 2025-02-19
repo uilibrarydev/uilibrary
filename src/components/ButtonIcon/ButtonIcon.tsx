@@ -3,7 +3,7 @@ import React from 'react'
 import classnames from 'classnames'
 import type { TButtonIconPropTypes } from './types'
 import { Loader } from '../../helperComponents'
-import {ICON_SIZE_MAPPING} from './consts';
+import { ICON_SIZE_MAPPING } from './consts'
 
 export const ButtonIcon = (props: TButtonIconPropTypes): ReactElement => {
   const {
@@ -34,7 +34,10 @@ export const ButtonIcon = (props: TButtonIconPropTypes): ReactElement => {
       {isLoading ? (
         <Loader size={size} type={'dark'} />
       ) : (
-        <iconProps.Component size={ICON_SIZE_MAPPING[size]} type={disabled ? 'disabled' : 'tertiary'} />
+        <iconProps.Component
+          size={ICON_SIZE_MAPPING[size]}
+          type={disabled ? 'disabled' : 'tertiary'}
+        />
       )}
     </button>
   )
