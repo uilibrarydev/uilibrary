@@ -1,3 +1,11 @@
+## [2.36.4](https://github.com/dinofrontend/dino_ui_library/compare/2.36.3...2.36.4) (2025-02-19)
+
+
+### Bug Fixes
+
+* fix for cards and buttonIcon components ([5eff9aa](https://github.com/dinofrontend/dino_ui_library/commit/5eff9aa3477e434deaa9249b0fe2128cd5d2d014))
+* fix for cards and buttonIcon components ([d2761f4](https://github.com/dinofrontend/dino_ui_library/commit/d2761f4e5a717eaefb402917d9f201e9f0e2204e))
+
 ## [2.36.3](https://github.com/dinofrontend/dino_ui_library/compare/2.36.2...2.36.3) (2025-02-19)
 
 
