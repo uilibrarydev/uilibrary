@@ -1,3 +1,10 @@
+## [2.36.3](https://github.com/dinofrontend/dino_ui_library/compare/2.36.2...2.36.3) (2025-02-19)
+
+
+### Bug Fixes
+
+* fix for profile dropdown ([3a53264](https://github.com/dinofrontend/dino_ui_library/commit/3a53264c2e4a5a3dbbb3d9d849282ec893f6dc29))
+
 ## [2.36.2](https://github.com/dinofrontend/dino_ui_library/compare/2.36.1...2.36.2) (2025-02-18)
 
 
