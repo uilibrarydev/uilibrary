@@ -1,3 +1,11 @@
+## [2.36.5](https://github.com/dinofrontend/dino_ui_library/compare/2.36.4...2.36.5) (2025-02-20)
+
+
+### Bug Fixes
+
+* fix  radius for large buttonIcon ([9bb7596](https://github.com/dinofrontend/dino_ui_library/commit/9bb759624712cf0baa87f97d12677d6e6607ed7a))
+* remove additional tokens ([2241dfa](https://github.com/dinofrontend/dino_ui_library/commit/2241dfa23ac3919face85e8c1a824ca96280751b))
+
 ## [2.36.4](https://github.com/dinofrontend/dino_ui_library/compare/2.36.3...2.36.4) (2025-02-19)
 
 
