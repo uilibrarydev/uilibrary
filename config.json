@@ -1,0 +1,38 @@
+{
+  "source": ["tokens.json"],
+  "platforms": {
+    "scss": {
+      "transformGroup": "scss",
+      "buildPath": "src/assets/styles/",
+      "files": [
+        {
+          "destination": "colors.scss",
+          "format": "scss/variables",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
+          }
+        },
+        {
+          "destination": "border-radius.scss",
+          "format": "scss/variables",
+          "filter": {
+            "attributes": {
+              "category": "border radius"
+            }
+          }
+        },
+        {
+          "destination": "typography.scss",
+          "format": "scss/variables",
+          "filter": {
+            "attributes": {
+              "category": "typography"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
