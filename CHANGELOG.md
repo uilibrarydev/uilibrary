@@ -1,3 +1,11 @@
+## [2.36.6](https://github.com/dinofrontend/dino_ui_library/compare/2.36.5...2.36.6) (2025-02-24)
+
+
+### Bug Fixes
+
+* otp-autofocus ([4494455](https://github.com/dinofrontend/dino_ui_library/commit/4494455f44c929f52084052b7dd4aa2157d4d7e6))
+* otp-autofocus-issue-Revert ([411366d](https://github.com/dinofrontend/dino_ui_library/commit/411366d8ca49ea347f7d30e4a2dc275badda44b6))
+
 ## [2.36.5](https://github.com/dinofrontend/dino_ui_library/compare/2.36.4...2.36.5) (2025-02-20)
 
 
