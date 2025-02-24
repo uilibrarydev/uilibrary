@@ -18,10 +18,6 @@ export default {
     hasError: {
       options: [true, false],
       control: { type: 'radio' }
-    },
-    autoFocus: {
-      options: [true, false],
-      control: { type: 'radio' }
     }
   }
 }
@@ -40,6 +36,5 @@ OneTimePassword.args = {
   label: 'One Time Password',
   hasError: true,
   error: 'error text',
-  successMessage: 'Success text',
-  autoFocus: true
+  successMessage: 'Success text'
 }
