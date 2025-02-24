@@ -22,4 +22,5 @@ export interface OtpCustomProps
   successMessage?: string
   hasError?: boolean
   onFocus?: (event: TClickEventType) => void
+  autoFocus?: boolean
 }
