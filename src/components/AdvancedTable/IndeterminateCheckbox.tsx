@@ -12,12 +12,7 @@ type IndeterminateCheckboxProps = {
 
 export const IndeterminateCheckbox = forwardRef(
   (
-    {
-      indeterminate,
-      checked,
-      onChange,
-      disabled,
-    }: IndeterminateCheckboxProps,
+    { indeterminate, checked, onChange, disabled }: IndeterminateCheckboxProps,
     ref: ForwardedRef<HTMLInputElement>
   ) => {
     const defaultRef = useRef()
@@ -31,14 +26,7 @@ export const IndeterminateCheckbox = forwardRef(
       onChange({ target: { checked: v } })
     }
 
-    return (
-      <Checkbox
-        value={checked}
-        disabled={disabled}
-        onClick={handleChange}
-        ref={resolvedRef}
-      />
-    )
+    return <Checkbox value={checked} disabled={disabled} onClick={handleChange} ref={resolvedRef} />
   }
 )
 
