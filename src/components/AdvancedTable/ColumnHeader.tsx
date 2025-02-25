@@ -40,15 +40,6 @@ export function ColumnHeader<TData>({ header }: DraggableColumnHeaderProps<TData
       } ${header.column.getCanSort() ? 'cursor-pointer select-none' : ''}`}
       {...attributes}
       onClick={header.column.getToggleSortingHandler()}
-      title={
-        header.column.getCanSort()
-          ? header.column.getNextSortingOrder() === 'asc'
-            ? 'Sort ascending'
-            : header.column.getNextSortingOrder() === 'desc'
-            ? 'Sort descending'
-            : 'Clear sort'
-          : undefined
-      }
     >
       <div className="flexbox align-items--center">
         <div {...listeners} className="flexbox align-items--center">

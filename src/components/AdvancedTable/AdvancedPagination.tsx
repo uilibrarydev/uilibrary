@@ -45,13 +45,11 @@ export function AdvancedPagination<TData>({ table }: PaginationProps<TData>) {
         disabled={!table.getCanNextPage()}
       />
       <span className="flexbox align-items--center gap-1">
-        <div>Page</div>
         <strong>
-          {table.getState().pagination.pageIndex + 1} of {table.getPageCount().toLocaleString()}
+          {table.getState().pagination.pageIndex + 1} - {table.getPageCount().toLocaleString()}
         </strong>
       </span>
       <span className="flexbox align-items--center gap-1">
-        | Go to page:
         <Input
           type="number"
           min="1"
@@ -72,7 +70,7 @@ export function AdvancedPagination<TData>({ table }: PaginationProps<TData>) {
       >
         {[10, 20, 30, 40, 50].map((pageSize) => (
           <option key={pageSize} value={pageSize}>
-            Show {pageSize}
+            {pageSize}
           </option>
         ))}
       </select>

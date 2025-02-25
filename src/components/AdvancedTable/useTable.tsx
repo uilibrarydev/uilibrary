@@ -51,22 +51,18 @@ export function useTable<TData>({
           enablePinning: true,
           header: ({ table }: { table: Table<TData> }) => (
             <IndeterminateCheckbox
-              {...{
-                checked: table.getIsAllRowsSelected(),
-                indeterminate: table.getIsSomeRowsSelected(),
-                onChange: table.getToggleAllRowsSelectedHandler()
-              }}
+              checked={table.getIsAllRowsSelected()}
+              indeterminate={table.getIsSomeRowsSelected()}
+              onChange={table.getToggleAllRowsSelectedHandler()}
             />
           ),
           cell: ({ row }: { row: Row<TData> }) => (
             <div className="px-1">
               <IndeterminateCheckbox
-                {...{
-                  checked: row.getIsSelected(),
-                  disabled: !row.getCanSelect(),
-                  indeterminate: row.getIsSomeSelected(),
-                  onChange: row.getToggleSelectedHandler()
-                }}
+                checked={row.getIsSelected()}
+                disabled={!row.getCanSelect()}
+                indeterminate={row.getIsSomeSelected()}
+                onChange={row.getToggleSelectedHandler()}
               />
             </div>
           )
