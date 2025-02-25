@@ -42,48 +42,48 @@ const data: any[] = [
 const Template: StoryFn<TTableProps<any>> = (args) => {
   const columns: ColumnDef<any>[] = [
     {
-      id: "user",
+      id: 'user',
       header: 'User',
       accessorKey: 'user',
       minSize: 100,
-      size: 200,
+      size: 200
     },
     {
       header: 'Status',
       id: 'status',
       accessorKey: 'status',
-      size: 200,
+      size: 200
     },
     {
       id: 'age',
       accessorKey: 'age',
-      header: 'Age',
+      header: 'Age'
     },
     {
       header: 'Profile Progress',
       id: 'progress',
-      accessorKey: 'progress',
+      accessorKey: 'progress'
     },
     {
       header: 'Visits',
       id: 'visits',
-      accessorKey: 'visits',
+      accessorKey: 'visits'
     }
   ]
 
   return (
     <div style={{ height: '95vh' }}>
       <_Table
-       {...args}
+        {...args}
         data={data}
         columns={columns}
         renderHeader={(table) => (
-          <div className='flexbox justify-content--end'>
+          <div className="flexbox justify-content--end">
             <ColumnSettings table={table} />
           </div>
         )}
         renderFooter={(table) => (
-          <div className='test'>
+          <div className="test">
             <AdvancedPagination table={table} />
           </div>
         )}
@@ -105,5 +105,5 @@ AdvancedTable.args = {
   columns: [],
   onSortChange: (state) => console.log(state),
   onRowSelection: (state) => console.log(state),
-  onPaginationChange: (state) => console.log(state),
+  onPaginationChange: (state) => console.log(state)
 }

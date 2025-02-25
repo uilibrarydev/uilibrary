@@ -1,4 +1,9 @@
-import type { ColumnDef, ColumnSizingState, PaginationState, RowSelectionState } from '@tanstack/react-table'
+import type {
+  ColumnDef,
+  ColumnSizingState,
+  PaginationState,
+  RowSelectionState
+} from '@tanstack/react-table'
 import type { ReactNode } from 'react'
 
 export type TTableProps<TData> = {
@@ -21,8 +26,7 @@ export type TTableProps<TData> = {
 
 export interface Column<TData> extends ColumnDef<TData> {
   enableColumnDragging?: boolean
-};
-
+}
 
 export type SortingUpdateEvent = {
   column: string
