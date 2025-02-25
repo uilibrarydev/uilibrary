@@ -103,8 +103,6 @@ AdvancedTable.args = {
   withSelect: true,
   data: [],
   columns: [],
-  defaultPageIndex: 3,
-  defaultPageSize: 20,
   onSortChange: (state) => console.log(state),
   onRowSelection: (state) => console.log(state),
   onPaginationChange: (state) => console.log(state)
