@@ -1,3 +1,10 @@
+## [2.36.7](https://github.com/dinofrontend/dino_ui_library/compare/2.36.6...2.36.7) (2025-02-25)
+
+
+### Bug Fixes
+
+* autofocus issue ([213176b](https://github.com/dinofrontend/dino_ui_library/commit/213176b6fbf809e1a242b7eb14a6b610b1960e8e))
+
 ## [2.36.6](https://github.com/dinofrontend/dino_ui_library/compare/2.36.5...2.36.6) (2025-02-24)
 
 
