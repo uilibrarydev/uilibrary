@@ -163,6 +163,13 @@
     }
   }
 
+  &--checkbox {
+    & + .error-message {
+      margin-left: var(--ds-space-24);
+      margin-top: var(--ds-space-2) !important;
+    }
+  }
+
   &--radio {
     input[type="radio"] {
       & + #{$this}__icon {
@@ -204,12 +211,6 @@
             border-color: var(--ds-controller-error-border-color);
           }
         }
-      }
-    }
-
-    #{$this}__label {
-      a {
-        color: var(--ds-controller-error-text-color);
       }
     }
   }
