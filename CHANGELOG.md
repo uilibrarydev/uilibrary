@@ -1,3 +1,10 @@
+## [2.36.8](https://github.com/dinofrontend/dino_ui_library/compare/2.36.7...2.36.8) (2025-03-06)
+
+
+### Bug Fixes
+
+* fixed checkbox invalid ui ([ac8daf4](https://github.com/dinofrontend/dino_ui_library/commit/ac8daf4b31415722caff3995d90de51c1cdc3a06))
+
 ## [2.36.7](https://github.com/dinofrontend/dino_ui_library/compare/2.36.6...2.36.7) (2025-02-25)
 
 
