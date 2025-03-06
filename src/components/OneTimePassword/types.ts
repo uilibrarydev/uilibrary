@@ -23,4 +23,5 @@ export interface OtpCustomProps
   hasError?: boolean
   onFocus?: (event: TClickEventType) => void
   autoFocus?: boolean
+  allowLetters?: boolean
 }

@@ -9,31 +9,36 @@ import IconCheckmarkCircleFilled from '../SVGIcons/IconCheckmarkCircleFilled'
 
 export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps>(
   ({
-    className,
-    size = 'large',
-    error,
-    hasError,
-    label,
-    name,
-    disabled,
-    required,
-    placeholder,
-    type,
-    setFieldValue,
-    handleChange,
-    dataId = '',
-    isValid,
-    count,
-    successMessage,
-    autoFocus,
-    ...rest
-  }): JSX.Element => {
+     className,
+     size = 'large',
+     error,
+     hasError,
+     label,
+     name,
+     disabled,
+     required,
+     placeholder,
+     type,
+     setFieldValue,
+     handleChange,
+     dataId = '',
+     isValid,
+     count,
+     successMessage,
+     autoFocus,
+     allowLetters = false,
+     ...rest
+   }): JSX.Element => {
     const isErrorVisible = hasError !== undefined ? hasError : !!error
     const [otp, setOtp] = useState<string[]>(Array(count).fill(''))
     const inputRefs = useRef<(HTMLInputElement | null)[]>([])
 
     const onChange = (e: TChangeEventType, value: string, index: number) => {
-      if (((!!Number(value) || value === '0') && value.length === 1) || value === '') {
+      if (
+        ((allowLetters && value.length === 1) ||
+          ((!Number.isNaN(Number(value)) || value === '0') && value.length === 1) ||
+          value === '')
+      ) {
         const newOtp = [...otp]
         newOtp[index] = value?.slice(-1)
         setOtp(newOtp)
