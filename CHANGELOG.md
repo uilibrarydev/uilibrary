@@ -1,3 +1,11 @@
+# [2.37.0](https://github.com/dinofrontend/dino_ui_library/compare/2.36.8...2.37.0) (2025-03-07)
+
+
+### Features
+
+* add allow letters ([2039329](https://github.com/dinofrontend/dino_ui_library/commit/20393299815bb15176146959772702739d664910))
+* add allow letters ([74efe6a](https://github.com/dinofrontend/dino_ui_library/commit/74efe6acbee501a83e56a2874fa2e4caf59dc45e))
+
 ## [2.36.8](https://github.com/dinofrontend/dino_ui_library/compare/2.36.7...2.36.8) (2025-03-06)
 
 
