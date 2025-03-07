@@ -31,7 +31,7 @@ Checkbox.args = {
   dataId: 'id',
   disabled: false,
   required: false,
-  isInvalid: false,
+  isInvalid: true,
   label: 'Label for checkbox',
   link: '/about',
   beforeLink: 'das',
