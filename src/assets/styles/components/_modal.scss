@@ -167,6 +167,18 @@
         width: 100%;
       }
     }
+
+    &#{$this}--large {
+      #{$this}__container {
+        max-width: var(--ds-modal-size-md);
+      }
+    }
+
+    &#{$this}--small {
+      #{$this}__container {
+        max-width: var(--ds-modal-size-sm);
+      }
+    }
   }
 }
 
