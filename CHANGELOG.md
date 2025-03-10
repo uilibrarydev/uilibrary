@@ -1,3 +1,10 @@
+# [2.38.0](https://github.com/dinofrontend/dino_ui_library/compare/2.37.0...2.38.0) (2025-03-10)
+
+
+### Features
+
+* added tin and loan icons ([c891481](https://github.com/dinofrontend/dino_ui_library/commit/c891481fbdf3197ec9be7f841cafe3a2f30bd0bd))
+
 # [2.37.0](https://github.com/dinofrontend/dino_ui_library/compare/2.36.8...2.37.0) (2025-03-07)
 
 
