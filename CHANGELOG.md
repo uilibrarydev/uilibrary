@@ -1,3 +1,16 @@
+# [2.39.0](https://github.com/dinofrontend/dino_ui_library/compare/2.38.0...2.39.0) (2025-03-10)
+
+
+### Bug Fixes
+
+* fixed modal confirmation sizes ([f6406f3](https://github.com/dinofrontend/dino_ui_library/commit/f6406f3f4840560c7792188bc4a1c6485c908222))
+
+
+### Features
+
+* added tin and loan filled icons, and star icon ([998c6fa](https://github.com/dinofrontend/dino_ui_library/commit/998c6faee165407668b6bae04a28eb6701c92e1d))
+* fixed conflict ([1cd6266](https://github.com/dinofrontend/dino_ui_library/commit/1cd62660a94cd47203f21d71132ceda56657a6ac))
+
 # [2.38.0](https://github.com/dinofrontend/dino_ui_library/compare/2.37.0...2.38.0) (2025-03-10)
 
 
