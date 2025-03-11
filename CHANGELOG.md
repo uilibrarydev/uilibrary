@@ -1,3 +1,12 @@
+## [2.39.1](https://github.com/dinofrontend/dino_ui_library/compare/2.39.0...2.39.1) (2025-03-11)
+
+
+### Bug Fixes
+
+* fixed lineheight ([1588963](https://github.com/dinofrontend/dino_ui_library/commit/1588963e832e3bc2a1723f33eabedddd7f1bc9a9))
+* fixed subtitle color ([84c0ae9](https://github.com/dinofrontend/dino_ui_library/commit/84c0ae952f2a6c82c534ffc7ab9bcf4966eb113b))
+* set min width to buttonIcons ([ee09ecc](https://github.com/dinofrontend/dino_ui_library/commit/ee09eccbe1851b7525f2cb644fa63bfac0bc80d1))
+
 # [2.39.0](https://github.com/dinofrontend/dino_ui_library/compare/2.38.0...2.39.0) (2025-03-10)
 
 
