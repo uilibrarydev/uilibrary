@@ -1,3 +1,62 @@
+## [2.39.1](https://github.com/dinofrontend/dino_ui_library/compare/2.39.0...2.39.1) (2025-03-11)
+
+
+### Bug Fixes
+
+* fixed lineheight ([1588963](https://github.com/dinofrontend/dino_ui_library/commit/1588963e832e3bc2a1723f33eabedddd7f1bc9a9))
+* fixed subtitle color ([84c0ae9](https://github.com/dinofrontend/dino_ui_library/commit/84c0ae952f2a6c82c534ffc7ab9bcf4966eb113b))
+* set min width to buttonIcons ([ee09ecc](https://github.com/dinofrontend/dino_ui_library/commit/ee09eccbe1851b7525f2cb644fa63bfac0bc80d1))
+
+# [2.39.0](https://github.com/dinofrontend/dino_ui_library/compare/2.38.0...2.39.0) (2025-03-10)
+
+
+### Bug Fixes
+
+* fixed modal confirmation sizes ([f6406f3](https://github.com/dinofrontend/dino_ui_library/commit/f6406f3f4840560c7792188bc4a1c6485c908222))
+
+
+### Features
+
+* added tin and loan filled icons, and star icon ([998c6fa](https://github.com/dinofrontend/dino_ui_library/commit/998c6faee165407668b6bae04a28eb6701c92e1d))
+* fixed conflict ([1cd6266](https://github.com/dinofrontend/dino_ui_library/commit/1cd62660a94cd47203f21d71132ceda56657a6ac))
+
+# [2.38.0](https://github.com/dinofrontend/dino_ui_library/compare/2.37.0...2.38.0) (2025-03-10)
+
+
+### Features
+
+* added tin and loan icons ([c891481](https://github.com/dinofrontend/dino_ui_library/commit/c891481fbdf3197ec9be7f841cafe3a2f30bd0bd))
+
+# [2.37.0](https://github.com/dinofrontend/dino_ui_library/compare/2.36.8...2.37.0) (2025-03-07)
+
+
+### Features
+
+* add allow letters ([2039329](https://github.com/dinofrontend/dino_ui_library/commit/20393299815bb15176146959772702739d664910))
+* add allow letters ([74efe6a](https://github.com/dinofrontend/dino_ui_library/commit/74efe6acbee501a83e56a2874fa2e4caf59dc45e))
+
+## [2.36.8](https://github.com/dinofrontend/dino_ui_library/compare/2.36.7...2.36.8) (2025-03-06)
+
+
+### Bug Fixes
+
+* fixed checkbox invalid ui ([ac8daf4](https://github.com/dinofrontend/dino_ui_library/commit/ac8daf4b31415722caff3995d90de51c1cdc3a06))
+
+## [2.36.7](https://github.com/dinofrontend/dino_ui_library/compare/2.36.6...2.36.7) (2025-02-25)
+
+
+### Bug Fixes
+
+* autofocus issue ([213176b](https://github.com/dinofrontend/dino_ui_library/commit/213176b6fbf809e1a242b7eb14a6b610b1960e8e))
+
+## [2.36.6](https://github.com/dinofrontend/dino_ui_library/compare/2.36.5...2.36.6) (2025-02-24)
+
+
+### Bug Fixes
+
+* otp-autofocus ([4494455](https://github.com/dinofrontend/dino_ui_library/commit/4494455f44c929f52084052b7dd4aa2157d4d7e6))
+* otp-autofocus-issue-Revert ([411366d](https://github.com/dinofrontend/dino_ui_library/commit/411366d8ca49ea347f7d30e4a2dc275badda44b6))
+
 ## [2.36.5](https://github.com/dinofrontend/dino_ui_library/compare/2.36.4...2.36.5) (2025-02-20)
 
 

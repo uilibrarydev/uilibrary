@@ -25,6 +25,8 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
     isValid,
     count,
     successMessage,
+    autoFocus,
+    allowLetters = false,
     ...rest
   }): JSX.Element => {
     const isErrorVisible = hasError !== undefined ? hasError : !!error
@@ -32,7 +34,11 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
     const inputRefs = useRef<(HTMLInputElement | null)[]>([])
 
     const onChange = (e: TChangeEventType, value: string, index: number) => {
-      if (((!!Number(value) || value === '0') && value.length === 1) || value === '') {
+      if (
+        (allowLetters && value.length === 1) ||
+        ((!Number.isNaN(Number(value)) || value === '0') && value.length === 1) ||
+        value === ''
+      ) {
         const newOtp = [...otp]
         newOtp[index] = value?.slice(-1)
         setOtp(newOtp)
@@ -74,6 +80,7 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
               currentValue={digits}
               handleChange={(e, value) => onChange(e, value, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
+              autoFocus={autoFocus && index === 0}
               {...rest}
             />
           ))}
