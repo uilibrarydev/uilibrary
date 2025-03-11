@@ -55,15 +55,18 @@
   &--large {
     height: var(--ds-button-icon-size-lg);
     width: var(--ds-button-icon-size-lg);
+    min-width: var(--ds-button-icon-size-lg);
   }
 
   &--medium {
     height: var(--ds-button-icon-size-md);
     width: var(--ds-button-icon-size-md);
+    min-width: var(--ds-button-icon-size-md);
   }
 
   &--small {
     height: var(--ds-button-icon-size-sm);
     width: var(--ds-button-icon-size-sm);
+    min-width: var(--ds-button-icon-size-sm);
   }
 }
