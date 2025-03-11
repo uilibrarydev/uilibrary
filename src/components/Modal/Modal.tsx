@@ -81,6 +81,7 @@ export const Modal = (props: TModalPropTypes): ReactElement => {
                   {subtitle ? (
                     <Text
                       className={'mt-12'}
+                      lineHeight={'large'}
                       type={'secondary'}
                       dataId={dataIdPrefix ? `${dataIdPrefix}-modal-title` : ''}
                     >
