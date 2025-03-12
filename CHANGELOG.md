@@ -1,3 +1,11 @@
+# [2.40.0](https://github.com/dinofrontend/dino_ui_library/compare/2.39.3...2.40.0) (2025-03-12)
+
+
+### Features
+
+* added laptop icon ([6f9d54e](https://github.com/dinofrontend/dino_ui_library/commit/6f9d54e7e79fb0a7df76457067fcbf9474ed0ea3))
+* added new icons ([413347e](https://github.com/dinofrontend/dino_ui_library/commit/413347e338369d34d42fe61b6cdefd1fc59572f6))
+
 ## [2.39.3](https://github.com/dinofrontend/dino_ui_library/compare/2.39.2...2.39.3) (2025-03-12)
 
 
