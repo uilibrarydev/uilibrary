@@ -1,5 +1,5 @@
 import React from 'react'
-import {AdvancedTable as _Table, AdvancedPagination, ColumnSettings} from '../index'
+import { AdvancedTable as _Table, AdvancedPagination, ColumnSettings } from '../index'
 import { StoryFn } from '@storybook/react'
 import { TTableProps } from '../components/AdvancedTable/types'
 import { Status } from '../components/Status'
@@ -45,7 +45,7 @@ const Template: StoryFn<TTableProps<any>> = (args) => {
     {
       id: 'user',
       header: 'User',
-      accessorKey: 'user',
+      accessorKey: 'user'
     },
     {
       header: 'Status',

@@ -6,7 +6,7 @@ import { useSortable } from '@dnd-kit/sortable'
 import IconArrowDown from '../SVGIcons/IconArrowDown'
 import IconArrowSort from '../SVGIcons/IconArrowSort'
 import IconArrowUp from '../SVGIcons/IconArrowUp'
-import {Text} from "../Text";
+import { Text } from '../Text'
 
 interface DraggableColumnHeaderProps<TData> {
   header: Header<TData, unknown>
@@ -42,7 +42,9 @@ export function ColumnHeader<TData>({ header }: DraggableColumnHeaderProps<TData
     >
       <div className="flexbox align-items--center">
         <div {...listeners}>
-            <Text weight={'bold'}>{flexRender(header.column.columnDef.header, header.getContext())}</Text>
+          <Text weight={'bold'}>
+            {flexRender(header.column.columnDef.header, header.getContext())}
+          </Text>
         </div>
         <span className="ml-4">
           {header.column.getCanSort() &&

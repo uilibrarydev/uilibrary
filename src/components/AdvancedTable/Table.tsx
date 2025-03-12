@@ -6,7 +6,7 @@ import { ColumnHeader } from './ColumnHeader'
 import Skeleton from 'react-loading-skeleton'
 import { useTable } from './useTable'
 import type { TTableProps } from './types'
-import {Text} from "../Text";
+import { Text } from '../Text'
 
 export function Table<TData>({
   data,
@@ -68,10 +68,7 @@ export function Table<TData>({
                 {table.getRowModel().rows.map((row) => (
                   <tr key={row.id}>
                     {row.getVisibleCells().map((cell) => (
-                      <td
-                        key={cell.id}
-                        style={{ width: cell.column.getSize() }}
-                      >
+                      <td key={cell.id} style={{ width: cell.column.getSize() }}>
                         {isLoading ? (
                           <Skeleton />
                         ) : (
@@ -89,10 +86,7 @@ export function Table<TData>({
               <table style={{ width: activeHeader.getSize() }}>
                 <thead>
                   <tr>
-                    <th
-                      className="draggable-col"
-                      style={{ width: activeHeader.getSize() }}
-                    >
+                    <th className="draggable-col" style={{ width: activeHeader.getSize() }}>
                       <Text weight={'bold'}>
                         {flexRender(
                           activeHeader.column.columnDef.header,
