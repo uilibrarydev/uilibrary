@@ -7,6 +7,7 @@ import IconArrowDown from '../SVGIcons/IconArrowDown'
 import IconArrowSort from '../SVGIcons/IconArrowSort'
 import IconArrowUp from '../SVGIcons/IconArrowUp'
 import { Text } from '../Text'
+import classnames from 'classnames'
 
 interface DraggableColumnHeaderProps<TData> {
   header: Header<TData, unknown>
@@ -36,7 +37,10 @@ export function ColumnHeader<TData>({ header }: DraggableColumnHeaderProps<TData
     <th
       ref={setNodeRef}
       style={style}
-      className={`select-none ${header.column.getCanSort() ? 'cursor-pointer select-none' : ''}`}
+      className={classnames('select-none', {
+        ['with-checkbox']: header.column.id === 'select',
+        ['cursor-pointer']: header.column.getCanSort(),
+      })}
       {...attributes}
       onClick={header.column.getToggleSortingHandler()}
     >

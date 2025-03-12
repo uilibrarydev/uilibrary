@@ -27,7 +27,12 @@ export function ColumnSettings<T>({ table }: ColumnSettingsProps<T>) {
             <Switcher
               label={column.id}
               selectedValue={column.getIsVisible()}
-              onChange={column.getToggleVisibilityHandler()}
+              onClick={() => {
+                const toggle = column.getToggleVisibilityHandler()
+                if (toggle) {
+                  toggle({ target: { checked: !column.getIsVisible() } })
+                }
+              }}
               disabled={!column.getCanHide()}
               inlineType={true}
               size={'small'}
