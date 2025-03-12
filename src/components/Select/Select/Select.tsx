@@ -108,6 +108,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
       setCurrentSelectedLabel()
     } else if (isCreatable) {
       setSelectedOption({ label: searchValue, value: searchValue })
+      onItemSelect(searchValue)
     }
     closeDropdown()
   }
