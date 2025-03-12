@@ -6,6 +6,7 @@ import { useSortable } from '@dnd-kit/sortable'
 import IconArrowDown from '../SVGIcons/IconArrowDown'
 import IconArrowSort from '../SVGIcons/IconArrowSort'
 import IconArrowUp from '../SVGIcons/IconArrowUp'
+import {Text} from "../Text";
 
 interface DraggableColumnHeaderProps<TData> {
   header: Header<TData, unknown>
@@ -35,17 +36,15 @@ export function ColumnHeader<TData>({ header }: DraggableColumnHeaderProps<TData
     <th
       ref={setNodeRef}
       style={style}
-      className={`pl-4 pr-4 pt-2 pb-2 text-left border-b select-none ${
-        isDragging ? 'opacity-50 bg-white shadow-lg' : ''
-      } ${header.column.getCanSort() ? 'cursor-pointer select-none' : ''}`}
+      className={`select-none ${header.column.getCanSort() ? 'cursor-pointer select-none' : ''}`}
       {...attributes}
       onClick={header.column.getToggleSortingHandler()}
     >
       <div className="flexbox align-items--center">
-        <div {...listeners} className="flexbox align-items--center">
-          {flexRender(header.column.columnDef.header, header.getContext())}
+        <div {...listeners}>
+            <Text weight={'bold'}>{flexRender(header.column.columnDef.header, header.getContext())}</Text>
         </div>
-        <div className="flexbox align-items--center ml-2">
+        <span className="ml-4">
           {header.column.getCanSort() &&
             (header.column.getIsSorted() === 'asc' ? (
               <IconArrowUp size="xsmall" />
@@ -54,12 +53,12 @@ export function ColumnHeader<TData>({ header }: DraggableColumnHeaderProps<TData
             ) : (
               <IconArrowSort size="xsmall" />
             ))}
-        </div>
+        </span>
       </div>
       <div
         onMouseDown={header.getResizeHandler()}
         onTouchStart={header.getResizeHandler()}
-        className="absolute right-0 top-0 full-height w-1 cursor-col-resize select-none touch-none"
+        className="resize-icon select-none touch-none"
       />
     </th>
   )

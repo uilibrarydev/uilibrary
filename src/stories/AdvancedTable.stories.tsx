@@ -1,7 +1,8 @@
 import React from 'react'
-import { AdvancedTable as _Table, AdvancedPagination, ColumnSettings } from '../index'
+import {AdvancedTable as _Table, AdvancedPagination, ColumnSettings} from '../index'
 import { StoryFn } from '@storybook/react'
 import { TTableProps } from '../components/AdvancedTable/types'
+import { Status } from '../components/Status'
 import { ColumnDef } from '@tanstack/react-table'
 
 const data: any[] = [
@@ -45,14 +46,11 @@ const Template: StoryFn<TTableProps<any>> = (args) => {
       id: 'user',
       header: 'User',
       accessorKey: 'user',
-      minSize: 100,
-      size: 200
     },
     {
       header: 'Status',
       id: 'status',
-      accessorKey: 'status',
-      size: 200
+      accessorKey: 'status'
     },
     {
       id: 'age',
@@ -78,12 +76,12 @@ const Template: StoryFn<TTableProps<any>> = (args) => {
         data={data}
         columns={columns}
         renderHeader={(table) => (
-          <div className="flexbox justify-content--end">
+          <div className="advanced-table__header justify-content--end">
             <ColumnSettings table={table} />
           </div>
         )}
         renderFooter={(table) => (
-          <div className="test">
+          <div className="advanced-table__footer justify-content--end">
             <AdvancedPagination table={table} />
           </div>
         )}

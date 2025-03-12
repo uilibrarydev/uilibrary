@@ -6,6 +6,7 @@ import { ColumnHeader } from './ColumnHeader'
 import Skeleton from 'react-loading-skeleton'
 import { useTable } from './useTable'
 import type { TTableProps } from './types'
+import {Text} from "../Text";
 
 export function Table<TData>({
   data,
@@ -37,9 +38,9 @@ export function Table<TData>({
   const header = renderHeader?.(table)
   const footer = renderFooter?.(table)
   return (
-    <div className="advanced-table-wrapper">
+    <div className="advanced-table">
       {header}
-      <div className="overflow-x-auto border rounded-lg">
+      <div className="advanced-table__inner">
         <DndContext
           sensors={sensors}
           collisionDetection={closestCenter}
@@ -47,8 +48,8 @@ export function Table<TData>({
           onDragEnd={handleDragEnd}
           onDragCancel={handleDragCancel}
         >
-          <div className="w-fit">
-            <table style={{ width: table.getCenterTotalSize() }}>
+          <div>
+            <table style={{ minWidth: table.getCenterTotalSize() }}>
               <thead>
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
@@ -69,7 +70,6 @@ export function Table<TData>({
                     {row.getVisibleCells().map((cell) => (
                       <td
                         key={cell.id}
-                        className="pl-4 pr-4 pt-2 pb-2 border-b"
                         style={{ width: cell.column.getSize() }}
                       >
                         {isLoading ? (
@@ -90,15 +90,15 @@ export function Table<TData>({
                 <thead>
                   <tr>
                     <th
-                      className="pl-4 pr-4 pt-2 pb-2 text-left bg-white border rounded"
+                      className="draggable-col"
                       style={{ width: activeHeader.getSize() }}
                     >
-                      <div className="flexbox align-items--center gap-2">
+                      <Text weight={'bold'}>
                         {flexRender(
                           activeHeader.column.columnDef.header,
                           activeHeader.getContext()
                         )}
-                      </div>
+                      </Text>
                     </th>
                   </tr>
                 </thead>

@@ -57,14 +57,12 @@ export function useTable<TData>({
             />
           ),
           cell: ({ row }: { row: Row<TData> }) => (
-            <div className="px-1">
               <IndeterminateCheckbox
                 checked={row.getIsSelected()}
                 disabled={!row.getCanSelect()}
                 indeterminate={row.getIsSomeSelected()}
                 onChange={row.getToggleSelectedHandler()}
               />
-            </div>
           )
         },
         ...columns
