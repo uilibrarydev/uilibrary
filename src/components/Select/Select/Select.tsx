@@ -54,7 +54,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     },
     labelAddons,
     tooltipAddons,
-    renderOptions,
+    renderOptions
   } = props
 
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -267,7 +267,8 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
                         data: item,
                         disabled: item.disabled,
                         isSelected: isSelected
-                      })) : (
+                      })
+                    ) : (
                       <OptionItem
                         tooltipAddons={tooltipAddons}
                         data={item}

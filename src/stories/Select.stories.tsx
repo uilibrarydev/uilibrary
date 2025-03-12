@@ -376,7 +376,7 @@ Select.args = {
   avatar: image.src,
   placeHolder: 'Select country',
   labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />,
-  isCreatable: false,
+  isCreatable: false
 }
 
 // -----------MULTISELECT---------
