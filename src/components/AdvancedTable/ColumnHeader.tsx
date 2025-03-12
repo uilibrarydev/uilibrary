@@ -39,7 +39,7 @@ export function ColumnHeader<TData>({ header }: DraggableColumnHeaderProps<TData
       style={style}
       className={classnames('select-none', {
         ['with-checkbox']: header.column.id === 'select',
-        ['cursor-pointer']: header.column.getCanSort(),
+        ['cursor-pointer']: header.column.getCanSort()
       })}
       {...attributes}
       onClick={header.column.getToggleSortingHandler()}

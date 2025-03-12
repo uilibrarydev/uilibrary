@@ -67,14 +67,15 @@ export function Table<TData>({
               </thead>
               <tbody>
                 {table.getRowModel().rows.map((row) => (
-                  <tr
-                    className={classnames({['selected']: row.getIsSelected()})}
-                    key={row.id}
-                  >
+                  <tr className={classnames({ ['selected']: row.getIsSelected() })} key={row.id}>
                     {row.getVisibleCells().map((cell) => (
-                      <td className={classnames({
-                        ['with-checkbox']: cell.column.id === 'select'
-                      })} key={cell.id} style={{ width: cell.column.getSize() }}>
+                      <td
+                        className={classnames({
+                          ['with-checkbox']: cell.column.id === 'select'
+                        })}
+                        key={cell.id}
+                        style={{ width: cell.column.getSize() }}
+                      >
                         {isLoading ? (
                           <Skeleton />
                         ) : (
