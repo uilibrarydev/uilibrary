@@ -1,3 +1,19 @@
+## [2.39.3](https://github.com/dinofrontend/dino_ui_library/compare/2.39.2...2.39.3) (2025-03-12)
+
+
+### Bug Fixes
+
+* select uptudate value ([73d9b08](https://github.com/dinofrontend/dino_ui_library/commit/73d9b08f2b53b07ed8ba8aa5c5aacd3001af1bbb))
+
+## [2.39.2](https://github.com/dinofrontend/dino_ui_library/compare/2.39.1...2.39.2) (2025-03-12)
+
+
+### Bug Fixes
+
+* select creatable state ([6d556b6](https://github.com/dinofrontend/dino_ui_library/commit/6d556b6087c4902e228b0c761ac278bf0ec59f34))
+* select creatable state ([856fa08](https://github.com/dinofrontend/dino_ui_library/commit/856fa08c41c81e12639366a2c5aed572cb06c866))
+* select creatable state ([7c9e6d1](https://github.com/dinofrontend/dino_ui_library/commit/7c9e6d11ea6d157748b749489caf66212d0afe0e))
+
 ## [2.39.1](https://github.com/dinofrontend/dino_ui_library/compare/2.39.0...2.39.1) (2025-03-11)
 
 
