@@ -43,7 +43,10 @@ export function ColumnHeader<TData>({ header }: DraggableColumnHeaderProps<TData
       })}
       {...attributes}
     >
-      <div onClick={header.column.getToggleSortingHandler()} className="flexbox align-items--center">
+      <div
+        onClick={header.column.getToggleSortingHandler()}
+        className="flexbox align-items--center"
+      >
         <div {...listeners}>
           <Text weight={'bold'}>
             {flexRender(header.column.columnDef.header, header.getContext())}
