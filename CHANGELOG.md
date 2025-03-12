@@ -1,3 +1,10 @@
+## [2.39.3](https://github.com/dinofrontend/dino_ui_library/compare/2.39.2...2.39.3) (2025-03-12)
+
+
+### Bug Fixes
+
+* select uptudate value ([73d9b08](https://github.com/dinofrontend/dino_ui_library/commit/73d9b08f2b53b07ed8ba8aa5c5aacd3001af1bbb))
+
 ## [2.39.2](https://github.com/dinofrontend/dino_ui_library/compare/2.39.1...2.39.2) (2025-03-12)
 
 
