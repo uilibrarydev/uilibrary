@@ -81,7 +81,7 @@ const Template: StoryFn<TTableProps<any>> = (args) => {
           </div>
         )}
         renderFooter={(table) => (
-          <div className="advanced-table__footer justify-content--end">
+          <div className="advanced-table__footer">
             <AdvancedPagination table={table} />
           </div>
         )}

@@ -39,9 +39,9 @@ export function Table<TData>({
   const header = renderHeader?.(table)
   const footer = renderFooter?.(table)
   return (
-    <div className="advanced-table">
+    <div className="advanced-table scrollbar scrollbar--vertical">
       {header}
-      <div className="advanced-table__inner">
+      <div className="advanced-table__inner scrollbar scrollbar--horizontal">
         <DndContext
           sensors={sensors}
           collisionDetection={closestCenter}

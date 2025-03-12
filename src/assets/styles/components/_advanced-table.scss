@@ -9,14 +9,13 @@
 
   --ds-table-th-border-color: var(--ds-color-border-quintary);
   --ds-table-td-border-color: var(--ds-color-border-quintary);
+  --ds-table-td-bg-hover: var(--grey-40);
   --ds-table-td-bg-selected: var(--grey-40);
 
   max-height: 100%;
   position: relative;
   border: 1px solid var(--ds-color-border-quintary);
   border-radius: var(--ds-border-radius-2xl);
-  overflow: hidden;
-  overflow-y: auto;
 
   &__header {
     @include mixin.flexbox;
@@ -30,8 +29,6 @@
   }
 
   &__footer {
-    @include mixin.flexbox;
-    @include mixin.align-items(center);
     @include mixin.sticky(unset, unset, 0, unset);
     z-index: 2;
     background-color: var(--ds-color-bg-white);
@@ -136,6 +133,13 @@
           }
         }
 
+        &:hover {
+          td {
+            cursor: pointer;
+            background-color: var(--ds-table-td-bg-hover);
+          }
+        }
+
         &.selected {
           td {
             background-color: var(--ds-table-td-bg-selected);
@@ -146,6 +150,34 @@
           td {
             border-bottom: 0;
           }
+        }
+      }
+    }
+  }
+
+  &__pagination {
+    @include mixin.flexbox;
+    @include mixin.align-items(center);
+    @include mixin.justify-content(space-between);
+    height: 100%;
+
+    &__right {
+      @include mixin.flexbox;
+      @include mixin.align-items(center);
+      gap: var(--ds-space-24);
+    }
+
+    &__counts {
+      @include mixin.flexbox;
+      gap: var(--ds-space-4);
+    }
+
+    .select {
+      width: 140px;
+
+      &.no-border {
+        input {
+          border: 0;
         }
       }
     }
