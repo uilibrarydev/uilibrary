@@ -34,6 +34,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
     disabled,
     dataId = '',
     placeHolder,
+    isCreatable,
     selectedItem = null,
     setFieldValue,
     setSelectedItem,
@@ -52,7 +53,8 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
       size: 'xsmall'
     },
     labelAddons,
-    tooltipAddons
+    tooltipAddons,
+    renderOptions,
   } = props
 
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -75,7 +77,7 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const currentSelection = (value as TItemValue) || selectedItem
   const [selectedOption, setSelectedOption] = useState<TSelectOption | null>(null)
 
-  const isWithSearch = withSearch && isDynamicSearchEnabled
+  const isWithSearch = (withSearch && isDynamicSearchEnabled) || isCreatable
 
   const setCurrentSelectedLabel = useCallback(() => {
     const selectedItem = options.find((item) => item.value === currentSelection) as TSelectOption
@@ -95,12 +97,17 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
   const openDropdown = () => setIsOpen(true)
   const closeDropdown = () => {
     setIsOpen(false)
-    setSearchValue('')
+    if (!isCreatable) {
+      setSearchValue('')
+      setCurrentSelectedLabel()
+    }
   }
 
   const handleOutsideClick = () => {
     if (!searchValue) {
       setCurrentSelectedLabel()
+    } else if (isCreatable) {
+      setSelectedOption({ label: searchValue, value: searchValue })
     }
     closeDropdown()
   }
@@ -252,19 +259,30 @@ export const Select = (props: TSingleSelectPropTypes): JSX.Element | null => {
               {filteredData.map((item: TSelectOption) => {
                 const isSelected = item.value === currentSelection
                 return (
-                  <OptionItem
-                    tooltipAddons={tooltipAddons}
-                    data={item}
-                    key={item.value}
-                    onClick={clickHandler(isSelected)}
-                    optionLeftIcon={item?.optionLeftIcon}
-                    labelLeftIconProps={labelLeftIconProps}
-                    OptionRightIconComponent={optionRightIconComponent}
-                    LabelRightIconComponent={labelRightIconComponent}
-                    avatar={avatar}
-                    disabled={item.disabled}
-                    isSelected={isSelected}
-                  />
+                  <>
+                    {renderOptions ? (
+                      renderOptions({
+                        key: item.value as string,
+                        onClick: clickHandler(isSelected),
+                        data: item,
+                        disabled: item.disabled,
+                        isSelected: isSelected
+                      })) : (
+                      <OptionItem
+                        tooltipAddons={tooltipAddons}
+                        data={item}
+                        key={item.value}
+                        onClick={clickHandler(isSelected)}
+                        optionLeftIcon={item?.optionLeftIcon}
+                        labelLeftIconProps={labelLeftIconProps}
+                        OptionRightIconComponent={optionRightIconComponent}
+                        LabelRightIconComponent={labelRightIconComponent}
+                        avatar={avatar}
+                        disabled={item.disabled}
+                        isSelected={isSelected}
+                      />
+                    )}
+                  </>
                 )
               })}
             </div>

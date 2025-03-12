@@ -375,7 +375,8 @@ Select.args = {
   label: 'country',
   avatar: image.src,
   placeHolder: 'Select country',
-  labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />
+  labelAddons: <IconInfo size={'xsmall'} type={'information'} className={'ml-4'} />,
+  isCreatable: false,
 }
 
 // -----------MULTISELECT---------
@@ -532,6 +533,7 @@ ProfileDropdown.args = {
   avatar: <Avatar size={'medium'} initials={'RG'} />,
   name: 'Mariam Yeghiazaryan',
   email: 'mariam.yeghiazaryan@gmail.com',
+  isCreatable: false,
   bodyItems: [
     {
       icon: <IconQuestion size={'small'} className={'mr-8'} />,
