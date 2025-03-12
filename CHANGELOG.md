@@ -1,3 +1,34 @@
+# [2.41.0](https://github.com/dinofrontend/dino_ui_library/compare/2.40.0...2.41.0) (2025-03-12)
+
+
+### Features
+
+* added shower icon ([6a47f52](https://github.com/dinofrontend/dino_ui_library/commit/6a47f521ad85e863cc54bfb32e5a8411afcb3545))
+
+# [2.40.0](https://github.com/dinofrontend/dino_ui_library/compare/2.39.3...2.40.0) (2025-03-12)
+
+
+### Features
+
+* added laptop icon ([6f9d54e](https://github.com/dinofrontend/dino_ui_library/commit/6f9d54e7e79fb0a7df76457067fcbf9474ed0ea3))
+* added new icons ([413347e](https://github.com/dinofrontend/dino_ui_library/commit/413347e338369d34d42fe61b6cdefd1fc59572f6))
+
+## [2.39.3](https://github.com/dinofrontend/dino_ui_library/compare/2.39.2...2.39.3) (2025-03-12)
+
+
+### Bug Fixes
+
+* select uptudate value ([73d9b08](https://github.com/dinofrontend/dino_ui_library/commit/73d9b08f2b53b07ed8ba8aa5c5aacd3001af1bbb))
+
+## [2.39.2](https://github.com/dinofrontend/dino_ui_library/compare/2.39.1...2.39.2) (2025-03-12)
+
+
+### Bug Fixes
+
+* select creatable state ([6d556b6](https://github.com/dinofrontend/dino_ui_library/commit/6d556b6087c4902e228b0c761ac278bf0ec59f34))
+* select creatable state ([856fa08](https://github.com/dinofrontend/dino_ui_library/commit/856fa08c41c81e12639366a2c5aed572cb06c866))
+* select creatable state ([7c9e6d1](https://github.com/dinofrontend/dino_ui_library/commit/7c9e6d11ea6d157748b749489caf66212d0afe0e))
+
 ## [2.39.1](https://github.com/dinofrontend/dino_ui_library/compare/2.39.0...2.39.1) (2025-03-11)
 
 

@@ -2,6 +2,7 @@ import type { LegacyRef, ReactElement, ReactNode } from 'react'
 import type { TButtonPropTypes } from '../Button/types'
 import type { TTooltipProps } from '../Tooltip/types'
 import type { TMenuItem } from '../Menu/types'
+import type { TSelectItemProps } from '../../helperComponents/OptionItem/types'
 
 interface TSelectBaseProps {
   dataIdPrefix?: string
@@ -113,6 +114,10 @@ export interface TButtonSelectPropTypes extends IFormCompProps, TSelectBaseProps
   type: 'secondary' | 'tertiary'
 }
 
+export interface IRenderOptionItemProps extends TSelectItemProps {
+  key?: string
+}
+
 export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps {
   options: TSelectOptions
   selectedItem?: TItemValue
@@ -122,6 +127,8 @@ export interface TSingleSelectPropTypes extends IFormCompProps, TSelectBaseProps
   innerHelperText?: string
   labelAddons?: JSX.Element
   tooltipAddons?: TTooltipProps
+  isCreatable?: boolean
+  renderOptions?: (props: IRenderOptionItemProps) => JSX.Element
 }
 
 export type TSelectFooterPropTypes = {
