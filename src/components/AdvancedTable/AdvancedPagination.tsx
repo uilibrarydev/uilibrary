@@ -5,9 +5,9 @@ import type { Table } from '@tanstack/react-table'
 import { Input } from '../Input'
 import { Button } from '../Button'
 import { Select } from '../Select'
-import IconChevronDoubleLeft from '../SVGIcons/IconChevronDoubleLeft';
-import IconChevronDoubleRight from '../SVGIcons/IconChevronDoubleRight';
-import {Text} from '../Text';
+import IconChevronDoubleLeft from '../SVGIcons/IconChevronDoubleLeft'
+import IconChevronDoubleRight from '../SVGIcons/IconChevronDoubleRight'
+import { Text } from '../Text'
 
 interface PaginationProps<T> {
   table: Table<T>
@@ -54,47 +54,48 @@ export function AdvancedPagination<TData>({ table }: PaginationProps<TData>) {
       {/*</select>*/}
       <div className={'advanced-table__pagination__right'}>
         <Text type={'tertiary'}>
-          Showing {table.getState().pagination.pageIndex + 1} - {table.getPageCount().toLocaleString()} of 0000
+          Showing {table.getState().pagination.pageIndex + 1} -{' '}
+          {table.getPageCount().toLocaleString()} of 0000
         </Text>
         <Input
-            type="number"
-            min="1"
-            max={table.getPageCount()}
-            defaultValue={table.getState().pagination.pageIndex + 1}
-            onChange={(e) => {
-              const page = e.target.value ? Number(e.target.value) - 1 : 0
-              table.setPageIndex(page)
-            }}
-            className="border p-1 rounded w-16"
+          type="number"
+          min="1"
+          max={table.getPageCount()}
+          defaultValue={table.getState().pagination.pageIndex + 1}
+          onChange={(e) => {
+            const page = e.target.value ? Number(e.target.value) - 1 : 0
+            table.setPageIndex(page)
+          }}
+          className="border p-1 rounded w-16"
         />
         <div className="advanced-table__pagination__counts">
           <Button
-              onClick={() => table.firstPage()}
-              iconProps={{
-                Component: IconChevronDoubleLeft
-              }}
-              disabled={!table.getCanPreviousPage()}
+            onClick={() => table.firstPage()}
+            iconProps={{
+              Component: IconChevronDoubleLeft
+            }}
+            disabled={!table.getCanPreviousPage()}
           />
           <Button
-              onClick={() => table.previousPage()}
-              iconProps={{
-                Component: IconChevronLeft
-              }}
-              disabled={!table.getCanPreviousPage()}
+            onClick={() => table.previousPage()}
+            iconProps={{
+              Component: IconChevronLeft
+            }}
+            disabled={!table.getCanPreviousPage()}
           />
           <Button
-              onClick={() => table.nextPage()}
-              iconProps={{
-                Component: IconChevronRight
-              }}
-              disabled={!table.getCanNextPage()}
+            onClick={() => table.nextPage()}
+            iconProps={{
+              Component: IconChevronRight
+            }}
+            disabled={!table.getCanNextPage()}
           />
           <Button
-              onClick={() => table.lastPage()}
-              iconProps={{
-                Component: IconChevronDoubleRight
-              }}
-              disabled={!table.getCanNextPage()}
+            onClick={() => table.lastPage()}
+            iconProps={{
+              Component: IconChevronDoubleRight
+            }}
+            disabled={!table.getCanNextPage()}
           />
         </div>
       </div>
