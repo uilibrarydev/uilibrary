@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import IconChevronLeft from '../SVGIcons/IconChevronLeft'
 import IconChevronRight from '../SVGIcons/IconChevronRight'
 import type { Table } from '@tanstack/react-table'
@@ -8,9 +8,11 @@ import { Select } from '../Select'
 import IconChevronDoubleLeft from '../SVGIcons/IconChevronDoubleLeft'
 import IconChevronDoubleRight from '../SVGIcons/IconChevronDoubleRight'
 import { Text } from '../Text'
+import classnames from 'classnames'
 
 interface PaginationProps<T> {
   table: Table<T>
+  totalCount: number
 }
 
 const OPTIONS: TSelectOptions = [
@@ -36,41 +38,76 @@ const OPTIONS: TSelectOptions = [
   }
 ]
 
-export function AdvancedPagination<TData>({ table }: PaginationProps<TData>) {
+export function AdvancedPagination<TData>({ table, totalCount }: PaginationProps<TData>) {
+  const [navigatePage, setNavigatePage] = useState<string>('1');
+  const pageIndex = table.getState().pagination.pageIndex
+  const pageSize = table.getState().pagination.pageSize
+
+  const onNavigateToPage = (page: string) => {
+    if (!page || /^[1-9]\d*$/.test(page) && table.getPageCount() >= Number(page)) {
+      setNavigatePage(page)
+    }
+  }
+
+  const onGoToPage = () => {
+    const page = navigatePage ? (Number(navigatePage) - 1) : 0
+    table.setPageIndex(page)
+  }
+
+  const getVisiblePageNumbers = () => {
+    const currentPage = pageIndex;
+    const totalPages = table.getPageCount();
+    const visiblePages: (number | string)[] = [];
+
+    if (totalPages <= 7) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+
+    visiblePages.push(1);
+
+    if (currentPage <= 3) {
+      visiblePages.push(2, 3, 4, 5, '...', totalPages);
+    } else if (currentPage >= totalPages - 5) {
+      visiblePages.push('...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
+    } else {
+      visiblePages.push('...', currentPage, currentPage + 1, currentPage + 2, '...', totalPages);
+    }
+
+    return visiblePages;
+  };
+
   return (
     <div className="advanced-table__pagination">
-      <Select className={'no-border'} options={OPTIONS} />
-      {/*<select*/}
-      {/*  value={table.getState().pagination.pageSize}*/}
-      {/*  onChange={(e) => {*/}
-      {/*    table.setPageSize(Number(e.target.value))*/}
-      {/*  }}*/}
-      {/*>*/}
-      {/*  {[10, 20, 30, 40, 50].map((pageSize) => (*/}
-      {/*    <option key={pageSize} value={pageSize}>*/}
-      {/*      {pageSize}*/}
-      {/*    </option>*/}
-      {/*  ))}*/}
-      {/*</select>*/}
+      <Select
+        setSelectedItem={(value) => table.setPageSize(Number(value))}
+        selectedItem={`${pageSize}`}
+        className={'no-border'}
+        options={OPTIONS}
+      />
       <div className={'advanced-table__pagination__right'}>
         <Text type={'tertiary'}>
-          Showing {table.getState().pagination.pageIndex + 1} -{' '}
-          {table.getPageCount().toLocaleString()} of 0000
+          Showing {pageIndex * pageSize + 1} -{' '}
+          {(pageIndex + 1) * pageSize} of {totalCount}
         </Text>
-        <Input
-          type="number"
-          min="1"
-          max={table.getPageCount()}
-          defaultValue={table.getState().pagination.pageIndex + 1}
-          onChange={(e) => {
-            const page = e.target.value ? Number(e.target.value) - 1 : 0
-            table.setPageIndex(page)
-          }}
-          className="border p-1 rounded w-16"
-        />
+        <div className="flexbox align-items--center">
+          <Input
+            currentValue={navigatePage}
+            size="small"
+            onChange={(e) => onNavigateToPage(e.target.value)}
+            className="border p-1 mr-8 rounded w-16 advanced-table__pagination__right__input"
+          />
+          <Button
+            onClick={onGoToPage}
+            type="secondary"
+            size="medium"
+            buttonText="Go to page"
+          />
+        </div>
         <div className="advanced-table__pagination__counts">
           <Button
             onClick={() => table.firstPage()}
+            type="text"
+            size="medium"
             iconProps={{
               Component: IconChevronDoubleLeft
             }}
@@ -78,13 +115,34 @@ export function AdvancedPagination<TData>({ table }: PaginationProps<TData>) {
           />
           <Button
             onClick={() => table.previousPage()}
+            size="medium"
+            type="text"
             iconProps={{
               Component: IconChevronLeft
             }}
             disabled={!table.getCanPreviousPage()}
           />
+          {getVisiblePageNumbers().map((pageNumber, index) => (
+            pageNumber === '...' ? (
+              <p key={`ellipsis-${index}`} className="ellipsis">...</p>
+            ) : (
+              <Button
+                key={pageNumber}
+                size="medium"
+                type="tertiary"
+                className={classnames({
+                  ['active-page']: pageNumber === pageIndex + 1
+                })}
+                onClick={() => table.setPageIndex(+pageNumber - 1)}
+              >
+                {pageNumber}
+              </Button>
+            )
+          ))}
           <Button
             onClick={() => table.nextPage()}
+            size="medium"
+            type="text"
             iconProps={{
               Component: IconChevronRight
             }}
@@ -92,6 +150,8 @@ export function AdvancedPagination<TData>({ table }: PaginationProps<TData>) {
           />
           <Button
             onClick={() => table.lastPage()}
+            size="medium"
+            type="text"
             iconProps={{
               Component: IconChevronDoubleRight
             }}

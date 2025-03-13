@@ -165,11 +165,22 @@
       @include mixin.flexbox;
       @include mixin.align-items(center);
       gap: var(--ds-space-24);
+      &__input {
+        width: var(--ds-size-48);
+      }
     }
 
     &__counts {
       @include mixin.flexbox;
       gap: var(--ds-space-4);
+      .ellipsis {
+        @include mixin.flexbox;
+        @include mixin.align-items(center);
+        height: var(--ds-size-32);
+      }
+      .active-page {
+        background: var(--ds-color-bg-grey-lighter);
+      }
     }
 
     .select {
@@ -214,6 +225,7 @@
         &__label {
           font-size: var(--font-size-12);
           font-weight: var(--font-weight-400);
+          text-transform: capitalize;
         }
       }
     }

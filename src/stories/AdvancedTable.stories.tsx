@@ -2,7 +2,6 @@ import React from 'react'
 import { AdvancedTable as _Table, AdvancedPagination, ColumnSettings } from '../index'
 import { StoryFn } from '@storybook/react'
 import { TTableProps } from '../components/AdvancedTable/types'
-import { Status } from '../components/Status'
 import { ColumnDef } from '@tanstack/react-table'
 
 const data: any[] = [
@@ -82,7 +81,7 @@ const Template: StoryFn<TTableProps<any>> = (args) => {
         )}
         renderFooter={(table) => (
           <div className="advanced-table__footer">
-            <AdvancedPagination table={table} />
+            <AdvancedPagination table={table} totalCount={1000} />
           </div>
         )}
       />
