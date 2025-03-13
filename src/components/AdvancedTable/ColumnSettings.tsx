@@ -15,7 +15,7 @@ export function ColumnSettings<T>({ table }: ColumnSettingsProps<T>) {
   const [dropdownRef, setDropdownRef] = useState<HTMLDivElement | null>(null)
 
   const handleOutsideClick = () => {
-    setIsOpen(false);
+    setIsOpen(false)
   }
 
   useOnOutsideClick([menuRef.current, dropdownRef], handleOutsideClick, isOpen, useId())
@@ -39,7 +39,9 @@ export function ColumnSettings<T>({ table }: ColumnSettingsProps<T>) {
           {table.getAllLeafColumns().map((column) => (
             <div key={column.id} className={'settings-menu__dropdown__option'}>
               <Switcher
-                label={typeof column.columnDef.header === 'string' ? column.columnDef.header : column.id}
+                label={
+                  typeof column.columnDef.header === 'string' ? column.columnDef.header : column.id
+                }
                 selectedValue={column.getIsVisible()}
                 onClick={() => {
                   const toggle = column.getToggleVisibilityHandler()

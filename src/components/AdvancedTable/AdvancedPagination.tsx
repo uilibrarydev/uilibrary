@@ -39,42 +39,49 @@ const OPTIONS: TSelectOptions = [
 ]
 
 export function AdvancedPagination<TData>({ table, totalCount }: PaginationProps<TData>) {
-  const [navigatePage, setNavigatePage] = useState<string>('1');
+  const [navigatePage, setNavigatePage] = useState<string>('1')
   const pageIndex = table.getState().pagination.pageIndex
   const pageSize = table.getState().pagination.pageSize
 
   const onNavigateToPage = (page: string) => {
-    if (!page || /^[1-9]\d*$/.test(page) && table.getPageCount() >= Number(page)) {
+    if (!page || (/^[1-9]\d*$/.test(page) && table.getPageCount() >= Number(page))) {
       setNavigatePage(page)
     }
   }
 
   const onGoToPage = () => {
-    const page = navigatePage ? (Number(navigatePage) - 1) : 0
+    const page = navigatePage ? Number(navigatePage) - 1 : 0
     table.setPageIndex(page)
   }
 
   const getVisiblePageNumbers = () => {
-    const currentPage = pageIndex;
-    const totalPages = table.getPageCount();
-    const visiblePages: (number | string)[] = [];
+    const currentPage = pageIndex
+    const totalPages = table.getPageCount()
+    const visiblePages: (number | string)[] = []
 
     if (totalPages <= 7) {
-      return Array.from({ length: totalPages }, (_, i) => i + 1);
+      return Array.from({ length: totalPages }, (_, i) => i + 1)
     }
 
-    visiblePages.push(1);
+    visiblePages.push(1)
 
     if (currentPage <= 3) {
-      visiblePages.push(2, 3, 4, 5, '...', totalPages);
+      visiblePages.push(2, 3, 4, 5, '...', totalPages)
     } else if (currentPage >= totalPages - 5) {
-      visiblePages.push('...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
+      visiblePages.push(
+        '...',
+        totalPages - 4,
+        totalPages - 3,
+        totalPages - 2,
+        totalPages - 1,
+        totalPages
+      )
     } else {
-      visiblePages.push('...', currentPage, currentPage + 1, currentPage + 2, '...', totalPages);
+      visiblePages.push('...', currentPage, currentPage + 1, currentPage + 2, '...', totalPages)
     }
 
-    return visiblePages;
-  };
+    return visiblePages
+  }
 
   return (
     <div className="advanced-table__pagination">
@@ -86,8 +93,7 @@ export function AdvancedPagination<TData>({ table, totalCount }: PaginationProps
       />
       <div className={'advanced-table__pagination__right'}>
         <Text type={'tertiary'}>
-          Showing {pageIndex * pageSize + 1} -{' '}
-          {(pageIndex + 1) * pageSize} of {totalCount}
+          Showing {pageIndex * pageSize + 1} - {(pageIndex + 1) * pageSize} of {totalCount}
         </Text>
         <div className="flexbox align-items--center">
           <Input
@@ -96,12 +102,7 @@ export function AdvancedPagination<TData>({ table, totalCount }: PaginationProps
             onChange={(e) => onNavigateToPage(e.target.value)}
             className="border p-1 mr-8 rounded w-16 advanced-table__pagination__right__input"
           />
-          <Button
-            onClick={onGoToPage}
-            type="secondary"
-            size="medium"
-            buttonText="Go to page"
-          />
+          <Button onClick={onGoToPage} type="secondary" size="medium" buttonText="Go to page" />
         </div>
         <div className="advanced-table__pagination__counts">
           <Button
@@ -122,9 +123,11 @@ export function AdvancedPagination<TData>({ table, totalCount }: PaginationProps
             }}
             disabled={!table.getCanPreviousPage()}
           />
-          {getVisiblePageNumbers().map((pageNumber, index) => (
+          {getVisiblePageNumbers().map((pageNumber, index) =>
             pageNumber === '...' ? (
-              <p key={`ellipsis-${index}`} className="ellipsis">...</p>
+              <p key={`ellipsis-${index}`} className="ellipsis">
+                ...
+              </p>
             ) : (
               <Button
                 key={pageNumber}
@@ -138,7 +141,7 @@ export function AdvancedPagination<TData>({ table, totalCount }: PaginationProps
                 {pageNumber}
               </Button>
             )
-          ))}
+          )}
           <Button
             onClick={() => table.nextPage()}
             size="medium"
