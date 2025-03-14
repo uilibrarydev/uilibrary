@@ -29,7 +29,7 @@
   @include mixin.inline-flex;
   @include mixin.align-items(center);
   @include mixin.justify-content(center);
-
+  padding: 10px 12px;
   position: relative;
   background-color: var(--ds-tab-bg-color-default);
   border: 1px solid;
