@@ -21,6 +21,9 @@
   --ds-tab-border-color-selected: transparent;
   --ds-tab-border-color-disabled: transparent;
   --ds-tab-border-color-selected-disabled: transparent;
+
+  --ds-tab-spacing-lg: var(--ds-space-4) var(--ds-space-12);
+  --ds-tab-spacing-sm: var(--ds-space-4) var(--ds-space-10);
 }
 
 .tab {
@@ -29,7 +32,6 @@
   @include mixin.inline-flex;
   @include mixin.align-items(center);
   @include mixin.justify-content(center);
-  padding: 10px 12px;
   position: relative;
   background-color: var(--ds-tab-bg-color-default);
   border: 1px solid;
@@ -254,6 +256,18 @@
 
     &#{$this}--small {
       min-height: calc(var(--ds-tabs-size-sm) - var(--ds-size-8));
+    }
+  }
+
+  &--secondary, &--tertiary {
+    .tab {
+      padding: var(--ds-tab-spacing-lg);
+    }
+
+    &#{$this}--small {
+      .tab {
+        padding: var(--ds-tab-spacing-sm);
+      }
     }
   }
 }
