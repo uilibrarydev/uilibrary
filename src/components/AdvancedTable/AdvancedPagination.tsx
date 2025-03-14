@@ -100,14 +100,14 @@ export function AdvancedPagination<TData>({ table, totalCount }: PaginationProps
             currentValue={navigatePage}
             size="small"
             onChange={(e) => onNavigateToPage(e.target.value)}
-            className="border p-1 mr-8 rounded w-16 advanced-table__pagination__right__input"
+            className="advanced-table__pagination__right__input mr-8"
           />
           <Button onClick={onGoToPage} type="secondary" size="medium" buttonText="Go to page" />
         </div>
         <div className="advanced-table__pagination__counts">
           <Button
             onClick={() => table.firstPage()}
-            type="text"
+            type="tertiary"
             size="medium"
             iconProps={{
               Component: IconChevronDoubleLeft
@@ -117,7 +117,7 @@ export function AdvancedPagination<TData>({ table, totalCount }: PaginationProps
           <Button
             onClick={() => table.previousPage()}
             size="medium"
-            type="text"
+            type="tertiary"
             iconProps={{
               Component: IconChevronLeft
             }}
@@ -145,7 +145,7 @@ export function AdvancedPagination<TData>({ table, totalCount }: PaginationProps
           <Button
             onClick={() => table.nextPage()}
             size="medium"
-            type="text"
+            type="tertiary"
             iconProps={{
               Component: IconChevronRight
             }}
@@ -154,7 +154,7 @@ export function AdvancedPagination<TData>({ table, totalCount }: PaginationProps
           <Button
             onClick={() => table.lastPage()}
             size="medium"
-            type="text"
+            type="tertiary"
             iconProps={{
               Component: IconChevronDoubleRight
             }}
