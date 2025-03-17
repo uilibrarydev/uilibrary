@@ -1,4 +1,5 @@
 import type { TSideNavigationPropTypes } from './types'
+import type { JSX } from 'react'
 import React from 'react'
 import classNames from 'classnames'
 import IconChevronRight from '../SVGIcons/IconChevronRight'

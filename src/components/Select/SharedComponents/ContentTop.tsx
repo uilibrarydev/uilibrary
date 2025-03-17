@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { useEffect, useMemo, useRef } from 'react'
 import { Text } from '../../Text'
 import { Input } from '../../Input'

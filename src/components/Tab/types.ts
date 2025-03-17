@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import type { TBadgeProps } from '../Badge/types'
 
 export type TTabItem = {

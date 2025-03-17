@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { useId, useRef } from 'react'
 import type { TProfileDropdownProps } from '../types'
 import './styles.scss'

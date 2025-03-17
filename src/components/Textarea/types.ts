@@ -1,3 +1,5 @@
+import type { JSX } from 'react'
+
 export interface TTextAreaTypeProps extends IFormCompProps {
   className?: string
   name?: string

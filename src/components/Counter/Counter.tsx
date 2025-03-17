@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { forwardRef } from 'react'
 import { Input } from '../Input'
 import type { ICounterProps } from './types'

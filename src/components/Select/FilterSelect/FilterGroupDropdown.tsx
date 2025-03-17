@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React from 'react'
 import type { TFilterGroupDropdownContentProps } from '../types'
 import { FilterDropdownContent } from './FilterDropdown'

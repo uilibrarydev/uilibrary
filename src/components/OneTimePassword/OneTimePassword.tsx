@@ -1,4 +1,5 @@
-import type { KeyboardEvent } from 'react'
+import type { JSX, KeyboardEvent } from 'react';
+import { useCallback } from 'react'
 import React, { useState, useRef } from 'react'
 import classNames from 'classnames'
 import { Input } from '../Input'
@@ -61,6 +62,10 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
       }
     }
 
+    const setInputRef = useCallback((el: HTMLInputElement | null, index: number) => {
+      inputRefs.current[index] = el
+    }, [])
+
     return (
       <div className={classNames('otp', className)}>
         <Label text={label} required={required} disabled={disabled} dataId={dataId} />
@@ -69,7 +74,7 @@ export const OneTimePassword = React.forwardRef<HTMLInputElement, OtpCustomProps
             <Input
               key={index}
               size={size}
-              ref={(el) => (inputRefs.current[index] = el)}
+              ref={(el) => setInputRef(el, index)}
               max={1}
               type={type}
               hasError={hasError}

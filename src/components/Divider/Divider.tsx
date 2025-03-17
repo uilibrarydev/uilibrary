@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React from 'react'
 import type { TDividerProps } from './types'
 import classnames from 'classnames'

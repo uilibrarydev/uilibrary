@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import type { FILE_UPLOAD_ERRORS } from '../../consts'
 
 export interface TFileUploadProps extends IFormCompProps {

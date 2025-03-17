@@ -1,3 +1,5 @@
+import type { JSX } from 'react'
+
 export type TBreadCrumbItem = {
   value: number | string
   label: string | JSX.Element

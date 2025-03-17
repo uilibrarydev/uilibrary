@@ -1,3 +1,5 @@
+import type { JSX } from 'react'
+
 export interface TStepperContentWrapperProps {
   isPrevDisabled: boolean
   isNextDisabled: boolean

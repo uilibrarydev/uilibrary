@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React from 'react'
 import { Text, Container as _Container, Button } from '../index'
 import { noop } from '../utils/helpers'

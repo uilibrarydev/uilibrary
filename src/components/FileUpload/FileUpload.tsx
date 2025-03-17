@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { useCallback, useRef, useState } from 'react'
 import type { TFileUploadProps } from './types'
 import { FileUploadMode } from './types'

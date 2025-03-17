@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React from 'react'
 import type { TErrorMessageProps } from './types'
 import { Text } from '../../components/Text'
