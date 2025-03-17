@@ -1,4 +1,4 @@
-import type { MouseEvent } from 'react'
+import type { JSX, MouseEvent } from 'react'
 import React from 'react'
 import { Badge } from '../Badge'
 import { noop } from '../../utils/helpers'

@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { useMemo } from 'react'
 import InputMask from 'react-input-mask'
 import classNames from 'classnames'

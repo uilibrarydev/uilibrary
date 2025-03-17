@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { useCallback, useMemo, useState } from 'react'
 import { Text } from '../../../Text'
 import { Divider } from '../../../Divider'

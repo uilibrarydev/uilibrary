@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { useMemo } from 'react'
 import { ErrorMessage, Label } from '../../helperComponents'
 import type { TTextAreaTypeProps } from './types'

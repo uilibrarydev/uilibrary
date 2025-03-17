@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react'
 import classNames from 'classnames'
 import {

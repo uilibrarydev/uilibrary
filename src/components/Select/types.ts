@@ -1,4 +1,4 @@
-import type { LegacyRef, ReactElement, ReactNode } from 'react'
+import type { JSX, LegacyRef, ReactElement, ReactNode } from 'react'
 import type { TButtonPropTypes } from '../Button/types'
 import type { TTooltipProps } from '../Tooltip/types'
 import type { TMenuItem } from '../Menu/types'

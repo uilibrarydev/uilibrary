@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { useCallback, useId, useRef, useState } from 'react'
 import { Input } from '../../Input'
 import { OptionItem } from '../../../helperComponents'

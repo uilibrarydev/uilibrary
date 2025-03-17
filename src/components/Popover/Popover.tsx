@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { useEffect, useId, useState } from 'react'
 import classNames from 'classnames'
 import { useHideOnScroll, useGetTooltipStyles, useOnOutsideClick } from '../../hooks'

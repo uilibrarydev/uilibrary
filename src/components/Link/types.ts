@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import type { TSVGIconType } from '../SVGIcons/types'
 
 export interface LinkPropTypes {

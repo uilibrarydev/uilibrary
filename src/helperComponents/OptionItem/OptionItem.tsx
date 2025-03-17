@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { useCallback } from 'react'
 import { Checkbox } from '../../components/Checkbox'
 import { Avatar } from '../../components/Avatar'

@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React from 'react'
 import { Text } from '../Text'
 import type { IUploadItemPropTypes } from './types'

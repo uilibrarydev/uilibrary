@@ -1,5 +1,5 @@
 import React from 'react'
-import { type StoryFn } from '@storybook/react'
+import type { StoryFn } from '@storybook/react'
 
 import { Button as _Button } from '../index'
 import { TButtonPropTypes } from '../components/Button/types'

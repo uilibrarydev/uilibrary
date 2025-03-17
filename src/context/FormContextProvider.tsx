@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import { useContext } from 'react'
 import type { TFormContextProps } from './types'
 import { FormContext } from './types'

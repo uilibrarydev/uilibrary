@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { useState } from 'react'
 import { Text } from '../Text'
 import type { TMorePropTypes } from './types'

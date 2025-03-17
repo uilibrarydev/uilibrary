@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React from 'react'
 import ReactPaginate from 'react-paginate'
 import { PAGE_RANGE_DISPLAYED } from './consts'

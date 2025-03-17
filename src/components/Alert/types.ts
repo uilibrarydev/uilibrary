@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import type { TButtonPropTypes } from '../Button/types'
 import type { LinkPropTypes } from '../Link/types'
 

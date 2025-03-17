@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { useRef, useState } from 'react'
 import dayjs from 'dayjs'
 import DatePicker from 'react-datepicker'

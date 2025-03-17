@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React from 'react'
 import * as yup from 'yup'
 import { FormField, FormContainer as _FormContainer, Button, MultiSelect, Input } from '../index'

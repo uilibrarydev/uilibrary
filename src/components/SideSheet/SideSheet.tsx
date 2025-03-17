@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 import React, { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import classnames from 'classnames'
