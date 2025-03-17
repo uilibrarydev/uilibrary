@@ -1,4 +1,4 @@
-import type { JSX, KeyboardEvent } from 'react';
+import type { JSX, KeyboardEvent } from 'react'
 import { useCallback } from 'react'
 import React, { useState, useRef } from 'react'
 import classNames from 'classnames'
