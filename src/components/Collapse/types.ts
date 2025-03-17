@@ -13,7 +13,7 @@ interface TCollapseItemTitle extends ICollapseTitleProps {
 export type TCollapseProps = {
   isOpen: boolean
   toggle: () => void
-  children: any
+  children: ReactNode
   title: TCollapseItemTitle
   reverse?: boolean
   additionalInfo?: ReactNode
