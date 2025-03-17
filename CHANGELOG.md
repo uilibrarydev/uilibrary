@@ -1,3 +1,35 @@
+# [2.42.0](https://github.com/dinofrontend/dino_ui_library/compare/2.41.0...2.42.0) (2025-03-17)
+
+
+### Bug Fixes
+
+* add specific classes on td and th ([7d327ea](https://github.com/dinofrontend/dino_ui_library/commit/7d327ea234fdac2adccd078765739e21a6a2ff77))
+* add specific classes on td and th ([95c04df](https://github.com/dinofrontend/dino_ui_library/commit/95c04dfc57da8100c31fca4ffdd1e2d89c3deb2d))
+* fix typescript issues ([ed514f3](https://github.com/dinofrontend/dino_ui_library/commit/ed514f32e8516881061b70314cd949b153403282))
+* fixed tab spacing for secondary and tertiary types ([6a91141](https://github.com/dinofrontend/dino_ui_library/commit/6a911410fcd1e63b1b8116cd6144f554ddf56fcc))
+* fixed table pagination ui ([6e51061](https://github.com/dinofrontend/dino_ui_library/commit/6e510618088d70c9a20c52eba56a305d2b7715ed))
+* fixed table pagination ui ([06b3eab](https://github.com/dinofrontend/dino_ui_library/commit/06b3eab672396f8a05e25b50615581b6c4365b37))
+* fixed ts errors ([88d4be5](https://github.com/dinofrontend/dino_ui_library/commit/88d4be5b97607dfb8975349336063601b4132e3a))
+* should not sort after resizing ([15fa0c6](https://github.com/dinofrontend/dino_ui_library/commit/15fa0c613c7150c2e0cb7186b494a50f0997d535))
+* should not sort after resizing ([7e6e43b](https://github.com/dinofrontend/dino_ui_library/commit/7e6e43bb1546b8dc44b95d7843d5457b893d802a))
+* table pagination ([f18b830](https://github.com/dinofrontend/dino_ui_library/commit/f18b8300884ef566fe96c33af085eeb21bbffd6b))
+* table pagination ([ebf10f7](https://github.com/dinofrontend/dino_ui_library/commit/ebf10f76ca60cd4f957d95691da92b657a547c1a))
+* table ui ([8cb8f62](https://github.com/dinofrontend/dino_ui_library/commit/8cb8f62549d2606595c3b58f95da98f6b44194b6))
+* table ui ([1224a70](https://github.com/dinofrontend/dino_ui_library/commit/1224a707f98e6ee5cd6c3b0309db4b955fe76c44))
+* ts errors ([ff34fd9](https://github.com/dinofrontend/dino_ui_library/commit/ff34fd959754a475b05184b213ce11a333959954))
+* ts errors ([7d94d6d](https://github.com/dinofrontend/dino_ui_library/commit/7d94d6d8f38dab60aa9f514e96f9e2d69abd48a9))
+* ts errors ([1aece60](https://github.com/dinofrontend/dino_ui_library/commit/1aece6092d09d2e4dc8bce2abb0a29ef79e64add))
+* ui fixes for advanced table pagination ([63955a9](https://github.com/dinofrontend/dino_ui_library/commit/63955a9fc5e5df1ec9fb0d160c8809455b918078))
+
+
+### Features
+
+* tanstack table ([af2006f](https://github.com/dinofrontend/dino_ui_library/commit/af2006f9b95596ebf634fe49bb0071ebd3a38a35))
+* tanstack table ([73a3b90](https://github.com/dinofrontend/dino_ui_library/commit/73a3b90aa7e48b4814a78f62222b36b22af7b79f))
+* tanstack table ([109ac30](https://github.com/dinofrontend/dino_ui_library/commit/109ac307c62b3cef52b94f7ba90946e85ce25a64))
+* tanstack table ([418455e](https://github.com/dinofrontend/dino_ui_library/commit/418455ea6794c48ef0e6ff703cc0c053fa67aa8b))
+* tanstack table ([79c3e15](https://github.com/dinofrontend/dino_ui_library/commit/79c3e154433c8c4c6843551db6f85eae480c0134))
+
 # [2.41.0](https://github.com/dinofrontend/dino_ui_library/compare/2.40.0...2.41.0) (2025-03-12)
 
 
