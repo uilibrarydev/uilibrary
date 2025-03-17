@@ -1,5 +1,5 @@
 import React from 'react'
-import { type StoryFn } from '@storybook/react'
+import type { StoryFn } from '@storybook/react'
 
 import { ButtonIcon as _ButtonIcon, IconChevronDown } from '../index'
 import { TButtonIconPropTypes } from '../components/ButtonIcon/types'
