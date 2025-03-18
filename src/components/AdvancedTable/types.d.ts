@@ -2,9 +2,15 @@ import type {
   ColumnDef,
   ColumnSizingState,
   PaginationState,
-  RowSelectionState
+  RowSelectionState,
+  Table
 } from '@tanstack/react-table'
 import type { ReactNode } from 'react'
+
+export type TTable<TData> = Table<TData>
+export type TRowSelectionState = RowSelectionState
+export type TColumnSizingState = ColumnSizingState
+export type TPaginationState = PaginationState
 
 export type TTableProps<TData> = {
   data: TData[]
@@ -16,12 +22,12 @@ export type TTableProps<TData> = {
   customHeader?: ReactNode
   defaultPageIndex?: number
   defaultPageSize?: number
-  renderHeader?: (table: Table<T>) => ReactNode
+  renderHeader?: (table: TTable<T>) => ReactNode
   renderFooter?: (table: Table<T>) => ReactNode
   onSortChange?: (state: SortingUpdateEvent) => void
-  onRowSelection?: (state: RowSelectionState) => void
-  onColumnSizing?: (state: ColumnSizingState) => void
-  onPaginationChange?: (state: PaginationState) => void
+  onRowSelection?: (state: TRowSelectionState) => void
+  onColumnSizing?: (state: TColumnSizingState) => void
+  onPaginationChange?: (state: TPaginationState) => void
 }
 
 export interface Column<TData> extends ColumnDef<TData> {
@@ -32,4 +38,12 @@ export type SortingUpdateEvent = {
   column: string
   direction: 'asc' | 'desc' | false
   timestamp: number
+}
+
+export interface ICellProps<TData> {
+  row: Row<TData>
+}
+
+export interface IHeaderProps<TData> {
+  table: Table<TData>
 }
