@@ -4,7 +4,7 @@ import type {
   PaginationState,
   RowSelectionState,
   Table,
-  Row,
+  Row
 } from '@tanstack/react-table'
 import type { ReactNode } from 'react'
 
