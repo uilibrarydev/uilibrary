@@ -8,7 +8,7 @@ export type TAlertPosition = 'inline' | 'sticky'
 export interface TAlertProps extends IFormCompProps {
   type?: TAlertTypes
   position?: TAlertPosition
-  text: string | JSX.Element
+  text?: string | JSX.Element
   subtext?: string | JSX.Element
   closeIcon?: boolean
   onClose?: () => void
