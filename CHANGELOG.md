@@ -1,3 +1,11 @@
+## [2.42.2](https://github.com/dinofrontend/dino_ui_library/compare/2.42.1...2.42.2) (2025-03-18)
+
+
+### Bug Fixes
+
+* advancet table types ([29fd0b0](https://github.com/dinofrontend/dino_ui_library/commit/29fd0b096bf44de9b363ad51c1102048c8b91277))
+* advancet table types ([9c45238](https://github.com/dinofrontend/dino_ui_library/commit/9c452387a8147093c6032b7701f555e583f9c41b))
+
 ## [2.42.1](https://github.com/dinofrontend/dino_ui_library/compare/2.42.0...2.42.1) (2025-03-18)
 
 
