@@ -36,7 +36,7 @@ export const Alert = (props: TAlertProps): ReactElement => {
               <Text type="primary" weight="regular" lineHeight="large">
                 {text}
               </Text>
-            ): null }
+            ) : null}
             {subtext ? (
               <Text
                 className={'mt-4'}
