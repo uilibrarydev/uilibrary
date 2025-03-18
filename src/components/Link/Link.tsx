@@ -19,7 +19,7 @@ export const Link = (props: LinkPropTypes): ReactElement => {
   } = props
   return beforeLink || afterLink ? (
     <span className={className}>
-      {beforeLink ? (beforeLink + ' ') : null}
+      {beforeLink ? beforeLink + ' ' : null}
       <a
         onClick={(e) => {
           if (onclick) {
@@ -34,7 +34,7 @@ export const Link = (props: LinkPropTypes): ReactElement => {
       >
         {children}
       </a>
-      {afterLink ? (' ' + afterLink) : null}
+      {afterLink ? ' ' + afterLink : null}
     </span>
   ) : (
     <a
