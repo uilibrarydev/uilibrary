@@ -2,8 +2,6 @@ import type {
   ColumnDef,
   RowSelectionState,
   SortingState,
-  Table,
-  Row,
   OnChangeFn,
   ColumnSizingState,
   PaginationState
@@ -19,7 +17,7 @@ import { MouseSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core'
 import React, { useState, useMemo } from 'react'
 import { IndeterminateCheckbox } from './IndeterminateCheckbox'
 import { arrayMove } from '@dnd-kit/sortable'
-import type { Column, SortingUpdateEvent, TTableProps } from './types'
+import type { Column, ICellProps, IHeaderProps, SortingUpdateEvent, TTableProps } from './types'
 
 export function useTable<TData>({
   withSelect,
@@ -49,14 +47,14 @@ export function useTable<TData>({
           enableHiding: false,
           enableColumnDragging: false,
           enablePinning: true,
-          header: ({ table }: { table: Table<TData> }) => (
+          header: ({ table }: IHeaderProps<TData>) => (
             <IndeterminateCheckbox
               checked={table.getIsAllRowsSelected()}
               indeterminate={table.getIsSomeRowsSelected()}
               onChange={table.getToggleAllRowsSelectedHandler()}
             />
           ),
-          cell: ({ row }: { row: Row<TData> }) => (
+          cell: ({ row }: ICellProps<TData>) => (
             <IndeterminateCheckbox
               checked={row.getIsSelected()}
               disabled={!row.getCanSelect()}
