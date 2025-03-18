@@ -1,3 +1,14 @@
+## [2.42.3](https://github.com/dinofrontend/dino_ui_library/compare/2.42.2...2.42.3) (2025-03-18)
+
+
+### Bug Fixes
+
+* fix for link component ([be9a661](https://github.com/dinofrontend/dino_ui_library/commit/be9a66166fcbc448b37fa1f99d008b8d58b371d5))
+* fix for link component ([2b03f4f](https://github.com/dinofrontend/dino_ui_library/commit/2b03f4f5741513603829d695c55156bb1b463775))
+* made text optional ([0910da5](https://github.com/dinofrontend/dino_ui_library/commit/0910da51fc494bd28bc2f8cefb6d34564a8ee841))
+* made text optional ([7ad84b6](https://github.com/dinofrontend/dino_ui_library/commit/7ad84b674f73ec2b54e0499525da541a5c348185))
+* made text optional ([fe67cc0](https://github.com/dinofrontend/dino_ui_library/commit/fe67cc05734e59c5afb3f8d4f3f399185f515bbb))
+
 ## [2.42.2](https://github.com/dinofrontend/dino_ui_library/compare/2.42.1...2.42.2) (2025-03-18)
 
 
