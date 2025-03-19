@@ -1,19 +1,19 @@
-# Dino UI Tools
+# AB UI Tools
 
-See [UI library](https://dinofrontend.github.io/dino_ui_library) for live demos and comprehensive docs.
+See [UI library]([https://github.com/uilibrarydev/uilibrary]) for live demos and comprehensive docs.
 
 # Installation and usage
 ```
-npm install dino_ui_tools
+npm install ab-ui-library
 ```
 
 Then use it in your app:
 ```jsx
 import React from 'react';
-import { Button } from 'dino_ui_tools/components/Button';
-import 'dino_ui_tools/assets/styles/styles.scss'; 
+import { Button } from 'ab-ui-library/components/Button';
+import 'ab-ui-library/assets/styles/styles.scss'; 
 // Or you can import the styles.css file
-// import 'dino_ui_tools/assets/styles/styles.css';
+// import 'ab-ui-library/assets/styles/styles.css';
 
 const App = () => {
   return <Button>Click me</Button>;
@@ -22,7 +22,7 @@ const App = () => {
 
 How to use mixins:
 ```scss
-@use "dino_ui_tools/assets/styles/helpers/mixin";
+@use "ab-ui-library/assets/styles/helpers/mixin";
 
 .divider {
     @include mixin.flexbox();
