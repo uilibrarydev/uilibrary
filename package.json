@@ -1,7 +1,7 @@
 {
   "homepage": "https://github.com/uilibrarydev/uilibrary",
   "name": "dino_ui_tools",
-  "version": "2.42.3",
+  "version": "0.1.0",
   "description": "UI library for Dino",
   "private": false,
   "main": "index.js",
