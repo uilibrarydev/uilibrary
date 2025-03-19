@@ -19,8 +19,8 @@ jobs:
           token: ${{ secrets.BOT_ACCESS_TOKEN }}
       - name: Setup Git
         run: |
-          git config --global user.name "dino-front-bot"
-          git config --global user.email "dinofront.libs@gmail.com"
+          git config --global user.name "uilibrary"
+          git config --global user.email "uilibrary.dev@gmail.com"
 
       - name: Specify Node Version
         uses: actions/setup-node@v3
