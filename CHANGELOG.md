@@ -1,3 +1,11 @@
+## [2.42.5](https://github.com/uilibrarydev/uilibrary/compare/2.42.4...2.42.5) (2025-03-19)
+
+
+### Bug Fixes
+
+* testing migration ([e2f918e](https://github.com/uilibrarydev/uilibrary/commit/e2f918e38e324c111ccfb404cbfc14cce7626f83))
+* testing migration ([b92052c](https://github.com/uilibrarydev/uilibrary/commit/b92052ced1f49a730192ee367aa53617d4d34406))
+
 ## [2.42.4](https://github.com/uilibrarydev/uilibrary/compare/2.42.3...2.42.4) (2025-03-19)
 
 
