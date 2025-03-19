@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/uilibrarydev/uilibrary/compare/1.0.1...1.0.2) (2025-03-19)
+
+
+### Bug Fixes
+
+* updated readme ([62cd8a7](https://github.com/uilibrarydev/uilibrary/commit/62cd8a779e8a96d5121579657fd90e847389e794))
+
 ## [1.0.1](https://github.com/uilibrarydev/uilibrary/compare/1.0.0...1.0.1) (2025-03-19)
 
 
