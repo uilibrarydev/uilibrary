@@ -1,3 +1,11 @@
+## [2.42.4](https://github.com/uilibrarydev/uilibrary/compare/2.42.3...2.42.4) (2025-03-19)
+
+
+### Bug Fixes
+
+* testing migration ([20e4b31](https://github.com/uilibrarydev/uilibrary/commit/20e4b318a3af6dc20bb81726774fdcd21145dced))
+* testing migration ([751da16](https://github.com/uilibrarydev/uilibrary/commit/751da16312f363007dc27b427a4f0c483c286321))
+
 ## [2.42.3](https://github.com/dinofrontend/dino_ui_library/compare/2.42.2...2.42.3) (2025-03-18)
 
 
