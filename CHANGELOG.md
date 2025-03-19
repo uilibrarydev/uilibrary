@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/uilibrarydev/uilibrary/compare/1.0.0...1.0.1) (2025-03-19)
+
+
+### Bug Fixes
+
+* updated name of library ([2656431](https://github.com/uilibrarydev/uilibrary/commit/2656431a964d8981d9ab122aab418048f083f74c))
+
 # 1.0.0 (2025-03-19)
 
 
