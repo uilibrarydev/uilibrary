@@ -19,7 +19,7 @@ export const Link = (props: LinkPropTypes): ReactElement => {
     onclick
   } = props
   return beforeLink || afterLink ? (
-    <span className={classNames({'color-disabled': disabled}, className)}>
+    <span className={classNames({ 'color-disabled': disabled }, className)}>
       {beforeLink ? beforeLink + ' ' : null}
       <a
         onClick={(e) => {
