@@ -41,7 +41,9 @@ export function ColumnSettings<T>({ table }: ColumnSettingsProps<T>) {
               <div key={column.id} className={'settings-menu__dropdown__option'}>
                 <Switcher
                   label={
-                    typeof column.columnDef.header === 'string' ? column.columnDef.header : column.id
+                    typeof column.columnDef.header === 'string'
+                      ? column.columnDef.header
+                      : column.id
                   }
                   selectedValue={column.getIsVisible()}
                   onClick={() => {

@@ -60,10 +60,7 @@ export function Table<TData>({
           <div>
             <table style={{ minWidth: table.getCenterTotalSize() }}>
               {!data?.length && !hasError ? (
-                <Empty
-                  mainMessage={emptyTitle}
-                  illustration={emptyIllustration}
-                />
+                <Empty mainMessage={emptyTitle} illustration={emptyIllustration} />
               ) : hasError ? (
                 <Empty
                   mainMessage={emptyTitle}
@@ -78,39 +75,42 @@ export function Table<TData>({
               ) : (
                 <>
                   <thead>
-                  {table.getHeaderGroups().map((headerGroup) => (
-                    <tr key={headerGroup.id}>
-                      <SortableContext
-                        items={headerGroup.headers.map((header) => header.id)}
-                        strategy={horizontalListSortingStrategy}
-                      >
-                        {headerGroup.headers.map((header) => (
-                          <ColumnHeader key={header.id} header={header} />
-                        ))}
-                      </SortableContext>
-                    </tr>
-                  ))}
+                    {table.getHeaderGroups().map((headerGroup) => (
+                      <tr key={headerGroup.id}>
+                        <SortableContext
+                          items={headerGroup.headers.map((header) => header.id)}
+                          strategy={horizontalListSortingStrategy}
+                        >
+                          {headerGroup.headers.map((header) => (
+                            <ColumnHeader key={header.id} header={header} />
+                          ))}
+                        </SortableContext>
+                      </tr>
+                    ))}
                   </thead>
                   <tbody>
-                  {table.getRowModel().rows.map((row) => (
-                    <tr className={classnames({ ['selected']: row.getIsSelected() })} key={row.id}>
-                      {row.getVisibleCells().map((cell) => (
-                        <td
-                          className={classnames({
-                            ['with-checkbox']: cell.column.id === 'select'
-                          })}
-                          key={cell.id}
-                          style={{ width: cell.column.getSize() }}
-                        >
-                          {isLoading ? (
-                            <Skeleton />
-                          ) : (
-                            flexRender(cell.column.columnDef.cell, cell.getContext())
-                          )}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
+                    {table.getRowModel().rows.map((row) => (
+                      <tr
+                        className={classnames({ ['selected']: row.getIsSelected() })}
+                        key={row.id}
+                      >
+                        {row.getVisibleCells().map((cell) => (
+                          <td
+                            className={classnames({
+                              ['with-checkbox']: cell.column.id === 'select'
+                            })}
+                            key={cell.id}
+                            style={{ width: cell.column.getSize() }}
+                          >
+                            {isLoading ? (
+                              <Skeleton />
+                            ) : (
+                              flexRender(cell.column.columnDef.cell, cell.getContext())
+                            )}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
                   </tbody>
                 </>
               )}
@@ -120,16 +120,16 @@ export function Table<TData>({
             {activeHeader && (
               <table style={{ width: activeHeader.getSize() }}>
                 <thead>
-                <tr>
-                  <th className="draggable-col" style={{ width: activeHeader.getSize() }}>
-                    <Text weight={'bold'}>
-                      {flexRender(
-                        activeHeader.column.columnDef.header,
-                        activeHeader.getContext()
-                      )}
-                    </Text>
-                  </th>
-                </tr>
+                  <tr>
+                    <th className="draggable-col" style={{ width: activeHeader.getSize() }}>
+                      <Text weight={'bold'}>
+                        {flexRender(
+                          activeHeader.column.columnDef.header,
+                          activeHeader.getContext()
+                        )}
+                      </Text>
+                    </th>
+                  </tr>
                 </thead>
               </table>
             )}
