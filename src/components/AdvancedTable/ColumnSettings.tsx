@@ -20,43 +20,45 @@ export function ColumnSettings<T>({ table }: ColumnSettingsProps<T>) {
 
   useOnOutsideClick([menuRef.current, dropdownRef], handleOutsideClick, isOpen, useId())
   return (
-    <div className="settings-menu">
-      <Button
-        refHandler={menuRef}
-        type={'secondary'}
-        iconProps={{
-          Component: IconSettings
-        }}
-        onClick={() => setIsOpen((prev: boolean) => !prev)}
-      />
-      {isOpen && (
-        <div
-          ref={(ref) => {
-            setDropdownRef(ref)
+    <div className="settings-menu-wrapper">
+      <div className="settings-menu">
+        <Button
+          refHandler={menuRef}
+          type={'secondary'}
+          iconProps={{
+            Component: IconSettings
           }}
-          className="settings-menu__dropdown scrollbar scrollbar--vertical"
-        >
-          {table.getAllLeafColumns().map((column) => (
-            <div key={column.id} className={'settings-menu__dropdown__option'}>
-              <Switcher
-                label={
-                  typeof column.columnDef.header === 'string' ? column.columnDef.header : column.id
-                }
-                selectedValue={column.getIsVisible()}
-                onClick={() => {
-                  const toggle = column.getToggleVisibilityHandler()
-                  if (toggle) {
-                    toggle({ target: { checked: !column.getIsVisible() } })
+          onClick={() => setIsOpen((prev: boolean) => !prev)}
+        />
+        {isOpen && (
+          <div
+            ref={(ref) => {
+              setDropdownRef(ref)
+            }}
+            className="settings-menu__dropdown scrollbar scrollbar--vertical"
+          >
+            {table.getAllLeafColumns().map((column) => (
+              <div key={column.id} className={'settings-menu__dropdown__option'}>
+                <Switcher
+                  label={
+                    typeof column.columnDef.header === 'string' ? column.columnDef.header : column.id
                   }
-                }}
-                disabled={!column.getCanHide()}
-                inlineType={true}
-                size={'small'}
-              />
-            </div>
-          ))}
-        </div>
-      )}
+                  selectedValue={column.getIsVisible()}
+                  onClick={() => {
+                    const toggle = column.getToggleVisibilityHandler()
+                    if (toggle) {
+                      toggle({ target: { checked: !column.getIsVisible() } })
+                    }
+                  }}
+                  disabled={!column.getCanHide()}
+                  inlineType={true}
+                  size={'small'}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   )
 }

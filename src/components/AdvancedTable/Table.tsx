@@ -8,12 +8,20 @@ import { useTable } from './useTable'
 import type { TTableProps } from './types'
 import { Text } from '../Text'
 import classnames from 'classnames'
+import { Empty } from '../Empty'
 
 export function Table<TData>({
   data,
   columns,
   isLoading,
+  hasError,
+  emptyTitle,
+  emptySubTitle,
+  emptyIllustration,
   withSelect = false,
+  reloadAction,
+  reloadButtonText,
+  reloadButtonIcon,
   defaultPageIndex,
   defaultPageSize,
   renderHeader,
@@ -51,64 +59,84 @@ export function Table<TData>({
         >
           <div>
             <table style={{ minWidth: table.getCenterTotalSize() }}>
-              <thead>
-                {table.getHeaderGroups().map((headerGroup) => (
-                  <tr key={headerGroup.id}>
-                    <SortableContext
-                      items={headerGroup.headers.map((header) => header.id)}
-                      strategy={horizontalListSortingStrategy}
-                    >
-                      {headerGroup.headers.map((header) => (
-                        <ColumnHeader key={header.id} header={header} />
-                      ))}
-                    </SortableContext>
-                  </tr>
-                ))}
-              </thead>
-              <tbody>
-                {table.getRowModel().rows.map((row) => (
-                  <tr className={classnames({ ['selected']: row.getIsSelected() })} key={row.id}>
-                    {row.getVisibleCells().map((cell) => (
-                      <td
-                        className={classnames({
-                          ['with-checkbox']: cell.column.id === 'select'
-                        })}
-                        key={cell.id}
-                        style={{ width: cell.column.getSize() }}
+              {!data?.length && !hasError ? (
+                <Empty
+                  mainMessage={emptyTitle}
+                  illustration={emptyIllustration}
+                />
+              ) : hasError ? (
+                <Empty
+                  mainMessage={emptyTitle}
+                  paragraphMessage={emptySubTitle}
+                  illustration={emptyIllustration}
+                  buttonProps={{
+                    buttonText: reloadButtonText,
+                    iconProps: reloadButtonIcon,
+                    onClick: reloadAction
+                  }}
+                />
+              ) : (
+                <>
+                  <thead>
+                  {table.getHeaderGroups().map((headerGroup) => (
+                    <tr key={headerGroup.id}>
+                      <SortableContext
+                        items={headerGroup.headers.map((header) => header.id)}
+                        strategy={horizontalListSortingStrategy}
                       >
-                        {isLoading ? (
-                          <Skeleton />
-                        ) : (
-                          flexRender(cell.column.columnDef.cell, cell.getContext())
-                        )}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
+                        {headerGroup.headers.map((header) => (
+                          <ColumnHeader key={header.id} header={header} />
+                        ))}
+                      </SortableContext>
+                    </tr>
+                  ))}
+                  </thead>
+                  <tbody>
+                  {table.getRowModel().rows.map((row) => (
+                    <tr className={classnames({ ['selected']: row.getIsSelected() })} key={row.id}>
+                      {row.getVisibleCells().map((cell) => (
+                        <td
+                          className={classnames({
+                            ['with-checkbox']: cell.column.id === 'select'
+                          })}
+                          key={cell.id}
+                          style={{ width: cell.column.getSize() }}
+                        >
+                          {isLoading ? (
+                            <Skeleton />
+                          ) : (
+                            flexRender(cell.column.columnDef.cell, cell.getContext())
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                  </tbody>
+                </>
+              )}
             </table>
           </div>
           <DragOverlay dropAnimation={null}>
             {activeHeader && (
               <table style={{ width: activeHeader.getSize() }}>
                 <thead>
-                  <tr>
-                    <th className="draggable-col" style={{ width: activeHeader.getSize() }}>
-                      <Text weight={'bold'}>
-                        {flexRender(
-                          activeHeader.column.columnDef.header,
-                          activeHeader.getContext()
-                        )}
-                      </Text>
-                    </th>
-                  </tr>
+                <tr>
+                  <th className="draggable-col" style={{ width: activeHeader.getSize() }}>
+                    <Text weight={'bold'}>
+                      {flexRender(
+                        activeHeader.column.columnDef.header,
+                        activeHeader.getContext()
+                      )}
+                    </Text>
+                  </th>
+                </tr>
                 </thead>
               </table>
             )}
           </DragOverlay>
         </DndContext>
       </div>
-      {footer}
+      {!!data.length && !hasError && footer}
     </div>
   )
 }
