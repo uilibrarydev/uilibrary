@@ -10,6 +10,7 @@ export const Link = (props: LinkPropTypes): ReactElement => {
     children,
     afterLink,
     beforeLink,
+    disabled,
     className = '',
     url,
     dataId = '',
@@ -18,7 +19,7 @@ export const Link = (props: LinkPropTypes): ReactElement => {
     onclick
   } = props
   return beforeLink || afterLink ? (
-    <span className={className}>
+    <span className={classNames({'color-disabled': disabled}, className)}>
       {beforeLink ? beforeLink + ' ' : null}
       <a
         onClick={(e) => {
@@ -28,7 +29,7 @@ export const Link = (props: LinkPropTypes): ReactElement => {
           }
         }}
         href={url}
-        className={classNames('link', `link--${type}`, weight)}
+        className={classNames('link', `link--${disabled ? 'disabled' : type}`, weight)}
         data-id={`${dataId}-link`}
         target={target}
       >
@@ -47,7 +48,7 @@ export const Link = (props: LinkPropTypes): ReactElement => {
       href={url}
       className={classNames(
         'link',
-        `link--${type}`,
+        `link--${disabled ? 'disabled' : type}`,
         weight,
         {
           [`link--icon-${iconProps?.alignment || 'left'}`]: iconProps?.Component
