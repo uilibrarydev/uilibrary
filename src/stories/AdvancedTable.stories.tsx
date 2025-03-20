@@ -74,6 +74,8 @@ const Template: StoryFn<TTableProps<any>> = (args) => {
         {...args}
         data={data}
         columns={columns}
+        emptyTitle="Empty title"
+        emptySubTitle="Please try to reload the page or use another keyword."
         renderHeader={(table) => (
           <div className="advanced-table__header justify-content--end">
             <ColumnSettings table={table} />

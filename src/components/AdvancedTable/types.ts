@@ -7,6 +7,7 @@ import type {
   Row
 } from '@tanstack/react-table'
 import type { ReactNode } from 'react'
+import type { TSVGIconType } from '../SVGIcons/types'
 
 export type TTable<TData> = Table<TData>
 export type TRowSelectionState = RowSelectionState
@@ -18,6 +19,18 @@ export type TTableProps<TData> = {
   isLoading?: boolean
   columns: ColumnDef<TData>[]
   wi?: boolean
+  hasError?: boolean
+  emptyTitle?: string
+  emptySubTitle?: string
+  emptyIllustration?: string
+  reloadAction?: () => void
+  reloadButtonText?: string
+  reloadButtonIcon?: {
+    size?: TIconSize
+    type?: TSVGIconType
+    alignment?: string
+    Component?: TSVGIconComponent
+  }
   className?: string
   withSelect?: boolean
   customHeader?: ReactNode
