@@ -1,4 +1,5 @@
 {
+  "repositoryUrl": "https://github.com/ab-devtools/uilibrary.git",
   "branches": ["master", { "name": "alpha", "prerelease": true }],
   "plugins": [
     "@semantic-release/commit-analyzer",
