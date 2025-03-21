@@ -1,3 +1,13 @@
+## [1.0.4](https://github.com/ab-devtools/uilibrary/compare/1.0.3...1.0.4) (2025-03-21)
+
+
+### Bug Fixes
+
+* advanced table empty screen ([afb434d](https://github.com/ab-devtools/uilibrary/commit/afb434d40a3a52f3dfce9f3bfaa2a50c8366f627))
+* advanced table empty screen ([034d840](https://github.com/ab-devtools/uilibrary/commit/034d84027dc17e4619786a53fd219fead37b2a07))
+* fix for fonts weight issue ([890c321](https://github.com/ab-devtools/uilibrary/commit/890c32100749cb142a14c68b5959c1d2f1cf7585))
+* Updated package.json ([f952b19](https://github.com/ab-devtools/uilibrary/commit/f952b19f3787b69d3eac6c6ca75a1cde47ef3600))
+
 ## [1.0.3](https://github.com/uilibrarydev/uilibrary/compare/1.0.2...1.0.3) (2025-03-19)
 
 
