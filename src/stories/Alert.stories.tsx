@@ -18,11 +18,7 @@ export default {
   }
 }
 
-const Template: StoryFn<TAlertProps> = (args) => (
-  <AlertComp
-    {...args}
-  />
-)
+const Template: StoryFn<TAlertProps> = (args) => <AlertComp {...args} />
 
 export const Alert = Template.bind({})
 
@@ -33,10 +29,10 @@ Alert.args = {
   subtext: 'Become a legendary UX/UI designer through real world and practical courses.',
   closeIcon: true,
   buttonProps: {
-  confirm: {
-    buttonText: 'Register',
-        buttonActionType: 'submit'
-  },
-  cancel: { buttonText: 'Cancel' }
+    confirm: {
+      buttonText: 'Register',
+      buttonActionType: 'submit'
+    },
+    cancel: { buttonText: 'Cancel' }
   }
 }
