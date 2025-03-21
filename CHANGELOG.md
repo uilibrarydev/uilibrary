@@ -1,3 +1,11 @@
+## [1.0.5](https://github.com/ab-devtools/uilibrary/compare/1.0.4...1.0.5) (2025-03-21)
+
+
+### Bug Fixes
+
+* fixed alert ui icon alignment ([a690e9b](https://github.com/ab-devtools/uilibrary/commit/a690e9bf6f35708242ee7748ea866cbd6b72d65e))
+* fixed alert ui icon alignment ([02f21bd](https://github.com/ab-devtools/uilibrary/commit/02f21bd3345997d4c06f0486807c99f639f60f35))
+
 ## [1.0.4](https://github.com/ab-devtools/uilibrary/compare/1.0.3...1.0.4) (2025-03-21)
 
 
